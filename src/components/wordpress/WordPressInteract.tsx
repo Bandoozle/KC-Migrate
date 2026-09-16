@@ -135,10 +135,12 @@ function setupTabs(root: ParentNode) {
       item.classList.toggle("kt-tab-title-inactive", !isActive);
     });
 
-    wrap.querySelectorAll<HTMLElement>(":scope > .kt-tabs-content-wrap > .kt-tab-inner-content").forEach((panel) => {
+    wrap.querySelectorAll<HTMLElement>(
+      ":scope > .kt-tabs-content-wrap > .kt-tab-inner-content, :scope > .kt-tabs-content-wrap > .wp-block-kadence-tab",
+    ).forEach((panel) => {
       const isActive = panel.classList.contains(`kt-inner-tab-${tab}`);
       panel.setAttribute("role", "tabpanel");
-      panel.style.display = isActive ? "block" : "none";
+      panel.style.setProperty("display", isActive ? "block" : "none", "important");
       panel.setAttribute("aria-hidden", String(!isActive));
     });
   }
@@ -583,7 +585,12 @@ function setupWhatWeDoIntro() {
   const previousNext = description.nextSibling;
 
   description.dataset.kosickWhatWeDo = "true";
-  description.classList.add("kosick-what-we-do-description");
+  description.classList.add(
+    "kosick-what-we-do-description",
+    "kosick-section-description",
+    "section-description",
+  );
+  subtitle.classList.add("kosick-section-title", "section-title");
   subtitle.after(description);
 
   if (title) {
@@ -712,10 +719,18 @@ function setupSolutionsGrid() {
   const heading = section.querySelector<HTMLElement>(".kt-adv-heading4541_2190c1-61");
   const subtitle = section.querySelector<HTMLElement>(".kt-adv-heading4541_c61f36-a2");
   if (heading) {
-    heading.classList.add("kosick-solutions-heading");
+    heading.classList.add(
+      "kosick-solutions-heading",
+      "kosick-section-title",
+      "section-title",
+    );
   }
   if (subtitle) {
-    subtitle.classList.add("kosick-solutions-subtitle");
+    subtitle.classList.add(
+      "kosick-solutions-subtitle",
+      "kosick-section-description",
+      "section-description",
+    );
     subtitle.innerHTML =
       "Strategy, creative, and media working together — tailored solutions that build visibility and drive measurable growth.";
   }
@@ -824,9 +839,35 @@ const SENTENCE_CASE_KEEP = new Set([
   "MCP",
   "UI",
   "UX",
+  "PPC",
+  "ROI",
+  "CTA",
+  "FAQ",
+  "GE",
+  "API",
 ]);
 
-const SENTENCE_CASE_PROPER = new Map([["kosick", "Kosick"]]);
+const SENTENCE_CASE_PROPER = new Map([
+  ["kosick", "Kosick"],
+  ["trane", "Trane"],
+  ["runtru", "RunTru"],
+  ["york", "York"],
+  ["daikin", "Daikin"],
+  ["fujitsu", "Fujitsu"],
+  ["shopify", "Shopify"],
+  ["facebook", "Facebook"],
+  ["instagram", "Instagram"],
+  ["youtube", "YouTube"],
+  ["google", "Google"],
+  ["meta", "Meta"],
+  ["canada", "Canada"],
+  ["vancouver", "Vancouver"],
+]);
+
+function isMostlyUpperLabel(text: string): boolean {
+  const letters = text.replace(/[^A-Za-z]/g, "");
+  return letters.length > 0 && letters === letters.toUpperCase() && /[A-Z]/.test(letters);
+}
 
 function looksLikeTitleCase(text: string): boolean {
   const words = text
@@ -841,12 +882,35 @@ function looksLikeTitleCase(text: string): boolean {
     if (SENTENCE_CASE_KEEP.has(word.toUpperCase())) continue;
     if (SENTENCE_CASE_PROPER.has(word.toLowerCase())) continue;
     if (word.length <= 1) continue;
-    const isTitle =
-      word[0] === word[0].toUpperCase() && word.slice(1) === word.slice(1).toLowerCase();
+    // Hyphenated Title-Case: Full-Service
+    const parts = word.split("-").filter(Boolean);
+    const isTitle = parts.every(
+      (part) =>
+        part[0] === part[0].toUpperCase() &&
+        (part.length === 1 || part.slice(1) === part.slice(1).toLowerCase()),
+    );
     if (!isTitle) return false;
     titled += 1;
   }
   return titled >= 2;
+}
+
+/** Headings often mix Title Case with acronyms — still force sentence case. */
+function headingNeedsSentenceCase(text: string): boolean {
+  const trimmed = text.replace(/\s+/g, " ").trim();
+  if (!trimmed || isMostlyUpperLabel(trimmed)) return false;
+  if (looksLikeTitleCase(trimmed)) return true;
+  const words = trimmed
+    .split(/\s+/)
+    .map((word) => word.replace(/^[^A-Za-z]+|[^A-Za-z']+$/g, ""))
+    .filter((word) => word.length > 1);
+  if (words.length < 2) return false;
+  let caps = 0;
+  for (const word of words) {
+    if (SENTENCE_CASE_KEEP.has(word.toUpperCase())) continue;
+    if (word[0] === word[0].toUpperCase() && /[a-z]/.test(word)) caps += 1;
+  }
+  return caps >= 2;
 }
 
 function toSentenceCase(text: string): string {
@@ -865,18 +929,66 @@ function toSentenceCase(text: string): string {
 function applySentenceCase(root: ParentNode) {
   const targets = [
     ...root.querySelectorAll<HTMLElement>(
-      ".wp-block-kadence-advancedheading, .wp-block-heading, .entry-content > .wp-block-paragraph, .kb-row-layout-wrap > .kt-row-column-wrap .wp-block-paragraph.has-text-align-center",
+      [
+        ".wp-block-kadence-advancedheading",
+        ".wp-block-heading",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        ".kt-blocks-info-box-title",
+        ".kt-blocks-info-box-text",
+        ".kosick-section-title",
+        ".kosick-section-description",
+        ".kosick-page-title",
+        ".kosick-subsection-title",
+        ".kosick-card-title",
+        ".kosick-body-text",
+        ".section-title",
+        ".section-description",
+        ".card-title",
+        ".entry-content > .wp-block-paragraph",
+        ".kb-row-layout-wrap .wp-block-paragraph",
+        ".kb-row-layout-wrap > .kt-row-column-wrap .wp-block-paragraph.has-text-align-center",
+      ].join(", "),
     ),
   ];
 
+  const seen = new Set<HTMLElement>();
+
   for (const el of targets) {
-    if (el.closest("#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid")) {
+    if (seen.has(el)) continue;
+    seen.add(el);
+    if (el.closest("#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author")) {
       continue;
     }
+    if (
+      el.classList.contains("kosick-eyebrow") ||
+      el.classList.contains("eyebrow") ||
+      el.classList.contains("testimonial-quote") ||
+      el.classList.contains("testimonial-logo") ||
+      el.classList.contains("testimonial-name") ||
+      el.classList.contains("testimonial-role")
+    ) {
+      continue;
+    }
+
+    const isHeading =
+      /^H[1-6]$/.test(el.tagName) ||
+      el.matches(
+        ".wp-block-kadence-advancedheading, .wp-block-heading, .kt-blocks-info-box-title, .kosick-section-title, .kosick-page-title, .kosick-subsection-title, .kosick-card-title, .section-title, .card-title",
+      );
+
     const walk = (node: Node) => {
       if (node.nodeType === Node.TEXT_NODE) {
         const raw = node.textContent ?? "";
-        if (!looksLikeTitleCase(raw)) return;
+        if (!raw.trim()) return;
+        if (isMostlyUpperLabel(raw.trim())) return;
+        const shouldConvert = isHeading
+          ? headingNeedsSentenceCase(raw) || looksLikeTitleCase(raw)
+          : looksLikeTitleCase(raw) || headingNeedsSentenceCase(raw);
+        if (!shouldConvert) return;
         node.textContent = toSentenceCase(raw);
         return;
       }
@@ -890,24 +1002,507 @@ function applySentenceCase(root: ParentNode) {
   return () => undefined;
 }
 
-function setupSectionSeparators() {
-  const starts = [
-    ".kb-row-layout-id4541_24cef5-d6",
-    ".kb-row-layout-id4541_99352b-d8",
-    ".kb-row-layout-id4541_cb53d2-62",
+function previousMeaningfulSibling(el: HTMLElement): HTMLElement | null {
+  let sib = el.previousElementSibling as HTMLElement | null;
+  while (sib) {
+    if (sib.tagName === "BR") {
+      sib = sib.previousElementSibling as HTMLElement | null;
+      continue;
+    }
+    if ((sib.textContent ?? "").trim() === "" && !sib.querySelector("img, svg, video")) {
+      sib = sib.previousElementSibling as HTMLElement | null;
+      continue;
+    }
+    return sib;
+  }
+  return null;
+}
+
+function isEyebrowHeading(el: HTMLElement): boolean {
+  const text = (el.textContent ?? "").replace(/\s+/g, " ").trim();
+  if (!text || text.length > 72) return false;
+  const letters = text.replace(/[^A-Za-z]/g, "");
+  const mostlyUpper =
+    letters.length > 0 && letters === letters.toUpperCase() && /[A-Z]/.test(letters);
+  const goldLabel =
+    el.classList.contains("has-theme-palette-1-color") ||
+    el.classList.contains("has-theme-palette-2-color");
+  if (goldLabel && (mostlyUpper || text.length < 48)) return true;
+  if (mostlyUpper && text.length <= 48 && !el.matches("h1")) return true;
+  return false;
+}
+
+function replaceHeadingTag(el: HTMLElement, tagName: "h1" | "h2" | "h3" | "h4"): HTMLElement {
+  if (el.tagName.toLowerCase() === tagName) return el;
+  const next = document.createElement(tagName);
+  for (const attr of el.attributes) {
+    next.setAttribute(attr.name, attr.value);
+  }
+  next.innerHTML = el.innerHTML;
+  el.replaceWith(next);
+  return next;
+}
+
+function setupTypographyHierarchy() {
+  const root = document.querySelector<HTMLElement>(".entry-content");
+  if (!root || root.dataset.kosickTypography === "true") {
+    return () => undefined;
+  }
+  root.dataset.kosickTypography = "true";
+
+  const marked: HTMLElement[] = [];
+
+  const mark = (el: HTMLElement | null, ...classes: string[]) => {
+    if (!el) return;
+    el.classList.add(...classes);
+    // Strip Kadence inline type so shared tokens win
+    el.style.removeProperty("font-size");
+    el.style.removeProperty("font-weight");
+    el.style.removeProperty("line-height");
+    el.style.removeProperty("letter-spacing");
+    el.style.removeProperty("text-transform");
+    marked.push(el);
+  };
+
+  // Homepage baselines
+  mark(
+    document.querySelector<HTMLElement>(".kt-adv-heading4541_f35171-26"),
+    "kosick-section-title",
+    "section-title",
+  );
+  mark(
+    document.querySelector<HTMLElement>(".kosick-what-we-do-description, .kt-adv-heading4541_72c33d-12"),
+    "kosick-section-description",
+    "section-description",
+  );
+  mark(
+    document.querySelector<HTMLElement>(".kosick-solutions-heading"),
+    "kosick-section-title",
+    "section-title",
+  );
+  mark(
+    document.querySelector<HTMLElement>(".kosick-solutions-subtitle"),
+    "kosick-section-description",
+    "section-description",
+  );
+  mark(
+    document.querySelector<HTMLElement>(
+      ".kb-row-layout-id4541_cb53d2-62 .kadence-column4541_8810e8-4c > .kt-inside-inner-col > .wp-block-heading",
+    ),
+    "kosick-section-title",
+    "section-title",
+  );
+  mark(
+    document.querySelector<HTMLElement>(
+      ".kb-row-layout-id4541_cb53d2-62 .kadence-column4541_8810e8-4c > .kt-inside-inner-col > .wp-block-paragraph",
+    ),
+    "kosick-section-description",
+    "section-description",
+  );
+
+  const skip = (el: HTMLElement) =>
+    Boolean(
+      el.closest(
+        "#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .n2-ss-slider, .kb-row-layout-id4541_605b2b-60, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author, .testimonial-name, .testimonial-role",
+      ),
+    ) ||
+    el.classList.contains("testimonial-quote") ||
+    el.classList.contains("testimonial-logo") ||
+    el.classList.contains("testimonial-name") ||
+    el.classList.contains("testimonial-role");
+
+  const candidates = [
+    ...root.querySelectorAll<HTMLElement>(
+      "h1, h2, h3, h4, h5, .wp-block-kadence-advancedheading, .wp-block-heading",
+    ),
   ];
 
-  const targets: HTMLElement[] = [];
-  for (const selector of starts) {
-    const el = document.querySelector<HTMLElement>(selector);
-    if (el) targets.push(el);
+  let pageTitleAssigned = false;
+
+  for (let el of candidates) {
+    if (skip(el)) continue;
+    if (
+      el.classList.contains("kosick-section-title") ||
+      el.classList.contains("kosick-section-description") ||
+      el.classList.contains("kosick-page-title") ||
+      el.classList.contains("kosick-eyebrow")
+    ) {
+      continue;
+    }
+
+    if (isEyebrowHeading(el)) {
+      mark(el, "kosick-eyebrow", "eyebrow");
+      continue;
+    }
+
+    const tag = el.tagName.toLowerCase();
+
+    // Feature blocks: eyebrow + H1 → section title (Marketing baseline), not page H1
+    const prev = previousMeaningfulSibling(el);
+    const afterEyebrow =
+      Boolean(prev?.classList.contains("kosick-eyebrow")) ||
+      Boolean(prev && isEyebrowHeading(prev));
+
+    if (tag === "h1") {
+      if (afterEyebrow) {
+        // Visually = Marketing H2; keep first as semantic h1, demote the rest
+        if (pageTitleAssigned) {
+          el = replaceHeadingTag(el, "h2");
+        } else {
+          pageTitleAssigned = true;
+        }
+        mark(el, "kosick-section-title", "section-title");
+      } else if (!pageTitleAssigned) {
+        mark(el, "kosick-page-title", "page-title");
+        pageTitleAssigned = true;
+      } else {
+        el = replaceHeadingTag(el, "h2");
+        mark(el, "kosick-section-title", "section-title");
+      }
+      continue;
+    }
+
+    if (tag === "h2") {
+      if (el.closest(".amplitude-tabs")) {
+        mark(el, "kosick-subsection-title", "subsection-title");
+      } else {
+        mark(el, "kosick-section-title", "section-title");
+      }
+      continue;
+    }
+
+    if (tag === "h3") {
+      mark(el, "kosick-subsection-title", "subsection-title");
+      continue;
+    }
+
+    if (tag === "h4" || tag === "h5") {
+      mark(el, "kosick-card-title", "card-title");
+      continue;
+    }
+
+    // Advanced headings without semantic tags (div/span)
+    if (el.matches(".wp-block-kadence-advancedheading")) {
+      if (afterEyebrow) {
+        mark(el, "kosick-section-title", "section-title");
+      } else if (!pageTitleAssigned && el.classList.contains("has-theme-palette-3-color")) {
+        mark(el, "kosick-section-title", "section-title");
+      } else {
+        mark(el, "kosick-subsection-title", "subsection-title");
+      }
+    }
   }
 
-  // Centered section titles may be nested (e.g. testimonials). Insert before
-  // the outermost block that is a direct child of .entry-content.
+  // Lead copy directly under a page/section title
+  for (const title of root.querySelectorAll<HTMLElement>(
+    ".kosick-section-title, .kosick-page-title, .amplitude-tabs .kosick-subsection-title",
+  )) {
+    let sib = title.nextElementSibling as HTMLElement | null;
+    while (sib && (sib.tagName === "BR" || (sib.textContent ?? "").trim() === "")) {
+      sib = sib.nextElementSibling as HTMLElement | null;
+    }
+    if (
+      sib &&
+      (sib.matches("p, .wp-block-paragraph, .wp-block-kadence-advancedheading") ||
+        sib.tagName === "P") &&
+      !sib.classList.contains("kosick-section-title") &&
+      !sib.classList.contains("kosick-eyebrow") &&
+      !sib.classList.contains("kosick-page-title")
+    ) {
+      mark(sib, "kosick-section-description", "section-description");
+    }
+  }
+
+  // Remaining content paragraphs → body
+  for (const p of root.querySelectorAll<HTMLElement>("p.wp-block-paragraph, .entry-content > p")) {
+    if (skip(p)) continue;
+    if (
+      p.classList.contains("kosick-section-description") ||
+      p.classList.contains("kosick-eyebrow") ||
+      p.classList.contains("kosick-meta-text")
+    ) {
+      continue;
+    }
+    mark(p, "kosick-body-text", "body-text");
+  }
+
+  // List items often carry Kadence inline 20px — normalize to body
+  for (const li of root.querySelectorAll<HTMLElement>("ul.wp-block-list li, ol.wp-block-list li")) {
+    if (skip(li)) continue;
+    mark(li, "kosick-body-text", "body-text");
+  }
+
+  // Info-box titles / descriptions
+  for (const title of root.querySelectorAll<HTMLElement>(".kt-blocks-info-box-title")) {
+    if (skip(title)) continue;
+    mark(title, "kosick-card-title", "card-title");
+  }
+  for (const text of root.querySelectorAll<HTMLElement>(".kt-blocks-info-box-text")) {
+    if (skip(text)) continue;
+    mark(text, "kosick-body-text", "body-text");
+  }
+
+  // Preserve Kadence/center alignment on role classes (Build a brand pattern)
+  for (const el of root.querySelectorAll<HTMLElement>(
+    ".kosick-section-title, .kosick-section-description, .kosick-page-title, .kosick-eyebrow",
+  )) {
+    if (
+      el.classList.contains("has-text-align-center") ||
+      el.classList.contains("has-text-align-centre")
+    ) {
+      continue;
+    }
+    const align = window.getComputedStyle(el).textAlign;
+    if (align === "center" || align === "centre") {
+      el.classList.add("has-text-align-center");
+    }
+  }
+
+  // Keep known centered intros centered — do NOT blanket every WP centered paragraph
+  // (e.g. Why Choose lead must stay left-aligned).
+  for (const el of root.querySelectorAll<HTMLElement>(
+    [
+      ".has-text-align-center.kosick-section-title",
+      ".has-text-align-center.kosick-section-description",
+      "h2.has-text-align-center",
+      "p.has-text-align-center:has(+ .amplitude-tabs)",
+    ].join(", "),
+  )) {
+    if (el.closest(".kb-row-layout-id4541_cb53d2-62")) continue;
+    if (el.classList.contains("kosick-solutions-subtitle")) continue;
+    el.classList.add("has-text-align-center");
+    el.style.setProperty("text-align", "center", "important");
+  }
+
+  // Solutions subtitle stays left-aligned
+  for (const el of root.querySelectorAll<HTMLElement>(".kosick-solutions-subtitle")) {
+    el.classList.remove("has-text-align-center");
+    el.style.setProperty("text-align", "left", "important");
+    el.style.setProperty("margin-left", "0", "important");
+    el.style.setProperty("margin-right", "0", "important");
+  }
+
+  // Why Choose lead stays left even if WP marked it centered
+  for (const el of root.querySelectorAll<HTMLElement>(
+    ".kb-row-layout-id4541_cb53d2-62 .kadence-column4541_8810e8-4c .wp-block-paragraph, .kb-row-layout-id4541_cb53d2-62 .kosick-section-description",
+  )) {
+    el.classList.remove("has-text-align-center");
+    el.style.setProperty("text-align", "left", "important");
+    el.style.setProperty("margin-left", "0", "important");
+    el.style.setProperty("margin-right", "0", "important");
+  }
+
+  // Centered eyebrow + title above a solutions grid → Amplitude “Solutions by team”
+  // Order: eyebrow above title (not Build-a-brand title→description)
+  for (const title of root.querySelectorAll<HTMLElement>(".kosick-section-title")) {
+    const prev = previousMeaningfulSibling(title);
+    if (!prev?.classList.contains("kosick-eyebrow")) continue;
+
+    const titleCentered =
+      title.classList.contains("has-text-align-center") ||
+      window.getComputedStyle(title).textAlign === "center";
+    const prevCentered =
+      prev.classList.contains("has-text-align-center") ||
+      window.getComputedStyle(prev).textAlign === "center";
+    if (!titleCentered || !prevCentered) continue;
+
+    const next = title.nextElementSibling as HTMLElement | null;
+    const followsSolutionsGrid =
+      Boolean(next?.matches(".kb-row-layout-wrap, .wp-block-kadence-rowlayout")) &&
+      Boolean(next?.querySelector(".wp-block-kadence-infobox"));
+
+    // Ensure eyebrow stays ABOVE the title
+    if (prev.nextElementSibling !== title) {
+      title.before(prev);
+    }
+
+    prev.classList.remove("kosick-section-description", "section-description");
+    prev.classList.add(
+      "kosick-eyebrow",
+      "eyebrow",
+      "kosick-solutions-by-team-eyebrow",
+      "has-text-align-center",
+    );
+    title.classList.remove("kosick-feature-title");
+    title.classList.add(
+      "kosick-section-title",
+      "section-title",
+      "kosick-solutions-by-team-heading",
+      "has-text-align-center",
+    );
+    prev.style.setProperty("text-align", "center", "important");
+    prev.style.setProperty("text-transform", "none", "important");
+    title.style.setProperty("text-align", "center", "important");
+
+    const walk = (node: Node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const raw = node.textContent ?? "";
+        if (!raw.trim()) return;
+        node.textContent = toSentenceCase(raw);
+        return;
+      }
+      if (!(node instanceof HTMLElement)) return;
+      if (node.matches("a, script, style, code, pre")) return;
+      for (const child of [...node.childNodes]) walk(child);
+    };
+    walk(prev);
+    walk(title);
+
+    if (followsSolutionsGrid) {
+      next?.classList.add("kosick-solutions-by-team");
+    }
+    marked.push(prev, title);
+  }
+
+  // Left-aligned feature columns → Amplitude-style label / title / lead
+  for (const title of root.querySelectorAll<HTMLElement>(".kosick-section-title")) {
+    if (title.classList.contains("has-text-align-center")) continue;
+    if (title.classList.contains("kosick-solutions-by-team-heading")) continue;
+    const prev = previousMeaningfulSibling(title);
+    if (!prev?.classList.contains("kosick-eyebrow")) continue;
+    if (prev.classList.contains("has-text-align-center")) continue;
+
+    prev.classList.add("kosick-feature-label");
+    title.classList.add("kosick-feature-title");
+    marked.push(prev, title);
+
+    // Sentence-case the label (e.g. "20+ years of HVAC expertise")
+    const walkLabel = (node: Node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const raw = node.textContent ?? "";
+        if (!raw.trim()) return;
+        node.textContent = toSentenceCase(raw);
+        return;
+      }
+      if (!(node instanceof HTMLElement)) return;
+      if (node.matches("a, script, style, code, pre")) return;
+      for (const child of [...node.childNodes]) walkLabel(child);
+    };
+    walkLabel(prev);
+
+    let lead = title.nextElementSibling as HTMLElement | null;
+    while (lead && (lead.tagName === "BR" || (lead.textContent ?? "").trim() === "")) {
+      lead = lead.nextElementSibling as HTMLElement | null;
+    }
+    if (lead?.classList.contains("kosick-section-description")) {
+      lead.classList.add("kosick-feature-lead");
+      marked.push(lead);
+    }
+
+    const column = title.closest<HTMLElement>(
+      ".kt-inside-inner-col, .wp-block-kadence-column, .kadence-column",
+    );
+    const btn = column?.querySelector<HTMLElement>("a.kb-button, a.kt-button, .kb-button");
+    if (btn) {
+      btn.classList.add("kosick-outline-btn");
+      marked.push(btn);
+      const label = btn.querySelector<HTMLElement>(".kt-btn-inner-text");
+      if (label?.textContent) {
+        label.textContent = toSentenceCase(label.textContent);
+      }
+    }
+  }
+
+  return () => {
+    for (const el of marked) {
+      el.classList.remove(
+        "page-title",
+        "kosick-page-title",
+        "section-title",
+        "kosick-section-title",
+        "section-description",
+        "kosick-section-description",
+        "subsection-title",
+        "kosick-subsection-title",
+        "card-title",
+        "kosick-card-title",
+        "eyebrow",
+        "kosick-eyebrow",
+        "kosick-feature-label",
+        "kosick-feature-title",
+        "kosick-feature-lead",
+        "kosick-solutions-by-team-eyebrow",
+        "kosick-solutions-by-team-heading",
+        "kosick-solutions-by-team",
+        "kosick-outline-btn",
+        "body-text",
+        "kosick-body-text",
+        "meta-text",
+        "kosick-meta-text",
+        "has-text-align-center",
+      );
+    }
+    delete root.dataset.kosickTypography;
+  };
+}
+
+function setupSectionSeparators() {
+  const separators: HTMLElement[] = [];
+
+  const insertBefore = (target: HTMLElement | null | undefined) => {
+    if (!target) return;
+    if (target.previousElementSibling?.classList.contains("kosick-section-separator")) {
+      return;
+    }
+    const hr = document.createElement("div");
+    hr.className = "kosick-section-separator";
+    hr.setAttribute("aria-hidden", "true");
+    hr.setAttribute("role", "presentation");
+    target.before(hr);
+    separators.push(hr);
+  };
+
+  const insertAfter = (target: HTMLElement | null | undefined) => {
+    if (!target) return;
+    if (target.nextElementSibling?.classList.contains("kosick-section-separator")) {
+      return;
+    }
+    const hr = document.createElement("div");
+    hr.className = "kosick-section-separator";
+    hr.setAttribute("aria-hidden", "true");
+    hr.setAttribute("role", "presentation");
+    target.after(hr);
+    separators.push(hr);
+  };
+
+  // Do NOT put a separator above Marketing / What We Do (.kb-row-layout-id4541_24cef5-d6)
+
+  // Build a brand + tabs: separator above the heading, below the tabs
+  const tabs = document.querySelector<HTMLElement>(".entry-content .amplitude-tabs");
+  if (tabs) {
+    let start: HTMLElement = tabs;
+    let prev = tabs.previousElementSibling as HTMLElement | null;
+    while (
+      prev &&
+      (prev.matches(
+        "h1, h2, h3, p, .wp-block-heading, .wp-block-paragraph, .wp-block-kadence-advancedheading",
+      ) ||
+        prev.classList.contains("kosick-section-title") ||
+        prev.classList.contains("kosick-section-description"))
+    ) {
+      start = prev;
+      prev = prev.previousElementSibling as HTMLElement | null;
+    }
+    insertBefore(start);
+    insertAfter(tabs);
+  }
+
+  // Other major sections (not Marketing)
+  insertBefore(document.querySelector<HTMLElement>(".kb-row-layout-id4541_99352b-d8"));
+  insertBefore(document.querySelector<HTMLElement>(".kb-row-layout-id4541_cb53d2-62"));
+
+  // Other centered section titles (e.g. testimonials) — skip Build a brand (already handled)
   document
     .querySelectorAll<HTMLElement>(".entry-content h2.wp-block-heading.has-text-align-center")
     .forEach((heading) => {
+      const next = heading.nextElementSibling;
+      const nearTabs =
+        Boolean(tabs) &&
+        (next === tabs ||
+          (Boolean(next?.matches("p, .wp-block-paragraph")) &&
+            next?.nextElementSibling === tabs));
+      if (nearTabs) return;
+
       let block: HTMLElement = heading;
       while (
         block.parentElement &&
@@ -915,26 +1510,11 @@ function setupSectionSeparators() {
       ) {
         block = block.parentElement;
       }
-      targets.push(block);
+      if (block.previousElementSibling?.classList.contains("kosick-section-separator")) {
+        return;
+      }
+      insertBefore(block);
     });
-
-  const separators: HTMLElement[] = [];
-  const seen = new Set<HTMLElement>();
-
-  for (const target of targets) {
-    if (seen.has(target)) continue;
-    seen.add(target);
-    if (target.previousElementSibling?.classList.contains("kosick-section-separator")) {
-      continue;
-    }
-
-    const hr = document.createElement("div");
-    hr.className = "kosick-section-separator";
-    hr.setAttribute("aria-hidden", "true");
-    hr.setAttribute("role", "presentation");
-    target.before(hr);
-    separators.push(hr);
-  }
 
   return () => {
     for (const hr of separators) hr.remove();
@@ -1171,6 +1751,99 @@ function setupWhyChooseTiles() {
   };
 }
 
+function setupSolutionsByTeam() {
+  const outlineIcon = (paths: string) =>
+    `<svg class="kosick-solutions-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+
+  const OUTLINE_ICONS = [
+    // megaphone
+    outlineIcon(
+      '<path d="M3 11v2a1 1 0 0 0 1 1h1l6 4V6L5 10H4a1 1 0 0 0-1 1z"/><path d="M14 8.5c1.2.8 2 2.1 2 3.5s-.8 2.7-2 3.5"/><path d="M16.5 6.5c2 1.4 3.2 3.4 3.2 5.5s-1.2 4.1-3.2 5.5"/><path d="M6.5 14.5 7 18l2-.5"/>',
+    ),
+    // dollar
+    outlineIcon(
+      '<circle cx="12" cy="12" r="9"/><path d="M12 7v10"/><path d="M15 9.5c0-1.4-1.3-2-3-2s-3 .7-3 2 1.3 1.8 3 2.2 3 .9 3 2.3-1.3 2-3 2-3-.7-3-2"/>',
+    ),
+    // monitor (website)
+    outlineIcon(
+      '<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8"/><path d="M12 16v4"/>',
+    ),
+    // trend chart
+    outlineIcon(
+      '<path d="M4 19h16"/><path d="M5 15l4.5-4.5 3.5 3.5L19 7"/><path d="M15 7h4v4"/>',
+    ),
+  ];
+
+  const grids = [
+    ...document.querySelectorAll<HTMLElement>(
+      ".kb-row-layout-id11571_bb5d0b-84, .kosick-solutions-by-team",
+    ),
+  ];
+  // Also catch 4-column rows that are mostly info boxes
+  for (const row of document.querySelectorAll<HTMLElement>(
+    ".entry-content .kb-row-layout-wrap > .kt-row-column-wrap.kt-has-4-columns",
+  )) {
+    const boxes = row.querySelectorAll(".wp-block-kadence-infobox");
+    if (boxes.length >= 4) {
+      const wrap = row.closest<HTMLElement>(".kb-row-layout-wrap");
+      if (wrap) grids.push(wrap);
+    }
+  }
+
+  const unique = [...new Set(grids)];
+  const cleanups: Array<() => void> = [];
+
+  for (const grid of unique) {
+    if (grid.dataset.kosickSolutionsByTeam === "true") continue;
+    grid.dataset.kosickSolutionsByTeam = "true";
+    grid.classList.add("kosick-solutions-by-team");
+
+    const added: HTMLElement[] = [];
+    const boxes = [...grid.querySelectorAll<HTMLElement>(".wp-block-kadence-infobox")];
+    for (const [index, box] of boxes.entries()) {
+      box.classList.add("kosick-solutions-col");
+
+      const media =
+        box.querySelector<HTMLElement>(".kadence-info-box-icon-inner-container") ||
+        box.querySelector<HTMLElement>(".kt-blocks-info-box-media") ||
+        box.querySelector<HTMLElement>(".kt-blocks-info-box-media-container");
+      if (media && OUTLINE_ICONS[index]) {
+        media.dataset.kosickIconHtml = media.innerHTML;
+        media.innerHTML = OUTLINE_ICONS[index];
+      }
+
+      const text = box.querySelector<HTMLElement>(".kt-infobox-textcontent");
+      if (!text) continue;
+      if (!text.querySelector(".kosick-solutions-learn")) {
+        const learn = document.createElement("span");
+        learn.className = "kosick-solutions-learn";
+        learn.innerHTML = 'Learn more <span aria-hidden="true">→</span>';
+        text.appendChild(learn);
+        added.push(learn);
+      }
+    }
+
+    cleanups.push(() => {
+      for (const el of added) el.remove();
+      for (const box of grid.querySelectorAll<HTMLElement>(".kosick-solutions-col")) {
+        const media =
+          box.querySelector<HTMLElement>(".kadence-info-box-icon-inner-container") ||
+          box.querySelector<HTMLElement>(".kt-blocks-info-box-media") ||
+          box.querySelector<HTMLElement>(".kt-blocks-info-box-media-container");
+        if (media?.dataset.kosickIconHtml != null) {
+          media.innerHTML = media.dataset.kosickIconHtml;
+          delete media.dataset.kosickIconHtml;
+        }
+        box.classList.remove("kosick-solutions-col");
+      }
+      grid.classList.remove("kosick-solutions-by-team");
+      delete grid.dataset.kosickSolutionsByTeam;
+    });
+  }
+
+  return () => cleanups.forEach((fn) => fn());
+}
+
 export function WordPressInteract({ pageKey }: { pageKey: string }) {
   useEffect(() => {
     const cleanups = [
@@ -1186,6 +1859,8 @@ export function WordPressInteract({ pageKey }: { pageKey: string }) {
       setupWhyChooseCarousel(),
       setupWhyChooseRail(),
       setupWhyChooseTiles(),
+      setupTypographyHierarchy(),
+      setupSolutionsByTeam(),
       applySentenceCase(document),
       setupScrollUp(),
       setupCountUps(document),

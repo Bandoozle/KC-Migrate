@@ -88,6 +88,11 @@ ${GELLIX_FONT_FACE_CSS}
   --global-h4-font-weight: 600;
   --global-h5-font-weight: 600;
   --global-h6-font-weight: 600;
+  /* Neutralize WordPress gold accents (palette 1/2) */
+  --global-palette1: #111111;
+  --global-palette2: #6e6e73;
+  --global-palette-highlight: #111111;
+  --global-palette-highlight-alt: #6e6e73;
 }
 
 html,
@@ -150,11 +155,29 @@ h6,
 .kb-headline,
 .kt-blocks-info-box-title,
 .wp-block-kadence-advancedheading,
+.wp-block-kadence-advancedheading[class*="kt-adv-heading"],
 [class*="kt-adv-heading"],
 .site-branding .site-title,
 .site-title {
   font-family: "Gellix", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-weight: 600 !important;
+}
+
+.kosick-solutions-subtitle,
+.kosick-what-we-do-description,
+.kosick-section-description,
+.section-description,
+.kosick-body-text,
+.body-text,
+.kosick-meta-text,
+.meta-text,
+.wp-block-kadence-advancedheading.kosick-solutions-subtitle,
+.wp-block-kadence-advancedheading.kosick-what-we-do-description,
+.wp-block-kadence-advancedheading.kosick-section-description,
+[class*="kt-adv-heading"].kosick-solutions-subtitle,
+[class*="kt-adv-heading"].kosick-what-we-do-description,
+[class*="kt-adv-heading"].kosick-section-description {
+  font-weight: 400 !important;
 }
 
 h1 strong,
@@ -185,7 +208,22 @@ h6 b,
 [class*="kt-adv-heading"] b,
 .kosick-solutions-heading strong,
 .kosick-solutions-heading b {
+  font-family: inherit !important;
   font-weight: 600 !important;
+}
+
+/* Utility gold classes from WP — force neutrals even if vars are overridden */
+.has-theme-palette-1-color,
+.has-theme-palette-2-color {
+  color: #6e6e73 !important;
+}
+
+.has-theme-palette-1-background-color {
+  background-color: #111111 !important;
+}
+
+.has-theme-palette-2-background-color {
+  background-color: #6e6e73 !important;
 }
 
 strong,
@@ -193,6 +231,27 @@ b,
 .kb-font-weight-bold,
 .kb-font-weight-bolder {
   font-weight: 700;
+}
+
+h1 strong,
+h1 b,
+h2 strong,
+h2 b,
+h3 strong,
+h3 b,
+h4 strong,
+h4 b,
+h5 strong,
+h5 b,
+h6 strong,
+h6 b,
+.wp-block-heading strong,
+.wp-block-heading b,
+.wp-block-kadence-advancedheading strong,
+.wp-block-kadence-advancedheading b,
+[class*="kt-adv-heading"] strong,
+[class*="kt-adv-heading"] b {
+  font-weight: 600 !important;
 }
 `.trim();
 

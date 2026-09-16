@@ -21,8 +21,7 @@ import {
 } from "@/lib/wordpress-smartslider";
 import { hydrateKadenceCountupHtml } from "@/lib/wordpress-countup";
 import { KADENCE_TABS_COMPAT_CSS, hydrateKadenceTabsHtml } from "@/lib/wordpress-tabs";
-import { GELLIX_TYPOGRAPHY_CSS } from "@/lib/wordpress-typography";
-import { WHY_CHOOSE_RAIL_CSS } from "@/lib/wordpress-why-choose";
+import { KOSICK_POST_WP_DESIGN_CSS } from "@/lib/kosick-post-wp-css";
 import { prepareWordPressHtml } from "@/lib/wordpress-urls";
 import type { WordPressPage } from "@/types/wordpress";
 
@@ -86,11 +85,10 @@ ${document.footerHtml}
           INSTAGRAM_FEED_COMPAT_CSS,
           SMART_SLIDER_COMPAT_CSS,
           KADENCE_TABS_COMPAT_CSS,
-          WHY_CHOOSE_RAIL_CSS,
         ]
           .filter(Boolean)
           .join("\n\n")}
-        typographyCss={GELLIX_TYPOGRAPHY_CSS}
+        designCss={KOSICK_POST_WP_DESIGN_CSS}
       />
       <WordPressBodyClass className={document.bodyClass} pageKey={pageKey} />
       {/*

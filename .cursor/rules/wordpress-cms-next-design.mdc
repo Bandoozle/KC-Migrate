@@ -1,0 +1,54 @@
+---
+description: WordPress is CMS only; Next.js owns all visual design
+alwaysApply: true
+---
+
+# WordPress CMS vs Next.js design authority
+
+## Architecture
+
+- **WordPress / Kadence** = content source (text, images, media, links, CMS data).
+- **Next.js** = source of truth for visual presentation (typography, color, spacing, layout, interaction).
+
+## Typography hierarchy (required)
+
+Source of truth: `src/lib/kosick-typography-system.ts` (tokens + utility classes).
+React wrappers: `src/components/typography`.
+
+Baseline for section title + lead: homepage “Marketing built to move brands forward.”
+
+| Level | Classes / components | Semantic |
+| --- | --- | --- |
+| Page title | `.page-title` / `<PageTitle>` / `<PageIntro>` | `h1` once per page |
+| Section title | `.section-title` / `<SectionTitle>` / `<SectionIntro>` | `h2` |
+| Section description | `.section-description` / `<SectionDescription>` | lead under H2 |
+| Subsection | `.subsection-title` / `<SubsectionTitle>` | `h3` |
+| Card title | `.card-title` / `<CardTitle>` | `h4` when appropriate |
+| Eyebrow | `.eyebrow` / `<Eyebrow>` | label above a heading |
+| Body | `.body-text` / `<BodyText>` | paragraphs |
+| Meta | `.meta-text` / `<MetaText>` | captions / helper |
+
+Rules:
+
+- Do not invent one-off `font-size` values for equivalent content.
+- Do not style headings page-by-page; use the shared tokens/classes/components.
+- Prefer neutralizing Kadence type over stacking more overrides.
+- WordPress HTML may be classified at runtime via `setupTypographyHierarchy()` in `WordPressInteract.tsx`.
+
+## Do
+
+- Extract WordPress content into semantic Next.js components when redesigning UI.
+- Style with our own classes (`kosick-*`), CSS modules, or Tailwind — not by fighting Kadence selectors.
+- If Kadence CSS conflicts with the design: neutralize or isolate the Kadence rule, then implement the look in Next.js.
+- Prefer removing dependency on `kb-*` / `kt-*` / `wp-block-kadence-*` for appearance once a section is redesigned.
+
+## Do not
+
+- Treat Kadence markup or CSS as authoritative for how redesigned UI should look.
+- Preserve Kadence styling “because it’s in the imported HTML.”
+- Stack more one-off `!important` overrides on Kadence classes when a native Next component would own the UI instead.
+- Visually redesign while only doing an architecture cleanup — preserve intended appearance unless the user asks for a redesign.
+
+## Transitional debt
+
+`src/styles/wordpress-compat.css` and client DOM surgery in `WordPressInteract.tsx` are temporary bridges. When touching a section that already has `kosick-*` UI (bento, solutions, why-choose, separators), move ownership toward React components and shrink Kadence-targeted overrides — do not grow them.

@@ -1,6 +1,6 @@
 /**
- * Injected after WordPress page CSS so it wins the cascade over Kadence’s
- * 10rem side padding on the Why Choose columns.
+ * Injected in the post-WP design layer so Next.js owns content-rail width.
+ * Transitional: remove when Why Choose is a native React section (no Kadence columns).
  */
 export const WHY_CHOOSE_RAIL_CSS = `
 .kb-row-layout-id4541_cb53d2-62 > .kt-row-column-wrap,

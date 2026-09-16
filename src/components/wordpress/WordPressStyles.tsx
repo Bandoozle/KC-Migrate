@@ -5,7 +5,8 @@ type WordPressStylesProps = {
   stylesheets: WordPressStylesheet[];
   preloads?: WordPressPreload[];
   inlineCss: string;
-  typographyCss?: string;
+  /** Next.js design system — must load after WP CSS to remain authoritative. */
+  designCss?: string;
 };
 
 export function WordPressStyles({
@@ -13,7 +14,7 @@ export function WordPressStyles({
   stylesheets,
   preloads = [],
   inlineCss,
-  typographyCss,
+  designCss,
 }: WordPressStylesProps) {
   return (
     <>
@@ -44,10 +45,12 @@ export function WordPressStyles({
           dangerouslySetInnerHTML={{ __html: inlineCss }}
         />
       ) : null}
-      {typographyCss ? (
+      {designCss ? (
         <style
-          id="kosick-inter-typography"
-          dangerouslySetInnerHTML={{ __html: typographyCss }}
+          key={`${pageKey}::design`}
+          id="kosick-design-system"
+          data-wp-page={pageKey}
+          dangerouslySetInnerHTML={{ __html: designCss }}
         />
       ) : null}
     </>
