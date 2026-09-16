@@ -463,12 +463,24 @@ a.kosick-outline-btn,
   letter-spacing: var(--kosick-card-title-tracking) !important;
 }
 
-/* Bento overlay titles stay at intentional compact size (not card-title) */
-.kosick-bento-card__title {
-  font-size: 1.125rem !important; /* 18px — overlay exception */
+/* Bento overlay titles match description size (beat theme h3 rules) */
+.kosick-bento-card__title,
+.kosick-bento-card h3.kosick-bento-card__title,
+.entry-content .kosick-bento-card__title,
+.entry-content h3.kosick-bento-card__title,
+.kosick-bento-card__title-primary,
+.kosick-bento-card__title-secondary {
+  font-size: 18px !important;
   font-weight: 600 !important;
-  line-height: 1.2 !important;
-  letter-spacing: -0.01em !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+}
+
+.kosick-bento-card__description,
+.entry-content .kosick-bento-card__description {
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
 }
 
 .kosick-solution-card__description,
@@ -667,5 +679,47 @@ a.kosick-outline-btn,
   font-weight: var(--kosick-meta-weight) !important;
   line-height: var(--kosick-meta-leading) !important;
   color: var(--kosick-color-meta) !important;
+}
+
+/* Contact section — restore WP sizes (detail lines were wrongly subsection-title) */
+.entry-content .kb-row-layout-id4541_09415d-fe h2.kt-adv-heading4541_8e787d-69,
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_8e787d-69 {
+  font-size: 36px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+}
+
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_5cf49d-94,
+.entry-content .kb-row-layout-id4541_09415d-fe .kosick-section-description.kt-adv-heading4541_5cf49d-94 {
+  font-size: var(--kosick-section-desc-size) !important;
+  font-weight: var(--kosick-section-desc-weight) !important;
+  line-height: var(--kosick-section-desc-leading) !important;
+  color: var(--kosick-color-muted) !important;
+  max-width: 26rem !important;
+}
+
+.entry-content .kb-row-layout-id4541_09415d-fe .kosick-contact-detail,
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_72d304-b1,
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_4ba062-65,
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_39501c-d1,
+.entry-content .kb-row-layout-id4541_09415d-fe .kosick-contact-detail a {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+  color: #111111 !important;
+  text-transform: none !important;
+  max-width: none !important;
+}
+
+.entry-content .kb-row-layout-id4541_09415d-fe .kosick-contact-detail mark.kt-highlight,
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_72d304-b1 mark.kt-highlight,
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_4ba062-65 mark.kt-highlight,
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_39501c-d1 mark.kt-highlight {
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  color: #888888 !important;
+  background: transparent !important;
 }
 `.trim();

@@ -170,22 +170,32 @@ body {
   padding-bottom: 0 !important;
 }
 
-/* Match Define Yourself (750×500 → 3:2) on every tab image */
+/* Match Define Yourself (750×500 → 3:2) on every tab image — same 4px radius as bento */
 .amplitude-tabs .tab-feature-image,
 .amplitude-tabs .wp-block-kadence-image.tab-feature-image,
-.amplitude-tabs .kt-tab-inner-content .wp-block-kadence-image {
+.amplitude-tabs .kt-tab-inner-content .wp-block-kadence-image,
+.amplitude-tabs figure.wp-block-kadence-image,
+.amplitude-tabs figure.tab-feature-image,
+.entry-content .amplitude-tabs .tab-feature-image,
+.entry-content .amplitude-tabs figure.wp-block-kadence-image {
   display: block !important;
   width: 100% !important;
   max-width: 100% !important;
   margin: 0 !important;
   aspect-ratio: 3 / 2 !important;
   overflow: hidden !important;
+  border-radius: 4px !important;
+  clip-path: inset(0 round 4px) !important;
 }
 
 .amplitude-tabs .tab-feature-image img,
 .amplitude-tabs .wp-block-kadence-image.tab-feature-image img,
 .amplitude-tabs .kt-tab-inner-content .wp-block-kadence-image img,
-.amplitude-tabs .wp-block-kadence-image img {
+.amplitude-tabs .wp-block-kadence-image img,
+.amplitude-tabs img.kb-img,
+.amplitude-tabs .kb-img,
+.entry-content .amplitude-tabs .tab-feature-image img,
+.entry-content .amplitude-tabs img.kb-img {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
@@ -194,6 +204,8 @@ body {
   aspect-ratio: unset !important;
   object-fit: cover !important;
   object-position: center !important;
+  border-radius: 4px !important;
+  clip-path: inset(0 round 4px) !important;
 }
 
 .amplitude-tabs .wp-block-heading,
@@ -323,6 +335,22 @@ body {
   background: #111111 !important;
 }
 
+/* At top of page: opaque again while hovering / focusing the header (e.g. menus) */
+.transparent-header #masthead:hover,
+.transparent-header #masthead:focus-within,
+.mobile-transparent-header #masthead:hover,
+.mobile-transparent-header #masthead:focus-within,
+.transparent-header #masthead:hover .kadence-sticky-header,
+.transparent-header #masthead:focus-within .kadence-sticky-header,
+.mobile-transparent-header #masthead:hover .kadence-sticky-header,
+.mobile-transparent-header #masthead:focus-within .kadence-sticky-header,
+.transparent-header #masthead:hover .site-header-row-container-inner,
+.transparent-header #masthead:focus-within .site-header-row-container-inner,
+.mobile-transparent-header #masthead:hover .site-header-row-container-inner,
+.mobile-transparent-header #masthead:focus-within .site-header-row-container-inner {
+  background: #111111 !important;
+}
+
 @media (max-width: 1024px) {
   #mobile-header .site-header-row-container-inner {
     margin: 0;
@@ -355,6 +383,23 @@ body {
   #site-navigation .primary-menu-container > ul {
     overflow: visible;
     background: transparent !important;
+  }
+
+  .transparent-header #masthead:hover,
+  .transparent-header #masthead:focus-within,
+  .transparent-header #masthead:hover #main-header,
+  .transparent-header #masthead:focus-within #main-header,
+  .transparent-header #masthead:hover .kadence-sticky-header,
+  .transparent-header #masthead:focus-within .kadence-sticky-header,
+  .transparent-header #masthead:hover .site-header-upper-wrap,
+  .transparent-header #masthead:focus-within .site-header-upper-wrap,
+  .transparent-header #masthead:hover .site-header-upper-inner-wrap,
+  .transparent-header #masthead:focus-within .site-header-upper-inner-wrap,
+  .transparent-header #masthead:hover .site-top-header-wrap,
+  .transparent-header #masthead:focus-within .site-top-header-wrap,
+  .transparent-header #masthead:hover .site-header-row-container-inner,
+  .transparent-header #masthead:focus-within .site-header-row-container-inner {
+    background: #111111 !important;
   }
 
   #main-header .site-container,
@@ -948,16 +993,24 @@ h6 b,
   text-align: left;
 }
 
-.kosick-bento-card__title {
+.kosick-bento-card__title,
+.kosick-bento-card h3.kosick-bento-card__title,
+.entry-content .kosick-bento-card__title,
+.entry-content h3.kosick-bento-card__title {
   margin: 0 0 10px;
   display: flex;
   flex-direction: column;
   gap: 0;
-  /* Intentional overlay exception — compact white titles on imagery */
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+}
+
+.kosick-bento-card__title-primary,
+.kosick-bento-card__title-secondary {
+  font-size: 18px !important;
+  line-height: 1.45 !important;
 }
 
 .kosick-bento-card__title-primary {
@@ -972,9 +1025,9 @@ h6 b,
   margin: 0;
   max-width: 34rem;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.45;
+  font-size: 18px !important;
+  font-weight: 400 !important;
+  line-height: 1.45 !important;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
@@ -1584,16 +1637,23 @@ h6 b,
   color: #111111;
   border: 1px solid transparent;
   border-radius: 12px;
+  box-shadow: none;
   text-align: center;
   /* Size from .meta-text tokens (kosick-typography-system); weight 600 for tile labels */
   font-weight: 600;
   line-height: 1.2;
-  transition: border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .kosick-why-tile:hover {
   background: #ffffff;
-  border-color: #3b6ff0;
+  border-color: #d9dee5;
+  box-shadow:
+    inset 0 1px 3px rgba(15, 23, 42, 0.08),
+    inset 0 0 0 1px rgba(15, 23, 42, 0.04);
 }
 
 @media (max-width: 900px) {
@@ -1955,4 +2015,47 @@ h6 b,
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Contact section — detail lines stay body size (not subsection titles) */
+.kb-row-layout-id4541_09415d-fe .kosick-contact-detail,
+.kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_72d304-b1,
+.kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_4ba062-65,
+.kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_39501c-d1,
+.entry-content .kb-row-layout-id4541_09415d-fe .wp-block-kadence-advancedheading.kosick-contact-detail,
+.entry-content .kb-row-layout-id4541_09415d-fe .kosick-contact-detail a {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  line-height: 1.45 !important;
+  letter-spacing: 0 !important;
+  color: #111111 !important;
+  text-transform: none !important;
+  max-width: none !important;
+}
+
+.kb-row-layout-id4541_09415d-fe .kosick-contact-detail mark.kt-highlight,
+.kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_72d304-b1 mark.kt-highlight,
+.kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_4ba062-65 mark.kt-highlight,
+.kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_39501c-d1 mark.kt-highlight {
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  color: #888888 !important;
+  background: transparent !important;
+}
+
+.kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_5cf49d-94,
+.entry-content .kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_5cf49d-94 {
+  font-size: var(--kosick-section-desc-size, 1.0625rem) !important;
+  font-weight: var(--kosick-section-desc-weight, 400) !important;
+  line-height: var(--kosick-section-desc-leading, 1.55) !important;
+  color: var(--kosick-color-muted, #50565b) !important;
+  max-width: 26rem !important;
+}
+
+.kb-row-layout-id4541_09415d-fe .kt-adv-heading4541_8e787d-69,
+.entry-content .kb-row-layout-id4541_09415d-fe h2.kt-adv-heading4541_8e787d-69 {
+  font-size: 36px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
 }

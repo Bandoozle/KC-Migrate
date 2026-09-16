@@ -1103,13 +1103,35 @@ function setupTypographyHierarchy() {
   const skip = (el: HTMLElement) =>
     Boolean(
       el.closest(
-        "#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .n2-ss-slider, .kb-row-layout-id4541_605b2b-60, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author, .testimonial-name, .testimonial-role",
+        "#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .n2-ss-slider, .kb-row-layout-id4541_605b2b-60, .kb-row-layout-id4541_09415d-fe, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author, .testimonial-name, .testimonial-role",
       ),
     ) ||
     el.classList.contains("testimonial-quote") ||
     el.classList.contains("testimonial-logo") ||
     el.classList.contains("testimonial-name") ||
     el.classList.contains("testimonial-role");
+
+  // Contact section: keep WP sizes — don't promote detail lines to subsection titles
+  const contactSection = document.querySelector<HTMLElement>(
+    ".kb-row-layout-id4541_09415d-fe",
+  );
+  if (contactSection) {
+    mark(
+      contactSection.querySelector<HTMLElement>(".kt-adv-heading4541_8e787d-69"),
+      "kosick-section-title",
+      "section-title",
+    );
+    mark(
+      contactSection.querySelector<HTMLElement>(".kt-adv-heading4541_5cf49d-94"),
+      "kosick-section-description",
+      "section-description",
+    );
+    for (const detail of contactSection.querySelectorAll<HTMLElement>(
+      ".kt-adv-heading4541_72d304-b1, .kt-adv-heading4541_4ba062-65, .kt-adv-heading4541_39501c-d1",
+    )) {
+      mark(detail, "kosick-contact-detail", "kosick-body-text", "body-text");
+    }
+  }
 
   const candidates = [
     ...root.querySelectorAll<HTMLElement>(
@@ -1844,6 +1866,34 @@ function setupSolutionsByTeam() {
   return () => cleanups.forEach((fn) => fn());
 }
 
+function setupTabFeatureImageRadius() {
+  const tabs = document.querySelector<HTMLElement>(".entry-content .amplitude-tabs");
+  if (!tabs) return () => undefined;
+
+  const apply = (el: HTMLElement) => {
+    el.style.setProperty("border-radius", "4px", "important");
+    el.style.setProperty("overflow", "hidden", "important");
+    el.style.setProperty("clip-path", "inset(0 round 4px)", "important");
+  };
+
+  const figures = tabs.querySelectorAll<HTMLElement>(
+    "figure.tab-feature-image, figure.wp-block-kadence-image",
+  );
+  const images = tabs.querySelectorAll<HTMLElement>(
+    "figure.tab-feature-image img, figure.wp-block-kadence-image img, img.kb-img",
+  );
+  for (const el of figures) apply(el);
+  for (const el of images) apply(el);
+
+  return () => {
+    for (const el of [...figures, ...images]) {
+      el.style.removeProperty("border-radius");
+      el.style.removeProperty("overflow");
+      el.style.removeProperty("clip-path");
+    }
+  };
+}
+
 export function WordPressInteract({ pageKey }: { pageKey: string }) {
   useEffect(() => {
     const cleanups = [
@@ -1861,6 +1911,7 @@ export function WordPressInteract({ pageKey }: { pageKey: string }) {
       setupWhyChooseTiles(),
       setupTypographyHierarchy(),
       setupSolutionsByTeam(),
+      setupTabFeatureImageRadius(),
       applySentenceCase(document),
       setupScrollUp(),
       setupCountUps(document),
