@@ -322,8 +322,7 @@ function setupMegaMenu() {
 
   const button = document.querySelector<HTMLElement>("#main-header .header-button");
   if (button?.textContent) {
-    const label = button.textContent.trim();
-    button.textContent = label.charAt(0).toUpperCase() + label.slice(1).toLowerCase();
+    button.textContent = "GET IN TOUCH";
   }
 
   return () => {
@@ -960,7 +959,7 @@ function applySentenceCase(root: ParentNode) {
   for (const el of targets) {
     if (seen.has(el)) continue;
     seen.add(el);
-    if (el.closest("#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author")) {
+    if (el.closest("#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author, .kb-row-layout-id4541_65264e-2a")) {
       continue;
     }
     if (
@@ -1103,13 +1102,15 @@ function setupTypographyHierarchy() {
   const skip = (el: HTMLElement) =>
     Boolean(
       el.closest(
-        "#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .n2-ss-slider, .kb-row-layout-id4541_605b2b-60, .kb-row-layout-id4541_09415d-fe, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author, .testimonial-name, .testimonial-role",
+        "#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .n2-ss-slider, .kb-row-layout-id4541_605b2b-60, .kb-row-layout-id4541_09415d-fe, .kb-row-layout-id4541_65264e-2a, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author, .testimonial-name, .testimonial-role",
       ),
     ) ||
     el.classList.contains("testimonial-quote") ||
     el.classList.contains("testimonial-logo") ||
     el.classList.contains("testimonial-name") ||
-    el.classList.contains("testimonial-role");
+    el.classList.contains("testimonial-role") ||
+    el.classList.contains("kt-adv-heading4541_5ddf4f-b9") ||
+    el.classList.contains("kt-adv-heading4541_d365d0-34");
 
   // Contact section: keep WP sizes — don't promote detail lines to subsection titles
   const contactSection = document.querySelector<HTMLElement>(
@@ -1894,6 +1895,37 @@ function setupTabFeatureImageRadius() {
   };
 }
 
+function setupHeroIntro() {
+  const title = document.querySelector<HTMLElement>(".kt-adv-heading4541_5ddf4f-b9");
+  const subtitle = document.querySelector<HTMLElement>(".kt-adv-heading4541_d365d0-34");
+  if (!title && !subtitle) return () => undefined;
+
+  if (title) {
+    title.classList.add("kosick-hero-title");
+    const mark = title.querySelector("mark");
+    if (mark) mark.textContent = "THE ART OF MARKETING";
+    else title.textContent = "THE ART OF MARKETING";
+  }
+
+  if (subtitle) {
+    subtitle.classList.add("kosick-hero-subtitle");
+    subtitle.textContent = "Digital • Media • Branding • Business Development";
+  }
+
+  const cta = document.querySelector<HTMLElement>(
+    ".kb-row-layout-id4541_65264e-2a .kb-btn4541_43c642-44 .kt-btn-inner-text",
+  );
+  if (cta) {
+    cta.textContent = "CONNECT WITH US";
+    cta.style.setProperty("text-transform", "uppercase", "important");
+  }
+
+  return () => {
+    title?.classList.remove("kosick-hero-title");
+    subtitle?.classList.remove("kosick-hero-subtitle");
+  };
+}
+
 export function WordPressInteract({ pageKey }: { pageKey: string }) {
   useEffect(() => {
     const cleanups = [
@@ -1912,6 +1944,7 @@ export function WordPressInteract({ pageKey }: { pageKey: string }) {
       setupTypographyHierarchy(),
       setupSolutionsByTeam(),
       setupTabFeatureImageRadius(),
+      setupHeroIntro(),
       applySentenceCase(document),
       setupScrollUp(),
       setupCountUps(document),

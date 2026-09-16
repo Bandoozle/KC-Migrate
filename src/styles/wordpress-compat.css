@@ -593,8 +593,8 @@ body {
     padding: 8px 18px !important;
     font-size: 15px !important;
     font-weight: 400 !important;
-    letter-spacing: 0 !important;
-    text-transform: none !important;
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
   }
 
   #main-header .header-button:hover,
@@ -2008,6 +2008,63 @@ h6 b,
   text-align: left !important;
   text-transform: none !important;
   font-style: normal !important;
+}
+
+/*
+  Homepage hero (video row): title all-caps + larger; subtitle title-case on one line.
+*/
+.kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_5ddf4f-b9,
+.kb-row-layout-id4541_65264e-2a .kosick-hero-title,
+.entry-content .kb-row-layout-id4541_65264e-2a h3.kt-adv-heading4541_5ddf4f-b9,
+.entry-content .kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_5ddf4f-b9 mark {
+  font-size: clamp(3.25rem, 9vw, 6rem) !important;
+  font-weight: 600 !important;
+  line-height: 1em !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  max-width: none !important;
+}
+
+.kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_d365d0-34,
+.kb-row-layout-id4541_65264e-2a .kosick-hero-subtitle,
+.entry-content .kb-row-layout-id4541_65264e-2a h2.kt-adv-heading4541_d365d0-34 {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  font-size: clamp(1.125rem, 2.1vw, 1.5rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  text-align: center !important;
+  color: #ffffff !important;
+}
+
+.kb-row-layout-id4541_65264e-2a .kb-btn4541_43c642-44,
+.kb-row-layout-id4541_65264e-2a .kb-btn4541_43c642-44 .kt-btn-inner-text {
+  text-transform: uppercase !important;
+}
+
+@media (max-width: 767px) {
+  .kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_5ddf4f-b9,
+  .kb-row-layout-id4541_65264e-2a .kosick-hero-title,
+  .entry-content .kb-row-layout-id4541_65264e-2a h3.kt-adv-heading4541_5ddf4f-b9,
+  .entry-content .kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_5ddf4f-b9 mark {
+    font-size: clamp(2.25rem, 11vw, 3rem) !important;
+    letter-spacing: 2px !important;
+  }
+
+  .kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_d365d0-34,
+  .kb-row-layout-id4541_65264e-2a .kosick-hero-subtitle,
+  .entry-content .kb-row-layout-id4541_65264e-2a h2.kt-adv-heading4541_d365d0-34 {
+    font-size: 16px !important;
+    white-space: nowrap !important;
+  }
 }
 
 .testimonial-card {

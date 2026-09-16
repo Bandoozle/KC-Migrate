@@ -722,4 +722,29 @@ a.kosick-outline-btn,
   color: #888888 !important;
   background: transparent !important;
 }
+
+/* Hero title/subtitle — beat hierarchy + sentence-case overrides */
+.entry-content .kb-row-layout-id4541_65264e-2a h3.kt-adv-heading4541_5ddf4f-b9,
+.entry-content .kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_5ddf4f-b9,
+.entry-content .kb-row-layout-id4541_65264e-2a .kosick-hero-title,
+.entry-content .kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_5ddf4f-b9 mark {
+  font-size: clamp(3.25rem, 9vw, 6rem) !important;
+  font-weight: 600 !important;
+  line-height: 1em !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+}
+
+.entry-content .kb-row-layout-id4541_65264e-2a h2.kt-adv-heading4541_d365d0-34,
+.entry-content .kb-row-layout-id4541_65264e-2a .kt-adv-heading4541_d365d0-34,
+.entry-content .kb-row-layout-id4541_65264e-2a .kosick-hero-subtitle {
+  font-size: clamp(1.125rem, 2.1vw, 1.5rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  text-transform: none !important;
+  white-space: nowrap !important;
+  color: #ffffff !important;
+  text-align: center !important;
+}
 `.trim();
