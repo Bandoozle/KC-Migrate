@@ -247,35 +247,7 @@ function setupMegaMenu() {
   const headerCard: HTMLElement = found;
 
   const menu = document.querySelector<HTMLElement>("#primary-menu");
-  const rightSection = document.querySelector<HTMLElement>(
-    "#main-header .site-header-top-section-right",
-  );
-  const moved: HTMLElement[] = [];
-  let utilityNav: HTMLElement | null = null;
   const teardownColumns = menu ? sectionMegaColumns(menu) : () => undefined;
-
-  if (menu && rightSection) {
-    const trailing = [...menu.children].filter(
-      (item): item is HTMLElement =>
-        item instanceof HTMLElement &&
-        item.classList.contains("menu-item") &&
-        !item.classList.contains("menu-item-has-children"),
-    );
-
-    if (trailing.length > 0) {
-      utilityNav = document.createElement("nav");
-      utilityNav.className = "kosick-header-utility-nav";
-      utilityNav.setAttribute("aria-label", "Secondary");
-      const list = document.createElement("ul");
-      list.className = "menu";
-      for (const item of trailing) {
-        moved.push(item);
-        list.appendChild(item);
-      }
-      utilityNav.appendChild(list);
-      rightSection.insertBefore(utilityNav, rightSection.firstChild);
-    }
-  }
 
   let openItem: HTMLElement | null = null;
   let closeTimer = 0;
@@ -325,15 +297,25 @@ function setupMegaMenu() {
     button.textContent = "GET IN TOUCH";
   }
 
+  let phoneLink: HTMLAnchorElement | null = null;
+  const buttonWrap = document.querySelector<HTMLElement>(
+    "#main-header .site-header-top-section-right .header-button-wrap",
+  );
+  if (buttonWrap && !document.querySelector(".kosick-header-phone")) {
+    phoneLink = document.createElement("a");
+    phoneLink.className = "kosick-header-phone";
+    phoneLink.href = "tel:+16049255800";
+    phoneLink.textContent = "(604) 925-5800";
+    phoneLink.setAttribute("aria-label", "Call Kosick at (604) 925-5800");
+    buttonWrap.parentElement?.insertBefore(phoneLink, buttonWrap);
+  }
+
   return () => {
     window.clearTimeout(closeTimer);
     headerCard.removeEventListener("mouseover", onOver);
     headerCard.removeEventListener("mouseleave", onLeave);
     teardownColumns();
-    if (menu && moved.length > 0) {
-      for (const item of moved) menu.appendChild(item);
-    }
-    utilityNav?.remove();
+    phoneLink?.remove();
     close();
   };
 }
@@ -1020,6 +1002,8 @@ function previousMeaningfulSibling(el: HTMLElement): HTMLElement | null {
 function isEyebrowHeading(el: HTMLElement): boolean {
   const text = (el.textContent ?? "").replace(/\s+/g, " ").trim();
   if (!text || text.length > 72) return false;
+  // Explicit section labels (e.g. digital-marketing “What we offer”)
+  if (/^what we offer$/i.test(text)) return true;
   const letters = text.replace(/[^A-Za-z]/g, "");
   const mostlyUpper =
     letters.length > 0 && letters === letters.toUpperCase() && /[A-Z]/.test(letters);
@@ -1099,10 +1083,30 @@ function setupTypographyHierarchy() {
     "section-description",
   );
 
+  // Digital marketing — match homepage “Build a brand…” section-title size
+  mark(
+    document.querySelector<HTMLElement>(".kt-adv-heading4609_b81c5c-f6"),
+    "kosick-eyebrow",
+    "eyebrow",
+  );
+  {
+    const connectTitle = document.querySelector<HTMLElement>(".kt-adv-heading4609_a27637-57");
+    if (connectTitle) {
+      connectTitle.classList.remove("kosick-subsection-title", "subsection-title");
+      mark(connectTitle, "kosick-section-title", "section-title");
+    }
+  }
+
   const skip = (el: HTMLElement) =>
     Boolean(
       el.closest(
         "#colophon, #masthead, #mobile-drawer, .kosick-bento-grid, .kosick-solutions-grid, .n2-ss-slider, .kb-row-layout-id4541_605b2b-60, .kb-row-layout-id4541_09415d-fe, .kb-row-layout-id4541_65264e-2a, .testimonial-card, .testimonial-quote, .testimonial-logo, .testimonial-author, .testimonial-name, .testimonial-role",
+      ),
+    ) ||
+    // Campaign image-label overlays — sized separately (not subsection titles)
+    Boolean(
+      el.closest(
+        ".kb-row-layout-id4609_878fd2-ea .wp-block-kadence-column .wp-block-kadence-column",
       ),
     ) ||
     el.classList.contains("testimonial-quote") ||
@@ -1195,7 +1199,11 @@ function setupTypographyHierarchy() {
     }
 
     if (tag === "h3") {
-      mark(el, "kosick-subsection-title", "subsection-title");
+      if (afterEyebrow) {
+        mark(el, "kosick-section-title", "section-title");
+      } else {
+        mark(el, "kosick-subsection-title", "subsection-title");
+      }
       continue;
     }
 
@@ -1265,6 +1273,37 @@ function setupTypographyHierarchy() {
     mark(text, "kosick-body-text", "body-text");
   }
 
+  // Digital-marketing campaign overlays: compact label + meta (not subsection)
+  for (const labelInner of root.querySelectorAll<HTMLElement>(
+    ".kb-row-layout-id4609_878fd2-ea .wp-block-kadence-column .wp-block-kadence-column > .kt-inside-inner-col",
+  )) {
+    const headings = [
+      ...labelInner.querySelectorAll<HTMLElement>(":scope > .wp-block-kadence-advancedheading"),
+    ];
+    const title = headings[0];
+    const sub = headings[1];
+    if (title) {
+      title.classList.remove(
+        "kosick-subsection-title",
+        "subsection-title",
+        "kosick-section-title",
+        "section-title",
+      );
+      mark(title, "kosick-offer-label-title");
+    }
+    if (sub) {
+      sub.classList.remove(
+        "kosick-subsection-title",
+        "subsection-title",
+        "kosick-section-title",
+        "section-title",
+        "kosick-section-description",
+        "section-description",
+      );
+      mark(sub, "kosick-offer-label-sub", "kosick-meta-text", "meta-text");
+    }
+  }
+
   // Preserve Kadence/center alignment on role classes (Build a brand pattern)
   for (const el of root.querySelectorAll<HTMLElement>(
     ".kosick-section-title, .kosick-section-description, .kosick-page-title, .kosick-eyebrow",
@@ -1315,19 +1354,26 @@ function setupTypographyHierarchy() {
     el.style.setProperty("margin-right", "0", "important");
   }
 
-  // Centered eyebrow + title above a solutions grid → Amplitude “Solutions by team”
-  // Order: eyebrow above title (not Build-a-brand title→description)
+  // Eyebrow + title → Amplitude “Solutions by team” / homepage “What we offer”
+  // Centered intros stay centered; DM “What we offer” stays left (WP default)
   for (const title of root.querySelectorAll<HTMLElement>(".kosick-section-title")) {
     const prev = previousMeaningfulSibling(title);
     if (!prev?.classList.contains("kosick-eyebrow")) continue;
 
+    const prevText = (prev.textContent ?? "").replace(/\s+/g, " ").trim();
+    const isWhatWeOffer = /^what we offer$/i.test(prevText);
     const titleCentered =
       title.classList.contains("has-text-align-center") ||
       window.getComputedStyle(title).textAlign === "center";
     const prevCentered =
       prev.classList.contains("has-text-align-center") ||
       window.getComputedStyle(prev).textAlign === "center";
-    if (!titleCentered || !prevCentered) continue;
+    if (!isWhatWeOffer && (!titleCentered || !prevCentered)) continue;
+
+    const alignLeft =
+      title.classList.contains("kt-adv-heading4609_6b96b2-05") ||
+      prev.classList.contains("kt-adv-heading4609_56a2cf-4d") ||
+      (isWhatWeOffer && !titleCentered && !prevCentered);
 
     const next = title.nextElementSibling as HTMLElement | null;
     const followsSolutionsGrid =
@@ -1339,23 +1385,39 @@ function setupTypographyHierarchy() {
       title.before(prev);
     }
 
-    prev.classList.remove("kosick-section-description", "section-description");
+    prev.classList.remove(
+      "kosick-section-description",
+      "section-description",
+      "kosick-subsection-title",
+      "subsection-title",
+      "kosick-feature-label",
+    );
     prev.classList.add(
       "kosick-eyebrow",
       "eyebrow",
       "kosick-solutions-by-team-eyebrow",
-      "has-text-align-center",
     );
-    title.classList.remove("kosick-feature-title");
+    title.classList.remove("kosick-feature-title", "kosick-page-title", "page-title");
     title.classList.add(
       "kosick-section-title",
       "section-title",
       "kosick-solutions-by-team-heading",
-      "has-text-align-center",
     );
-    prev.style.setProperty("text-align", "center", "important");
+
+    if (alignLeft) {
+      prev.classList.remove("has-text-align-center");
+      title.classList.remove("has-text-align-center");
+      prev.classList.add("kosick-solutions-by-team-intro--left");
+      title.classList.add("kosick-solutions-by-team-intro--left");
+      prev.style.setProperty("text-align", "left", "important");
+      title.style.setProperty("text-align", "left", "important");
+    } else {
+      prev.classList.add("has-text-align-center");
+      title.classList.add("has-text-align-center");
+      prev.style.setProperty("text-align", "center", "important");
+      title.style.setProperty("text-align", "center", "important");
+    }
     prev.style.setProperty("text-transform", "none", "important");
-    title.style.setProperty("text-align", "center", "important");
 
     const walk = (node: Node) => {
       if (node.nodeType === Node.TEXT_NODE) {
@@ -1381,6 +1443,8 @@ function setupTypographyHierarchy() {
   for (const title of root.querySelectorAll<HTMLElement>(".kosick-section-title")) {
     if (title.classList.contains("has-text-align-center")) continue;
     if (title.classList.contains("kosick-solutions-by-team-heading")) continue;
+    // Keep “Connect with your audience” on section-title tokens (Build a brand size)
+    if (title.classList.contains("kt-adv-heading4609_a27637-57")) continue;
     const prev = previousMeaningfulSibling(title);
     if (!prev?.classList.contains("kosick-eyebrow")) continue;
     if (prev.classList.contains("has-text-align-center")) continue;
@@ -1446,7 +1510,10 @@ function setupTypographyHierarchy() {
         "kosick-feature-lead",
         "kosick-solutions-by-team-eyebrow",
         "kosick-solutions-by-team-heading",
+        "kosick-solutions-by-team-intro--left",
         "kosick-solutions-by-team",
+        "kosick-offer-label-title",
+        "kosick-offer-label-sub",
         "kosick-outline-btn",
         "body-text",
         "kosick-body-text",

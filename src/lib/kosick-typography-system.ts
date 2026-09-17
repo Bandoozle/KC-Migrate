@@ -254,6 +254,7 @@ export const KOSICK_TYPOGRAPHY_SYSTEM_CSS = `
 .entry-content .kosick-solutions-by-team-eyebrow,
 .entry-content .kosick-eyebrow.kosick-solutions-by-team-eyebrow,
 .entry-content h2.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
+.entry-content h3.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
 .entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-eyebrow,
 .entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
 .entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow[data-kb-block] {
@@ -265,6 +266,17 @@ export const KOSICK_TYPOGRAPHY_SYSTEM_CSS = `
   letter-spacing: 0 !important;
   color: var(--kosick-feature-label-color) !important;
   text-transform: none !important;
+  text-align: center !important;
+}
+
+.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.kosick-eyebrow.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content .kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content .kosick-eyebrow.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content h3.kosick-eyebrow.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left[data-kb-block] {
+  text-align: left !important;
 }
 
 .kosick-section-title.kosick-feature-title,
@@ -301,6 +313,7 @@ export const KOSICK_TYPOGRAPHY_SYSTEM_CSS = `
   .entry-content .kosick-solutions-by-team-eyebrow,
   .entry-content .kosick-eyebrow.kosick-solutions-by-team-eyebrow,
   .entry-content h2.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
+  .entry-content h3.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
   .entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-eyebrow,
   .entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
   .entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow[data-kb-block] {
@@ -520,6 +533,7 @@ a.kosick-outline-btn,
 
 .entry-content h1.kosick-section-title,
 .entry-content h2.kosick-section-title,
+.entry-content h3.kosick-section-title,
 .entry-content .kosick-section-title,
 .entry-content .wp-block-kadence-advancedheading.kosick-section-title,
 .entry-content .wp-block-kadence-advancedheading.kosick-section-title[data-kb-block] {
@@ -529,6 +543,62 @@ a.kosick-outline-btn,
   line-height: var(--kosick-section-title-leading) !important;
   letter-spacing: var(--kosick-section-title-tracking) !important;
   color: var(--kosick-color-text) !important;
+}
+
+/* Homepage “What we offer” / Solutions-by-team title — Amplitude 26→44 */
+.kosick-solutions-by-team-heading,
+.entry-content .kosick-solutions-by-team-heading,
+.entry-content h1.kosick-section-title.kosick-solutions-by-team-heading,
+.entry-content h2.kosick-section-title.kosick-solutions-by-team-heading,
+.entry-content .kosick-section-title.kosick-solutions-by-team-heading,
+.entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-heading,
+.entry-content .wp-block-kadence-advancedheading.kosick-section-title.kosick-solutions-by-team-heading,
+.entry-content .wp-block-kadence-advancedheading.kosick-section-title.kosick-solutions-by-team-heading[data-kb-block] {
+  margin: 0 auto 2.5rem !important;
+  max-width: 42rem;
+  font-family: var(--kosick-font) !important;
+  font-size: 26px !important;
+  font-weight: 600 !important;
+  line-height: 29px !important;
+  letter-spacing: -0.5px !important;
+  color: #111111 !important;
+  text-align: center !important;
+  text-transform: none !important;
+}
+
+.kosick-solutions-by-team-heading.kosick-solutions-by-team-intro--left,
+.entry-content .kosick-solutions-by-team-heading.kosick-solutions-by-team-intro--left,
+.entry-content h1.kosick-section-title.kosick-solutions-by-team-heading.kosick-solutions-by-team-intro--left,
+.entry-content .kosick-section-title.kosick-solutions-by-team-heading.kosick-solutions-by-team-intro--left,
+.entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-heading.kosick-solutions-by-team-intro--left,
+.entry-content .wp-block-kadence-advancedheading.kosick-section-title.kosick-solutions-by-team-heading.kosick-solutions-by-team-intro--left,
+.entry-content .wp-block-kadence-advancedheading.kosick-section-title.kosick-solutions-by-team-heading.kosick-solutions-by-team-intro--left[data-kb-block] {
+  margin: 0 0 2.5rem !important;
+  max-width: none;
+  text-align: left !important;
+}
+
+.entry-content .kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content .kosick-eyebrow.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content h3.kosick-eyebrow.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left,
+.entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow.kosick-solutions-by-team-intro--left[data-kb-block] {
+  text-align: left !important;
+}
+
+@media (min-width: 768px) {
+  .kosick-solutions-by-team-heading,
+  .entry-content .kosick-solutions-by-team-heading,
+  .entry-content h1.kosick-section-title.kosick-solutions-by-team-heading,
+  .entry-content h2.kosick-section-title.kosick-solutions-by-team-heading,
+  .entry-content .kosick-section-title.kosick-solutions-by-team-heading,
+  .entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-heading,
+  .entry-content .wp-block-kadence-advancedheading.kosick-section-title.kosick-solutions-by-team-heading,
+  .entry-content .wp-block-kadence-advancedheading.kosick-section-title.kosick-solutions-by-team-heading[data-kb-block] {
+    font-size: 44px !important;
+    line-height: 48px !important;
+    letter-spacing: -1px !important;
+  }
 }
 
 .entry-content .kosick-section-description,
@@ -594,6 +664,7 @@ a.kosick-outline-btn,
 .entry-content .kosick-solutions-by-team-eyebrow,
 .entry-content .kosick-eyebrow.kosick-solutions-by-team-eyebrow,
 .entry-content h2.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
+.entry-content h3.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
 .entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-eyebrow,
 .entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
 .entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow[data-kb-block] {
@@ -603,6 +674,7 @@ a.kosick-outline-btn,
   letter-spacing: 0 !important;
   color: var(--kosick-feature-label-color) !important;
   text-transform: none !important;
+  text-align: center !important;
 }
 
 @media (min-width: 768px) {
@@ -617,6 +689,7 @@ a.kosick-outline-btn,
   .entry-content .kosick-solutions-by-team-eyebrow,
   .entry-content .kosick-eyebrow.kosick-solutions-by-team-eyebrow,
   .entry-content h2.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
+  .entry-content h3.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
   .entry-content .wp-block-kadence-advancedheading.kosick-solutions-by-team-eyebrow,
   .entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow,
   .entry-content .wp-block-kadence-advancedheading.kosick-eyebrow.kosick-solutions-by-team-eyebrow[data-kb-block] {
