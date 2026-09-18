@@ -1,0 +1,604 @@
+[
+  {
+    "name": "hvac-marketing",
+    "title": "HVAC Marketing & Lead Generation | Kosick Communications",
+    "topRowCount": 12,
+    "hasSmartSlider": true,
+    "hasFaq": true,
+    "hasTabs": true,
+    "hasForm": true,
+    "hasVideo": true,
+    "hasTestimonial": true,
+    "hasCountUp": true,
+    "rows": [
+      {
+        "i": 0,
+        "id": "11571_5c6a8d-12",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "What We offer",
+          "Full-Service HVAC Marketing"
+        ],
+        "paras": [
+          "Google Ads, Social Media, TV, Streaming, and Outdoor",
+          "Maximize utility provider and manufacturer co-op funds from Trane, GE & more",
+          "Custom HVAC websites and Shopify e-commerce built for lead generation"
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_5c6a8d-12 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 1,
+        "id": "11571_fe749e-29",
+        "cols": 2,
+        "imgs": 1,
+        "headings": [
+          "20+ YEARS OF HVAC EXPERTISE",
+          "HVAC Marketing & Lead Generation"
+        ],
+        "paras": [
+          "We don’t just run ads. We build comprehensive, omni-channel marketing programs tailored to the HVAC industry. From Google Ads and Local Service Ads to television, radio, and outdoor billboards, our integrated approach reaches homeowners at every touchpoint. Having partnered with Trane, RunTru, GE, York, Daikin, Fujitsu, and other national brands, we understand what drives booked jobs for dealers across Canada."
+        ],
+        "links": [
+          "Start generating leads"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_fe749e-29 alignfull has-kb-palette-2-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 2,
+        "id": "11571_af13ce-fc",
+        "cols": 2,
+        "imgs": 1,
+        "headings": [
+          "MAXIMIZE YOUR MARKETING DOLLARS",
+          "Co-Op Programs & SEO Domination"
+        ],
+        "paras": [
+          "We don’t just run ads. We build comprehensive, omni-channel marketing programs tailored to the HVAC industry. From Google Ads and Local Service Ads to television, radio, and outdoor billboards, our integrated approach reaches homeowners at every touchpoint. Having partnered with Trane, RunTru, GE, York, Daikin, Fujitsu, and other national brands, we understand what drives booked jobs for dealers across Canada."
+        ],
+        "links": [
+          "unlock co-op funds"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_af13ce-fc alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 3,
+        "id": "11571_c1ea2e-9a",
+        "cols": 2,
+        "imgs": 1,
+        "headings": [
+          "YOUR DIGITAL STOREFRONT",
+          "Website Development & HVAC Marketing"
+        ],
+        "paras": [
+          "Your website is the foundation of your marketing. We design and develop high-converting HVAC websites built for lead generation, featuring online booking, service area pages, financing tools, and mobile-first design. As a full-service team specializing in HVAC marketing, we pair your website with professional branding including vehicle wraps, social content, and video production, building a complete visual identity that earns trust and helps your company close more jobs."
+        ],
+        "links": [
+          "build your brand"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_c1ea2e-9a alignfull has-kb-palette-2-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 4,
+        "id": "11571_d0b249-d9",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [],
+        "paras": [],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_d0b249-d9 alignnone wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 5,
+        "id": "11571_cf0fcd-c8",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "How We Work",
+          "Our Process",
+          "01",
+          "Audit & Discovery",
+          "02",
+          "Strategy & Setup",
+          "03",
+          "Launch & Optimize"
+        ],
+        "paras": [
+          "We analyze your current HVAC marketing, co-op eligibility, competitors, and local market to build a data-driven strategy.",
+          "Custom marketing plan across digital and traditional channels — plus co-op fund applications and compliant creative development",
+          "We launch campaigns, build or redesign your website, and continuously optimize performance across all channels."
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_cf0fcd-c8 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 6,
+        "id": "11571_ec8eab-d1",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "BY THE NUMBERS",
+          "Results That Move HVAC Businesses"
+        ],
+        "paras": [],
+        "links": [],
+        "darkish": true,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_ec8eab-d1 alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 7,
+        "id": "11571_89e59f-4e",
+        "cols": 3,
+        "imgs": 0,
+        "headings": [],
+        "paras": [
+          "✓ Google Ads & Local Service Ads✓ Meta Ads (Facebook & Instagram)✓ YouTube & Connected TV Campaigns✓ Programmatic & Display Advertising",
+          "✓ Google Business Profile Optimization✓ Local SEO & Map Pack Rankings✓ Review Generation & Management✓ HVAC Keyword Strategy & Content",
+          "✓ Television & Radio Advertising✓ Outdoor & Billboard Campaigns✓ Direct Mail & Print Collateral✓ Event Sponsorships & Trade Shows"
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_89e59f-4e alignnone wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 8,
+        "id": "11571_6eafa3-af",
+        "cols": 3,
+        "imgs": 0,
+        "headings": [],
+        "paras": [
+          "✓ Utility Provider Co-Op Management✓ Manufacturer Co-Op Fund Maximization✓ Co-Op Compliance & Documentation✓ Rebate & Incentive Program Support",
+          "✓ Custom HVAC Website Design✓ Shopify & E-Commerce for Parts✓ Conversion-Optimized Landing Pages✓ Mobile-First Responsive Development",
+          "✓ HVAC Brand Identity & Logo Design✓ Vehicle Wrap & Fleet Branding✓ Social Media Content Creation✓ Video Production & Testimonials"
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_6eafa3-af alignnone wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 9,
+        "id": "11571_bf42a0-60",
+        "cols": 2,
+        "imgs": 4,
+        "headings": [
+          "EXPERT HVAC MARKETING & LEAD GENERATION",
+          "Your Brand. Every Platform."
+        ],
+        "paras": [],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_bf42a0-60 alignfull has-kb-palette-2-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 10,
+        "id": "11571_040b1b-5e",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "Have Questions?",
+          "Frequently Asked Questions",
+          "What national brands have you worked with?",
+          "How do you help with utility provider and manufacturer co-op programs?",
+          "What makes your HVAC marketing different from a general agency?",
+          "Do you handle both digital and traditional marketing?",
+          "Can you build or redesign our HVAC Website?"
+        ],
+        "paras": [
+          "Over the past 20+ years, we’ve partnered with leading national HVAC manufacturers including Trane, RunTru, GE, York, Napoleon, Lennox, Carrier, Bryant, Rheem, Ruud, Goodman, Amana, American Standard, Daikin, Mitsubishi Electric, Fujitsu, LG, Bosch, and Comfortmaker, along with other associated brands. We understand the unique marketing requirements, co-op programs, and brand guidelines of each manufacturer, allowing us to create compliant, high-performing campaigns that maximize your co-op dollars.",
+          "We handle the entire co-op process, from identifying eligible programs and securing pre-approvals to creating compliant creative assets and submitting claims for reimbursement. We’ve helped HVAC dealers recover thousands in co-op funds from both utility providers and manufacturers like Trane and GE, effectively reducing your out-of-pocket marketing costs.",
+          "With 20+ years dedicated to HVAC marketing, we help dealers drive consistent lead generation across all major brands—not just one manufacturer. We understand seasonal demand cycles, emergency service intent, local competition, and homeowner buying behavior at a level general agencies simply can’t match. Backed by 20+ years of homeowner and commercial customer data, we build and refine strategies that consistently convert searches, calls, and quote requests into real booked work. We also maintain established relationships with utility providers, energy-efficiency programs, and key industry partners, helping dealers navigate rebates, co-op requirements, and compliance so campaigns launch faster and budgets go further."
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_040b1b-5e alignfull kb-v-sm-hidden has-theme-palette9-background-color kt-row-has-bg"
+      },
+      {
+        "i": 11,
+        "id": "11571_a67e77-95",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "Ready to Grow Your HVAC Business?",
+          "With 20+ years of proven results partnering with Trane, RunTru, GE, and leading HVAC brands, let’s build a marketing strategy that fills your schedule year-round.",
+          "Call us"
+        ],
+        "paras": [
+          "With 20+ years of proven results partnering with Trane, RunTru, GE, and leading HVAC brands, let’s build a marketing strategy that fills your schedule year-round."
+        ],
+        "links": [
+          "Get in Touch"
+        ],
+        "darkish": true,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11571_a67e77-95 alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      }
+    ]
+  },
+  {
+    "name": "dental-marketing",
+    "title": "Dental Marketing To Grow Your Practice | Kosick Communications",
+    "topRowCount": 10,
+    "hasSmartSlider": true,
+    "hasFaq": true,
+    "hasTabs": true,
+    "hasForm": true,
+    "hasVideo": true,
+    "hasTestimonial": true,
+    "hasCountUp": false,
+    "rows": [
+      {
+        "i": 0,
+        "id": "12468_7b6d1e-f4",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "What We Deliver",
+          "Dental Marketing Built for Growing Practices"
+        ],
+        "paras": [],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_7b6d1e-f4 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 1,
+        "id": "12468_54c47b-bc",
+        "cols": 4,
+        "imgs": 0,
+        "headings": [],
+        "paras": [
+          "Rank higher for searches like ‘dentist near me’ and specialty procedures your practice offers.",
+          "Optimize your Google Business Profile so patients find and choose your office first.",
+          "Turn website visitors into booked appointments with conversion-focused design and ads."
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_54c47b-bc alignnone wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 2,
+        "id": "12468_bfcb6b-d8",
+        "cols": 2,
+        "imgs": 1,
+        "headings": [
+          "PATIENT ACQUISITION",
+          "Get Found by Patients Searching for a Dentist"
+        ],
+        "paras": [
+          "Most new patients start with a Google search. We make sure your practice appears at the top for the terms that matter most – from routine cleanings to high-value specialty services."
+        ],
+        "links": [
+          "attract more patients"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_bfcb6b-d8 alignfull has-kb-palette-2-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 3,
+        "id": "12468_87a61b-6b",
+        "cols": 2,
+        "imgs": 1,
+        "headings": [
+          "CONVERSION & REPUTATION",
+          "Turn Searchers Into Scheduled Patients"
+        ],
+        "paras": [
+          "Visibility alone isn’t enough. We build trust through reviews, compelling website content, and seamless appointment paths that make it easy for patients to choose your practice."
+        ],
+        "links": [
+          "Build patient trust"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_87a61b-6b alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 4,
+        "id": "12468_acb024-bc",
+        "cols": 1,
+        "imgs": 1,
+        "headings": [
+          "PAID ADVERTISING",
+          "High-Intent Ads for Dental Services"
+        ],
+        "paras": [
+          "We run Google and Meta ad campaigns focused on the services that drive the most revenue for your practice – implants, Invisalign, cosmetic dentistry, emergency care, and more."
+        ],
+        "links": [
+          "Run dental ads"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_acb024-bc alignfull has-kb-palette-2-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 5,
+        "id": "12468_e879b3-ec",
+        "cols": 2,
+        "imgs": 1,
+        "headings": [
+          "RETENTION & ENGAGEMENT",
+          "Keep Patients Coming Back"
+        ],
+        "paras": [
+          "The most profitable practices don’t just acquire new patients – they retain them. We help you stay connected with patients through email, social media, and ongoing communication."
+        ],
+        "links": [
+          "Build patient trust"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_e879b3-ec alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 6,
+        "id": "12468_7ea4d6-ef",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "Full-Service Dental Marketing"
+        ],
+        "paras": [
+          "✓ Mailchamp Account Setup & Configuration✓ Template Design & Development✓ Campaign Strategy & Scheduling✓ A/B Testing & Optimization✓ List Management & Hygiene",
+          "✓ Google Ads for Dentists✓ Facebook & Instagram Ads✓ Retargeting Campaigns✓ Landing Page Design✓ Call Tracking & Attribution✓ Budget Optimization",
+          "✓ Review Generation Campaigns✓ Reputation Monitoring✓ Patient Testimonial Content✓ Brand Positioning✓ Social Media Management✓ Visual Identity Refinement"
+        ],
+        "links": [],
+        "darkish": true,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_7ea4d6-ef alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 7,
+        "id": "12468_308c49-c7",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "Have Questions?",
+          "Frequently Asked Questions",
+          "What makes dental marketing different from other industries?",
+          "Can you market specific dental services like implants or Invisalign?",
+          "Do you work with single-location and multi-location practices?",
+          "Do you handle both digital and traditional marketing?",
+          "How long does it take to see results?"
+        ],
+        "paras": [
+          "Dental marketing is highly local and trust-driven. Patients search based on location, insurance, reviews, and specific procedures. We focus on local SEO, reputation, and conversion so your practice shows up when patients are ready to book.",
+          "Yes. We create targeted landing pages, ad campaigns, and content strategies for high-value services such as implants, Invisalign, cosmetic dentistry, emergency dental care, and more.",
+          "We work with both. For multi-location practices, we build local SEO and paid strategies tailored to each office while maintaining a unified brand and reporting structure."
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_308c49-c7 alignfull kb-v-sm-hidden has-theme-palette9-background-color kt-row-has-bg"
+      },
+      {
+        "i": 8,
+        "id": "12468_31f2ac-05",
+        "cols": 4,
+        "imgs": 0,
+        "headings": [
+          "Google Ad Management",
+          "E-Commerce Marketing",
+          "Social Ad Management",
+          "Website Development"
+        ],
+        "paras": [],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_31f2ac-05 alignfull wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 9,
+        "id": "12468_0d912c-75",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "Ready to Unlock the Power of Email?",
+          "Let’s build an email marketing and automation strategy that turns subscribers into loyal customers.",
+          "Call us"
+        ],
+        "paras": [
+          "Let’s build an email marketing and automation strategy that turns subscribers into loyal customers."
+        ],
+        "links": [
+          "Get in Touch"
+        ],
+        "darkish": true,
+        "classes": "kb-row-layout-wrap kb-row-layout-id12468_0d912c-75 alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      }
+    ]
+  },
+  {
+    "name": "golf-marketing",
+    "title": "Strategic Golf Marketing | Kosick Communications",
+    "topRowCount": 10,
+    "hasSmartSlider": true,
+    "hasFaq": true,
+    "hasTabs": true,
+    "hasForm": true,
+    "hasVideo": true,
+    "hasTestimonial": true,
+    "hasCountUp": false,
+    "rows": [
+      {
+        "i": 0,
+        "id": "11984_ffecba-28",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "What We offer",
+          "Full-Service Golf Marketing"
+        ],
+        "paras": [
+          "Google Ads, Social Media, TV, Streaming, and Outdoor",
+          "Strategic campaigns designed to attract new members, increase retention, and maximize lifetime member value.",
+          "End-to-end marketing for tournaments, charity events, corporate outings, and seasonal programming."
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_ffecba-28 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 1,
+        "id": "11984_c848be-09",
+        "cols": 1,
+        "imgs": 1,
+        "headings": [
+          "TARGETED ADVERTISING",
+          "Reach Golfers Where It Matters"
+        ],
+        "paras": [
+          "We build omni-channel advertising campaigns connecting your course with the right audience, from local golfers searching for their next round to high-net-worth individuals seeking membership. Our targeting combines demographic precision with geographic relevance to maximize every dollar. When golfers click through, they land on a custom-built website designed to convert, with integrated pro shop e-commerce, online tee time booking, and membership portals turning visitors into paying customers around the clock."
+        ],
+        "links": [
+          "Let’s Chat"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_c848be-09 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 2,
+        "id": "11984_991dc1-c0",
+        "cols": 1,
+        "imgs": 1,
+        "headings": [
+          "REVENUE GROWTH",
+          "Build a Recognized Brand That Drives Revenue"
+        ],
+        "paras": [
+          "Brand awareness is not just visibility, it is your most powerful revenue driver. We build multi-channel strategies making your course the first name golfers think of, turning social followers, website visitors, and local prospects into paying customers across tee times, events, pro shop sales, and food and beverage."
+        ],
+        "links": [
+          "Connect With Us"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_991dc1-c0 alignfull kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 3,
+        "id": "11984_465fd9-88",
+        "cols": 1,
+        "imgs": 1,
+        "headings": [
+          "EVENTS & TOURNAMENTS",
+          "Fill Your Calendar, Maximize Revenue"
+        ],
+        "paras": [
+          "Tournaments, charity events, corporate outings, and seasonal programming represent significant revenue opportunities, but only if people show up. We handle full event marketing from initial promotion through post-event follow-up, making sure every tee sheet and banquet hall is full."
+        ],
+        "links": [
+          "Chat with Us"
+        ],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_465fd9-88 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 4,
+        "id": "11984_d26354-82",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "tv creative",
+          "As Seen On Sportsnet"
+        ],
+        "paras": [],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_d26354-82 alignnone wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 5,
+        "id": "11984_4487b3-f2",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [],
+        "paras": [],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_4487b3-f2 alignnone wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 6,
+        "id": "11984_01b2a1-50",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "How We Work",
+          "Our Golf Marketing Process",
+          "01",
+          "Discovery",
+          "02",
+          "Strategy & Setup",
+          "03",
+          "Launch & Optimize"
+        ],
+        "paras": [
+          "Deep-dive into your course, membership goals, competitive landscape, and target golfer profiles.",
+          "Develop a tailored marketing plan across digital, traditional, and on-course channels.",
+          "Execute campaigns with creative assets, ad deployment, and booking system integration."
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_01b2a1-50 alignfull kb-v-sm-hidden has-theme-palette9-background-color kt-row-has-bg"
+      },
+      {
+        "i": 7,
+        "id": "11984_867a21-09",
+        "cols": 2,
+        "imgs": 4,
+        "headings": [
+          "EXPERT golf MARKETING & LEAD GENERATION",
+          "Your Brand. Every Platform."
+        ],
+        "paras": [],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_867a21-09 alignfull has-kb-palette-2-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      },
+      {
+        "i": 8,
+        "id": "11984_24ac37-2c",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "Have Questions?",
+          "Golf Marketing Questions",
+          "Do you work with Public Courses, Private Clubs, or both?",
+          "Do you drive Membership Growth?",
+          "Can you help promote tournament and corporate events?",
+          "What traditional marketing do you recommend for Golf Courses?",
+          "Can you build or redesign our Golf Course Website?"
+        ],
+        "paras": [
+          "Both. We tailor our approach based on your business model. Public courses benefit from high-volume tee time marketing and local SEO, while private clubs need refined member acquisition and retention strategies. We also work with golf academies, resorts, and equipment retailers.",
+          "We build multi-channel campaigns targeting high-intent prospects, from digital ads aimed at local golfers and retargeting website visitors, to direct mail and event-based recruitment. We also help optimize your membership offering and onboarding experience to improve conversion and retention.",
+          "Absolutely. We handle full event marketing, from save-the-date campaigns and registration drives to sponsor acquisition and day-of promotion. Our integrated approach ensures every event reaches capacity and generates maximum revenue."
+        ],
+        "links": [],
+        "darkish": false,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_24ac37-2c alignfull kb-v-sm-hidden has-theme-palette9-background-color kt-row-has-bg"
+      },
+      {
+        "i": 9,
+        "id": "11984_ba66c6-9c",
+        "cols": 1,
+        "imgs": 0,
+        "headings": [
+          "Ready to Grow Your Golf Business?",
+          "Let’s build a marketing strategy that fills your tee sheet, grows your membership, and maximizes every revenue opportunity.",
+          "Call us"
+        ],
+        "paras": [
+          "Let’s build a marketing strategy that fills your tee sheet, grows your membership, and maximizes every revenue opportunity."
+        ],
+        "links": [
+          "Get in Touch"
+        ],
+        "darkish": true,
+        "classes": "kb-row-layout-wrap kb-row-layout-id11984_ba66c6-9c alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-kadence-rowlayout"
+      }
+    ]
+  }
+]

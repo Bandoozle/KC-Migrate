@@ -1,0 +1,788 @@
+{
+  "email-marketing": {
+    "slug": "email-marketing",
+    "title": "Email Marketing",
+    "slides": [
+      "//staging.kosick.com/wp-content/uploads/2026/07/Email-Marketing.jpg",
+      "//staging.kosick.com/wp-content/uploads/2026/06/dental-clinic-branding.jpg",
+      "//staging.kosick.com/wp-content/uploads/2026/02/medical-skincare-marketing.jpg"
+    ],
+    "detail": [
+      {
+        "idx": 0,
+        "idMatch": "11772_2f7cd2-9b",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "What We offer",
+          "Smarter Email Marketing, Better Results"
+        ],
+        "paras": [],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "What We offer"
+        ]
+      },
+      {
+        "idx": 1,
+        "idMatch": "11772_0ca8cd-99",
+        "mediaText": 0,
+        "cols4": 4,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 4,
+        "panes": 0,
+        "headings": [],
+        "paras": [
+          "Expertly designed email campaigns built and managed on the Mailchimp platform.",
+          "Triggered sequences that nurture leads and convert customers on autopilot.",
+          "Targeted messaging based on behaviour, demographics, and engagement history."
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "Mailchimp Campaigns",
+          "Automation Workflows",
+          "Audience Segmentation",
+          "Performance Analytics"
+        ]
+      },
+      {
+        "idx": 2,
+        "idMatch": "11772_c0cf28-1e",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Mailchimp Expertise",
+          "Email Campaigns Built to Convert"
+        ],
+        "paras": [
+          "As certified Mailchimp partners, we design and deploy email campaigns that look stunning and perform even better. From template design to audience targeting, every detail is optimized for engagement and conversions."
+        ],
+        "bullets": [
+          "Custom-branded Mailchimp templates",
+          "Advanced audience segmentation and tagging",
+          "A/B tested subject lines and send times",
+          "Deliverability optimization and list hygiene"
+        ],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2026/07/Garden-Centre-Nursery-Marketing-750x",
+            "alt": "Email Marketing"
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Launch Your Campaign"
+          }
+        ],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 3,
+        "idMatch": "11772_2e6123-98",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Communication Automation",
+          "Automate Your Customer Journey"
+        ],
+        "paras": [
+          "Stop sending one-off blasts. We build intelligent automation workflows that deliver the right message to the right person at exactly the right moment—nurturing leads, recovering lost sales, and keeping customers engaged without lifting a finger."
+        ],
+        "bullets": [
+          "Welcome sequences that convert new subscribers",
+          "Abandoned cart recovery automations",
+          "Lead nurturing drip campaigns",
+          "Re-engagement workflows for inactive contacts"
+        ],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2026/07/ChatGPT-Image-Jul-21-2026-at-11_55_2",
+            "alt": ""
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Automate Your Emails"
+          }
+        ],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 4,
+        "idMatch": "11772_14260b-05",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "ANALYTICS & OPTIMIZATION",
+          "Data That Drives Decisions"
+        ],
+        "paras": [
+          "Every campaign we send generates valuable data. We track open rates, click-throughs, conversions, and revenue attribution to continuously refine your strategy and maximize your email marketing ROI."
+        ],
+        "bullets": [
+          "Real-time campaign performance dashboards",
+          "Revenue attribution and ROI tracking",
+          "Monthly strategy reviews and recommendations",
+          "Competitor benchmarking and industry insights"
+        ],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2026/07/Email-Marketing-Canada-e178466562412",
+            "alt": "Email marketing Vancouver Surrey"
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Automate Your Emails"
+          }
+        ],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 5,
+        "idMatch": "11772_bbd621-63",
+        "mediaText": 0,
+        "cols4": 4,
+        "cols3": 0,
+        "cols2": 2,
+        "infoBoxes": 4,
+        "panes": 0,
+        "headings": [
+          "Full-Service Email Marketing",
+          "Mailchimp Management",
+          "Communication Automation",
+          "Content & Design",
+          "Strategy & Reporting"
+        ],
+        "paras": [
+          "✓ Mailchimp Account Setup & Configuration✓ Template Design & Development✓ Campaign Strategy & Scheduling✓ A/B Testing & Optimization✓ List Management & Hygiene",
+          "✓ Welcome & Onboarding Sequences✓ Drip Campaigns & Lead Nurturing✓ Abandoned Cart Recovery✓ Re-engagement Campaigns✓ Post-Purchase Follow-Ups",
+          "✓ Branded Email Templates✓ Responsive HTML Email Design✓ Copywriting & Subject Lines✓ Dynamic Content Personalization✓ Landing Page Integration✓ Brand Consistency Audits"
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "Mailchimp Management",
+          "Communication Automation",
+          "Content & Design",
+          "Strategy & Reporting"
+        ]
+      },
+      {
+        "idx": 6,
+        "idMatch": "11772_5ad89b-b0",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 5,
+        "headings": [
+          "Have Questions?",
+          "Email Marketing Questions",
+          "Why do you recommend Mailchimp?",
+          "What kind of automations can you set up?",
+          "How do you improve email open rates?",
+          "Can you migrate our existing email lists?",
+          "How often should we be sending emails?"
+        ],
+        "paras": [
+          "Mailchimp offers the best combination of ease-of-use, powerful automation features, and scalability for growing businesses. Its robust segmentation, A/B testing, and analytics tools make it ideal for data-driven email marketing. We’re certified Mailchimp partners with deep expertise on the platform.",
+          "We build everything from simple welcome sequences to complex multi-step workflows—drip campaigns, abandoned cart recovery, re-engagement series, post-purchase follow-ups, birthday emails, and event-triggered communications. Each automation is customized to your customer journey.",
+          "We optimize subject lines through A/B testing, segment your audience for relevance, clean your list regularly to improve deliverability, and send at optimal times based on your audience’s behavior. Most clients see open rates double within the first 90 days."
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "Email Marketing Questions"
+        ]
+      },
+      {
+        "idx": 7,
+        "idMatch": "11772_461021-6e",
+        "mediaText": 0,
+        "cols4": 4,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Google Ad Management",
+          "E-Commerce Marketing",
+          "Social Ad Management",
+          "Website Management"
+        ],
+        "paras": [],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "Google Ad Management",
+          "E-Commerce Marketing",
+          "Social Ad Management",
+          "Website Management"
+        ]
+      },
+      {
+        "idx": 8,
+        "idMatch": "11772_158048-d0",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Ready to Unlock the Power of Email?",
+          "Let’s build an email marketing and automation strategy that turns subscribers into loyal customers.",
+          "Call us"
+        ],
+        "paras": [
+          "Let’s build an email marketing and automation strategy that turns subscribers into loyal customers.",
+          "Call us"
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Get in Touch"
+          }
+        ],
+        "infoBoxTitles": []
+      }
+    ]
+  },
+  "social-media-marketing": {
+    "slug": "social-media-marketing",
+    "title": "Social Media Marketing",
+    "slides": [],
+    "detail": [
+      {
+        "idx": 0,
+        "idMatch": "10744_93caa9-16",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "What We offer",
+          "Social Media Marketing in Vancouver"
+        ],
+        "paras": [],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "What We offer"
+        ]
+      },
+      {
+        "idx": 1,
+        "idMatch": "10744_738fac-22",
+        "mediaText": 0,
+        "cols4": 4,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 4,
+        "panes": 0,
+        "headings": [],
+        "paras": [
+          "Data-driven content calendars that resonate with your audience and drive engagement.",
+          "Build loyal communities through authentic engagement and responsive interaction.",
+          "Track performance metrics and optimize strategies for sustainable follower growth."
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "Content Strategy",
+          "Community Management",
+          "Growth & Analytics",
+          "Visual Content"
+        ]
+      },
+      {
+        "idx": 2,
+        "idMatch": "10744_1ec0d7-54",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Strategy First",
+          "Social Media That Connects"
+        ],
+        "paras": [
+          "Kosick builds full-service social media marketing in Vancouver to grow audiences, engagement, and revenue for local brands and beyond. Every post is purposeful. We develop content strategies rooted in data and creativity, built to stop the scroll, spark conversation, and grow loyal audiences for businesses across Vancouver, Calgary, Toronto, and beyond."
+        ],
+        "bullets": [
+          "Monthly content calendars aligned with your business goals",
+          "Platform-specific content optimized for each algorithm",
+          "Trend monitoring and real-time content opportunities",
+          "A/B testing to continuously improve performance"
+        ],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2026/06/social-media-marketing-2-639x960.jpg",
+            "alt": "vancouver calgary social media marketing content advertising production"
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Learn More"
+          }
+        ],
+        "infoBoxTitles": [
+          "Strategy First"
+        ]
+      },
+      {
+        "idx": 3,
+        "idMatch": "10744_504316-df",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Social ENGAGEMENT",
+          "Build a Loyal Audience"
+        ],
+        "paras": [
+          "Social media isn’t a broadcast channel, it’s a conversation. Through social media marketing, we engage authentically with your audience, respond to comments and messages, and foster meaningful engagement that turns followers into a loyal community around your brand."
+        ],
+        "bullets": [
+          "Daily community monitoring and engagement",
+          "Brand voice consistency across all interactions",
+          "Proactive outreach to build relationships",
+          "Crisis management and reputation protection"
+        ],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2026/06/social-media-marketing-750x500.jpg",
+            "alt": "social media hospitality, F&B, events, corporate,"
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Learn More"
+          }
+        ],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 4,
+        "idMatch": "10744_df1ff2-0b",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Analytics",
+          "Data-Driven Growth"
+        ],
+        "paras": [
+          "Every like, comment, and share tells a story. We use social media analytics and reporting to track what is driving engagement, reach, profile visits, and website clicks, then turn those insights into clear next steps for your content plan. You will receive regular performance summaries that highlight top posts, audience trends, and measurable growth, so we can continuously optimize your strategy and build a loyal community over time."
+        ],
+        "bullets": [
+          "Weekly performance reporting and insights",
+          "Competitor benchmarking and analysis",
+          "Audience insights and demographic tracking",
+          "ROI measurement tied to business objectives"
+        ],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2026/06/social-media-advertising-1-750x937.j",
+            "alt": "social media team in Vancouver"
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Learn More"
+          }
+        ],
+        "infoBoxTitles": [
+          "Analytics"
+        ]
+      },
+      {
+        "idx": 5,
+        "idMatch": "10744_feafe0-23",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 3,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [],
+        "paras": [],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 6,
+        "idMatch": "10744_d1c57e-52",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 2,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Your Brand. Every Platform.",
+          "From short-form video to branded storytelling, we build content that performs across every channel."
+        ],
+        "paras": [
+          "From short-form video to branded storytelling, we build content that performs across every channel."
+        ],
+        "bullets": [
+          "Reels & Stories",
+          "Photography",
+          "Social Ads",
+          "Engagement"
+        ],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2025/11/youtube-marketing-750x422.jpg",
+            "alt": "Youtube Social Media Management Vancouver"
+          },
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2025/11/facebook-marketing-750x422.jpg",
+            "alt": "Facebook Meta Social Media Marketing Vancouver"
+          },
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2025/11/instagram-marketing-750x422.jpg",
+            "alt": "Instagram Social Media Marketing Vancouver"
+          },
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2025/11/tiktok-marketing-750x422.jpg",
+            "alt": "Tik Tok Advertising marketing Vancouver"
+          }
+        ],
+        "ctas": [],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 7,
+        "idMatch": "10744_2a9a90-ec",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 5,
+        "headings": [
+          "Have Questions?",
+          "Frequently Asked Questions",
+          "Which social media platforms should my business be on?",
+          "How do you measure social media success?",
+          "Do you require long-term contracts?",
+          "Do you create the content or do we need to provide it?",
+          "How long before we see results?"
+        ],
+        "paras": [
+          "It depends on your target audience and business goals. We’ll analyze where your customers spend time and focus efforts on the platforms that will drive the best results for your specific industry and objectives. As part of the process, we also review what your competitors are doing and identify quick wins to strengthen your presence where it matters most.",
+          "We track engagement rates, follower growth, reach, impressions, click through rates, and conversions. More importantly, we tie these metrics back to your business goals, whether that is brand awareness, lead generation, or sales, and use ongoing social media analytics and reporting to refine what we post, when we post, and what we promote.",
+          "No. We work month to month because we believe in earning your business through results, not contracts. This gives you flexibility as your goals, seasonality, or budget evolve, while still allowing us to build momentum through consistent optimization. You can pause or cancel anytime with 30 days notice, and we will always provide clear reporting so you understand what is working and what we are improving."
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "Frequently Asked Questions"
+        ]
+      },
+      {
+        "idx": 8,
+        "idMatch": "10744_a6ce27-f8",
+        "mediaText": 0,
+        "cols4": 4,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Google Ad Management",
+          "E-Commerce Marketing",
+          "Social Ad Management",
+          "Website Management"
+        ],
+        "paras": [],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 9,
+        "idMatch": "10744_b0d11a-03",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Ready to Transform Your Social Presence?",
+          "Let’s create a social media strategy that builds your brand, engages your audience, and drives real business results.",
+          "Call us"
+        ],
+        "paras": [
+          "Let’s create a social media strategy that builds your brand, engages your audience, and drives real business results.",
+          "Call us"
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Get in Touch"
+          }
+        ],
+        "infoBoxTitles": []
+      }
+    ]
+  },
+  "search-engine-optimization": {
+    "slug": "search-engine-optimization",
+    "title": "Search Engine Optimization",
+    "slides": [
+      "//staging.kosick.com/wp-content/uploads/2024/04/Web.webp",
+      "//staging.kosick.com/wp-content/uploads/2024/04/cityscape-of-capital-of-corfu-island-colorful-building-at-the-morning-corfu-island-greece.webp"
+    ],
+    "detail": [
+      {
+        "idx": 0,
+        "idMatch": "9875_8a6f46-9b",
+        "mediaText": 0,
+        "cols4": 4,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 4,
+        "panes": 0,
+        "headings": [],
+        "paras": [
+          "In-depth keyword analysis to identify high-value search terms that drive targeted traffic to your website.",
+          "Strategic optimization of titles, meta descriptions, headers, and content structure for maximum search visibility.",
+          "Authoritative backlink strategies that build domain authority and improve your search engine rankings."
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "Keyword Research",
+          "On-Page Optimization",
+          "Link Building",
+          "Local SEO"
+        ]
+      },
+      {
+        "idx": 1,
+        "idMatch": "9875_636672-60",
+        "mediaText": 0,
+        "cols4": 4,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 4,
+        "panes": 0,
+        "headings": [],
+        "paras": [
+          "Site speed optimization, crawlability improvements, schema markup, and Core Web Vitals performance tuning.",
+          "SEO-driven content planning that attracts, engages, and converts your target audience through organic search.",
+          "Comprehensive analysis of competitor strategies to identify gaps and opportunities for your business."
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": [
+          "Technical SEO",
+          "Content Strategy",
+          "Competitor Analysis",
+          "Analytics & Reporting"
+        ]
+      },
+      {
+        "idx": 2,
+        "idMatch": "9875_6e0195-6e",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "SEARCH ENGINE OPTIMIZATION (SEO)",
+          "Drive Traffic With SEO"
+        ],
+        "paras": [
+          "Showing up on Google is no longer optional. When customers across Canada search for what you offer, your business needs to be there, at the top, ahead of the competition. Our team builds search engine optimization strategies that grow organic traffic, earn qualified leads, and turn your website into a dependable source of new business. For more than 40 years we have helped brands get noticed, and modern SEO is how we do it today."
+        ],
+        "bullets": [],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2023/06/DigitalLead_graphic-e1686855242864-7",
+            "alt": "Vancouver digital marketing with expert Google Ads management that delivers measurable results."
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Learn More"
+          }
+        ],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 3,
+        "idMatch": "9875_75158f-23",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Account Strategy",
+          "Local Search Engine Optimization"
+        ],
+        "paras": [
+          "At Kosick Communications, we deliver data-driven SEO services built to help your business climb the Google rankings and get found by the right audience at the exact moment they are searching. If your business is not visible on page one, your competitors are capturing the customers who should be yours. Our search engine optimization specialists close that gap with a strategy shaped around your industry and your goals.",
+          "Strong rankings come from several tactics working together. Our SEO services combine on-page optimization, technical SEO, local search, and keyword research into one program. For businesses serving a specific region, our local SEO helps you show up in Vancouver, Calgary, Toronto, and communities across Canada when nearby buyers are ready to act. Everything is measured against real outcomes, so you always know what your investment returns. Partner with a Canadian SEO agency focused on real business growth, not just rankings."
+        ],
+        "bullets": [],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2026/03/website-development-e-commerce-750x4",
+            "alt": "E-commerce Web Development Shopify WordPress"
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Collaborate With Us"
+          }
+        ],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 4,
+        "idMatch": "9875_ff4419-ed",
+        "mediaText": 1,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Account Reporting",
+          "Search Engine Optimization That Drives Real Growth"
+        ],
+        "paras": [
+          "Empower your business with actionable insights and measurable success through our comprehensive SEO tracking solutions. Our cutting-edge tracking tools meticulously monitor your website’s performance, providing data on keyword rankings, organic traffic, and conversion rates. With this invaluable information, we can make informed decisions, fine-tune SEO strategy, and maximize your ROI."
+        ],
+        "bullets": [],
+        "imgs": [
+          {
+            "src": "https://staging.kosick.com/wp-content/uploads/2023/06/DigitalLead_graphic-e1686855242864-7",
+            "alt": "Vancouver digital marketing with expert Google Ads management that delivers measurable results."
+          }
+        ],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Learn More"
+          }
+        ],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 5,
+        "idMatch": "9875_2b0119-c1",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 2,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Vancouver SEO Services"
+        ],
+        "paras": [
+          "Boost Your Visibility with Proven SEO Services in VancouverAt Kosick Communications, we deliver data-driven SEO services to help your business climb the Google rankings and get found by the right audience at the exact moment they are searching. Search is where buying decisions begin, and if your business is not visible on page one, your competitors are capturing the customers who should be yours. Our SEO specialists close that gap. We focus on on-page optimization, technical SEO, local search, content strategy, and keyword research, all tailored to your industry, your market, and your goals.",
+          "Every campaign is built around measurable outcomes, not vanity metrics. Whether you want to grow organic traffic, sharpen your website’s performance, strengthen your authority with quality backlinks, or win local results in Vancouver, Calgary, Toronto, or anywhere across Canada, we build a strategy engineered to perform and report on it in plain language so you always know what your investment returns. Backed by more than 40 years of marketing experience, we connect your SEO to your wider brand and media strategy, so the whole program works harder than search alone ever could. Partner with a trusted Canadian SEO agency focused on real business growth, not just rankings."
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [],
+        "infoBoxTitles": []
+      },
+      {
+        "idx": 6,
+        "idMatch": "9875_f9c39b-a0",
+        "mediaText": 0,
+        "cols4": 0,
+        "cols3": 0,
+        "cols2": 0,
+        "infoBoxes": 0,
+        "panes": 0,
+        "headings": [
+          "Ready to Elevate Your Digital Presence?",
+          "Let’s discuss how strategic SEO can help grow your business.",
+          "Call us"
+        ],
+        "paras": [
+          "Let’s discuss how strategic SEO can help grow your business.",
+          "Call us"
+        ],
+        "bullets": [],
+        "imgs": [],
+        "ctas": [
+          {
+            "href": "https://staging.kosick.com/contact/",
+            "label": "Get in Touch"
+          }
+        ],
+        "infoBoxTitles": []
+      }
+    ]
+  }
+}

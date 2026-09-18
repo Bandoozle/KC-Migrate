@@ -1,0 +1,266 @@
+{
+  "sampleResults": [
+    {
+      "slug": "is-television-advertising-worth-it",
+      "code": "200",
+      "kosickNative": true,
+      "articleView": true,
+      "hasTitle": true,
+      "hasBody": true,
+      "kadenceRow": true,
+      "wpShell": true,
+      "iframe": false,
+      "gallery": false,
+      "table": false,
+      "quote": false
+    },
+    {
+      "slug": "digital-marketing-vs-traditional-advertising",
+      "code": "200",
+      "kosickNative": true,
+      "articleView": true,
+      "hasTitle": true,
+      "hasBody": true,
+      "kadenceRow": true,
+      "wpShell": true,
+      "iframe": false,
+      "gallery": true,
+      "table": false,
+      "quote": false
+    },
+    {
+      "slug": "blog-kosick-com-corporate-branding-guide",
+      "code": "200",
+      "kosickNative": true,
+      "articleView": true,
+      "hasTitle": true,
+      "hasBody": true,
+      "kadenceRow": true,
+      "wpShell": true,
+      "iframe": false,
+      "gallery": false,
+      "table": true,
+      "quote": true
+    },
+    {
+      "slug": "connected-tv-advertising-canada",
+      "code": "200",
+      "kosickNative": true,
+      "articleView": true,
+      "hasTitle": true,
+      "hasBody": true,
+      "kadenceRow": true,
+      "wpShell": true,
+      "iframe": true,
+      "gallery": false,
+      "table": false,
+      "quote": false
+    },
+    {
+      "slug": "hvac-marketing-strategies",
+      "code": "200",
+      "kosickNative": true,
+      "articleView": true,
+      "hasTitle": true,
+      "hasBody": true,
+      "kadenceRow": true,
+      "wpShell": true,
+      "iframe": false,
+      "gallery": false,
+      "table": false,
+      "quote": false
+    }
+  ],
+  "all": [
+    {
+      "slug": "is-television-advertising-worth-it",
+      "code": "200"
+    },
+    {
+      "slug": "ga4-new-generation-google-analytics",
+      "code": "200"
+    },
+    {
+      "slug": "what-is-social-marketing",
+      "code": "200"
+    },
+    {
+      "slug": "increase-golf-course-revenue",
+      "code": "200"
+    },
+    {
+      "slug": "media-buying-process",
+      "code": "200"
+    },
+    {
+      "slug": "hvac-marketing-strategies",
+      "code": "200"
+    },
+    {
+      "slug": "blog-dental-marketing",
+      "code": "200"
+    },
+    {
+      "slug": "how-to-fill-tee-times-golf-marketing",
+      "code": "200"
+    },
+    {
+      "slug": "blog-golf-marketing-strategies",
+      "code": "200"
+    },
+    {
+      "slug": "hvac-marketing-strategies-guide",
+      "code": "200"
+    },
+    {
+      "slug": "blog-kosick-com-corporate-branding-guide",
+      "code": "200"
+    },
+    {
+      "slug": "blog-hvac-website-development",
+      "code": "200"
+    },
+    {
+      "slug": "optimize-lead-generation",
+      "code": "200"
+    },
+    {
+      "slug": "blog-media-buying-canada-tv-streaming-radio",
+      "code": "200"
+    },
+    {
+      "slug": "blog-social-media-marketing",
+      "code": "200"
+    },
+    {
+      "slug": "home-services-lead-generation-strategies",
+      "code": "200"
+    },
+    {
+      "slug": "golf-marketing-digital-marketing-vancouver",
+      "code": "200"
+    },
+    {
+      "slug": "medical-marketing-vancouver",
+      "code": "200"
+    },
+    {
+      "slug": "web-development-and-hosting-that-improves-seo",
+      "code": "200"
+    },
+    {
+      "slug": "hvac-digital-marketing",
+      "code": "200"
+    },
+    {
+      "slug": "connected-tv-advertising-canada",
+      "code": "200"
+    },
+    {
+      "slug": "hvac-marketing-fortisbc-co-op-advertising",
+      "code": "200"
+    },
+    {
+      "slug": "media-buyer-canada-us",
+      "code": "200"
+    },
+    {
+      "slug": "outdoor-advertising-vancouver",
+      "code": "200"
+    },
+    {
+      "slug": "social-media-advertising-vancouver",
+      "code": "200"
+    },
+    {
+      "slug": "amazon-ads-vancouver",
+      "code": "200"
+    },
+    {
+      "slug": "vancouver-sponsorships-that-performs",
+      "code": "200"
+    },
+    {
+      "slug": "digital-marketing-vs-traditional-advertising",
+      "code": "200"
+    },
+    {
+      "slug": "how-to-buy-tv-advertising-in-canada",
+      "code": "200"
+    },
+    {
+      "slug": "blog-tiktok-instagram-facebook-ad-safe-zones",
+      "code": "200"
+    },
+    {
+      "slug": "blog-digital-tv-advertising-ad-creative",
+      "code": "200"
+    },
+    {
+      "slug": "blog-black-friday-advertising",
+      "code": "200"
+    },
+    {
+      "slug": "organic-social-media-vs-paid-advertising",
+      "code": "200"
+    },
+    {
+      "slug": "shopify-vs-woocommerce",
+      "code": "200"
+    },
+    {
+      "slug": "vancouver-event-marketing",
+      "code": "200"
+    },
+    {
+      "slug": "understanding-digital-pre-roll-advertising",
+      "code": "200"
+    },
+    {
+      "slug": "vancouver-web-development-e-commerce",
+      "code": "200"
+    },
+    {
+      "slug": "the-power-of-radio-advertising",
+      "code": "200"
+    },
+    {
+      "slug": "social-media-marketing-build-an-audience",
+      "code": "200"
+    },
+    {
+      "slug": "media-buying-strategies-for-vancouver",
+      "code": "200"
+    },
+    {
+      "slug": "how-to-choose-a-marketing-company-in-vancouver",
+      "code": "200"
+    },
+    {
+      "slug": "outdoor-advertising-maximize-local-impact",
+      "code": "200"
+    },
+    {
+      "slug": "why-media-buying-matters",
+      "code": "200"
+    },
+    {
+      "slug": "why-companies-use-digital-marketing-to-grow-their-business",
+      "code": "200"
+    },
+    {
+      "slug": "blog-importance-of-social-media-marketing",
+      "code": "200"
+    },
+    {
+      "slug": "what-a-marketing-agency-can-do-for-your-business",
+      "code": "200"
+    },
+    {
+      "slug": "vancouver-marketing-blending-strategies",
+      "code": "200"
+    }
+  ],
+  "ok": 47,
+  "total": 47
+}

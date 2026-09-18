@@ -1,0 +1,213 @@
+{
+  "title": "Digital Marketing",
+  "hasSlider": true,
+  "sections": [
+    {
+      "index": 2,
+      "rowClass": "kb-row-layout-id4609_aafd79-76",
+      "headings": [
+        "What We offer",
+        "Digital Marketing Campaigns",
+        "Meta Ads",
+        "Facebook / Instagram",
+        "Google PPC",
+        "Google / Youtube",
+        "Geo-Targeted PPC",
+        "Mobile / Behaviour"
+      ],
+      "paragraphs": [],
+      "imageCount": 4,
+      "images": [
+        {
+          "src": "https://staging.kosick.com/wp-content/uploads/2026/06/social-media-advertising.jpg",
+          "alt": "Social Media content creation best company"
+        },
+        {
+          "src": "https://staging.kosick.com/wp-content/uploads/2023/06/google-ads-1-750x475.jpeg",
+          "alt": "Vancouver Google Ads management experts specializing in campaign optimization to drive local traffic, boost conversions, and maximize ROI for your business."
+        },
+        {
+          "src": "https://staging.kosick.com/wp-content/uploads/2025/08/digital-marketing-750x500.webp",
+          "alt": "Digital Marketing Vancouver"
+        },
+        {
+          "src": "https://staging.kosick.com/wp-content/uploads/2025/07/media-buying.webp",
+          "alt": "Vancouver Ad Agency, Media Buying, Vancouver Marketing. Advertising"
+        }
+      ],
+      "faqs": [],
+      "links": [],
+      "hasMediaText": false,
+      "hasAccordion": false
+    },
+    {
+      "index": 4,
+      "rowClass": "kb-row-layout-id4609_dbe7e2-10",
+      "headings": [
+        "REACH NEW CUSTOMERS",
+        "Connect With Your Audience"
+      ],
+      "paragraphs": [
+        "From SEO and PPC to social media and email campaigns, we build customized strategies to drive traffic, boost visibility, and convert leads into loyal customers. Whether you’re focused on local or national growth, we help your brand stand out where it matters most. With clients served from coast to coast, we connect every channel into one strategy built around your goals and the customers most likely to buy."
+      ],
+      "imageCount": 1,
+      "images": [
+        {
+          "src": "https://staging.kosick.com/wp-content/uploads/2026/06/digital-marketing-services-1-720x960.jpg",
+          "alt": ""
+        }
+      ],
+      "faqs": [],
+      "links": [
+        {
+          "href": "https://staging.kosick.com/contact/",
+          "text": "Learn More"
+        }
+      ],
+      "hasMediaText": true,
+      "hasAccordion": false
+    },
+    {
+      "index": 6,
+      "rowClass": "kb-row-layout-id4609_d18beb-c7",
+      "headings": [
+        "Google Ads management",
+        "Decide Where to Advertise"
+      ],
+      "paragraphs": [
+        "Go global or stay local. You decide where your PPC ads appear, and we deliver them to the audience most likely to convert. Our geo targeting puts your message in front of the right people at the right moment, whether you are reaching a single neighbourhood or customers across the country. Across Google Search, YouTube, and display, we refine bids, keywords, and creative as the data comes in, so your spend keeps shifting toward what performs and every click works toward real revenue."
+      ],
+      "imageCount": 1,
+      "images": [
+        {
+          "src": "https://staging.kosick.com/wp-content/uploads/2026/03/geo-targeted-digital-marketing-750x701.png",
+          "alt": "Digital Marketing Vancouver PPC Google Ads Meta Advertising"
+        }
+      ],
+      "faqs": [],
+      "links": [
+        {
+          "href": "https://staging.kosick.com/contact/",
+          "text": "Learn More"
+        }
+      ],
+      "hasMediaText": true,
+      "hasAccordion": false
+    },
+    {
+      "index": 8,
+      "rowClass": "kb-row-layout-id4609_df196f-55",
+      "headings": [
+        "PPC SEARCH CAMPAIGNS",
+        "Track Digital Marketing Results"
+      ],
+      "paragraphs": [
+        "Numbers tell the truth, so we measure everything. Our advanced campaign analytics track every click, call, and conversion to reveal what is working and what to improve. From first impression to final sale, we tie each metric back to the revenue it drives, then use those insights to sharpen your next move. You get clear, jargon-free reporting on where your budget goes and what it earns, so every decision is grounded in real performance rather than guesswork."
+      ],
+      "imageCount": 1,
+      "images": [
+        {
+          "src": "https://staging.kosick.com/wp-content/uploads/2026/06/social-media-content-marketing-1-640x960.jpg",
+          "alt": "Partner with Google Analytics specialists to track, analyze, and improve your website’s performance."
+        }
+      ],
+      "faqs": [],
+      "links": [
+        {
+          "href": "https://staging.kosick.com/contact/",
+          "text": "Learn More"
+        }
+      ],
+      "hasMediaText": true,
+      "hasAccordion": false
+    },
+    {
+      "index": 10,
+      "rowClass": "kb-row-layout-id4609_ed3285-38",
+      "headings": [
+        "Have Questions?",
+        "Frequently Asked Questions",
+        "How quickly will I see results from digital marketing?",
+        "What is your minimum monthly ad spend requirement?",
+        "Do you require long-term contracts?",
+        "How do you measure and report on campaign performance?",
+        "What makes Kosick different from other agencies?",
+        "Can you help with landing pages and ad creative?"
+      ],
+      "paragraphs": [
+        "Most clients see initial results within the first 2-4 weeks. However, optimal campaign performance typically develops over 60-90 days as we gather data, optimize targeting, and refine your campaigns for maximum ROI.",
+        "We do not have a fixed minimum monthly ad spend requirement. For each Digital marketing campaign, we provide a recommended starting budget based on your industry, goals, service area, and the platforms being used, so we can generate meaningful data, optimize efficiently, and drive measurable results.",
+        "No. We work month to month because we believe in earning your business through Digital marketing results, not contracts. You can pause or cancel anytime with 30 days notice, giving you flexibility as your goals and budget evolve.",
+        "You’ll receive detailed monthly Digital marketing reports covering key metrics like impressions, clicks, conversions, cost per acquisition, and ROI. We also provide real time dashboard access, clear insights on what is working, and monthly strategy calls to review results and optimize the campaign.",
+        "With over 20 years of Digital marketing experience in Vancouver, we combine local market expertise with enterprise level strategy and execution. You get a dedicated account manager who understands your business, communicates clearly, and stays focused on driving measurable growth, not vanity metrics.",
+        "Absolutely. Our in house creative team supports your Digital marketing efforts with high converting landing pages, ad copy, display banners, and video content built to match your brand and drive action. Great campaigns require great creative, and we focus on visuals and messaging that turn clicks into qualified leads."
+      ],
+      "imageCount": 0,
+      "images": [],
+      "faqs": [
+        "How quickly will I see results from digital marketing?",
+        "What is your minimum monthly ad spend requirement?",
+        "Do you require long-term contracts?",
+        "How do you measure and report on campaign performance?",
+        "What makes Kosick different from other agencies?",
+        "Can you help with landing pages and ad creative?"
+      ],
+      "links": [],
+      "hasMediaText": false,
+      "hasAccordion": true
+    },
+    {
+      "index": 12,
+      "rowClass": "kb-row-layout-id4609_970b5f-53",
+      "headings": [
+        "Google Ad Management",
+        "E-Commerce Marketing",
+        "Social Ad Management",
+        "Website Management"
+      ],
+      "paragraphs": [],
+      "imageCount": 0,
+      "images": [],
+      "faqs": [],
+      "links": [
+        {
+          "href": "https://staging.kosick.com/services/website-development/",
+          "text": "E-Commerce Marketing"
+        },
+        {
+          "href": "https://staging.kosick.com/services/website-development/",
+          "text": "Website Management"
+        }
+      ],
+      "hasMediaText": false,
+      "hasAccordion": false
+    },
+    {
+      "index": 14,
+      "rowClass": "kb-row-layout-id4609_fbc0d8-f2",
+      "headings": [
+        "Ready to Elevate Your Digital Marketing?",
+        "Let’s discuss how strategic digital marketing can help grow your business.",
+        "Call us"
+      ],
+      "paragraphs": [
+        "Let’s discuss how strategic digital marketing can help grow your business."
+      ],
+      "imageCount": 0,
+      "images": [],
+      "faqs": [],
+      "links": [
+        {
+          "href": "https://staging.kosick.com/contact/",
+          "text": "Get in Touch"
+        },
+        {
+          "href": "tel:16049255800",
+          "text": "Call us"
+        }
+      ],
+      "hasMediaText": false,
+      "hasAccordion": false
+    }
+  ]
+}

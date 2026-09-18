@@ -1,0 +1,16 @@
+{
+  "flags": {
+    "captcha": false,
+    "honeypot": false,
+    "form": 4,
+    "smartSlider": false
+  },
+  "postIds": [
+    "11283",
+    "11281"
+  ],
+  "formIds": [
+    "11283-cpt-id",
+    "11281-cpt-id"
+  ]
+}

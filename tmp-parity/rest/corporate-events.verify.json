@@ -1,0 +1,20 @@
+{
+  "len": 783023,
+  "checks": {
+    "kosickNative": true,
+    "siteHeader": true,
+    "siteFooter": true,
+    "hero": true,
+    "feature": true,
+    "process": true,
+    "video": true,
+    "promo": true,
+    "faq": true,
+    "related": true,
+    "cta": true,
+    "wpInteract": true,
+    "wpShell": false,
+    "kadenceMarkup": true,
+    "smartSlider": true
+  }
+}

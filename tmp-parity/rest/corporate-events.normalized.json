@@ -1,0 +1,77 @@
+{
+  "title": "Corporate Events",
+  "heroSlides": 4,
+  "hero": {
+    "eyebrow": "Custom",
+    "displayTitle": "Corporate Events",
+    "subtitle": "Conferences • Incentive Travel • Rewards Programs",
+    "cta": {
+      "label": "Let’s Start Planning",
+      "href": "/contact/"
+    }
+  },
+  "features": [
+    {
+      "eyebrow": "Connect With Our Planning Team",
+      "title": "Experience the Power of Corporate Events",
+      "bullets": 4,
+      "hasImage": true,
+      "cta": "Plan Your Trip"
+    },
+    {
+      "eyebrow": "REWARD & MOTIVATE",
+      "title": "Incentive Travel Programs",
+      "bullets": 4,
+      "hasImage": true,
+      "cta": "Get Started"
+    },
+    {
+      "eyebrow": "showcase & Connect",
+      "title": "Trade Shows & Networking Events",
+      "bullets": 4,
+      "hasImage": true,
+      "cta": "Plan Your Trip"
+    }
+  ],
+  "processSteps": 4,
+  "processTitle": "Our Process",
+  "videos": [
+    "https://player.vimeo.com/video/1190301042?dnt=1&app_id=122963",
+    "https://player.vimeo.com/video/1053936580?dnt=1&app_id=122963"
+  ],
+  "promoBand": {
+    "eyebrow": "Connect With Our Planning Team",
+    "title": "Corporate Events",
+    "bodyLen": 436,
+    "cta": "Plan Your Trip",
+    "bg": "https://staging.kosick.com/wp-content/uploads/2024/04/european-conference.webp"
+  },
+  "faqs": 5,
+  "faqTitle": "Frequently Asked Questions",
+  "related": [
+    {
+      "title": "Conferences",
+      "items": 4,
+      "image": "https://staging.kosick.com/wp-content/uploads/2024/10/corporate-events.webp"
+    },
+    {
+      "title": "Corporate Travel",
+      "items": 4,
+      "image": "https://staging.kosick.com/wp-content/uploads/2024/07/conference-mexico.webp"
+    },
+    {
+      "title": "Trade Shows",
+      "items": 4,
+      "image": "https://staging.kosick.com/wp-content/uploads/2023/06/print-ads.jpg"
+    },
+    {
+      "title": "Reward Programs",
+      "items": 4,
+      "image": "https://staging.kosick.com/wp-content/uploads/2022/01/international-brands.webp"
+    }
+  ],
+  "cta": {
+    "title": "Ready to Plan Your Next Corporate Event?",
+    "primary": "Get in Touch"
+  }
+}

@@ -1,0 +1,730 @@
+{
+  "radio-advertising": {
+    "title": "Radio Advertising",
+    "rows": [
+      {
+        "idx": 0,
+        "id": "9061_fe0697-77",
+        "cols4": 4,
+        "info": 4,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 4,
+        "headings": [
+          "What We offer",
+          "Radio Advertising"
+        ]
+      },
+      {
+        "idx": 1,
+        "id": "9061_6034b8-80",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Local Advertising",
+          "Power Your Message With Local Radio"
+        ]
+      },
+      {
+        "idx": 2,
+        "id": "9061_bd597b-0a",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "STRATEGIC MEDIA MIX",
+          "Expanding Your Media Mix Has Never Been More Important"
+        ]
+      },
+      {
+        "idx": 3,
+        "id": "9061_910ad1-e9",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Vancouver Radio Advertising",
+          "Target the Right Creative to the Right Audiences"
+        ]
+      },
+      {
+        "idx": 4,
+        "id": "9061_0f6948-fd",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 6,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Have Questions?",
+          "Frequently Asked Questions",
+          "How much does radio advertising cost?",
+          "How do you choose the right radio stations?",
+          "Can radio advertising work alongside digital campaigns?",
+          "Do you handle radio ad production and copywriting?",
+          "How do you measure radio adverting effectiveness?",
+          "What is the ideal campaign length for radio?"
+        ]
+      },
+      {
+        "idx": 5,
+        "id": "9061_7f7d50-ad",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 2,
+        "headings": [
+          "Ready to Be Heard?",
+          "Let’s discuss how radio and streaming audio advertising can amplify your brand and drive real business results.",
+          "Call us"
+        ]
+      }
+    ],
+    "parsed": {
+      "slides": [
+        "image:radio-1.webp",
+        "image:podcast.webp",
+        "image:iStock-965201322.jpg"
+      ],
+      "intro": null,
+      "offerGroups": [
+        [
+          "AM/FM Radio Campaigns",
+          "Community Management",
+          "Audience Targeting",
+          "Performance & Attribution"
+        ]
+      ],
+      "features": [
+        {
+          "eyebrow": "Local Advertising",
+          "title": "Power Your Message With Local Radio",
+          "bullets": 4,
+          "cta": "Learn More",
+          "img": true
+        },
+        {
+          "eyebrow": "STRATEGIC MEDIA MIX",
+          "title": "Expanding Your Media Mix Has Never Been More Important",
+          "bullets": 4,
+          "cta": "Work with us",
+          "img": true
+        },
+        {
+          "eyebrow": "Vancouver Radio Advertising",
+          "title": "Target the Right Creative to the Right Audiences",
+          "bullets": 4,
+          "cta": "Connect With Us",
+          "img": true
+        }
+      ],
+      "package": null,
+      "gallery": null,
+      "lead": null,
+      "faqs": {
+        "eyebrow": "Have Questions?",
+        "title": "Frequently Asked Questions",
+        "n": 6
+      },
+      "related": [],
+      "cta": {
+        "title": "Ready to Be Heard?",
+        "primary": "Get in Touch"
+      }
+    }
+  },
+  "television-advertising": {
+    "title": "Television Advertising",
+    "rows": [
+      {
+        "idx": 0,
+        "id": "4726_341b1f-0f",
+        "cols4": 4,
+        "info": 4,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 4,
+        "headings": [
+          "What We offer",
+          "Television Advertising & Media Buying"
+        ]
+      },
+      {
+        "idx": 1,
+        "id": "4726_e60367-78",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Linear Television",
+          "Connect With Canada’s Largest Audiences"
+        ]
+      },
+      {
+        "idx": 2,
+        "id": "4726_6dea6e-63",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Strategic Media Mix",
+          "Expanding Your Media Mix Has Never Been More Important"
+        ]
+      },
+      {
+        "idx": 3,
+        "id": "4726_8f7f33-23",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Television Advertising",
+          "Targeting the Right Creative to the Right Audience"
+        ]
+      },
+      {
+        "idx": 4,
+        "id": "4726_fb25f7-6e",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 21,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Our Partners"
+        ]
+      },
+      {
+        "idx": 5,
+        "id": "4726_5a00ca-2d",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 6,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Have Questions?",
+          "Frequently Asked Questions",
+          "How much does TV advertising cost?",
+          "What’s the difference between linear TV and connected TV?",
+          "How do you measure TV advertising effectiveness?",
+          "Which networks and platforms do you work with?",
+          "Can you handle the creative production for TV Commercials?",
+          "What’s the minimum commitment for a TV campaign?"
+        ]
+      },
+      {
+        "idx": 6,
+        "id": "4726_441dd4-31",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": []
+      },
+      {
+        "idx": 7,
+        "id": "4726_f00448-f8",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 2,
+        "headings": [
+          "Ready to Reach Millions?",
+          "Let’s discuss how television advertising can amplify your brand and drive real business results.",
+          "Call us"
+        ]
+      }
+    ],
+    "parsed": {
+      "slides": [
+        "image:Screen-Shot-2021-12-09-at-1.05.09-PM.jpg",
+        "image:media-buying.jpg",
+        "video:trane-web-1.mp4"
+      ],
+      "intro": null,
+      "offerGroups": [
+        [
+          "Linear TV Campaigns",
+          "Connected TV & Streaming",
+          "Media Buying & Negotiation",
+          "Performance Tracking"
+        ]
+      ],
+      "features": [
+        {
+          "eyebrow": "Linear Television",
+          "title": "Connect With Canada’s Largest Audiences",
+          "bullets": 4,
+          "cta": "Learn More",
+          "img": true
+        },
+        {
+          "eyebrow": "Strategic Media Mix",
+          "title": "Expanding Your Media Mix Has Never Been More Important",
+          "bullets": 4,
+          "cta": "Learn More",
+          "img": true
+        },
+        {
+          "eyebrow": "Television Advertising",
+          "title": "Targeting the Right Creative to the Right Audience",
+          "bullets": 4,
+          "cta": "Learn More",
+          "img": true
+        }
+      ],
+      "package": null,
+      "gallery": {
+        "title": "Our Partners",
+        "imgs": 21
+      },
+      "lead": null,
+      "faqs": {
+        "eyebrow": "Have Questions?",
+        "title": "Frequently Asked Questions",
+        "n": 6
+      },
+      "related": [],
+      "cta": {
+        "title": "Ready to Reach Millions?",
+        "primary": "Get in Touch"
+      }
+    }
+  },
+  "outdoor-advertising": {
+    "title": "Outdoor Advertising",
+    "rows": [
+      {
+        "idx": 0,
+        "id": "8192_559cde-5a",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Billlboard Sizes & Formats",
+          "Choose Your Format"
+        ]
+      },
+      {
+        "idx": 1,
+        "id": "8192_af5eb0-55",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Starting From $550",
+          "Street-Level (TSA)"
+        ]
+      },
+      {
+        "idx": 2,
+        "id": "8192_0b42c9-0e",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Starting From $1,000",
+          "Billboard Posters"
+        ]
+      },
+      {
+        "idx": 3,
+        "id": "8192_eebf43-3a",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Starting From $1,000",
+          "Transit Advertising"
+        ]
+      },
+      {
+        "idx": 4,
+        "id": "8192_299556-33",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Starting From $1,500",
+          "Superboards"
+        ]
+      },
+      {
+        "idx": 5,
+        "id": "8192_17a2a0-ec",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": []
+      },
+      {
+        "idx": 6,
+        "id": "8192_d283cd-e2",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Street Level",
+          "Classic Poster",
+          "Vertical Poster",
+          "Superboard"
+        ]
+      },
+      {
+        "idx": 7,
+        "id": "8192_71a66d-76",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Learn More About Billboard Sizes & Formats"
+        ]
+      },
+      {
+        "idx": 8,
+        "id": "8192_0ee926-e2",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 6,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Have Questions?",
+          "Frequently Asked Questions",
+          "How much does outdoor advertising cost?",
+          "How do you choose billboard locations?",
+          "What is the minimum campaign duration?",
+          "Can I track the performance of my billboard campaign?",
+          "What creative formats and sizes are available?",
+          "Do you handle creative production for billboards?"
+        ]
+      },
+      {
+        "idx": 9,
+        "id": "8192_42f784-bc",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 2,
+        "headings": [
+          "Ready to Own the Outdoors?",
+          "Let’s find the perfect billboard locations to put your brand in front of the right audience.",
+          "Call us"
+        ]
+      }
+    ],
+    "parsed": {
+      "slides": [
+        "image:digital-superboard.webp",
+        "image:transit-out-of-home-advertising-1.jpg",
+        "image:billboard-2.jpg",
+        "image:smartmockups_ljx6qkvg-scaled.jpg",
+        "video:my-movie-10.mp4",
+        "video:outdoor-1.mp4"
+      ],
+      "intro": {
+        "eyebrow": "Billlboard Sizes & Formats",
+        "title": "Choose Your Format"
+      },
+      "offerGroups": [],
+      "features": [],
+      "package": null,
+      "gallery": null,
+      "lead": null,
+      "faqs": {
+        "eyebrow": "Have Questions?",
+        "title": "Frequently Asked Questions",
+        "n": 6
+      },
+      "related": [],
+      "cta": {
+        "title": "Ready to Own the Outdoors?",
+        "primary": "Get in Touch"
+      }
+    }
+  },
+  "digital-connected-tv": {
+    "title": "Digital Video Advertising",
+    "rows": [
+      {
+        "idx": 0,
+        "id": "8799_5af256-e5",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Connected TV Streaming",
+          "Reach Customers Through Digital Video Streaming Platforms"
+        ]
+      },
+      {
+        "idx": 1,
+        "id": "8799_5f76f2-a5",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "GeneratE Brand Exposure",
+          "Expanding Your Media Mix Has Never Been More Important"
+        ]
+      },
+      {
+        "idx": 2,
+        "id": "8799_653224-cc",
+        "cols4": 0,
+        "info": 0,
+        "media": 1,
+        "panes": 0,
+        "imgs": 1,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Connected TV Channels",
+          "Target the Right Creative to the Right Audiences"
+        ]
+      },
+      {
+        "idx": 3,
+        "id": "8799_4e33f1-58",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Digital Video Advertising Formats"
+        ]
+      },
+      {
+        "idx": 4,
+        "id": "8799_334687-10",
+        "cols4": 4,
+        "info": 0,
+        "media": 0,
+        "panes": 4,
+        "imgs": 4,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "In-stream video (Pre-roll and mid-roll)",
+          "Connected TV",
+          "Outstream",
+          "Vertical Video"
+        ]
+      },
+      {
+        "idx": 5,
+        "id": "8799_ad9c77-dc",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 21,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Our Digital Partners"
+        ]
+      },
+      {
+        "idx": 6,
+        "id": "8799_69ddf6-fc",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 6,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Have Questions?",
+          "Frequently Asked Questions",
+          "What is Connected TV (CTV) advertising?",
+          "Which streaming platforms can you advertise on?",
+          "How is CTV different from traditional TV advertising?",
+          "What video ad formats are available?",
+          "How do you measure CTV campaign performance?",
+          "What budget do I need for a CTV campaign?"
+        ]
+      },
+      {
+        "idx": 7,
+        "id": "8799_b3e22b-37",
+        "cols4": 4,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 0,
+        "headings": [
+          "Television Media",
+          "Outdoor Campaigns",
+          "Print & Publishing",
+          "Targeted Streaming"
+        ]
+      },
+      {
+        "idx": 8,
+        "id": "8799_95c6db-e1",
+        "cols4": 0,
+        "info": 0,
+        "media": 0,
+        "panes": 0,
+        "imgs": 0,
+        "videos": 0,
+        "icons": 2,
+        "headings": [
+          "Ready to Reach Streaming Audiences?",
+          "Let’s discuss how connected TV and digital video advertising can put your brand in front of millions of engaged viewers.",
+          "Call us"
+        ]
+      }
+    ],
+    "parsed": {
+      "slides": [
+        "image:tv-streaming-advertising-1.jpg",
+        "image:media-buying.jpg",
+        "image:media-buying.jpg"
+      ],
+      "intro": null,
+      "offerGroups": [],
+      "features": [
+        {
+          "eyebrow": "Connected TV Streaming",
+          "title": "Reach Customers Through Digital Video Streaming Platforms",
+          "bullets": 4,
+          "cta": "Learn More",
+          "img": true
+        },
+        {
+          "eyebrow": "GeneratE Brand Exposure",
+          "title": "Expanding Your Media Mix Has Never Been More Important",
+          "bullets": 4,
+          "cta": "Learn More",
+          "img": true
+        },
+        {
+          "eyebrow": "Connected TV Channels",
+          "title": "Target the Right Creative to the Right Audiences",
+          "bullets": 4,
+          "cta": "Learn More",
+          "img": true
+        }
+      ],
+      "package": null,
+      "gallery": {
+        "title": "Our Digital Partners",
+        "imgs": 21
+      },
+      "lead": null,
+      "faqs": {
+        "eyebrow": "Have Questions?",
+        "title": "Frequently Asked Questions",
+        "n": 6
+      },
+      "related": [
+        "Television Media",
+        "Outdoor Campaigns",
+        "Print & Publishing",
+        "Targeted Streaming"
+      ],
+      "cta": {
+        "title": "Ready to Reach Streaming Audiences?",
+        "primary": "Get in Touch"
+      }
+    }
+  }
+}

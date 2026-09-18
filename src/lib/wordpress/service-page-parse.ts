@@ -350,7 +350,7 @@ function parseRelated($: CheerioAPI, row: Element, origin: string): ServiceRelat
   return $(row)
     .find(".kt-has-4-columns > .wp-block-kadence-column")
     .toArray()
-    .map((col) => {
+    .map((col): ServiceRelated | null => {
       const titleEl = $(col).find("h4, h3, .wp-block-kadence-advancedheading").first();
       const title = nodeText($, titleEl.get(0) as Element | undefined);
       if (!title) return null;
@@ -372,7 +372,7 @@ function parseRelated($: CheerioAPI, row: Element, origin: string): ServiceRelat
         image: bg ? { src: bg, alt: title } : null,
       };
     })
-    .filter((item): item is ServiceRelated => Boolean(item));
+    .filter((item): item is ServiceRelated => item !== null);
 }
 
 function parseCta($: CheerioAPI, row: Element, origin: string): PageCtaData | null {

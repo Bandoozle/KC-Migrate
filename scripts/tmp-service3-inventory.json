@@ -1,0 +1,502 @@
+{
+  "email-marketing": {
+    "slug": "email-marketing",
+    "title": "Email Marketing",
+    "topCount": 10,
+    "top": [
+      {
+        "i": 0,
+        "tag": "div",
+        "cls": "n2_clear",
+        "imgs": 3,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 5,
+        "headings": [],
+        "text": "Email Marketing & Communication Automation Turn your inbox into a revenue channel. We design, automate, and optimize email campaigns on Mail"
+      },
+      {
+        "i": 2,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_2f7cd2-9b alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "What We offer",
+          "Smarter Email Marketing, Better Results"
+        ],
+        "text": ".kadence-column11772_9fab4c-6f > .kt-inside-inner-col,.kadence-column11772_9fab4c-6f > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      },
+      {
+        "i": 4,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_0ca8cd-99 alignnone wp-block-kadence-rowlayout",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [],
+        "text": ".kadence-column11772_c9804d-63 > .kt-inside-inner-col,.kadence-column11772_c9804d-63 > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      },
+      {
+        "i": 6,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_c0cf28-1e alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Mailchimp Expertise",
+          "Email Campaigns Built to Convert"
+        ],
+        "text": ".kadence-column11772_e164c9-e6 > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xxs, 0.5rem);padding-bottom:0px;}.kadence-column11"
+      },
+      {
+        "i": 8,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_2e6123-98 alignfull kt-row-has-bg wp-block-kadence-rowlayout",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Communication Automation",
+          "Automate Your Customer Journey"
+        ],
+        "text": ".kadence-column11772_2ec18d-1f > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xxs, 0.5rem);padding-bottom:0px;}.kadence-column11"
+      },
+      {
+        "i": 10,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_14260b-05 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "ANALYTICS & OPTIMIZATION",
+          "Data That Drives Decisions"
+        ],
+        "text": ".kadence-column11772_6ea8b0-c6 > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-md, 2rem);padding-bottom:var(--global-kb-spacing-m"
+      },
+      {
+        "i": 12,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_bbd621-63 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Full-Service Email Marketing",
+          "Mailchimp Management",
+          "Communication Automation",
+          "Content & Design",
+          "Strategy & Reporting"
+        ],
+        "text": ".kadence-column11772_9638ca-72 > .kt-inside-inner-col,.kadence-column11772_9638ca-72 > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      },
+      {
+        "i": 14,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_5ad89b-b0 alignfull kb-v-sm-hidden has-theme-palette9-background-color kt-row-h",
+        "imgs": 0,
+        "hasFaq": 1,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Have Questions?",
+          "Email Marketing Questions",
+          "Why do you recommend Mailchimp?",
+          "What kind of automations can you set up?",
+          "How do you improve email open rates?",
+          "Can you migrate our existing email lists?",
+          "How often should we be sending emails?"
+        ],
+        "text": ".kadence-column11772_27dfaa-f4 > .kt-inside-inner-col{display:flex;}.kadence-column11772_27dfaa-f4 > .kt-inside-inner-col{padding-right:var("
+      },
+      {
+        "i": 16,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_461021-6e alignfull wp-block-kadence-rowlayout",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Google Ad Management",
+          "E-Commerce Marketing",
+          "Social Ad Management",
+          "Website Management"
+        ],
+        "text": ".kadence-column11772_c0076e-b1 > .kt-inside-inner-col{padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em;}.kadence-column"
+      },
+      {
+        "i": 18,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id11772_158048-d0 alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Ready to Unlock the Power of Email?",
+          "Let’s build an email marketing and automation strategy that turns subscribers into loyal customers.",
+          "Call us"
+        ],
+        "text": ".kadence-column11772_cd4689-fd > .kt-inside-inner-col,.kadence-column11772_cd4689-fd > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      }
+    ],
+    "accordionHeaders": [
+      "Why do you recommend Mailchimp?",
+      "What kind of automations can you set up?",
+      "How do you improve email open rates?",
+      "Can you migrate our existing email lists?",
+      "How often should we be sending emails?"
+    ],
+    "faqSample": [
+      "Why do you recommend Mailchimp?",
+      "Mailchimp offers the best combination of ease-of-use, powerful automation features, and scalability ",
+      "Mailchimp offers the best combination of ease-of-use, powerful automation features, and scalability ",
+      "What kind of automations can you set up?",
+      "We build everything from simple welcome sequences to complex multi-step workflows—drip campaigns, ab",
+      "We build everything from simple welcome sequences to complex multi-step workflows—drip campaigns, ab",
+      "How do you improve email open rates?",
+      "We optimize subject lines through A/B testing, segment your audience for relevance, clean your list ",
+      "We optimize subject lines through A/B testing, segment your audience for relevance, clean your list ",
+      "Can you migrate our existing email lists?"
+    ],
+    "patterns": {
+      "smartSlider": 76,
+      "accordion": 213,
+      "imageoverlay": 0,
+      "infoBox": 414,
+      "offerLike": 54,
+      "rowLayouts": 12
+    },
+    "hasN2": true
+  },
+  "social-media-marketing": {
+    "slug": "social-media-marketing",
+    "title": "Social Media Marketing",
+    "topCount": 12,
+    "top": [
+      {
+        "i": 0,
+        "tag": "div",
+        "cls": "n2_clear",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 6,
+        "headings": [],
+        "text": "Social Media Marketing Content Creation • Management • Engagement Let’s Make Content F1BlueJaysBlueJaysBlueJays"
+      },
+      {
+        "i": 2,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_93caa9-16 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "What We offer",
+          "Social Media Marketing in Vancouver"
+        ],
+        "text": ".kadence-column10744_4c923d-27 > .kt-inside-inner-col,.kadence-column10744_4c923d-27 > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      },
+      {
+        "i": 4,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_738fac-22 alignnone wp-block-kadence-rowlayout",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [],
+        "text": ".kadence-column10744_ddbd53-d1 > .kt-inside-inner-col,.kadence-column10744_ddbd53-d1 > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      },
+      {
+        "i": 6,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_1ec0d7-54 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Strategy First",
+          "Social Media That Connects"
+        ],
+        "text": ".kadence-column10744_dc43b1-7c > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xxs, 0.5rem);padding-bottom:0px;}.kadence-column10"
+      },
+      {
+        "i": 8,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_504316-df alignfull kt-row-has-bg wp-block-kadence-rowlayout",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Social ENGAGEMENT",
+          "Build a Loyal Audience"
+        ],
+        "text": ".kadence-column10744_de2f9f-e6 > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xxs, 0.5rem);padding-bottom:0px;}.kadence-column10"
+      },
+      {
+        "i": 10,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_df1ff2-0b alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Analytics",
+          "Data-Driven Growth"
+        ],
+        "text": ".kadence-column10744_74e6d5-f9 > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xxs, 0.5rem);padding-bottom:0px;}.kadence-column10"
+      },
+      {
+        "i": 12,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_feafe0-23 alignnone wp-block-kadence-rowlayout",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [],
+        "text": ".kadence-column10744_df258d-9b > .kt-inside-inner-col,.kadence-column10744_df258d-9b > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      },
+      {
+        "i": 14,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_d1c57e-52 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-",
+        "imgs": 4,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Your Brand. Every Platform.",
+          "From short-form video to branded storytelling, we build content that performs across every channel."
+        ],
+        "text": ".kadence-column10744_20d3fa-a9 > .kt-inside-inner-col,.kadence-column10744_20d3fa-a9 > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      },
+      {
+        "i": 16,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_2a9a90-ec alignfull kb-v-sm-hidden has-theme-palette9-background-color kt-row-h",
+        "imgs": 0,
+        "hasFaq": 1,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Have Questions?",
+          "Frequently Asked Questions",
+          "Which social media platforms should my business be on?",
+          "How do you measure social media success?",
+          "Do you require long-term contracts?",
+          "Do you create the content or do we need to provide it?",
+          "How long before we see results?"
+        ],
+        "text": ".kadence-column10744_a0e1a6-97 > .kt-inside-inner-col{display:flex;}.kadence-column10744_a0e1a6-97 > .kt-inside-inner-col{padding-right:var("
+      },
+      {
+        "i": 18,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_a6ce27-f8 alignfull wp-block-kadence-rowlayout",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Google Ad Management",
+          "E-Commerce Marketing",
+          "Social Ad Management",
+          "Website Management"
+        ],
+        "text": ".kadence-column10744_6b2f43-21 > .kt-inside-inner-col{padding-top:2em;padding-right:2em;padding-bottom:2em;padding-left:2em;}.kadence-column"
+      },
+      {
+        "i": 20,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id10744_b0d11a-03 alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Ready to Transform Your Social Presence?",
+          "Let’s create a social media strategy that builds your brand, engages your audience, and drives real business results.",
+          "Call us"
+        ],
+        "text": ".kadence-column10744_4c1fad-d4 > .kt-inside-inner-col,.kadence-column10744_4c1fad-d4 > .kt-inside-inner-col:before{border-top-left-radius:0p"
+      },
+      {
+        "i": 21,
+        "tag": "p",
+        "cls": "wp-block-paragraph",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [],
+        "text": ""
+      }
+    ],
+    "accordionHeaders": [
+      "Which social media platforms should my business be on?",
+      "How do you measure social media success?",
+      "Do you require long-term contracts?",
+      "Do you create the content or do we need to provide it?",
+      "How long before we see results?"
+    ],
+    "faqSample": [
+      "Which social media platforms should my business be on?",
+      "It depends on your target audience and business goals. We’ll analyze where your customers spend time",
+      "It depends on your target audience and business goals. We’ll analyze where your customers spend time",
+      "How do you measure social media success?",
+      "We track engagement rates, follower growth, reach, impressions, click through rates, and conversions",
+      "We track engagement rates, follower growth, reach, impressions, click through rates, and conversions",
+      "Do you require long-term contracts?",
+      "No. We work month to month because we believe in earning your business through results, not contract",
+      "No. We work month to month because we believe in earning your business through results, not contract",
+      "Do you create the content or do we need to provide it?"
+    ],
+    "patterns": {
+      "smartSlider": 85,
+      "accordion": 213,
+      "imageoverlay": 0,
+      "infoBox": 226,
+      "offerLike": 54,
+      "rowLayouts": 12
+    },
+    "hasN2": true
+  },
+  "search-engine-optimization": {
+    "slug": "search-engine-optimization",
+    "title": "Search Engine Optimization",
+    "topCount": 8,
+    "top": [
+      {
+        "i": 0,
+        "tag": "div",
+        "cls": "n2_clear",
+        "imgs": 2,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 4,
+        "headings": [],
+        "text": "Search Engine Optimization Page Ranking • Keyword Research • Optimization Start Optimizing SlideiStock-1363132799"
+      },
+      {
+        "i": 2,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id9875_8a6f46-9b alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-k",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [],
+        "text": ".kadence-column9875_2a16af-e0 > .kt-inside-inner-col,.kadence-column9875_2a16af-e0 > .kt-inside-inner-col:before{border-top-left-radius:0px;"
+      },
+      {
+        "i": 4,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id9875_636672-60 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-k",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [],
+        "text": ".kadence-column9875_cf7e95-0c > .kt-inside-inner-col,.kadence-column9875_cf7e95-0c > .kt-inside-inner-col:before{border-top-left-radius:0px;"
+      },
+      {
+        "i": 6,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id9875_6e0195-6e alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-k",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "SEARCH ENGINE OPTIMIZATION (SEO)",
+          "Drive Traffic With SEO"
+        ],
+        "text": ".kadence-column9875_e12c12-ac > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xxs, 0.5rem);padding-bottom:0px;}.kadence-column987"
+      },
+      {
+        "i": 8,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id9875_75158f-23 alignfull kt-row-has-bg wp-block-kadence-rowlayout",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Account Strategy",
+          "Local Search Engine Optimization"
+        ],
+        "text": ".kadence-column9875_43d6ef-83 > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xxs, 0.5rem);padding-bottom:0px;}.kadence-column987"
+      },
+      {
+        "i": 10,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id9875_ff4419-ed alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-k",
+        "imgs": 1,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Account Reporting",
+          "Search Engine Optimization That Drives Real Growth"
+        ],
+        "text": ".kadence-column9875_78dd42-49 > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xxs, 0.5rem);padding-bottom:0px;}.kadence-column987"
+      },
+      {
+        "i": 12,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id9875_2b0119-c1 alignnone wp-block-kadence-rowlayout",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Vancouver SEO Services"
+        ],
+        "text": ".kadence-column9875_b8a6f0-a3 > .kt-inside-inner-col,.kadence-column9875_b8a6f0-a3 > .kt-inside-inner-col:before{border-top-left-radius:0px;"
+      },
+      {
+        "i": 14,
+        "tag": "div",
+        "cls": "kb-row-layout-wrap kb-row-layout-id9875_f9c39b-a0 alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-k",
+        "imgs": 0,
+        "hasFaq": 0,
+        "hasOverlay": 0,
+        "hasSlider": 0,
+        "headings": [
+          "Ready to Elevate Your Digital Presence?",
+          "Let’s discuss how strategic SEO can help grow your business.",
+          "Call us"
+        ],
+        "text": ".kadence-column9875_2cae07-b3 > .kt-inside-inner-col,.kadence-column9875_2cae07-b3 > .kt-inside-inner-col:before{border-top-left-radius:0px;"
+      }
+    ],
+    "accordionHeaders": [],
+    "faqSample": [],
+    "patterns": {
+      "smartSlider": 69,
+      "accordion": 0,
+      "imageoverlay": 0,
+      "infoBox": 452,
+      "offerLike": 54,
+      "rowLayouts": 11
+    },
+    "hasN2": true
+  }
+}

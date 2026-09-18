@@ -1,0 +1,242 @@
+﻿{
+  "source": "tmp-parity/home.html",
+  "hero": {
+    "vimeoIframeSrc": "https://player.vimeo.com/video/911448655?autoplay=1&controls=0&mute=1&muted=1&loop=1&playlist=911448655&disablekb=1&modestbranding=1&playsinline=1&rel=0&background=1",
+    "backgroundVideoUrl": null,
+    "backgroundMp4Url": null,
+    "ctaHref": "https://staging.kosick.com/contact/",
+    "wordpress": {
+      "title": "The Art Of Marketing",
+      "subtitle": "Digital ΓÇó Media ΓÇó Branding ΓÇó Business Development",
+      "ctaText": "Connect With Us"
+    },
+    "interactForced": {
+      "title": "THE ART OF MARKETING",
+      "subtitle": "Digital ΓÇó Media ΓÇó Branding ΓÇó Business Development",
+      "ctaText": "CONNECT WITH US"
+    }
+  },
+  "whatWeDoIntro": {
+    "title": "Marketing built to move brands forward.",
+    "description": "We help brands grow through strategy, creative, media, and digital experiences. With 40+ years of experience, Kosick combines traditional advertising with modern digital marketing to build visibility, reach the right audience, and drive measurable growth."
+  },
+  "solutions": {
+    "sectionTitle": "Our bespoke solutions",
+    "subtitleWordpress": "intuitive",
+    "subtitleForcedByInteract": "Strategy, creative, and media working together ΓÇö tailored solutions that build visibility and drive measurable growth."
+  },
+  "brandTabs": [
+    {
+      "label": "Define Yourself",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2025/08/digital-marketing-750x500.webp",
+        "alt": "Digital Marketing Vancouver"
+      },
+      "heading": "Define Yourself",
+      "bodyParagraphs": [
+        "Great brands create recognition and trust.\nWe build identities that feel human, memorable,\nand consistent across every touchpoint."
+      ],
+      "lists": []
+    },
+    {
+      "label": "Strategy",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/09/henderson-inclusive-strategy-edited-750x563.jpg",
+        "alt": null
+      },
+      "heading": "Strategist & Innovators",
+      "bodyParagraphs": [
+        "Smarter strategy creates stronger growth.\nWe align creative, media, and business goals\nto build campaigns designed for long-term results."
+      ],
+      "lists": []
+    },
+    {
+      "label": "Consistency",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/09/kc-branding-edited-750x562.jpg",
+        "alt": "Corporate event specialists organizing high-level meetings and brand activations to create memorable experiences for clients and stakeholders."
+      },
+      "heading": "Consistency Is Golden",
+      "bodyParagraphs": [
+        "Strong brands feel consistent everywhere.\nWe create clear, recognizable experiences\nthat customers can trust."
+      ],
+      "lists": []
+    },
+    {
+      "label": "Connections",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/03/digital-marketing-lead-generation-750x563.jpg",
+        "alt": "Lead Generation Vancouver HVAC Medical Electrical"
+      },
+      "heading": "Make Connections",
+      "bodyParagraphs": [
+        "We help brands connect with the right audience through thoughtful creative, clear messaging, and strategic design that drives engagement."
+      ],
+      "lists": []
+    }
+  ],
+  "brandTabsSectionNote": {
+    "precedingTitle": "Build a brand people remember",
+    "precedingDescription": "From strategy to consistency, create meaningful experiences across every touchpoint."
+  },
+  "testimonials": {
+    "sectionTitle": "Hear it from our customers",
+    "sectionLead": "See how our work helps create real results.",
+    "cards": [
+      {
+        "quote": "ΓÇ£IΓÇÖve had the pleasure of working with Keith and Bretton on and off for years. TheyΓÇÖre highly professional, creative and when it comes to print marketing materials I donΓÇÖt know any one IΓÇÖve ever worked with who does it better!ΓÇ¥",
+        "author": "Joel Primus",
+        "role": null,
+        "logo": null,
+        "avatar": null
+      },
+      {
+        "quote": "ΓÇ£They helped us refine our messaging, improve our ad performance, and position our brand in a more professional and compelling way. What stood out most was their ability to combine creativity with dataΓÇöthey donΓÇÖt guess, they execute with purpose.ΓÇ¥",
+        "author": "LC Fitness Management",
+        "role": null,
+        "logo": null,
+        "avatar": null
+      }
+    ]
+  },
+  "whyChoose": {
+    "sectionTitle": "Why Choose Kosick",
+    "leadParagraph": "We combine creativity with analytics to deliver campaigns that donΓÇÖt just look good\nthey perform.",
+    "metrics": [
+      {
+        "value": "150+",
+        "label": "Clients Served"
+      },
+      {
+        "value": "500+",
+        "label": "Campaigns Launched"
+      },
+      {
+        "value": "98%",
+        "label": "Client Retention"
+      },
+      {
+        "value": "10+",
+        "label": "Years Experience"
+      }
+    ],
+    "tileButtonLabels": [
+      "Data- driven Strategy",
+      "Creative Excellence",
+      "Transparent Reporting",
+      "Dedicated Support",
+      "Scalable Solutions",
+      "Industry Expertise"
+    ]
+  },
+  "quote": {
+    "quoteText": "ΓÇ£Design must be functional, and functionality must be translated into visual aestheticsΓÇ¥",
+    "attribution": {
+      "name": "Ferdinand Porsche",
+      "role": "Austrian-German automotive engineer"
+    },
+    "photoUrl": "https://staging.kosick.com/wp-content/uploads/2026/09/gettyimages-515214352-copy.avif"
+  },
+  "contact": {
+    "heading": "LetΓÇÖs Work Together",
+    "lead": "Ready to amplify your brand? Get in touch and letΓÇÖs discuss how we can help you achieve your goals.",
+    "phone": "+1 (604) 925-5800",
+    "phoneHref": "tel:16049255800",
+    "email": "info@kosick.com",
+    "emailHref": "/cdn-cgi/l/email-protection#254c4b434a654e4a564c464e0b464a48",
+    "emailDecodedFromCloudflare": "info@kosick.com",
+    "emailRtlVisibleRaw": "info@kosick.com",
+    "addresses": [
+      "Vancouver & Calgary"
+    ],
+    "locationsLabel": "Locations",
+    "form": {
+      "id": "kb-adv-form-11283-cpt-id",
+      "formPostId": "11283",
+      "action": null,
+      "method": "post",
+      "submitActionHidden": "kb_process_advanced_form_submit",
+      "fields": [
+        {
+          "type": "text",
+          "name": "field652327-6b",
+          "id": "field11283652327-6b",
+          "label": "Name",
+          "placeholder": "Your name",
+          "required": true
+        },
+        {
+          "type": "text",
+          "name": "field4d218f-d3",
+          "id": "field112834d218f-d3",
+          "label": "Email",
+          "placeholder": "Your Email",
+          "required": true
+        },
+        {
+          "type": "text",
+          "name": "field7ef1b0-96",
+          "id": "field112837ef1b0-96",
+          "label": "Phone Number",
+          "placeholder": "Phone number",
+          "required": true
+        },
+        {
+          "type": "text",
+          "name": "field02e9e9-ef",
+          "id": "field1128302e9e9-ef",
+          "label": "Company",
+          "placeholder": "Your company",
+          "required": false
+        },
+        {
+          "type": "textarea",
+          "name": "field34af12-76",
+          "id": "field1128334af12-76",
+          "label": "Message",
+          "placeholder": "Tell us about your project...",
+          "required": false
+        },
+        {
+          "type": "submit",
+          "name": null,
+          "id": null,
+          "label": "Send Message",
+          "placeholder": null,
+          "required": false
+        }
+      ],
+      "hidden": [
+        {
+          "name": "_kb_adv_form_post_id",
+          "value": "11283"
+        },
+        {
+          "name": "action",
+          "value": "kb_process_advanced_form_submit"
+        },
+        {
+          "name": "_kb_adv_form_id",
+          "value": "11283-cpt-id"
+        }
+      ]
+    }
+  },
+  "heroVideo": {
+    "vimeoId": "911448655",
+    "vimeoPlayerUrl": "https://player.vimeo.com/video/911448655",
+    "vimeoUrls": [
+      "https://player.vimeo.com/video/911448655",
+      "https://player.vimeo.com/video/911448655?autoplay=1&controls=0&mute=1&muted=1&loop=1&playlist=911448655&disablekb=1&modestbranding=1&playsinline=1&rel=0&background=1"
+    ],
+    "mp4Url": null,
+    "mp4Urls": []
+  },
+  "instagram": {
+    "presentInWordpressHtml": true,
+    "sectionRowClass": "kb-row-layout-id4541_de853e-ad",
+    "sectionTitleInWp": "Kosick In Motion",
+    "hiddenInNextJs": true,
+    "hiddenBy": "src/styles/wordpress-compat.css rule `.kb-row-layout-id4541_de853e-ad { display: none !important; }` (comment: Hide homepage \"Kosick In Motion\" Instagram section)"
+  }
+}

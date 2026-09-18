@@ -1,0 +1,28 @@
+{
+  "checks": {
+    "kosickNative": true,
+    "company": true,
+    "offices": true,
+    "form": true,
+    "formKeyAbsent": false,
+    "thanksNotYet": true,
+    "kadenceFormMarkup": true,
+    "wpInteractInBody": false,
+    "contactPageView": true,
+    "email": true,
+    "map": true
+  },
+  "missing": {
+    "ok": false,
+    "error": "Please fix the highlighted fields.",
+    "fields": {
+      "name": "Name is required.",
+      "email": "Enter a valid email address.",
+      "phone": "Phone Number is required."
+    }
+  },
+  "unknown": {
+    "ok": false,
+    "error": "Unknown form."
+  }
+}

@@ -1,0 +1,394 @@
+{
+  "marketing-results": {
+    "slug": "marketing-results",
+    "title": "Marketing Results",
+    "sliderImgs": [
+      "//staging.kosick.com/wp-content/uploads/2026/06/billboard-2.jpg",
+      "//staging.kosick.com/wp-content/uploads/2026/06/dental-clinic-branding.jpg",
+      "//staging.kosick.com/wp-content/uploads/2026/02/medical-skincare-marketing.jpg"
+    ],
+    "sliderImgCount": 3,
+    "sliderTexts": [],
+    "overlayCount": 104,
+    "overlays": [
+      {
+        "class": "kt-img-overlay1698_7c4a44-41 aligncenter wp-block-kadence-imageoverlay",
+        "title": "Real Estate Developments",
+        "img": "https://staging.kosick.com/wp-content/uploads/2022/01/Motor-Court.webp",
+        "href": "/contact",
+        "htmlSnippet": "<div class=\"kt-img-overlay1698_7c4a44-41 aligncenter wp-block-kadence-imageoverlay\"><div class=\"kt-image-overlay-wrap kt-over-image-zoomin\"><div class=\"kt-block-intrisic\"><img loading=\"lazy\" decoding=\"async\" src=\"https://staging.kosick.com/wp-content/uploads/2022/01/Motor-Court.webp\" alt=\"Real estat"
+      },
+      {
+        "class": "kt-image-overlay-wrap kt-over-image-zoomin",
+        "title": "Real Estate Developments",
+        "img": "https://staging.kosick.com/wp-content/uploads/2022/01/Motor-Court.webp",
+        "href": "/contact",
+        "htmlSnippet": "<div class=\"kt-image-overlay-wrap kt-over-image-zoomin\"><div class=\"kt-block-intrisic\"><img loading=\"lazy\" decoding=\"async\" src=\"https://staging.kosick.com/wp-content/uploads/2022/01/Motor-Court.webp\" alt=\"Real estate marketing campaigns delivering measurable results through targeted advertising, br"
+      },
+      {
+        "class": "kt-image-overlay-color-wrapper",
+        "title": "",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-color-wrapper\"><div class=\"kt-image-overlay-color\"></div></div>"
+      },
+      {
+        "class": "kt-image-overlay-color",
+        "title": "",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-color\"></div>"
+      },
+      {
+        "class": "kt-imageoverlay-link",
+        "title": "Real Estate Developments",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<a href=\"/contact\" class=\"kt-imageoverlay-link\"><div class=\"kt-image-overlay-message kt-over-substyle-visible kt-over-valign-center kt-over-halign-center\"><div class=\"kt-image-overlay-inner\"><h2 class=\"image-overlay-title\" tabindex=\"0\">Real Estate Developments</h2></div></div></a>"
+      },
+      {
+        "class": "kt-image-overlay-message kt-over-substyle-visible kt-over-valign-center kt-over-halign-center",
+        "title": "Real Estate Developments",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-message kt-over-substyle-visible kt-over-valign-center kt-over-halign-center\"><div class=\"kt-image-overlay-inner\"><h2 class=\"image-overlay-title\" tabindex=\"0\">Real Estate Developments</h2></div></div>"
+      },
+      {
+        "class": "kt-image-overlay-inner",
+        "title": "Real Estate Developments",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-inner\"><h2 class=\"image-overlay-title\" tabindex=\"0\">Real Estate Developments</h2></div>"
+      },
+      {
+        "class": "image-overlay-title",
+        "title": "",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<h2 class=\"image-overlay-title\" tabindex=\"0\">Real Estate Developments</h2>"
+      },
+      {
+        "class": "kt-img-overlay1698_cd1fa2-9f aligncenter wp-block-kadence-imageoverlay",
+        "title": "Residential Construction",
+        "img": "https://staging.kosick.com/wp-content/uploads/2023/06/services.jpg",
+        "href": "/contact",
+        "htmlSnippet": "<div class=\"kt-img-overlay1698_cd1fa2-9f aligncenter wp-block-kadence-imageoverlay\"><div class=\"kt-image-overlay-wrap kt-over-image-zoomin\"><div class=\"kt-block-intrisic\"><img loading=\"lazy\" decoding=\"async\" src=\"https://staging.kosick.com/wp-content/uploads/2023/06/services.jpg\" alt=\"Targeted marke"
+      },
+      {
+        "class": "kt-image-overlay-wrap kt-over-image-zoomin",
+        "title": "Residential Construction",
+        "img": "https://staging.kosick.com/wp-content/uploads/2023/06/services.jpg",
+        "href": "/contact",
+        "htmlSnippet": "<div class=\"kt-image-overlay-wrap kt-over-image-zoomin\"><div class=\"kt-block-intrisic\"><img loading=\"lazy\" decoding=\"async\" src=\"https://staging.kosick.com/wp-content/uploads/2023/06/services.jpg\" alt=\"Targeted marketing solutions for construction companies, including branding, web design, SEO, and "
+      },
+      {
+        "class": "kt-image-overlay-color-wrapper",
+        "title": "",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-color-wrapper\"><div class=\"kt-image-overlay-color\"></div></div>"
+      },
+      {
+        "class": "kt-image-overlay-color",
+        "title": "",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-color\"></div>"
+      },
+      {
+        "class": "kt-imageoverlay-link",
+        "title": "Residential Construction",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<a href=\"/contact\" class=\"kt-imageoverlay-link\"><div class=\"kt-image-overlay-message kt-over-substyle-visible kt-over-valign-center kt-over-halign-center\"><div class=\"kt-image-overlay-inner\"><h2 class=\"image-overlay-title\" tabindex=\"0\">Residential Construction</h2></div></div></a>"
+      },
+      {
+        "class": "kt-image-overlay-message kt-over-substyle-visible kt-over-valign-center kt-over-halign-center",
+        "title": "Residential Construction",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-message kt-over-substyle-visible kt-over-valign-center kt-over-halign-center\"><div class=\"kt-image-overlay-inner\"><h2 class=\"image-overlay-title\" tabindex=\"0\">Residential Construction</h2></div></div>"
+      },
+      {
+        "class": "kt-image-overlay-inner",
+        "title": "Residential Construction",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-inner\"><h2 class=\"image-overlay-title\" tabindex=\"0\">Residential Construction</h2></div>"
+      },
+      {
+        "class": "image-overlay-title",
+        "title": "",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<h2 class=\"image-overlay-title\" tabindex=\"0\">Residential Construction</h2>"
+      },
+      {
+        "class": "kt-img-overlay1698_b3baf8-73 aligncenter wp-block-kadence-imageoverlay",
+        "title": "HVAC Services",
+        "img": "https://staging.kosick.com/wp-content/uploads/2022/01/hvac.webp",
+        "href": "/contact",
+        "htmlSnippet": "<div class=\"kt-img-overlay1698_b3baf8-73 aligncenter wp-block-kadence-imageoverlay\"><div class=\"kt-image-overlay-wrap kt-over-image-zoomin\"><div class=\"kt-block-intrisic\"><img loading=\"lazy\" decoding=\"async\" src=\"https://staging.kosick.com/wp-content/uploads/2022/01/hvac.webp\" alt=\"HVAC marketing se"
+      },
+      {
+        "class": "kt-image-overlay-wrap kt-over-image-zoomin",
+        "title": "HVAC Services",
+        "img": "https://staging.kosick.com/wp-content/uploads/2022/01/hvac.webp",
+        "href": "/contact",
+        "htmlSnippet": "<div class=\"kt-image-overlay-wrap kt-over-image-zoomin\"><div class=\"kt-block-intrisic\"><img loading=\"lazy\" decoding=\"async\" src=\"https://staging.kosick.com/wp-content/uploads/2022/01/hvac.webp\" alt=\"HVAC marketing services including lead generation, Google Ads, SEO, and custom websites to help heati"
+      },
+      {
+        "class": "kt-image-overlay-color-wrapper",
+        "title": "",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-color-wrapper\"><div class=\"kt-image-overlay-color\"></div></div>"
+      },
+      {
+        "class": "kt-image-overlay-color",
+        "title": "",
+        "img": "",
+        "href": null,
+        "htmlSnippet": "<div class=\"kt-image-overlay-color\"></div>"
+      }
+    ],
+    "figures": [],
+    "topChildren": [
+      {
+        "tag": "div",
+        "class": "n2_clear",
+        "textPreview": "Marketing Results Our Work Canada • USA • Mexico Connect With Us Social MediaDigital StreamingDigita"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id1698_c0eb5e-a1 > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id1"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id1698_c0eb5e-a1 alignnone wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column1698_c5f4ae-36 > .kt-inside-inner-col,.kadence-column1698_c5f4ae-36 > .kt-inside-inne"
+      },
+      {
+        "tag": "div",
+        "class": "wp-block-group",
+        "textPreview": ".kb-row-layout-id1698_5d1d80-a7 > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id1"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id1698_514e77-49 > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id1"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id1698_514e77-49 alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column1698_bddbb4-60 > .kt-inside-inner-col,.kadence-column1698_bddbb4-60 > .kt-inside-inne"
+      }
+    ],
+    "hasSmartSlider": true,
+    "classHits": {
+      "imageoverlay": 52,
+      "image_overlay": 273,
+      "overlay": 503
+    }
+  },
+  "marketing-programs": {
+    "slug": "marketing-programs",
+    "title": "Marketing Programs",
+    "sliderImgs": [
+      "//staging.kosick.com/wp-content/uploads/2026/06/social-media-marketing-3.jpg",
+      "//staging.kosick.com/wp-content/uploads/2026/06/social-media-advertising.jpg"
+    ],
+    "sliderImgCount": 2,
+    "sliderTexts": [],
+    "overlayCount": 0,
+    "overlays": [],
+    "figures": [],
+    "topChildren": [
+      {
+        "tag": "div",
+        "class": "n2_clear",
+        "textPreview": "Strategic Marketing Programs Digital • Traditional • Web Connect With Us Social MediaDigital Streami"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-wrap.wp-block-kadence-rowlayout.kb-row-layout-id2019_0df78d-59{margin-bottom:var(--gl"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id2019_0df78d-59 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column2019_82f31f-a6 > .kt-inside-inner-col{display:flex;}.kadence-column2019_82f31f-a6 > ."
+      },
+      {
+        "tag": "hr",
+        "class": "wp-block-separator has-text-color has-theme-palette-4-color has-alpha-channel-opacity has-theme-palette-4-background-color has-background is",
+        "textPreview": ""
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-wrap.wp-block-kadence-rowlayout.kb-row-layout-id2019_70acc3-25{margin-bottom:var(--gl"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id2019_70acc3-25 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column2019_183641-da > .kt-inside-inner-col{display:flex;}.kadence-column2019_183641-da > ."
+      },
+      {
+        "tag": "hr",
+        "class": "wp-block-separator has-text-color has-theme-palette-4-color has-alpha-channel-opacity has-theme-palette-4-background-color has-background is",
+        "textPreview": ""
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-wrap.wp-block-kadence-rowlayout.kb-row-layout-id2019_1b084d-86{margin-bottom:var(--gl"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id2019_1b084d-86 alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column2019_f6f789-9a > .kt-inside-inner-col{display:flex;}.kadence-column2019_f6f789-9a > ."
+      },
+      {
+        "tag": "hr",
+        "class": "wp-block-separator has-text-color has-theme-palette-4-color has-alpha-channel-opacity has-theme-palette-4-background-color has-background is",
+        "textPreview": ""
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-wrap.wp-block-kadence-rowlayout.kb-row-layout-id2019_1c5b9b-5c{margin-bottom:var(--gl"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id2019_1c5b9b-5c alignfull has-theme-palette9-background-color kt-row-has-bg wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column2019_751f34-4e > .kt-inside-inner-col{display:flex;}.kadence-column2019_751f34-4e > ."
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id2019_ad8c4e-8d > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id2"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id2019_ad8c4e-8d alignfull has-theme-palette3-background-color kt-row-has-bg wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column2019_7fbc9d-72 > .kt-inside-inner-col,.kadence-column2019_7fbc9d-72 > .kt-inside-inne"
+      },
+      {
+        "tag": "p",
+        "class": "wp-block-paragraph",
+        "textPreview": ""
+      }
+    ],
+    "hasSmartSlider": true,
+    "classHits": {
+      "imageoverlay": 0,
+      "image_overlay": 0,
+      "overlay": 5
+    }
+  },
+  "services": {
+    "slug": "services",
+    "title": "Our Services &#038; Expertise",
+    "sliderImgs": [],
+    "sliderImgCount": 0,
+    "sliderTexts": [],
+    "overlayCount": 0,
+    "overlays": [],
+    "figures": [],
+    "topChildren": [
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id4554_dcbbd1-c3 > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id4"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id4554_dcbbd1-c3 alignfull has-theme-palette8-background-color kt-row-has-bg kt-jarallax wp-block-kadence-r",
+        "textPreview": ".kadence-column4554_a07c05-4b > .kt-inside-inner-col,.kadence-column4554_a07c05-4b > .kt-inside-inne"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id4554_793e7e-7c > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id4"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id4554_793e7e-7c alignnone wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column4554_76fe8c-6f > .kt-inside-inner-col,.kadence-column4554_76fe8c-6f > .kt-inside-inne"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id4554_b402d4-0f > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id4"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id4554_b402d4-0f alignwide wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column4554_5f80fc-d7 > .kt-inside-inner-col{padding-top:50px;}.kadence-column4554_5f80fc-d7"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id4554_3d131d-0c > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id4"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id4554_3d131d-0c alignwide wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column4554_d2d1d6-a0 > .kt-inside-inner-col{padding-top:50px;}.kadence-column4554_d2d1d6-a0"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id4554_0a52a9-f5 > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id4"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id4554_0a52a9-f5 alignwide wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column4554_448fb8-1d > .kt-inside-inner-col{padding-top:50px;}.kadence-column4554_448fb8-1d"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id4554_6cc26b-68 > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id4"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id4554_6cc26b-68 alignwide wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column4554_01443a-2c > .kt-inside-inner-col{padding-top:50px;}.kadence-column4554_01443a-2c"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id4554_0e3667-fa > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id4"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id4554_0e3667-fa alignwide wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column4554_c104ae-a9 > .kt-inside-inner-col{padding-top:50px;}.kadence-column4554_c104ae-a9"
+      },
+      {
+        "tag": "style",
+        "class": "",
+        "textPreview": ".kb-row-layout-id4554_458ebe-63 > .kt-row-column-wrap{align-content:start;}:where(.kb-row-layout-id4"
+      },
+      {
+        "tag": "div",
+        "class": "kb-row-layout-wrap kb-row-layout-id4554_458ebe-63 alignwide wp-block-kadence-rowlayout",
+        "textPreview": ".kadence-column4554_a511a2-d3 > .kt-inside-inner-col{padding-top:50px;}.kadence-column4554_a511a2-d3"
+      },
+      {
+        "tag": "p",
+        "class": "wp-block-paragraph",
+        "textPreview": ""
+      }
+    ],
+    "hasSmartSlider": false,
+    "classHits": {
+      "imageoverlay": 0,
+      "image_overlay": 0,
+      "overlay": 10
+    }
+  }
+}

@@ -24,8 +24,8 @@ export type ServiceRelated = {
   title: string;
   href: string | null;
   items: string[];
-  /** Optional column background (Corporate Events related band). */
-  image?: { src: string; alt: string } | null;
+  /** Column background when present; always set by the service-page parser. */
+  image: { src: string; alt: string } | null;
 };
 
 export type ServiceOfferGroup = {
