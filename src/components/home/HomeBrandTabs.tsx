@@ -1,7 +1,13 @@
 "use client";
 
 import { useId, useState, type KeyboardEvent } from "react";
-import { SectionDescription, SectionTitle, SubsectionTitle } from "@/components/typography";
+import {
+  BodyText,
+  CardTitle,
+  SectionDescription,
+  SectionTitle,
+  SubsectionTitle,
+} from "@/components/typography";
 import type { HomeBrandTab, HomePageContent } from "@/lib/wordpress/home";
 import shared from "./home-shared.module.css";
 import styles from "./HomeBrandTabs.module.css";
@@ -85,8 +91,13 @@ export function HomeBrandTabs({ preceding, tabs }: HomeBrandTabsProps) {
                   <img src={tab.image} alt={tab.alt} loading="lazy" decoding="async" />
                 </figure>
                 <div className={styles.copy}>
-                  <SubsectionTitle as="h3">{tab.title}</SubsectionTitle>
-                  <SectionDescription as="p">{tab.body}</SectionDescription>
+                  <SubsectionTitle as="h3" className={styles.title}>
+                    {tab.title}
+                  </SubsectionTitle>
+                  <CardTitle as="p" className={styles.subtitle}>
+                    {tab.subtitle}
+                  </CardTitle>
+                  <BodyText className={styles.description}>{tab.description}</BodyText>
                 </div>
               </div>
             </div>

@@ -86,12 +86,25 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  gap: 0;
   text-align: left;
+  min-width: 0;
+  width: 100%;
 }
 
-.copy :global(.section-description),
-.copy :global(.kosick-section-description) {
-  max-width: none;
+.title {
+  margin: 0 0 0.35rem !important;
+}
+
+.subtitle {
+  margin: 0 0 0.85rem !important;
+  max-width: 36rem;
+}
+
+.description {
+  margin: 0 !important;
+  max-width: 38rem;
+  color: var(--kosick-color-muted) !important;
 }
 
 @media (max-width: 767px) {

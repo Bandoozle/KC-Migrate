@@ -37,7 +37,8 @@ export type HomeBrandTab = {
   id: string;
   label: string;
   title: string;
-  body: string;
+  subtitle: string;
+  description: string;
   image: string;
   alt: string;
 };
@@ -281,7 +282,9 @@ const HOME_CONTENT: HomePageContent = {
       id: "defineyourself",
       label: "Define Yourself",
       title: "Define Yourself",
-      body: "Great brands create recognition and trust. We build identities that feel human, memorable, and consistent across every touchpoint.",
+      subtitle: "Build a brand people recognize, remember, and trust.",
+      description:
+        "Great brands start with a clear understanding of who they are and what they stand for. We help define your positioning, personality, messaging, and visual identity so every part of your brand feels intentional, memorable, and uniquely yours.",
       image:
         "https://staging.kosick.com/wp-content/uploads/2025/08/digital-marketing-750x500.webp",
       alt: "Digital Marketing Vancouver",
@@ -289,8 +292,10 @@ const HOME_CONTENT: HomePageContent = {
     {
       id: "strategy",
       label: "Strategy",
-      title: "Strategist & Innovators",
-      body: "Smarter strategy creates stronger growth. We align creative, media, and business goals to build campaigns designed for long-term results.",
+      title: "Strategy",
+      subtitle: "Turn clear direction into smarter marketing decisions.",
+      description:
+        "Strong marketing starts with a plan built around your goals, audience, and opportunities. We connect insight with action to create focused strategies that prioritize the right channels, messages, and initiatives for meaningful business growth.",
       image:
         "https://staging.kosick.com/wp-content/uploads/2026/09/henderson-inclusive-strategy-edited-750x563.jpg",
       alt: "Brand strategy workshop",
@@ -298,8 +303,10 @@ const HOME_CONTENT: HomePageContent = {
     {
       id: "consistency",
       label: "Consistency",
-      title: "Consistency Is Golden",
-      body: "Strong brands feel consistent everywhere. We create clear, recognizable experiences that customers can trust.",
+      title: "Consistency",
+      subtitle: "Create one recognizable brand across every touchpoint.",
+      description:
+        "Every interaction should feel like it comes from the same brand. From digital campaigns and social media to advertising, websites, and print, we help maintain a consistent voice and visual identity that builds familiarity and confidence over time.",
       image:
         "https://staging.kosick.com/wp-content/uploads/2026/09/kc-branding-edited-750x562.jpg",
       alt: "Corporate event specialists organizing high-level meetings and brand activations to create memorable experiences for clients and stakeholders.",
@@ -307,8 +314,10 @@ const HOME_CONTENT: HomePageContent = {
     {
       id: "connections",
       label: "Connections",
-      title: "Make Connections",
-      body: "We help brands connect with the right audience through thoughtful creative, clear messaging, and strategic design that drives engagement.",
+      title: "Connections",
+      subtitle: "Create experiences that turn attention into relationships.",
+      description:
+        "Effective marketing is about more than being seen. We create meaningful connections between your brand and the people you want to reach, combining relevant messaging, thoughtful creative, and the right channels to encourage engagement and long-term loyalty.",
       image:
         "https://staging.kosick.com/wp-content/uploads/2026/03/digital-marketing-lead-generation-750x563.jpg",
       alt: "Lead Generation Vancouver HVAC Medical Electrical",
