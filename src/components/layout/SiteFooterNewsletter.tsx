@@ -1,6 +1,7 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import { FORM_NAMES, trackFormSuccess } from "@/lib/analytics/track";
 import { SITE_FOOTER_NEWSLETTER } from "./site-footer-data";
 import styles from "./SiteFooter.module.css";
 
@@ -27,6 +28,7 @@ export function SiteFooterNewsletter() {
         | { ok?: boolean }
         | null;
       if (!response.ok || !result?.ok) throw new Error("Newsletter submit failed");
+      trackFormSuccess(FORM_NAMES.newsletter);
       formEl.reset();
       setStatus("success");
     } catch {

@@ -71,6 +71,9 @@ ${document.footerHtml}
         ),
       ),
     ),
+  ).replace(
+    /<(?:a|button)\b[^>]*\bid=["']kt-scroll-up(?:-reader)?["'][^>]*>[\s\S]*?<\/(?:a|button)>/gi,
+    "",
   );
   const instagramHtml = extractInstagramFeedHtml(markup);
 

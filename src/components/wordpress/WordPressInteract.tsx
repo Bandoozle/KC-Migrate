@@ -386,31 +386,10 @@ function setupStickyHeader() {
 }
 
 function setupScrollUp() {
-  const button = document.getElementById("kt-scroll-up");
-  const reader = document.getElementById("kt-scroll-up-reader");
-
-  function onScroll() {
-    if (!button) return;
-    const visible = window.scrollY > 100;
-    button.classList.toggle("scroll-visible", visible);
-    button.setAttribute("aria-hidden", String(!visible));
-  }
-
-  function toTop(event: Event) {
-    event.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-  button?.addEventListener("click", toTop);
-  reader?.addEventListener("click", toTop);
-
-  return () => {
-    window.removeEventListener("scroll", onScroll);
-    button?.removeEventListener("click", toTop);
-    reader?.removeEventListener("click", toTop);
-  };
+  // Kadence scroll-to-top is disabled site-wide (conflicts with AI chat FAB).
+  document.getElementById("kt-scroll-up")?.remove();
+  document.getElementById("kt-scroll-up-reader")?.remove();
+  return () => {};
 }
 
 const BENTO_ITEMS = [

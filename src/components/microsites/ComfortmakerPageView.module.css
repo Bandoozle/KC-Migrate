@@ -1,0 +1,45 @@
+.main {
+  overflow-x: hidden;
+}
+
+.dateSection {
+  padding: 2.5rem 1.25rem 1rem;
+  text-align: center;
+  background: #ffffff;
+}
+
+.dateLine {
+  margin: 0;
+  font-family: var(--microsite-font), Montserrat, system-ui, sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #000000;
+}
+
+.formSection {
+  padding: 1rem 0 3rem;
+  background: #ffffff;
+}
+
+.neeLogo {
+  display: block;
+  width: min(375px, 80vw);
+  height: auto;
+  margin: 2.5rem auto 0;
+}
+
+.leadGen {
+  background: #1fc7d3;
+  padding: 3.125rem 1.25rem;
+  text-align: center;
+}
+
+.leadGenTitle {
+  margin: 0 auto;
+  max-width: 700px;
+  font-family: var(--microsite-font), Montserrat, system-ui, sans-serif;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.3;
+}

@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { type FormEvent, useId, useState } from "react";
+import { FORM_NAMES, trackFormSuccess } from "@/lib/analytics/track";
 import type { KadenceFormDefinition } from "@/lib/wordpress/kadence-forms";
 import styles from "./ContactForm.module.css";
 
@@ -57,6 +58,8 @@ export function ContactForm({
         return;
       }
 
+      // Fire only after confirmed WP success — never on validation failure.
+      trackFormSuccess(FORM_NAMES.contact);
       router.push(result.redirect || "/thanks/");
     } catch {
       setErrorMessage("Something went wrong. Please try again or email us directly.");

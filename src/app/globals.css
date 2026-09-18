@@ -19,3 +19,13 @@ body {
   padding: 0;
   width: 100%;
 }
+
+/* Hide Kadence "scroll to top" — it stacks under the AI chat launcher. */
+#kt-scroll-up,
+#kt-scroll-up-reader,
+.kadence-scroll-to-top,
+.scroll-up-wrap {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}

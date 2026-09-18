@@ -76,9 +76,29 @@ function buildWordPressPayload(
   return payload;
 }
 
+type KadenceAjaxResponse = {
+  success?: boolean;
+  html?: string;
+  submissionResults?: { success?: boolean; entry_id?: number };
+};
+
+function isKadenceSuccess(payload: KadenceAjaxResponse | null): boolean {
+  if (!payload || typeof payload !== "object") return false;
+  if (payload.success === true) return true;
+  if (payload.submissionResults?.success === true) return true;
+  if (
+    typeof payload.html === "string" &&
+    /kb-adv-form-success/i.test(payload.html)
+  ) {
+    return true;
+  }
+  return false;
+}
+
 /**
  * Shared Kadence Advanced Form proxy.
  * Clients send `formKey` + field values; server injects WP form IDs.
+ * Success requires Kadence JSON success — HTTP 200 alone is not enough.
  */
 export async function POST(request: Request) {
   let incoming: FormData;
@@ -116,6 +136,14 @@ export async function POST(request: Request) {
       redirect: "manual",
     });
 
+    const raw = await response.text();
+    let parsed: KadenceAjaxResponse | null = null;
+    try {
+      parsed = JSON.parse(raw) as KadenceAjaxResponse;
+    } catch {
+      parsed = null;
+    }
+
     if (!response.ok && response.status !== 302) {
       return NextResponse.json(
         { ok: false, error: "Unable to send your message right now." },
@@ -123,9 +151,21 @@ export async function POST(request: Request) {
       );
     }
 
+    if (!isKadenceSuccess(parsed)) {
+      return NextResponse.json(
+        {
+          ok: false,
+          error:
+            "WordPress did not accept this submission. Please check your details and try again.",
+        },
+        { status: 502 },
+      );
+    }
+
     return NextResponse.json({
       ok: true,
       redirect: form.successRedirect,
+      entryId: parsed?.submissionResults?.entry_id ?? null,
     });
   } catch {
     return NextResponse.json(

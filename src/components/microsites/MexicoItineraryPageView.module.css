@@ -1,0 +1,185 @@
+.main {
+  overflow-x: hidden;
+}
+
+.intro {
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem);
+  background: #f7fafc;
+  text-align: center;
+}
+
+.dateLine {
+  margin: 0 0 1rem;
+  font-family: var(--microsite-font), Montserrat, system-ui, sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: #000000;
+}
+
+.introTitle {
+  margin: 0 auto 1rem;
+  max-width: 676px;
+  font-family: var(--microsite-font), Montserrat, system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.25;
+}
+
+.introBody {
+  margin: 0 auto 2.5rem;
+  max-width: 720px;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #2d3748;
+}
+
+.infoGrid {
+  display: grid;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+@media (min-width: 800px) {
+  .infoGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.infoCard {
+  padding: 1.75rem 1.35rem;
+  border: 5px solid #edf2f7;
+  border-radius: 30px;
+  background: #ffffff;
+}
+
+.infoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+  border-radius: 9999px;
+  background: #edf2f7;
+  color: #b99b6f;
+}
+
+.iconSvg {
+  width: 28px;
+  height: 28px;
+}
+
+.infoTitle {
+  margin: 0 0 0.65rem;
+  font-family: var(--microsite-font), Montserrat, system-ui, sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.infoBody {
+  margin: 0;
+  line-height: 1.5;
+  color: #2d3748;
+}
+
+.schedule {
+  display: grid;
+  gap: 2rem;
+  padding: clamp(2rem, 4vw, 3.5rem) clamp(1.25rem, 3vw, 2.5rem);
+  background: #ffffff;
+}
+
+@media (min-width: 960px) {
+  .schedule {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+}
+
+.scheduleTitle {
+  margin: 0 0 1.5rem;
+  font-family: var(--microsite-font), Montserrat, system-ui, sans-serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-weight: 700;
+  color: #000000;
+}
+
+.dayList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid #b99b6f;
+}
+
+.day {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.15rem 0 1.15rem 1.25rem;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.day:last-child {
+  border-bottom: 0;
+}
+
+.dayBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  background: #b99b6f;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.dayBadge .iconSvg {
+  width: 22px;
+  height: 22px;
+}
+
+.dayTitle {
+  margin: 0 0 0.45rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.dayItem {
+  margin: 0 0 0.35rem;
+  line-height: 1.45;
+  color: #2d3748;
+}
+
+.scheduleImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top-right-radius: 60px;
+  object-fit: cover;
+}
+
+.scheduleClosing {
+  margin: 1rem 0 0;
+  font-weight: 700;
+  line-height: 1.45;
+  color: #000000;
+}
+
+.enjoy {
+  background: #1fc7d3;
+  padding: 3.125rem 1.25rem;
+  text-align: center;
+}
+
+.enjoyTitle {
+  margin: 0 auto;
+  max-width: 700px;
+  font-family: var(--microsite-font), Montserrat, system-ui, sans-serif;
+  font-size: clamp(1.35rem, 3vw, 1.85rem);
+  font-weight: 600;
+  color: #ffffff;
+}

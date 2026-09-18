@@ -153,13 +153,6 @@ function parseDocument(html: string, url: string, origin: string): WordPressDocu
     html.match(/<a class="skip-link[\s\S]*?<\/a>/i)?.[0] ?? "",
     origin,
   );
-  const scrollUp = [
-    extractById(html, "kt-scroll-up", "a"),
-    extractById(html, "kt-scroll-up-reader", "button"),
-  ]
-    .filter(Boolean)
-    .join("");
-
   return {
     url,
     htmlLang,
@@ -173,7 +166,8 @@ function parseDocument(html: string, url: string, origin: string): WordPressDocu
     hookHtml,
     footerHtml,
     drawerHtml,
-    extrasHtml: prepareMarkup(scrollUp, origin),
+    // Intentionally omit Kadence #kt-scroll-up — it stacks under the AI chat FAB.
+    extrasHtml: "",
     hasSingleEntryContent: /entry-content[^"]*single-content|single-content[^"]*entry-content/.test(
       html,
     ),

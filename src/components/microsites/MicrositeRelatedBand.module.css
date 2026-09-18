@@ -1,0 +1,56 @@
+.band {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  min-height: 500px;
+}
+
+.tile {
+  position: relative;
+  display: block;
+  min-height: 250px;
+  overflow: hidden;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.label {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  font-family: var(--microsite-font), Montserrat, system-ui, sans-serif;
+  font-size: clamp(1.25rem, 2.5vw, 2.125rem);
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.2;
+}
+
+@media (min-width: 900px) {
+  .band {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .tile {
+    min-height: 500px;
+  }
+}
