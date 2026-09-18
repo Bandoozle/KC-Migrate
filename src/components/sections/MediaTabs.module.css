@@ -1,0 +1,61 @@
+.section {
+  background: #f3f3f3;
+}
+
+.inner {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.intro {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 36rem;
+}
+
+.heading {
+  margin: 0;
+}
+
+.tabList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.75rem;
+  justify-content: center;
+}
+
+.tab {
+  appearance: none;
+  margin: 0;
+  padding: 0.55rem 0.9rem;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #50565b;
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.tabActive {
+  color: #111111;
+  border-bottom-color: #111111;
+}
+
+.panel {
+  width: min(100%, 860px);
+  margin: 0 auto;
+  overflow: hidden;
+  background: #111111;
+}
+
+.panel img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.panel[hidden] {
+  display: none;
+}

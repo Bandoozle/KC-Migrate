@@ -1,0 +1,36 @@
+.section {
+  background: #ffffff;
+}
+
+.inner {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.intro {
+  display: grid;
+  gap: 0.35rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.heading {
+  text-align: center;
+}
+
+.frame {
+  position: relative;
+  width: min(100%, 920px);
+  margin: 0 auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111111;
+}
+
+.frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}

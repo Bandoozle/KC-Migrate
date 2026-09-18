@@ -1,0 +1,64 @@
+.section {
+  width: 100%;
+  margin: 0;
+  padding: 5rem clamp(1.25rem, 3vw, 2.5rem);
+  background: #111111;
+  color: #ffffff;
+  text-align: center;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: var(--kosick-content-rail);
+  max-width: var(--kosick-content-rail);
+  margin: 0 auto;
+}
+
+.icon {
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.quote {
+  margin: 0;
+  max-width: 48rem;
+}
+
+.quote p {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.attribution {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 1.0625rem;
+  line-height: 1.45;
+  color: #ffffff;
+}
+
+.attribution strong {
+  font-weight: 600;
+}
+
+.attribution span {
+  font-weight: 400;
+  opacity: 0.85;
+}

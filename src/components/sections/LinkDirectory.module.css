@@ -1,0 +1,51 @@
+.section {
+  background: #ffffff;
+}
+
+.pageTitle {
+  margin-bottom: 2rem;
+}
+
+.sections {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.block {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.heading {
+  margin: 0;
+  font-size: var(--kosick-subsection-title-size, 1.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--kosick-color-text, #1a1a1a);
+}
+
+.list {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: var(--kosick-color-muted, #50565b);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.list a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.list a:hover,
+.list a:focus-visible {
+  color: var(--kosick-color-text-strong, #111111);
+}
+
+@media (min-width: 900px) {
+  .sections {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}

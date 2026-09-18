@@ -1,0 +1,270 @@
+/**
+ * Native SiteFooter — visual parity with Kadence element 11279 + #colophon.
+ * No WordPress / Kadence class dependencies.
+ */
+
+.footer {
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--kosick-font);
+}
+
+.main {
+  background: #000000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  width: var(--kosick-container);
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+.brandCol,
+.navCol,
+.newsletterCol {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.brandName {
+  margin: 0 0 0.75rem;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.brandBlurb {
+  margin: 0 0 1.25rem;
+  max-width: 22rem;
+  color: #888888;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.socialList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: #ffffff29;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.15s ease;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  opacity: 0.8;
+}
+
+.socialLink svg {
+  display: block;
+}
+
+.colTitle {
+  margin: 0 0 1rem;
+  padding: 0;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.linkList li {
+  margin: 0 0 1rem;
+}
+
+.linkList li:last-child {
+  margin-bottom: 0;
+}
+
+.linkList a {
+  color: #888888;
+  font-size: 17px;
+  line-height: 1em;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.linkList a:hover,
+.linkList a:focus-visible {
+  color: #ffffff;
+}
+
+.newsletterDesc {
+  margin: 0 0 1rem;
+  color: #888888;
+  font-size: 17px;
+  line-height: 1em;
+}
+
+.newsletterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 550px;
+}
+
+.newsletterRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: stretch;
+}
+
+.newsletterInput {
+  width: 100%;
+  min-width: 0;
+  min-height: 2.75rem;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  border: 0;
+  border-radius: 50px;
+  background: #191919;
+  color: #f7fafc;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 2em;
+  outline: none;
+}
+
+.newsletterInput::placeholder {
+  color: #696969;
+}
+
+.newsletterInput:focus-visible {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35);
+}
+
+.newsletterInput:disabled {
+  opacity: 0.7;
+}
+
+.newsletterButton {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 8px 20px;
+  border: 0;
+  border-radius: 50px;
+  background: #ffffff;
+  color: #000000;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.newsletterButton:hover,
+.newsletterButton:focus-visible {
+  opacity: 0.88;
+}
+
+.newsletterButton:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.newsletterStatus {
+  margin: 0;
+  color: #888888;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.bottom {
+  background-color: #262626;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.bottomBar {
+  background: #000000;
+  border-top: 1px solid rgba(237, 242, 247, 0.1);
+}
+
+.bottomInner {
+  width: var(--kosick-container);
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+.copyright {
+  margin: 0;
+  color: #ffffff;
+  font-size: 12px;
+  font-style: normal;
+  line-height: 1.5;
+  text-transform: none;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    /* Matches WP: ~25% / 25% / 20% / 30% with gutter */
+    grid-template-columns:
+      minmax(0, 1.25fr)
+      minmax(0, 1.25fr)
+      minmax(0, 1fr)
+      minmax(0, 1.5fr);
+    column-gap: 2rem;
+    row-gap: 1.5rem;
+    align-items: start;
+  }
+
+  .newsletterRow {
+    grid-template-columns: minmax(0, 70%) minmax(0, 30%);
+  }
+}
+
+@media (max-width: 767px) {
+  .newsletterRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .newsletterButton {
+    width: 100%;
+  }
+}

@@ -22,6 +22,7 @@ export type WordPressPage = WordPressContentEntity & {
 
 export type WordPressPost = WordPressContentEntity & {
   type?: "post";
+  modified?: string;
   categories?: number[];
   tags?: number[];
 };

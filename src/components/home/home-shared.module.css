@@ -1,0 +1,25 @@
+/* Shared homepage section utilities */
+.rail {
+  width: var(--kosick-content-rail);
+  max-width: var(--kosick-content-rail);
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box;
+}
+
+.introCentered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.introCentered :global(.section-description),
+.introCentered :global(.kosick-section-description) {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionPad {
+  padding-block: 0;
+}

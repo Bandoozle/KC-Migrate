@@ -1,0 +1,14 @@
+.section {
+  background: #ffffff;
+}
+
+.inner {
+  display: grid;
+  gap: 1rem;
+  max-width: 48rem;
+}
+
+.body {
+  color: #50565b;
+  max-width: 42rem;
+}

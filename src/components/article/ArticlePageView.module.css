@@ -1,0 +1,247 @@
+.main {
+  overflow-x: clip;
+}
+
+.article {
+  background: #ffffff;
+}
+
+.header {
+  padding-block: clamp(2.5rem, 6vw, 4rem) 1.5rem;
+}
+
+.headerInner {
+  max-width: 46rem;
+}
+
+.meta {
+  margin: 0 0 0.85rem;
+  color: var(--kosick-color-meta, #6e6e73);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8125rem;
+}
+
+.title {
+  margin: 0;
+  max-width: 20ch;
+}
+
+.dek {
+  margin: 1rem 0 0;
+  max-width: 40rem;
+  color: var(--kosick-color-muted, #50565b);
+  font-size: var(--kosick-section-desc-size, 1.125rem);
+  line-height: var(--kosick-section-desc-leading, 1.55);
+}
+
+.featured {
+  padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.featuredInner {
+  max-width: 56rem;
+}
+
+.featuredImage {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.bodyWrap {
+  max-width: 46rem;
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+.body {
+  color: var(--kosick-color-text, #1a1a1a);
+  font-size: var(--kosick-body-size, 1.0625rem);
+  line-height: 1.7;
+}
+
+.body :global(h2),
+.body :global(h3),
+.body :global(h4),
+.body :global(h5),
+.body :global(h6) {
+  color: var(--kosick-color-text-strong, #111111);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 2.25rem 0 0.85rem;
+  line-height: 1.25;
+}
+
+.body :global(h2) {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+}
+
+.body :global(h3) {
+  font-size: clamp(1.3rem, 2.4vw, 1.55rem);
+}
+
+.body :global(h4),
+.body :global(h5),
+.body :global(h6) {
+  font-size: 1.15rem;
+}
+
+.body :global(p) {
+  margin: 0 0 1.15rem;
+}
+
+.body :global(ul),
+.body :global(ol) {
+  margin: 0 0 1.25rem;
+  padding-left: 1.35rem;
+}
+
+.body :global(li + li) {
+  margin-top: 0.4rem;
+}
+
+.body :global(a) {
+  color: #1a365d;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.body :global(a:hover),
+.body :global(a:focus-visible) {
+  color: #111111;
+}
+
+.body :global(blockquote) {
+  margin: 1.75rem 0;
+  padding: 0.25rem 0 0.25rem 1.15rem;
+  border-left: 3px solid #111111;
+  color: var(--kosick-color-muted, #50565b);
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+
+.body :global(figure) {
+  margin: 1.75rem 0;
+}
+
+.body :global(img) {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.body :global(figcaption) {
+  margin-top: 0.55rem;
+  color: var(--kosick-color-meta, #6e6e73);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.body :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.75rem 0;
+  font-size: 0.98rem;
+}
+
+.body :global(th),
+.body :global(td) {
+  border: 1px solid #e5e7eb;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+
+.body :global(th) {
+  background: #f7f7f8;
+  font-weight: 600;
+}
+
+.body :global(hr) {
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.body :global(.article-cta) {
+  margin: 1.5rem 0;
+}
+
+.body :global(.article-cta a) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid #111111;
+  border-radius: 9999px;
+  color: #111111;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+}
+
+.body :global(.article-cta a:hover),
+.body :global(.article-cta a:focus-visible) {
+  background: #111111;
+  color: #ffffff;
+}
+
+.body :global(.article-gallery) {
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0;
+}
+
+.body :global(.article-gallery figure) {
+  margin: 0;
+}
+
+.body :global(.article-embed) {
+  position: relative;
+  width: 100%;
+  margin: 1.75rem 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111111;
+}
+
+.body :global(.article-embed iframe) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.back {
+  margin: 2.5rem 0 0;
+}
+
+.back a {
+  color: #111111;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.back a:hover,
+.back a:focus-visible {
+  text-decoration: underline;
+}
+
+@media (min-width: 700px) {
+  .body :global(.article-gallery) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .title {
+    max-width: none;
+  }
+}

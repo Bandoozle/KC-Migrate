@@ -1,0 +1,107 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #111111;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #d9dee5;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111111;
+  font: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.field input:focus-visible,
+.field textarea:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 1px;
+}
+
+.field input:disabled,
+.field textarea:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: #b82105;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.fieldError {
+  margin: 0;
+  color: #b82105;
+  font-size: 0.875rem;
+}
+
+.submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 0.25rem;
+  padding: 0.75rem 1.25rem;
+  border: 0;
+  border-radius: 8px;
+  background: #111111;
+  color: #ffffff;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.submit:hover:not(:disabled),
+.submit:focus-visible:not(:disabled) {
+  opacity: 0.9;
+}
+
+.submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.error {
+  margin: 0;
+  color: #b82105;
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

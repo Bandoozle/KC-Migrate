@@ -1,0 +1,56 @@
+.section {
+  background: #ffffff;
+  min-height: min(60vh, 560px);
+  display: flex;
+  align-items: center;
+}
+
+.inner {
+  display: grid;
+  gap: 1rem;
+  max-width: 44rem;
+}
+
+.description {
+  color: #50565b;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1.35rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.primary {
+  background: #111111;
+  color: #ffffff;
+}
+
+.primary:hover,
+.primary:focus-visible {
+  opacity: 0.88;
+}
+
+.secondary {
+  border: 1px solid #111111;
+  color: #111111;
+}
+
+.secondary:hover,
+.secondary:focus-visible {
+  background: #111111;
+  color: #ffffff;
+}

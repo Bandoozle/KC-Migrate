@@ -1,0 +1,232 @@
+.section {
+  text-align: left;
+  padding-bottom: 5rem;
+}
+
+.section :global(.screen-reader-text) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  min-width: 0;
+}
+
+.lead {
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  column-gap: 2.75rem;
+  row-gap: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
+  justify-content: start;
+  justify-items: start;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+  width: max-content;
+  text-align: left;
+}
+
+.metricValue {
+  font-size: var(--kosick-section-title-size);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+
+.metricLabel {
+  white-space: nowrap;
+  font-size: var(--kosick-meta-size);
+  font-weight: 400;
+  line-height: 1.45;
+  color: #6e6e73;
+}
+
+.capabilities {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  margin: 2rem 0 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.capabilitiesLead {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0;
+  color: #6e6e73;
+  font-size: var(--kosick-meta-size);
+  font-weight: 400;
+  line-height: 1.45;
+  white-space: nowrap;
+}
+
+.capabilitiesViewport {
+  position: relative;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    #000 1.5rem,
+    #000 calc(100% - 1.5rem),
+    transparent 100%
+  );
+}
+
+.capabilitiesTrack {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: max-content;
+  animation: kosick-home-capabilities-marquee 32s linear infinite;
+}
+
+.capabilitiesStatic {
+  animation: none;
+}
+
+.capabilityItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  color: #111111;
+  white-space: nowrap;
+}
+
+.capabilityLabel {
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+@keyframes kosick-home-capabilities-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1em;
+  box-sizing: border-box;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  margin: 0;
+  padding: 0.85rem 0.65rem;
+  background: #f4f5f7;
+  color: #111111;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  text-align: center;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  line-height: 1.2;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.tile:hover {
+  background: #ffffff;
+  border-color: #d9dee5;
+  box-shadow:
+    inset 0 1px 3px rgba(15, 23, 42, 0.08),
+    inset 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capabilitiesTrack {
+    animation: none;
+  }
+
+  .capabilitiesViewport {
+    overflow-x: auto;
+    mask-image: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .metrics {
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 2rem;
+  }
+
+  .capabilities {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .capabilitiesLead {
+    white-space: normal;
+  }
+
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

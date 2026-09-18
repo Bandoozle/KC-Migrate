@@ -1,9 +1,7 @@
-import {
-  decodeRenderedText,
-  getPageBySlug,
-  loadWordPressData,
-} from "@/lib/wordpress";
-import { renderWordPressPage } from "@/lib/render-wordpress-page";
+import { NativePageShell } from "@/components/layout/NativePageShell";
+import { HomePageView } from "@/components/home/HomePageView";
+import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
+import { getHomePageContent } from "@/lib/wordpress/home";
 import type { Metadata } from "next";
 
 export const dynamic = "force-dynamic";
@@ -24,26 +22,10 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const pageResult = await loadWordPressData(() => getPageBySlug("home"));
-
-  if (!pageResult.ok) {
-    return (
-      <main>
-        <h1>Kosick Communications</h1>
-        <p>The WordPress homepage could not be loaded.</p>
-        <p>{pageResult.error}</p>
-      </main>
-    );
-  }
-
-  if (!pageResult.data) {
-    return (
-      <main>
-        <h1>Kosick Communications</h1>
-        <p>The WordPress homepage was not found.</p>
-      </main>
-    );
-  }
-
-  return renderWordPressPage(pageResult.data);
+  const content = await getHomePageContent();
+  return (
+    <NativePageShell transparentHeader>
+      <HomePageView content={content} />
+    </NativePageShell>
+  );
 }

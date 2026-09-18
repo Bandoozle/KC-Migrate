@@ -1,2 +1,21 @@
 @import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/utilities.css" layer(utilities);
+
+/*
+  Base reset for native Next pages (and WP shell pages that no longer rely on
+  Kadence for document margin). Without this, browser default body margin
+  (~8px) plus `width: 100%` from wordpress-compat causes horizontal overflow
+  and a white gap around the viewport.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}

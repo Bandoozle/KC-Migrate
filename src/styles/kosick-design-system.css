@@ -1,0 +1,168 @@
+/**
+ * Design-system utilities for native Next.js pages (no WordPress CSS).
+ * Mirrors tokens from kosick-typography-system.ts.
+ */
+@font-face {
+  font-family: "Gellix";
+  src: url("/fonts/gellix/Gellix-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("/fonts/gellix/Gellix-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("/fonts/gellix/Gellix-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --kosick-font: "Gellix", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --kosick-title-desc-gap: 12px;
+  --kosick-color-text: #1a1a1a;
+  --kosick-color-text-strong: #111111;
+  --kosick-color-muted: #50565b;
+  --kosick-color-meta: #6e6e73;
+  --kosick-color-surface: #f3f3f3;
+  --kosick-color-surface-dark: #111111;
+  --kosick-page-title-size: clamp(2.25rem, 5vw, 3.25rem);
+  --kosick-section-title-size: clamp(2rem, 4vw, 2.75rem);
+  --kosick-section-desc-size: 1.125rem;
+  --kosick-subsection-title-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  --kosick-card-title-size: 1.375rem;
+  --kosick-eyebrow-size: 0.8125rem;
+  --kosick-body-size: 1.0625rem;
+  --kosick-meta-size: 0.9375rem;
+  --kosick-feature-label-size: 18px;
+  --kosick-feature-label-size-md: 22px;
+  --kosick-container: min(1290px, calc(100% - 2 * clamp(1.25rem, 3vw, 2.5rem)));
+  --kosick-content-rail: min(1290px, calc(100% - 2 * clamp(1.25rem, 3vw, 2.5rem)));
+  --kosick-intro-content-gap: 1.25rem;
+  --kosick-section-separator-color: #e8e8e8;
+  --kosick-radius-sm: 4px;
+  --kosick-radius-md: 12px;
+  --kosick-radius-pill: 9999px;
+}
+
+.kosick-native-page {
+  font-family: var(--kosick-font);
+  color: var(--kosick-color-text);
+  background: #ffffff;
+  min-height: 100vh;
+  /* Native pages do not render Kadence markup; isolate from bridge defaults. */
+  line-height: 1.5;
+}
+
+.kosick-native-page * {
+  box-sizing: border-box;
+}
+
+.kosick-native-page a {
+  color: inherit;
+}
+
+.page-title,
+.kosick-page-title {
+  margin: 0 0 var(--kosick-title-desc-gap);
+  font-size: var(--kosick-page-title-size);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--kosick-color-text);
+}
+
+.section-title,
+.kosick-section-title {
+  margin: 0 0 var(--kosick-title-desc-gap);
+  font-size: var(--kosick-section-title-size);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--kosick-color-text);
+}
+
+.section-description,
+.kosick-section-description {
+  margin: 0;
+  font-size: var(--kosick-section-desc-size);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--kosick-color-muted);
+  max-width: 42rem;
+}
+
+.subsection-title,
+.kosick-subsection-title {
+  margin: 0 0 0.75rem;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--kosick-color-text);
+}
+
+.card-title,
+.kosick-card-title {
+  margin: 0;
+  font-size: var(--kosick-card-title-size);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--kosick-color-text-strong);
+}
+
+.eyebrow,
+.kosick-eyebrow {
+  margin: 0 0 0.75rem;
+  font-size: var(--kosick-feature-label-size);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--kosick-color-muted);
+  text-transform: none;
+}
+
+@media (min-width: 768px) {
+  .eyebrow,
+  .kosick-eyebrow {
+    font-size: var(--kosick-feature-label-size-md);
+  }
+}
+
+.body-text,
+.kosick-body-text {
+  margin: 0;
+  font-size: var(--kosick-body-size);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--kosick-color-text);
+}
+
+.meta-text,
+.kosick-meta-text {
+  margin: 0;
+  font-size: var(--kosick-meta-size);
+  font-weight: 400;
+  line-height: 1.45;
+  color: var(--kosick-color-muted);
+}
+
+.container {
+  width: var(--kosick-container);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section {
+  padding: clamp(2.5rem, 5vw, 4.5rem) 0;
+}

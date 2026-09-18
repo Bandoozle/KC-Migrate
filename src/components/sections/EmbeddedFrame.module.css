@@ -1,0 +1,18 @@
+.section {
+  background: #ffffff;
+  padding-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.frameWrap {
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  display: block;
+  width: min(100%, 600px);
+  max-width: 100%;
+  border: 0;
+  background: transparent;
+  overflow: hidden;
+}

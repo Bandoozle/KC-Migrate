@@ -1,0 +1,23 @@
+.section {
+  padding-top: 3.5rem;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.intro :global(.section-title),
+.intro :global(.kosick-section-title),
+.intro :global(.section-description),
+.intro :global(.kosick-section-description),
+.description {
+  max-width: none;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
