@@ -1,4 +1,5 @@
 import { cache } from "react";
+import { applyHvacMarketingLocalAssets } from "@/lib/assets/hvac-marketing";
 import { getPageBySlug, WordPressApiError } from "@/lib/wordpress";
 import { normalizeServicePageHtml } from "@/lib/wordpress/service-page-parse";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
@@ -20,8 +21,8 @@ async function loadMarketingProgramPage(slug: string): Promise<ServicePageConten
   );
 }
 
-export const getHvacMarketingContent = cache(() =>
-  loadMarketingProgramPage("hvac-marketing"),
+export const getHvacMarketingContent = cache(async () =>
+  applyHvacMarketingLocalAssets(await loadMarketingProgramPage("hvac-marketing")),
 );
 
 export const getDentalMarketingContent = cache(() =>

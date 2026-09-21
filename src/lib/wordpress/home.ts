@@ -44,7 +44,9 @@ export type HomeBrandTab = {
 };
 
 export type HomeTestimonial = {
-  logo: string;
+  name: string;
+  affiliation?: string;
+  rating: 5;
   quote: string;
 };
 
@@ -328,14 +330,41 @@ const HOME_CONTENT: HomePageContent = {
     lead: "See how our work helps create real results.",
     items: [
       {
-        logo: "Joel Primus",
+        name: "Brad Johnson",
+        affiliation: "Heritage Mountain Heating & Cooling",
+        rating: 5,
         quote:
-          "I've had the pleasure of working with Keith and Bretton on and off for years. They're highly professional, creative and when it comes to print marketing materials I don't know any one I've ever worked with who does it better!",
+          "The progress we've made since working with them speaks for itself. They don't feel like an outside marketing company—they feel like part of our team. I would highly recommend Kosick Communications to any business looking for honest, hardworking people who will take the time to understand your company and help it grow.",
       },
       {
-        logo: "LC Fitness Management",
+        name: "Frances Johnson",
+        rating: 5,
         quote:
-          "They helped us refine our messaging, improve our ad performance, and position our brand in a more professional and compelling way. What stood out most was their ability to combine creativity with data—they don't guess, they execute with purpose.",
+          "They take the time to understand our business, explain the reasoning behind their recommendations, and genuinely care about helping us grow. Their communication is excellent, and we always leave our meetings feeling confident about the direction we're headed.",
+      },
+      {
+        name: "LC Fitness Management",
+        rating: 5,
+        quote:
+          "Their team understands marketing at a strategic level—not just running ads, but actually driving results that impact the bottom line. They helped us refine our messaging, improve our ad performance, and position our brand in a more professional and compelling way.",
+      },
+      {
+        name: "Justin Giroux",
+        rating: 5,
+        quote:
+          "Kosick has been very helpful with my marketing and website for my business. They are very friendly to deal with and have a great way of explaining all the complexities of SEO and web design to someone who is foreign to that whole world.",
+      },
+      {
+        name: "SkinONE Innovations",
+        rating: 5,
+        quote:
+          "The Kosick Communications team have been incredible to work with! They have strategically re branded our premium clinic, actively manage our social media accounts, develop news/media features, and deliver highly successful digital campaigns.",
+      },
+      {
+        name: "Jack Tree",
+        rating: 5,
+        quote:
+          "What an incredible team. Some of the nicest people to work with, seamless operators and unbelievable problem solvers. These guys are easy to work with and produce incredible results. We'll absolutely continue working with them!",
       },
     ],
   },

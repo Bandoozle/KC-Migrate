@@ -1,46 +1,66 @@
 .section {
   background: #f3f3f3;
+  text-align: center;
 }
 
 .inner {
   display: grid;
   gap: 1.25rem;
+  justify-items: center;
 }
 
 .intro {
   display: grid;
   gap: 0.4rem;
-  max-width: 36rem;
+  width: 100%;
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+  justify-items: center;
 }
 
 .heading {
   margin: 0;
+  text-align: center;
 }
 
 .tabList {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 8px 10px;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 0.75rem;
+  align-items: center;
   justify-content: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 9999px;
 }
 
 .tab {
-  appearance: none;
-  margin: 0;
-  padding: 0.55rem 0.9rem;
+  min-height: 42px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 0;
-  border-bottom: 2px solid transparent;
+  border-radius: 9999px;
   background: transparent;
   color: #50565b;
   font: inherit;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  white-space: nowrap;
   cursor: pointer;
 }
 
 .tabActive {
-  color: #111111;
-  border-bottom-color: #111111;
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
 .panel {
@@ -48,6 +68,7 @@
   margin: 0 auto;
   overflow: hidden;
   background: #111111;
+  border-radius: 4px;
 }
 
 .panel img {
@@ -58,4 +79,12 @@
 
 .panel[hidden] {
   display: none;
+}
+
+@media (max-width: 767px) {
+  .tab {
+    font-size: 15px;
+    padding: 0 14px;
+    min-height: 38px;
+  }
 }

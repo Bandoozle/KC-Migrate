@@ -149,11 +149,6 @@ function DesktopNavItem({
           hidden={!open}
         >
           <ul className={styles.dropdownList}>
-            {item.viewAll ? (
-              <li role="none">
-                <FooterLink link={item.viewAll} className={styles.dropdownFooter} />
-              </li>
-            ) : null}
             {item.items.map((child) => (
               <li key={child.href + child.label} role="none">
                 <Link href={child.href} className={styles.dropdownLink} role="menuitem">
@@ -161,6 +156,11 @@ function DesktopNavItem({
                 </Link>
               </li>
             ))}
+            {item.viewAll ? (
+              <li role="none" className={styles.dropdownFooterItem}>
+                <FooterLink link={item.viewAll} className={styles.dropdownFooter} />
+              </li>
+            ) : null}
           </ul>
         </div>
       ) : (

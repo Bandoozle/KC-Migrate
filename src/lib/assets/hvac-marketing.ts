@@ -1,0 +1,123 @@
+import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
+
+/**
+ * Explicit local visual assets for /services/hvac-marketing.
+ * WordPress remains the source of truth for copy; these paths are design-critical imagery.
+ */
+export const HVAC_MARKETING_ASSETS = {
+  heroVideo: "/images/hvac-marketing/hero-timeline.mp4",
+  features: {
+    leadGeneration: {
+      src: "/images/hvac-marketing/feature-lead-generation.jpg",
+      alt: "HVAC marketing and lead generation",
+    },
+    billboard: {
+      src: "/images/hvac-marketing/feature-billboard.jpg",
+      alt: "HVAC billboard and co-op advertising",
+    },
+    strategies: {
+      src: "/images/hvac-marketing/feature-strategies.jpg",
+      alt: "HVAC website and digital marketing strategies",
+    },
+  },
+  tabs: {
+    youtube: {
+      src: "/images/hvac-marketing/tab-youtube.jpg",
+      alt: "YouTube and connected TV HVAC advertising",
+    },
+    facebook: {
+      src: "/images/hvac-marketing/tab-facebook.jpg",
+      alt: "Facebook and Meta HVAC ads",
+    },
+    visual: {
+      src: "/images/hvac-marketing/tab-tiktok.jpg",
+      alt: "TikTok and visual HVAC marketing content",
+    },
+    social: {
+      src: "/images/hvac-marketing/tab-instagram.jpg",
+      alt: "Instagram HVAC social media marketing",
+    },
+  },
+} as const;
+
+function matchFeatureVisual(title: string, eyebrow?: string) {
+  const hay = `${eyebrow || ""} ${title}`.toLowerCase();
+  if (/lead generation|20\+\s*years|hvac expertise/i.test(hay)) {
+    return {
+      image: HVAC_MARKETING_ASSETS.features.leadGeneration,
+      mediaPosition: "right" as const,
+    };
+  }
+  if (/co-?op|maximize|seo domination|billboard/i.test(hay)) {
+    return {
+      image: HVAC_MARKETING_ASSETS.features.billboard,
+      mediaPosition: "left" as const,
+    };
+  }
+  if (/digital storefront|website development/i.test(hay)) {
+    return {
+      image: HVAC_MARKETING_ASSETS.features.strategies,
+      mediaPosition: "right" as const,
+    };
+  }
+  return null;
+}
+
+function matchTabImage(label: string) {
+  const hay = label.toLowerCase();
+  if (/youtube|connected\s*tv|ctv/i.test(hay)) return HVAC_MARKETING_ASSETS.tabs.youtube;
+  if (/facebook|meta/i.test(hay)) return HVAC_MARKETING_ASSETS.tabs.facebook;
+  if (/visual|tiktok/i.test(hay)) return HVAC_MARKETING_ASSETS.tabs.visual;
+  if (/social|instagram/i.test(hay)) return HVAC_MARKETING_ASSETS.tabs.social;
+  return null;
+}
+
+/**
+ * Replace heuristic WP media URLs with explicit local assets for HVAC Marketing.
+ * Copy, headings, and structure stay from WordPress.
+ */
+export function applyHvacMarketingLocalAssets(
+  content: ServicePageContent,
+): ServicePageContent {
+  const hero = {
+    ...content.hero,
+    slides: [
+      {
+        src: HVAC_MARKETING_ASSETS.heroVideo,
+        alt: content.hero.displayTitle || content.title,
+        kind: "video" as const,
+      },
+    ],
+  };
+
+  const features = content.features.map((feature) => {
+    const visual = matchFeatureVisual(feature.title, feature.eyebrow);
+    if (!visual) return feature;
+    return {
+      ...feature,
+      image: { src: visual.image.src, alt: visual.image.alt },
+      mediaPosition: visual.mediaPosition,
+    };
+  });
+
+  const mediaTabsSection = content.mediaTabsSection
+    ? {
+        ...content.mediaTabsSection,
+        tabs: content.mediaTabsSection.tabs.map((tab) => {
+          const image = matchTabImage(tab.label);
+          if (!image) return tab;
+          return {
+            ...tab,
+            image: { src: image.src, alt: image.alt },
+          };
+        }),
+      }
+    : null;
+
+  return {
+    ...content,
+    hero,
+    features,
+    mediaTabsSection,
+  };
+}

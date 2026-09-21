@@ -38,7 +38,12 @@ export function FaqAccordion({ eyebrow, title, items }: FaqAccordionProps) {
                     {open ? "−" : "+"}
                   </span>
                 </button>
-                {open ? <div className={styles.panel}>{item.answer}</div> : null}
+                <div
+                  className={`${styles.panelWrap} ${open ? styles.panelWrapOpen : ""}`}
+                  aria-hidden={!open}
+                >
+                  <div className={styles.panel}>{item.answer}</div>
+                </div>
               </div>
             );
           })}

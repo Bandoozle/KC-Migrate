@@ -6,33 +6,94 @@
   margin-bottom: 0;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+.carousel {
   margin-top: var(--kosick-intro-content-gap);
+}
+
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 3rem) / 3);
+  gap: 1.5rem;
   align-items: stretch;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  /* Keep card borders inside the scrollport — overflow clips edge borders otherwise */
+  scroll-padding-inline: 1px;
+  padding-inline: 1px;
+  padding-bottom: 0.35rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  scroll-snap-align: start;
 }
 
 .card {
   box-sizing: border-box;
-  max-width: 580px;
-  width: 100%;
-  min-height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 36px;
-  background: #ffffff;
-  border: 1px solid #d9dee5;
-  border-radius: 18px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 1.75rem 1.6rem;
+  background: #ffffff;
+  border: 1px solid #d9dee5;
+  border-radius: 16px;
   text-align: left;
 }
 
-.logo {
-  margin: 0 0 1rem;
-  font-size: 1.125rem;
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  margin-bottom: 0.85rem;
+}
+
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  color: #f4b400;
+}
+
+.star {
+  display: block;
+  flex-shrink: 0;
+}
+
+.source {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #6e6e73;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.googleIcon {
+  display: block;
+  flex-shrink: 0;
+}
+
+.name {
+  margin: 0;
+  font-size: 1.0625rem;
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.01em;
@@ -41,23 +102,140 @@
   text-transform: none;
 }
 
+.affiliation {
+  margin: 0.2rem 0 0;
+  color: #6e6e73;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.quoteWrap {
+  position: relative;
+  margin-top: 0.9rem;
+  flex: 1 1 auto;
+  width: 100%;
+  overflow: hidden;
+  transition: height 0.4s ease;
+}
+
 .quote {
   margin: 0;
-  font-size: 1.0625rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.55;
   letter-spacing: 0;
-  color: #1a1a1a;
+  color: #50565b;
   text-align: left;
   font-style: normal;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .quoteWrap {
+    transition: none;
+  }
+}
+
+.readMore {
+  margin-top: 0.85rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #111111;
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+  cursor: pointer;
+}
+
+.readMore:hover,
+.readMore:focus-visible {
+  opacity: 0.72;
+  outline: none;
+}
+
+.readMoreSpacer {
+  display: block;
+  margin-top: 0.85rem;
+  height: 1.3em;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #d9dee5;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #111111;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.control:hover,
+.control:focus-visible {
+  background: #f4f5f7;
+  border-color: #c5ccd6;
+  outline: none;
+}
+
+.controlDisabled,
+.control:disabled {
+  color: #c5ccd6;
+  background: #f7f8fa;
+  border-color: #e8ebf0;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.controlDisabled:hover,
+.controlDisabled:focus-visible,
+.control:disabled:hover,
+.control:disabled:focus-visible {
+  background: #f7f8fa;
+  border-color: #e8ebf0;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1024px) {
+  .track {
+    grid-auto-columns: calc((100% - 1.5rem) / 2);
+  }
+}
+
 @media (max-width: 767px) {
-  .grid {
-    grid-template-columns: minmax(0, 1fr);
+  .track {
+    grid-auto-columns: 100%;
   }
 
   .card {
-    min-height: 0;
+    padding: 1.5rem 1.35rem;
   }
 }

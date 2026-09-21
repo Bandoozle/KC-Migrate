@@ -188,22 +188,6 @@ export function HomeWhyChoose({ content }: HomeWhyChooseProps) {
               </div>
             ))}
           </div>
-
-          <div className={styles.capabilities}>
-            <p className={styles.capabilitiesLead}>{content.capabilitiesLead}</p>
-            <div className={styles.capabilitiesViewport}>
-              <div
-                className={`${styles.capabilitiesTrack} ${reduceMotion ? styles.capabilitiesStatic : ""}`}
-              >
-                {capabilityItems.map((item, index) => (
-                  <span key={`${item.label}-${index}`} className={styles.capabilityItem}>
-                    <CapabilityIcon kind={item.icon} />
-                    <span className={styles.capabilityLabel}>{item.label}</span>
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className={styles.tiles}>
@@ -213,6 +197,22 @@ export function HomeWhyChoose({ content }: HomeWhyChooseProps) {
               <span>{tile.line2}</span>
             </div>
           ))}
+        </div>
+      </div>
+
+      <div className={styles.capabilities}>
+        <p className={styles.capabilitiesLead}>{content.capabilitiesLead}</p>
+        <div className={styles.capabilitiesViewport}>
+          <div
+            className={`${styles.capabilitiesTrack} ${reduceMotion ? styles.capabilitiesStatic : ""}`}
+          >
+            {capabilityItems.map((item, index) => (
+              <span key={`${item.label}-${index}`} className={styles.capabilityItem}>
+                <CapabilityIcon kind={item.icon} />
+                <span className={styles.capabilityLabel}>{item.label}</span>
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>

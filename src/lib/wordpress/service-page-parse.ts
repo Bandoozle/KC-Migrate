@@ -202,15 +202,16 @@ function parseMediaTextFeature(
 
   const img = mediaText.find(".wp-block-media-text__media img").first();
   const imgSrc = absUrl(img.attr("src") || img.attr("data-src"), origin);
+  const { eyebrow, title } = splitFeatureHeadings(headings);
 
   return {
-    eyebrow: headings.length > 1 ? headings[0] : undefined,
-    title: headings.length > 1 ? headings[1] : headings[0] || "",
+    eyebrow,
+    title,
     body: paragraphs.join(" ") || undefined,
     bullets,
     cta: extractCta($, content.get(0) as Element, origin),
     image: imgSrc
-      ? { src: imgSrc, alt: img.attr("alt") || headings[1] || headings[0] || "" }
+      ? { src: imgSrc, alt: img.attr("alt") || title || eyebrow || "" }
       : null,
     mediaPosition: mediaOnRight ? "right" : "left",
     tone,
@@ -257,15 +258,15 @@ function parseBackgroundFeature(
     extractBgUrl($rowHtml($, row), origin);
   if (!imgSrc && !body && bullets.length === 0) return null;
 
+  const { eyebrow, title } = splitFeatureHeadings(headings);
+
   return {
-    eyebrow: headings.length > 1 ? headings[0] : undefined,
-    title: headings.length > 1 ? headings[1] : headings[0] || "",
+    eyebrow,
+    title,
     body: body || undefined,
     bullets,
     cta,
-    image: imgSrc
-      ? { src: imgSrc, alt: headings[1] || headings[0] || "" }
-      : null,
+    image: imgSrc ? { src: imgSrc, alt: title || eyebrow || "" } : null,
     mediaPosition: firstHasCopy ? "right" : "left",
     tone: index % 2 === 1 ? "muted" : "default",
   };
@@ -678,13 +679,14 @@ function parseChannelFeatureLeaves(
   const features: FeatureSplitData[] = [];
   for (const leaf of leaves) {
     const headings = $(leaf)
-      .find(".wp-block-kadence-advancedheading, h2, h3")
+      .find(".wp-block-kadence-advancedheading, h1, h2, h3")
       .toArray()
       .map((h) => nodeText($, h))
       .filter(Boolean);
-    const title = headings.find((h) => h.length < 80);
+    const shortHeadings = headings.filter((h) => h.length < 90 && !isNumberHeading(h));
+    const { eyebrow, title } = splitFeatureHeadings(shortHeadings);
     const body =
-      headings.find((h) => h.length >= 80) ||
+      headings.find((h) => h.length >= 90) ||
       $(leaf)
         .find("p")
         .toArray()
@@ -692,11 +694,11 @@ function parseChannelFeatureLeaves(
         .find((t) => t.length >= 60) ||
       "";
     if (!title || body.length < 60) continue;
-    if (isNumberHeading(title)) continue;
 
     const cta = extractCta($, leaf, origin);
     const index = startIndex + features.length;
     features.push({
+      eyebrow,
       title,
       body,
       bullets: [],
@@ -985,6 +987,37 @@ function introFromHeadings(
 
 function isNumberHeading(value: string): boolean {
   return /^\d+\.?$/.test(value.trim());
+}
+
+/** True when a heading is effectively ALL CAPS (WP punchy feature titles). */
+function isMostlyUpperHeading(value: string): boolean {
+  const letters = value.replace(/[^A-Za-z]/g, "");
+  return letters.length >= 4 && letters === letters.toUpperCase();
+}
+
+/**
+ * Split feature headings into Amplitude-style eyebrow + title.
+ * ALL-CAPS punch lines stay the title; the other heading becomes the label.
+ * Otherwise: first = eyebrow, second = title.
+ */
+function splitFeatureHeadings(headings: string[]): {
+  eyebrow?: string;
+  title: string;
+} {
+  const cleaned = headings.map((h) => cleanText(h)).filter(Boolean);
+  if (cleaned.length === 0) return { title: "" };
+  if (cleaned.length === 1) return { title: cleaned[0] };
+
+  const upperIdx = cleaned.findIndex(
+    (h) => isMostlyUpperHeading(h) && h.length < 90,
+  );
+  if (upperIdx >= 0) {
+    const title = cleaned[upperIdx];
+    const eyebrow = cleaned.find((_, i) => i !== upperIdx);
+    return eyebrow ? { eyebrow, title } : { title };
+  }
+
+  return { eyebrow: cleaned[0], title: cleaned[1] };
 }
 
 function parseNumberedStepTitle(value: string): {

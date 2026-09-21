@@ -9,11 +9,16 @@
 
 .intro {
   max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
 }
 
 .list {
   display: grid;
   gap: 0.75rem;
+  width: 100%;
+  max-width: 52rem;
+  margin-inline: auto;
 }
 
 .item {
@@ -46,17 +51,30 @@
   line-height: 1;
 }
 
+.panelWrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.panelWrapOpen {
+  grid-template-rows: 1fr;
+}
+
 .panel {
-  padding: 0 1.15rem 1.15rem;
+  overflow: hidden;
+  min-height: 0;
+  padding: 0 1.15rem;
   color: #50565b;
   font-size: 1rem;
   line-height: 1.6;
+  opacity: 0;
+  transition:
+    opacity 0.25s ease,
+    padding-bottom 0.35s ease;
 }
 
-@media (min-width: 900px) {
-  .inner {
-    grid-template-columns: 0.85fr 1.15fr;
-    align-items: start;
-    gap: 3rem;
-  }
+.panelWrapOpen .panel {
+  padding-bottom: 1.15rem;
+  opacity: 1;
 }

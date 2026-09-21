@@ -129,11 +129,6 @@ export const SITE_HEADER_NAV: NavItem[] = [
     ],
   },
   {
-    type: "link",
-    label: "Results",
-    href: "/marketing-results/",
-  },
-  {
     type: "menu",
     label: "Resources",
     items: [
@@ -147,5 +142,10 @@ export const SITE_HEADER_NAV: NavItem[] = [
         href: "/services/outdoor-advertising/billboard-dimensions/",
       },
     ],
+  },
+  {
+    type: "link",
+    label: "Results",
+    href: "/marketing-results/",
   },
 ];

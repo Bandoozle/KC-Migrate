@@ -1,38 +1,108 @@
 .section {
-  background: #ffffff;
+  background: #f5f6f7;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .heading {
-  margin: 0 0 1.75rem;
+  margin: 0 0 1.5rem;
   text-align: center;
 }
 
 .grid {
   display: grid;
-  gap: 1.25rem 1.5rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 128px;
+  margin: 0;
+  padding: 1rem 0.85rem 0.85rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: none;
+  text-align: center;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 3.25rem;
 }
 
 .logo {
   display: block;
   width: auto;
-  max-width: 100%;
-  max-height: 3.25rem;
+  max-width: 68%;
+  max-height: 48px;
+  height: auto;
   object-fit: contain;
-  filter: grayscale(1);
-  opacity: 0.85;
+  object-position: center;
+  filter: none;
+  opacity: 1;
 }
 
-@media (max-width: 900px) {
+.label {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  width: 100%;
+  max-width: 11rem;
+  margin: 0;
+  color: #111111;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+@media (max-width: 1100px) {
   .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .card {
+    min-height: 118px;
+    padding: 0.85rem 0.65rem 0.75rem;
+  }
+
+  .logo {
+    max-height: 42px;
+    max-width: 70%;
+  }
+
+  .label {
+    font-size: 0.875rem;
   }
 }
