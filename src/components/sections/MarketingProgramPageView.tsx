@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BodyText, SectionTitle } from "@/components/typography";
-import { FeatureSplit } from "@/components/sections/FeatureSplit";
+import { FeatureSplitStack } from "@/components/sections/FeatureSplitStack";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { HeroCarousel } from "@/components/sections/digital-marketing/HeroCarousel";
 import { RelatedServices } from "@/components/sections/digital-marketing/RelatedServices";
@@ -39,6 +39,10 @@ export function MarketingProgramPageView({ content }: MarketingProgramPageViewPr
       : content.leadSection
         ? [content.leadSection]
         : [];
+
+  const packageCards = packages.flatMap((section) => section.cards);
+  /** 4 capability cards → one compact row; 6 (HVAC) stays 3×2. */
+  const packageColumns: 3 | 4 = packageCards.length === 6 ? 3 : 4;
 
   return (
     <main>
@@ -89,9 +93,7 @@ export function MarketingProgramPageView({ content }: MarketingProgramPageViewPr
         </section>
       ))}
 
-      {content.features.map((feature) => (
-        <FeatureSplit key={`${feature.eyebrow || ""}-${feature.title}`} feature={feature} />
-      ))}
+      <FeatureSplitStack features={content.features} />
 
       {content.videoSections.map((section) => (
         <VideoEmbed key={`${section.title || ""}-${section.src}`} section={section} />
@@ -101,14 +103,23 @@ export function MarketingProgramPageView({ content }: MarketingProgramPageViewPr
 
       {content.statsSection ? <StatsGrid section={content.statsSection} /> : null}
 
-      {packages.map((section, index) => (
+      {packageCards.length > 0 ? (
         <InfoCardGrid
-          key={`packages-${section.title || index}`}
-          title={section.title || undefined}
-          cards={section.cards}
-          tone="muted"
+          title="Everything You Need to Grow"
+          body={
+            /dental/i.test(content.title)
+              ? "From digital campaigns to local visibility and creative, we bring every part of your dental marketing together."
+              : /golf/i.test(content.title)
+                ? "From digital campaigns to local visibility and creative, we bring every part of your golf marketing together."
+                : "From digital campaigns to co-op programs and creative, we bring every part of your HVAC marketing together."
+          }
+          cards={packageCards}
+          columns={packageColumns}
+          tone="default"
+          introAlign="center"
+          density="compact"
         />
-      ))}
+      ) : null}
 
       {content.mediaTabsSection ? <MediaTabs section={content.mediaTabsSection} /> : null}
 

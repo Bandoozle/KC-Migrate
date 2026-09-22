@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Eyebrow, MetaText, SectionTitle } from "@/components/typography";
+import { MetaText, SectionIntro } from "@/components/typography";
 import type { ServiceStatsSection } from "@/lib/wordpress/service-page-types";
 import styles from "./StatsGrid.module.css";
 
@@ -87,20 +87,20 @@ export function StatsGrid({ section }: StatsGridProps) {
   return (
     <section ref={rootRef} className={`section ${styles.section}`}>
       <div className="container">
-        {section.eyebrow || section.title ? (
-          <div className={styles.intro}>
-            {section.eyebrow ? <Eyebrow className={styles.eyebrow}>{section.eyebrow}</Eyebrow> : null}
-            {section.title ? (
-              <SectionTitle as="h2" className={styles.heading}>
-                {section.title}
-              </SectionTitle>
-            ) : null}
-          </div>
+        {section.title ? (
+          <SectionIntro
+            align="center"
+            className={styles.intro}
+            title={section.title}
+            titleClassName={styles.heading}
+            description="See the impact behind our HVAC marketing experience."
+            descriptionClassName={styles.description}
+          />
         ) : null}
 
         <div className={styles.grid}>
-          {section.items.map((item) => (
-            <article key={item.label} className={styles.item}>
+          {section.items.map((item, index) => (
+            <article key={`${item.label}-${index}`} className={styles.item}>
               <StatValue
                 end={item.end}
                 prefix={item.prefix}

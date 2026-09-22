@@ -79,6 +79,12 @@ function extractIconSvg($: CheerioAPI, box: Element): string | undefined {
   return markup;
 }
 
+function extractInfoBoxId($: CheerioAPI, box: Element): string | undefined {
+  const cls = $(box).attr("class") || "";
+  const match = cls.match(/(?:^|\s)(kt-info-box[\w-]+)/);
+  return match?.[1];
+}
+
 function parseInfoCards($: CheerioAPI, row: Element): ServiceInfoCard[] {
   const boxes = $(row).find(".wp-block-kadence-infobox").toArray();
   const cards: ServiceInfoCard[] = [];
@@ -88,6 +94,7 @@ function parseInfoCards($: CheerioAPI, row: Element): ServiceInfoCard[] {
     if (!title) continue;
     const items = splitCheckItems(rawBody);
     cards.push({
+      id: extractInfoBoxId($, box),
       title,
       body: items.length > 0 ? undefined : rawBody || undefined,
       items: items.length > 0 ? items : undefined,
@@ -219,13 +226,57 @@ function parseMediaTextFeature(
 }
 
 /** Two-column Kadence rows that put the image in a column background. */
+/**
+ * Prefer the row's own 2-col grid; if the top-level row is a 1-col wrapper
+ * (common on Dental Marketing), use the nested text+image layout instead.
+ */
+function columnHasFeatureMedia($: CheerioAPI, col: Element): boolean {
+  if ($(col).find("img").length > 0) return true;
+  return /background-image:\s*url\(/i.test(
+    `${$(col).attr("style") || ""}${$(col).html() || ""}`,
+  );
+}
+
+function resolveTwoColumnFeatureRow(
+  $: CheerioAPI,
+  row: Element,
+): Element | null {
+  const directCols = $(row)
+    .find("> .kt-row-column-wrap > .wp-block-kadence-column")
+    .toArray();
+  // Direct 2-col rows keep using parseBackgroundFeature (img or CSS bg).
+  if (directCols.length >= 2) return row;
+
+  const nested = $(row)
+    .find(".kb-row-layout-wrap")
+    .toArray()
+    .find((nestedRow) => {
+      const cols = $(nestedRow)
+        .find("> .kt-row-column-wrap > .wp-block-kadence-column")
+        .toArray();
+      if (cols.length < 2) return false;
+      const hasMedia = cols.some((col) => columnHasFeatureMedia($, col));
+      const hasCopy = cols.some(
+        (col) =>
+          $(col).find(".wp-block-kadence-advancedheading, h1, h2, h3, p, ul").length >
+          0,
+      );
+      return hasMedia && hasCopy;
+    });
+
+  return (nested as Element | undefined) || null;
+}
+
 function parseBackgroundFeature(
   $: CheerioAPI,
   row: Element,
   origin: string,
   index: number,
 ): FeatureSplitData | null {
-  const columns = $(row)
+  const featureRow = resolveTwoColumnFeatureRow($, row);
+  if (!featureRow) return null;
+
+  const columns = $(featureRow)
     .find("> .kt-row-column-wrap > .wp-block-kadence-column")
     .toArray();
   if (columns.length < 2) return null;
@@ -253,12 +304,16 @@ function parseBackgroundFeature(
     .map((li) => nodeText($, li))
     .filter(Boolean);
   const cta = extractCta($, textCol, origin);
+  const rowHtml = $rowHtml($, featureRow);
   const imgSrc =
-    extractColumnBg($, mediaCol, $rowHtml($, row), origin) ||
-    extractBgUrl($rowHtml($, row), origin);
+    extractColumnBg($, mediaCol, rowHtml, origin) ||
+    extractColumnImage($, mediaCol, origin) ||
+    extractBgUrl(rowHtml, origin);
   if (!imgSrc && !body && bullets.length === 0) return null;
 
   const { eyebrow, title } = splitFeatureHeadings(headings);
+  const imgAlt =
+    $(mediaCol).find("img").first().attr("alt")?.trim() || title || eyebrow || "";
 
   return {
     eyebrow,
@@ -266,7 +321,7 @@ function parseBackgroundFeature(
     body: body || undefined,
     bullets,
     cta,
-    image: imgSrc ? { src: imgSrc, alt: title || eyebrow || "" } : null,
+    image: imgSrc ? { src: imgSrc, alt: imgAlt } : null,
     mediaPosition: firstHasCopy ? "right" : "left",
     tone: index % 2 === 1 ? "muted" : "default",
   };
@@ -671,6 +726,21 @@ function parseChannelFeatureLeaves(
     return [];
   }
 
+  // Two-column text + image rows belong to parseBackgroundFeature
+  // (including 1-col wrappers that nest a real 2-col split).
+  const featureRow = resolveTwoColumnFeatureRow($, row);
+  if (featureRow) {
+    const cols = $(featureRow)
+      .find("> .kt-row-column-wrap > .wp-block-kadence-column")
+      .toArray();
+    const hasMedia = cols.some((col) => columnHasFeatureMedia($, col));
+    const hasCopy = cols.some(
+      (col) =>
+        $(col).find(".wp-block-kadence-advancedheading, h1, h2, h3, p").length > 0,
+    );
+    if (hasMedia && hasCopy) return [];
+  }
+
   const leaves = $(row)
     .find(".wp-block-kadence-column")
     .toArray()
@@ -732,8 +802,30 @@ function extractColumnBg(
 
   return (
     extractBgUrl($(col).html() || "", origin) ||
-    absUrl($(col).find("img").first().attr("src"), origin)
+    extractColumnImage($, col, origin)
   );
+}
+
+/** Prefer explicit <img> / lazy-src / srcset from a media column. */
+function extractColumnImage(
+  $: CheerioAPI,
+  col: Element,
+  origin: string,
+): string | null {
+  const img = $(col).find("img").first();
+  if (!img.length) return null;
+  const srcsetFirst = (img.attr("srcset") || "")
+    .split(",")
+    .map((part) => part.trim().split(/\s+/)[0])
+    .find(Boolean);
+  const src =
+    img.attr("src") ||
+    img.attr("data-src") ||
+    img.attr("data-lazy-src") ||
+    img.attr("data-full-url") ||
+    srcsetFirst ||
+    null;
+  return absUrl(src, origin);
 }
 
 function parseOverlayCards(
@@ -1148,6 +1240,63 @@ function mergeProcessSection(
 }
 
 /**
+ * Infer a truthful package-card title from checklist items when WP titles
+ * were copy-pasted incorrectly (e.g. duplicate "Reputation & Branding").
+ * Only rewrites when the heading clearly disagrees with the items.
+ */
+function inferInfoCardTitleFromContent(card: ServiceInfoCard): string {
+  const blob = [...(card.items || []), card.body || ""].join(" ").toLowerCase();
+  if (!blob) return card.title;
+
+  const title = card.title;
+  const looksEmail =
+    /mailchimp|mailchamp|list management|list hygiene|template design & development/i.test(
+      blob,
+    );
+  const looksPaid =
+    /google ads|retargeting campaigns|call tracking|budget optimization/i.test(blob) &&
+    !/google business profile|map pack|local seo/i.test(blob);
+
+  // Email checklist under an SEO / reputation heading.
+  if (looksEmail && /search|seo|local|reputation|branding/i.test(title)) {
+    return "Email Marketing";
+  }
+  // Paid-ads checklist under a duplicated reputation / SEO heading.
+  if (looksPaid && /reputation|branding|search|seo/i.test(title)) {
+    return "Paid Advertising";
+  }
+
+  return title;
+}
+
+/**
+ * Correct mislabeled package-card titles from checklist content.
+ * Overlay imagery is intentionally not attached — this grid stays icon/text.
+ */
+function enrichPackagesWithOverlayMedia(
+  packageSections: ServicePackageSection[],
+  _overlayCards: ServiceOverlayCard[],
+): {
+  packageSections: ServicePackageSection[];
+  overlayCards: ServiceOverlayCard[];
+} {
+  const sections = packageSections.map((section) => ({
+    ...section,
+    cards: section.cards.map((card) => ({
+      ...card,
+      title: inferInfoCardTitleFromContent(card),
+      image: undefined,
+    })),
+  }));
+
+  return {
+    packageSections: sections,
+    // Drop the separate overlay strip so it is not shown under text cards.
+    overlayCards: [],
+  };
+}
+
+/**
  * Structure-detecting normalizer for service pages.
  * Prefer pattern detection over hard-coded Kadence row IDs.
  */
@@ -1365,14 +1514,8 @@ export function normalizeServicePageHtml(
       continue;
     }
 
-    const channelFeatures = parseChannelFeatureLeaves($, row, origin, featureIndex);
-    if (channelFeatures.length > 0) {
-      features.push(...channelFeatures);
-      featureIndex += channelFeatures.length;
-      continue;
-    }
-
-    // Background-image feature splits (outdoor format rows).
+    // Two-column image + copy feature splits (HVAC / Dental / etc.).
+    // Must run before leaf-only channel parsing so sibling <img> media is kept.
     const bgFeature = parseBackgroundFeature($, row, origin, featureIndex);
     if (
       bgFeature?.title &&
@@ -1387,6 +1530,13 @@ export function normalizeServicePageHtml(
         featureIndex += 1;
         continue;
       }
+    }
+
+    const channelFeatures = parseChannelFeatureLeaves($, row, origin, featureIndex);
+    if (channelFeatures.length > 0) {
+      features.push(...channelFeatures);
+      featureIndex += channelFeatures.length;
+      continue;
     }
 
     const spotlight = parseTextSpotlight($, row, origin, featureIndex);
@@ -1484,6 +1634,8 @@ export function normalizeServicePageHtml(
         }));
   const heroCopy = inferHeroCopy(html, pageTitle);
 
+  const enriched = enrichPackagesWithOverlayMedia(packageSections, overlayCards);
+
   return {
     title: cleanText(pageTitle),
     excerpt: cleanText(excerpt),
@@ -1494,8 +1646,8 @@ export function normalizeServicePageHtml(
     intro,
     offerGroups,
     features,
-    packageSection: packageSections[0] || null,
-    packageSections,
+    packageSection: enriched.packageSections[0] || null,
+    packageSections: enriched.packageSections,
     mediaCardSection,
     processSection,
     statsSection,
@@ -1503,7 +1655,7 @@ export function normalizeServicePageHtml(
     mediaTabsSection,
     gallerySection,
     partnerLogos,
-    overlayCards,
+    overlayCards: enriched.overlayCards,
     leadSection: leadSections[0] || null,
     leadSections,
     linkBanner,

@@ -1,27 +1,16 @@
 .section {
-  background: #f3f3f3;
+  background: #ffffff;
   text-align: center;
 }
 
 .inner {
   display: grid;
-  gap: 1.25rem;
+  gap: var(--kosick-intro-content-gap);
   justify-items: center;
 }
 
-.intro {
-  display: grid;
-  gap: 0.4rem;
-  width: 100%;
-  max-width: 40rem;
-  margin-inline: auto;
-  text-align: center;
-  justify-items: center;
-}
-
-.heading {
-  margin: 0;
-  text-align: center;
+.inner :global(.kosick-section-intro) {
+  margin-bottom: 0;
 }
 
 .tabList {

@@ -17,7 +17,8 @@ export function OverlayCardGrid({ cards }: OverlayCardGridProps) {
   return (
     <section className={`section ${styles.section}`}>
       <div className={`container ${styles.grid}`}>
-        {cards.map((card) => {
+        {cards.map((card, index) => {
+          const key = `${card.title}-${card.href || card.image.src}-${index}`;
           const body = (
             <>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -27,11 +28,11 @@ export function OverlayCardGrid({ cards }: OverlayCardGridProps) {
           );
 
           return card.href ? (
-            <Link key={card.title} href={card.href} className={styles.card}>
+            <Link key={key} href={card.href} className={styles.card}>
               {body}
             </Link>
           ) : (
-            <article key={card.title} className={styles.card}>
+            <article key={key} className={styles.card}>
               {body}
             </article>
           );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useId, useState, type KeyboardEvent } from "react";
-import { Eyebrow, SectionTitle } from "@/components/typography";
+import { SectionIntro } from "@/components/typography";
 import type { ServiceMediaTabsSection } from "@/lib/wordpress/service-page-types";
 import styles from "./MediaTabs.module.css";
 
@@ -36,15 +36,12 @@ export function MediaTabs({ section }: MediaTabsProps) {
   return (
     <section className={`section ${styles.section}`}>
       <div className={`container ${styles.inner}`}>
-        {section.eyebrow || section.title ? (
-          <div className={styles.intro}>
-            {section.eyebrow ? <Eyebrow>{section.eyebrow}</Eyebrow> : null}
-            {section.title ? (
-              <SectionTitle as="h2" className={styles.heading}>
-                {section.title}
-              </SectionTitle>
-            ) : null}
-          </div>
+        {section.title ? (
+          <SectionIntro
+            align="center"
+            title={section.title}
+            description="Reach your audience with a consistent presence across every channel."
+          />
         ) : null}
 
         <div

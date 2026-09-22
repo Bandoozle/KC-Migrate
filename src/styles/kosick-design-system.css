@@ -101,6 +101,29 @@
   max-width: 42rem;
 }
 
+.kosick-section-intro {
+  margin-bottom: var(--kosick-intro-content-gap);
+}
+
+.kosick-section-intro--center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.kosick-section-intro--center .section-title,
+.kosick-section-intro--center .kosick-section-title {
+  text-align: center;
+}
+
+.kosick-section-intro--center .section-description,
+.kosick-section-intro--center .kosick-section-description {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 .subsection-title,
 .kosick-subsection-title {
   margin: 0 0 0.75rem;

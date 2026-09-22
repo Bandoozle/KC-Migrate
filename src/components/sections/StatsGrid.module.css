@@ -3,21 +3,20 @@
   color: #ffffff;
 }
 
-.intro {
-  display: grid;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-  justify-items: center;
+.heading {
+  color: #ffffff;
+  max-width: none;
+  white-space: nowrap;
 }
 
-.eyebrow {
+.description {
   color: rgba(255, 255, 255, 0.72);
 }
 
-.heading {
-  color: #ffffff;
-  max-width: 28rem;
+@media (max-width: 640px) {
+  .heading {
+    white-space: normal;
+  }
 }
 
 .grid {

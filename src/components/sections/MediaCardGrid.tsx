@@ -19,7 +19,8 @@ export function MediaCardGrid({ section }: MediaCardGridProps) {
           </SectionTitle>
         ) : null}
         <div className={styles.grid}>
-          {section.cards.map((card) => {
+          {section.cards.map((card, index) => {
+            const key = `${card.title}-${card.href || card.image?.src || index}`;
             const media = card.image ? (
               // eslint-disable-next-line @next/next/no-img-element
               <img
@@ -37,7 +38,7 @@ export function MediaCardGrid({ section }: MediaCardGridProps) {
             if (card.href) {
               const external = /^https?:\/\//i.test(card.href);
               return (
-                <article key={card.title} className={styles.card}>
+                <article key={key} className={styles.card}>
                   <Link
                     href={card.href}
                     className={styles.cardLink}
@@ -54,7 +55,7 @@ export function MediaCardGrid({ section }: MediaCardGridProps) {
             }
 
             return (
-              <article key={card.title} className={styles.card}>
+              <article key={key} className={styles.card}>
                 {media}
                 {title}
                 {body}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BodyText, SectionTitle } from "@/components/typography";
-import { FeatureSplit } from "@/components/sections/FeatureSplit";
+import { FeatureSplitStack } from "@/components/sections/FeatureSplitStack";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { HeroCarousel } from "@/components/sections/digital-marketing/HeroCarousel";
 import { PageCta } from "@/components/sections/PageCta";
@@ -51,9 +51,7 @@ export function ServicePageView({ content }: ServicePageViewProps) {
         <ServiceGallery section={content.gallerySection} />
       ) : null}
 
-      {content.features.map((feature) => (
-        <FeatureSplit key={`${feature.eyebrow || ""}-${feature.title}`} feature={feature} />
-      ))}
+      <FeatureSplitStack features={content.features} />
 
       {content.packageSections.length > 0
         ? content.packageSections.map((section, index) => (

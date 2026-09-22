@@ -21,7 +21,8 @@ export function OfferCards({ eyebrow, title, cards }: OfferCardsProps) {
         </div>
 
         <div className={styles.grid}>
-          {cards.map((card) => {
+          {cards.map((card, index) => {
+            const key = `${card.title}-${card.href || card.image?.src || index}`;
             const body = (
               <>
                 <div className={styles.media}>
@@ -36,11 +37,11 @@ export function OfferCards({ eyebrow, title, cards }: OfferCardsProps) {
             );
 
             return card.href ? (
-              <Link key={card.title} href={card.href} className={styles.card}>
+              <Link key={key} href={card.href} className={styles.card}>
                 {body}
               </Link>
             ) : (
-              <article key={card.title} className={styles.card}>
+              <article key={key} className={styles.card}>
                 {body}
               </article>
             );

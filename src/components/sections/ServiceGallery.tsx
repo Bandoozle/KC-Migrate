@@ -15,8 +15,8 @@ export function ServiceGallery({ section }: ServiceGalleryProps) {
           {section.body ? <BodyText>{section.body}</BodyText> : null}
           {section.labels && section.labels.length > 0 ? (
             <ul className={styles.labels}>
-              {section.labels.map((label) => (
-                <li key={label}>{label}</li>
+              {section.labels.map((label, index) => (
+                <li key={`${label}-${index}`}>{label}</li>
               ))}
             </ul>
           ) : null}

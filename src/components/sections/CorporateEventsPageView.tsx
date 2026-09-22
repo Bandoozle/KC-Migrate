@@ -35,9 +35,9 @@ export function CorporateEventsPageView({ content }: CorporateEventsPageViewProp
         cta={content.hero.cta}
       />
 
-      {content.features.map((feature) => (
+      {content.features.map((feature, index) => (
         <FeatureSplit
-          key={`${feature.eyebrow || ""}-${feature.title}`}
+          key={`${feature.eyebrow || ""}-${feature.title}-${index}`}
           feature={feature}
         />
       ))}

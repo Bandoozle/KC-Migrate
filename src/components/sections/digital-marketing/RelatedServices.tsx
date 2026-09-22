@@ -18,7 +18,7 @@ export function RelatedServices({ services }: RelatedServicesProps) {
       className={`section ${styles.section} ${withImages ? styles.withImages : ""}`}
     >
       <div className={`container ${styles.grid}`}>
-        {services.map((service) => {
+        {services.map((service, index) => {
           const title = <CardTitle as="h3">{service.title}</CardTitle>;
           const cardClass = [
             styles.card,
@@ -37,8 +37,8 @@ export function RelatedServices({ services }: RelatedServicesProps) {
                 title
               )}
               <ul className={styles.list}>
-                {service.items.map((item) => (
-                  <li key={item}>{item}</li>
+                {service.items.map((item, itemIndex) => (
+                  <li key={`${item}-${itemIndex}`}>{item}</li>
                 ))}
               </ul>
             </>
@@ -46,7 +46,7 @@ export function RelatedServices({ services }: RelatedServicesProps) {
 
           return (
             <article
-              key={service.title}
+              key={`${service.title}-${service.href || service.image?.src || index}`}
               className={cardClass}
               style={
                 service.image?.src

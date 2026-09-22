@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import { BodyText, Eyebrow, SectionTitle } from "@/components/typography";
 import styles from "./FeatureSplit.module.css";
 
@@ -15,21 +16,61 @@ export type FeatureSplitData = {
 
 type FeatureSplitProps = {
   feature: FeatureSplitData;
+  /** When set, enables sticky layered scroll within a FeatureSplitStack. */
+  stackIndex?: number;
 };
 
-/** Convert ALL-CAPS WP labels like "LINEAR TELEVISION" → "Linear television". */
+const SENTENCE_CASE_ACRONYMS = new Set([
+  "TV",
+  "CTV",
+  "SEO",
+  "HVAC",
+  "AI",
+  "OOH",
+  "PPC",
+  "ROI",
+  "CTA",
+  "FAQ",
+  "API",
+  "UI",
+  "UX",
+]);
+
+/**
+ * Sentence case for titles/CTAs: "UNLOCK…" → "Unlock…", preserving acronyms (TV, SEO).
+ */
 function toSentenceCase(value: string): string {
   const trimmed = value.trim();
   if (!trimmed) return trimmed;
-  if (trimmed === trimmed.toUpperCase() && /[A-Z]/.test(trimmed)) {
-    return trimmed.charAt(0) + trimmed.slice(1).toLowerCase();
-  }
-  return trimmed;
+
+  return trimmed.replace(/[A-Za-z][A-Za-z']*/g, (word, offset, full) => {
+    const upper = word.toUpperCase();
+    if (SENTENCE_CASE_ACRONYMS.has(upper)) return upper;
+    const before = full.slice(0, offset);
+    const isStart = !before.trim() || /[.!?]\s*$/.test(before);
+    if (isStart) return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+    return word.toLowerCase();
+  });
 }
 
-export function FeatureSplit({ feature }: FeatureSplitProps) {
+/**
+ * Short feature labels: Title Case with acronyms — "TV CREATIVE" → "TV Creative".
+ */
+function toFeatureLabelCase(value: string): string {
+  const trimmed = value.trim();
+  if (!trimmed) return trimmed;
+
+  return trimmed.replace(/[A-Za-z][A-Za-z']*/g, (word) => {
+    const upper = word.toUpperCase();
+    if (SENTENCE_CASE_ACRONYMS.has(upper)) return upper;
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+  });
+}
+
+export function FeatureSplit({ feature, stackIndex }: FeatureSplitProps) {
   const bullets = feature.bullets ?? [];
   const mediaPosition = feature.mediaPosition ?? "right";
+  const stacked = typeof stackIndex === "number";
 
   return (
     <section
@@ -37,11 +78,18 @@ export function FeatureSplit({ feature }: FeatureSplitProps) {
         "section",
         styles.section,
         feature.tone === "muted" ? styles.muted : "",
+        stacked ? styles.stacked : "",
       ]
         .filter(Boolean)
         .join(" ")}
+      style={
+        stacked
+          ? ({ ["--stack-index"]: stackIndex } as CSSProperties)
+          : undefined
+      }
+      data-stack-index={stacked ? stackIndex : undefined}
     >
-      <div className={styles.featureContainer}>
+      <div className="container">
         <div
           className={[
             styles.featureGrid,
@@ -51,7 +99,7 @@ export function FeatureSplit({ feature }: FeatureSplitProps) {
           <div className={styles.copy}>
             {feature.eyebrow ? (
               <Eyebrow className={`kosick-feature-label ${styles.eyebrow}`}>
-                {toSentenceCase(feature.eyebrow)}
+                {toFeatureLabelCase(feature.eyebrow)}
               </Eyebrow>
             ) : null}
             <SectionTitle as="h2" className={styles.title}>
@@ -67,7 +115,7 @@ export function FeatureSplit({ feature }: FeatureSplitProps) {
             ) : null}
             {feature.cta ? (
               <Link href={feature.cta.href} className={styles.cta}>
-                {feature.cta.label}
+                {toSentenceCase(feature.cta.label)}
               </Link>
             ) : null}
           </div>

@@ -8,11 +8,15 @@ export type ServiceMedia = {
 };
 
 export type ServiceInfoCard = {
+  /** Stable Kadence block id when available (e.g. kt-info-box12468_d47e3b-a8). */
+  id?: string;
   title: string;
   body?: string;
   items?: string[];
   /** Inline SVG markup from Kadence info-box icons when extractable. */
   iconSvg?: string;
+  /** Optional header image (e.g. mapped from overlay media). */
+  image?: ServiceMedia | null;
 };
 
 export type ServiceFaqItem = {

@@ -91,16 +91,32 @@ export function SectionIntro({
   description,
   titleAs = "h2",
   className,
+  titleClassName,
+  descriptionClassName,
+  align = "left",
 }: {
   title: ReactNode;
   description?: ReactNode;
   titleAs?: ElementType;
   className?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
+  align?: "left" | "center";
 }) {
   return (
-    <div className={cx("kosick-section-intro", className)}>
-      <SectionTitle as={titleAs}>{title}</SectionTitle>
-      {description ? <SectionDescription>{description}</SectionDescription> : null}
+    <div
+      className={cx(
+        "kosick-section-intro",
+        align === "center" && "kosick-section-intro--center",
+        className,
+      )}
+    >
+      <SectionTitle as={titleAs} className={titleClassName}>
+        {title}
+      </SectionTitle>
+      {description ? (
+        <SectionDescription className={descriptionClassName}>{description}</SectionDescription>
+      ) : null}
     </div>
   );
 }
