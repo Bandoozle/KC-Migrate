@@ -2,11 +2,13 @@ import { cache } from "react";
 import * as cheerio from "cheerio";
 import type { CheerioAPI } from "cheerio";
 import type { AnyNode, Element } from "domhandler";
+import { applyIndustryServiceHero, INDUSTRY_SERVICE_HEROES } from "@/lib/content/industry-heroes";
 import {
   decodeRenderedText,
   getWordPressUrl,
   WordPressApiError,
 } from "@/lib/wordpress";
+import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import type { WordPressPage } from "@/types/wordpress";
 
 export type MediaImage = {
@@ -47,9 +49,7 @@ export type RelatedService = {
 export type DigitalMarketingContent = {
   title: string;
   excerpt: string;
-  hero: {
-    slides: MediaImage[];
-  };
+  hero: ServicePageContent["hero"];
   offers: {
     eyebrow: string;
     title: string;
@@ -309,7 +309,7 @@ function parseCta($: CheerioAPI, row: Element, origin: string) {
   };
 }
 
-function normalizeHtml(html: string, page: WordPressPage): DigitalMarketingContent {
+function normalizeHtml(html: string, page: WordPressPage) {
   const origin = getWordPressUrl();
   const $ = cheerio.load(`<div id="dm-root">${html}</div>`);
   const root = $("#dm-root");
@@ -325,7 +325,11 @@ function normalizeHtml(html: string, page: WordPressPage): DigitalMarketingConte
     .map((url) => absUrl(url, origin))
     .filter((url): url is string => Boolean(url))
     .slice(0, 6)
-    .map((src) => ({ src, alt: page.title.rendered ? cleanText(page.title.rendered) : "Digital marketing" }));
+    .map((src) => ({
+      src,
+      alt: page.title.rendered ? cleanText(page.title.rendered) : "Digital marketing",
+      kind: "image" as const,
+    }));
 
   const rows = root.children(".kb-row-layout-wrap").toArray() as Element[];
 
@@ -397,7 +401,10 @@ function normalizeHtml(html: string, page: WordPressPage): DigitalMarketingConte
   const heroSlides =
     slideUrls.length > 0
       ? slideUrls
-      : offers.cards.map((card) => card.image).filter(Boolean);
+      : offers.cards
+          .map((card) => card.image)
+          .filter((image): image is MediaImage => Boolean(image))
+          .map((image) => ({ ...image, kind: "image" as const }));
 
   return {
     title: cleanText(page.title.rendered),
@@ -419,6 +426,16 @@ export const getDigitalMarketingContent = cache(
         "Digital marketing page content was not returned by WordPress REST.",
       );
     }
-    return normalizeHtml(page.content.rendered, page);
+    const content = normalizeHtml(page.content.rendered, page);
+    return {
+      ...content,
+      hero: applyIndustryServiceHero(
+        {
+          hero: content.hero,
+          cta: content.cta,
+        },
+        INDUSTRY_SERVICE_HEROES.digital,
+      ),
+    };
   },
 );

@@ -1658,6 +1658,8 @@ export function normalizeServicePageHtml(
     overlayCards: enriched.overlayCards,
     leadSection: leadSections[0] || null,
     leadSections,
+    summary: null,
+    narrative: null,
     linkBanner,
     promoBand,
     faqs,

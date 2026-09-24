@@ -6,6 +6,7 @@ import {
   WordPressApiError,
 } from "@/lib/wordpress";
 import { absUrl, cleanText, toLocalPath } from "@/lib/wordpress/shared";
+import { assignArticleHeadingIds, type ArticleTocItem } from "@/lib/content/article-toc";
 import { normalizeArticleHtml } from "@/lib/wordpress/normalize-article-html";
 
 export type ArticleMedia = {
@@ -25,6 +26,7 @@ export type ArticleContent = {
   modified: string;
   featuredImage: ArticleMedia | null;
   bodyHtml: string;
+  toc: ArticleTocItem[];
 };
 
 type EmbeddedMedia = {
@@ -74,6 +76,11 @@ export function normalizePostContent(post: PostWithEmbed): ArticleContent {
   const featured = pickFeaturedImage(post._embedded?.["wp:featuredmedia"]?.[0], title);
   const rawBody = post.content?.rendered || "";
 
+  const body = normalizeArticleHtml(rawBody, origin, {
+    hasLeadingMedia: Boolean(featured?.src),
+  });
+  const { html: bodyHtml, toc } = assignArticleHeadingIds(body);
+
   return {
     id: post.id,
     slug: post.slug,
@@ -88,7 +95,8 @@ export function normalizePostContent(post: PostWithEmbed): ArticleContent {
           src: absUrl(featured.src, origin) || featured.src,
         }
       : null,
-    bodyHtml: normalizeArticleHtml(rawBody, origin),
+    bodyHtml,
+    toc,
   };
 }
 

@@ -1,4 +1,9 @@
 import { cache } from "react";
+import {
+  applyIndustryServiceHero,
+  INDUSTRY_SERVICE_HEROES,
+  type IndustryServiceHeroCopy,
+} from "@/lib/content/industry-heroes";
 import { getPageBySlug, WordPressApiError } from "@/lib/wordpress";
 import { normalizeServicePageHtml } from "@/lib/wordpress/service-page-parse";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
@@ -20,16 +25,29 @@ async function loadServicePage(slug: string): Promise<ServicePageContent> {
   );
 }
 
-export const getEmailMarketingContent = cache(() =>
-  loadServicePage("email-marketing"),
+function withServiceHero(slug: string, copy: IndustryServiceHeroCopy) {
+  return cache(async () => {
+    const content = await loadServicePage(slug);
+    return {
+      ...content,
+      hero: applyIndustryServiceHero(content, copy),
+    };
+  });
+}
+
+export const getEmailMarketingContent = withServiceHero(
+  "email-marketing",
+  INDUSTRY_SERVICE_HEROES.email,
 );
 
-export const getSocialMediaMarketingContent = cache(() =>
-  loadServicePage("social-media-marketing"),
+export const getSocialMediaMarketingContent = withServiceHero(
+  "social-media-marketing",
+  INDUSTRY_SERVICE_HEROES.social,
 );
 
-export const getSearchEngineOptimizationContent = cache(() =>
-  loadServicePage("search-engine-optimization"),
+export const getSearchEngineOptimizationContent = withServiceHero(
+  "search-engine-optimization",
+  INDUSTRY_SERVICE_HEROES.seo,
 );
 
 export const getRadioAdvertisingContent = cache(() =>
@@ -58,8 +76,9 @@ export const getCorporateBrandingContent = cache(() =>
   loadServicePage("corporate-branding"),
 );
 
-export const getWebsiteDevelopmentContent = cache(() =>
-  loadServicePage("website-development"),
+export const getWebsiteDevelopmentContent = withServiceHero(
+  "website-development",
+  INDUSTRY_SERVICE_HEROES.website,
 );
 
 export const getCorporateEventsContent = cache(() =>

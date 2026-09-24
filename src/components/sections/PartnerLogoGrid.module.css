@@ -106,3 +106,87 @@
     font-size: 0.875rem;
   }
 }
+
+.trust {
+  background: #f7f6f4;
+  padding-block: clamp(4.5rem, 8vw, 6.5rem);
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 40rem;
+  margin: 0 auto 3.25rem;
+  text-align: center;
+}
+
+.support {
+  margin: 0.85rem 0 0;
+  color: var(--kosick-color-muted, #50565b);
+}
+
+.trustGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem 2.75rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 10rem;
+  width: 10rem;
+  height: 4.75rem;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+
+.trustLogo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 44px;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media (max-width: 1100px) {
+  .slot {
+    flex-basis: calc(25% - 2.1rem);
+    width: calc(25% - 2.1rem);
+  }
+}
+
+@media (max-width: 800px) {
+  .slot {
+    flex-basis: calc(33.333% - 1.5rem);
+    width: calc(33.333% - 1.5rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .trust {
+    padding-block: clamp(3rem, 8vw, 4rem);
+  }
+
+  .slot {
+    flex-basis: calc(50% - 1.25rem);
+    width: calc(50% - 1.25rem);
+    height: 4.25rem;
+  }
+
+  .trustLogo {
+    max-height: 40px;
+  }
+}

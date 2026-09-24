@@ -64,8 +64,14 @@ const UNWRAP_SELECTORS = [
 
 /**
  * Transform WordPress/Kadence post HTML into semantic markup styled by Next.js.
+ * When a lead image is rendered above the body, opening media blocks are deferred
+ * until after the next text block so two large images are not stacked.
  */
-export function normalizeArticleHtml(html: string, origin = getWordPressUrl()): string {
+export function normalizeArticleHtml(
+  html: string,
+  origin = getWordPressUrl(),
+  options?: { hasLeadingMedia?: boolean },
+): string {
   if (!html.trim()) return "";
 
   const $ = cheerio.load(`<div id="article-root">${html}</div>`, {
@@ -220,7 +226,82 @@ export function normalizeArticleHtml(html: string, origin = getWordPressUrl()): 
     $(el).replaceWith($(el).contents());
   });
 
+  separateConsecutiveMedia($, root, Boolean(options?.hasLeadingMedia));
+
   return root.html()?.trim() || "";
+}
+
+function blockKind($: cheerio.CheerioAPI, el: Element): "media" | "text" | "other" {
+  const tag = el.tagName?.toLowerCase();
+  if (!tag) return "other";
+
+  if (tag === "img") return "media";
+  if (tag === "div" && ($(el).attr("class") || "") === "article-gallery") return "media";
+  if (tag === "figure") {
+    if (($(el).attr("class") || "").includes("article-embed")) return "other";
+    if ($(el).find("img").length > 0) return "media";
+    return "other";
+  }
+
+  if (["h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "blockquote", "table", "p"].includes(tag)) {
+    return cleanText($(el).text()).length > 0 ? "text" : "other";
+  }
+
+  return "other";
+}
+
+/**
+ * Move a media block that sits directly against another image until after the
+ * next paragraph, heading, list, quote, or table. Captions stay inside the figure.
+ */
+function separateConsecutiveMedia(
+  $: cheerio.CheerioAPI,
+  root: cheerio.Cheerio<AnyNode>,
+  hasLeadingMedia: boolean,
+) {
+  const elements = root
+    .children()
+    .toArray()
+    .filter((node): node is Element => node.type === "tag");
+  if (elements.length < 2 && !hasLeadingMedia) return;
+
+  const blocks = elements.map((el) => ({ el, kind: blockKind($, el) }));
+  const output: Element[] = [];
+  const deferred: Element[] = [];
+  let previous: "media" | "text" | null = hasLeadingMedia ? "media" : null;
+
+  const nextSignificant = (index: number): "media" | "text" | null => {
+    for (let cursor = index + 1; cursor < blocks.length; cursor += 1) {
+      if (blocks[cursor].kind !== "other") return blocks[cursor].kind;
+    }
+    return null;
+  };
+
+  blocks.forEach((block, index) => {
+    if (block.kind === "media") {
+      if (previous === "media") deferred.push(block.el);
+      else {
+        output.push(block.el);
+        previous = "media";
+      }
+      return;
+    }
+
+    if (block.kind === "text") {
+      output.push(block.el);
+      previous = "text";
+      if (deferred.length > 0 && nextSignificant(index) !== "media") {
+        output.push(deferred.shift() as Element);
+      }
+      return;
+    }
+
+    output.push(block.el);
+  });
+
+  output.push(...deferred);
+  root.empty();
+  output.forEach((el) => root.append(el));
 }
 
 function keepAttributes(tag: string, el: Element): Set<string> {
@@ -239,6 +320,7 @@ function keepAttributes(tag: string, el: Element): Set<string> {
     keep.add("decoding");
     keep.add("srcset");
     keep.add("sizes");
+    if (el.attribs?.class === "article-image-inline") keep.add("class");
   }
   if (tag === "iframe") {
     keep.add("src");
@@ -275,19 +357,21 @@ function normalizeImage(
   if (!src || src.startsWith("data:")) return null;
   const alt = escapeAttr($img.attr("alt") || "");
   const srcset = rewriteSrcset($img.attr("srcset"), origin);
-  const sizes = $img.attr("sizes") ? escapeAttr($img.attr("sizes")!) : "100vw";
-  const width = $img.attr("width");
-  const height = $img.attr("height");
+  const widthAttr = $img.attr("width");
+  const heightAttr = $img.attr("height");
+  const width = Number(widthAttr);
+  const inline = Number.isFinite(width) && width > 0 && width < 200;
   const parts = [
     `src="${escapeAttr(src)}"`,
     `alt="${alt}"`,
     `loading="lazy"`,
     `decoding="async"`,
   ];
+  if (inline) parts.push(`class="article-image-inline"`);
   if (srcset) parts.push(`srcset="${escapeAttr(srcset)}"`);
-  if (sizes) parts.push(`sizes="${sizes}"`);
-  if (width && /^\d+$/.test(width)) parts.push(`width="${width}"`);
-  if (height && /^\d+$/.test(height)) parts.push(`height="${height}"`);
+  parts.push(`sizes="min(1290px, 100vw)"`);
+  if (widthAttr && /^\d+$/.test(widthAttr)) parts.push(`width="${widthAttr}"`);
+  if (heightAttr && /^\d+$/.test(heightAttr)) parts.push(`height="${heightAttr}"`);
   return `<img ${parts.join(" ")} />`;
 }
 

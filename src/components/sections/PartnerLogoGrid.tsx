@@ -1,4 +1,4 @@
-import { SectionTitle } from "@/components/typography";
+import { BodyText, SectionTitle } from "@/components/typography";
 import type { ServicePartnerLogos } from "@/lib/wordpress/service-page-types";
 import styles from "./PartnerLogoGrid.module.css";
 
@@ -12,6 +12,20 @@ type PartnerLogoGridProps = {
  * Order matters for Global News vs Global.
  */
 const PARTNER_NAME_RULES: Array<{ match: RegExp; name: string }> = [
+  { match: /american-standard/i, name: "American Standard" },
+  { match: /comfortmaker/i, name: "Comfortmaker" },
+  { match: /keep-?rite/i, name: "Keeprite" },
+  { match: /mitsubishi/i, name: "Mitsubishi Electric" },
+  { match: /run-?tru/i, name: "RunTru" },
+  { match: /napoleon/i, name: "Napoleon" },
+  { match: /tosot/i, name: "Tosot" },
+  { match: /\/ge\./i, name: "GE" },
+  { match: /daikin/i, name: "Daikin" },
+  { match: /lennox/i, name: "Lennox" },
+  { match: /\/ruud\./i, name: "Ruud" },
+  { match: /rinnai/i, name: "Rinnai" },
+  { match: /\/trane\./i, name: "Trane" },
+  { match: /\/york\./i, name: "York" },
   { match: /golf-channel/i, name: "Golf Channel" },
   { match: /hgtv/i, name: "HGTV" },
   { match: /cbs\.webp|\/cbs\./i, name: "CBS" },
@@ -35,11 +49,21 @@ const PARTNER_NAME_RULES: Array<{ match: RegExp; name: string }> = [
   { match: /8\.46\.22-AM/i, name: "E!" },
 ];
 
+function brandFromFilename(src: string): string | null {
+  const file = decodeURIComponent(src.split("?")[0].split("/").pop() || "");
+  const stem = file.replace(/\.[a-z0-9]+$/i, "").trim();
+  if (!stem || /^\d/.test(stem) || /^(logo|image|partner|icon)$/i.test(stem)) return null;
+  return stem.replace(/[-_]+/g, " ");
+}
+
 function getPartnerName(logo: { src: string; alt: string }, index: number): string {
   const src = logo.src || "";
   for (const rule of PARTNER_NAME_RULES) {
     if (rule.match.test(src)) return rule.name;
   }
+
+  const fromFile = brandFromFilename(src);
+  if (fromFile) return fromFile;
 
   // Alt fallback — brand keywords only, never the full SEO sentence.
   const alt = logo.alt || "";
@@ -76,6 +100,43 @@ function getPartnerName(logo: { src: string; alt: string }, index: number): stri
 
 export function PartnerLogoGrid({ section }: PartnerLogoGridProps) {
   if (section.logos.length === 0) return null;
+
+  if (section.variant === "trust") {
+    return (
+      <section className={`section ${styles.section} ${styles.trust}`}>
+        <div className={`container ${styles.inner}`}>
+          {section.title ? (
+            <div className={styles.intro}>
+              <SectionTitle as="h2" className={styles.heading}>
+                {section.title}
+              </SectionTitle>
+              {section.description ? (
+                <BodyText className={styles.support}>{section.description}</BodyText>
+              ) : null}
+            </div>
+          ) : null}
+
+          <ul className={styles.trustGrid}>
+            {section.logos.map((logo, index) => {
+              const name = getPartnerName(logo, index);
+              return (
+                <li key={`${logo.src}-${index}`} className={styles.slot}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={logo.src}
+                    alt={name}
+                    className={styles.trustLogo}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className={`section ${styles.section}`}>

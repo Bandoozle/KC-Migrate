@@ -1,0 +1,139 @@
+.tabs {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.tabList {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 16px;
+  padding: 8px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 9999px;
+}
+
+.tab {
+  min-height: 42px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 9999px;
+  background: transparent;
+  color: #50565b;
+  font: inherit;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.tabActive {
+  background: #ffffff;
+  color: #000000;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.panel {
+  text-align: left;
+  padding-top: 8px;
+}
+
+.panel[hidden] {
+  display: none;
+}
+
+.stack {
+  display: grid;
+}
+
+.stack > .panel {
+  grid-area: 1 / 1;
+}
+
+.panelReserved {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.panelGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 2.5rem;
+  align-items: center;
+}
+
+.figure {
+  display: block;
+  width: 100%;
+  margin: 0;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+  text-align: left;
+  min-width: 0;
+  width: 100%;
+}
+
+.title {
+  margin: 0 0 0.35rem !important;
+}
+
+.subtitle {
+  margin: 0 0 0.85rem !important;
+  max-width: 36rem;
+  color: var(--kosick-color-muted) !important;
+}
+
+.description {
+  margin: 0 !important;
+  max-width: 38rem;
+  color: var(--kosick-color-muted) !important;
+}
+
+@media (max-width: 767px) {
+  .panelGrid {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.25rem;
+    align-items: start;
+  }
+
+  .tabListScroll {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .tab {
+    font-size: 15px;
+    padding: 0 14px;
+    min-height: 38px;
+  }
+}

@@ -1,0 +1,38 @@
+.reveal {
+  min-width: 0;
+}
+
+.hidden.fromLeft {
+  opacity: 0;
+  transform: translate3d(-56px, 0, 0);
+}
+
+.hidden.fromRight {
+  opacity: 0;
+  transform: translate3d(56px, 0, 0);
+}
+
+.visible {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 800px) {
+  .hidden.fromLeft,
+  .hidden.fromRight {
+    transform: translate3d(0, 20px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hidden.fromLeft,
+  .hidden.fromRight,
+  .visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

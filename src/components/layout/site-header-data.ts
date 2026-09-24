@@ -25,6 +25,8 @@ export type NavMenuItem = {
    * Desktop: rendered above items. Mobile: rendered below items.
    */
   viewAll?: NavLink;
+  /** Labeled groups rendered above the flat items. */
+  groups?: NavGroup[];
 };
 
 /** Wide grouped mega menu. */
@@ -91,16 +93,6 @@ export const SITE_HEADER_NAV: NavItem[] = [
         ],
       },
       {
-        title: "Digital Marketing",
-        items: [
-          { label: "Digital Marketing", href: "/services/digital-marketing/" },
-          { label: "Social Media Marketing", href: "/services/social-media-marketing/" },
-          { label: "Email Marketing", href: "/services/email-marketing/" },
-          { label: "Search Engine Optimization", href: "/services/search-engine-optimization/" },
-          { label: "Website Development & E-Commerce", href: "/services/website-development/" },
-        ],
-      },
-      {
         title: "Brand & Creative",
         items: [
           { label: "Strategic Corporate Branding", href: "/services/corporate-branding/" },
@@ -122,11 +114,26 @@ export const SITE_HEADER_NAV: NavItem[] = [
       label: "View All Marketing Programs",
       href: "/marketing-programs/",
     },
-    items: [
-      { label: "HVAC Marketing", href: "/services/hvac-marketing/" },
-      { label: "Dental Marketing", href: "/services/dental-marketing/" },
-      { label: "Golf Marketing", href: "/services/golf-marketing/" },
+    groups: [
+      {
+        title: "Digital Marketing",
+        items: [
+          { label: "Social Media Marketing", href: "/services/social-media-marketing/" },
+          { label: "Email Marketing", href: "/services/email-marketing/" },
+          { label: "Search Engine Optimization", href: "/services/search-engine-optimization/" },
+          { label: "Website Development & E-Commerce", href: "/services/website-development/" },
+        ],
+      },
+      {
+        title: "Industry Marketing",
+        items: [
+          { label: "HVAC Marketing", href: "/services/hvac-marketing/" },
+          { label: "Dental Marketing", href: "/services/dental-marketing/" },
+          { label: "Golf Marketing", href: "/services/golf-marketing/" },
+        ],
+      },
     ],
+    items: [],
   },
   {
     type: "menu",

@@ -1,5 +1,6 @@
 import Link from "next/link";
-import type { CSSProperties } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import { RevealOnEnter } from "@/components/sections/RevealOnEnter";
 import { BodyText, Eyebrow, SectionTitle } from "@/components/typography";
 import styles from "./FeatureSplit.module.css";
 
@@ -12,6 +13,8 @@ export type FeatureSplitData = {
   image?: { src: string; alt: string } | null;
   mediaPosition?: "left" | "right";
   tone?: "default" | "muted";
+  /** One-time horizontal reveal. Skips the sticky feature stack. */
+  motion?: "reveal";
 };
 
 type FeatureSplitProps = {
@@ -71,6 +74,52 @@ export function FeatureSplit({ feature, stackIndex }: FeatureSplitProps) {
   const bullets = feature.bullets ?? [];
   const mediaPosition = feature.mediaPosition ?? "right";
   const stacked = typeof stackIndex === "number";
+  const textOnly = !feature.image?.src;
+  const reveal = feature.motion === "reveal" && !textOnly;
+  const textFrom = mediaPosition === "left" ? "right" : "left";
+  const imageFrom = mediaPosition === "left" ? "left" : "right";
+  const textDelay = mediaPosition === "left" ? 120 : 0;
+  const imageDelay = mediaPosition === "left" ? 0 : 120;
+
+  const copy = (
+    <>
+      {feature.eyebrow ? (
+        <Eyebrow className={`kosick-feature-label ${styles.eyebrow}`}>
+          {toFeatureLabelCase(feature.eyebrow)}
+        </Eyebrow>
+      ) : null}
+      <SectionTitle as="h2" className={styles.title}>
+        {toSentenceCase(feature.title)}
+      </SectionTitle>
+      {feature.body ? <BodyText className={styles.body}>{feature.body}</BodyText> : null}
+      {bullets.length > 0 ? (
+        <ul className={styles.list}>
+          {bullets.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      ) : null}
+      {feature.cta ? (
+        <Link href={feature.cta.href} className={styles.cta}>
+          {toSentenceCase(feature.cta.label)}
+        </Link>
+      ) : null}
+    </>
+  );
+
+  const media = feature.image ? (
+    /* eslint-disable-next-line @next/next/no-img-element */
+    <img src={feature.image.src} alt={feature.image.alt || feature.title} />
+  ) : null;
+
+  function slot(node: ReactNode, className: string, from: "left" | "right", delay: number) {
+    if (!reveal) return <div className={className}>{node}</div>;
+    return (
+      <RevealOnEnter className={className} from={from} delay={delay}>
+        {node}
+      </RevealOnEnter>
+    );
+  }
 
   return (
     <section
@@ -79,6 +128,8 @@ export function FeatureSplit({ feature, stackIndex }: FeatureSplitProps) {
         styles.section,
         feature.tone === "muted" ? styles.muted : "",
         stacked ? styles.stacked : "",
+        textOnly ? styles.textOnly : "",
+        reveal ? styles.revealClip : "",
       ]
         .filter(Boolean)
         .join(" ")}
@@ -96,36 +147,8 @@ export function FeatureSplit({ feature, stackIndex }: FeatureSplitProps) {
             mediaPosition === "left" ? styles.mediaLeft : styles.mediaRight,
           ].join(" ")}
         >
-          <div className={styles.copy}>
-            {feature.eyebrow ? (
-              <Eyebrow className={`kosick-feature-label ${styles.eyebrow}`}>
-                {toFeatureLabelCase(feature.eyebrow)}
-              </Eyebrow>
-            ) : null}
-            <SectionTitle as="h2" className={styles.title}>
-              {toSentenceCase(feature.title)}
-            </SectionTitle>
-            {feature.body ? <BodyText className={styles.body}>{feature.body}</BodyText> : null}
-            {bullets.length > 0 ? (
-              <ul className={styles.list}>
-                {bullets.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            ) : null}
-            {feature.cta ? (
-              <Link href={feature.cta.href} className={styles.cta}>
-                {toSentenceCase(feature.cta.label)}
-              </Link>
-            ) : null}
-          </div>
-
-          {feature.image ? (
-            <div className={styles.media}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={feature.image.src} alt={feature.image.alt || feature.title} />
-            </div>
-          ) : null}
+          {slot(copy, styles.copy, textFrom, textDelay)}
+          {media ? slot(media, styles.media, imageFrom, imageDelay) : null}
         </div>
       </div>
     </section>

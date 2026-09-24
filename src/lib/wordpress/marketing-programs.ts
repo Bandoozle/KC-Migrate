@@ -6,21 +6,23 @@ import { getPageBySlug, getWordPressUrl, WordPressApiError } from "@/lib/wordpre
 import type { FeatureSplitData } from "@/components/sections/FeatureSplit";
 import type { HeroBannerSlide } from "@/components/sections/HeroBanner";
 import type { PageCtaData } from "@/components/sections/PageCta";
+import { INDUSTRY_SERVICE_HEROES, serviceHeroActions } from "@/lib/content/industry-heroes";
 import {
   absUrl,
   cleanText,
   extractSmartSliderSlides,
-  extractSmartSliderTexts,
   toLocalPath,
 } from "@/lib/wordpress/shared";
 
 export type MarketingProgramsContent = {
   title: string;
   hero: {
-    title: string;
     eyebrow: string;
+    displayTitle: string;
+    titleSecondary: string;
     subtitle: string;
-    cta: { label: string; href: string } | null;
+    cta: { label: string; href: string };
+    secondaryCta: { label: string; href: string; icon?: "phone" };
     slides: HeroBannerSlide[];
   };
   programs: FeatureSplitData[];
@@ -102,17 +104,8 @@ export const getMarketingProgramsContent = cache(
     const $ = cheerio.load(`<div id="root">${html}</div>`);
 
     const slides = extractSmartSliderSlides(html, origin);
-    const sliderTexts = extractSmartSliderTexts(html);
-
     const pageTitle = cleanText(page.title.rendered) || "Marketing Programs";
-    const heroTitle =
-      sliderTexts.find((t) => /marketing programs/i.test(t)) || pageTitle;
-    const eyebrow = sliderTexts.find((t) => /^strategic$/i.test(t)) || "";
-    const subtitle =
-      sliderTexts.find((t) => /digital|traditional|web/i.test(t) && t.includes("•")) ||
-      "";
-    const heroCtaLabel =
-      sliderTexts.find((t) => /connect with us/i.test(t)) || "";
+    const heroCopy = INDUSTRY_SERVICE_HEROES.programs;
 
     const programRows = $("#root")
       .children(".kb-row-layout-wrap")
@@ -137,13 +130,18 @@ export const getMarketingProgramsContent = cache(
     const primary = ctaRow.find("a.kb-button, a.kt-button, a.button").first();
     const phone = ctaRow.find('a[href^="tel:"]').first();
 
+    const contactHref =
+      toLocalPath(absUrl(primary.attr("href"), origin), origin) || "/contact/";
+    const talkHref = phone.attr("href") || "tel:+16049255800";
+
     return {
       title: pageTitle,
       hero: {
-        title: heroTitle,
-        eyebrow,
-        subtitle,
-        cta: heroCtaLabel ? { label: heroCtaLabel, href: "/contact/" } : null,
+        eyebrow: heroCopy.eyebrow,
+        displayTitle: heroCopy.displayTitle || "Strategic",
+        titleSecondary: heroCopy.titleSecondary,
+        subtitle: heroCopy.subtitle || "",
+        ...serviceHeroActions(contactHref, talkHref),
         slides,
       },
       programs,

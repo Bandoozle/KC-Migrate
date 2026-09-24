@@ -99,6 +99,163 @@
   color: #111111;
 }
 
+.service {
+  min-height: clamp(32rem, 68vh, 40rem);
+}
+
+.service .image {
+  object-position: 68% center;
+}
+
+.service .overlay {
+  align-items: center;
+  padding: clamp(2.75rem, 7vh, 4.5rem) 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.86) 0%,
+    rgba(0, 0, 0, 0.72) 38%,
+    rgba(0, 0, 0, 0.38) 68%,
+    rgba(0, 0, 0, 0.16) 100%
+  );
+}
+
+.service .copy {
+  display: grid;
+  justify-items: start;
+  gap: 0;
+  max-width: var(--kosick-container);
+  width: var(--kosick-container);
+  margin-inline: auto;
+  color: #ffffff;
+}
+
+.service .eyebrow {
+  margin: 0 0 1.15rem;
+  max-width: 40rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.service .title {
+  display: grid;
+  max-width: 12em;
+  font-family: var(--kosick-font, inherit);
+  font-size: clamp(2.75rem, 5.4vw, 4.35rem);
+  font-weight: 600;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+
+.service .titleSecondary {
+  color: rgba(255, 255, 255, 0.62);
+  font-weight: 600;
+  white-space: pre-line;
+}
+
+.service .subtitle {
+  max-width: 42rem;
+  margin: 1.35rem 0 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.55;
+  opacity: 1;
+}
+
+.service .actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.service .actions .primary,
+.service .actions .secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 46px;
+  padding: 0.7rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.service .actions .primary {
+  background: #ffffff;
+  color: #111111;
+  border: 1px solid #ffffff;
+}
+
+.service .actions .primary:hover,
+.service .actions .primary:focus-visible {
+  background: #f3f3f3;
+  color: #111111;
+}
+
+.service .actions .secondary {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  font-weight: 500;
+}
+
+.service .actions .secondary:hover,
+.service .actions .secondary:focus-visible {
+  border-color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+@media (max-width: 720px) {
+  .service {
+    min-height: 34rem;
+  }
+
+  .service .overlay {
+    align-items: flex-end;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25) 0%,
+      rgba(0, 0, 0, 0.72) 42%,
+      rgba(0, 0, 0, 0.88) 100%
+    );
+  }
+
+  .service .image {
+    object-position: center;
+  }
+
+  .service .title {
+    font-size: clamp(2.15rem, 11vw, 3rem);
+    max-width: none;
+  }
+
+  .service .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .service .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .service .actions .primary,
+  .service .actions .secondary {
+    width: 100%;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .slide {
     transition: none;

@@ -1,3 +1,4 @@
+import { applyIndustryServiceHero } from "@/lib/content/industry-heroes";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 
 /**
@@ -63,6 +64,33 @@ function matchFeatureVisual(title: string, eyebrow?: string) {
   return null;
 }
 
+function hvacHeroEyebrow(content: ServicePageContent): string {
+  const titles = [
+    ...content.offerGroups.flatMap((group) => group.cards.map((card) => card.title)),
+    ...content.packageSections.flatMap((section) => section.cards.map((card) => card.title)),
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  const parts: string[] = [];
+  if (/digital/.test(titles)) parts.push("Digital");
+  if (/traditional/.test(titles)) parts.push("Traditional");
+  if (/co-?op/.test(titles)) parts.push("Co-op Programs");
+  if (/\bweb/.test(titles)) parts.push("Web");
+  if (parts.length >= 3) return parts.join(" • ");
+  return "Digital • Traditional • Co-op Programs • Web";
+}
+
+function hvacHeroLead(content: ServicePageContent): string | undefined {
+  const fromCta = content.cta?.description?.trim();
+  if (fromCta && fromCta.length > 40) return fromCta;
+
+  const fromFeature = content.features.find((feature) =>
+    /trane|20\+|years of/i.test(`${feature.title} ${feature.body || ""}`),
+  )?.body;
+  return fromFeature?.trim() || content.excerpt.trim() || undefined;
+}
+
 function matchTabImage(label: string) {
   const hay = label.toLowerCase();
   if (/youtube|connected\s*tv|ctv/i.test(hay)) return HVAC_MARKETING_ASSETS.tabs.youtube;
@@ -80,11 +108,15 @@ export function applyHvacMarketingLocalAssets(
   content: ServicePageContent,
 ): ServicePageContent {
   const hero = {
-    ...content.hero,
+    ...applyIndustryServiceHero(content, {
+      eyebrow: hvacHeroEyebrow(content),
+      titleSecondary: content.title || "HVAC Marketing",
+      subtitle: hvacHeroLead(content),
+    }),
     slides: [
       {
         src: HVAC_MARKETING_ASSETS.heroVideo,
-        alt: content.hero.displayTitle || content.title,
+        alt: content.title || "HVAC Marketing",
         kind: "video" as const,
       },
     ],

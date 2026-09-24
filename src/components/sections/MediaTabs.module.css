@@ -6,74 +6,9 @@
 .inner {
   display: grid;
   gap: var(--kosick-intro-content-gap);
-  justify-items: center;
+  justify-items: stretch;
 }
 
 .inner :global(.kosick-section-intro) {
   margin-bottom: 0;
-}
-
-.tabList {
-  width: fit-content;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 8px 10px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  background: rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.05);
-  border-radius: 9999px;
-}
-
-.tab {
-  min-height: 42px;
-  padding: 0 20px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 9999px;
-  background: transparent;
-  color: #50565b;
-  font: inherit;
-  font-size: 18px;
-  line-height: 24px;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
-}
-
-.tabActive {
-  background: #ffffff;
-  color: #000000;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.panel {
-  width: min(100%, 860px);
-  margin: 0 auto;
-  overflow: hidden;
-  background: #111111;
-  border-radius: 4px;
-}
-
-.panel img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.panel[hidden] {
-  display: none;
-}
-
-@media (max-width: 767px) {
-  .tab {
-    font-size: 15px;
-    padding: 0 14px;
-    min-height: 38px;
-  }
 }

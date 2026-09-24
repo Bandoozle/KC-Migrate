@@ -22,11 +22,14 @@ export default async function MarketingProgramsPage() {
   return (
     <main>
       <HeroBanner
+        variant="service"
         slides={content.hero.slides}
-        title={content.hero.title}
+        title={content.hero.displayTitle}
+        titleSecondary={content.hero.titleSecondary}
         eyebrow={content.hero.eyebrow}
         subtitle={content.hero.subtitle}
         cta={content.hero.cta}
+        secondaryCta={content.hero.secondaryCta}
       />
       {content.programs.map((program) => (
         <FeatureSplit key={program.title} feature={program} />

@@ -50,7 +50,10 @@ export type ServiceGallerySection = {
 
 export type ServicePartnerLogos = {
   title: string;
+  description?: string;
   logos: ServiceMedia[];
+  /** Card grid keeps visible names. Trust is a logo-only brand row. */
+  variant?: "cards" | "trust";
 };
 
 export type ServiceMediaCard = {
@@ -75,6 +78,30 @@ export type ServiceOverlayCard = {
 export type ServiceLeadSection = {
   title?: string;
   paragraphs: string[];
+};
+
+/** Intro plus supporting cards, rendered with InfoCardGrid. */
+export type ServiceSummarySection = {
+  eyebrow?: string;
+  title: string;
+  body?: string;
+  cards: ServiceInfoCard[];
+};
+
+export type ServiceNarrativeCard = {
+  label: string;
+  title: string;
+  body: string;
+};
+
+/** Centered intro, optional pillar cards, and two editorial columns. */
+export type ServiceNarrativeSection = {
+  eyebrow?: string;
+  title: string;
+  intro?: string;
+  cards?: ServiceNarrativeCard[];
+  statement?: string;
+  columns: Array<{ title: string; body: string }>;
 };
 
 export type ServiceIntroAction = {
@@ -122,6 +149,10 @@ export type ServiceVideoSection = {
 export type ServiceMediaTab = {
   label: string;
   image: ServiceMedia;
+  /** Optional panel copy. Platform tabs fall back to platform-media-tabs.ts. */
+  title?: string;
+  subtitle?: string;
+  description?: string;
 };
 
 export type ServiceMediaTabsSection = {
@@ -145,10 +176,13 @@ export type ServicePageContent = {
   hero: {
     slides: SmartSliderSlide[];
     eyebrow?: string;
-    /** Override page title in hero overlay when slider provides one. */
+    /** First title line when the hero uses a split headline. */
     displayTitle?: string;
+    /** Muted second title line (e.g. "HVAC Marketing"). */
+    titleSecondary?: string;
     subtitle?: string;
     cta?: { label: string; href: string } | null;
+    secondaryCta?: { label: string; href: string; icon?: "phone" } | null;
   };
   intro: {
     eyebrow: string;
@@ -172,6 +206,10 @@ export type ServicePageContent = {
   /** @deprecated Prefer leadSections. */
   leadSection: ServiceLeadSection | null;
   leadSections: ServiceLeadSection[];
+  /** Optional summary placed after partner logos. */
+  summary: ServiceSummarySection | null;
+  /** Optional two-column closer placed after feature splits. */
+  narrative: ServiceNarrativeSection | null;
   linkBanner: ServiceLinkBanner | null;
   promoBand: ServicePromoBand | null;
   faqs: {

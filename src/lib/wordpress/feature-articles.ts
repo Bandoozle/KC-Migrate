@@ -6,7 +6,9 @@ import {
   WordPressApiError,
 } from "@/lib/wordpress";
 import type { ArticleListItem } from "@/components/sections/ArticleListing";
+import { resourceTopicIds, resourceTopicLabel } from "@/lib/content/resource-topics";
 import { absUrl, cleanText, toLocalPath } from "@/lib/wordpress/shared";
+import { resolveResourceImage, type EmbeddedFeaturedMedia } from "@/lib/wordpress/resource-image";
 
 export type FeatureArticlesContent = {
   title: string;
@@ -21,14 +23,9 @@ type EmbeddedPost = {
   link: string;
   title: { rendered: string };
   excerpt: { rendered: string };
+  content?: { rendered: string };
   _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url?: string;
-      alt_text?: string;
-      media_details?: {
-        sizes?: Record<string, { source_url?: string }>;
-      };
-    }>;
+    "wp:featuredmedia"?: EmbeddedFeaturedMedia[];
   };
 };
 
@@ -91,23 +88,25 @@ export const getFeatureArticlesContent = cache(
     const posts = await fetchPostsWithMedia(50);
 
     const articles: ArticleListItem[] = posts.map((post) => {
-      const media = post._embedded?.["wp:featuredmedia"]?.[0];
-      const imageSrc =
-        media?.media_details?.sizes?.large?.source_url ||
-        media?.media_details?.sizes?.medium_large?.source_url ||
-        media?.source_url ||
-        null;
+      const title = cleanText(post.title.rendered);
+      const excerpt = cleanText(post.excerpt.rendered);
+      const body = cleanText(post.content?.rendered || "").slice(0, 4000);
+      const topics = resourceTopicIds(`${title} ${excerpt}`);
+      const image = resolveResourceImage(
+        post._embedded?.["wp:featuredmedia"]?.[0],
+        post.content?.rendered || "",
+        origin,
+        title,
+      );
 
       return {
-        title: cleanText(post.title.rendered),
-        excerpt: cleanText(post.excerpt.rendered),
+        title,
+        excerpt,
         href: toLocalPath(post.link, origin) || `/${post.slug}/`,
-        image: imageSrc
-          ? {
-              src: imageSrc,
-              alt: media?.alt_text || cleanText(post.title.rendered),
-            }
-          : null,
+        image,
+        searchText: `${title} ${excerpt} ${body}`.toLowerCase(),
+        topics,
+        label: resourceTopicLabel(topics),
       };
     });
 

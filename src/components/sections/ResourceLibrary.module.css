@@ -1,0 +1,259 @@
+.featured {
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(255, 255, 255, 0.7), transparent 62%),
+    linear-gradient(180deg, #eceae6 0%, #f4f2ef 100%);
+  padding: clamp(4.5rem, 8vw, 6.25rem) 0 4rem;
+}
+
+.featuredInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.featuredHeader {
+  margin-bottom: 4rem;
+}
+
+.featuredControls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+}
+
+.subtitle {
+  max-width: 38rem;
+  margin-bottom: 0;
+}
+
+.search {
+  position: relative;
+  width: min(100%, 42rem);
+  margin-bottom: 1.15rem;
+}
+
+.searchLabel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.searchInput {
+  width: 100%;
+  height: 3.35rem;
+  padding: 0 3rem 0 1.15rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--kosick-color-text);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.searchInput::placeholder {
+  color: var(--kosick-color-meta);
+}
+
+.searchInput:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  right: 1.05rem;
+  display: flex;
+  color: #50565b;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  width: min(100%, 52rem);
+  margin-bottom: 2.25rem;
+}
+
+.filter {
+  min-height: 2.4rem;
+  padding: 0 0.95rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--kosick-color-text);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filter:hover {
+  border-color: rgba(0, 0, 0, 0.22);
+}
+
+.filter:focus-visible,
+.arrow:focus-visible,
+.cardLink:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+.filterActive {
+  background: #111111;
+  border-color: #111111;
+  color: #ffffff;
+}
+
+.carousel {
+  width: 100%;
+  text-align: left;
+}
+
+.viewport {
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.track {
+  display: flex;
+  align-items: stretch;
+  gap: 1.25rem;
+  transition: transform 420ms ease;
+}
+
+.card {
+  display: flex;
+  min-width: 0;
+  height: auto;
+  flex: 0 0 auto;
+  align-self: stretch;
+}
+
+.cardLink {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  background: #ffffff;
+  color: inherit;
+  text-decoration: none;
+}
+
+.cardLink:hover .media img {
+  transform: scale(1.03);
+}
+
+.media {
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  background: #ececec;
+}
+
+.media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 420ms ease;
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+  padding: 1.1rem 1.15rem 1.25rem;
+  text-align: left;
+}
+
+.label {
+  margin: 0;
+  color: var(--kosick-color-muted);
+}
+
+.excerpt {
+  display: -webkit-box;
+  margin: 0.15rem 0 0;
+  overflow: hidden;
+  color: var(--kosick-color-muted) !important;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+}
+
+.arrow {
+  width: 2.75rem;
+  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #111111;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  border-color: rgba(0, 0, 0, 0.28);
+}
+
+.empty {
+  margin: 0.5rem 0 0;
+  color: var(--kosick-color-muted);
+  font-size: 1.0625rem;
+}
+
+@media (max-width: 720px) {
+  .featured {
+    padding: 3.25rem 0 3rem;
+  }
+
+  .featuredHeader {
+    margin-bottom: 3.25rem;
+  }
+
+  .filters {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .filter {
+    flex: 0 0 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .media img {
+    transition: none;
+  }
+}

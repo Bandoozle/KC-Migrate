@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { ArticleListing } from "@/components/sections/ArticleListing";
-import { PageHero } from "@/components/sections/PageHero";
+import { ResourceLibrary } from "@/components/sections/ResourceLibrary";
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getFeatureArticlesContent } from "@/lib/wordpress/feature-articles";
 
@@ -25,8 +24,7 @@ export default async function FeatureArticlesPage() {
 
   return (
     <main>
-      <PageHero title={content.heroTitle} backgroundImage={content.heroBackground} />
-      <ArticleListing articles={content.articles} />
+      <ResourceLibrary articles={content.articles} />
     </main>
   );
 }

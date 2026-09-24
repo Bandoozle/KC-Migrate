@@ -1,5 +1,7 @@
 import { cache } from "react";
 import { applyHvacMarketingLocalAssets } from "@/lib/assets/hvac-marketing";
+import { applyHvacLeadGenerationLayout } from "@/lib/content/hvac-lead-generation";
+import { applyIndustryServiceHero, INDUSTRY_SERVICE_HEROES } from "@/lib/content/industry-heroes";
 import { getPageBySlug, WordPressApiError } from "@/lib/wordpress";
 import { normalizeServicePageHtml } from "@/lib/wordpress/service-page-parse";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
@@ -25,14 +27,21 @@ export const getHvacMarketingContent = cache(async () =>
   applyHvacMarketingLocalAssets(await loadMarketingProgramPage("hvac-marketing")),
 );
 
-export const getDentalMarketingContent = cache(() =>
-  loadMarketingProgramPage("dental-marketing"),
-);
+export const getDentalMarketingContent = cache(async () => {
+  const content = await loadMarketingProgramPage("dental-marketing");
+  return { ...content, hero: applyIndustryServiceHero(content, INDUSTRY_SERVICE_HEROES.dental) };
+});
 
-export const getGolfMarketingContent = cache(() =>
-  loadMarketingProgramPage("golf-marketing"),
-);
+export const getGolfMarketingContent = cache(async () => {
+  const content = await loadMarketingProgramPage("golf-marketing");
+  return { ...content, hero: applyIndustryServiceHero(content, INDUSTRY_SERVICE_HEROES.golf) };
+});
 
-export const getHvacLeadGenerationContent = cache(() =>
-  loadMarketingProgramPage("hvac-lead-generation"),
-);
+export const getHvacLeadGenerationContent = cache(async () => {
+  const content = await loadMarketingProgramPage("hvac-lead-generation");
+  return applyHvacLeadGenerationLayout({
+    ...content,
+    hero: applyIndustryServiceHero(content, INDUSTRY_SERVICE_HEROES.leadGeneration),
+    intro: null,
+  });
+});

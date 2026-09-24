@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { BodyText, SectionTitle } from "@/components/typography";
+import { EditorialColumns } from "@/components/sections/EditorialColumns";
 import { FeatureSplitStack } from "@/components/sections/FeatureSplitStack";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
-import { HeroCarousel } from "@/components/sections/digital-marketing/HeroCarousel";
+import { ServiceHero } from "@/components/sections/ServiceHero";
 import { RelatedServices } from "@/components/sections/digital-marketing/RelatedServices";
 import { InfoCardGrid } from "@/components/sections/InfoCardGrid";
 import { MediaCardGrid } from "@/components/sections/MediaCardGrid";
@@ -46,7 +47,7 @@ export function MarketingProgramPageView({ content }: MarketingProgramPageViewPr
 
   return (
     <main>
-      <HeroCarousel slides={content.hero.slides} title={content.title} />
+      <ServiceHero title={content.title} hero={content.hero} />
 
       {content.intro || firstOffers ? (
         <InfoCardGrid
@@ -67,6 +68,16 @@ export function MarketingProgramPageView({ content }: MarketingProgramPageViewPr
       ))}
 
       {content.partnerLogos ? <PartnerLogoGrid section={content.partnerLogos} /> : null}
+
+      {content.summary ? (
+        <InfoCardGrid
+          eyebrow={content.summary.eyebrow}
+          title={content.summary.title}
+          body={content.summary.body}
+          cards={content.summary.cards}
+          columns={3}
+        />
+      ) : null}
 
       {content.linkBanner ? (
         <section className={`section ${styles.linkBanner}`}>
@@ -94,6 +105,8 @@ export function MarketingProgramPageView({ content }: MarketingProgramPageViewPr
       ))}
 
       <FeatureSplitStack features={content.features} />
+
+      {content.narrative ? <EditorialColumns section={content.narrative} /> : null}
 
       {content.videoSections.map((section) => (
         <VideoEmbed key={`${section.title || ""}-${section.src}`} section={section} />

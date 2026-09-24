@@ -63,14 +63,19 @@
 
 .title {
   margin: 0;
-  max-width: 14em;
+  max-width: min(18em, 100%);
+}
+
+.copy:only-child .title,
+.copy:only-child .body {
+  max-width: 42rem;
 }
 
 .body {
-  max-width: 36em;
-  color: #50565b;
-  font-size: 1.05rem;
-  line-height: 1.55;
+  max-width: 40rem;
+  color: var(--kosick-color-muted, #50565b);
+  font-size: var(--kosick-body-size, 1.0625rem);
+  line-height: 1.6;
 }
 
 .list {
@@ -107,18 +112,39 @@
   color: #ffffff;
 }
 
+.textOnly .featureGrid {
+  display: block;
+}
+
+.revealClip {
+  overflow-x: clip;
+}
+
+.textOnly .copy {
+  width: min(100%, 46rem);
+  max-width: 46rem;
+  margin-inline: auto;
+}
+
+.textOnly .title,
+.textOnly .body,
+.textOnly .list {
+  max-width: none;
+}
+
 .media {
   display: block;
   box-sizing: border-box;
-  width: max-content;
+  width: 100%;
+  min-width: 0;
   max-width: 100%;
   margin: 0;
   padding: 0;
   line-height: 0;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--kosick-radius-md, 12px);
   background: transparent;
-  justify-self: center;
+  justify-self: stretch;
 }
 
 .media img {
@@ -128,24 +154,18 @@
   max-width: min(100%, 36rem);
   max-height: min(44rem, 78vh);
   object-fit: contain;
-  border-radius: 12px;
+  border-radius: var(--kosick-radius-md, 12px);
 }
 
 @media (min-width: 900px) {
   /*
-    Media column sizes to the image; text takes the remaining rail.
-    Outer image edge stays flush with the shared .container edge.
+    Equal columns inside the site container. The image fills its
+    track instead of sizing the track to its intrinsic width.
   */
-  .mediaRight {
-    grid-template-columns: minmax(0, 1fr) max-content;
-    column-gap: 2.25rem;
-    row-gap: 0;
-    align-items: center;
-  }
-
+  .mediaRight,
   .mediaLeft {
-    grid-template-columns: max-content minmax(0, 1fr);
-    column-gap: 2.25rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(1.75rem, 3vw, 3rem);
     row-gap: 0;
     align-items: center;
   }
@@ -153,27 +173,36 @@
   .copy {
     justify-self: stretch;
     width: 100%;
+    min-width: 0;
   }
 
   .media {
-    max-width: min(100%, 38rem);
+    width: max-content;
+    max-width: 100%;
+    min-width: 0;
+    justify-self: end;
   }
 
   .media img {
     width: auto;
     height: auto;
-    max-width: min(100%, 38rem);
-    max-height: min(46rem, 80vh);
+    max-width: 100%;
+    max-height: min(32rem, 68vh);
+    object-fit: contain;
+    border-radius: var(--kosick-radius-md, 12px);
   }
 
-  /* Flush to the outer content-rail edge */
+  /* Outer edge of each image sits on the shared container edge. */
   .mediaRight .media {
     justify-self: end;
+    margin-left: auto;
   }
 
   .mediaLeft .media {
     order: -1;
     justify-self: start;
+    margin-right: auto;
+    margin-left: 0;
   }
 }
 

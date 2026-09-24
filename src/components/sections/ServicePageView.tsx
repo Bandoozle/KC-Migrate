@@ -2,7 +2,6 @@ import Link from "next/link";
 import { BodyText, SectionTitle } from "@/components/typography";
 import { FeatureSplitStack } from "@/components/sections/FeatureSplitStack";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
-import { HeroCarousel } from "@/components/sections/digital-marketing/HeroCarousel";
 import { PageCta } from "@/components/sections/PageCta";
 import { RelatedServices } from "@/components/sections/digital-marketing/RelatedServices";
 import { InfoCardGrid } from "@/components/sections/InfoCardGrid";
@@ -11,6 +10,7 @@ import { OverlayCardGrid } from "@/components/sections/OverlayCardGrid";
 import { PartnerLogoGrid } from "@/components/sections/PartnerLogoGrid";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { ServiceGallery } from "@/components/sections/ServiceGallery";
+import { ServiceHero } from "@/components/sections/ServiceHero";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./ServicePageView.module.css";
 
@@ -23,7 +23,7 @@ export function ServicePageView({ content }: ServicePageViewProps) {
 
   return (
     <main>
-      <HeroCarousel slides={content.hero.slides} title={content.title} />
+      <ServiceHero title={content.title} hero={content.hero} />
 
       {content.intro || firstOffers ? (
         <InfoCardGrid

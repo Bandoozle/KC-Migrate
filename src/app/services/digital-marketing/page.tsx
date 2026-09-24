@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { FeatureSplit } from "@/components/sections/digital-marketing/FeatureSplit";
-import { HeroCarousel } from "@/components/sections/digital-marketing/HeroCarousel";
 import { OfferCards } from "@/components/sections/digital-marketing/OfferCards";
+import { ServiceHero } from "@/components/sections/ServiceHero";
 import { PageCta } from "@/components/sections/digital-marketing/PageCta";
 import { RelatedServices } from "@/components/sections/digital-marketing/RelatedServices";
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
@@ -29,7 +29,7 @@ export default async function DigitalMarketingPage() {
 
   return (
     <main>
-      <HeroCarousel slides={content.hero.slides} title={content.title} />
+      <ServiceHero title={content.title} hero={content.hero} />
       <OfferCards
         eyebrow={content.offers.eyebrow}
         title={content.offers.title}

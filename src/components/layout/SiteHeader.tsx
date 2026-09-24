@@ -144,11 +144,50 @@ function DesktopNavItem({
       {item.type === "menu" ? (
         <div
           id={panelId}
-          className={styles.dropdown}
+          className={[
+            styles.dropdown,
+            item.groups && item.groups.length > 1 ? styles.dropdownColumns : "",
+          ]
+            .filter(Boolean)
+            .join(" ")}
           role="menu"
           hidden={!open}
         >
+          {item.groups && item.groups.length > 1 ? (
+            <div className={styles.dropdownColumnGrid}>
+              {item.groups.map((group) => (
+                <div key={group.title} className={styles.dropdownGroup}>
+                  <p className={styles.dropdownGroupTitle}>{group.title}</p>
+                  <ul className={styles.dropdownList}>
+                    {group.items.map((child) => (
+                      <li key={child.href + child.label} role="none">
+                        <Link href={child.href} className={styles.dropdownLink} role="menuitem">
+                          {child.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : null}
           <ul className={styles.dropdownList}>
+            {item.groups && item.groups.length > 1
+              ? null
+              : item.groups?.map((group) => (
+                  <li key={group.title} role="none" className={styles.dropdownGroup}>
+                    <p className={styles.dropdownGroupTitle}>{group.title}</p>
+                    <ul className={styles.dropdownList}>
+                      {group.items.map((child) => (
+                        <li key={child.href + child.label} role="none">
+                          <Link href={child.href} className={styles.dropdownLink} role="menuitem">
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
             {item.items.map((child) => (
               <li key={child.href + child.label} role="none">
                 <Link href={child.href} className={styles.dropdownLink} role="menuitem">
@@ -242,6 +281,20 @@ function MobileNavSection({
         </div>
         {expanded ? (
           <ul className={styles.mobileSublist}>
+            {item.groups?.map((group) => (
+              <li key={group.title}>
+                <p className={styles.mobileGroupTitle}>{group.title}</p>
+                <ul className={styles.mobileNestedList}>
+                  {group.items.map((child) => (
+                    <li key={child.href + child.label}>
+                      <Link href={child.href} onClick={onNavigate}>
+                        {child.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
             {item.items.map((child) => (
               <li key={child.href + child.label}>
                 <Link href={child.href} onClick={onNavigate}>
