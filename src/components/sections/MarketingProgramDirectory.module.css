@@ -1,0 +1,250 @@
+.hero {
+  padding: clamp(3.25rem, 6vw, 5.75rem) 0 clamp(2rem, 4vw, 3.5rem);
+  background: #f6f5f2;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.heroCopy {
+  max-width: 38rem;
+}
+
+.heroTitle {
+  max-width: 12em;
+}
+
+.heroLead {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--kosick-color-muted, #50565b);
+}
+
+.heroCta,
+.explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #111111;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.heroCta {
+  margin-top: 1.5rem;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+.heroCta:hover .arrow,
+.heroCta:focus-visible .arrow,
+.card:hover .arrow,
+.card:focus-visible .arrow {
+  transform: translateX(4px);
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0.7rem;
+  min-height: 18rem;
+}
+
+.collageMain,
+.collageSide {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ececec;
+}
+
+.collageMain {
+  grid-row: span 2;
+  min-height: 16rem;
+}
+
+.collageMain img,
+.collageSide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collageSide {
+  min-height: 7.5rem;
+}
+
+.groupAlt {
+  background: #f4f4f4;
+}
+
+.groupIntro {
+  max-width: 40rem;
+  margin-bottom: 1.75rem;
+}
+
+.groupTitle {
+  margin: 0;
+}
+
+.groupLead {
+  margin: 0.75rem 0 0;
+  color: var(--kosick-color-muted, #50565b);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: stretch;
+}
+
+.cardWrap {
+  height: 100%;
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.media {
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #ececec;
+}
+
+.media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 280ms ease;
+}
+
+.card:hover .media img,
+.card:focus-visible .media img {
+  transform: scale(1.03);
+}
+
+.cardBody {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1.15rem 1.2rem 1.25rem;
+}
+
+.cardEyebrow {
+  margin-bottom: 0.45rem;
+}
+
+.cardTitle {
+  margin: 0;
+}
+
+.cardText {
+  margin: 0.65rem 0 0;
+  color: var(--kosick-color-muted, #50565b);
+}
+
+.explore {
+  margin-top: auto;
+  padding-top: 1.15rem;
+}
+
+.why {
+  background: #ffffff;
+}
+
+.whyTitle {
+  max-width: 16em;
+}
+
+.points {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin: 2.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pointIndex {
+  display: block;
+  margin-bottom: 0.7rem;
+  color: rgba(17, 17, 17, 0.28);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.pointTitle {
+  margin: 0;
+}
+
+.pointBody {
+  margin: 0.45rem 0 0;
+  color: var(--kosick-color-muted, #50565b);
+}
+
+.cta {
+  padding: clamp(4.75rem, 9vw, 7.25rem) 0;
+}
+
+@media (min-width: 720px) {
+  .grid,
+  .points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 960px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  }
+
+  .collage {
+    min-height: 26rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid,
+  .points {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .points {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow,
+  .media img {
+    transition: none;
+  }
+}

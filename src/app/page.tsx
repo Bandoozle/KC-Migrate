@@ -4,7 +4,6 @@ import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getHomePageContent } from "@/lib/wordpress/home";
 import type { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("home");

@@ -3,7 +3,6 @@ import { CorporateEventsPageView } from "@/components/sections/CorporateEventsPa
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getCorporateEventsContent } from "@/lib/wordpress/service-page";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("corporate-events");

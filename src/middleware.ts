@@ -8,5 +8,7 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|wp-content|wp-includes|wp-fonts).*)"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|wp-content|wp-includes|wp-fonts|api/).*)",
+  ],
 };

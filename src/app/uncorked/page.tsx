@@ -3,7 +3,6 @@ import { NativePageShell } from "@/components/layout/NativePageShell";
 import { UncorkedPageView } from "@/components/microsites/UncorkedPageView";
 import { getUncorkedContent } from "@/lib/wordpress/microsites";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getUncorkedContent();

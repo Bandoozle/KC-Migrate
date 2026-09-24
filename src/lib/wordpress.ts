@@ -10,6 +10,9 @@ const API_PREFIX = "/wp-json/wp/v2";
 const REQUEST_TIMEOUT_MS = 15_000;
 const MAX_PER_PAGE = 100;
 
+/** Published page/post content. Short enough to pick up CMS edits, long enough that navigation does not wait on WordPress. */
+export const WORDPRESS_REVALIDATE_SECONDS = 120;
+
 const LIST_FIELDS = [
   "id",
   "slug",
@@ -59,7 +62,7 @@ async function wpFetch<T>(
   let response: Response;
   try {
     response = await fetch(endpoint, {
-      cache: "no-store",
+      next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
       headers: {
         Accept: "application/json",
       },

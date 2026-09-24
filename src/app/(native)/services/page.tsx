@@ -5,7 +5,6 @@ import { SectionLead } from "@/components/sections/SectionLead";
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getServicesContent } from "@/lib/wordpress/services";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("services");

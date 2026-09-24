@@ -9,7 +9,6 @@ import {
   renderWordPressPath,
 } from "@/lib/render-wordpress-page";
 
-export const dynamic = "force-dynamic";
 
 type PageProps = {
   params: Promise<{ slug: string[] }>;

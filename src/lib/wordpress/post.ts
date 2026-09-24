@@ -3,6 +3,7 @@ import {
   decodeRenderedText,
   getPostBySlug,
   getWordPressUrl,
+  WORDPRESS_REVALIDATE_SECONDS,
   WordPressApiError,
 } from "@/lib/wordpress";
 import { absUrl, cleanText, toLocalPath } from "@/lib/wordpress/shared";
@@ -107,7 +108,7 @@ async function fetchPostWithEmbed(slug: string): Promise<PostWithEmbed | null> {
   let response: Response;
   try {
     response = await fetch(endpoint, {
-      cache: "no-store",
+      next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
       headers: { Accept: "application/json" },
       signal: AbortSignal.timeout(15_000),
     });
@@ -157,7 +158,7 @@ export async function listPublishedPostSlugs(): Promise<string[]> {
   while (page <= totalPages) {
     const endpoint = `${origin}/wp-json/wp/v2/posts?per_page=100&page=${page}&status=publish&_fields=slug`;
     const response = await fetch(endpoint, {
-      cache: "no-store",
+      next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
       headers: { Accept: "application/json" },
       signal: AbortSignal.timeout(15_000),
     });

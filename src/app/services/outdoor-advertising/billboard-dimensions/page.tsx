@@ -3,7 +3,6 @@ import { ResourceGuidePageView } from "@/components/sections/ResourceGuidePageVi
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getBillboardDimensionsContent } from "@/lib/wordpress/resource-guide";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("billboard-dimensions");

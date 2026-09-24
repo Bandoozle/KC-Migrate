@@ -5,6 +5,7 @@ import type { AnyNode, Element } from "domhandler";
 import { applyIndustryServiceHero, INDUSTRY_SERVICE_HEROES } from "@/lib/content/industry-heroes";
 import {
   decodeRenderedText,
+  getPageBySlug,
   getWordPressUrl,
   WordPressApiError,
 } from "@/lib/wordpress";
@@ -102,37 +103,6 @@ function sentenceCaseLabel(value: string): string {
     return trimmed.charAt(0) + trimmed.slice(1).toLowerCase();
   }
   return trimmed;
-}
-
-async function fetchPageWithContent(slug: string): Promise<WordPressPage | null> {
-  const origin = getWordPressUrl();
-  const endpoint = `${origin}/wp-json/wp/v2/pages?slug=${encodeURIComponent(slug)}&status=publish`;
-  let response: Response;
-  try {
-    response = await fetch(endpoint, {
-      cache: "no-store",
-      headers: { Accept: "application/json" },
-      signal: AbortSignal.timeout(15_000),
-    });
-  } catch (error) {
-    const reason = error instanceof Error ? error.message : "Unknown network error";
-    throw new WordPressApiError(
-      `Unable to reach WordPress at ${origin}. ${reason}`,
-      undefined,
-      endpoint,
-    );
-  }
-
-  if (!response.ok) {
-    throw new WordPressApiError(
-      `WordPress API returned ${response.status} for digital-marketing page.`,
-      response.status,
-      endpoint,
-    );
-  }
-
-  const data = (await response.json()) as WordPressPage[];
-  return data[0] ?? null;
 }
 
 function extractImage($: CheerioAPI, el: AnyNode | null): MediaImage | null {
@@ -420,7 +390,7 @@ function normalizeHtml(html: string, page: WordPressPage) {
 
 export const getDigitalMarketingContent = cache(
   async (): Promise<DigitalMarketingContent> => {
-    const page = await fetchPageWithContent("digital-marketing");
+    const page = await getPageBySlug("digital-marketing");
     if (!page?.content?.rendered) {
       throw new WordPressApiError(
         "Digital marketing page content was not returned by WordPress REST.",

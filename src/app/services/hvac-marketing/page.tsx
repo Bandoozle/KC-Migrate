@@ -4,7 +4,6 @@ import { MarketingProgramPageView } from "@/components/sections/MarketingProgram
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getHvacMarketingContent } from "@/lib/wordpress/marketing-program";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("hvac-marketing");

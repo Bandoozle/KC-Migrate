@@ -3,6 +3,7 @@ import * as cheerio from "cheerio";
 import {
   getPageBySlug,
   getWordPressUrl,
+  WORDPRESS_REVALIDATE_SECONDS,
   WordPressApiError,
 } from "@/lib/wordpress";
 import type { ArticleListItem } from "@/components/sections/ArticleListing";
@@ -35,7 +36,7 @@ async function fetchPostsWithMedia(perPage = 50): Promise<EmbeddedPost[]> {
   let response: Response;
   try {
     response = await fetch(endpoint, {
-      cache: "no-store",
+      next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
       headers: { Accept: "application/json" },
       signal: AbortSignal.timeout(15_000),
     });

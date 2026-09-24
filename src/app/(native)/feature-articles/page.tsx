@@ -3,7 +3,6 @@ import { ResourceLibrary } from "@/components/sections/ResourceLibrary";
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getFeatureArticlesContent } from "@/lib/wordpress/feature-articles";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("feature-articles");

@@ -12,6 +12,7 @@ export type PageCtaData = {
 
 type PageCtaProps = {
   cta: PageCtaData;
+  className?: string;
 };
 
 function PhoneIcon() {
@@ -36,11 +37,11 @@ function PhoneIcon() {
   );
 }
 
-export function PageCta({ cta }: PageCtaProps) {
+export function PageCta({ cta, className }: PageCtaProps) {
   if (!cta.title && !cta.primary.label) return null;
 
   return (
-    <section className={`section ${styles.section}`}>
+    <section className={["section", styles.section, className].filter(Boolean).join(" ")}>
       <Reveal variant="fadeUp" className={`container ${styles.inner}`}>
         {cta.title ? (
           <SectionTitle as="h2" className={styles.title}>

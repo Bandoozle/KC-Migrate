@@ -3,7 +3,6 @@ import { ServicePageView } from "@/components/sections/ServicePageView";
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getOutdoorAdvertisingContent } from "@/lib/wordpress/service-page";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("outdoor-advertising");

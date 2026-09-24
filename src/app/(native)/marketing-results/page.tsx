@@ -5,7 +5,6 @@ import { PageCta } from "@/components/sections/PageCta";
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getMarketingResultsContent } from "@/lib/wordpress/marketing-results";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("marketing-results");

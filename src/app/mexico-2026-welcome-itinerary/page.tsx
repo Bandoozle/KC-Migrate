@@ -3,7 +3,6 @@ import { NativePageShell } from "@/components/layout/NativePageShell";
 import { MexicoItineraryPageView } from "@/components/microsites/MexicoItineraryPageView";
 import { getMexicoItineraryContent } from "@/lib/wordpress/microsites";
 
-export const dynamic = "force-dynamic";
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getMexicoItineraryContent();

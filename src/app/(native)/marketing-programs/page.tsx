@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { FeatureSplit } from "@/components/sections/FeatureSplit";
-import { HeroBanner } from "@/components/sections/HeroBanner";
-import { PageCta } from "@/components/sections/PageCta";
+import { MarketingProgramDirectory } from "@/components/sections/MarketingProgramDirectory";
 import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
-import { getMarketingProgramsContent } from "@/lib/wordpress/marketing-programs";
-
-export const dynamic = "force-dynamic";
+import { MARKETING_PROGRAMS_INTRO } from "@/lib/content/marketing-program-directory";
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getPageBySlug("marketing-programs");
@@ -13,28 +9,14 @@ export async function generateMetadata(): Promise<Metadata> {
     title: page
       ? decodeRenderedText(page.title.rendered)
       : "Marketing Programs | Kosick Communications",
+    description: MARKETING_PROGRAMS_INTRO.description,
   };
 }
 
-export default async function MarketingProgramsPage() {
-  const content = await getMarketingProgramsContent();
-
+export default function MarketingProgramsPage() {
   return (
     <main>
-      <HeroBanner
-        variant="service"
-        slides={content.hero.slides}
-        title={content.hero.displayTitle}
-        titleSecondary={content.hero.titleSecondary}
-        eyebrow={content.hero.eyebrow}
-        subtitle={content.hero.subtitle}
-        cta={content.hero.cta}
-        secondaryCta={content.hero.secondaryCta}
-      />
-      {content.programs.map((program) => (
-        <FeatureSplit key={program.title} feature={program} />
-      ))}
-      <PageCta cta={content.cta} />
+      <MarketingProgramDirectory />
     </main>
   );
 }
