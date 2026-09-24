@@ -272,7 +272,8 @@ function separateConsecutiveMedia(
 
   const nextSignificant = (index: number): "media" | "text" | null => {
     for (let cursor = index + 1; cursor < blocks.length; cursor += 1) {
-      if (blocks[cursor].kind !== "other") return blocks[cursor].kind;
+      const kind = blocks[cursor].kind;
+      if (kind !== "other") return kind;
     }
     return null;
   };
