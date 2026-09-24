@@ -96,7 +96,9 @@ export function SplitMediaTabs({
               stableHeight && !selected ? `${styles.panel} ${styles.panelReserved}` : styles.panel
             }
           >
-            <div className={styles.panelGrid}>
+            <div
+              className={[styles.panelGrid, selected ? styles.panelIn : ""].filter(Boolean).join(" ")}
+            >
               <figure className={styles.figure}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={tab.image} alt={tab.alt} loading="lazy" decoding="async" />

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Reveal } from "@/components/motion/Reveal";
 import styles from "./HeroBanner.module.css";
 
 export type HeroBannerSlide = {
@@ -105,16 +106,27 @@ export function HeroBanner({
 
       <div className={styles.overlay}>
         <div className={isService ? `container ${styles.copy}` : styles.copy}>
-          {eyebrow ? <p className={styles.eyebrow}>{eyebrow}</p> : null}
-          <h1 className={styles.title}>
-            <span>{title}</span>
-            {titleSecondary ? (
-              <span className={styles.titleSecondary}>{titleSecondary}</span>
-            ) : null}
-          </h1>
-          {subtitle ? <p className={styles.subtitle}>{subtitle}</p> : null}
+          {eyebrow ? (
+            <Reveal variant="fadeUp">
+              <p className={styles.eyebrow}>{eyebrow}</p>
+            </Reveal>
+          ) : null}
+          <Reveal variant="fadeUp" delay={eyebrow ? 80 : 0}>
+            <h1 className={styles.title}>
+              <span>{title}</span>
+              {titleSecondary ? (
+                <span className={styles.titleSecondary}>{titleSecondary}</span>
+              ) : null}
+            </h1>
+          </Reveal>
+          {subtitle ? (
+            <Reveal variant="fadeUp" delay={160}>
+              <p className={styles.subtitle}>{subtitle}</p>
+            </Reveal>
+          ) : null}
           {isService && (cta || secondaryCta) ? (
-            <div className={styles.actions}>
+            <Reveal variant="fadeUp" delay={240}>
+              <div className={styles.actions}>
               {cta ? (
                 <Link href={cta.href} className={styles.primary}>
                   {cta.label}
@@ -135,10 +147,13 @@ export function HeroBanner({
                 )
               ) : null}
             </div>
+            </Reveal>
           ) : cta ? (
-            <Link href={cta.href} className={styles.cta}>
-              {cta.label}
-            </Link>
+            <Reveal variant="fadeUp" delay={160}>
+              <Link href={cta.href} className={styles.cta}>
+                {cta.label}
+              </Link>
+            </Reveal>
           ) : null}
         </div>
       </div>

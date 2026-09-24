@@ -132,6 +132,30 @@
   display: none;
 }
 
+.dropdown:not([hidden]),
+.megaPanel:not([hidden]) {
+  animation: kosickMenuIn 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes kosickMenuIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 8px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown:not([hidden]),
+  .megaPanel:not([hidden]) {
+    animation: none;
+  }
+}
+
 .dropdownList {
   display: flex;
   flex-direction: column;

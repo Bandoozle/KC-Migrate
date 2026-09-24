@@ -1,4 +1,5 @@
 import type { HomePageContent } from "@/lib/wordpress/home";
+import { Reveal } from "@/components/motion/Reveal";
 import { HomeBento } from "./HomeBento";
 import { HomeBrandTabs } from "./HomeBrandTabs";
 import { HomeContact } from "./HomeContact";
@@ -19,18 +20,34 @@ export function HomePageView({ content }: HomePageViewProps) {
   return (
     <main className={styles.main}>
       <HomeHero content={content.hero} />
-      <HomeIntro content={content.whatWeDoIntro} />
-      <HomeBento items={content.bento} />
+      <Reveal variant="fadeUp">
+        <HomeIntro content={content.whatWeDoIntro} />
+      </Reveal>
+      <Reveal variant="fadeUp">
+        <HomeBento items={content.bento} />
+      </Reveal>
       <SectionSeparator />
-      <HomeSolutions content={content.solutions} />
+      <Reveal variant="fadeUp">
+        <HomeSolutions content={content.solutions} />
+      </Reveal>
       <SectionSeparator />
-      <HomeBrandTabs preceding={content.brandTabsPreceding} tabs={content.brandTabs} />
+      <Reveal variant="fadeUp">
+        <HomeBrandTabs preceding={content.brandTabsPreceding} tabs={content.brandTabs} />
+      </Reveal>
       <SectionSeparator tight />
-      <HomeTestimonials content={content.testimonials} />
+      <Reveal variant="fadeUp">
+        <HomeTestimonials content={content.testimonials} />
+      </Reveal>
       <SectionSeparator />
-      <HomeWhyChoose content={content.whyChoose} />
-      <HomeQuote content={content.quote} />
-      <HomeContact content={content.contact} />
+      <Reveal variant="fadeUp">
+        <HomeWhyChoose content={content.whyChoose} />
+      </Reveal>
+      <Reveal variant="fade">
+        <HomeQuote content={content.quote} />
+      </Reveal>
+      <Reveal variant="fadeUp">
+        <HomeContact content={content.contact} />
+      </Reveal>
     </main>
   );
 }

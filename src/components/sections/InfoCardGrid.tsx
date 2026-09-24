@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/motion/Reveal";
 import { BodyText, Eyebrow, SectionIntro, SectionTitle } from "@/components/typography";
 import type { ServiceInfoCard, ServiceIntroAction } from "@/lib/wordpress/service-page-types";
 import styles from "./InfoCardGrid.module.css";
@@ -51,7 +52,8 @@ export function InfoCardGrid({
     >
       <div className="container">
         {hasIntro ? (
-          useCenteredIntro && title ? (
+          <Reveal variant="fadeUp">
+          {useCenteredIntro && title ? (
             <SectionIntro align="center" title={title} description={body} />
           ) : (
             <div
@@ -83,7 +85,8 @@ export function InfoCardGrid({
                 </div>
               ) : null}
             </div>
-          )
+          )}
+          </Reveal>
         ) : null}
 
         {cards.length > 0 ? (
@@ -98,8 +101,11 @@ export function InfoCardGrid({
               .join(" ")}
           >
             {cards.map((card, index) => (
-              <article
+              <Reveal
                 key={card.id ?? `${card.title}-${index}`}
+                as="article"
+                variant="scale"
+                delay={Math.min(index, 7) * 90}
                 className={[
                   styles.card,
                   card.image?.src ? styles.cardWithImage : "",
@@ -136,7 +142,7 @@ export function InfoCardGrid({
                     </ul>
                   ) : null}
                 </div>
-              </article>
+              </Reveal>
             ))}
           </div>
         ) : null}

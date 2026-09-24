@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/motion/Reveal";
 import type { HomePageContent } from "@/lib/wordpress/home";
 import styles from "./HomeHero.module.css";
 
@@ -20,11 +21,17 @@ export function HomeHero({ content }: HomeHeroProps) {
         <div className={styles.overlay} />
       </div>
       <div className={styles.inner}>
-        <h1 className={styles.title}>{content.title}</h1>
-        <p className={styles.subtitle}>{content.subtitle}</p>
-        <Link href={content.ctaHref} className={styles.cta}>
-          {content.ctaLabel}
-        </Link>
+        <Reveal variant="fadeUp">
+          <h1 className={styles.title}>{content.title}</h1>
+        </Reveal>
+        <Reveal variant="fadeUp" delay={90}>
+          <p className={styles.subtitle}>{content.subtitle}</p>
+        </Reveal>
+        <Reveal variant="fadeUp" delay={180}>
+          <Link href={content.ctaHref} className={styles.cta}>
+            {content.ctaLabel}
+          </Link>
+        </Reveal>
       </div>
     </section>
   );

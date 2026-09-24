@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/motion/Reveal";
 import { SectionDescription, SectionTitle } from "@/components/typography";
 import styles from "./PageCta.module.css";
 
@@ -40,7 +41,7 @@ export function PageCta({ cta }: PageCtaProps) {
 
   return (
     <section className={`section ${styles.section}`}>
-      <div className={`container ${styles.inner}`}>
+      <Reveal variant="fadeUp" className={`container ${styles.inner}`}>
         {cta.title ? (
           <SectionTitle as="h2" className={styles.title}>
             {cta.title}
@@ -64,7 +65,7 @@ export function PageCta({ cta }: PageCtaProps) {
             </a>
           ) : null}
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }

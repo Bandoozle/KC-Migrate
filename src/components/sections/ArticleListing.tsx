@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Reveal } from "@/components/motion/Reveal";
 import { BodyText, CardTitle, MetaText, SectionDescription, SectionTitle } from "@/components/typography";
 import styles from "./ArticleListing.module.css";
 
@@ -48,8 +49,14 @@ export function ArticleListing({ articles, heading, description }: ArticleListin
         </div>
       ) : null}
       <div className={`container ${styles.grid}`}>
-        {shown.map((article) => (
-          <article key={article.href} className={styles.card}>
+        {shown.map((article, index) => (
+          <Reveal
+            key={article.href}
+            as="article"
+            variant="fadeUp"
+            delay={Math.min(index % 3, 2) * 90}
+            className={styles.card}
+          >
             <Link href={article.href} className={styles.cardLink}>
               <div className={styles.media}>
                 {article.image ? (
@@ -73,7 +80,7 @@ export function ArticleListing({ articles, heading, description }: ArticleListin
                 </span>
               </div>
             </Link>
-          </article>
+          </Reveal>
         ))}
       </div>
       {remaining > 0 ? (

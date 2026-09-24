@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { BodyText, CardTitle, Eyebrow, SectionTitle, SubsectionTitle } from "@/components/typography";
 import type { ServiceNarrativeSection } from "@/lib/wordpress/service-page-types";
 import styles from "./EditorialColumns.module.css";
@@ -32,18 +33,24 @@ export function EditorialColumns({ section }: EditorialColumnsProps) {
   return (
     <section className={`section ${styles.section}`}>
       <div className="container">
-        <div className={styles.intro}>
+        <Reveal variant="fadeUp" className={styles.intro}>
           {section.eyebrow ? <Eyebrow>{section.eyebrow}</Eyebrow> : null}
           <SectionTitle as="h2" className={styles.heading}>
             {section.title}
           </SectionTitle>
           {section.intro ? <BodyText className={styles.introBody}>{section.intro}</BodyText> : null}
-        </div>
+        </Reveal>
 
         {cards.length > 0 ? (
           <ul className={styles.cards}>
             {cards.map((card, index) => (
-              <li key={card.title} className={styles.card}>
+              <Reveal
+                key={card.title}
+                as="li"
+                variant="scale"
+                delay={Math.min(index, 7) * 90}
+                className={styles.card}
+              >
                 <span className={styles.number} aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
                 </span>
@@ -52,7 +59,7 @@ export function EditorialColumns({ section }: EditorialColumnsProps) {
                   {card.title}
                 </CardTitle>
                 <BodyText className={styles.cardBody}>{card.body}</BodyText>
-              </li>
+              </Reveal>
             ))}
           </ul>
         ) : null}

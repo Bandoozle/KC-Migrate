@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/motion/Reveal";
 import { Eyebrow, SectionTitle } from "@/components/typography";
 import type { OfferCard } from "@/lib/wordpress/digital-marketing";
 import styles from "./OfferCards.module.css";
@@ -13,12 +14,12 @@ export function OfferCards({ eyebrow, title, cards }: OfferCardsProps) {
   return (
     <section className={`section ${styles.section}`}>
       <div className="container">
-        <div className={styles.intro}>
+        <Reveal variant="fadeUp" className={styles.intro}>
           <Eyebrow>{eyebrow}</Eyebrow>
           <SectionTitle as="h2" className={styles.heading}>
             {title}
           </SectionTitle>
-        </div>
+        </Reveal>
 
         <div className={styles.grid}>
           {cards.map((card, index) => {
@@ -36,14 +37,16 @@ export function OfferCards({ eyebrow, title, cards }: OfferCardsProps) {
               </>
             );
 
-            return card.href ? (
-              <Link key={key} href={card.href} className={styles.card}>
-                {body}
-              </Link>
-            ) : (
-              <article key={key} className={styles.card}>
-                {body}
-              </article>
+            return (
+              <Reveal key={key} variant="scale" delay={Math.min(index, 7) * 90}>
+                {card.href ? (
+                  <Link href={card.href} className={styles.card}>
+                    {body}
+                  </Link>
+                ) : (
+                  <article className={styles.card}>{body}</article>
+                )}
+              </Reveal>
             );
           })}
         </div>

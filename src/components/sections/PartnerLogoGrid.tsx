@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 import { BodyText, SectionTitle } from "@/components/typography";
 import type { ServicePartnerLogos } from "@/lib/wordpress/service-page-types";
 import styles from "./PartnerLogoGrid.module.css";
@@ -120,7 +121,13 @@ export function PartnerLogoGrid({ section }: PartnerLogoGridProps) {
             {section.logos.map((logo, index) => {
               const name = getPartnerName(logo, index);
               return (
-                <li key={`${logo.src}-${index}`} className={styles.slot}>
+                <Reveal
+                  key={`${logo.src}-${index}`}
+                  as="li"
+                  variant="fade"
+                  delay={Math.min(index, 7) * 80}
+                  className={styles.slot}
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={logo.src}
@@ -129,7 +136,7 @@ export function PartnerLogoGrid({ section }: PartnerLogoGridProps) {
                     loading="lazy"
                     decoding="async"
                   />
-                </li>
+                </Reveal>
               );
             })}
           </ul>
@@ -151,7 +158,13 @@ export function PartnerLogoGrid({ section }: PartnerLogoGridProps) {
           {section.logos.map((logo, index) => {
             const name = getPartnerName(logo, index);
             return (
-              <li key={`${logo.src}-${index}`} className={styles.card}>
+              <Reveal
+                key={`${logo.src}-${index}`}
+                as="li"
+                variant="fade"
+                delay={Math.min(index, 7) * 80}
+                className={styles.card}
+              >
                 <div className={styles.logoWrap}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
@@ -163,7 +176,7 @@ export function PartnerLogoGrid({ section }: PartnerLogoGridProps) {
                   />
                 </div>
                 <span className={styles.label}>{name}</span>
-              </li>
+              </Reveal>
             );
           })}
         </ul>

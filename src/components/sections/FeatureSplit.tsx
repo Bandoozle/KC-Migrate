@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
-import { RevealOnEnter } from "@/components/sections/RevealOnEnter";
+import { Reveal } from "@/components/motion/Reveal";
 import { BodyText, Eyebrow, SectionTitle } from "@/components/typography";
 import styles from "./FeatureSplit.module.css";
 
@@ -75,7 +75,7 @@ export function FeatureSplit({ feature, stackIndex }: FeatureSplitProps) {
   const mediaPosition = feature.mediaPosition ?? "right";
   const stacked = typeof stackIndex === "number";
   const textOnly = !feature.image?.src;
-  const reveal = feature.motion === "reveal" && !textOnly;
+  const slide = !textOnly && !stacked;
   const textFrom = mediaPosition === "left" ? "right" : "left";
   const imageFrom = mediaPosition === "left" ? "left" : "right";
   const textDelay = mediaPosition === "left" ? 120 : 0;
@@ -112,12 +112,24 @@ export function FeatureSplit({ feature, stackIndex }: FeatureSplitProps) {
     <img src={feature.image.src} alt={feature.image.alt || feature.title} />
   ) : null;
 
-  function slot(node: ReactNode, className: string, from: "left" | "right", delay: number) {
-    if (!reveal) return <div className={className}>{node}</div>;
+  function slot(
+    node: ReactNode,
+    className: string,
+    from: "left" | "right",
+    delay: number,
+  ) {
+    if (textOnly) {
+      return (
+        <Reveal variant="fadeUp" className={className}>
+          {node}
+        </Reveal>
+      );
+    }
+    if (!slide) return <div className={className}>{node}</div>;
     return (
-      <RevealOnEnter className={className} from={from} delay={delay}>
+      <Reveal variant={from} delay={delay} className={className}>
         {node}
-      </RevealOnEnter>
+      </Reveal>
     );
   }
 
@@ -129,7 +141,7 @@ export function FeatureSplit({ feature, stackIndex }: FeatureSplitProps) {
         feature.tone === "muted" ? styles.muted : "",
         stacked ? styles.stacked : "",
         textOnly ? styles.textOnly : "",
-        reveal ? styles.revealClip : "",
+        slide ? styles.revealClip : "",
       ]
         .filter(Boolean)
         .join(" ")}
