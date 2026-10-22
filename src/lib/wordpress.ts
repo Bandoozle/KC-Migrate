@@ -1,4 +1,10 @@
 import { cache } from "react";
+import { getLocalPost } from "@/lib/content/local-articles";
+import {
+  recallWordPressBody,
+  rememberWordPressBody,
+  withWordPressSlot,
+} from "@/lib/wordpress-fetch-guard";
 import type {
   WordPressMedia,
   WordPressPage,
@@ -7,7 +13,7 @@ import type {
 
 const DEFAULT_WORDPRESS_URL = "https://staging.kosick.com";
 const API_PREFIX = "/wp-json/wp/v2";
-const REQUEST_TIMEOUT_MS = 15_000;
+export const REQUEST_TIMEOUT_MS = 15_000;
 const MAX_PER_PAGE = 100;
 
 /** Published page/post content. Short enough to pick up CMS edits, long enough that navigation does not wait on WordPress. */
@@ -53,60 +59,83 @@ function buildUrl(
   return url.toString();
 }
 
+function responseFromBody<T>(
+  body: string,
+  totalHeader: string | null,
+  totalPagesHeader: string | null,
+): { data: T; total: number; totalPages: number } {
+  const data = JSON.parse(body) as T;
+  const total = Number(totalHeader ?? 0);
+  const totalPages = Number(totalPagesHeader ?? 1);
+  return {
+    data,
+    total: Number.isFinite(total) ? total : 0,
+    totalPages: Number.isFinite(totalPages) && totalPages > 0 ? totalPages : 1,
+  };
+}
+
 async function wpFetch<T>(
   path: string,
   query: Record<string, string | number | undefined> = {},
 ): Promise<{ data: T; total: number; totalPages: number }> {
   const endpoint = buildUrl(path, query);
 
-  let response: Response;
   try {
-    response = await fetch(endpoint, {
-      next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
-      headers: {
-        Accept: "application/json",
-      },
-      signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+    return await withWordPressSlot(async () => {
+      const response = await fetch(endpoint, {
+        next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
+        headers: {
+          Accept: "application/json",
+        },
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+
+      if (!response.ok) {
+        if (response.status >= 500) {
+          const cached = recallWordPressBody(endpoint);
+          if (cached) return responseFromBody<T>(cached, null, null);
+        }
+        throw new WordPressApiError(
+          `WordPress API returned ${response.status} ${response.statusText} for ${path}.`,
+          response.status,
+          endpoint,
+        );
+      }
+
+      const body = await response.text();
+      try {
+        const parsed = responseFromBody<T>(
+          body,
+          response.headers.get("X-WP-Total"),
+          response.headers.get("X-WP-TotalPages"),
+        );
+        rememberWordPressBody(endpoint, body);
+        return parsed;
+      } catch {
+        throw new WordPressApiError(
+          `WordPress API returned a non-JSON response for ${path}. The staging site may be blocking or redirecting this request.`,
+          response.status,
+          endpoint,
+        );
+      }
     });
   } catch (error) {
+    const unavailable =
+      !(error instanceof WordPressApiError) || (error.status ?? 500) >= 500;
+    if (unavailable) {
+      const cached = recallWordPressBody(endpoint);
+      if (cached) return responseFromBody<T>(cached, null, null);
+    }
+
     if (error instanceof WordPressApiError) throw error;
 
-    const reason =
-      error instanceof Error ? error.message : "Unknown network error";
+    const reason = error instanceof Error ? error.message : "Unknown network error";
     throw new WordPressApiError(
       `Unable to reach WordPress at ${getWordPressUrl()}. ${reason}`,
       undefined,
       endpoint,
     );
   }
-
-  if (!response.ok) {
-    throw new WordPressApiError(
-      `WordPress API returned ${response.status} ${response.statusText} for ${path}.`,
-      response.status,
-      endpoint,
-    );
-  }
-
-  let data: T;
-  try {
-    data = (await response.json()) as T;
-  } catch {
-    throw new WordPressApiError(
-      `WordPress API returned a non-JSON response for ${path}. The staging site may be blocking or redirecting this request.`,
-      response.status,
-      endpoint,
-    );
-  }
-
-  const total = Number(response.headers.get("X-WP-Total") ?? 0);
-  const totalPages = Number(response.headers.get("X-WP-TotalPages") ?? 1);
-
-  return {
-    data,
-    total: Number.isFinite(total) ? total : 0,
-    totalPages: Number.isFinite(totalPages) && totalPages > 0 ? totalPages : 1,
-  };
 }
 
 async function fetchAll<T>(
@@ -171,15 +200,72 @@ export async function getPosts(perPage = 10): Promise<WordPressPost[]> {
   return data;
 }
 
+async function fetchPostsBySlug(origin: string, slug: string): Promise<WordPressPost[]> {
+  const url = new URL(`${API_PREFIX}/posts`, `${origin}/`);
+  url.searchParams.set("slug", slug);
+  url.searchParams.set("status", "publish");
+
+  const endpoint = url.toString();
+  try {
+    return await withWordPressSlot(async () => {
+      const response = await fetch(url, {
+        next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
+        headers: { Accept: "application/json" },
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      });
+
+      if (!response.ok) {
+        if (response.status >= 500) {
+          const cached = recallWordPressBody(endpoint);
+          if (cached) {
+            const data = JSON.parse(cached) as WordPressPost[];
+            return Array.isArray(data) ? data : [];
+          }
+        }
+        throw new WordPressApiError(
+          `WordPress API returned ${response.status} for post "${slug}".`,
+          response.status,
+          endpoint,
+        );
+      }
+
+      const body = await response.text();
+      const data = JSON.parse(body) as WordPressPost[];
+      rememberWordPressBody(endpoint, body);
+      return Array.isArray(data) ? data : [];
+    });
+  } catch (error) {
+    const unavailable =
+      !(error instanceof WordPressApiError) || (error.status ?? 500) >= 500;
+    if (unavailable) {
+      const cached = recallWordPressBody(endpoint);
+      if (cached) {
+        const data = JSON.parse(cached) as WordPressPost[];
+        return Array.isArray(data) ? data : [];
+      }
+    }
+    if (error instanceof WordPressApiError) throw error;
+    const reason = error instanceof Error ? error.message : "Unknown network error";
+    throw new WordPressApiError(
+      `Unable to reach WordPress at ${origin}. ${reason}`,
+      undefined,
+      endpoint,
+    );
+  }
+}
+
 export async function getPostBySlug(
   slug: string,
 ): Promise<WordPressPost | null> {
-  const { data } = await wpFetch<WordPressPost[]>("/posts", {
-    slug,
-    status: "publish",
-  });
+  const local = getLocalPost(slug);
+  if (local) return local;
 
-  return data[0] ?? null;
+  try {
+    const primary = await fetchPostsBySlug(getWordPressUrl(), slug);
+    return primary[0] ?? null;
+  } catch {
+    return null;
+  }
 }
 
 export async function getMedia(id: number): Promise<WordPressMedia | null> {
@@ -188,12 +274,8 @@ export async function getMedia(id: number): Promise<WordPressMedia | null> {
   try {
     const { data } = await wpFetch<WordPressMedia>(`/media/${id}`);
     return data;
-  } catch (error) {
-    if (error instanceof WordPressApiError && error.status === 404) {
-      return null;
-    }
-
-    throw error;
+  } catch {
+    return null;
   }
 }
 

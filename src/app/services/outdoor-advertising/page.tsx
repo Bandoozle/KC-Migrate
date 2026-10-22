@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { ServicePageView } from "@/components/sections/ServicePageView";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getOutdoorAdvertisingContent } from "@/lib/wordpress/service-page";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("outdoor-advertising");
-  return {
-    title: page
-      ? decodeRenderedText(page.title.rendered)
-      : "Outdoor Advertising | Kosick Communications",
-    description: page?.excerpt?.rendered
-      ? decodeRenderedText(page.excerpt.rendered)
-      : undefined,
-  };
+  return rankMathMetadata("/services/outdoor-advertising/");
 }
 
 export default async function OutdoorAdvertisingPage() {

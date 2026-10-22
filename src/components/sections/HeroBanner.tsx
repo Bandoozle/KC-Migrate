@@ -115,7 +115,7 @@ export function HeroBanner({
             <h1 className={styles.title}>
               <span>{title}</span>
               {titleSecondary ? (
-                <span className={styles.titleSecondary}>{titleSecondary}</span>
+                <span className={styles.titleSecondary}>{` ${titleSecondary}`}</span>
               ) : null}
             </h1>
           </Reveal>

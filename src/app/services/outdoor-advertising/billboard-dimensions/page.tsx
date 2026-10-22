@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { ResourceGuidePageView } from "@/components/sections/ResourceGuidePageView";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getBillboardDimensionsContent } from "@/lib/wordpress/resource-guide";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("billboard-dimensions");
-  return {
-    title: page
-      ? decodeRenderedText(page.title.rendered)
-      : "Canadian Billboard Dimensions | Kosick Communications",
-    description: page?.excerpt?.rendered
-      ? decodeRenderedText(page.excerpt.rendered)
-      : undefined,
-  };
+  return rankMathMetadata("/services/outdoor-advertising/billboard-dimensions/");
 }
 
 export default async function BillboardDimensionsPage() {

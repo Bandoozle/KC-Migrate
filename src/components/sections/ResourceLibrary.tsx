@@ -74,10 +74,12 @@ export function ResourceLibrary({ articles }: ResourceLibraryProps) {
   const maxStart = Math.max(0, filtered.length - perView);
   const start = Math.min(index, maxStart);
   const canSlide = filtered.length > perView;
-
-  useEffect(() => {
+  const resetKey = `${filter}|${normalizedQuery}|${perView}`;
+  const [indexKey, setIndexKey] = useState(resetKey);
+  if (resetKey !== indexKey) {
+    setIndexKey(resetKey);
     setIndex(0);
-  }, [filter, normalizedQuery, perView]);
+  }
 
   const step = (delta: number) => {
     setIndex((current) => {

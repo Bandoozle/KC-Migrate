@@ -1,5 +1,6 @@
 import { cache } from "react";
-import { getWordPressUrl } from "@/lib/wordpress";
+import { getWordPressUrl, WORDPRESS_REVALIDATE_SECONDS } from "@/lib/wordpress";
+import { withWordPressSlot } from "@/lib/wordpress-fetch-guard";
 import { extractBalanced, stripWordPressRuntimeNoise } from "@/lib/wordpress-html";
 import {
   isLocalInterFontPath,
@@ -213,10 +214,13 @@ async function inlineWordPressFontCss(
 
 export const getWordPressDocument = cache(async (url: string): Promise<WordPressDocument> => {
   const origin = getWordPressUrl();
-  const response = await fetch(url, {
-    headers: { Accept: "text/html" },
-    next: { revalidate: 120 },
-  });
+  const response = await withWordPressSlot(() =>
+    fetch(url, {
+      headers: { Accept: "text/html" },
+      next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
+      signal: AbortSignal.timeout(15_000),
+    }),
+  );
 
   if (!response.ok) {
     throw new Error(`Unable to fetch WordPress document ${url}: ${response.status}`);

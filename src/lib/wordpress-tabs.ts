@@ -90,7 +90,7 @@ function hydrateTabList(html: string, activeTab: string): string {
 
     const isActive = tab === activeTab;
     let next = item.replace(/<li\b[^>]*>/i, (tag) => {
-      let updated = replaceClass(
+      const updated = replaceClass(
         tag,
         isActive ? "kt-tab-title-inactive" : "kt-tab-title-active",
         isActive ? "kt-tab-title-active" : "kt-tab-title-inactive",

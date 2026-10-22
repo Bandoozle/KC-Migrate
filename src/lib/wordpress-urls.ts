@@ -248,13 +248,22 @@ function stripCopiedFontLinks(html: string): string {
   });
 }
 
+function stripJsonLdScripts(html: string): string {
+  return html.replace(
+    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi,
+    "",
+  );
+}
+
 export function prepareWordPressHtml(html: string, origin: string): string {
-  return hydrateKadenceCountupHtml(
-    hydrateKadenceTabsHtml(
-      enhanceVimeoBackgroundEmbeds(
-        rewriteInternalWordPressHrefs(
-          absolutizeWordPressAssetUrls(stripCopiedFontLinks(html), origin),
-          origin,
+  return stripJsonLdScripts(
+    hydrateKadenceCountupHtml(
+      hydrateKadenceTabsHtml(
+        enhanceVimeoBackgroundEmbeds(
+          rewriteInternalWordPressHrefs(
+            absolutizeWordPressAssetUrls(stripCopiedFontLinks(html), origin),
+            origin,
+          ),
         ),
       ),
     ),

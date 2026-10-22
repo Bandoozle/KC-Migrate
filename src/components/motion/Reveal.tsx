@@ -2,15 +2,15 @@
 
 import {
   Children,
-  createElement,
-  useCallback,
   useLayoutEffect,
   useRef,
   useState,
   type CSSProperties,
   type ImgHTMLAttributes,
   type ReactNode,
+  type Ref,
 } from "react";
+import { usePrefersReducedMotion } from "@/components/motion/use-prefers-reduced-motion";
 import styles from "./Reveal.module.css";
 
 export type RevealVariant = "fadeUp" | "fade" | "left" | "right" | "scale";
@@ -46,70 +46,105 @@ export function Reveal({
   as = "div",
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
+  const reduced = usePrefersReducedMotion();
   const [hidden, setHidden] = useState(false);
   const [shown, setShown] = useState(false);
 
-  const setRef = useCallback((node: HTMLElement | null) => {
-    ref.current = node;
-  }, []);
-
   useLayoutEffect(() => {
     const node = ref.current;
-    if (!node) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setShown(true);
-      return;
-    }
+    if (!node || reduced) return;
 
     let frame = 0;
+    let observer: IntersectionObserver | undefined;
     const show = () => {
       frame = requestAnimationFrame(() => setShown(true));
     };
 
-    const rect = node.getBoundingClientRect();
-    const inView = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
-    setHidden(true);
-
-    if (inView) {
-      show();
-      return () => cancelAnimationFrame(frame);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry?.isIntersecting) return;
+    const arm = () => {
+      const rect = node.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
+      setHidden(true);
+      if (inView) {
         show();
-        observer.disconnect();
-      },
-      { threshold: 0, rootMargin: "0px 0px -15% 0px" },
-    );
-    observer.observe(node);
+        return;
+      }
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry?.isIntersecting) return;
+          show();
+          observer?.disconnect();
+        },
+        { threshold: 0, rootMargin: "0px 0px -15% 0px" },
+      );
+      observer.observe(node);
+    };
+    arm();
+
     return () => {
       cancelAnimationFrame(frame);
-      observer.disconnect();
+      observer?.disconnect();
     };
-  }, []);
+  }, [reduced]);
 
-  return createElement(
-    as,
-    {
-      ref: setRef,
-      className: [
-        styles.reveal,
-        variantClass[variant],
-        hidden && !shown ? styles.hidden : "",
-        shown ? styles.shown : "",
-        className,
-      ]
-        .filter(Boolean)
-        .join(" "),
-      style:
-        shown && delay > 0
-          ? ({ transitionDelay: `${delay}ms` } satisfies CSSProperties)
-          : undefined,
-    },
-    children,
+  const classNames = [
+    styles.reveal,
+    variantClass[variant],
+    !reduced && hidden && !shown ? styles.hidden : "",
+    reduced || shown ? styles.shown : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const style =
+    shown && delay > 0
+      ? ({ transitionDelay: `${delay}ms` } satisfies CSSProperties)
+      : undefined;
+
+  return (
+    <RevealElement as={as} nodeRef={ref} className={classNames} style={style}>
+      {children}
+    </RevealElement>
+  );
+}
+
+function RevealElement({
+  as,
+  nodeRef,
+  className,
+  style,
+  children,
+}: {
+  as: RevealTag;
+  nodeRef: Ref<HTMLElement>;
+  className: string;
+  style?: CSSProperties;
+  children: ReactNode;
+}) {
+  if (as === "li") {
+    return (
+      <li ref={nodeRef as Ref<HTMLLIElement>} className={className} style={style}>
+        {children}
+      </li>
+    );
+  }
+  if (as === "article") {
+    return (
+      <article ref={nodeRef as Ref<HTMLElement>} className={className} style={style}>
+        {children}
+      </article>
+    );
+  }
+  if (as === "section") {
+    return (
+      <section ref={nodeRef as Ref<HTMLElement>} className={className} style={style}>
+        {children}
+      </section>
+    );
+  }
+  return (
+    <div ref={nodeRef as Ref<HTMLDivElement>} className={className} style={style}>
+      {children}
+    </div>
   );
 }
 

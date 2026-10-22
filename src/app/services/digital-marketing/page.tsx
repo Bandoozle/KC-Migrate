@@ -1,26 +1,16 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { FeatureSplit } from "@/components/sections/digital-marketing/FeatureSplit";
 import { OfferCards } from "@/components/sections/digital-marketing/OfferCards";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { PageCta } from "@/components/sections/digital-marketing/PageCta";
 import { RelatedServices } from "@/components/sections/digital-marketing/RelatedServices";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getDigitalMarketingContent } from "@/lib/wordpress/digital-marketing";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("digital-marketing");
-  if (!page) {
-    return { title: "Digital Marketing | Kosick Communications" };
-  }
-
-  return {
-    title: decodeRenderedText(page.title.rendered),
-    description: page.excerpt?.rendered
-      ? decodeRenderedText(page.excerpt.rendered)
-      : "Digital marketing campaigns from Kosick Communications.",
-  };
+  return rankMathMetadata("/services/digital-marketing/");
 }
 
 export default async function DigitalMarketingPage() {

@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { ServicePageView } from "@/components/sections/ServicePageView";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getTelevisionAdvertisingContent } from "@/lib/wordpress/service-page";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("television-advertising");
-  return {
-    title: page
-      ? decodeRenderedText(page.title.rendered)
-      : "Television Advertising | Kosick Communications",
-    description: page?.excerpt?.rendered
-      ? decodeRenderedText(page.excerpt.rendered)
-      : undefined,
-  };
+  return rankMathMetadata("/services/television-advertising/");
 }
 
 export default async function TelevisionAdvertisingPage() {

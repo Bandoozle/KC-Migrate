@@ -45,7 +45,7 @@ export function ComfortmakerRegistrationForm() {
     data.set("formKey", "comfortmaker");
 
     try {
-      const response = await fetch("/api/gravity-form", {
+      const response = await fetch("/api/gravity-form/", {
         method: "POST",
         body: data,
       });

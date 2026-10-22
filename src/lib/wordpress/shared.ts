@@ -1,7 +1,9 @@
 import * as cheerio from "cheerio";
 import type { CheerioAPI } from "cheerio";
 import type { AnyNode } from "domhandler";
+import { SITE_ORIGINS, matchesOrigin } from "@/lib/site";
 import { decodeRenderedText, getWordPressUrl } from "@/lib/wordpress";
+import { isUnavailableMedia } from "@/lib/unavailable-media";
 
 export function absUrl(url: string | undefined | null, origin = getWordPressUrl()): string | null {
   if (!url) return null;
@@ -16,6 +18,8 @@ export function absUrl(url: string | undefined | null, origin = getWordPressUrl(
   }
   // Protocol-relative CDN / upload URLs from WordPress / Smart Slider.
   if (trimmed.startsWith("//")) return `https:${trimmed}`;
+  // Files in /public/images stay on this app. Other root paths are CMS assets.
+  if (trimmed.startsWith("/images/")) return trimmed;
   if (trimmed.startsWith("/")) return `${origin}${trimmed}`;
   // Bare domains sometimes appear in CMS link fields (e.g. "example.com").
   if (/^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}([/:?].*)?$/i.test(trimmed)) {
@@ -28,8 +32,10 @@ export function toLocalPath(url: string | null, origin = getWordPressUrl()): str
   if (!url) return null;
   if (url === "#" || url.startsWith("#")) return null;
   if (url.startsWith("tel:") || url.startsWith("mailto:")) return url;
-  if (url.startsWith(origin)) {
-    const path = url.slice(origin.length) || "/";
+  const bases = [origin, getWordPressUrl(), ...SITE_ORIGINS];
+  for (const base of bases) {
+    if (!matchesOrigin(url, base)) continue;
+    const path = url.slice(base.length) || "/";
     return path.endsWith("/") || path.includes(".") || path.includes("?") ? path : `${path}/`;
   }
   if (url.startsWith("/")) return url;
@@ -77,7 +83,7 @@ export function extractSmartSliderSlides(
       $(img).attr("src") || $(img).attr("data-src") || $(img).attr("data-desktop"),
       origin,
     );
-    if (!src || !/uploads/i.test(src) || seen.has(src)) return;
+    if (!src || !/uploads/i.test(src) || seen.has(src) || isUnavailableMedia(src)) return;
     seen.add(src);
     slides.push({ src, alt: $(img).attr("alt") || "", kind: "image" });
   });

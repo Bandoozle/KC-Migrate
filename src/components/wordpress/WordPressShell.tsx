@@ -1,3 +1,4 @@
+import { Analytics } from "@/components/analytics/Analytics";
 import { InstagramFeed } from "@/components/wordpress/InstagramFeed";
 import { SmartSlider } from "@/components/wordpress/SmartSlider";
 import { WordPressBodyClass } from "@/components/wordpress/WordPressBodyClass";
@@ -79,6 +80,7 @@ ${document.footerHtml}
 
   return (
     <>
+      <Analytics />
       <WordPressStyles
         pageKey={pageKey}
         stylesheets={document.stylesheets}

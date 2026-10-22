@@ -8,6 +8,7 @@ import {
 } from "@/lib/wordpress";
 import type { ArticleListItem } from "@/components/sections/ArticleListing";
 import { resourceTopicIds, resourceTopicLabel } from "@/lib/content/resource-topics";
+import travelArticle from "@/content/articles/travel-marketing-canada.json";
 import { absUrl, cleanText, toLocalPath } from "@/lib/wordpress/shared";
 import { resolveResourceImage, type EmbeddedFeaturedMedia } from "@/lib/wordpress/resource-image";
 
@@ -110,6 +111,24 @@ export const getFeatureArticlesContent = cache(
         label: resourceTopicLabel(topics),
       };
     });
+
+    if (!articles.some((article) => article.href.includes("/travel-marketing-canada"))) {
+      const title = cleanText(travelArticle.title.rendered);
+      const excerpt = cleanText(travelArticle.excerpt.rendered);
+      const topics = resourceTopicIds(`${title} ${excerpt}`);
+      articles.unshift({
+        title,
+        excerpt,
+        href: "/travel-marketing-canada/",
+        image: {
+          src: "/images/articles/travel-marketing-canada-cruise.jpg",
+          alt: travelArticle._embedded["wp:featuredmedia"][0]?.alt_text || title,
+        },
+        searchText: `${title} ${excerpt}`.toLowerCase(),
+        topics,
+        label: resourceTopicLabel(topics),
+      });
+    }
 
     return {
       title: cleanText(page.title.rendered) || "Feature Articles",

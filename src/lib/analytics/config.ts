@@ -3,6 +3,8 @@
  * Do not invent new container or measurement IDs.
  */
 
+import { isProductionHost } from "@/lib/site";
+
 export const KOSICK_GTM_ID = "GTM-K4QK6SP";
 export const KOSICK_GA4_ID = "G-XPYR1CEF3E";
 export const KOSICK_GOOGLE_ADS_ID = "AW-785313466";
@@ -18,13 +20,17 @@ export const FORM_NAMES = {
 } as const;
 
 /**
- * Analytics runs in production by default.
- * Localhost / preview stay off unless NEXT_PUBLIC_ANALYTICS_ENABLED=true.
+ * Analytics runs only on www.kosick.com and kosick.com.
+ * The Vercel production hostname is not a preview environment, so host is
+ * the gate that keeps test traffic out of the production GTM container.
+ * NEXT_PUBLIC_ANALYTICS_ENABLED=true forces it on for a deliberate debug session.
  */
-export function isAnalyticsEnabled(): boolean {
+export function isAnalyticsEnabled(hostname?: string | null): boolean {
   if (process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "true") return true;
   if (process.env.NEXT_PUBLIC_ANALYTICS_ENABLED === "false") return false;
-  return process.env.NODE_ENV === "production" && process.env.VERCEL_ENV === "production";
+  const host =
+    hostname ?? (typeof window !== "undefined" ? window.location.hostname : null);
+  return isProductionHost(host);
 }
 
 export function getGtmId(): string {

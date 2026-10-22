@@ -111,46 +111,49 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
   const [teaserVisible, setTeaserVisible] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [leadOpen, setLeadOpen] = useState(false);
-  const [welcomeShown, setWelcomeShown] = useState(false);
   const [lastCta, setLastCta] = useState<ChatCta>(null);
   const messagesRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    try {
-      const raw = sessionStorage.getItem(STORAGE_KEY);
-      if (raw) {
-        const parsed = JSON.parse(raw) as {
-          messages?: ChatMessage[];
-          sessionId?: string;
-        };
-        if (Array.isArray(parsed.messages)) {
-          setMessages(
-            parsed.messages.filter(
-              (m) =>
-                m &&
-                (m.role === "user" || m.role === "assistant") &&
-                typeof m.content === "string" &&
-                m.content.length > 0,
-            ),
-          );
+    let teaserTimer = 0;
+    const restoreTimer = window.setTimeout(() => {
+      try {
+        const raw = sessionStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw) as {
+            messages?: ChatMessage[];
+            sessionId?: string;
+          };
+          if (Array.isArray(parsed.messages)) {
+            setMessages(
+              parsed.messages.filter(
+                (m) =>
+                  m &&
+                  (m.role === "user" || m.role === "assistant") &&
+                  typeof m.content === "string" &&
+                  m.content.length > 0,
+              ),
+            );
+          }
+          if (parsed.sessionId) setSessionId(parsed.sessionId);
+          else setSessionId(newSessionId());
+        } else {
+          setSessionId(newSessionId());
         }
-        if (parsed.sessionId) setSessionId(parsed.sessionId);
-        else setSessionId(newSessionId());
-      } else {
+      } catch {
         setSessionId(newSessionId());
       }
-    } catch {
-      setSessionId(newSessionId());
-    }
 
-    if (cfg.showTeaser) {
-      const dismissed = sessionStorage.getItem(TEASER_KEY) === "1";
-      if (!dismissed) {
-        const t = window.setTimeout(() => setTeaserVisible(true), cfg.teaserDelayMs);
-        return () => window.clearTimeout(t);
+      if (cfg.showTeaser && sessionStorage.getItem(TEASER_KEY) !== "1") {
+        teaserTimer = window.setTimeout(() => setTeaserVisible(true), cfg.teaserDelayMs);
       }
-    }
+    }, 0);
+
+    return () => {
+      window.clearTimeout(restoreTimer);
+      window.clearTimeout(teaserTimer);
+    };
   }, [cfg.showTeaser, cfg.teaserDelayMs]);
 
   useEffect(() => {
@@ -170,13 +173,6 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
     if (el) el.scrollTop = el.scrollHeight;
   }, [messages, busy, open]);
 
-  useEffect(() => {
-    if (open && !welcomeShown && messages.length === 0) {
-      setMessages([{ role: "assistant", content: cfg.greeting }]);
-      setWelcomeShown(true);
-    }
-  }, [open, welcomeShown, messages.length, cfg.greeting]);
-
   function dismissTeaser() {
     try {
       sessionStorage.setItem(TEASER_KEY, "1");
@@ -187,6 +183,9 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
   }
 
   function toggleOpen() {
+    if (!open && messages.length === 0) {
+      setMessages([{ role: "assistant", content: cfg.greeting }]);
+    }
     setOpen((v) => !v);
     setTeaserVisible(false);
     setMenuOpen(false);
@@ -194,7 +193,7 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
 
   async function trackOutcome(outcome: string) {
     try {
-      await fetch("/api/chat/outcome", {
+      await fetch("/api/chat/outcome/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sessionId, outcome }),
@@ -218,7 +217,7 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
     setBusy(true);
 
     try {
-      const response = await fetch("/api/chat", {
+      const response = await fetch("/api/chat/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -279,7 +278,6 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
     const id = newSessionId();
     setSessionId(id);
     setMessages([{ role: "assistant", content: cfg.greeting }]);
-    setWelcomeShown(true);
     setLastCta(null);
     void trackOutcome("new_chat");
   }
@@ -536,7 +534,7 @@ function LeadModal({
     const data = new FormData(form);
 
     try {
-      const response = await fetch("/api/chat/lead", {
+      const response = await fetch("/api/chat/lead/", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

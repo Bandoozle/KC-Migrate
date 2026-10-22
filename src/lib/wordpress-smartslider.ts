@@ -1,3 +1,5 @@
+import { isUnavailableMedia } from "@/lib/unavailable-media";
+
 function mergeInlineStyle(tag: string, extra: string): string {
   if (/\bstyle=/i.test(tag)) {
     return tag.replace(/\bstyle=(['"])([\s\S]*?)\1/i, (_full, quote: string, value: string) => {
@@ -128,10 +130,13 @@ export function hydrateSmartSliderHtml(html: string): string {
         );
       }
 
-      const styleExtra = url
+      const styleExtra = url && !isUnavailableMedia(url)
         ? `--ss-o-pos-x:${x}%;--ss-o-pos-y:${y}%;background-image:url('${cssUrl(url)}');background-size:cover;background-repeat:no-repeat;background-position:${x}% ${y}%`
         : `--ss-o-pos-x:${x}%;--ss-o-pos-y:${y}%`;
-      return `${mergeInlineStyle(wrapTag, styleExtra)}${hydratedInner}</div>`;
+      const nextInner = url && isUnavailableMedia(url)
+        ? hydratedInner.replace(/<img\b[^>]*>/gi, "")
+        : hydratedInner;
+      return `${mergeInlineStyle(wrapTag, styleExtra)}${nextInner}</div>`;
     },
   );
 
@@ -254,7 +259,7 @@ export function hydrateSmartSliderElement(root: ParentNode | Document | null): (
   scope.querySelectorAll<HTMLElement>(".n2-ss-slide-background-image").forEach((imageWrap) => {
     const img = imageWrap.querySelector("img");
     const url = resolveElementImageUrl(imageWrap, img);
-    if (!url) return;
+    if (!url || isUnavailableMedia(url)) return;
     if (img && img.getAttribute("src") !== url) img.setAttribute("src", url);
 
     const desktop = img?.getAttribute("data-desktop") || imageWrap.getAttribute("data-desktop");

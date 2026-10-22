@@ -126,6 +126,13 @@ export async function POST(request: Request) {
     return NextResponse.json(validated, { status: 400 });
   }
 
+  if (clean(incoming.get("_kosick_hp"))) {
+    return NextResponse.json(
+      { ok: false, error: "Unable to send your message right now." },
+      { status: 400 },
+    );
+  }
+
   const payload = buildWordPressPayload(form, validated.values);
   const endpoint = `${getWordPressUrl()}/wp-admin/admin-ajax.php`;
 
@@ -134,6 +141,7 @@ export async function POST(request: Request) {
       method: "POST",
       body: payload,
       redirect: "manual",
+      signal: AbortSignal.timeout(20_000),
     });
 
     const raw = await response.text();

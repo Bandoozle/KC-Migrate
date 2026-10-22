@@ -43,30 +43,58 @@ export function trackPageView(path: string, title?: string) {
   });
 }
 
+export type FormLeadDetails = {
+  email?: string;
+  phone?: string;
+  formId?: string;
+};
+
+function normalizeLeadEmail(value: string | undefined): string | undefined {
+  const email = value?.trim().toLowerCase();
+  return email || undefined;
+}
+
+/** Match the GTM contact listener: 10-digit numbers become +1, 11-digit 1… become +. */
+function normalizeLeadPhone(value: string | undefined): string | undefined {
+  const digits = (value || "").replace(/\D/g, "");
+  if (digits.length === 10) return `+1${digits}`;
+  if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
+  return undefined;
+}
+
 /**
- * Preserve existing WP conversion event name + GA4 destination.
- * Fire ONLY after a confirmed successful submission.
+ * One successful submission produces one GA4 lead.
+ * The GTM container listens for `kosick_contact_lead` and its generate_lead
+ * tag sends that single event to G-XPYR1CEF3E. A second gtag or dataLayer
+ * `generate_lead` would count again.
+ * Other forms have no GTM lead trigger, so they send one gtag event only.
  */
 export function trackFormSuccess(
   formName: (typeof FORM_NAMES)[keyof typeof FORM_NAMES] | string,
+  details: FormLeadDetails = {},
 ) {
   if (!isAnalyticsEnabled()) return;
-  const ga4 = getGa4Id();
+
+  if (formName === FORM_NAMES.contact) {
+    pushDataLayer({
+      event: "kosick_contact_lead",
+      kb_form_id: details.formId || "kb-adv-form-11283-cpt-id",
+      lead_email: normalizeLeadEmail(details.email),
+      lead_phone: normalizeLeadPhone(details.phone),
+      form_name: formName,
+    });
+    return;
+  }
+
   gtag("event", GENERATE_LEAD_EVENT, {
-    send_to: ga4,
+    send_to: getGa4Id(),
     form_name: formName,
-  });
-  pushDataLayer({
-    event: GENERATE_LEAD_EVENT,
-    form_name: formName,
-    send_to: ga4,
   });
 }
 
 /**
- * Phone clicks — no dedicated custom event existed in WP page snippets
- * (likely GTM / enhanced measurement). Push an explicit dataLayer event
- * and a generate_lead variant with method metadata for key-event continuity.
+ * Phone clicks. GTM also listens for tel: link clicks, so callers should
+ * not attach this to the same anchor GTM already tracks.
  */
 export function trackPhoneClick(href: string) {
   if (!isAnalyticsEnabled()) return;

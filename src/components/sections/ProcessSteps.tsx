@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { usePrefersReducedMotion } from "@/components/motion/use-prefers-reduced-motion";
 import { BodyText, SectionIntro } from "@/components/typography";
 import type { ServiceProcessSection } from "@/lib/wordpress/service-page-types";
 import styles from "./ProcessSteps.module.css";
@@ -201,25 +202,17 @@ export function ProcessSteps({ section }: ProcessStepsProps) {
   const rootRef = useRef<HTMLElement>(null);
   const [playing, setPlaying] = useState(false);
   const [cycle, setCycle] = useState(0);
-  const [reduced, setReduced] = useState(false);
+  const reduced = usePrefersReducedMotion();
   const stepCount = section.steps.length;
 
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const sync = () => setReduced(media.matches);
-    sync();
-    media.addEventListener("change", sync);
-    return () => media.removeEventListener("change", sync);
-  }, []);
+  if (reduced && !playing) {
+    setPlaying(true);
+  }
 
   useEffect(() => {
+    if (reduced) return;
     const root = rootRef.current;
     if (!root) return;
-
-    if (reduced) {
-      setPlaying(true);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {

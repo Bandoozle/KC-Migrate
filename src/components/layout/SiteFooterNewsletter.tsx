@@ -20,7 +20,7 @@ export function SiteFooterNewsletter() {
     data.set("formKey", "newsletter");
 
     try {
-      const response = await fetch("/api/contact-form", {
+      const response = await fetch("/api/contact-form/", {
         method: "POST",
         body: data,
       });

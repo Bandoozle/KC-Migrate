@@ -97,7 +97,7 @@ function hydrateOneCountup(block: string): string {
     return block;
   }
 
-  let next = inner.replace(
+  const next = inner.replace(
     /(<div\b[^>]*\bkb-count-up-(?:process|number)\b[^>]*>)([\s\S]*?)(<\/div>)/i,
     (_full, start: string, contents: string, end: string) => {
       const tagged = /\baria-hidden=/.test(start)

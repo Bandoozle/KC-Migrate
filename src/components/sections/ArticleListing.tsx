@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { BodyText, CardTitle, MetaText, SectionDescription, SectionTitle } from "@/components/typography";
 import styles from "./ArticleListing.module.css";
@@ -30,10 +30,11 @@ const PAGE_SIZE = 9;
 export function ArticleListing({ articles, heading, description }: ArticleListingProps) {
   const [visible, setVisible] = useState(PAGE_SIZE);
   const signature = articles.map((article) => article.href).join("|");
-
-  useEffect(() => {
+  const [pageSignature, setPageSignature] = useState(signature);
+  if (signature !== pageSignature) {
+    setPageSignature(signature);
     setVisible(PAGE_SIZE);
-  }, [signature]);
+  }
 
   if (articles.length === 0) return null;
 

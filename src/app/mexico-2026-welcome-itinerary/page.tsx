@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { NativePageShell } from "@/components/layout/NativePageShell";
 import { MexicoItineraryPageView } from "@/components/microsites/MexicoItineraryPageView";
 import { getMexicoItineraryContent } from "@/lib/wordpress/microsites";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const content = await getMexicoItineraryContent();
-  return {
-    title: content.metaTitle,
-    description: content.description || undefined,
-  };
+  return rankMathMetadata("/mexico-2026-welcome-itinerary/");
 }
 
 export default async function MexicoItineraryPage() {

@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { SimpleMessage } from "@/components/sections/SimpleMessage";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getThanksContent } from "@/lib/wordpress/thanks";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("thanks");
-  return {
-    title: page
-      ? decodeRenderedText(page.title.rendered)
-      : "Thank you | Kosick Communications",
-  };
+  return rankMathMetadata("/thanks/");
 }
 
 export default async function ThanksPage() {

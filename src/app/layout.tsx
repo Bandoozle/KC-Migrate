@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getPostBySlug } from "@/lib/wordpress";
 import { getWordPressBodyClass } from "@/lib/wordpress-body-class";
 import "./globals.css";
 import "@/styles/wordpress-compat.css";
 
 export const metadata: Metadata = {
-  title: "Kosick Communications",
-  description:
-    "Next.js frontend for Kosick Communications, using the WordPress staging site as the content source.",
+  metadataBase: new URL("https://www.kosick.com"),
+  title: {
+    default: "Kosick Communications",
+    template: "%s",
+  },
+  description: "Kosick Communications",
 };
 
 /** Exact native routes (do not treat child paths as native). */
@@ -63,8 +67,12 @@ async function isNativePage(pathname: string): Promise<boolean> {
   // Published blog posts render through the native article template at /{slug}/.
   const segments = normalized.split("/").filter(Boolean);
   if (segments.length === 1) {
-    const post = await getPostBySlug(segments[0]);
-    if (post) return true;
+    try {
+      const post = await getPostBySlug(segments[0]);
+      if (post) return true;
+    } catch {
+      return false;
+    }
   }
 
   return false;
@@ -79,6 +87,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-US">
       <body className={bodyClass} suppressHydrationWarning>
+        <JsonLd pathname={pathname} />
         {children}
       </body>
     </html>

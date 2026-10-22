@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { ContactPageView } from "@/components/contact/ContactPageView";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getContactPageContent } from "@/lib/wordpress/contact";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("contact");
-  return {
-    title: page
-      ? decodeRenderedText(page.title.rendered)
-      : "Contact | Kosick Communications",
-    description: page?.excerpt?.rendered
-      ? decodeRenderedText(page.excerpt.rendered)
-      : undefined,
-  };
+  return rankMathMetadata("/contact/");
 }
 
 export default async function ContactPage() {

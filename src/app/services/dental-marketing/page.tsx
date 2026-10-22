@@ -1,19 +1,11 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { MarketingProgramPageView } from "@/components/sections/MarketingProgramPageView";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getDentalMarketingContent } from "@/lib/wordpress/marketing-program";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("dental-marketing");
-  return {
-    title: page
-      ? decodeRenderedText(page.title.rendered)
-      : "Dental Marketing To Grow Your Practice | Kosick Communications",
-    description: page?.excerpt?.rendered
-      ? decodeRenderedText(page.excerpt.rendered)
-      : undefined,
-  };
+  return rankMathMetadata("/services/dental-marketing/");
 }
 
 export default async function DentalMarketingPage() {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePrefersReducedMotion } from "@/components/motion/use-prefers-reduced-motion";
 import { SectionDescription, SectionTitle } from "@/components/typography";
 import type { HomeCapabilityIcon, HomePageContent } from "@/lib/wordpress/home";
 import shared from "./home-shared.module.css";
@@ -139,11 +140,7 @@ function MetricValue({
 export function HomeWhyChoose({ content }: HomeWhyChooseProps) {
   const metricsRef = useRef<HTMLDivElement>(null);
   const [playMetrics, setPlayMetrics] = useState(false);
-  const [reduceMotion, setReduceMotion] = useState(false);
-
-  useEffect(() => {
-    setReduceMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  }, []);
+  const reduceMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     const root = metricsRef.current;

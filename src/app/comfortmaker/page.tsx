@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { NativePageShell } from "@/components/layout/NativePageShell";
 import { ComfortmakerPageView } from "@/components/microsites/ComfortmakerPageView";
 import { getComfortmakerContent } from "@/lib/wordpress/microsites";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const content = await getComfortmakerContent();
-  return {
-    title: content.metaTitle,
-    description: content.description || undefined,
-  };
+  return rankMathMetadata("/comfortmaker/");
 }
 
 export default async function ComfortmakerPage() {

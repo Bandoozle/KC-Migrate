@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { LinkDirectory } from "@/components/sections/LinkDirectory";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getSiteMapContent } from "@/lib/wordpress/site-map";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("site-map");
-  return {
-    title: page
-      ? decodeRenderedText(page.title.rendered)
-      : "Full Site Menu | Kosick Communications",
-  };
+  return rankMathMetadata("/site-map/");
 }
 
 export default async function SiteMapPage() {

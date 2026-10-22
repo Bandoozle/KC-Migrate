@@ -38,7 +38,7 @@ export function ContactForm({
     if (!data.get("formKey")) data.set("formKey", formKey);
 
     try {
-      const response = await fetch("/api/contact-form", {
+      const response = await fetch("/api/contact-form/", {
         method: "POST",
         body: data,
       });
@@ -59,7 +59,11 @@ export function ContactForm({
       }
 
       // Fire only after confirmed WP success — never on validation failure.
-      trackFormSuccess(FORM_NAMES.contact);
+      trackFormSuccess(FORM_NAMES.contact, {
+        email: String(data.get(form.fields.email.name) || ""),
+        phone: String(data.get(form.fields.phone.name) || ""),
+        formId: "kb-adv-form-11283-cpt-id",
+      });
       router.push(result.redirect || "/thanks/");
     } catch {
       setErrorMessage("Something went wrong. Please try again or email us directly.");
@@ -81,6 +85,17 @@ export function ContactForm({
       noValidate
     >
       <input type="hidden" name="formKey" value={formKey} />
+      <div className={styles.honeypot} aria-hidden="true">
+        <label htmlFor={`${formDomId}-hp`}>Company website</label>
+        <input
+          id={`${formDomId}-hp`}
+          name="_kosick_hp"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          defaultValue=""
+        />
+      </div>
       <div className={styles.row}>
         {[nameField, emailField].map((field) => {
           if (!field) return null;

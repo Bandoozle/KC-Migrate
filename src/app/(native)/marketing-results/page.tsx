@@ -1,18 +1,13 @@
 import type { Metadata } from "next";
+import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { HeroBanner } from "@/components/sections/HeroBanner";
 import { OverlayCardGrid } from "@/components/sections/OverlayCardGrid";
 import { PageCta } from "@/components/sections/PageCta";
-import { decodeRenderedText, getPageBySlug } from "@/lib/wordpress";
 import { getMarketingResultsContent } from "@/lib/wordpress/marketing-results";
 
 
 export async function generateMetadata(): Promise<Metadata> {
-  const page = await getPageBySlug("marketing-results");
-  return {
-    title: page
-      ? decodeRenderedText(page.title.rendered)
-      : "Marketing Results | Kosick Communications",
-  };
+  return rankMathMetadata("/marketing-results/");
 }
 
 export default async function MarketingResultsPage() {
