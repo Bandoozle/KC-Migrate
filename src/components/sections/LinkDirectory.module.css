@@ -18,9 +18,10 @@
 
 .heading {
   margin: 0;
-  font-size: var(--kosick-subsection-title-size, 1.5rem);
-  font-weight: 600;
-  line-height: 1.25;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+  line-height: var(--kosick-subsection-title-leading);
   color: var(--kosick-color-text, #1a1a1a);
 }
 
@@ -28,8 +29,9 @@
   margin: 0;
   padding-left: 1.15rem;
   color: var(--kosick-color-muted, #50565b);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: var(--kosick-body-size);
+  font-weight: var(--kosick-body-weight);
+  line-height: var(--kosick-body-leading);
 }
 
 .list a {

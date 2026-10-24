@@ -1,7 +1,7 @@
 import { FeatureSplit } from "@/components/sections/FeatureSplit";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { RelatedServices } from "@/components/sections/digital-marketing/RelatedServices";
-import { HeroBanner } from "@/components/sections/HeroBanner";
+import { ServiceHero } from "@/components/sections/ServiceHero";
 import { PageCta } from "@/components/sections/PageCta";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { PromoBand } from "@/components/sections/PromoBand";
@@ -14,26 +14,14 @@ type CorporateEventsPageViewProps = {
 };
 
 /**
- * Corporate Events composition: hero with slider copy → feature splits →
+ * Corporate Events composition: shared internal hero → feature splits →
  * process → videos → promo band → FAQ → related → CTA.
  * Uses ServicePageContent but does not share ServicePageView section order.
  */
 export function CorporateEventsPageView({ content }: CorporateEventsPageViewProps) {
-  const heroTitle = content.hero.displayTitle || content.title;
-
   return (
     <main className={styles.main}>
-      <HeroBanner
-        slides={content.hero.slides.map((slide) => ({
-          src: slide.src,
-          alt: slide.alt || heroTitle,
-          kind: slide.kind,
-        }))}
-        title={heroTitle}
-        eyebrow={content.hero.eyebrow}
-        subtitle={content.hero.subtitle}
-        cta={content.hero.cta}
-      />
+      <ServiceHero title={content.title} hero={content.hero} />
 
       {content.features.map((feature, index) => (
         <FeatureSplit

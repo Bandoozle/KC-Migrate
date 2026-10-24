@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { InternalPageHero } from "@/components/sections/InternalPageHero";
 import { PageCta } from "@/components/sections/PageCta";
+import { serviceHeroActions, INDUSTRY_SERVICE_HEROES } from "@/lib/content/industry-heroes";
 import {
   BodyText,
   CardTitle,
   Eyebrow,
-  PageTitle,
   SectionDescription,
   SectionTitle,
 } from "@/components/typography";
@@ -19,39 +20,20 @@ import {
 import styles from "./MarketingProgramDirectory.module.css";
 
 export function MarketingProgramDirectory() {
-  const [heroMain, ...heroSides] = MARKETING_PROGRAMS_HERO_VISUALS;
+  const heroImage = MARKETING_PROGRAMS_HERO_VISUALS[0];
+  const actions = serviceHeroActions();
 
   return (
     <>
-      <section className={styles.hero}>
-        <div className={`container ${styles.heroGrid}`}>
-          <Reveal variant="fadeUp" className={styles.heroCopy}>
-            <Eyebrow>{MARKETING_PROGRAMS_INTRO.eyebrow}</Eyebrow>
-            <PageTitle className={styles.heroTitle}>{MARKETING_PROGRAMS_INTRO.title}</PageTitle>
-            <SectionDescription className={styles.heroLead}>
-              {MARKETING_PROGRAMS_INTRO.description}
-            </SectionDescription>
-            <Link href={MARKETING_PROGRAMS_INTRO.cta.href} className={styles.heroCta}>
-              {MARKETING_PROGRAMS_INTRO.cta.label}
-              <span className={styles.arrow} aria-hidden="true">
-                →
-              </span>
-            </Link>
-          </Reveal>
-          <Reveal variant="fade" delay={80} className={styles.collage}>
-            <span className={styles.collageMain}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={heroMain.src} alt={heroMain.alt} />
-            </span>
-            {heroSides.map((visual) => (
-              <span key={visual.src} className={styles.collageSide}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={visual.src} alt={visual.alt} />
-              </span>
-            ))}
-          </Reveal>
-        </div>
-      </section>
+      <InternalPageHero
+        eyebrow={INDUSTRY_SERVICE_HEROES.programs.eyebrow}
+        titlePrimary="Marketing"
+        titleSecondary="Programs"
+        description={MARKETING_PROGRAMS_INTRO.description}
+        backgroundImage={heroImage.src}
+        primaryCTA={{ label: MARKETING_PROGRAMS_INTRO.cta.label, href: MARKETING_PROGRAMS_INTRO.cta.href }}
+        secondaryCTA={actions.secondaryCta}
+      />
 
       {MARKETING_PROGRAM_GROUPS.map((group) => (
         <section

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
-import { ServicePageView } from "@/components/sections/ServicePageView";
+import { RadioAdvertisingPage as RadioAdvertisingView } from "@/components/sections/radio/RadioAdvertisingPage";
+import { getRadioArticles } from "@/lib/wordpress/radio-articles";
 import { getRadioAdvertisingContent } from "@/lib/wordpress/service-page";
 
 
@@ -9,6 +10,9 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function RadioAdvertisingPage() {
-  const content = await getRadioAdvertisingContent();
-  return <ServicePageView content={content} />;
+  const [content, articles] = await Promise.all([
+    getRadioAdvertisingContent(),
+    getRadioArticles().catch(() => ({ guide: null, mediaBuying: null })),
+  ]);
+  return <RadioAdvertisingView content={content} articles={articles} />;
 }

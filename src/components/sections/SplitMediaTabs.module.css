@@ -3,6 +3,11 @@
   padding-bottom: 0;
 }
 
+.tabs {
+  min-width: 0;
+  max-width: 100%;
+}
+
 .tabList {
   width: fit-content;
   max-width: 100%;
@@ -29,8 +34,8 @@
   background: transparent;
   color: #50565b;
   font: inherit;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
@@ -53,6 +58,8 @@
 
 .stack {
   display: grid;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .stack > .panel {
@@ -125,6 +132,8 @@
 
   .tabListScroll {
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
     justify-content: flex-start;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -132,7 +141,8 @@
   }
 
   .tab {
-    font-size: 15px;
+    font-size: var(--kosick-meta-size);
+    line-height: var(--kosick-meta-leading);
     padding: 0 14px;
     min-height: 38px;
   }

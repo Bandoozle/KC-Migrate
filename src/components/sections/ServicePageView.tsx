@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { BodyText, SectionTitle } from "@/components/typography";
 import { FeatureSplitStack } from "@/components/sections/FeatureSplitStack";
@@ -16,9 +17,11 @@ import styles from "./ServicePageView.module.css";
 
 type ServicePageViewProps = {
   content: ServicePageContent;
+  /** Replaces the default project grid when a page has its own portfolio treatment. */
+  media?: ReactNode;
 };
 
-export function ServicePageView({ content }: ServicePageViewProps) {
+export function ServicePageView({ content, media }: ServicePageViewProps) {
   const [firstOffers, ...moreOffers] = content.offerGroups;
 
   return (
@@ -43,7 +46,9 @@ export function ServicePageView({ content }: ServicePageViewProps) {
         />
       ))}
 
-      {content.mediaCardSection ? (
+      {media !== undefined ? (
+        media
+      ) : content.mediaCardSection ? (
         <MediaCardGrid section={content.mediaCardSection} />
       ) : null}
 

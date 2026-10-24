@@ -1,5 +1,31 @@
+@font-face {
+  font-family: "Gellix";
+  src: url("/fonts/gellix/Gellix-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("/fonts/gellix/Gellix-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gellix";
+  src: url("/fonts/gellix/Gellix-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 .hero {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   background: #111111;
   min-height: min(70vh, 720px);
@@ -58,23 +84,25 @@
 
 .eyebrow {
   margin: 0;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: var(--kosick-eyebrow-weight);
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: var(--kosick-eyebrow-leading);
 }
 
 .title {
   margin: 0;
-  font-size: clamp(2.25rem, 5vw, 3.5rem);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  font-size: var(--kosick-page-title-size);
+  font-weight: var(--kosick-page-title-weight);
+  line-height: var(--kosick-page-title-leading);
+  letter-spacing: var(--kosick-page-title-tracking);
 }
 
 .subtitle {
   margin: 0;
-  font-size: 1.05rem;
-  font-weight: 400;
+  font-size: var(--kosick-section-desc-size);
+  font-weight: var(--kosick-section-desc-weight);
+  line-height: var(--kosick-section-desc-leading);
   opacity: 0.9;
 }
 
@@ -104,11 +132,14 @@
 }
 
 .service .image {
-  object-position: 68% center;
+  object-position: var(--hero-object-position, 68% center);
 }
 
 .service .overlay {
+  position: relative;
+  flex: 1 0 auto;
   align-items: center;
+  min-height: clamp(32rem, 68vh, 40rem);
   padding: clamp(2.75rem, 7vh, 4.5rem) 0;
   background: linear-gradient(
     90deg,
@@ -123,34 +154,37 @@
   display: grid;
   justify-items: start;
   gap: 0;
-  max-width: var(--kosick-container);
-  width: var(--kosick-container);
+  max-width: var(--kosick-container, min(1290px, calc(100% - 2 * clamp(1.25rem, 3vw, 2.5rem))));
+  width: var(--kosick-container, min(1290px, calc(100% - 2 * clamp(1.25rem, 3vw, 2.5rem))));
   margin-inline: auto;
   color: #ffffff;
+  font-family: var(--kosick-font, "Gellix", system-ui, sans-serif);
 }
 
 .service .eyebrow {
   margin: 0 0 1.15rem;
   max-width: 40rem;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  line-height: 1.4;
-  text-transform: uppercase;
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: var(--kosick-eyebrow-weight);
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: var(--kosick-eyebrow-leading);
   color: rgba(255, 255, 255, 0.72);
 }
 
 .service .title {
   display: grid;
-  max-width: 12em;
-  font-family: var(--kosick-font, inherit);
+  row-gap: 0.08em;
+  max-width: 11em;
+  font-family: var(--kosick-font, "Gellix", system-ui, sans-serif);
   font-size: clamp(2.75rem, 5.4vw, 4.35rem);
   font-weight: 600;
-  line-height: 0.96;
+  line-height: 1.05;
   letter-spacing: -0.03em;
+  overflow-wrap: break-word;
 }
 
 .service .titleSecondary {
+  display: block;
   color: rgba(255, 255, 255, 0.62);
   font-weight: 600;
   white-space: pre-line;
@@ -160,9 +194,9 @@
   max-width: 42rem;
   margin: 1.35rem 0 0;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 1.05rem;
-  font-weight: 400;
-  line-height: 1.55;
+  font-size: var(--kosick-section-desc-size);
+  font-weight: var(--kosick-section-desc-weight);
+  line-height: var(--kosick-section-desc-leading);
   opacity: 1;
 }
 
@@ -215,13 +249,23 @@
   color: #ffffff;
 }
 
+.service.plain {
+  min-height: clamp(18rem, 42vh, 26rem);
+  background: #141414;
+}
+
 @media (max-width: 720px) {
   .service {
     min-height: 34rem;
   }
 
+  .service.plain {
+    min-height: 22rem;
+  }
+
   .service .overlay {
     align-items: flex-end;
+    min-height: 34rem;
     background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.25) 0%,
@@ -231,16 +275,18 @@
   }
 
   .service .image {
-    object-position: center;
+    object-position: var(--hero-object-position-mobile, var(--hero-object-position, center));
   }
 
   .service .title {
-    font-size: clamp(2.15rem, 11vw, 3rem);
+    font-size: clamp(2.15rem, 10vw, 3rem);
+    line-height: 1.08;
     max-width: none;
+    overflow-wrap: break-word;
   }
 
   .service .subtitle {
-    font-size: 1rem;
+    font-size: var(--kosick-section-desc-size);
   }
 }
 

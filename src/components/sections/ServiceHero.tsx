@@ -1,5 +1,6 @@
-import { HeroBanner, type HeroBannerSlide } from "@/components/sections/HeroBanner";
-import { HeroCarousel } from "@/components/sections/digital-marketing/HeroCarousel";
+import { InternalPageHero } from "@/components/sections/InternalPageHero";
+import type { HeroBannerSlide } from "@/components/sections/HeroBanner";
+import { serviceHeroActions } from "@/lib/content/industry-heroes";
 
 type ServiceHeroData = {
   slides: HeroBannerSlide[];
@@ -11,25 +12,43 @@ type ServiceHeroData = {
   secondaryCta?: { label: string; href: string; icon?: "phone" } | null;
 };
 
+function splitFallbackTitle(title: string): { primary: string; secondary?: string } {
+  const words = title.trim().split(/\s+/).filter(Boolean);
+  if (words.length < 2) return { primary: title.trim() };
+  return { primary: words[0], secondary: words.slice(1).join(" ") };
+}
+
 /**
- * Shared marketing hero. Service copy switches on the split headline;
- * pages without that copy keep the simple image carousel.
+ * Service pages use the shared internal hero. Pages that already carry a
+ * split headline keep that copy; others fall back to the page title.
  */
-export function ServiceHero({ title, hero }: { title: string; hero: ServiceHeroData }) {
-  if (!hero.titleSecondary) {
-    return <HeroCarousel slides={hero.slides} title={title} />;
-  }
+export function ServiceHero({
+  title,
+  hero,
+  backgroundPosition,
+  backgroundPositionMobile,
+}: {
+  title: string;
+  hero: ServiceHeroData;
+  backgroundPosition?: string;
+  backgroundPositionMobile?: string;
+}) {
+  const fallback = splitFallbackTitle(hero.displayTitle || title);
+  const titlePrimary = hero.titleSecondary ? hero.displayTitle || title : fallback.primary;
+  const titleSecondary = hero.titleSecondary || fallback.secondary;
+  const defaults = serviceHeroActions();
 
   return (
-    <HeroBanner
-      variant="service"
-      slides={hero.slides}
-      title={hero.displayTitle || title}
-      titleSecondary={hero.titleSecondary}
+    <InternalPageHero
       eyebrow={hero.eyebrow}
-      subtitle={hero.subtitle}
-      cta={hero.cta}
-      secondaryCta={hero.secondaryCta}
+      titlePrimary={titlePrimary}
+      titleSecondary={titleSecondary}
+      description={hero.subtitle}
+      slides={hero.slides}
+      primaryCTA={hero.cta === undefined ? defaults.cta : hero.cta}
+      secondaryCTA={hero.secondaryCta === undefined ? defaults.secondaryCta : hero.secondaryCta}
+      backgroundPosition={backgroundPosition}
+      backgroundPositionMobile={backgroundPositionMobile}
     />
   );
 }

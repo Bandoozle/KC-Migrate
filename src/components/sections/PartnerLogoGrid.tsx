@@ -48,6 +48,10 @@ const PARTNER_NAME_RULES: Array<{ match: RegExp; name: string }> = [
   { match: /8\.33\.58-AM/i, name: "Global" },
   { match: /8\.34\.53-AM/i, name: "Food Network" },
   { match: /8\.46\.22-AM/i, name: "E!" },
+  { match: /8\.52\.20-AM/i, name: "Spotify" },
+  { match: /8\.48\.13-AM/i, name: "Discovery Channel" },
+  { match: /\/tlc\./i, name: "TLC" },
+  { match: /\/hulu\./i, name: "Hulu" },
 ];
 
 function brandFromFilename(src: string): string | null {
@@ -57,7 +61,7 @@ function brandFromFilename(src: string): string | null {
   return stem.replace(/[-_]+/g, " ");
 }
 
-function getPartnerName(logo: { src: string; alt: string }, index: number): string {
+export function getPartnerName(logo: { src: string; alt: string }, index: number): string {
   const src = logo.src || "";
   for (const rule of PARTNER_NAME_RULES) {
     if (rule.match.test(src)) return rule.name;

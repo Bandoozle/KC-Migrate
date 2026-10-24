@@ -49,7 +49,7 @@ export const KOSICK_TYPOGRAPHY_SYSTEM_CSS = `
   --kosick-eyebrow-size: 0.8125rem; /* 13px */
   --kosick-eyebrow-weight: 600;
   --kosick-eyebrow-leading: 1.3;
-  --kosick-eyebrow-tracking: 0.08em;
+  --kosick-eyebrow-tracking: 0;
 
   /* Feature-column label — Amplitude: 18px → md 22px, medium, #50565B */
   --kosick-feature-label-size: 18px;
@@ -228,7 +228,6 @@ export const KOSICK_TYPOGRAPHY_SYSTEM_CSS = `
   line-height: var(--kosick-eyebrow-leading) !important;
   letter-spacing: var(--kosick-eyebrow-tracking) !important;
   color: var(--kosick-color-meta) !important;
-  text-transform: uppercase !important;
 }
 
 /* Amplitude-style feature column: sentence-case label + large title + muted lead */
@@ -646,7 +645,6 @@ a.kosick-outline-btn,
   line-height: var(--kosick-eyebrow-leading) !important;
   letter-spacing: var(--kosick-eyebrow-tracking) !important;
   color: var(--kosick-color-meta) !important;
-  text-transform: uppercase !important;
 }
 
 .entry-content .kosick-eyebrow.kosick-feature-label,

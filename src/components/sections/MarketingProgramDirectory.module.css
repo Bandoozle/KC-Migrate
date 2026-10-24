@@ -1,30 +1,3 @@
-.hero {
-  padding: clamp(3.25rem, 6vw, 5.75rem) 0 clamp(2rem, 4vw, 3.5rem);
-  background: #f6f5f2;
-}
-
-.heroGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(1.75rem, 4vw, 3.5rem);
-  align-items: center;
-}
-
-.heroCopy {
-  max-width: 38rem;
-}
-
-.heroTitle {
-  max-width: 12em;
-}
-
-.heroLead {
-  margin: 0;
-  max-width: 36rem;
-  color: var(--kosick-color-muted, #50565b);
-}
-
-.heroCta,
 .explore {
   display: inline-flex;
   align-items: center;
@@ -34,53 +7,14 @@
   text-decoration: none;
 }
 
-.heroCta {
-  margin-top: 1.5rem;
-}
-
 .arrow {
   display: inline-block;
   transition: transform 180ms ease;
 }
 
-.heroCta:hover .arrow,
-.heroCta:focus-visible .arrow,
 .card:hover .arrow,
 .card:focus-visible .arrow {
   transform: translateX(4px);
-}
-
-.collage {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0.7rem;
-  min-height: 18rem;
-}
-
-.collageMain,
-.collageSide {
-  display: block;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #ececec;
-}
-
-.collageMain {
-  grid-row: span 2;
-  min-height: 16rem;
-}
-
-.collageMain img,
-.collageSide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.collageSide {
-  min-height: 7.5rem;
 }
 
 .groupAlt {
@@ -186,19 +120,31 @@
 .points {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
-  margin: 2.25rem 0 0;
+  gap: 16px;
+  align-items: stretch;
+  margin: 2rem 0 0;
   padding: 0;
   list-style: none;
+}
+
+.point {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  padding: 1.25rem 1.2rem 1.35rem;
+  background: #f7f7f5;
+  border: 1px solid #e6e6e4;
+  border-radius: var(--kosick-radius-md, 12px);
 }
 
 .pointIndex {
   display: block;
   margin-bottom: 0.7rem;
   color: rgba(17, 17, 17, 0.28);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: var(--kosick-eyebrow-weight);
+  letter-spacing: var(--kosick-eyebrow-tracking);
 }
 
 .pointTitle {
@@ -218,16 +164,6 @@
   .grid,
   .points {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 960px) {
-  .heroGrid {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  }
-
-  .collage {
-    min-height: 26rem;
   }
 }
 

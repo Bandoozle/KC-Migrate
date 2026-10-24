@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { type FormEvent, useId, useState } from "react";
 import { FORM_NAMES, trackFormSuccess } from "@/lib/analytics/track";
+import { labelCase } from "@/lib/eyebrow";
 import type { KadenceFormDefinition } from "@/lib/wordpress/kadence-forms";
 import styles from "./ContactForm.module.css";
 
@@ -10,6 +11,8 @@ type ContactFormProps = {
   form: KadenceFormDefinition;
   formKey?: "contact";
   className?: string;
+  /** Contact page treatment. The homepage keeps the default appearance. */
+  appearance?: "default" | "studio";
 };
 
 type FieldErrors = Record<string, string>;
@@ -18,6 +21,7 @@ export function ContactForm({
   form,
   formKey = "contact",
   className,
+  appearance = "default",
 }: ContactFormProps) {
   const router = useRouter();
   const formDomId = useId();
@@ -77,10 +81,63 @@ export function ContactForm({
   const restFields = fieldEntries.filter(
     ([key]) => key !== "name" && key !== "email",
   );
+  const studio = appearance === "studio";
+
+  function renderField(key: string, field: (typeof form.fields)[string] | undefined) {
+    if (!field) return null;
+    const inputId = `${formDomId}-${key}`;
+    const error = fieldErrors[key];
+    return (
+      <div key={key} className={styles.field}>
+        <label className={styles.label} htmlFor={inputId}>
+          {labelCase(field.label)}
+          {field.required ? (
+            studio ? (
+              <span className={styles.required}>
+                <span aria-hidden="true"> *</span>
+                <span className={styles.srOnly}> required</span>
+              </span>
+            ) : (
+              <span aria-hidden="true">*</span>
+            )
+          ) : null}
+        </label>
+        {field.type === "textarea" ? (
+          <textarea
+            id={inputId}
+            name={field.name}
+            rows={studio ? 6 : 4}
+            placeholder={field.placeholder}
+            required={field.required}
+            disabled={status === "submitting"}
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? `${inputId}-error` : undefined}
+          />
+        ) : (
+          <input
+            id={inputId}
+            name={field.name}
+            type={field.type}
+            placeholder={field.placeholder}
+            required={field.required}
+            autoComplete={field.autoComplete}
+            disabled={status === "submitting"}
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? `${inputId}-error` : undefined}
+          />
+        )}
+        {error ? (
+          <p id={`${inputId}-error`} className={styles.fieldError} role="alert">
+            {error}
+          </p>
+        ) : null}
+      </div>
+    );
+  }
 
   return (
     <form
-      className={[styles.form, className].filter(Boolean).join(" ")}
+      className={[styles.form, studio ? styles.studio : "", className].filter(Boolean).join(" ")}
       onSubmit={onSubmit}
       noValidate
     >
@@ -96,80 +153,27 @@ export function ContactForm({
           defaultValue=""
         />
       </div>
-      <div className={styles.row}>
-        {[nameField, emailField].map((field) => {
-          if (!field) return null;
-          const key = field === nameField ? "name" : "email";
-          const inputId = `${formDomId}-${key}`;
-          const error = fieldErrors[key];
-          return (
-            <div key={key} className={styles.field}>
-              <label className={styles.label} htmlFor={inputId}>
-                {field.label}
-                {field.required ? <span aria-hidden="true">*</span> : null}
-              </label>
-              <input
-                id={inputId}
-                name={field.name}
-                type={field.type === "textarea" ? "text" : field.type}
-                placeholder={field.placeholder}
-                required={field.required}
-                autoComplete={field.autoComplete}
-                disabled={status === "submitting"}
-                aria-invalid={Boolean(error)}
-                aria-describedby={error ? `${inputId}-error` : undefined}
-              />
-              {error ? (
-                <p id={`${inputId}-error`} className={styles.fieldError} role="alert">
-                  {error}
-                </p>
-              ) : null}
-            </div>
-          );
-        })}
-      </div>
-
-      {restFields.map(([key, field]) => {
-        const inputId = `${formDomId}-${key}`;
-        const error = fieldErrors[key];
-        return (
-          <div key={key} className={styles.field}>
-            <label className={styles.label} htmlFor={inputId}>
-              {field.label}
-              {field.required ? <span aria-hidden="true">*</span> : null}
-            </label>
-            {field.type === "textarea" ? (
-              <textarea
-                id={inputId}
-                name={field.name}
-                rows={4}
-                placeholder={field.placeholder}
-                required={field.required}
-                disabled={status === "submitting"}
-                aria-invalid={Boolean(error)}
-                aria-describedby={error ? `${inputId}-error` : undefined}
-              />
-            ) : (
-              <input
-                id={inputId}
-                name={field.name}
-                type={field.type}
-                placeholder={field.placeholder}
-                required={field.required}
-                autoComplete={field.autoComplete}
-                disabled={status === "submitting"}
-                aria-invalid={Boolean(error)}
-                aria-describedby={error ? `${inputId}-error` : undefined}
-              />
-            )}
-            {error ? (
-              <p id={`${inputId}-error`} className={styles.fieldError} role="alert">
-                {error}
-              </p>
-            ) : null}
+      {studio ? (
+        <>
+          <div className={styles.row}>
+            {renderField("name", nameField)}
+            {renderField("email", emailField)}
           </div>
-        );
-      })}
+          <div className={styles.row}>
+            {renderField("phone", form.fields.phone)}
+            {renderField("company", form.fields.company)}
+          </div>
+          {renderField("message", form.fields.message)}
+        </>
+      ) : (
+        <>
+          <div className={styles.row}>
+            {renderField("name", nameField)}
+            {renderField("email", emailField)}
+          </div>
+          {restFields.map(([key, field]) => renderField(key, field))}
+        </>
+      )}
 
       {status === "error" && errorMessage ? (
         <p className={styles.error} role="alert">

@@ -72,6 +72,61 @@ export const INDUSTRY_SERVICE_HEROES = {
     subtitle:
       "Build fast, flexible websites and e-commerce experiences that support your brand, improve the customer journey, and turn traffic into measurable business results.",
   },
+  television: {
+    eyebrow: "Advertising • Linear TV • Media Buying",
+    displayTitle: "Strategic",
+    titleSecondary: "Television Advertising",
+    subtitle:
+      "Television still commands attention like no other medium. It puts your brand on the big screen, in living rooms.",
+  },
+  radio: {
+    eyebrow: "Advertising • Local Radio • Media Buying",
+    displayTitle: "Strategic",
+    titleSecondary: "Radio Advertising",
+    subtitle:
+      "Radio earns something rare: undivided attention during the drive, the workout, and the workday.",
+  },
+  outdoor: {
+    eyebrow: "Advertising • Billboards • Street-Level",
+    displayTitle: "Strategic",
+    titleSecondary: "Outdoor Advertising",
+    subtitle:
+      "Street-level placements meet people exactly where they walk, wait, and shop.",
+  },
+  connectedTv: {
+    eyebrow: "Advertising • Connected TV • Streaming",
+    displayTitle: "Strategic",
+    titleSecondary: "Digital Video Advertising",
+    subtitle:
+      "Elevate your brand with targeted reach, dynamic content, and measurable results.",
+  },
+  creative: {
+    eyebrow: "Brand • Creative • Production",
+    displayTitle: "Strategic",
+    titleSecondary: "Creative & Production",
+    subtitle:
+      "Great creative grabs attention, engages the senses, and inspires action.",
+  },
+  corporateBranding: {
+    eyebrow: "Brand • Identity • Corporate",
+    displayTitle: "Strategic",
+    titleSecondary: "Corporate Branding",
+    subtitle:
+      "Your brand is the promise people remember before they ever talk to your team.",
+  },
+  businessDevelopment: {
+    eyebrow: "Strategy • Advisory • Growth",
+    displayTitle: "Strategic",
+    titleSecondary: "Business Development",
+    subtitle: "Growth should be a plan, not a guess.",
+  },
+  events: {
+    eyebrow: "Events • Planning • Incentive",
+    displayTitle: "Strategic",
+    titleSecondary: "Corporate Events",
+    subtitle:
+      "Custom corporate events motivate and educate both customers and staff, building stronger relationships and driving engagement.",
+  },
 } as const satisfies Record<string, IndustryServiceHeroCopy>;
 
 export function serviceHeroActions(contactHref = "/contact/", talkHref = "tel:+16049255800") {

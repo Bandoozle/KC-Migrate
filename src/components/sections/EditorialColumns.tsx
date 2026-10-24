@@ -1,5 +1,6 @@
 import { Reveal } from "@/components/motion/Reveal";
 import { BodyText, CardTitle, Eyebrow, SectionTitle, SubsectionTitle } from "@/components/typography";
+import { labelCase } from "@/lib/eyebrow";
 import type { ServiceNarrativeSection } from "@/lib/wordpress/service-page-types";
 import styles from "./EditorialColumns.module.css";
 
@@ -34,7 +35,7 @@ export function EditorialColumns({ section }: EditorialColumnsProps) {
     <section className={`section ${styles.section}`}>
       <div className="container">
         <Reveal variant="fadeUp" className={styles.intro}>
-          {section.eyebrow ? <Eyebrow>{section.eyebrow}</Eyebrow> : null}
+          {section.eyebrow ? <Eyebrow heading={section.title}>{section.eyebrow}</Eyebrow> : null}
           <SectionTitle as="h2" className={styles.heading}>
             {section.title}
           </SectionTitle>
@@ -54,7 +55,7 @@ export function EditorialColumns({ section }: EditorialColumnsProps) {
                 <span className={styles.number} aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className={styles.label}>{card.label}</p>
+                <p className={styles.label}>{labelCase(card.label)}</p>
                 <CardTitle as="h3" className={styles.cardTitle}>
                   {card.title}
                 </CardTitle>

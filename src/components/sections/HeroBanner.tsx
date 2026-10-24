@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { Reveal } from "@/components/motion/Reveal";
+import { eyebrowLabel } from "@/lib/eyebrow";
 import styles from "./HeroBanner.module.css";
 
 export type HeroBannerSlide = {
@@ -24,6 +25,12 @@ type HeroBannerProps = {
   secondaryCta?: (HeroCta & { icon?: "phone" }) | null;
   /** Rich left-aligned service hero. Defaults on when a second title line is present. */
   variant?: "default" | "service";
+  /** Cover position for the photographic background. Defaults to the service hero crop. */
+  backgroundPosition?: string;
+  /** Cover position below 721px, when a portrait crop needs a different subject lock. */
+  backgroundPositionMobile?: string;
+  /** Same type and alignment without a photograph. Used for utility pages. */
+  plain?: boolean;
 };
 
 function PhoneIcon() {
@@ -50,6 +57,9 @@ export function HeroBanner({
   cta,
   secondaryCta,
   variant,
+  backgroundPosition,
+  backgroundPositionMobile,
+  plain = false,
 }: HeroBannerProps) {
   const items = slides.map((slide) => ({
     ...slide,
@@ -65,12 +75,25 @@ export function HeroBanner({
     return () => window.clearInterval(id);
   }, [items.length]);
 
-  const isService = variant === "service" || Boolean(titleSecondary);
+  const isService = variant === "service" || Boolean(titleSecondary) || plain;
   const heading = [title, titleSecondary].filter(Boolean).join(" ");
+  const eyebrowText = eyebrowLabel(eyebrow, heading);
+  const positionStyle: CSSProperties | undefined =
+    backgroundPosition || backgroundPositionMobile
+      ? ({
+          ...(backgroundPosition ? { "--hero-object-position": backgroundPosition } : {}),
+          ...(backgroundPositionMobile
+            ? { "--hero-object-position-mobile": backgroundPositionMobile }
+            : {}),
+        } as CSSProperties)
+      : undefined;
 
   return (
     <section
-      className={[styles.hero, isService ? styles.service : ""].filter(Boolean).join(" ")}
+      className={[styles.hero, isService ? styles.service : "", plain ? styles.plain : ""]
+        .filter(Boolean)
+        .join(" ")}
+      style={positionStyle}
       aria-label={heading}
     >
       {items.length > 0 ? (
@@ -106,16 +129,16 @@ export function HeroBanner({
 
       <div className={styles.overlay}>
         <div className={isService ? `container ${styles.copy}` : styles.copy}>
-          {eyebrow ? (
+          {eyebrowText ? (
             <Reveal variant="fadeUp">
-              <p className={styles.eyebrow}>{eyebrow}</p>
+              <p className={styles.eyebrow}>{eyebrowText}</p>
             </Reveal>
           ) : null}
-          <Reveal variant="fadeUp" delay={eyebrow ? 80 : 0}>
+          <Reveal variant="fadeUp" delay={eyebrowText ? 80 : 0}>
             <h1 className={styles.title}>
               <span>{title}</span>
               {titleSecondary ? (
-                <span className={styles.titleSecondary}>{` ${titleSecondary}`}</span>
+                <span className={styles.titleSecondary}>{titleSecondary}</span>
               ) : null}
             </h1>
           </Reveal>

@@ -1,0 +1,331 @@
+.page {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.photo {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.hero {
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.heroGrid,
+.chapterGrid {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.heroCopy,
+.copy {
+  display: grid;
+  align-content: start;
+  gap: 0.8rem;
+  min-width: 0;
+  max-width: 40rem;
+}
+
+.eyebrow,
+.kicker {
+  margin: 0;
+  color: #6e6e73;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: var(--kosick-eyebrow-weight);
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: var(--kosick-eyebrow-leading);
+}
+
+.title {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
+}
+
+.subject {
+  color: #111111;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-page-title-size);
+  font-weight: var(--kosick-page-title-weight);
+  letter-spacing: var(--kosick-page-title-tracking);
+  line-height: var(--kosick-page-title-leading);
+}
+
+.lead,
+.body {
+  margin: 0;
+  max-width: 42rem;
+  color: #3a3a3a;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-body-size);
+  font-weight: var(--kosick-body-weight);
+  line-height: var(--kosick-body-leading);
+}
+
+.lead {
+  font-size: var(--kosick-section-desc-size);
+  font-weight: var(--kosick-section-desc-weight);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.heroMedia,
+.figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-md, 12px);
+  background: #eceae6;
+}
+
+.heroMedia {
+  aspect-ratio: 4 / 5;
+  width: min(100%, 420px);
+  justify-self: start;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.page a.solid,
+.page a.ghost,
+.page a.journeyStep {
+  text-decoration: none;
+}
+
+.page a.solid,
+.page a.ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 44px;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--kosick-radius-pill, 9999px);
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-meta-size, 0.9375rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.page a.solid {
+  border: 1px solid #111111;
+  background: #111111;
+  color: #ffffff;
+}
+
+.page a.solid:hover {
+  border-color: #2a2a2a;
+  background: #2a2a2a;
+  color: #ffffff;
+}
+
+.page a.solid:focus-visible {
+  border-color: #111111;
+  background: #111111;
+  color: #ffffff;
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+.page a.solid:active {
+  border-color: #000000;
+  background: #000000;
+  color: #ffffff;
+}
+
+.page a.ghost {
+  border: 1px solid #111111;
+  background: #ffffff;
+  color: #111111;
+}
+
+.page a.ghost:hover,
+.page a.ghost:focus-visible {
+  border-color: #111111;
+  background: #111111;
+  color: #ffffff;
+  outline: 2px solid #111111;
+  outline-offset: 3px;
+}
+
+.page a.ghost:active {
+  border-color: #000000;
+  background: #000000;
+  color: #ffffff;
+}
+
+.journey {
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
+  background: #f7f7f5;
+}
+
+.journeyList {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.journeyStep {
+  display: grid;
+  gap: 0.4rem;
+  align-content: start;
+  min-width: 0;
+  padding-top: 0.85rem;
+  border-top: 2px solid #111111;
+  color: #111111;
+  scroll-margin-top: 5.5rem;
+}
+
+.page a.journeyStep {
+  color: #111111;
+}
+
+.page a.journeyStep:hover strong,
+.page a.journeyStep:focus-visible strong {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.page a.journeyStep:focus-visible {
+  outline: 2px solid #111111;
+  outline-offset: 4px;
+}
+
+.journeyStep span {
+  color: #6e6e73;
+  font-size: var(--kosick-meta-size, 0.9375rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.journeyStep strong {
+  color: #111111;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.journeyStep p,
+.menu article li,
+.bullets li {
+  margin: 0;
+  color: #3a3a3a;
+  font-size: var(--kosick-body-size);
+  font-weight: var(--kosick-body-weight);
+  line-height: var(--kosick-body-leading);
+}
+
+.chapters {
+  padding: 0.5rem 0 1rem;
+}
+
+.chapter {
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0;
+  border-top: 1px solid #e6e6e4;
+  scroll-margin-top: 5.5rem;
+}
+
+.chapter:last-child {
+  border-bottom: 1px solid #e6e6e4;
+}
+
+.figure {
+  aspect-ratio: 16 / 10;
+  width: 100%;
+}
+
+.bullets,
+.menu article ul {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0.35rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bullets li {
+  padding-top: 0.45rem;
+  border-top: 1px solid #e6e6e4;
+}
+
+.menu {
+  padding: clamp(2.75rem, 5vw, 4.5rem) 0;
+  background: #ffffff;
+}
+
+.menuGrid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.75rem;
+}
+
+.menu article {
+  display: grid;
+  align-content: start;
+  gap: 0.55rem;
+  min-width: 0;
+  padding-top: 0.9rem;
+  border-top: 1px solid #111111;
+}
+
+.menu article h3 {
+  margin: 0;
+  color: #111111;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+@media (min-width: 720px) {
+  .journeyList,
+  .menuGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
+}
+
+@media (min-width: 960px) {
+  .heroGrid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(260px, 0.7fr);
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
+
+  .heroMedia {
+    justify-self: end;
+    width: 100%;
+    max-height: 560px;
+  }
+
+  .chapterGrid {
+    grid-template-columns: minmax(0, 1.2fr) minmax(240px, 0.68fr);
+    gap: clamp(1.75rem, 3vw, 3rem);
+    align-items: start;
+  }
+
+  .figure {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (min-width: 1100px) {
+  .journeyList,
+  .menuGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 959px) {
+  .chapterGrid .figure {
+    order: -1;
+  }
+}

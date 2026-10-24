@@ -46,15 +46,18 @@
 
 .cardTitle {
   margin: 0;
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.3;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
 }
 
 .body {
   margin: 0;
   color: #50565b;
-  font-size: 0.98rem;
+  font-size: var(--kosick-body-size);
+  font-weight: var(--kosick-body-weight);
+  line-height: var(--kosick-body-leading);
 }
 
 @media (min-width: 900px) {

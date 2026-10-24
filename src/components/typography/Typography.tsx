@@ -1,4 +1,5 @@
 import type { ElementType, HTMLAttributes, ReactNode } from "react";
+import { eyebrowLabel } from "@/lib/eyebrow";
 
 type ToneProps = {
   as?: ElementType;
@@ -61,10 +62,18 @@ export function CardTitle({ as: Tag = "h4", className, children, ...rest }: Tone
   );
 }
 
-export function Eyebrow({ as: Tag = "p", className, children, ...rest }: ToneProps) {
+export function Eyebrow({
+  as: Tag = "p",
+  className,
+  children,
+  heading,
+  ...rest
+}: ToneProps & { heading?: string | null }) {
+  const label = typeof children === "string" ? eyebrowLabel(children, heading) : children;
+  if (!label) return null;
   return (
     <Tag className={cx("eyebrow", "kosick-eyebrow", className)} {...rest}>
-      {children}
+      {label}
     </Tag>
   );
 }

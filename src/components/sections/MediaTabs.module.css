@@ -1,12 +1,14 @@
 .section {
   background: #ffffff;
   text-align: center;
+  overflow-x: clip;
 }
 
 .inner {
   display: grid;
   gap: var(--kosick-intro-content-gap);
   justify-items: stretch;
+  min-width: 0;
 }
 
 .inner :global(.kosick-section-intro) {

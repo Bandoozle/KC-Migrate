@@ -39,8 +39,10 @@
   background: transparent;
   color: #111111;
   font: inherit;
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
   text-align: left;
   cursor: pointer;
 }
@@ -66,8 +68,9 @@
   min-height: 0;
   padding: 0 1.15rem;
   color: #50565b;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: var(--kosick-body-size);
+  font-weight: var(--kosick-body-weight);
+  line-height: var(--kosick-body-leading);
   opacity: 0;
   transition:
     opacity 0.25s ease,

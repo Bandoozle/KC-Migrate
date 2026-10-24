@@ -48,6 +48,17 @@ function nodeText($: CheerioAPI, el: Element | null | undefined): string {
   return el ? textFrom($, el) : "";
 }
 
+function linesFrom($: CheerioAPI, el: Element): string {
+  const clone = $(el).clone();
+  clone.find("br").replaceWith("\n");
+  return decodeRenderedText(clone.text())
+    .replace(/\u00a0/g, " ")
+    .split("\n")
+    .map((line) => line.replace(/[ \t]+/g, " ").trim().replace(/,+$/, ""))
+    .filter(Boolean)
+    .join("\n");
+}
+
 function decodeObfuscatedEmail(display: string, href: string): string {
   if (href.startsWith("mailto:")) {
     const fromHref = href.replace(/^mailto:/i, "").trim();
@@ -59,21 +70,17 @@ function decodeObfuscatedEmail(display: string, href: string): string {
 }
 
 function parseOffices($: CheerioAPI, scope: Element): ContactOffice[] {
-  const headings = $(scope)
-    .find("h4, .wp-block-kadence-advancedheading")
-    .toArray()
-    .map((el) => nodeText($, el))
-    .filter(Boolean);
-
+  const headings = $(scope).find("h4, .wp-block-kadence-advancedheading").toArray();
   const offices: ContactOffice[] = [];
   for (let i = 0; i < headings.length; i += 1) {
-    const label = headings[i];
-    if (!/:$/.test(label)) continue;
-    const address = headings[i + 1];
+    const label = nodeText($, headings[i]);
+    if (!label || !/:$/.test(label)) continue;
+    const addressEl = headings[i + 1];
+    const address = addressEl ? linesFrom($, addressEl) : "";
     if (!address || /:$/.test(address)) continue;
     offices.push({
       label: cleanText(label.replace(/:$/, "")),
-      address: cleanText(address),
+      address,
     });
   }
   return offices;

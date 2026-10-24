@@ -1,0 +1,9 @@
+.closing :global(.section-title),
+.closing :global(.kosick-section-title) {
+  color: #ffffff !important;
+}
+
+.closing :global(.section-description),
+.closing :global(.kosick-section-description) {
+  color: rgba(255, 255, 255, 0.78) !important;
+}

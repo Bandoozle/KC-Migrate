@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type PointerEvent } from "react";
 import { ArticleListing, type ArticleListItem } from "@/components/sections/ArticleListing";
-import { BodyText, CardTitle, MetaText, PageTitle, SectionDescription } from "@/components/typography";
+import { BodyText, CardTitle, MetaText } from "@/components/typography";
 import { RESOURCE_FILTERS } from "@/lib/content/resource-topics";
 import styles from "./ResourceLibrary.module.css";
 
@@ -101,17 +101,8 @@ export function ResourceLibrary({ articles }: ResourceLibraryProps) {
 
   return (
     <>
-      <section className={styles.featured} aria-labelledby="resources-title">
+      <section className={styles.featured} aria-label="Feature articles">
         <div className={`container ${styles.featuredInner}`}>
-          <div className={styles.featuredHeader}>
-            <PageTitle id="resources-title" className={styles.title}>
-              Feature Articles
-            </PageTitle>
-            <SectionDescription className={styles.subtitle}>
-              Insights, strategies, and practical marketing guidance to help your business grow.
-            </SectionDescription>
-          </div>
-
           <div className={styles.featuredControls}>
             <form className={styles.search} role="search" onSubmit={(event) => event.preventDefault()}>
               <label className={styles.searchLabel} htmlFor="resource-search">

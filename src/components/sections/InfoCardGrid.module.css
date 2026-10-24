@@ -188,9 +188,10 @@
 
 .cardTitle {
   margin: 0;
-  font-size: 1.0625rem;
-  font-weight: 600;
-  line-height: 1.25;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
   color: #111111;
   transition: color 280ms ease-out;
 }
@@ -202,8 +203,9 @@
 .body {
   margin: 0;
   color: #50565b;
-  font-size: 0.9375rem;
-  line-height: 1.45;
+  font-size: var(--kosick-body-size);
+  font-weight: var(--kosick-body-weight);
+  line-height: var(--kosick-body-leading);
 }
 
 .list {
@@ -211,8 +213,9 @@
   padding-left: 0;
   list-style: none;
   color: #60666c;
-  font-size: 0.875rem;
-  line-height: 1.35;
+  font-size: var(--kosick-meta-size);
+  font-weight: var(--kosick-meta-weight);
+  line-height: var(--kosick-meta-leading);
 }
 
 .list li {
@@ -250,14 +253,12 @@
 }
 
 .compact .cardTitle {
-  font-size: 1rem;
-  line-height: 1.2;
   margin-bottom: 0.15rem;
 }
 
 .compact .list {
-  font-size: 0.8125rem;
-  line-height: 1.3;
+  font-size: var(--kosick-meta-size);
+  line-height: var(--kosick-meta-leading);
 }
 
 .compact .list li + li {

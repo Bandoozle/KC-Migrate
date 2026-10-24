@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
-import { ServicePageView } from "@/components/sections/ServicePageView";
+import { DigitalVideoAdvertisingPage as DigitalVideoView } from "@/components/sections/digital-video/DigitalVideoAdvertisingPage";
 import { getDigitalConnectedTvContent } from "@/lib/wordpress/service-page";
 
 
@@ -10,5 +10,5 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function DigitalConnectedTvPage() {
   const content = await getDigitalConnectedTvContent();
-  return <ServicePageView content={content} />;
+  return <DigitalVideoView content={content} />;
 }

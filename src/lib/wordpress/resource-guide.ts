@@ -74,16 +74,31 @@ function parseGuideSection(
     texts.filter((t) => t !== title && t !== spec).join(" ");
   if (!body || body.length < 40) return null;
 
-  const img = mediaCol ? $(mediaCol).find("img").first() : $(row).find("img").first();
-  const src = absUrl(img.attr("src") || img.attr("data-src"), origin);
-
   return {
     title,
     spec,
     body,
-    image: src ? { src, alt: img.attr("alt") || title } : null,
+    image: guideImage($, mediaCol || row, origin, title) || guideImage($, row, origin, title),
     cta: extractCta($, textCol, origin),
   };
+}
+
+function guideImage(
+  $: CheerioAPI,
+  scope: Element,
+  origin: string,
+  title: string,
+): ResourceGuideSection["image"] {
+  const img = $(scope).find("img").first();
+  const tagged = absUrl(img.attr("src") || img.attr("data-src"), origin);
+  const html = $.html(scope) || "";
+  const urls = [...html.matchAll(/https?:\/\/[^"'()\s]+\/wp-content\/uploads\/[^"'()\s]+/g)].map(
+    (match) => match[0],
+  );
+  const src =
+    urls.find((url) => !/-\d+x\d+\.(?:jpe?g|png|webp)/i.test(url)) || tagged || urls[0] || "";
+  if (!src) return null;
+  return { src, alt: img.attr("alt") || title };
 }
 
 export function normalizeResourceGuideHtml(

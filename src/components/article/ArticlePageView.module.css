@@ -29,8 +29,7 @@
 .heroCopy .meta {
   margin: 0 0 clamp(1.15rem, 2vw, 1.5rem);
   color: var(--kosick-color-meta, #6e6e73);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--kosick-eyebrow-tracking, 0);
   font-size: 0.8125rem;
   text-align: center;
 }

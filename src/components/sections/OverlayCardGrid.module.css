@@ -40,9 +40,10 @@
   bottom: 0;
   padding: 1.1rem 1rem;
   background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.72));
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.25;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
 }
 
 @media (min-width: 900px) {

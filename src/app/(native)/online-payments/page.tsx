@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
+import { InternalPageHero } from "@/components/sections/InternalPageHero";
 import { EmbeddedFrame } from "@/components/sections/EmbeddedFrame";
-import { PageTitle } from "@/components/typography";
+import { serviceHeroActions } from "@/lib/content/industry-heroes";
 import { getOnlinePaymentsContent } from "@/lib/wordpress/online-payments";
-import styles from "./page.module.css";
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -12,14 +12,20 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function OnlinePaymentsPage() {
   const content = await getOnlinePaymentsContent();
+  const actions = serviceHeroActions();
+  const words = content.title.trim().split(/\s+/).filter(Boolean);
+  const mid = Math.max(1, Math.ceil(words.length / 2));
 
   return (
     <main>
-      <section className={`section ${styles.intro}`}>
-        <div className="container">
-          <PageTitle as="h1">{content.title}</PageTitle>
-        </div>
-      </section>
+      <InternalPageHero
+        plain
+        eyebrow="Payments"
+        titlePrimary={words.slice(0, mid).join(" ") || "Pay Your Invoice"}
+        titleSecondary={words.slice(mid).join(" ") || undefined}
+        primaryCTA={actions.cta}
+        secondaryCTA={actions.secondaryCta}
+      />
       <EmbeddedFrame
         title={content.title}
         src={content.iframeSrc}

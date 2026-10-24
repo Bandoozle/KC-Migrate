@@ -73,9 +73,9 @@
   max-width: 11rem;
   margin: 0;
   color: #111111;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  line-height: 1.25;
+  font-size: var(--kosick-meta-size);
+  font-weight: var(--kosick-meta-weight);
+  line-height: var(--kosick-meta-leading);
   letter-spacing: -0.01em;
   text-wrap: balance;
 }
@@ -103,7 +103,8 @@
   }
 
   .label {
-    font-size: 0.875rem;
+    font-size: var(--kosick-meta-size);
+    line-height: var(--kosick-meta-leading);
   }
 }
 

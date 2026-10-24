@@ -2,181 +2,206 @@
   overflow-x: clip;
 }
 
-.infoSection {
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.studio {
   background: #ffffff;
 }
 
-.infoLayout {
+.shell {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid #e4e4e2;
+  border-radius: var(--kosick-radius-md, 12px);
+  background: #f7f7f5;
 }
 
-.infoCopy {
-  display: grid;
-  gap: 1.25rem;
-  justify-items: start;
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: #161616;
+  color: #f4f4f4;
 }
 
-.company {
+.eyebrow {
   margin: 0;
-}
-
-.directContacts {
-  display: grid;
-  gap: 0.35rem;
-}
-
-.directContacts p {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.5;
-  color: #111111;
-}
-
-.directContacts a {
-  color: inherit;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-eyebrow-size, 0.8125rem);
   font-weight: 600;
-  text-decoration: none;
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: 1.3;
+  color: #b6a37a;
 }
 
-.directContacts a:hover,
-.directContacts a:focus-visible {
-  text-decoration: underline;
+.heading {
+  margin: 0;
+  max-width: 16ch;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-section-title-size);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: #f7f7f5;
+}
+
+.intro {
+  margin: 0;
+  max-width: 34rem;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-section-desc-size, 1.125rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: rgba(244, 244, 244, 0.78);
+}
+
+.direct {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+  gap: 1rem 1.5rem;
+  margin: 0.35rem 0 0;
+}
+
+.direct p {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0;
 }
 
 .directLabel {
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-eyebrow-size, 0.8125rem);
   font-weight: 600;
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: 1.3;
+  color: #b6a37a;
 }
 
-.offices {
-  list-style: none;
-  margin: 0.5rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 1.25rem;
-}
-
-.officeLabel {
-  margin: 0 0 0.35rem;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #111111;
-}
-
-.officeAddress {
-  margin: 0;
-  max-width: 28rem;
-}
-
-.infoMedia {
-  display: grid;
-  gap: 1rem;
-  justify-items: center;
-  text-align: center;
-}
-
-.mapImage {
-  display: block;
-  width: min(100%, 420px);
-  height: auto;
-}
-
-.servicing {
-  margin: 0;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #111111;
-}
-
-.formSection {
-  background: #f3f3f3;
-}
-
-.formLayout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-  gap: 3rem;
-  align-items: start;
-}
-
-.formDetails {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0;
-}
-
-.formHeading {
-  font-size: 36px;
-  line-height: 1.2;
-}
-
-.formLead {
-  max-width: 26rem;
-  margin-bottom: 1.75rem;
-}
-
-.detailList {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.detailItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.85rem;
-}
-
-.detailIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: #ffffff;
-  color: #111111;
-  flex-shrink: 0;
-}
-
-.detailLabel {
-  display: block;
-  font-size: 17px;
-  font-weight: 400;
-  line-height: 1.45;
-  color: #888888;
-}
-
-.detailValue {
-  display: block;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.45;
-  color: #111111;
+.direct a {
+  color: #f7f7f5;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  line-height: 1.4;
   text-decoration: none;
 }
 
-a.detailValue:hover,
-a.detailValue:focus-visible {
+.direct a:hover,
+.direct a:focus-visible,
+.mapLink:hover,
+.mapLink:focus-visible {
   text-decoration: underline;
 }
 
-@media (max-width: 900px) {
-  .infoLayout,
-  .formLayout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem;
+.panel a:focus-visible {
+  outline: 2px solid #b6a37a;
+  outline-offset: 3px;
+}
+
+.offices {
+  display: grid;
+  gap: 0;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offices li {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.officeLabel {
+  margin: 0;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-eyebrow-size, 0.8125rem);
+  font-weight: 600;
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: 1.3;
+  color: #f7f7f5;
+}
+
+.officeAddress {
+  display: grid;
+  margin: 0;
+  color: rgba(244, 244, 244, 0.82);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mapLink {
+  width: fit-content;
+  color: #b6a37a;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: none;
+}
+
+.servicing {
+  margin: 0.15rem 0 0;
+  color: rgba(244, 244, 244, 0.68);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.formPane {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  scroll-margin-top: 5.5rem;
+  background: #f7f7f5;
+}
+
+.formPane > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.formHeading {
+  margin: 0;
+  font-family: var(--kosick-font, "Gellix", sans-serif);
+  font-size: var(--kosick-card-title-size, 1.375rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: #111111;
+}
+
+.formNote {
+  margin: 0.55rem 0 1.25rem;
+  color: #6e6e73;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+@media (min-width: 960px) {
+  .shell {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    align-items: stretch;
   }
 
-  .infoMedia {
-    order: -1;
+  .panel,
+  .formPane {
+    padding: clamp(2rem, 2.6vw, 2.75rem);
+  }
+
+  .formPane > form {
+    flex: 1;
   }
 }

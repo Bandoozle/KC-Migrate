@@ -1,7 +1,6 @@
 import { cache } from "react";
 import * as cheerio from "cheerio";
 import { getPageBySlug, getWordPressUrl, WordPressApiError } from "@/lib/wordpress";
-import type { OverlayCard } from "@/components/sections/OverlayCardGrid";
 import type { PageCtaData } from "@/components/sections/PageCta";
 import type { HeroBannerSlide } from "@/components/sections/HeroBanner";
 import {
@@ -12,6 +11,12 @@ import {
   toLocalPath,
 } from "@/lib/wordpress/shared";
 
+export type MarketingResultProject = {
+  title: string;
+  href: string | null;
+  image: { src: string; alt: string };
+};
+
 export type MarketingResultsContent = {
   title: string;
   hero: {
@@ -21,7 +26,11 @@ export type MarketingResultsContent = {
     cta: { label: string; href: string } | null;
     slides: HeroBannerSlide[];
   };
-  industries: OverlayCard[];
+  intro: {
+    title: string;
+    body: string;
+  } | null;
+  projects: MarketingResultProject[];
   cta: PageCtaData;
 };
 
@@ -50,7 +59,7 @@ export const getMarketingResultsContent = cache(
     const heroCtaLabel =
       sliderTexts.find((t) => /connect with us/i.test(t)) || "";
 
-    const industries: OverlayCard[] = [];
+    const projects: MarketingResultProject[] = [];
     const seenTitles = new Set<string>();
     $(".wp-block-kadence-imageoverlay").each((_, el) => {
       const $el = $(el);
@@ -61,7 +70,7 @@ export const getMarketingResultsContent = cache(
       const title = cleanText(
         $el.find(".image-overlay-title, h2, h3, h4").first().text(),
       );
-      if (!title || title.split(/\s+/).length > 8 || seenTitles.has(title)) return;
+      if (!title || seenTitles.has(title)) return;
       seenTitles.add(title);
 
       const href = toLocalPath(
@@ -69,12 +78,26 @@ export const getMarketingResultsContent = cache(
         origin,
       );
 
-      industries.push({
+      projects.push({
         title,
         href,
         image: { src, alt: img.attr("alt") || title },
       });
     });
+
+    const headingTexts = $("h2, .wp-block-kadence-advancedheading")
+      .toArray()
+      .map((el) => cleanText($(el).text()))
+      .filter(Boolean);
+    const introTitle =
+      headingTexts.find((text) => /delivering|marketing results/i.test(text)) ||
+      headingTexts[0] ||
+      "";
+    const introBody =
+      $("p")
+        .toArray()
+        .map((el) => cleanText($(el).text()))
+        .find((text) => text.length > 80) || "";
 
     const ctaRow = $(".kb-row-layout-id1698_514e77-49").first();
     const ctaCopy = ctaRow
@@ -96,7 +119,9 @@ export const getMarketingResultsContent = cache(
         cta: heroCtaLabel ? { label: heroCtaLabel, href: "/contact/" } : null,
         slides,
       },
-      industries,
+      intro:
+        introTitle && introBody ? { title: introTitle, body: introBody } : null,
+      projects,
       cta: {
         title: ctaTitle,
         description: ctaDescription,

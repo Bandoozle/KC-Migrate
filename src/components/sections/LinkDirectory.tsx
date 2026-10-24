@@ -15,15 +15,18 @@ export type DirectorySection = {
 type LinkDirectoryProps = {
   title: string;
   sections: DirectorySection[];
+  showTitle?: boolean;
 };
 
-export function LinkDirectory({ title, sections }: LinkDirectoryProps) {
+export function LinkDirectory({ title, sections, showTitle = true }: LinkDirectoryProps) {
   return (
     <section className={`section ${styles.section}`}>
       <div className="container">
-        <SectionTitle as="h1" className={styles.pageTitle}>
-          {title}
-        </SectionTitle>
+        {showTitle ? (
+          <SectionTitle as="h1" className={styles.pageTitle}>
+            {title}
+          </SectionTitle>
+        ) : null}
 
         <div className={styles.sections}>
           {sections.map((section) => (
