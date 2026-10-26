@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import { labelCase } from "@/lib/eyebrow";
 import type { ResourceGuideContent } from "@/lib/wordpress/resource-guide-types";
 import type { ServiceMedia, ServicePageContent } from "@/lib/wordpress/service-page-types";
 import { OutdoorFormatShowcase, type OutdoorFormat } from "./OutdoorFormatShowcase";
@@ -18,458 +18,433 @@ type OutdoorAdvertisingPageProps = {
 };
 
 const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const DIMENSIONS_HREF = "/services/outdoor-advertising/billboard-dimensions/";
 
-/** Kosick client creative from the media library, captioned only by what each image shows. */
-const STREET_WORK = [
+/* Each section uses a different real campaign, so no photograph repeats */
+const OPENING = {
+  main: { src: `${UPLOADS}/2026/06/arcteryx-billboard-advertising.jpg`, alt: "Arc’teryx Veilance poster in a transit shelter on W Georgia St, Vancouver" },
+  second: { src: `${UPLOADS}/2026/06/billboard-2.jpg`, alt: "A second Arc’teryx Veilance shelter poster beside an Arc’teryx store" },
+};
+
+const BILLBOARD = {
+  src: `${UPLOADS}/2026/06/hvac-billboard-advertising.jpg`,
+  alt: "Belyea Bros. high-efficiency heat pump billboard above a city street",
+};
+
+const SUPERBOARD = {
+  src: `${UPLOADS}/2023/07/billboards-scaled.png`,
+  alt: "Trane “Heat Cool Clean” superboard against a blue sky",
+};
+
+/* Trane “We run together”: one creative in three placements */
+const CAMPAIGN = {
+  billboard: { src: `${UPLOADS}/2026/01/outdoor-advertising.jpg`, alt: "Trane “We run together” billboard on a rooftop structure" },
+  transit: { src: `${UPLOADS}/2024/03/transit-shelter-ads.webp`, alt: "Trane “We run together” poster in a transit shelter" },
+  street: { src: `${UPLOADS}/2023/07/outdoor-advertising-1-scaled.jpg`, alt: "Trane “We run together” vertical board among downtown towers" },
+};
+
+const CITY = {
+  src: `${UPLOADS}/2023/06/vancouver-agency.jpg`,
+  alt: "Vancouver skyline and waterfront at sunset",
+};
+
+/* Where outdoor meets people, as the page's own copy describes it */
+const CITY_MARKERS = [
+  { label: "Commute", x: 22, y: 62 },
+  { label: "Shop", x: 48, y: 48 },
+  { label: "Travel", x: 76, y: 58 },
+];
+
+const READABLE = { src: `${UPLOADS}/2023/07/hvac.jpg`, alt: "Ayotte “Upgrade your furnace” billboard" };
+
+const FORMAT_SET = [
   {
-    src: `${UPLOADS}/2026/06/hvac-billboard-advertising.jpg`,
-    alt: "Belyea Bros. high-efficiency heat pump billboard above a city street",
-    brand: "Belyea Bros.",
-    format: "Billboard",
-    position: "50% 35%",
+    id: "billboards",
+    label: "Billboard",
+    card: /billboard/i,
+    feature: /billboard poster/i,
+    image: { src: `${UPLOADS}/2023/07/home-services-billboards.jpg`, alt: "GE residential HVAC billboard against a blue sky", position: "55% 45%" },
   },
   {
-    src: `${UPLOADS}/2023/07/outdoor-advertising-1-scaled.jpg`,
-    alt: "Trane “We run together” vertical poster among downtown towers",
-    brand: "Trane",
-    format: "Vertical poster",
-    position: "52% 40%",
+    id: "transit",
+    label: "Transit",
+    card: /transit/i,
+    feature: /transit/i,
+    image: { src: `${UPLOADS}/2026/06/transit-out-of-home-advertising-1.jpg`, alt: "Elevated SkyTrain line crossing a downtown Vancouver street", position: "50% 45%" },
   },
   {
-    src: `${UPLOADS}/2026/01/outdoor-advertising.jpg`,
-    alt: "Trane high-efficiency heat pump billboard on a rooftop structure",
-    brand: "Trane",
-    format: "Rooftop billboard",
-    position: "50% 30%",
+    id: "street-level",
+    label: "Street-level",
+    card: /street/i,
+    feature: /street/i,
+    image: { src: `${UPLOADS}/2026/06/outdoor-advertising.jpg`, alt: "Illuminated poster in a transit shelter on a tree-lined sidewalk", position: "60% 50%" },
   },
   {
-    src: `${UPLOADS}/2024/03/transit-shelter-ads.webp`,
-    alt: "Trane “We run together” poster in a transit shelter",
-    brand: "Trane",
-    format: "Transit shelter",
-    position: "30% 50%",
+    id: "digital",
+    label: "Digital OOH",
+    card: /digital/i,
+    feature: /^$/,
+    image: { src: `${UPLOADS}/2024/03/digital-superboard.webp`, alt: "Pattison digital superboard beside a multi-lane highway", position: "55% 50%" },
   },
 ];
 
-const FORMAT_IMAGES: Record<string, { match: RegExp; alt: string; position?: string }> = {
-  billboard: {
-    match: /home-services-billboards/i,
-    alt: "Home Services billboard for GE residential HVAC against a blue sky",
-    position: "55% 45%",
-  },
-  transit: {
-    match: /transit-out-of-home/i,
-    alt: "Elevated SkyTrain line crossing a downtown Vancouver street",
-    position: "50% 45%",
-  },
-  street: {
-    match: /\/2026\/06\/outdoor-advertising\.jpg/i,
-    alt: "Illuminated poster in a transit shelter on a tree-lined sidewalk",
-    position: "60% 50%",
-  },
-  digital: {
-    match: /digital-superboard/i,
-    alt: "Pattison digital superboard beside a multi-lane highway",
-    position: "55% 50%",
-  },
-};
+const THREE_THINGS = [
+  { name: "Location", line: "Be where people already move." },
+  { name: "Timing", line: "Build frequency when demand matters." },
+  { name: "Creative", line: "Make the message readable in seconds." },
+];
+
+const BILLBOARD_LABELS = ["High traffic", "Repeated exposure", "Local reach"];
+
+/* Illustrative only: the parts of a day a plan is built around */
+const DAYPARTS = [
+  { name: "AM commute", peak: true },
+  { name: "Midday", peak: false },
+  { name: "PM commute", peak: true },
+  { name: "Weekend", peak: false },
+];
 
 type Size = { label: string; width: number; height: number; display: string };
-
-function sentences(value: string): string[] {
-  return value
-    .split(/(?<=[.!?])\s+/)
-    .map((part) => part.trim())
-    .filter(Boolean);
-}
 
 function specOf(dimensions: ResourceGuideContent | null | undefined, pattern: RegExp) {
   const section = dimensions?.sections.find((item) => pattern.test(item.title));
   return section?.spec?.replace(/^typical size:\s*/i, "").trim() || undefined;
 }
 
-/** Converts published sizes (feet ′ or inches ″) into width × height in feet. */
-function sizesFrom(spec: string | undefined, label: string, portrait: boolean): Size[] {
-  if (!spec) return [];
-  return [...spec.replace(/\([^)]*\)/g, "").matchAll(/(\d+(?:\.\d+)?)\s*([′'″"])\s*[×x]\s*(\d+(?:\.\d+)?)\s*([′'″"])/g)].map((match) => {
-    const toFeet = (value: string, unit: string) => (/[″"]/.test(unit) ? Number(value) / 12 : Number(value));
-    const a = toFeet(match[1], match[2]);
-    const b = toFeet(match[3], match[4]);
-    return {
-      label,
-      width: portrait ? Math.min(a, b) : Math.max(a, b),
-      height: portrait ? Math.max(a, b) : Math.min(a, b),
-      display: `${match[1]}${match[2]} × ${match[3]}${match[4]}`,
-    };
-  });
+/** First published size (feet ′ or inches ″) as width × height in feet. */
+function sizeFrom(spec: string | undefined, label: string, portrait = false): Size | null {
+  const match = spec?.replace(/\([^)]*\)/g, "").match(/(\d+(?:\.\d+)?)\s*([′'″"])\s*[×x]\s*(\d+(?:\.\d+)?)\s*([′'″"])/);
+  if (!match) return null;
+  const toFeet = (value: string, unit: string) => (/[″"]/.test(unit) ? Number(value) / 12 : Number(value));
+  const a = toFeet(match[1], match[2]);
+  const b = toFeet(match[3], match[4]);
+  return {
+    label,
+    width: portrait ? Math.min(a, b) : Math.max(a, b),
+    height: portrait ? Math.max(a, b) : Math.min(a, b),
+    display: `${match[1]}${match[2]} × ${match[3]}${match[4]}`,
+  };
 }
 
-function listFrom(sentence: string | undefined, pattern: RegExp) {
-  const list = sentence?.match(pattern)?.[1];
-  return list
-    ? list
-        .split(/,\s*(?:and\s+)?|\s+and\s+/)
-        .map((item) => item.trim())
-        .filter(Boolean)
-    : [];
+function firstSentences(text: string | undefined, count: number) {
+  if (!text) return "";
+  return text
+    .split(/(?<=[.!?])\s+/)
+    .slice(0, count)
+    .join(" ");
 }
 
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-      <path
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M5 12h14M13 6l6 6-6 6"
-      />
+      <path fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+const ROUTES = {
+  a: { d: "M 0 40 H 320 V 160 H 620 V 300 H 1000", markers: [[320, 40], [620, 160]] },
+  b: { d: "M 1000 30 H 700 V 200 H 380 V 330 H 0", markers: [[700, 30], [380, 200]] },
+  c: { d: "M 0 300 H 260 V 120 H 640 V 260 H 1000", markers: [[260, 300], [640, 120]] },
+} as const;
+
+/**
+ * A thin route that turns as the page goes down, with small placement markers,
+ * like a planning line drawn over a city grid. Decorative; hidden on small screens.
+ */
+function Route({ variant }: { variant: keyof typeof ROUTES }) {
+  const route = ROUTES[variant];
+  return (
+    <svg className={styles.route} viewBox="0 0 1000 360" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path d={route.d} />
+      {route.markers.map(([x, y]) => (
+        <circle key={`${x}-${y}`} cx={x} cy={y} r="4" />
+      ))}
     </svg>
   );
 }
 
 export function OutdoorAdvertisingPage({ content, dimensions, mediaOwner }: OutdoorAdvertisingPageProps) {
-  const essay = content.leadSections.flatMap((section) => section.paragraphs).filter(Boolean);
-  const lines = essay.flatMap(sentences);
-  const lead = lines[0] || "";
-  const comma = lead.indexOf(", Kosick");
-  const headline = comma > 40 ? `${lead.slice(0, comma)}.` : lead;
-  const rest = [comma > 40 ? lead.slice(comma + 2) : "", ...lines.slice(1)].filter(Boolean);
-  const planningTitle = rest.find((line) => /forgettable placement/i.test(line));
-  const planningLead = rest.find((line) => /study traffic patterns/i.test(line));
-  const support = rest.filter((line) => line !== planningTitle && line !== planningLead);
-  const marketsLine = rest.find((line) => /Vancouver/.test(line));
-
-  const media = [
-    ...content.features.map((feature) => feature.image),
-    ...content.overlayCards.map((card) => card.image),
-    ...content.hero.slides.filter((slide) => slide.kind === "image"),
-  ].filter((image): image is { src: string; alt: string } => Boolean(image?.src));
-  const imageFor = (key: keyof typeof FORMAT_IMAGES) => {
-    const config = FORMAT_IMAGES[key];
-    const found = media.find((image) => config.match.test(image.src));
-    return found ? { src: found.src, alt: config.alt, position: config.position } : null;
-  };
-
   const cards = content.offerGroups.flatMap((group) => group.cards).filter((card) => card.title);
-  const card = (pattern: RegExp) => cards.find((item) => pattern.test(item.title));
-  const feature = (pattern: RegExp) => content.features.find((item) => pattern.test(item.title));
-  const faq = (pattern: RegExp) => content.faqs?.items.find((item) => pattern.test(item.question));
-  const price = (value?: string) => (value && /\$\d/.test(value) ? labelCase(value) : undefined);
-  const cta = (value?: { label: string; href: string } | null) =>
-    value ? { ...value, label: labelCase(value.label) } : null;
+  const contactHref = content.cta?.primary.href || "/contact/";
 
-  const billboardFeature = feature(/billboard poster/i);
-  const transitFeature = feature(/transit/i);
-  const streetFeature = feature(/street/i);
-  const superboard = feature(/superboard/i);
-  const durationFaq = faq(/minimum campaign duration/i);
-  const digitalNote = durationFaq?.answer
-    .match(/[^.]*digital out-of-home[^.]*\./i)?.[0]
-    ?.trim()
-    .replace(/^however,\s*(\w)/i, (_, first: string) => first.toUpperCase());
-  const digitalGuide = dimensions?.sections.find((item) => /digital/i.test(item.title));
+  const formats: OutdoorFormat[] = FORMAT_SET.flatMap((format) => {
+    const card = cards.find((item) => format.card.test(item.title));
+    if (!card?.body) return [];
+    const price = content.features.find((item) => format.feature.test(item.title))?.eyebrow;
+    return [
+      {
+        id: format.id,
+        label: format.label,
+        line: card.body,
+        meta: price && /\$\d/.test(price) ? price.replace(/^starting from/i, "Starting from") : undefined,
+        image: format.image,
+      },
+    ];
+  });
 
-  const candidates: (OutdoorFormat | null)[] = [
-    (() => {
-      const summary = card(/billboard/i);
-      const image = imageFor("billboard");
-      if (!summary || !image) return null;
-      return {
-        id: "billboards",
-        label: labelCase(summary.title.replace(/\s+advertising$/i, "s")),
-        summary: summary.body,
-        title: billboardFeature?.title,
-        price: price(billboardFeature?.eyebrow),
-        body: billboardFeature?.body,
-        tags: billboardFeature?.bullets ?? [],
-        spec: specOf(dimensions, /^horizontal poster/i),
-        cta: cta(billboardFeature?.cta),
-        image,
-      };
-    })(),
-    (() => {
-      const summary = card(/transit/i);
-      const image = imageFor("transit");
-      if (!summary || !image) return null;
-      return {
-        id: "transit",
-        label: labelCase(summary.title.replace(/\s+advertising$/i, "")),
-        summary: summary.body,
-        title: transitFeature?.title,
-        price: price(transitFeature?.eyebrow),
-        body: transitFeature?.body,
-        tags: transitFeature?.bullets ?? [],
-        cta: cta(transitFeature?.cta),
-        image,
-      };
-    })(),
-    (() => {
-      const summary = card(/street/i);
-      const image = imageFor("street");
-      if (!summary || !image) return null;
-      return {
-        id: "street-level",
-        label: labelCase(summary.title.replace(/\s+displays?$/i, "")),
-        summary: summary.body,
-        title: streetFeature?.title,
-        price: price(streetFeature?.eyebrow),
-        body: streetFeature?.body,
-        tags: streetFeature?.bullets ?? [],
-        spec: specOf(dimensions, /transit shelter/i),
-        cta: cta(streetFeature?.cta),
-        image,
-      };
-    })(),
-    (() => {
-      const summary = card(/digital/i);
-      const image = imageFor("digital");
-      if (!summary || !image) return null;
-      return {
-        id: "digital",
-        label: "Digital",
-        summary: summary.body,
-        title: summary.title,
-        body: [digitalGuide?.body, digitalNote].filter(Boolean).join(" ") || undefined,
-        tags: [],
-        spec: specOf(dimensions, /digital/i),
-        cta: content.cta?.primary ?? null,
-        image,
-      };
-    })(),
-  ];
-  const formats = candidates.filter((format): format is OutdoorFormat => Boolean(format));
-
-  const superSizes = sizesFrom(specOf(dimensions, /^superboard/i), "Superboard", false);
-  const scale: Size[] = [
-    ...sizesFrom(specOf(dimensions, /transit shelter/i), "Transit shelter", true),
-    ...sizesFrom(specOf(dimensions, /^horizontal poster/i), "Horizontal poster", false),
-    ...superSizes,
-  ];
-  const scaleHeight = Math.max(...scale.map((size) => size.height), 1);
-  const superImage = superboard?.image;
-
-  const locationFaq = faq(/choose billboard locations/i);
-  const trackingFaq = faq(/track the performance/i);
-  const criteria = listFrom(locationFaq?.answer, /We analyze (.+?)\./i);
-  const locationDetail = locationFaq?.answer.match(/\.\s+(Our team[^.]+\.)/i)?.[1];
-  const measures = listFrom(trackingFaq?.answer, /We measure (.+?)\./i);
-  const reportDetail = trackingFaq?.answer.match(/(Post-campaign[^.]+\.)/i)?.[1];
-  const markets = listFrom(marketsLine, /placements in (.+?) nationwide/i).map((market) =>
-    market.replace(/^high-traffic markets$/i, "High-traffic markets nationwide"),
-  );
-  const intro = content.intro?.title.replace(/Billlboard/g, "Billboard");
+  const superboard = content.features.find((item) => /superboard/i.test(item.title));
+  const scale = [
+    sizeFrom(specOf(dimensions, /transit shelter/i), "Street level", true),
+    sizeFrom(specOf(dimensions, /^horizontal poster/i), "Billboard"),
+    sizeFrom(specOf(dimensions, /^superboard/i), "Superboard"),
+  ].filter((size): size is Size => Boolean(size));
+  // One drawing in feet: boards stand on a shared ground line
+  const GAP = 3;
+  const scaleHeight = Math.max(...scale.map((size) => size.height), 1) + 2.5;
+  let cursor = 0;
+  const placed = scale.map((size) => {
+    const x = cursor;
+    cursor += size.width + GAP;
+    return { ...size, x };
+  });
+  const scaleWidth = cursor - GAP;
 
   return (
     <main className={styles.page}>
       <ServiceHero title={content.title} hero={content.hero} />
 
-      {headline ? (
-        <section className={`section ${styles.street}`} aria-labelledby="outdoor-intro">
-          <div className={`container ${styles.streetGrid}`}>
-            <div className={styles.streetCopy}>
-              <h2 id="outdoor-intro" className={styles.sectionTitle}>
-                {headline}
+      {/* Opening: 40/60, one campaign in two Vancouver shelters, offset with crop marks */}
+      <section className={styles.opening} aria-labelledby="oo-opening">
+        <Route variant="a" />
+        <div className="container">
+          <div className={styles.openingGrid}>
+            <div>
+              <p className={styles.kicker}>Outdoor advertising</p>
+              <h2 id="oo-opening" className={styles.title}>
+                From one landmark placement to a city-wide presence.
               </h2>
-              {support[0] ? <p className={styles.lead}>{support[0]}</p> : null}
-              {support.slice(1).map((line) => (
-                <p key={line.slice(0, 48)} className={styles.body}>
-                  {line}
-                </p>
-              ))}
-              {content.cta?.primary ? (
-                <Link className={styles.solid} href={content.cta.primary.href}>
-                  {content.cta.primary.label}
-                  <ArrowIcon />
-                </Link>
-              ) : null}
+              <p className={styles.lead}>
+                Billboard, transit, street-level and digital placements in Vancouver, Calgary, Toronto and markets
+                nationwide.
+              </p>
+              <Link className={styles.solid} href={contactHref}>
+                Plan an outdoor campaign
+                <ArrowIcon />
+              </Link>
             </div>
-            <ul className={styles.streetWall}>
-              {STREET_WORK.map((work) => (
-                <li key={work.src} className={styles.streetTile}>
-                  <Image
-                    src={work.src}
-                    alt={work.alt}
-                    fill
-                    sizes="(max-width: 899px) 50vw, 30vw"
-                    style={{ objectPosition: work.position }}
-                  />
-                  <p className={styles.tileCaption}>
-                    <strong>{work.brand}</strong>
-                    <span>{work.format}</span>
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <div className={styles.collage}>
+              <Reveal variant="fade" className={`${styles.collageMain} ${styles.marked}`}>
+                <div className={styles.photo}>
+                  <Image src={OPENING.main.src} alt={OPENING.main.alt} fill sizes="(min-width: 960px) 45vw, 100vw" className={styles.cover} />
+                </div>
+                <span className={styles.plate}>W Georgia St · Transit shelter</span>
+              </Reveal>
+              <Reveal delay={150} className={styles.collageSecond}>
+                <div className={styles.photo}>
+                  <Image src={OPENING.second.src} alt={OPENING.second.alt} fill sizes="(min-width: 960px) 22vw, 50vw" className={styles.cover} style={{ objectPosition: "62% 50%" }} />
+                </div>
+                <span className={styles.plate}>Street-level</span>
+              </Reveal>
+            </div>
           </div>
-        </section>
-      ) : null}
+        </div>
+      </section>
 
-      {intro && formats.length > 1 ? (
-        <section className={`section ${styles.formats}`} aria-labelledby="outdoor-formats">
+      {/* Formats: a numbered strip of environments over one wide placement */}
+      {formats.length > 1 ? (
+        <section className={styles.formats} aria-labelledby="oo-formats">
           <div className="container">
-            <h2 id="outdoor-formats" className={styles.sectionTitle}>
-              {intro}
+            <h2 id="oo-formats" className={styles.title}>
+              Choose your environment.
             </h2>
             <OutdoorFormatShowcase formats={formats} />
           </div>
         </section>
       ) : null}
 
+      {/* Billboard: near full width, crossing up into the section above, copy panel set on the image */}
+      <section className={styles.billboard} aria-labelledby="oo-billboard">
+        <Reveal variant="fade" className={styles.bleed}>
+          <Image src={BILLBOARD.src} alt={BILLBOARD.alt} fill sizes="100vw" className={styles.cover} style={{ objectPosition: "50% 35%" }} />
+          <div className={styles.bleedPanel}>
+            <p className={styles.kicker}>Billboards</p>
+            <h2 id="oo-billboard" className={styles.title}>
+              Built to be seen at scale.
+            </h2>
+            <p className={styles.leadSmall}>
+              Strategic placements create repeated visibility across high-traffic routes, neighbourhoods and
+              commuter corridors.
+            </p>
+            <ul className={styles.labels}>
+              {BILLBOARD_LABELS.map((label) => (
+                <li key={label}>{label}</li>
+              ))}
+            </ul>
+            <Link className={styles.textLink} href={DIMENSIONS_HREF}>
+              Explore billboard formats
+              <ArrowIcon />
+            </Link>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Superboard: image, name, one explanation, then scale */}
       {superboard ? (
-        <section className={`section ${styles.superboard}`} aria-labelledby="outdoor-superboards">
+        <section className={styles.superboard} aria-labelledby="oo-superboard">
           <div className="container">
-            {superImage?.src ? (
-              <figure className={styles.superPhoto}>
-                <Image
-                  src={superImage.src}
-                  alt="Trane “Heat Cool Clean” superboard against a blue sky"
-                  fill
-                  sizes="(max-width: 1440px) 100vw, 1440px"
-                />
-                <figcaption className={styles.superChip}>
-                  <span>Superboard</span>
-                </figcaption>
+            <Reveal variant="fade" className={`${styles.superMedia} ${styles.marked} ${styles.markedLight}`}>
+              <div className={styles.photo}>
+                <Image src={SUPERBOARD.src} alt={SUPERBOARD.alt} fill sizes="(min-width: 1290px) 1290px, 100vw" className={styles.cover} />
+              </div>
+            </Reveal>
+            <div className={styles.superCopy}>
+              <div>
+                <p className={styles.kickerOnDark}>Premium format</p>
+                <h2 id="oo-superboard" className={styles.superTitle}>
+                  Superboards
+                </h2>
+              </div>
+              <p className={styles.leadOnDark}>{firstSentences(superboard.body, 2)}</p>
+            </div>
+            {scale.length > 1 ? (
+              <figure className={styles.scale}>
+                <figcaption className={styles.scaleTitle}>Drawn to scale</figcaption>
+                <svg
+                  className={styles.scaleDrawing}
+                  viewBox={`0 0 ${scaleWidth} ${scaleHeight}`}
+                  role="img"
+                  aria-label={placed.map((size) => `${size.label} ${size.display}`).join(", ")}
+                >
+                  <line className={styles.ground} x1="0" y1={scaleHeight - 1.5} x2={scaleWidth} y2={scaleHeight - 1.5} />
+                  {placed.map((size) => {
+                    const top = scaleHeight - 1.5 - size.height;
+                    const isSuper = /superboard/i.test(size.label);
+                    return (
+                      <g key={size.label}>
+                        <rect
+                          className={isSuper ? `${styles.board} ${styles.boardSuper}` : styles.board}
+                          x={size.x}
+                          y={top}
+                          width={size.width}
+                          height={size.height}
+                        />
+                        <text className={styles.boardLabel} x={size.x} y={top - 0.6}>
+                          {size.label}
+                        </text>
+                      </g>
+                    );
+                  })}
+                </svg>
+                <ol className={styles.scaleKey}>
+                  {placed.map((size) => (
+                    <li key={size.label}>
+                      <span>{size.label}</span>
+                      <span>{size.display}</span>
+                    </li>
+                  ))}
+                </ol>
+                <p className={styles.scaleNote}>
+                  Typical sizes from our <Link href={DIMENSIONS_HREF}>billboard dimensions guide</Link>.
+                </p>
               </figure>
             ) : null}
-            <div className={styles.superGrid}>
-              <div className={styles.superCopy}>
-                <div className={styles.superHead}>
-                  <h2 id="outdoor-superboards" className={styles.sectionTitle}>
-                    {superboard.title}
-                  </h2>
-                  {price(superboard.eyebrow) ? <p className={styles.priceDark}>{price(superboard.eyebrow)}</p> : null}
-                </div>
-                {superboard.body ? <p className={styles.bodyDark}>{superboard.body}</p> : null}
-                {(superboard.bullets?.length ?? 0) > 0 ? (
-                  <ul className={styles.superTags}>
-                    {superboard.bullets?.map((bullet) => (
-                      <li key={bullet}>{bullet}</li>
-                    ))}
-                  </ul>
-                ) : null}
-                {superboard.cta ? (
-                  <Link className={styles.ghost} href={superboard.cta.href}>
-                    {labelCase(superboard.cta.label)}
-                    <ArrowIcon />
-                  </Link>
-                ) : null}
-              </div>
-
-              {scale.length > 1 ? (
-                <figure className={styles.scale}>
-                  <figcaption className={styles.scaleTitle}>Typical sizes, drawn to scale</figcaption>
-                  <div className={styles.scaleRow} aria-hidden="true">
-                    {scale.map((size, index) => (
-                      <div
-                        key={`${size.display}-${index}`}
-                        className={styles.scaleItem}
-                        style={{ flexGrow: size.width, flexBasis: 0 }}
-                      >
-                        <span className={styles.scaleIndex}>{index + 1}</span>
-                        <span
-                          className={styles.scaleBoard}
-                          data-super={/superboard/i.test(size.label) ? "true" : "false"}
-                          style={{ height: `${(size.height / scaleHeight) * 100}%` }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                  <ol className={styles.scaleLegend}>
-                    {scale.map((size, index) => (
-                      <li key={`${size.display}-${index}`}>
-                        <span className={styles.scaleIndex}>{index + 1}</span>
-                        <span>
-                          <strong>{size.display}</strong>
-                          {size.label}
-                        </span>
-                      </li>
-                    ))}
-                  </ol>
-                  <p className={styles.scaleNote}>
-                    Sizes from our{" "}
-                    <Link href="/services/outdoor-advertising/billboard-dimensions/">billboard dimensions guide</Link>.
-                  </p>
-                </figure>
-              ) : null}
-            </div>
-
-            {content.linkBanner ? (
-              <div className={styles.sizes}>
-                <h2 className={styles.sizesTitle}>{content.linkBanner.title}</h2>
-                <Link className={styles.light} href={content.linkBanner.cta.href}>
-                  {content.linkBanner.cta.label}
-                  <ArrowIcon />
-                </Link>
-              </div>
-            ) : null}
           </div>
         </section>
       ) : null}
 
-      {planningTitle ? (
-        <section className={`section ${styles.planning}`} aria-labelledby="outdoor-planning">
-          <div className="container">
-            <h2 id="outdoor-planning" className={styles.planningTitle}>
-              {planningTitle}
+      {/* Campaign: one dominant billboard, transit and street-level stacked beside it */}
+      <section className={styles.campaign} aria-labelledby="oo-campaign">
+        <Route variant="b" />
+        <div className="container">
+          <div className={styles.campaignHead}>
+            <p className={styles.kicker}>Trane · We run together</p>
+            <h2 id="oo-campaign" className={styles.title}>
+              One campaign. Across the city.
             </h2>
-            {planningLead ? <p className={styles.lead}>{planningLead}</p> : null}
-            <div className={styles.planningGrid}>
-              {locationFaq ? (
-                <article className={styles.planningColumn}>
-                  <span className={styles.planningIndex}>01</span>
-                  <h3 className={styles.planningHeading}>{locationFaq.question}</h3>
-                  {criteria.length > 0 ? (
-                    <ul className={styles.checklist}>
-                      {criteria.map((item) => (
-                        <li key={item}>{labelCase(item)}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                  {locationDetail ? <p className={styles.columnText}>{locationDetail}</p> : null}
-                </article>
-              ) : null}
-
-              {markets.length > 0 || mediaOwner ? (
-                <article className={styles.planningColumn}>
-                  <span className={styles.planningIndex}>02</span>
-                  <h3 className={styles.planningHeading}>Markets and media owners</h3>
-                  {markets.length > 0 ? (
-                    <ul className={styles.markets}>
-                      {markets.map((market) => (
-                        <li key={market}>{market}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                  {mediaOwner ? (
-                    <div className={styles.owner}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={mediaOwner.src} alt="Pattison Outdoor Advertising" />
-                      <p>Pattison Outdoor Advertising is one of our media partners.</p>
-                    </div>
-                  ) : null}
-                </article>
-              ) : null}
-
-              {trackingFaq ? (
-                <article className={styles.planningColumn}>
-                  <span className={styles.planningIndex}>03</span>
-                  <h3 className={styles.planningHeading}>{trackingFaq.question}</h3>
-                  {measures.length > 0 ? (
-                    <ul className={styles.checklist}>
-                      {measures.map((item) => (
-                        <li key={item}>{labelCase(item)}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-                  {reportDetail ? <p className={styles.columnText}>{reportDetail}</p> : null}
-                </article>
-              ) : null}
-            </div>
+            <p className={styles.lead}>One creative system, adapted to every placement and environment.</p>
           </div>
-        </section>
-      ) : null}
+          <div className={styles.spread}>
+            <Reveal variant="fade" className={`${styles.spreadMain} ${styles.marked}`}>
+              <div className={styles.photo}>
+                <Image src={CAMPAIGN.billboard.src} alt={CAMPAIGN.billboard.alt} fill sizes="(min-width: 960px) 60vw, 100vw" className={styles.cover} style={{ objectPosition: "50% 40%" }} />
+              </div>
+              <span className={styles.plate}>Billboard</span>
+            </Reveal>
+            <Reveal delay={120} className={styles.spreadTop}>
+              <div className={`${styles.photo} ${styles.photoWhite}`}>
+                <Image src={CAMPAIGN.transit.src} alt={CAMPAIGN.transit.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.contain} />
+              </div>
+              <span className={styles.plate}>Transit</span>
+            </Reveal>
+            <Reveal delay={240} className={styles.spreadBottom}>
+              <div className={styles.photo}>
+                <Image src={CAMPAIGN.street.src} alt={CAMPAIGN.street.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} style={{ objectPosition: "50% 38%" }} />
+              </div>
+              <span className={styles.plate}>Street-level</span>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* City presence: the skyline, full width, with placement markers */}
+      <section className={styles.city} aria-labelledby="oo-city">
+        <Image src={CITY.src} alt={CITY.alt} fill sizes="100vw" className={styles.cover} />
+        <div className={styles.cityShade} aria-hidden="true" />
+        <ul className={styles.markers} aria-hidden="true">
+          {CITY_MARKERS.map((marker) => (
+            <li key={marker.label} style={{ left: `${marker.x}%`, top: `${marker.y}%` }}>
+              <span className={styles.markerDot} />
+              <span className={styles.markerLabel}>{marker.label}</span>
+            </li>
+          ))}
+        </ul>
+        <div className={`container ${styles.cityCopy}`}>
+          <h2 id="oo-city" className={styles.titleOnDark}>
+            Be seen where the city moves.
+          </h2>
+          <p className={styles.leadOnDark}>On the way to work, at the shops and through the terminals.</p>
+        </div>
+      </section>
+
+      {/* Three things: a compact triptych, each column grounded by a small visual */}
+      <section className={styles.three} aria-labelledby="oo-three">
+        <Route variant="c" />
+        <div className="container">
+          <h2 id="oo-three" className={styles.title}>
+            Outdoor works when three things align.
+          </h2>
+          <ol className={styles.triptych}>
+            <li className={styles.part}>
+              <span className={styles.visualGrid} aria-hidden="true">
+                <span className={styles.visualPin} style={{ left: "58%", top: "42%" }} />
+                <span className={styles.visualPin} style={{ left: "30%", top: "70%" }} />
+              </span>
+              <span className={styles.partNumber}>01</span>
+              <span className={styles.partName}>{THREE_THINGS[0].name}</span>
+              <span className={styles.partLine}>{THREE_THINGS[0].line}</span>
+            </li>
+            <li className={styles.part}>
+              <span className={styles.visualTime} aria-hidden="true">
+                {DAYPARTS.map((part) => (
+                  <span key={part.name} className={part.peak ? `${styles.timeSlot} ${styles.timePeak}` : styles.timeSlot}>
+                    <span className={styles.timeBar} />
+                    <span className={styles.timeName}>{part.name}</span>
+                  </span>
+                ))}
+              </span>
+              <span className={styles.partNumber}>02</span>
+              <span className={styles.partName}>{THREE_THINGS[1].name}</span>
+              <span className={styles.partLine}>{THREE_THINGS[1].line}</span>
+            </li>
+            <li className={styles.part}>
+              <span className={styles.visualCreative} aria-hidden="true">
+                <Image src={READABLE.src} alt="" fill sizes="(min-width: 960px) 30vw, 100vw" className={styles.cover} style={{ objectPosition: "48% 30%" }} />
+              </span>
+              <span className={styles.partNumber}>03</span>
+              <span className={styles.partName}>{THREE_THINGS[2].name}</span>
+              <span className={styles.partLine}>{THREE_THINGS[2].line}</span>
+            </li>
+          </ol>
+          {mediaOwner?.src ? (
+            <p className={styles.partner}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={mediaOwner.src} alt="Pattison Outdoor Advertising" />
+              <span>Rates negotiated directly with media owners, including Pattison Outdoor Advertising.</span>
+            </p>
+          ) : null}
+        </div>
+      </section>
 
       {content.faqs && content.faqs.items.length > 0 ? (
         <FaqAccordion eyebrow={content.faqs.eyebrow} title={content.faqs.title} items={content.faqs.items} />

@@ -166,9 +166,9 @@
 
 .buildHead {
   display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
 
@@ -375,9 +375,9 @@
 
 .perfHead {
   display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
   margin-bottom: clamp(3rem, 6vw, 4.5rem);
 }
 
@@ -441,9 +441,9 @@
 
 .capHead {
   display: grid;
-  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: end;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
 }
 
 .capHead .lead {
@@ -638,4 +638,11 @@
   .storeSecond {
     grid-row: 4;
   }
+}
+
+/* Supporting lines under section titles run the full content width */
+.buildHead .lead,
+.perfHead .leadOnDark,
+.capHead .lead {
+  max-width: none;
 }

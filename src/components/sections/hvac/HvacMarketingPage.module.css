@@ -72,10 +72,9 @@
 /* Section head: title left, a line or link right */
 .head {
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1.25rem 3rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
   margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
 }
 
@@ -93,9 +92,7 @@
 }
 
 .page a.primary,
-.page a.secondary,
-.page a.primaryLight,
-.page a.secondaryLight {
+.page a.secondary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -128,23 +125,6 @@
   border-color: #111111;
 }
 
-.page a.primaryLight {
-  background: #ffffff;
-  color: var(--ink);
-}
-
-.page a.primaryLight:hover {
-  background: #e4e4e8;
-}
-
-.page a.secondaryLight {
-  border-color: rgba(255, 255, 255, 0.5);
-  color: #ffffff;
-}
-
-.page a.secondaryLight:hover {
-  border-color: #ffffff;
-}
 
 .page a.textLink {
   display: inline-flex;
@@ -257,6 +237,10 @@
 .services {
   padding: var(--block) 0;
   background: var(--stone);
+}
+
+.services .actions {
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .serviceGrid {
@@ -548,6 +532,14 @@
   transform: scale(1.06);
 }
 
+.videoNote {
+  max-width: none;
+  margin: 1.5rem 0 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
 .playLabel {
   position: absolute;
   left: clamp(1rem, 2.5vw, 1.75rem);
@@ -607,45 +599,6 @@
   color: #ffffff;
 }
 
-/* Closing */
-
-.closing {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(6rem, 12vw, 10rem) 0;
-  background: var(--ink);
-  color: #ffffff;
-}
-
-.closingShade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(16, 16, 16, 0.88) 0%, rgba(16, 16, 16, 0.6) 45%, rgba(16, 16, 16, 0.15) 100%);
-}
-
-.closingInner {
-  position: relative;
-}
-
-.closingTitle {
-  max-width: 16ch;
-  margin: 0;
-  color: #ffffff;
-  font-family: var(--kosick-font);
-  font-size: var(--kosick-page-title-size);
-  font-weight: var(--kosick-page-title-weight);
-  letter-spacing: var(--kosick-page-title-tracking);
-  line-height: var(--kosick-page-title-leading);
-}
-
-.closingLine {
-  max-width: 46ch;
-  margin: 1.25rem 0 0;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: var(--kosick-section-desc-size);
-  line-height: var(--kosick-section-desc-leading);
-}
-
 /* Tablet */
 
 @media (max-width: 960px) {
@@ -698,9 +651,6 @@
     display: none;
   }
 
-  .closingShade {
-    background: rgba(16, 16, 16, 0.72);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -715,4 +665,10 @@
   .videoPoster:hover .playDisc {
     transform: none;
   }
+}
+
+/* Supporting lines under section titles run the full content width */
+.head .lead,
+.head .leadOnDark {
+  max-width: none;
 }

@@ -245,7 +245,7 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
               <SectionTitle id="tv-networks">{content.partnerLogos.title}</SectionTitle>
             ) : null}
             {content.partnerLogos.description || networks?.answer ? (
-              <SectionDescription>
+              <SectionDescription className={styles.networksLead}>
                 {content.partnerLogos.description || networks?.answer}
               </SectionDescription>
             ) : null}

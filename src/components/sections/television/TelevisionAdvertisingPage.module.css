@@ -548,3 +548,8 @@
     width: 100%;
   }
 }
+
+/* The partners line runs the full content width */
+.page .networksLead {
+  max-width: none;
+}

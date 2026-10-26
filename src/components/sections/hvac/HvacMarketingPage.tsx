@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
+import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
@@ -15,7 +16,6 @@ const LOCAL = "/images/hvac-marketing";
 const IMAGES = {
   intro: { src: `${UPLOADS}/2026/03/hvac-marketing.jpg`, alt: "A Napoleon air conditioner beside a home and garden" },
   efficiency: { src: `${UPLOADS}/2026/07/HVAC-Lead-Generation-Vancouver.jpg`, alt: "A Daikin heat pump beside a backyard patio" },
-  closing: { src: `${UPLOADS}/2026/03/hvac-marketing-strategies.jpg`, alt: "A heat pump on the wall of a modern home beside a forest" },
 };
 
 /* Image-topped service cards, one per offer card in WordPress order */
@@ -158,10 +158,6 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
                   Everything your HVAC business needs to grow.
                 </SectionTitle>
               </div>
-              <Link className={styles.textLink} href={contactHref}>
-                Talk to our team
-                <ArrowIcon />
-              </Link>
             </div>
             <ul className={styles.serviceGrid}>
               {services.map((service, index) => {
@@ -182,6 +178,12 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
                 );
               })}
             </ul>
+            <div className={styles.actions}>
+              <Link className={styles.primary} href={contactHref}>
+                Talk to our team
+                <ArrowIcon />
+              </Link>
+            </div>
           </div>
         </section>
       ) : null}
@@ -273,13 +275,13 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
                   See the work in motion.
                 </SectionTitle>
               </div>
-              <p className={styles.leadOnDark}>
-                Strategy, production and media together in one campaign for Belyea Bros. Heating &amp; Cooling.
-              </p>
             </div>
             <Reveal variant="fade">
               <VimeoFeature id={videoId} title="This is Belyea" poster={`${LOCAL}/video-poster.jpg`} />
             </Reveal>
+            <p className={styles.videoNote}>
+              Strategy, production and media together in one campaign for Belyea Bros. Heating &amp; Cooling.
+            </p>
           </div>
         </section>
       ) : null}
@@ -325,28 +327,7 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
         <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} />
       ) : null}
 
-      {/* Closing: full-width photograph with the call to action on it */}
-      <section className={styles.closing} aria-labelledby="hv-closing">
-        <Image src={IMAGES.closing.src} alt="" fill sizes="100vw" className={styles.cover} />
-        <div className={styles.closingShade} aria-hidden="true" />
-        <div className={`container ${styles.closingInner}`}>
-          <h2 id="hv-closing" className={styles.closingTitle}>
-            {cta?.title || "Ready to grow your HVAC business?"}
-          </h2>
-          {cta?.description ? <p className={styles.closingLine}>{cta.description}</p> : null}
-          <div className={styles.actions}>
-            <Link className={styles.primaryLight} href={contactHref}>
-              {cta?.primary.label || "Get in touch"}
-              <ArrowIcon />
-            </Link>
-            {phone ? (
-              <a className={styles.secondaryLight} href={phone.href}>
-                {phone.label}
-              </a>
-            ) : null}
-          </div>
-        </div>
-      </section>
+      {cta ? <PageCta cta={cta} /> : null}
     </main>
   );
 }

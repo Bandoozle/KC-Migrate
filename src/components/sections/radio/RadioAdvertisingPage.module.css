@@ -75,7 +75,8 @@
 }
 
 .lead {
-  max-width: 44rem;
+  /* Supporting lines under section titles run the full content width */
+  max-width: none;
   margin: 0.9rem 0 0;
   color: var(--kosick-color-muted);
   font-size: var(--kosick-section-desc-size);
@@ -216,7 +217,7 @@
 }
 
 .dialHead {
-  max-width: 52rem;
+  max-width: none;
 }
 
 /* Capability console */
@@ -416,9 +417,11 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* Supporting points as equal cards; rows stretch so every card in a row matches */
 .points,
 .targetingPoints {
   display: grid;
+  gap: 1rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -426,21 +429,36 @@
 
 .points li,
 .targetingPoints li {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: 0.5rem;
-  align-items: baseline;
-  padding: 0.85rem 0;
-  border-top: 1px solid rgba(17, 17, 17, 0.14);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: clamp(1.25rem, 2.2vw, 1.6rem);
+  border: 1px solid rgba(17, 17, 17, 0.12);
+  border-radius: var(--kosick-radius-md);
+  background: #ffffff;
   font-size: var(--kosick-body-size);
   font-weight: 600;
-  line-height: var(--kosick-body-leading);
+  line-height: 1.4;
+  transition: border-color 200ms ease, transform 200ms ease;
+}
+
+.points li:hover,
+.targetingPoints li:hover {
+  border-color: rgba(17, 17, 17, 0.3);
+  transform: translateY(-2px);
 }
 
 .points li span:first-child,
 .targetingPoints li span:first-child {
-  color: #6e6e73;
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: #f4efe7;
+  color: var(--on-air, #e8542b);
   font-size: var(--kosick-meta-size);
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
@@ -531,12 +549,17 @@
 }
 
 .targetingPoints li {
-  border-top-color: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
   color: #ffffff;
 }
 
+.targetingPoints li:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
 .targetingPoints li span:first-child {
-  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 /* Studio and booking process */
@@ -677,7 +700,6 @@
   .points,
   .targetingPoints {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 2rem;
   }
 }
 
@@ -741,5 +763,17 @@
 
   .dayparts {
     margin: -4.5rem 1.5rem 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .points li,
+  .targetingPoints li {
+    transition: none;
+  }
+
+  .points li:hover,
+  .targetingPoints li:hover {
+    transform: none;
   }
 }

@@ -198,12 +198,19 @@ function ProcessConnector({
   );
 }
 
-export function ProcessSteps({ section }: ProcessStepsProps) {
-  const rootRef = useRef<HTMLElement>(null);
+type ProcessTrackProps = {
+  steps: ServiceProcessSection["steps"];
+  /** Optional class on the list, e.g. to recolour the stroke via --process-stroke. */
+  className?: string;
+};
+
+/** The animated card row on its own, for pages that set their own section heading. */
+export function ProcessTrack({ steps, className }: ProcessTrackProps) {
+  const rootRef = useRef<HTMLOListElement>(null);
   const [playing, setPlaying] = useState(false);
   const [cycle, setCycle] = useState(0);
   const reduced = usePrefersReducedMotion();
-  const stepCount = section.steps.length;
+  const stepCount = steps.length;
 
   if (reduced && !playing) {
     setPlaying(true);
@@ -242,40 +249,42 @@ export function ProcessSteps({ section }: ProcessStepsProps) {
   if (stepCount === 0) return null;
 
   return (
-    <section ref={rootRef} className={`section ${styles.section}`}>
+    <ol ref={rootRef} className={className ? `${styles.track} ${className}` : styles.track}>
+      {steps.map((step, index) => {
+        const isLast = index === stepCount - 1;
+        return (
+          <li key={`${step.number}-${step.title}-${index}`} className={styles.step}>
+            <ProcessCard
+              number={formatStepNumber(step.number, index)}
+              title={step.title}
+              body={step.body}
+              index={index}
+              cycle={cycle}
+              playing={playing}
+              reduced={reduced}
+            />
+            {!isLast ? (
+              <ProcessConnector index={index} cycle={cycle} playing={playing} reduced={reduced} />
+            ) : null}
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
+export function ProcessSteps({ section }: ProcessStepsProps) {
+  if (section.steps.length === 0) return null;
+
+  return (
+    <section className={`section ${styles.section}`}>
       <div className="container">
         <SectionIntro
           align="center"
           title={section.title?.trim() || "Our Process"}
           description="See how we turn strategy into measurable results."
         />
-
-        <ol className={styles.track}>
-          {section.steps.map((step, index) => {
-            const isLast = index === stepCount - 1;
-            return (
-              <li key={`${step.number}-${step.title}-${index}`} className={styles.step}>
-                <ProcessCard
-                  number={formatStepNumber(step.number, index)}
-                  title={step.title}
-                  body={step.body}
-                  index={index}
-                  cycle={cycle}
-                  playing={playing}
-                  reduced={reduced}
-                />
-                {!isLast ? (
-                  <ProcessConnector
-                    index={index}
-                    cycle={cycle}
-                    playing={playing}
-                    reduced={reduced}
-                  />
-                ) : null}
-              </li>
-            );
-          })}
-        </ol>
+        <ProcessTrack steps={section.steps} />
       </div>
     </section>
   );

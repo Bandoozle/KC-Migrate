@@ -1,351 +1,1109 @@
+/*
+ * The page reads as a round: scorecard, tee shot, fairway, green, broadcast,
+ * then the routed process. Kosick type and spacing; a course palette of
+ * fairway green, sand and off-white, with faint contour lines.
+ */
 .page {
+  --ink: #101010;
+  --fairway: #1f4d3a;
+  --deep: #12301f;
+  --sand: #d9c9a0;
+  --linen: #f5f2ea;
+  --rule: rgba(17, 17, 17, 0.14);
+  --rule-dark: rgba(255, 255, 255, 0.16);
+  --block: clamp(4.5rem, 9vw, 8rem);
+  --gutter: clamp(1rem, 2vw, 1.5rem);
+  overflow-x: clip;
   background: #ffffff;
-  color: #1a1a1a;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.figure {
+  margin: 0;
+}
+
+.caption {
+  margin-top: 0.75rem;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  line-height: var(--kosick-meta-leading);
 }
 
 .photo {
-  object-fit: cover;
-  object-position: center 28%;
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #e3e6df;
 }
 
-.eyebrow {
+.label {
+  margin: 0 0 1rem;
+  color: var(--fairway);
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.title {
   margin: 0;
-  color: #6e6e73;
-  font-family: var(--kosick-font, "Gellix", sans-serif);
-  font-size: var(--kosick-eyebrow-size);
-  font-weight: var(--kosick-eyebrow-weight);
-  letter-spacing: var(--kosick-eyebrow-tracking);
-  line-height: var(--kosick-eyebrow-leading);
+}
+
+.page .titleOnDark,
+.page .displayOnDark {
+  margin: 0;
+  color: #ffffff !important;
+}
+
+.page .displayOnDark {
+  font-size: var(--kosick-page-title-size) !important;
+  line-height: var(--kosick-page-title-leading) !important;
+  letter-spacing: var(--kosick-page-title-tracking) !important;
 }
 
 .lead,
-.body {
-  margin: 0;
-  color: #3a3a3a;
-  font-family: var(--kosick-font, "Gellix", sans-serif);
+.leadOnDark {
+  max-width: none;
+  margin: 1.25rem 0 0;
   font-size: var(--kosick-section-desc-size);
-  font-weight: var(--kosick-section-desc-weight);
   line-height: var(--kosick-section-desc-leading);
 }
 
-.body {
-  font-size: var(--kosick-body-size);
-  font-weight: var(--kosick-body-weight);
-  line-height: var(--kosick-body-leading);
+.lead {
+  color: var(--kosick-color-muted);
 }
 
-.page a.solid,
-.page a.ghost {
+.leadOnDark {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.head .lead {
+  margin: 0;
+}
+
+/* Hole marker: a small scorecard tab above each section title */
+.marker {
+  display: inline-flex;
+  align-items: stretch;
+  margin: 0 0 1.25rem;
+  overflow: hidden;
+  border: 1px solid var(--fairway);
+  border-radius: var(--kosick-radius-sm);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.markerHole {
+  padding: 0.5rem 0.75rem;
+  background: var(--fairway);
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+.markerLabel {
+  padding: 0.5rem 0.75rem;
+  color: var(--fairway);
+}
+
+.markerDark {
+  border-color: var(--sand);
+}
+
+.markerDark .markerHole {
+  background: var(--sand);
+  color: var(--deep);
+}
+
+.markerDark .markerLabel {
+  color: var(--sand);
+}
+
+/* Contour lines */
+.contours {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.contours path {
+  fill: none;
+  stroke: rgba(31, 77, 58, 0.1);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.contoursDark path {
+  stroke: rgba(217, 201, 160, 0.12);
+}
+
+/* Scorecard */
+
+.scorecardSection {
+  position: relative;
+  overflow: hidden;
+  padding: var(--block) 0;
+  background: var(--linen);
+}
+
+.scorecardSection > :global(.container) {
+  position: relative;
+}
+
+.scorecard {
+  overflow: hidden;
+  border: 1.5px solid var(--fairway);
+  border-radius: var(--kosick-radius-md);
+  background: #ffffff;
+}
+
+.scoreRow {
+  display: grid;
+  grid-template-columns: 7rem repeat(4, minmax(0, 1fr));
+}
+
+.scoreRow + .scoreRow {
+  border-top: 1px solid var(--rule);
+}
+
+.scoreRow > * {
+  padding: 1.1rem clamp(0.9rem, 1.8vw, 1.4rem);
+}
+
+.scoreRow > * + * {
+  border-left: 1px solid var(--rule);
+}
+
+.scoreRow:first-child {
+  background: var(--fairway);
+  color: #ffffff;
+}
+
+.scoreRow:first-child > * + * {
+  border-left-color: rgba(255, 255, 255, 0.18);
+}
+
+.scoreLabel {
+  align-self: stretch;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.scoreRow:first-child .scoreLabel {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.scoreHole {
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.scorePlay {
+  color: #111111;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.scoreLine {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+/* Tee shot */
+
+.tee {
+  padding: var(--block) 0;
+}
+
+.teeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.teePhoto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-md);
+  background: #e3e6df;
+}
+
+/* A dashed shot line from the targets up to the booking flag */
+.routing {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(18, 48, 31, 0.55), rgba(18, 48, 31, 0) 60%);
+}
+
+.routeLine {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.routeLine path {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  stroke-dasharray: 6 7;
+  vector-effect: non-scaling-stroke;
+}
+
+.targets {
+  position: absolute;
+  left: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.targets li {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: #ffffff;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+.targets li::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+.pin {
+  position: absolute;
+  top: 6%;
+  right: 12%;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  width: fit-content;
-  min-height: 44px;
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--kosick-radius-pill, 9999px);
-  font-family: var(--kosick-font, "Gellix", sans-serif);
-  font-size: var(--kosick-meta-size, 0.9375rem);
-  font-weight: 600;
-  line-height: 1.2;
-  text-decoration: none;
-}
-
-.page a.solid {
-  border: 1px solid #111111;
-  background: #111111;
-  color: #ffffff;
-}
-
-.page a.solid:hover {
-  border-color: #2a2a2a;
-  background: #2a2a2a;
-  color: #ffffff;
-}
-
-.page a.solid:focus-visible {
-  border-color: #111111;
-  background: #111111;
-  color: #ffffff;
-  outline: 2px solid #111111;
-  outline-offset: 3px;
-}
-
-.page a.solid:active {
-  border-color: #000000;
-  background: #000000;
-  color: #ffffff;
-}
-
-.page a.ghost {
-  border: 1px solid #111111;
+  gap: 0.4rem;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--kosick-radius-pill);
   background: #ffffff;
-  color: #111111;
+  color: var(--fairway);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  box-shadow: 0 12px 30px -14px rgba(0, 0, 0, 0.5);
 }
 
-.page a.ghost:hover,
-.page a.ghost:focus-visible {
-  border-color: #111111;
-  background: #111111;
-  color: #ffffff;
-  outline: 2px solid #111111;
-  outline-offset: 3px;
+/* Yardage-style rows */
+.yardage {
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule);
 }
 
-.index {
-  padding: clamp(2rem, 4vw, 3.25rem) 0;
-  background: #f7f7f5;
-}
-
-.indexList {
-  margin-top: 1.25rem;
-}
-
-.indexRow {
+.yardage li {
   display: grid;
-  gap: 0.3rem 1.5rem;
-  align-items: baseline;
-  padding: 1rem 0;
-  border-top: 1px solid #e4e0d8;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  row-gap: 0.2rem;
+  padding: 0.95rem 0;
+  border-top: 1px solid var(--rule);
 }
 
-.indexRow:last-child {
-  border-bottom: 1px solid #e4e0d8;
+.yards {
+  grid-row: 1 / span 2;
+  padding-top: 0.25rem;
+  color: var(--fairway);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
-.indexNumber {
-  color: #8a7348;
-  font-size: var(--kosick-meta-size, 0.9375rem);
+.pointName {
+  color: #111111;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.pointLine {
+  grid-column: 2;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+/* Fairway */
+
+.fairway {
+  padding: var(--block) 0;
+  background: var(--linen);
+}
+
+.fairwayStage {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+.fairwayWide {
+  grid-column: 1 / 11;
+  grid-row: 1;
+  aspect-ratio: 16 / 8;
+}
+
+.fairwayDetail {
+  position: relative;
+  z-index: 1;
+  grid-column: 9 / 13;
+  grid-row: 1;
+  align-self: end;
+  margin-bottom: -18%;
+}
+
+.fairwayDetail .photo {
+  height: auto;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 0 0 8px var(--linen);
+}
+
+/* The path curves like a fairway: a dashed line through five dots */
+.path {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: clamp(5rem, 10vw, 8rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.path::before {
+  content: "";
+  position: absolute;
+  top: 0.9rem;
+  left: 0.9rem;
+  right: 0.9rem;
+  border-top: 2px dashed rgba(31, 77, 58, 0.35);
+}
+
+.pathStep {
+  position: relative;
+  display: grid;
+  gap: 0.75rem;
+  justify-items: start;
+}
+
+.pathDot {
+  display: grid;
+  place-items: center;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 2px solid var(--fairway);
+  border-radius: 50%;
+  background: var(--linen);
+  color: #ffffff;
+}
+
+.pathDotEnd {
+  width: 2.4rem;
+  height: 2.4rem;
+  margin-top: -0.3rem;
+  background: var(--fairway);
+}
+
+.pathName {
+  color: #111111;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.pathStep:last-child .pathName {
+  color: var(--fairway);
+}
+
+/* Events: deep green */
+
+.events {
+  position: relative;
+  overflow: hidden;
+  padding: var(--block) 0;
+  background: var(--deep);
+  color: #ffffff;
+}
+
+.events > :global(.container) {
+  position: relative;
+}
+
+.eventStage {
+  position: relative;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.eventWide {
+  aspect-ratio: 21 / 9;
+}
+
+.eventWide .photo {
+  border-radius: var(--kosick-radius-md);
+}
+
+.eventCard {
+  position: absolute;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(-3rem, -4vw, -2rem);
+  display: grid;
+  gap: 0.35rem;
+  width: clamp(16rem, 30%, 21rem);
+  padding: 1.25rem;
+  border-radius: var(--kosick-radius-md);
+  background: var(--linen);
+  color: var(--deep);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
+}
+
+.eventLogo {
+  position: relative;
+  aspect-ratio: 16 / 7;
+  margin-bottom: 0.5rem;
+  border-radius: var(--kosick-radius-sm);
+  background: #ffffff;
+}
+
+.eventKicker {
+  margin: 0;
+  color: var(--fairway);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.eventName {
+  margin: 0 0 0.5rem;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.itinerary {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.itinerary li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(18, 48, 31, 0.15);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.3;
+}
+
+.itinerary li span:first-child {
+  font-weight: 600;
+}
+
+.itinerary li span:last-child {
+  color: #5d6a61;
+  text-align: right;
+}
+
+/* Tee sheet: a linen board with a green title bar, like the one posted at the first tee */
+.teeSheet {
+  margin-top: clamp(5rem, 9vw, 7rem);
+  overflow: hidden;
+  border: 1.5px solid var(--sand);
+  border-radius: var(--kosick-radius-md);
+  background: var(--linen);
+  color: var(--deep);
+}
+
+.sheetTitle {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(1rem, 2.4vw, 1.75rem);
+  background: var(--sand);
+  font-size: var(--kosick-meta-size);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sheetTitle span:last-child {
+  color: var(--fairway);
+}
+
+.sheet {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sheet th,
+.sheet td {
+  padding: 1.15rem clamp(1rem, 2.4vw, 1.75rem);
+  border-top: 1px solid rgba(18, 48, 31, 0.14);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.sheet thead th {
+  padding-block: 0.7rem;
+  border-top: 0;
+  color: #6b7a70;
+  font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.indexTitle {
+/* Vertical rules between columns, as on a printed sheet */
+.sheet th + th,
+.sheet td + th,
+.sheet th + td,
+.sheet td + td {
+  border-left: 1px solid rgba(18, 48, 31, 0.1);
+}
+
+.sheet tbody tr {
+  transition: background-color 180ms ease;
+}
+
+.sheet tbody tr:hover {
+  background: #ece6d6;
+}
+
+.sheetTime {
+  width: 7rem;
+  color: var(--fairway);
+  font-size: var(--kosick-meta-size);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sheetName {
+  color: var(--deep);
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+/* The narrow-screen copy of the How column, hidden while the column shows */
+.sheetName small {
+  display: none;
+  margin-top: 0.3rem;
+  color: #4d5c52;
+  font-size: var(--kosick-meta-size);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+
+.sheetLine {
+  color: #4d5c52;
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.sheetHole {
+  width: 5.5rem;
+  text-align: center !important;
+}
+
+.sheetHole span {
+  display: inline-grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--fairway);
+  color: #ffffff;
+  font-size: var(--kosick-meta-size);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Broadcast */
+
+.broadcast {
+  padding: var(--block) 0;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.broadcastGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+}
+
+/* An on-air tag in place of a plain eyebrow */
+.onAir {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.25rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--kosick-radius-sm);
+  background: #c8102e;
+  color: #ffffff;
+  font-size: var(--kosick-meta-size);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.onAir i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  animation: onAirPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes onAirPulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.broadcastMedia {
+  padding: clamp(0.4rem, 0.8vw, 0.7rem);
+  border-radius: var(--kosick-radius-md);
+  background: #2a2a2e;
+  box-shadow: 0 50px 100px -50px rgba(0, 0, 0, 0.9);
+}
+
+/* Process: four holes on a routed path */
+
+.round {
+  position: relative;
+  overflow: hidden;
+  padding: var(--block) 0;
+  background: var(--linen);
+}
+
+.round > :global(.container) {
+  position: relative;
+}
+
+.holes {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
   margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.holesRoute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 7.5rem;
+  pointer-events: none;
+}
+
+.holesRoute path {
+  fill: none;
+  stroke: var(--fairway);
+  stroke-width: 2;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.holeStep {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  padding-top: 4.6rem;
+}
+
+.holeHigh {
+  padding-top: 1.1rem;
+}
+
+.holeFlag {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 0.75rem;
+  border-radius: 50%;
+  background: var(--fairway);
+  color: #ffffff;
+  box-shadow: 0 0 0 6px var(--linen);
+}
+
+.holeNumber {
+  color: var(--fairway);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.holeName {
   color: #111111;
-  font-family: var(--kosick-font, "Gellix", sans-serif);
   font-size: var(--kosick-subsection-title-size);
   font-weight: var(--kosick-subsection-title-weight);
   letter-spacing: var(--kosick-subsection-title-tracking);
   line-height: var(--kosick-subsection-title-leading);
 }
 
-.copy {
-  display: grid;
-  align-content: start;
-  gap: 0.7rem;
-  min-width: 0;
-}
-
-.copy a.solid {
-  margin-top: 0.25rem;
-}
-
-.bullets {
-  display: grid;
-  gap: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.bullets li {
-  padding: 0.55rem 0;
-  border-top: 1px solid #e6e1d8;
-  color: #3a3a3a;
+.holeLine {
+  max-width: 26ch;
+  color: var(--kosick-color-muted);
   font-size: var(--kosick-body-size);
-  font-weight: var(--kosick-body-weight);
-  line-height: var(--kosick-body-leading);
+  line-height: 1.5;
 }
 
-.chapter,
-.wide,
-.film,
-.process,
-.channels {
-  padding: clamp(2rem, 4vw, 3.25rem) 0;
-}
-
-.chapter {
-  border-top: 1px solid #e6e1d8;
-}
-
-.chapterGrid,
-.spread {
+.greenStrip {
   display: grid;
-  gap: 1.25rem 2rem;
-  align-items: start;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--rule);
 }
 
-.figure,
-.filmFrame,
-.wideFigure {
-  position: relative;
-  overflow: hidden;
-  background: #eceae6;
+.greenPhoto {
+  aspect-ratio: 16 / 9;
 }
 
-.figure {
-  width: 100%;
-  max-width: 640px;
-  height: clamp(240px, 42vw, 320px);
-  border-radius: var(--kosick-radius-md, 12px);
-  justify-self: end;
-}
-
-.flip .figure {
-  justify-self: start;
-}
-
-.wide {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.wideFigure {
-  width: 100%;
-  max-width: 1280px;
-  height: clamp(220px, 28vw, 400px);
-  margin-inline: auto;
-  border-radius: var(--kosick-radius-md, 12px);
-}
-
-.wideFigure .photo {
-  object-position: center 46%;
-}
-
-.film {
-  background: #f7f7f5;
-}
-
-.filmFrame {
-  width: 100%;
-  max-width: 1280px;
-  height: clamp(220px, 32vw, 400px);
-  margin-top: 1.15rem;
-  border-radius: var(--kosick-radius-md, 12px);
-}
-
-.filmFrame .photo {
-  object-position: center 55%;
-}
-
-.steps {
-  display: grid;
-  gap: 1rem;
-  margin: 1.25rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.steps li {
-  display: grid;
-  gap: 0.3rem;
-  padding-top: 0.8rem;
-  border-top: 1px solid #111111;
-}
-
-.steps span {
-  color: #8a7348;
-  font-size: var(--kosick-meta-size, 0.9375rem);
-  font-weight: 600;
-  letter-spacing: 0.08em;
-}
-
-.steps h3 {
+.greenNote {
+  max-width: 28ch;
   margin: 0;
-  color: #111111;
-  font-size: var(--kosick-card-title-size);
-  font-weight: var(--kosick-card-title-weight);
-  letter-spacing: var(--kosick-card-title-tracking);
-  line-height: var(--kosick-card-title-leading);
+  color: var(--fairway);
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+  line-height: var(--kosick-subsection-title-leading);
 }
 
-.steps p {
-  margin: 0;
-  color: #3a3a3a;
-  font-size: var(--kosick-body-size);
-  font-weight: var(--kosick-body-weight);
-  line-height: var(--kosick-body-leading);
-}
+/* Tablet */
 
-.channelIntro {
-  display: grid;
-  gap: 0.65rem;
-  max-width: 40rem;
-}
-
-.channelGrid {
-  display: grid;
-  gap: 1.25rem;
-  margin-top: 1.5rem;
-}
-
-.channelGrid article {
-  display: grid;
-  align-content: start;
-  gap: 0.4rem;
-  min-width: 0;
-  padding-top: 0.85rem;
-  border-top: 1px solid #111111;
-}
-
-.channelGrid h3 {
-  margin: 0;
-  color: #111111;
-  font-size: var(--kosick-card-title-size);
-  font-weight: var(--kosick-card-title-weight);
-  letter-spacing: var(--kosick-card-title-tracking);
-  line-height: var(--kosick-card-title-leading);
-}
-
-.channelSubtitle {
-  margin: 0;
-  color: #111111;
-  font-size: var(--kosick-body-size);
-  font-weight: 600;
-  line-height: var(--kosick-body-leading);
-}
-
-@media (min-width: 800px) {
-  .indexRow {
-    grid-template-columns: 3.5rem minmax(16rem, 22rem) minmax(0, 1fr);
+@media (max-width: 960px) {
+  .head,
+  .teeGrid,
+  .broadcastGrid,
+  .greenStrip {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .steps {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .channelGrid {
+  /* The scorecard turns on its side: one row per hole */
+  .scorecard {
+    display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem 1.5rem;
+  }
+
+  .scoreRow {
+    display: contents;
+  }
+
+  .scoreRow > .scoreLabel {
+    display: none;
+  }
+
+  .scoreRow > * + * {
+    border-left: 0;
+  }
+
+  .scoreHole,
+  .scorePlay,
+  .scoreLine {
+    padding: 0.4rem 1.25rem;
+  }
+
+  .scoreRow:first-child {
+    background: none;
+    color: inherit;
+  }
+
+  .scoreHole {
+    padding-top: 1.25rem;
+    color: var(--fairway);
+  }
+
+  .scoreLine {
+    padding-bottom: 1.25rem;
+  }
+
+  /* Place each hole's three cells in its own column-pair */
+  .scoreRow > :nth-child(2) {
+    grid-column: 1;
+  }
+
+  .scoreRow > :nth-child(3) {
+    grid-column: 2;
+  }
+
+  .scoreRow > :nth-child(4) {
+    grid-column: 1;
+  }
+
+  .scoreRow > :nth-child(5) {
+    grid-column: 2;
+  }
+
+  .scoreHole:nth-child(2),
+  .scoreHole:nth-child(3) {
+    grid-row: 1;
+  }
+
+  .scorePlay:nth-child(2),
+  .scorePlay:nth-child(3) {
+    grid-row: 2;
+  }
+
+  .scoreLine:nth-child(2),
+  .scoreLine:nth-child(3) {
+    grid-row: 3;
+  }
+
+  .scoreHole:nth-child(4),
+  .scoreHole:nth-child(5) {
+    grid-row: 4;
+    border-top: 1px solid var(--rule);
+  }
+
+  .scorePlay:nth-child(4),
+  .scorePlay:nth-child(5) {
+    grid-row: 5;
+  }
+
+  .scoreLine:nth-child(4),
+  .scoreLine:nth-child(5) {
+    grid-row: 6;
+  }
+
+  .teePhoto {
+    aspect-ratio: 4 / 3;
+  }
+
+  .fairwayWide {
+    grid-column: 1 / -1;
+  }
+
+  .fairwayDetail {
+    display: none;
+  }
+
+  .path {
+    margin-top: clamp(2.5rem, 6vw, 4rem);
+  }
+
+  .eventWide {
+    aspect-ratio: 16 / 10;
+  }
+
+  .eventCard {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: auto;
+    max-width: 24rem;
+    margin: -4rem 0 0 auto;
+  }
+
+  .teeSheet {
+    margin-top: 3rem;
+  }
+
+  /* The How column folds under each name */
+  .sheet thead th:nth-child(3),
+  .sheet .sheetLine {
+    display: none;
+  }
+
+  .sheetName small {
+    display: block;
+  }
+
+  .holes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+
+  .holesRoute {
+    display: none;
+  }
+
+  .holeStep,
+  .holeHigh {
+    padding-top: 0;
   }
 }
 
-@media (min-width: 960px) {
-  .chapterGrid {
-    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+/* Phone: the round and the path run downward */
+
+@media (max-width: 640px) {
+  .scorecard {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .flip .chapterGrid {
-    direction: rtl;
+  .scoreRow > * {
+    grid-column: 1 !important;
+    grid-row: auto !important;
   }
 
-  .flip .chapterGrid > * {
-    direction: ltr;
+  .scorecard {
+    display: flex;
+    flex-direction: column;
   }
 
-  .figure {
-    height: clamp(300px, 24vw, 360px);
-    justify-self: stretch;
+  /* Reorder so each hole's number, play and focus sit together */
+  .scoreRow > :nth-child(2) {
+    order: 1;
+  }
+
+  .scoreRow > :nth-child(3) {
+    order: 2;
+  }
+
+  .scoreRow > :nth-child(4) {
+    order: 3;
+  }
+
+  .scoreRow > :nth-child(5) {
+    order: 4;
+  }
+
+  .scoreHole:not(:nth-child(2)) {
+    border-top: 1px solid var(--rule);
+  }
+
+  .path {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .path::before {
+    top: 0.9rem;
+    bottom: 0.9rem;
+    left: 0.9rem;
+    right: auto;
+    border-top: 0;
+    border-left: 2px dashed rgba(31, 77, 58, 0.35);
+  }
+
+  .pathStep {
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    align-items: center;
+    justify-items: start;
+  }
+
+  .pathDotEnd {
+    margin-top: 0;
+  }
+
+  .eventCard {
+    margin: 1rem 0 0;
     max-width: none;
   }
 
-  .spread {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-    align-items: start;
+  .holes {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .channelGrid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+  .targets li {
+    font-size: 0.8rem;
   }
+}
+
+/* Phone: each row becomes a stacked entry */
+@media (max-width: 640px) {
+  .sheet thead {
+    display: none;
+  }
+
+  .sheet tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    border-top: 1px solid rgba(18, 48, 31, 0.14);
+  }
+
+  .sheet th,
+  .sheet td {
+    border: 0 !important;
+    padding: 0.35rem 1rem;
+  }
+
+  .sheetTime {
+    grid-column: 1;
+    padding-top: 1rem !important;
+  }
+
+  .sheetHole {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    width: auto;
+  }
+
+  .sheetName {
+    grid-column: 1;
+    padding-bottom: 1rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet tbody tr {
+    transition: none;
+  }
+
+  .onAir i {
+    animation: none;
+  }
+}
+
+/* Supporting lines under section titles run the full content width */
+.head .lead,
+.head .leadOnDark {
+  max-width: none;
 }

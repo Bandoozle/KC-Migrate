@@ -9,6 +9,8 @@ type VimeoFeatureProps = {
   id: string;
   title: string;
   poster: string;
+  /** False when the video's privacy settings block embedding everywhere; it then always opens on Vimeo. */
+  inline?: boolean;
 };
 
 /*
@@ -19,12 +21,12 @@ type VimeoFeatureProps = {
  */
 const EMBED_HOSTS = ["kosick.com", "www.kosick.com", "staging.kosick.com"];
 
-export function VimeoFeature({ id, title, poster }: VimeoFeatureProps) {
+export function VimeoFeature({ id, title, poster, inline = true }: VimeoFeatureProps) {
   const [playing, setPlaying] = useState(false);
   const watchUrl = `https://vimeo.com/${id}`;
 
   function play() {
-    if (EMBED_HOSTS.includes(window.location.hostname)) {
+    if (inline && EMBED_HOSTS.includes(window.location.hostname)) {
       setPlaying(true);
       return;
     }
