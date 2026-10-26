@@ -1,0 +1,160 @@
+{
+  "analytics": {
+    "gtm": [
+      "GTM-K4QK6SP"
+    ],
+    "ga4": [
+      "g-1",
+      "g-auto",
+      "g-inline",
+      "g-icon",
+      "g-link",
+      "g-wrapper",
+      "g-mode",
+      "g-left",
+      "g-right",
+      "g-top",
+      "g-bottom",
+      "g-hover",
+      "g-font",
+      "g-logo",
+      "g-iconset",
+      "g-sm",
+      "g-xs",
+      "g-link11279",
+      "g-md",
+      "g-lg",
+      "g-xxs",
+      "g-xxl",
+      "g-5xl",
+      "g-xl",
+      "g-item",
+      "g-style",
+      "g-icons4541",
+      "g-link4541",
+      "G-XPYR1CEF3E",
+      "g-hide",
+      "g-layout",
+      "g-baseline",
+      "g-programs",
+      "g-results",
+      "g-tablet",
+      "g-mobile",
+      "g-popup",
+      "g-position",
+      "g-size",
+      "g-video",
+      "g-row",
+      "g-false",
+      "g-750x499",
+      "g-360x239",
+      "g-1536x1022",
+      "g-1140x758",
+      "g-src",
+      "g-term",
+      "g-show",
+      "g-750x500",
+      "g-360x240",
+      "g-1536x1025",
+      "g-2048x1366",
+      "g-1140x761",
+      "g-edited",
+      "g-lead",
+      "g-icons",
+      "g-true"
+    ],
+    "ads": [
+      "AW-785313466"
+    ],
+    "generateLeadSnippets": [
+      "generate_lead', {\r\n      send_to: 'G-XPYR1CEF3E',\r\n      form_name: 'Kosick Contact Form'\r\n    });\r\n\r\n    console.log('generate_lead sent specifically to Kosick GA4');\r\n  }\r\n}\r\n\r\ndocument.addEventListener('DOMContentLoaded', function () {\r\n  trackSuccessfulLead();\r\n\r\n  const observer = new MutationObserver(function () {\r\n    trackSuccessfulLead();\r\n  });\r\n\r\n  observer.observe(document.body, {\r\n    childList: t"
+    ],
+    "gtagEvents": [
+      "gtag('event', 'generate_lead'"
+    ],
+    "dataLayerPushes": [
+      "dataLayer.push(arguments);}\ngtag(\"set\",\"linker\",{\"domains\":[\"staging.kosick.com\"]});\ngtag(\"js\", new Date());\ngtag(\"set\", \"developer_id.dZTNiMT\", true);\ngtag(\"config\", \"G-XPYR1CEF3E\");\ngtag(\"config\", \"AW-785313466\")",
+      "dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'AW-785313466');\n</script>\n\n\n<!-- Google tag (gtag.js)",
+      "dataLayer.push(arguments);}\n  gtag('js', new Date());\n\n  gtag('config', 'G-XPYR1CEF3E');\n</script>\n<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime()",
+      "dataLayer.push(arguments);\r\n};\r\n\r\nfunction trackSuccessfulLead() {\r\n  const successMessage = document.querySelector(\r\n    '.kb-adv-form-message.kb-adv-form-success'\r\n  )"
+    ]
+  },
+  "chat": {
+    "acaCssStatus": 200,
+    "acaJsStatus": 200,
+    "acaJsBytes": 22360,
+    "acaConfigMatches": [
+      "var acaConfig = {\"restUrl\":\"https://staging.kosick.com/wp-json/aca/v1/\",\"nonce\":\"8fe41ae189\",\"businessName\":\"Kosick Communications\",\"widgetTitle\":\"Connect with us\",\"subtitle\":\"Typically replies in a few minutes\",\"avatarUrl\":\"https://staging.kosick.com/wp-content/uploads/2026/05/kosick-communications.jpg\",\"launcherIconUrl\":\"https://staging.kosick.com/wp-content/uploads/2026/05/chat-feature.jpg\",\"greeting\":\"Hello! How can we assist?\",\"teaserText\":\"Hello! How can we assist?\",\"showTeaser\":\"1\",\"teaserDelay\":\"3\",\"primaryColor\":\"#000000\",\"position\":\"bottom-right\",\"phoneNumber\":\"604-925-5800\",\"phoneCtaLabel\":\"Call our team\",\"formCtaLabel\":\"Connect With Us\",\"enablePhoneCta\":\"1\",\"enableFormCta\":\"1\",\"currentUrl\":\"https://staging.kosick.com/\"};"
+    ],
+    "chatbase": [
+      "chatbase.co\"\r\n}\r\n</script>\r\n<script\r\nsrc=\"https://www.chatbase.co/embed.min.js\"\r\nchatbotId=\"jzTnRiHgUt2JvcEDTeij_\"\r\ndomain=\"www.chatbase.co\"\r\ndefer>\r\n</script><!-- Google Tag Manager (noscript) -->\n<noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-K4QK6SP\"\nheight=\"0\" width=\"0\" style=\"di",
+      "chatbase.co\"\r\n}\r\n</script>\r\n<script\r\nsrc=\"https://www.chatbase.co/embed.min.js\"\r\nchatbotId=\"jzTnRiHgUt2JvcEDTeij_\"\r\ndomain=\"www.chatbase.co\"\r\ndefer>\r\n</script><div id=\"aca-root\"></div><a id=\"kt-scroll-up\" tabindex=\"-1\" aria-hidden=\"true\" aria-label=\"Scroll to top\" href=\"#wrapper\" class=\"kadence-scroll-to-to"
+    ],
+    "chatbotIds": [
+      "chatbotId: \"jzTnRiHgUt2JvcEDTeij_",
+      "chatbotId=\"jzTnRiHgUt2JvcEDTeij_"
+    ],
+    "endpointHints": [
+      "fetch( cfg.restUrl + 'conversation/outcome', {\n\t\t\t\tmethod: 'POST',\n\t\t\t\theaders: {\n\t\t\t\t\t'Content-Type': 'application/json',\n\t\t\t\t\t'X-WP-Nonce': cfg.nonce,\n\t\t\t\t},\n\t\t\t\tbody: JSON.stringify( {\n\t\t\t\t\tsessionId: state.sessionId,\n\t\t\t\t\toutcome: outcome,\n\t\t\t\t} )",
+      "fetch( cfg.restUrl + 'chat', {\n\t\t\tmethod: 'POST',\n\t\t\theaders: {\n\t\t\t\t'Content-Type': 'application/json',\n\t\t\t\t'X-WP-Nonce': cfg.nonce,\n\t\t\t},\n\t\t\tbody: JSON.stringify( {\n\t\t\t\tmessages: state.messages,\n\t\t\t\tsessionId: state.sessionId,\n\t\t\t\tpageUrl: cfg.currentUrl,\n\t\t\t} )",
+      "fetch( cfg.restUrl + 'lead', {\n\t\t\tmethod: 'POST',\n\t\t\theaders: {\n\t\t\t\t'Content-Type': 'application/json',\n\t\t\t\t'X-WP-Nonce': cfg.nonce,\n\t\t\t},\n\t\t\tbody: JSON.stringify( data )"
+    ],
+    "fetchUrls": []
+  },
+  "contactPage": {
+    "generateLead": [
+      "generate_lead', {\r\n      send_to: 'G-XPYR1CEF3E',\r\n      form_name: 'Kosick Contact Form'\r\n    });\r\n\r\n    console.log('generate_lead sent specifically to Kosick GA4');\r\n  }\r\n}\r\n\r\ndocument.addEventListener('DOMContentLoaded', function () {\r\n  trackSuccessfulLead();\r\n\r\n  const observer = new MutationObserver(function () {\r\n    trackSuccessfulLead();\r\n  });\r\n\r\n  observer.observe(document.body, {\r\n    childList: true,\r\n    subtree: true\r\n  });\r\n});</script>\t<div id=\"mobile-drawer\" class=\"popup-drawer popup-drawe"
+    ],
+    "phoneTracking": [
+      "tel:16049255800",
+      "tel:16049255800",
+      "tel:16049255800"
+    ],
+    "formTracking": [
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "Kadence",
+      "kadence",
+      "kadence",
+      "Kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence",
+      "kadence"
+    ]
+  },
+  "routeResults": {
+    "/wp-json/aca/v1/": {
+      "status": 200,
+      "body": "{\"namespace\":\"aca\\/v1\",\"routes\":{\"\\/aca\\/v1\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"GET\"],\"endpoints\":[{\"methods\":[\"GET\"],\"args\":{\"namespace\":{\"default\":\"aca\\/v1\",\"required\":false},\"context\":{\"default\":\"view\",\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\"}]}},\"\\/aca\\/v1\\/chat\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":{\"messages\":{\"required\":true},\"sessionId\":{\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/chat\"}]}},\"\\/aca\\/v1\\/lead\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/lead\"}]}},\"\\/aca\\/v1\\/test\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/test\"}]}},\"\\/aca\\/v1\\/kb\\/draft\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/kb\\/draft\"}]}},\"\\/aca\\/v1\\/settings\\/save\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/settings\\/save\"}]}},\"\\/aca\\/v1\\/kb\\/save\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/kb\\/save\"}]}},\"\\/aca\\/v1\\/kb\\/fetch-url\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/kb\\/fetch-url\"}]}},\"\\/aca\\/v1\\/sources\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/sources\"}]}},\"\\/aca\\/v1\\/sources\\/(?P<id>\\\\d+)\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\",\"DELETE\",\"GET\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]},{\"methods\":[\"DELETE\"],\"args\":[]},{\"methods\":[\"GET\"],\"args\":[]}]},\"\\/aca\\/v1\\/crawl\\/discover\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/crawl\\/discover\"}]}},\"\\/aca\\/v1\\/training\\/save-faq\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/training\\/save-faq\"}]}},\"\\/aca\\/v1\\/training\\/draft-answer\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/training\\/draft-answer\"}]}},\"\\/aca\\/v1\\/conversation\\/outcome\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/conversation\\/outcome\"}]}},\"\\/aca\\/v1\\/conversation\\/feedback\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/conversation\\/feedback\"}]}},\"\\/aca\\/v1\\/conversations\\/(?P<id>\\\\d+)\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"DELETE\"],\"endpoints\":[{\"methods\":[\"DELETE\"],\"args\":[]}]},\"\\/aca\\/v1\\/conversations\\/bulk-delete\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/conversations\\/bulk-delete\"}]}},\"\\/aca\\/v1\\/training\\/save\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/training\\/save\"}]}},\"\\/aca\\/v1\\/training\\/(?P<id>\\\\d+)\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\",\"DELETE\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]},{\"methods\":[\"DELETE\"],\"args\":[]}]},\"\\/a"
+    },
+    "/wp-json/aca/v1": {
+      "status": 200,
+      "body": "{\"namespace\":\"aca\\/v1\",\"routes\":{\"\\/aca\\/v1\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"GET\"],\"endpoints\":[{\"methods\":[\"GET\"],\"args\":{\"namespace\":{\"default\":\"aca\\/v1\",\"required\":false},\"context\":{\"default\":\"view\",\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\"}]}},\"\\/aca\\/v1\\/chat\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":{\"messages\":{\"required\":true},\"sessionId\":{\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/chat\"}]}},\"\\/aca\\/v1\\/lead\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/lead\"}]}},\"\\/aca\\/v1\\/test\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/test\"}]}},\"\\/aca\\/v1\\/kb\\/draft\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/kb\\/draft\"}]}},\"\\/aca\\/v1\\/settings\\/save\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/settings\\/save\"}]}},\"\\/aca\\/v1\\/kb\\/save\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/kb\\/save\"}]}},\"\\/aca\\/v1\\/kb\\/fetch-url\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/kb\\/fetch-url\"}]}},\"\\/aca\\/v1\\/sources\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/sources\"}]}},\"\\/aca\\/v1\\/sources\\/(?P<id>\\\\d+)\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\",\"DELETE\",\"GET\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]},{\"methods\":[\"DELETE\"],\"args\":[]},{\"methods\":[\"GET\"],\"args\":[]}]},\"\\/aca\\/v1\\/crawl\\/discover\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/crawl\\/discover\"}]}},\"\\/aca\\/v1\\/training\\/save-faq\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/training\\/save-faq\"}]}},\"\\/aca\\/v1\\/training\\/draft-answer\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/training\\/draft-answer\"}]}},\"\\/aca\\/v1\\/conversation\\/outcome\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/conversation\\/outcome\"}]}},\"\\/aca\\/v1\\/conversation\\/feedback\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/conversation\\/feedback\"}]}},\"\\/aca\\/v1\\/conversations\\/(?P<id>\\\\d+)\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"DELETE\"],\"endpoints\":[{\"methods\":[\"DELETE\"],\"args\":[]}]},\"\\/aca\\/v1\\/conversations\\/bulk-delete\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/conversations\\/bulk-delete\"}]}},\"\\/aca\\/v1\\/training\\/save\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/aca\\/v1\\/training\\/save\"}]}},\"\\/aca\\/v1\\/training\\/(?P<id>\\\\d+)\":{\"namespace\":\"aca\\/v1\",\"methods\":[\"POST\",\"DELETE\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":[]},{\"methods\":[\"DELETE\"],\"args\":[]}]},\"\\/a"
+    },
+    "/wp-json/": {
+      "status": 200,
+      "body": "{\"name\":\"Kosick Communications\",\"description\":\"Vancouver Digital &amp; Media Marketing Agency\",\"url\":\"https:\\/\\/staging.kosick.com\",\"home\":\"https:\\/\\/staging.kosick.com\",\"gmt_offset\":-7,\"timezone_string\":\"America\\/Vancouver\",\"page_for_posts\":390,\"page_on_front\":4541,\"show_on_front\":\"page\",\"namespaces\":[\"oembed\\/1.0\",\"akismet\\/v1\",\"rankmath\\/v1\",\"rankmath\\/v1\\/setupWizard\",\"rankmath\\/v1\\/an\",\"simple-history\\/v1\",\"wordfence-login-security\\/v1\",\"wordfence\\/v1\",\"liquidweb\\/harbor\\/v1\",\"kb-mailerlite\\/v1\",\"kb-getresponse\\/v1\",\"kb-fluentcrm\\/v1\",\"kbp\\/v1\",\"kb-lottieanimation\\/v1\",\"kb-vector\\/v1\",\"kb-design-library\\/v1\",\"kb-image-picker\\/v1\",\"kbpp\\/v1\",\"kb-mailchimp\\/v1\",\"kb-activecampaign\\/v1\",\"kb-sendinblue\\/v1\",\"kbp-dynamic\\/v1\",\"kb-convertkit\\/v1\",\"kb-custom-svg\\/v1\",\"aca\\/v1\",\"health-check\\/v1\",\"rankmath\\/v1\\/ai-visibility\",\"rankmath\\/v1\\/status\",\"ktp\\/v1\",\"rankmath\\/v1\\/link-genius\",\"google-site-kit\\/v1\",\"rankmath-marketplace\\/v1\",\"smart-slider-3\\/v1\",\"mcp\",\"wp\\/v2\",\"wp-site-health\\/v1\",\"wp-block-editor\\/v1\",\"wp-abilities\\/v1\"],\"authentication\":[],\"routes\":{\"\\/\":{\"namespace\":\"\",\"methods\":[\"GET\"],\"endpoints\":[{\"methods\":[\"GET\"],\"args\":{\"context\":{\"default\":\"view\",\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/\"}]}},\"\\/batch\\/v1\":{\"namespace\":\"\",\"methods\":[\"POST\"],\"endpoints\":[{\"methods\":[\"POST\"],\"args\":{\"validation\":{\"type\":\"string\",\"enum\":[\"require-all-validate\",\"normal\"],\"default\":\"normal\",\"required\":false},\"requests\":{\"type\":\"array\",\"maxItems\":25,\"items\":{\"type\":\"object\",\"properties\":{\"method\":{\"type\":\"string\",\"enum\":[\"POST\",\"PUT\",\"PATCH\",\"DELETE\"],\"default\":\"POST\"},\"path\":{\"type\":\"string\",\"required\":true},\"body\":{\"type\":\"object\",\"properties\":[],\"additionalProperties\":true},\"headers\":{\"type\":\"object\",\"properties\":[],\"additionalProperties\":{\"type\":[\"string\",\"array\"],\"items\":{\"type\":\"string\"}}}}},\"required\":true}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/batch\\/v1\"}]}},\"\\/oembed\\/1.0\":{\"namespace\":\"oembed\\/1.0\",\"methods\":[\"GET\"],\"endpoints\":[{\"methods\":[\"GET\"],\"args\":{\"namespace\":{\"default\":\"oembed\\/1.0\",\"required\":false},\"context\":{\"default\":\"view\",\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/oembed\\/1.0\"}]}},\"\\/oembed\\/1.0\\/embed\":{\"namespace\":\"oembed\\/1.0\",\"methods\":[\"GET\"],\"endpoints\":[{\"methods\":[\"GET\"],\"args\":{\"url\":{\"description\":\"The URL of the resource for which to fetch oEmbed data.\",\"type\":\"string\",\"format\":\"uri\",\"required\":true},\"format\":{\"default\":\"json\",\"required\":false},\"maxwidth\":{\"default\":600,\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/oembed\\/1.0\\/embed\"}]}},\"\\/oembed\\/1.0\\/proxy\":{\"namespace\":\"oembed\\/1.0\",\"methods\":[\"GET\"],\"endpoints\":[{\"methods\":[\"GET\"],\"args\":{\"url\":{\"description\":\"The URL of the resource for which to fetch oEmbed data.\",\"type\":\"string\",\"format\":\"uri\",\"required\":true},\"format\":{\"description\":\"The oEmbed format to use.\",\"type\":\"string\",\"default\":\"json\",\"enum\":[\"json\",\"xml\"],\"required\":false},\"maxwidth\":{\"description\":\"The maximum width of the embed frame in pixels.\",\"type\":\"integer\",\"default\":600,\"required\":false},\"maxheight\":{\"description\":\"The maximum height of the embed frame in pixels.\",\"type\":\"integer\",\"required\":false},\"discover\":{\"description\":\"Whether to perform an oEmbed discovery request for unsanctioned providers.\",\"type\":\"boolean\",\"default\":true,\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/oembed\\/1.0\\/proxy\"}]}},\"\\/akismet\\/v1\":{\"namespace\":\"akismet\\/v1\",\"methods\":[\"GET\"],\"endpoints\":[{\"methods\":[\"GET\"],\"args\":{\"namespace\":{\"default\":\"akismet\\/v1\",\"required\":false},\"context\":{\"default\":\"view\",\"required\":false}}}],\"_links\":{\"self\":[{\"href\":\"https:\\/\\/staging.kosick.com\\/wp-json\\/akismet\\/v1\"}]}},\"\\/akismet\\/v1\\/key\":{\"namespace\":\"akismet\\/v1\",\"methods\":[\"GET\",\"POST\",\"PUT\",\"PATCH\",\"DELETE\"],\"endpoints\":[{\"methods\":[\"GET\"],\"args\":[]},{\"methods\":[\"POST\",\"PUT\",\"PATCH\"],\"args\":{\"key\":{\"type\":"
+    }
+  }
+}

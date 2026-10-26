@@ -4,8 +4,7 @@
   overflow-x: clip;
 }
 
-.page a.solid,
-.page a.ghost {
+.page a.solid {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
@@ -32,18 +31,6 @@
   color: #ffffff;
 }
 
-.page a.ghost {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  color: #ffffff;
-}
-
-.page a.ghost:hover,
-.page a.ghost:focus-visible {
-  background: #ffffff;
-  color: #141414;
-}
-
 .page a:focus-visible,
 .channel:focus-visible,
 .frame:focus-visible {
@@ -51,8 +38,7 @@
   outline-offset: 3px;
 }
 
-.kicker,
-.reelKicker {
+.kicker {
   margin: 0 0 0.4rem;
   font-size: var(--kosick-eyebrow-size);
   font-weight: var(--kosick-eyebrow-weight);
@@ -69,10 +55,6 @@
   color: #ffffff;
 }
 
-.reelKicker {
-  color: rgba(255, 255, 255, 0.62);
-}
-
 .reelTitle,
 .storyTitle {
   margin: 0;
@@ -83,30 +65,14 @@
   line-height: var(--kosick-section-title-leading);
 }
 
-.reelIntro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: fit-content;
-  max-width: 100%;
-}
-
 .reelTitle {
-  max-width: none;
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
   color: #ffffff;
-}
-
-.reelAside {
-  width: 100%;
-  margin: 0.7rem 0 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: var(--kosick-section-desc-size);
-  font-weight: var(--kosick-section-desc-weight);
-  line-height: var(--kosick-section-desc-leading);
+  text-wrap: balance;
 }
 
 .screen {
-  margin: 1.15rem 0 0;
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.5rem);
 }
 
 .video {
@@ -114,91 +80,59 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000000;
-  border-radius: 4px;
-}
-
-.screen figcaption {
-  margin-top: 1.15rem;
-  text-align: center;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: var(--kosick-card-title-size);
-  font-weight: var(--kosick-card-title-weight);
-  letter-spacing: var(--kosick-card-title-tracking);
-  line-height: var(--kosick-card-title-leading);
-}
-
-.reelCopy {
-  display: grid;
-  gap: 1.75rem;
-  margin-top: 1.75rem;
+  border-radius: 6px;
 }
 
 .reelLead {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .reelBody {
   margin: 0;
-  max-width: 38rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(255, 255, 255, 0.78);
   font-size: var(--kosick-section-desc-size);
   line-height: var(--kosick-section-desc-leading);
 }
 
-.reelPoints,
-.points,
+.page a.light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  margin-top: 1.5rem;
+  padding: 0.8rem 1.45rem;
+  border: 1px solid #ffffff;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #101010;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.page a.light:hover {
+  background: #e4e4e8;
+  border-color: #e4e4e8;
+}
+
+.reel a.light:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
 .networkList {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.reelPoints {
-  display: grid;
-  gap: 1.35rem;
-  align-content: start;
-}
 
-.reelPoints li {
-  display: grid;
-  grid-template-columns: 3.4rem minmax(0, 1fr);
-  gap: 0.35rem 1.15rem;
-  align-items: center;
-  color: #ffffff;
-  font-size: var(--kosick-body-size);
-  font-weight: var(--kosick-body-weight);
-  line-height: var(--kosick-body-leading);
-}
-
-.reelPoints span:first-child {
-  color: #ffffff;
-  font-size: var(--kosick-subsection-title-size);
-  font-weight: var(--kosick-subsection-title-weight);
-  letter-spacing: var(--kosick-subsection-title-tracking);
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
-}
-
-.reelPoints span:last-child {
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-height: 2.5rem;
-  padding-left: 1.15rem;
-}
-
-.reelPoints span:last-child::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 1px;
-  height: 1.45rem;
-  background: rgba(255, 255, 255, 0.42);
-  transform: translateY(-50%);
-}
 
 .lineup {
   background: #f3f0ea;
@@ -288,72 +222,29 @@
   align-content: start;
 }
 
-.programSummary {
-  min-width: 0;
-  min-height: calc(var(--kosick-section-desc-leading) * 3em);
-}
-
-@media (max-width: 999px) {
-  .monitor {
-    order: -1;
-  }
-}
-
-.support {
-  display: grid;
-  gap: 1.25rem;
-  min-width: 0;
-  padding-top: 1.75rem;
-  border-top: 1px solid rgba(17, 17, 17, 0.14);
-}
-
-.supportHead {
+/* The selected channel's sentence and link, directly under the channel list */
+.programDetail {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   min-width: 0;
 }
 
-.supportHead a.solid {
+.programSummary {
+  min-width: 0;
+  margin: 0;
+  /* Reserves two lines so switching channels does not shift the layout */
+  min-height: calc(var(--kosick-section-desc-leading) * 2em);
+}
+
+.programDetail a.solid {
   margin-top: 1.25rem;
 }
 
 @media (max-width: 999px) {
-  .supportHead,
-  .supportBody {
-    display: contents;
+  .monitor {
+    order: -1;
   }
-
-  .supportHead a.solid {
-    order: 1;
-    margin-top: 0;
-  }
-}
-
-.programTitle {
-  margin: 0;
-  font-family: var(--kosick-font);
-  font-size: var(--kosick-subsection-title-size);
-  font-weight: var(--kosick-subsection-title-weight);
-  letter-spacing: var(--kosick-subsection-title-tracking);
-  line-height: var(--kosick-subsection-title-leading);
-  text-wrap: balance;
-}
-
-.supportBody {
-  display: grid;
-  gap: 1.25rem;
-  align-content: start;
-  min-width: 0;
-}
-
-.supportText {
-  margin: 0;
-  max-width: 44rem;
-  color: var(--kosick-color-muted);
-  font-size: var(--kosick-body-size);
-  font-weight: var(--kosick-body-weight);
-  line-height: var(--kosick-body-leading);
 }
 
 .monitor {
@@ -367,36 +258,6 @@
   border-radius: 4px;
 }
 
-.points {
-  display: grid;
-  gap: 0;
-}
-
-.points li {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: 0.5rem;
-  align-items: baseline;
-  padding: 0.75rem 0;
-  border-top: 1px solid rgba(17, 17, 17, 0.14);
-  font-size: var(--kosick-body-size);
-  font-weight: var(--kosick-body-weight);
-  line-height: var(--kosick-body-leading);
-}
-
-.points li span:first-child {
-  color: #6e6e73;
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-@media (min-width: 700px) {
-  .points {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 2rem;
-  }
-}
 
 .networks {
   background: #ffffff;
@@ -598,18 +459,6 @@
 }
 
 @media (min-width: 900px) {
-  .reelCopy {
-    grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
-    gap: 2rem 4.5rem;
-    align-items: stretch;
-  }
-
-  .reelPoints {
-    height: 100%;
-    align-content: space-between;
-    gap: 0;
-  }
-
   .storyLayout {
     grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
     grid-template-rows: auto 1fr auto;
@@ -629,11 +478,15 @@
 @media (min-width: 1000px) {
   /* The tabpanel spans both columns on a subgrid so its copy sits under the
      selector while its media fills the right column, without display: contents. */
+  /* One row: channel list and the selected sentence on the left, the monitor
+     centred beside them. The tabpanel uses a subgrid so its copy can sit under
+     the list while its media fills the right column. */
   .stage {
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    grid-template-rows: auto 1fr auto;
+    /* Extra monitor height goes below the summary, not between it and the list */
+    grid-template-rows: auto 1fr;
     column-gap: clamp(2.5rem, 4vw, 4.5rem);
-    row-gap: 1.5rem;
+    row-gap: 1.75rem;
     align-items: start;
   }
 
@@ -652,38 +505,20 @@
     pointer-events: none;
   }
 
-  .programSummary,
-  .monitor,
-  .support {
+  .programDetail,
+  .monitor {
     pointer-events: auto;
   }
 
-  .programSummary {
+  .programDetail {
     grid-column: 1;
     grid-row: 2;
-    align-self: end;
   }
 
   .monitor {
     grid-column: 2;
     grid-row: 1 / span 2;
-  }
-
-  .support {
-    grid-column: 1 / -1;
-    grid-row: 3;
-    grid-template-columns: subgrid;
-    column-gap: inherit;
-    margin-top: 1rem;
-    padding-top: 2rem;
-  }
-
-  .supportHead {
-    grid-column: 1;
-  }
-
-  .supportBody {
-    grid-column: 2;
+    align-self: center;
   }
 }
 
@@ -703,7 +538,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .video {
+  .page a.light {
     transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .page a.light {
+    width: 100%;
   }
 }

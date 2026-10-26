@@ -15,12 +15,8 @@ export type TelevisionStill = {
 export type TelevisionLineupItem = {
   id: string;
   label: string;
-  /** Short card sentence shown beside the preview. */
+  /** Short sentence shown under the channel list. */
   summary: string;
-  /** Supporting row below the stage. */
-  title?: string;
-  body?: string;
-  bullets: string[];
   cta: { label: string; href: string } | null;
   visual: TelevisionVisualKind;
   still?: TelevisionStill | null;
@@ -59,7 +55,6 @@ export function TelevisionLineup({ eyebrow, title, items }: TelevisionLineupProp
     document.getElementById(`${baseId}-tab-${items[index]?.id}`)?.focus();
   }
 
-  const showSupport = Boolean(item.title || item.body || item.bullets.length > 0 || item.cta);
   const kicker = eyebrowLabel(eyebrow, title);
 
   return (
@@ -111,38 +106,20 @@ export function TelevisionLineup({ eyebrow, title, items }: TelevisionLineupProp
             })}
           </div>
           <div id={`${baseId}-panel`} className={styles.program} role="tabpanel" aria-labelledby={`${baseId}-tab-${item.id}`}>
-            {item.summary ? (
-              <SectionDescription className={styles.programSummary}>{item.summary}</SectionDescription>
-            ) : null}
+            <div className={styles.programDetail}>
+              {item.summary ? (
+                <SectionDescription className={styles.programSummary}>{item.summary}</SectionDescription>
+              ) : null}
+              {item.cta ? (
+                <Link className={styles.solid} href={item.cta.href}>
+                  {item.cta.label}
+                  <ArrowIcon />
+                </Link>
+              ) : null}
+            </div>
             <div className={styles.monitor}>
               <TelevisionVisual kind={item.visual} label={item.label} still={item.still} />
             </div>
-            {showSupport ? (
-              <div className={styles.support}>
-                <div className={styles.supportHead}>
-                  {item.title ? <h3 className={styles.programTitle}>{item.title}</h3> : null}
-                  {item.cta ? (
-                    <Link className={styles.solid} href={item.cta.href}>
-                      {item.cta.label}
-                      <ArrowIcon />
-                    </Link>
-                  ) : null}
-                </div>
-                <div className={styles.supportBody}>
-                  {item.body ? <p className={styles.supportText}>{item.body}</p> : null}
-                  {item.bullets.length > 0 ? (
-                    <ul className={styles.points}>
-                      {item.bullets.map((bullet, index) => (
-                        <li key={bullet}>
-                          <span>{String(index + 1).padStart(2, "0")}</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </div>
-              </div>
-            ) : null}
           </div>
         </div>
       </div>

@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionDescription, SectionTitle } from "@/components/typography";
 import { getPartnerName } from "@/components/sections/PartnerLogoGrid";
-import { eyebrowLabel } from "@/lib/eyebrow";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
+import { CampaignFlow, type CampaignStep } from "./CampaignFlow";
 import { TelevisionLineup, type TelevisionLineupItem, type TelevisionStill } from "./TelevisionLineup";
 import {
   TelevisionStoryboard,
@@ -33,6 +34,13 @@ const PRODUCTION_FOOTAGE: TelevisionFrame[] = [
   { src: "/images/television/trane-poster.png", alt: "Trane unit under stage lighting, from the Trane television commercial" },
   { src: "/images/television/spot-interface.png", alt: "Hand on a touchscreen control, from the Trane television commercial" },
   { src: "/images/television/spot-scene.png", alt: "Overhead live-action shot from the Trane television commercial" },
+];
+
+const CAMPAIGN_STEPS: CampaignStep[] = [
+  { label: "Broadcast", title: "National and local placement", body: "Broadcast network buys, from local spots to national campaigns." },
+  { label: "Streaming", title: "Connected TV and OTT", body: "Streaming campaigns that extend reach beyond the broadcast." },
+  { label: "Amplify", title: "Cross-channel strategy", body: "Digital and out-of-home planned alongside TV for maximum reach." },
+  { label: "Produce", title: "Commercial production", body: "Compelling TV commercials, from concept to final cut." },
 ];
 
 function sentenceCase(value: string) {
@@ -80,8 +88,6 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
   const mix = content.features.find((feature) => /media mix/i.test(feature.title));
   const targeting = content.features.find((feature) => /creative|audience/i.test(feature.title) && feature !== reach);
 
-  const measure = content.faqs?.items.find((item) => /measure/i.test(item.question));
-  const linearVsConnected = content.faqs?.items.find((item) => /linear/i.test(item.question) && /connected|ctv/i.test(item.question));
   const networks = content.faqs?.items.find((item) => /networks and platforms/i.test(item.question));
   const production = content.faqs?.items.find((item) => /creative|commercial/i.test(item.question));
   const stillFor = (index: number): TelevisionStill => COMMERCIAL_FRAMES[index] ?? COMMERCIAL_FRAMES[0];
@@ -151,9 +157,6 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
       id: "linear",
       label: linearCard.title,
       summary: linearCard.body || "",
-      title: linearVsConnected?.question,
-      body: linearVsConnected?.answer,
-      bullets: [],
       cta: null,
       visual: "broadcast",
       still: stillFor(1),
@@ -164,9 +167,6 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
       id: "connected",
       label: connectedCard?.title || "Connected TV",
       summary: connectedCard?.body || mix?.body || "",
-      title: sentenceCase(mix?.title || connectedCard?.title || "Connected TV"),
-      body: connectedCard?.body ? mix?.body : undefined,
-      bullets: mix?.bullets ?? [],
       cta: sentenceCta(mix?.cta),
       visual: "streaming",
       still: stillFor(2),
@@ -177,9 +177,6 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
       id: "buying",
       label: buyingCard?.title || "Media buying",
       summary: buyingCard?.body || targeting?.body || "",
-      title: sentenceCase(targeting?.title || buyingCard?.title || "Media buying"),
-      body: buyingCard?.body ? targeting?.body : undefined,
-      bullets: targeting?.bullets ?? [],
       cta: sentenceCta(targeting?.cta),
       visual: "plan",
     });
@@ -189,15 +186,10 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
       id: "performance",
       label: performanceCard.title,
       summary: performanceCard.body || "",
-      title: measure?.question,
-      body: measure?.answer,
-      bullets: [],
       cta: null,
       visual: "report",
     });
   }
-
-  const reachEyebrow = eyebrowLabel(reach?.eyebrow, reach?.title);
 
   return (
     <main className={styles.page}>
@@ -206,45 +198,33 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
       {reach && video ? (
         <section className={`section ${styles.reel}`} aria-labelledby="tv-reach">
           <div className="container">
-            <div className={styles.reelIntro}>
-              {reachEyebrow ? <p className={styles.reelKicker}>{reachEyebrow}</p> : null}
-              <h2 id="tv-reach" className={styles.reelTitle}>
-                {sentenceCase(reach.title)}
-              </h2>
-              {productionTitle ? <p className={styles.reelAside}>{productionTitle}</p> : null}
-            </div>
-            <figure className={styles.screen}>
-              <video
-                className={styles.video}
-                controls
-                playsInline
-                preload="metadata"
-                poster="/images/television/trane-poster.png"
-                src={video.src}
-                aria-label="Television commercial"
-              />
-              <figcaption id="tv-reel-caption">Television commercial</figcaption>
-            </figure>
-            <div className={styles.reelCopy}>
-              <div className={styles.reelLead}>
-                {reach.body ? <p className={styles.reelBody}>{reach.body}</p> : null}
-                {reach.cta ? (
-                  <Link className={styles.ghost} href={reach.cta.href}>
-                    {sentenceCase(reach.cta.label)}
-                    <ArrowIcon />
-                  </Link>
-                ) : null}
-              </div>
-              {(reach.bullets?.length ?? 0) > 0 ? (
-                <ul className={styles.reelPoints}>
-                  {reach.bullets?.map((bullet, index) => (
-                    <li key={bullet}>
-                      <span>{String(index + 1).padStart(2, "0")}</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
+            <h2 id="tv-reach" className={styles.reelTitle}>
+              Big-screen reach, planned as one campaign.
+            </h2>
+            <Reveal variant="fade">
+              <figure className={styles.screen}>
+                <video
+                  className={styles.video}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  poster="/images/television/trane-poster.png"
+                  src={video.src}
+                  aria-label="Television commercial"
+                />
+              </figure>
+            </Reveal>
+            <CampaignFlow steps={CAMPAIGN_STEPS} label="How a television campaign comes together" />
+            <div className={styles.reelLead}>
+              <p className={styles.reelBody}>
+                Television still delivers unmatched reach and credibility. Kosick plans broadcast campaigns from
+                local spots to national buys, then connects them with streaming, digital and out-of-home so every
+                channel works together.
+              </p>
+              <Link className={styles.light} href={reach.cta?.href || "/contact/"}>
+                Plan a television campaign
+                <ArrowIcon />
+              </Link>
             </div>
           </div>
         </section>

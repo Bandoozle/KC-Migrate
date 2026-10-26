@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
-import { ServicePageView } from "@/components/sections/ServicePageView";
+import { SocialMediaMarketingPage as SocialMediaMarketingView } from "@/components/sections/social-media/SocialMediaMarketingPage";
 import { getSocialMediaMarketingContent } from "@/lib/wordpress/service-page";
 
 
@@ -10,5 +10,5 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function SocialMediaMarketingPage() {
   const content = await getSocialMediaMarketingContent();
-  return <ServicePageView content={content} />;
+  return <SocialMediaMarketingView content={content} />;
 }

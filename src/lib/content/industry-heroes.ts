@@ -115,17 +115,18 @@ export const INDUSTRY_SERVICE_HEROES = {
       "Your brand is the promise people remember before they ever talk to your team.",
   },
   businessDevelopment: {
-    eyebrow: "Strategy • Advisory • Growth",
+    eyebrow: "Business Development",
     displayTitle: "Strategic",
     titleSecondary: "Business Development",
-    subtitle: "Growth should be a plan, not a guess.",
+    subtitle:
+      "Growth strategy, corporate sales, transactions and exit planning for businesses ready to make the next move.",
   },
   events: {
     eyebrow: "Events • Planning • Incentive",
     displayTitle: "Strategic",
     titleSecondary: "Corporate Events",
     subtitle:
-      "Custom corporate events motivate and educate both customers and staff, building stronger relationships and driving engagement.",
+      "Incentive travel, trade shows, networking and corporate events, planned and produced end to end.",
   },
 } as const satisfies Record<string, IndustryServiceHeroCopy>;
 

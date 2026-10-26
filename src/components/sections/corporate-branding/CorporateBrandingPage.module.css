@@ -1,0 +1,454 @@
+.page {
+  --ink: #0e0e0f;
+  --stone: #f3f3f1;
+  --rule: rgba(17, 17, 17, 0.12);
+  --block: clamp(4.5rem, 9vw, 8rem);
+  overflow-x: clip;
+  background: #ffffff;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.fig {
+  margin-right: 0.6rem;
+  color: #111111;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.figCaption {
+  margin-top: 0.85rem;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  line-height: var(--kosick-meta-leading);
+}
+
+/*
+  `.kosick-native-page a { color: inherit }` outranks a single class, so link
+  colours are scoped as `.page a.x`.
+*/
+.page a.dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  padding: 0.8rem 1.45rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.page a.dark {
+  background: var(--ink);
+  border: 1px solid var(--ink);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.page a.dark:hover {
+  background: #2a2a2d;
+  border-color: #2a2a2d;
+  color: #ffffff;
+}
+
+.page a:focus-visible {
+  outline-offset: 3px;
+}
+
+/* Intro: headline across the page, copy and identity anatomy below */
+
+.intro {
+  padding: var(--block) 0;
+}
+
+.label {
+  margin: 0 0 1rem;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.introTitle {
+  max-width: 20ch;
+  margin: 0;
+  text-wrap: balance;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.introLead {
+  margin: 1.5rem 0 0;
+  color: #111111;
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.approach {
+  display: grid;
+  margin: 2rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.approach li {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+  color: var(--kosick-color-text);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.approachStep {
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.introNote {
+  margin: 1.25rem 0 0;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  line-height: var(--kosick-meta-leading);
+}
+
+/* Services: billboard-led showcase, deliverables index, capability layout */
+
+.services {
+  padding: var(--block) 0;
+  background: var(--stone);
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: end;
+}
+
+.billboard {
+  margin: 0;
+}
+
+.billboardFrame {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.servicesCopy {
+  padding-bottom: 2.6rem;
+}
+
+.servicesLead {
+  max-width: 34ch;
+}
+
+.listLabel {
+  margin: 2.25rem 0 0.6rem;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  font-weight: 500;
+}
+
+.deliverables {
+  margin: 0 0 2.25rem;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.deliverables li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: 0.75rem;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.deliverableNumber {
+  grid-row: span 2;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.6;
+}
+
+.deliverableTitle {
+  color: #111111;
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.deliverableDetail {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-meta-size);
+  line-height: var(--kosick-meta-leading);
+}
+
+.capabilities {
+  margin-top: clamp(4.5rem, 9vw, 7.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+}
+
+.capabilitiesLead {
+  max-width: 22ch;
+  margin: 0 0 clamp(2rem, 4vw, 3rem);
+  color: #111111;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: 600;
+  letter-spacing: var(--kosick-subsection-title-tracking);
+  line-height: var(--kosick-subsection-title-leading);
+}
+
+/* One staggered row: alternating crops and offsets read as a contact sheet, not a card grid. */
+.capabilityGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem clamp(1.25rem, 2.2vw, 2rem);
+  align-items: start;
+}
+
+.capability {
+  min-width: 0;
+}
+
+.capability:nth-child(even) {
+  margin-top: clamp(2rem, 5vw, 4.5rem);
+}
+
+.capabilityFrame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #e6e6e3;
+  border-radius: 4px;
+}
+
+.capability:nth-child(even) .capabilityFrame {
+  aspect-ratio: 1 / 1;
+}
+
+.capabilityImage {
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.capability:hover .capabilityImage {
+  transform: scale(1.03);
+}
+
+.capabilityTitle {
+  margin: 1.25rem 0 0;
+  color: #111111;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.capabilityItems {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.5;
+}
+
+.capabilityItems li:not(:last-child)::after {
+  content: "/";
+  margin: 0 0.55rem;
+  color: rgba(17, 17, 17, 0.3);
+}
+
+/* Statement: the rebrand line, set large */
+
+.statement {
+  padding: var(--block) 0;
+}
+
+.statementGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.statementLabel {
+  margin: 0 0 1.25rem;
+  color: #111111;
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.statementText {
+  max-width: 22ch;
+  margin: 0 auto;
+  color: #111111;
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.statementBody {
+  max-width: 46ch;
+  margin: 1.5rem auto 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.page a.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 44px;
+  margin-top: 1rem;
+  border-bottom: 1px solid currentColor;
+  color: #111111;
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.page a.textLink:hover svg {
+  transform: translateX(3px);
+}
+
+.page a.textLink svg {
+  transition: transform 160ms ease;
+}
+
+/* Process */
+
+.process {
+  padding: var(--block) 0;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.processHead {
+  margin-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.process .onDark {
+  margin: 0;
+  color: #ffffff !important;
+}
+
+.process .onDarkLead {
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+
+/* Responsive */
+
+@media (max-width: 980px) {
+  .servicesGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .introGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .servicesCopy {
+    padding-bottom: 0;
+  }
+
+  .billboardFrame {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 980px) {
+  .capabilityGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .capabilityGrid {
+    gap: 2rem 1rem;
+  }
+
+  .capability:nth-child(even) {
+    margin-top: 1.5rem;
+  }
+
+  .capabilityFrame,
+  .capability:nth-child(even) .capabilityFrame {
+    aspect-ratio: 1 / 1;
+  }
+
+  .capabilityTitle {
+    margin-top: 0.85rem;
+    font-size: var(--kosick-body-size);
+  }
+
+  .capabilityItems {
+    display: grid;
+    gap: 0.2rem;
+  }
+
+  .capabilityItems li:not(:last-child)::after {
+    content: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .billboardFrame {
+    aspect-ratio: 1 / 1;
+  }
+
+  .approach li {
+    grid-template-columns: 3rem minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capabilityImage,
+  .page a.dark,
+  .page a.textLink svg {
+    transition: none;
+  }
+
+  .capability:hover .capabilityImage {
+    transform: none;
+  }
+}

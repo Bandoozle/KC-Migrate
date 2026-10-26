@@ -1,0 +1,17 @@
+{
+  "overflowX": 0,
+  "heroHeight": 612,
+  "heroClipped": false,
+  "lines": [
+    {
+      "text": "Strategic",
+      "top": 238,
+      "bottom": 284
+    },
+    {
+      "text": "Search Engine Optimization",
+      "top": 288,
+      "bottom": 380
+    }
+  ]
+}

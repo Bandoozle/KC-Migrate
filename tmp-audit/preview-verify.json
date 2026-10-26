@@ -1,0 +1,40 @@
+{
+  "home": {
+    "title": "Digital Marketing Agency | Kosick Communications",
+    "gtm": false,
+    "canonical": "https://www.kosick.com/",
+    "jsonLd": 1
+  },
+  "contact": {
+    "title": "Contact Us - Kosick Communications"
+  },
+  "travel": {
+    "title": "Travel Marketing In Canada: Sponsorship, TV And Digital",
+    "localImage": true,
+    "liveUpload": false,
+    "canonical": "https://www.kosick.com/travel-marketing-canada/"
+  },
+  "outdoor": {
+    "title": "Billboard &amp; Outdoor Advertising Across Canada",
+    "dead": false
+  },
+  "events": {
+    "title": "Corporate Events &amp; Group Travel | Kosick Communications",
+    "dead": false
+  },
+  "website": {
+    "title": "Website Development E-Commerce - Kosick Communications",
+    "mov": false,
+    "mp4": true
+  },
+  "sitemapCount": 74,
+  "robots": "User-Agent: *\nDisallow: /",
+  "imageHead": "HTTP/1.1 200 OK\r\nAccept-Ranges: bytes\r\nAccess-Control-Allow-Origin: *\r\nAge: 63\r\nCache-Control: public, max-age=0, must-revalidate\r\nContent-Disposition: inline; filename=\"travel-marketing-canada-cruise.jpg\"\r\nContent-Length: 327081\r\nContent-Type: image/jpeg\r",
+  "kml": true,
+  "redirect": [
+    "HTTP/1.1 308 Permanent Redirect\r",
+    "Location: /corporate-events/\r"
+  ],
+  "empty": "{\"ok\":false,\"error\":\"Please fix the highlighted fields.\",\"fields\":{\"name\":\"Name is required.\",\"email\":\"Email is required.\",\"phone\":\"Phone Number is required.\"}}",
+  "honeypot": "{\"ok\":false,\"error\":\"Unable to send your message right now.\"}"
+}

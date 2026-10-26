@@ -1,0 +1,151 @@
+{
+  "title": "Marketing Results",
+  "hero": {
+    "title": "Marketing Results",
+    "eyebrow": "Our Work",
+    "subtitle": "Canada • USA • Mexico",
+    "cta": {
+      "label": "Connect With Us",
+      "href": "/contact/"
+    },
+    "slides": [
+      {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/06/billboard-2.jpg",
+        "alt": "Social Media content creation best company",
+        "kind": "image"
+      },
+      {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/06/dental-clinic-branding.jpg",
+        "alt": "Digital Streaming Ads Media Buying",
+        "kind": "image"
+      },
+      {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/02/medical-skincare-marketing.jpg",
+        "alt": "Digital Streaming Ads Media Buying",
+        "kind": "image"
+      }
+    ]
+  },
+  "intro": {
+    "title": "Delivering Universal Marketing Results",
+    "body": "Our marketing efforts are driven by data-driven insights, ensuring your messages are delivered through the most effective channels and resonate with your potential audience. We prioritize authenticity and transparency in all our communications, fostering trust and building meaningful and profitable connections."
+  },
+  "projects": [
+    {
+      "title": "Real Estate Developments",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2022/01/Motor-Court.webp",
+        "alt": "Real estate marketing campaigns delivering measurable results through targeted advertising, branding, and digital strategies that drive inquiries and sales."
+      }
+    },
+    {
+      "title": "Residential Construction",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/services.jpg",
+        "alt": "Targeted marketing solutions for construction companies, including branding, web design, SEO, and advertising to attract clients and grow project pipelines."
+      }
+    },
+    {
+      "title": "HVAC Services",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2022/01/hvac.webp",
+        "alt": "HVAC marketing services including lead generation, Google Ads, SEO, and custom websites to help heating and cooling companies grow their customer base."
+      }
+    },
+    {
+      "title": "Medical Aesthetics",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2022/01/medical-aesthetics.webp",
+        "alt": "Marketing services for medical aesthetics clinics including social media, SEO, Google Ads, and branding to drive bookings and grow patient retention."
+      }
+    },
+    {
+      "title": "Diamond & Jewelry",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/3_1-e1687219689277.jpeg",
+        "alt": "Luxury diamond and jewelry advertising campaigns focused on brand storytelling, visual appeal, and targeted media to attract high-end clientele and boost sales."
+      }
+    },
+    {
+      "title": "Logistics & TranspoRtation",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2022/01/logistics-transportation.webp",
+        "alt": "Marketing solutions for logistics and transportation companies, including branding, web development, SEO, and advertising to drive visibility and growth."
+      }
+    },
+    {
+      "title": "Fashion",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/packaging.jpg",
+        "alt": "Fashion industry marketing services including branding, social media, influencer campaigns, and e-commerce strategies to elevate style-driven brands."
+      }
+    },
+    {
+      "title": "Home Services",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/tcs2017-08_noritz_basement_front_final_v1-2-1-e1687153222220.jpg",
+        "alt": "Home services marketing strategies including SEO, Google Ads, social media, and local advertising to help contractors attract leads and grow their business."
+      }
+    },
+    {
+      "title": "Luxury Automotive",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/Screenshot-2023-06-15-at-10.08.46-AM-1-e1686849205908.jpg",
+        "alt": "Automotive marketing campaigns delivering measurable results through digital ads, SEO, social media, and branding to drive dealership traffic and sales."
+      }
+    },
+    {
+      "title": "Wealth Management",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/wealth-management.jpg",
+        "alt": "Professional wealth management services focused on financial planning, investment strategies, and long-term growth for individuals, families, and businesses."
+      }
+    },
+    {
+      "title": "Auction & Liquidation",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2024/01/pexels-sora-shimazaki-5668473-2.png",
+        "alt": "Targeted marketing for auctions and liquidations, using digital ads, email, and signage to drive urgency, reach buyers, and maximize asset recovery value."
+      }
+    },
+    {
+      "title": "Hearth",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/hearth-advertising.jpg",
+        "alt": "Hearth marketing services promoting fireplaces, stoves, and inserts through targeted ads, SEO, and showroom branding to drive leads and in-store traffic."
+      }
+    },
+    {
+      "title": "Petroleum",
+      "href": "/contact/",
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/gilbarco-encore-close-up-emv-feature-e1687195663922.png",
+        "alt": "Petroleum advertising and marketing strategies focused on brand visibility, B2B outreach, and fueling customer loyalty through digital and traditional media."
+      }
+    }
+  ],
+  "cta": {
+    "title": "Ready to Grow Your Business?",
+    "description": "With years of proven results, let’s build a marketing strategy that grows your business.",
+    "primary": {
+      "label": "Get in Touch",
+      "href": "/contact/"
+    },
+    "phone": {
+      "label": "Call us",
+      "href": "tel:16049255800"
+    }
+  }
+}

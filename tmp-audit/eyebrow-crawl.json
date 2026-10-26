@@ -1,0 +1,1200 @@
+[
+ {
+  "path": "/",
+  "found": [
+   {
+    "tag": "h1",
+    "cls": "HomeHero-module__B1rHZW__title",
+    "text": "THE ART OF MARKETING",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "HomeHero-module__B1rHZW__cta",
+    "text": "CONNECT WITH US",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/amazon-ads-vancouver/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Streaming Ads",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Web Development",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/blog-black-friday-advertising/",
+  "found": []
+ },
+ {
+  "path": "/blog-dental-marketing/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Website Development",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Start Your Website Development",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Website Development",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/blog-digital-tv-advertising-ad-creative/",
+  "found": []
+ },
+ {
+  "path": "/blog-golf-marketing-strategies/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Social Media Marketing",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Creative & Production",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/blog-hvac-website-development/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Start Your Development",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Website Development",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "SEO For HVAC",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Start your Website Development",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/blog-importance-of-social-media-marketing/",
+  "found": []
+ },
+ {
+  "path": "/blog-kosick-com-corporate-branding-guide/",
+  "found": []
+ },
+ {
+  "path": "/blog-media-buying-canada-tv-streaming-radio/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Our Media Buying Process",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/blog-social-media-marketing/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Social Media",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Connect With Us",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/blog-tiktok-instagram-facebook-ad-safe-zones/",
+  "found": []
+ },
+ {
+  "path": "/connected-tv-advertising-canada/",
+  "found": []
+ },
+ {
+  "path": "/contact/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Contact",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "ContactPageView-module__Hay7La__eyebrow",
+    "text": "Contact Information",
+    "heading": "H2: Let’s make something happen."
+   },
+   {
+    "tag": "span",
+    "cls": "ContactPageView-module__Hay7La__directLabel",
+    "text": "Phone",
+    "heading": "-"
+   },
+   {
+    "tag": "span",
+    "cls": "ContactPageView-module__Hay7La__directLabel",
+    "text": "Email",
+    "heading": "-"
+   },
+   {
+    "tag": "h3",
+    "cls": "ContactPageView-module__Hay7La__officeLabel",
+    "text": "VANCOUVER",
+    "heading": "-"
+   },
+   {
+    "tag": "h3",
+    "cls": "ContactPageView-module__Hay7La__officeLabel",
+    "text": "CALGARY",
+    "heading": "-"
+   },
+   {
+    "tag": "h3",
+    "cls": "ContactPageView-module__Hay7La__officeLabel",
+    "text": "PHOENIX, USA",
+    "heading": "-"
+   },
+   {
+    "tag": "label",
+    "cls": "ContactForm-module__MW0ffG__label",
+    "text": "Name * required",
+    "heading": "-"
+   },
+   {
+    "tag": "label",
+    "cls": "ContactForm-module__MW0ffG__label",
+    "text": "Email * required",
+    "heading": "-"
+   },
+   {
+    "tag": "label",
+    "cls": "ContactForm-module__MW0ffG__label",
+    "text": "Phone Number * required",
+    "heading": "-"
+   },
+   {
+    "tag": "label",
+    "cls": "ContactForm-module__MW0ffG__label",
+    "text": "Company",
+    "heading": "-"
+   },
+   {
+    "tag": "label",
+    "cls": "ContactForm-module__MW0ffG__label",
+    "text": "Message",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/corporate-events/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Events • Planning • Incentive",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Connect With Our Planning Team",
+    "heading": "H2: Corporate Events"
+   },
+   {
+    "tag": "a",
+    "cls": "PromoBand-module__XRLdOq__cta",
+    "text": "Plan Your Trip",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/digital-marketing-vs-traditional-advertising/",
+  "found": []
+ },
+ {
+  "path": "/feature-articles/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Resources",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/ga4-new-generation-google-analytics/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Search • Content • Local SEO • Technical",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Drive Traffic With SEO",
+    "heading": "H2: Search engine optimization (SEO)"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Account Strategy",
+    "heading": "H2: Local Search Engine Optimization"
+   },
+   {
+    "tag": "p",
+    "cls": "SeoMarketingPage-module__xF3aza__reportEyebrow",
+    "text": "Account Reporting",
+    "heading": "H2: Search Engine Optimization That Drives Real Growth"
+   }
+  ]
+ },
+ {
+  "path": "/golf-marketing-digital-marketing-vancouver/",
+  "found": []
+ },
+ {
+  "path": "/home-services-lead-generation-strategies/",
+  "found": []
+ },
+ {
+  "path": "/how-to-buy-tv-advertising-in-canada/",
+  "found": []
+ },
+ {
+  "path": "/how-to-choose-a-marketing-company-in-vancouver/",
+  "found": []
+ },
+ {
+  "path": "/how-to-fill-tee-times-golf-marketing/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "View Golf Marketing",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Strategic Digital marketing",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/hvac-digital-marketing/",
+  "found": []
+ },
+ {
+  "path": "/hvac-marketing-fortisbc-co-op-advertising/",
+  "found": []
+ },
+ {
+  "path": "/hvac-marketing-strategies-guide/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "HVAC Marketing",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Digital Marketing",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/hvac-marketing-strategies/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "HVAC Lead Generation",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Website Development",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Digital marketing",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Social Media",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/increase-golf-course-revenue/",
+  "found": []
+ },
+ {
+  "path": "/is-television-advertising-worth-it/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "MEdia Buying",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Streaming",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/marketing-programs/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Digital • Traditional • Co-op Programs • Web",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow MarketingProgramDirectory-module__914zGa__cardEyebrow",
+    "text": "Industry",
+    "heading": "H3: HVAC Marketing"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow MarketingProgramDirectory-module__914zGa__cardEyebrow",
+    "text": "Industry",
+    "heading": "H3: Dental Marketing"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow MarketingProgramDirectory-module__914zGa__cardEyebrow",
+    "text": "Industry",
+    "heading": "H3: Golf Marketing"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow MarketingProgramDirectory-module__914zGa__cardEyebrow",
+    "text": "Digital",
+    "heading": "H3: Social Media Marketing"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow MarketingProgramDirectory-module__914zGa__cardEyebrow",
+    "text": "Digital",
+    "heading": "H3: Email Marketing"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow MarketingProgramDirectory-module__914zGa__cardEyebrow",
+    "text": "Digital",
+    "heading": "H3: Search Engine Optimization"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow MarketingProgramDirectory-module__914zGa__cardEyebrow",
+    "text": "Digital",
+    "heading": "H3: Website Development & E-Commerce"
+   }
+  ]
+ },
+ {
+  "path": "/marketing-results/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Our Work",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__kicker",
+    "text": "Brand Strategy",
+    "heading": "H3: Real Estate Developments"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__kicker",
+    "text": "Digital Marketing",
+    "heading": "H3: HVAC Services"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__kicker",
+    "text": "Digital Marketing",
+    "heading": "H3: Medical Aesthetics"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__tileKicker",
+    "text": "Brand Strategy",
+    "heading": "H3: Residential Construction"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__tileKicker",
+    "text": "Brand Strategy",
+    "heading": "H3: Logistics & Transportation"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__tileKicker",
+    "text": "Brand Strategy",
+    "heading": "H3: Fashion"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__tileKicker",
+    "text": "Digital Marketing",
+    "heading": "H3: Home Services"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__tileKicker",
+    "text": "Digital Marketing",
+    "heading": "H3: Luxury Automotive"
+   },
+   {
+    "tag": "p",
+    "cls": "MarketingResultsPortfolio-module__TI_tka__tileKicker",
+    "text": "Selected work",
+    "heading": "H3: Wealth Management"
+   }
+  ]
+ },
+ {
+  "path": "/media-buyer-canada-us/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "How Our media Buying Process Works",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/media-buying-process/",
+  "found": []
+ },
+ {
+  "path": "/media-buying-strategies-for-vancouver/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Step-by-step Media Buying Process",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/medical-marketing-vancouver/",
+  "found": []
+ },
+ {
+  "path": "/online-payments/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Payments",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/optimize-lead-generation/",
+  "found": []
+ },
+ {
+  "path": "/organic-social-media-vs-paid-advertising/",
+  "found": []
+ },
+ {
+  "path": "/outdoor-advertising-maximize-local-impact/",
+  "found": []
+ },
+ {
+  "path": "/outdoor-advertising-vancouver/",
+  "found": []
+ },
+ {
+  "path": "/services/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Services",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/services/business-development/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Strategy • Advisory • Growth",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "What We offer",
+    "heading": "H2: Strategic Advisory Across Every Phase of Business"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/corporate-branding/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Brand • Identity • Corporate",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Custom Corporate Branding",
+    "heading": "H2: We craft unique brands for small and large businesses to reach new aud"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/creative/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Brand • Creative • Production",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "What We offer",
+    "heading": "H2: Creative & Production"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/dental-marketing/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Digital • Traditional • Patient Growth • Web",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "DentalMarketingPage-module__qlLciq__eyebrow",
+    "text": "Get Found by Patients Searching for a Dentist",
+    "heading": "H2: Patient Acquisition"
+   },
+   {
+    "tag": "p",
+    "cls": "DentalMarketingPage-module__qlLciq__eyebrow",
+    "text": "Turn Searchers Into Scheduled Patients",
+    "heading": "H2: Conversion & Reputation"
+   },
+   {
+    "tag": "p",
+    "cls": "DentalMarketingPage-module__qlLciq__eyebrow",
+    "text": "High-Intent Ads for Dental Services",
+    "heading": "H2: Paid Advertising"
+   },
+   {
+    "tag": "p",
+    "cls": "DentalMarketingPage-module__qlLciq__eyebrow",
+    "text": "Keep Patients Coming Back",
+    "heading": "H2: Retention & Engagement"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/digital-connected-tv/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Advertising • Connected TV • Streaming",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/digital-marketing/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Digital • Campaigns • Paid Media • Strategy",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "What We offer",
+    "heading": "H2: Digital Marketing Campaigns"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/email-marketing/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Digital • Automation • Retention • Leads",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "What We offer",
+    "heading": "H2: Smarter Email Marketing, Better Results"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Mailchimp Expertise",
+    "heading": "H2: Email campaigns built to convert"
+   },
+   {
+    "tag": "p",
+    "cls": "EmailMarketingPage-module__BBRl-q__kicker",
+    "text": "Communication Automation",
+    "heading": "H2: Automate your customer journey"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Data That Drives Decisions",
+    "heading": "H2: Analytics & optimization"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Email Marketing Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/golf-marketing/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Digital • Traditional • Membership • Events",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "GolfMarketingPage-module__HwSnna__eyebrow",
+    "text": "Reach Golfers Where It Matters",
+    "heading": "H2: Targeted Advertising"
+   },
+   {
+    "tag": "p",
+    "cls": "GolfMarketingPage-module__HwSnna__eyebrow",
+    "text": "Build a Recognized Brand That Drives Revenue",
+    "heading": "H2: Revenue Growth"
+   },
+   {
+    "tag": "p",
+    "cls": "GolfMarketingPage-module__HwSnna__eyebrow",
+    "text": "Fill Your Calendar, Maximize Revenue",
+    "heading": "H2: Events & Tournaments"
+   },
+   {
+    "tag": "p",
+    "cls": "GolfMarketingPage-module__HwSnna__eyebrow",
+    "text": "tv creative",
+    "heading": "H2: As Seen On Sportsnet"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Golf Marketing Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/hvac-marketing/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Digital • Traditional • Co-op Programs • Web",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "What We offer",
+    "heading": "H2: Full-Service HVAC Marketing"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/hvac-marketing/hvac-lead-generation/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Digital • Local SEO • Paid Media • Automation",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Why It Works",
+    "heading": "H2: A multi-channel approach built to generate HVAC leads"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Why the approach works",
+    "heading": "H2: Connected marketing creates better HVAC leads"
+   },
+   {
+    "tag": "p",
+    "cls": "EditorialColumns-module__qoUa6G__label",
+    "text": "Demand Capture",
+    "heading": "H3: Capture high-intent homeowners"
+   },
+   {
+    "tag": "p",
+    "cls": "EditorialColumns-module__qoUa6G__label",
+    "text": "Brand Visibility",
+    "heading": "H3: Stay visible across the local market"
+   },
+   {
+    "tag": "p",
+    "cls": "EditorialColumns-module__qoUa6G__label",
+    "text": "Follow-Up & Conversion",
+    "heading": "H3: Turn interest into booked service calls"
+   }
+  ]
+ },
+ {
+  "path": "/services/outdoor-advertising/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Advertising • Billboards • Street-Level",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "OutdoorAdvertisingPage-module__loqaKq__kicker",
+    "text": "Starting From $550",
+    "heading": "H3: Street-Level (TSA)"
+   },
+   {
+    "tag": "p",
+    "cls": "OutdoorAdvertisingPage-module__loqaKq__kicker",
+    "text": "Starting From $1,000",
+    "heading": "H3: Billboard Posters"
+   },
+   {
+    "tag": "p",
+    "cls": "OutdoorAdvertisingPage-module__loqaKq__kicker",
+    "text": "Starting From $1,000",
+    "heading": "H3: Transit Advertising"
+   },
+   {
+    "tag": "p",
+    "cls": "OutdoorAdvertisingPage-module__loqaKq__kicker",
+    "text": "Starting From $1,500",
+    "heading": "H3: Superboards"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/outdoor-advertising/billboard-dimensions/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Outdoor Advertising",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/services/radio-advertising/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Advertising • Local Radio • Media Buying",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "What We offer",
+    "heading": "H2: Radio Advertising"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/search-engine-optimization/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Search • Content • Local SEO • Technical",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Drive Traffic With SEO",
+    "heading": "H2: Search engine optimization (SEO)"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Account Strategy",
+    "heading": "H2: Local Search Engine Optimization"
+   },
+   {
+    "tag": "p",
+    "cls": "SeoMarketingPage-module__xF3aza__reportEyebrow",
+    "text": "Account Reporting",
+    "heading": "H2: Search Engine Optimization That Drives Real Growth"
+   }
+  ]
+ },
+ {
+  "path": "/services/social-media-marketing/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Digital • Content • Paid Social • Community",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "What We offer",
+    "heading": "H2: Social Media Marketing in Vancouver"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/television-advertising/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Advertising • Linear TV • Media Buying",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "TelevisionAdvertisingPage-module__nwl26a__reelKicker",
+    "text": "Linear Television",
+    "heading": "H2: Connect with Canada’s largest audiences"
+   },
+   {
+    "tag": "p",
+    "cls": "TelevisionAdvertisingPage-module__nwl26a__kicker",
+    "text": "What We offer",
+    "heading": "H2: Television Advertising & Media Buying"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/services/website-development/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Web • UX • Development • E-Commerce",
+    "heading": "-"
+   },
+   {
+    "tag": "p",
+    "cls": "eyebrow kosick-eyebrow",
+    "text": "Have Questions?",
+    "heading": "H2: Frequently Asked Questions"
+   }
+  ]
+ },
+ {
+  "path": "/shopify-vs-woocommerce/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Website Development",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/site-map/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Index",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/social-media-advertising-vancouver/",
+  "found": []
+ },
+ {
+  "path": "/social-media-marketing-build-an-audience/",
+  "found": []
+ },
+ {
+  "path": "/the-power-of-radio-advertising/",
+  "found": []
+ },
+ {
+  "path": "/travel-marketing-canada/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Media Buying",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Streaming",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/understanding-digital-pre-roll-advertising/",
+  "found": []
+ },
+ {
+  "path": "/vancouver-event-marketing/",
+  "found": []
+ },
+ {
+  "path": "/vancouver-marketing-blending-strategies/",
+  "found": []
+ },
+ {
+  "path": "/vancouver-sponsorships-that-performs/",
+  "found": []
+ },
+ {
+  "path": "/vancouver-web-development-e-commerce/",
+  "found": []
+ },
+ {
+  "path": "/web-development-and-hosting-that-improves-seo/",
+  "found": []
+ },
+ {
+  "path": "/what-a-marketing-agency-can-do-for-your-business/",
+  "found": []
+ },
+ {
+  "path": "/what-is-social-marketing/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Social Media marketing",
+    "heading": "-"
+   },
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "Social Media marketing",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/why-companies-use-digital-marketing-to-grow-their-business/",
+  "found": []
+ },
+ {
+  "path": "/why-media-buying-matters/",
+  "found": [
+   {
+    "tag": "a",
+    "cls": "",
+    "text": "The Full Media buying Process",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/thanks/",
+  "found": [
+   {
+    "tag": "p",
+    "cls": "HeroBanner-module__LOuWTW__eyebrow",
+    "text": "Kosick Communications",
+    "heading": "-"
+   }
+  ]
+ },
+ {
+  "path": "/comfortmaker/",
+  "status": 500
+ },
+ {
+  "path": "/mexico-itinerary/",
+  "status": 500
+ }
+]

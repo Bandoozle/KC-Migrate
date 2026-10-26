@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
-import { ServicePageView } from "@/components/sections/ServicePageView";
+import { BusinessDevelopmentPage as BusinessDevelopmentView } from "@/components/sections/business-development/BusinessDevelopmentPage";
 import { getBusinessDevelopmentContent } from "@/lib/wordpress/service-page";
 
 
@@ -10,5 +10,5 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function BusinessDevelopmentPage() {
   const content = await getBusinessDevelopmentContent();
-  return <ServicePageView content={content} />;
+  return <BusinessDevelopmentView content={content} />;
 }

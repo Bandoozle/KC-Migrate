@@ -1,0 +1,30 @@
+{
+  "pages": 74,
+  "assets": 473,
+  "pageProblems": [],
+  "assetProblems": [
+    {
+      "url": "https://staging.kosick.com/wp-content/uploads/2024/04/cityscape-of-capital-of-corfu-island-colorful-building-at-the-morning-corfu-island-greece.webp",
+      "status": 0,
+      "page": "/corporate-events/",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "https://staging.kosick.com/wp-content/uploads/2023/07/smartmockups_ljx6qkvg-scaled.jpg",
+      "status": 0,
+      "page": "/services/outdoor-advertising/",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "https://staging.kosick.com/wp-content/uploads/2024/03/Screen-Recording-2024-03-14-at-9.30.00-AM.mov",
+      "status": 0,
+      "page": "/services/website-development/",
+      "error": "The operation was aborted due to timeout"
+    },
+    {
+      "url": "http://127.0.0.1:3010/corporate-events-group-travel/",
+      "status": 500,
+      "page": "/vancouver-event-marketing/"
+    }
+  ]
+}

@@ -1,0 +1,600 @@
+[
+  {
+    "path": "/services/website-development/",
+    "status": 308,
+    "ms": 110,
+    "location": "/services/website-development",
+    "type": "text/plain"
+  },
+  {
+    "path": "/contact/",
+    "status": 308,
+    "ms": 112,
+    "location": "/contact",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/digital-marketing/",
+    "status": 308,
+    "ms": 112,
+    "location": "/services/digital-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/email-marketing/",
+    "status": 308,
+    "ms": 82,
+    "location": "/services/email-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/social-media-marketing/",
+    "status": 308,
+    "ms": 30,
+    "location": "/services/social-media-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/search-engine-optimization/",
+    "status": 308,
+    "ms": 146,
+    "location": "/services/search-engine-optimization",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/golf-marketing/",
+    "status": 308,
+    "ms": 32,
+    "location": "/services/golf-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/dental-marketing/",
+    "status": 308,
+    "ms": 162,
+    "location": "/services/dental-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/hvac-marketing/hvac-lead-generation/",
+    "status": 308,
+    "ms": 29,
+    "location": "/services/hvac-marketing/hvac-lead-generation",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/hvac-marketing/",
+    "status": 308,
+    "ms": 30,
+    "location": "/services/hvac-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/business-development/",
+    "status": 308,
+    "ms": 30,
+    "location": "/services/business-development",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/digital-connected-tv/",
+    "status": 308,
+    "ms": 29,
+    "location": "/services/digital-connected-tv",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/creative/",
+    "status": 308,
+    "ms": 29,
+    "location": "/services/creative",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/television-advertising/",
+    "status": 308,
+    "ms": 30,
+    "location": "/services/television-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/marketing-results/",
+    "status": 308,
+    "ms": 30,
+    "location": "/marketing-results",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/corporate-branding/",
+    "status": 308,
+    "ms": 30,
+    "location": "/services/corporate-branding",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/",
+    "status": 308,
+    "ms": 30,
+    "location": "/services",
+    "type": "text/plain"
+  },
+  {
+    "path": "/corporate-events/",
+    "status": 308,
+    "ms": 30,
+    "location": "/corporate-events",
+    "type": "text/plain"
+  },
+  {
+    "path": "/marketing-programs/",
+    "status": 308,
+    "ms": 40,
+    "location": "/marketing-programs",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/outdoor-advertising/",
+    "status": 308,
+    "ms": 30,
+    "location": "/services/outdoor-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/radio-advertising/",
+    "status": 308,
+    "ms": 30,
+    "location": "/services/radio-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/services/outdoor-advertising/billboard-dimensions/",
+    "status": 308,
+    "ms": 50,
+    "location": "/services/outdoor-advertising/billboard-dimensions",
+    "type": "text/plain"
+  },
+  {
+    "path": "/site-map/",
+    "status": 308,
+    "ms": 40,
+    "location": "/site-map",
+    "type": "text/plain"
+  },
+  {
+    "path": "/online-payments/",
+    "status": 308,
+    "ms": 31,
+    "location": "/online-payments",
+    "type": "text/plain"
+  },
+  {
+    "path": "/travel-marketing-canada/",
+    "status": 308,
+    "ms": 30,
+    "location": "/travel-marketing-canada",
+    "type": "text/plain"
+  },
+  {
+    "path": "/feature-articles/",
+    "status": 308,
+    "ms": 41,
+    "location": "/feature-articles",
+    "type": "text/plain"
+  },
+  {
+    "path": "/is-television-advertising-worth-it/",
+    "status": 308,
+    "ms": 20,
+    "location": "/is-television-advertising-worth-it",
+    "type": "text/plain"
+  },
+  {
+    "path": "/ga4-new-generation-google-analytics/",
+    "status": 308,
+    "ms": 20,
+    "location": "/ga4-new-generation-google-analytics",
+    "type": "text/plain"
+  },
+  {
+    "path": "/what-is-social-marketing/",
+    "status": 308,
+    "ms": 29,
+    "location": "/what-is-social-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/increase-golf-course-revenue/",
+    "status": 308,
+    "ms": 39,
+    "location": "/increase-golf-course-revenue",
+    "type": "text/plain"
+  },
+  {
+    "path": "/how-to-choose-a-marketing-company-in-vancouver/",
+    "status": 308,
+    "ms": 21,
+    "location": "/how-to-choose-a-marketing-company-in-vancouver",
+    "type": "text/plain"
+  },
+  {
+    "path": "/hvac-marketing-strategies/",
+    "status": 308,
+    "ms": 19,
+    "location": "/hvac-marketing-strategies",
+    "type": "text/plain"
+  },
+  {
+    "path": "/media-buyer-canada-us/",
+    "status": 308,
+    "ms": 30,
+    "location": "/media-buyer-canada-us",
+    "type": "text/plain"
+  },
+  {
+    "path": "/media-buying-strategies-for-vancouver/",
+    "status": 308,
+    "ms": 39,
+    "location": "/media-buying-strategies-for-vancouver",
+    "type": "text/plain"
+  },
+  {
+    "path": "/why-media-buying-matters/",
+    "status": 308,
+    "ms": 31,
+    "location": "/why-media-buying-matters",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-media-buying-canada-tv-streaming-radio/",
+    "status": 308,
+    "ms": 30,
+    "location": "/blog-media-buying-canada-tv-streaming-radio",
+    "type": "text/plain"
+  },
+  {
+    "path": "/media-buying-process/",
+    "status": 308,
+    "ms": 20,
+    "location": "/media-buying-process",
+    "type": "text/plain"
+  },
+  {
+    "path": "/optimize-lead-generation/",
+    "status": 308,
+    "ms": 40,
+    "location": "/optimize-lead-generation",
+    "type": "text/plain"
+  },
+  {
+    "path": "/hvac-marketing-strategies-guide/",
+    "status": 308,
+    "ms": 30,
+    "location": "/hvac-marketing-strategies-guide",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-tiktok-instagram-facebook-ad-safe-zones/",
+    "status": 308,
+    "ms": 31,
+    "location": "/blog-tiktok-instagram-facebook-ad-safe-zones",
+    "type": "text/plain"
+  },
+  {
+    "path": "/social-media-advertising-vancouver/",
+    "status": 308,
+    "ms": 20,
+    "location": "/social-media-advertising-vancouver",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-importance-of-social-media-marketing/",
+    "status": 308,
+    "ms": 41,
+    "location": "/blog-importance-of-social-media-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/social-media-marketing-build-an-audience/",
+    "status": 308,
+    "ms": 43,
+    "location": "/social-media-marketing-build-an-audience",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-social-media-marketing/",
+    "status": 308,
+    "ms": 50,
+    "location": "/blog-social-media-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-golf-marketing-strategies/",
+    "status": 308,
+    "ms": 28,
+    "location": "/blog-golf-marketing-strategies",
+    "type": "text/plain"
+  },
+  {
+    "path": "/golf-marketing-digital-marketing-vancouver/",
+    "status": 308,
+    "ms": 29,
+    "location": "/golf-marketing-digital-marketing-vancouver",
+    "type": "text/plain"
+  },
+  {
+    "path": "/understanding-digital-pre-roll-advertising/",
+    "status": 308,
+    "ms": 19,
+    "location": "/understanding-digital-pre-roll-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/how-to-fill-tee-times-golf-marketing/",
+    "status": 308,
+    "ms": 40,
+    "location": "/how-to-fill-tee-times-golf-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/hvac-marketing-fortisbc-co-op-advertising/",
+    "status": 308,
+    "ms": 29,
+    "location": "/hvac-marketing-fortisbc-co-op-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/digital-marketing-vs-traditional-advertising/",
+    "status": 308,
+    "ms": 30,
+    "location": "/digital-marketing-vs-traditional-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/connected-tv-advertising-canada/",
+    "status": 308,
+    "ms": 30,
+    "location": "/connected-tv-advertising-canada",
+    "type": "text/plain"
+  },
+  {
+    "path": "/outdoor-advertising-maximize-local-impact/",
+    "status": 308,
+    "ms": 29,
+    "location": "/outdoor-advertising-maximize-local-impact",
+    "type": "text/plain"
+  },
+  {
+    "path": "/web-development-and-hosting-that-improves-seo/",
+    "status": 308,
+    "ms": 29,
+    "location": "/web-development-and-hosting-that-improves-seo",
+    "type": "text/plain"
+  },
+  {
+    "path": "/the-power-of-radio-advertising/",
+    "status": 308,
+    "ms": 50,
+    "location": "/the-power-of-radio-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/home-services-lead-generation-strategies/",
+    "status": 308,
+    "ms": 50,
+    "location": "/home-services-lead-generation-strategies",
+    "type": "text/plain"
+  },
+  {
+    "path": "/vancouver-marketing-blending-strategies/",
+    "status": 308,
+    "ms": 31,
+    "location": "/vancouver-marketing-blending-strategies",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-hvac-website-development/",
+    "status": 308,
+    "ms": 50,
+    "location": "/blog-hvac-website-development",
+    "type": "text/plain"
+  },
+  {
+    "path": "/vancouver-web-development-e-commerce/",
+    "status": 308,
+    "ms": 31,
+    "location": "/vancouver-web-development-e-commerce",
+    "type": "text/plain"
+  },
+  {
+    "path": "/shopify-vs-woocommerce/",
+    "status": 308,
+    "ms": 19,
+    "location": "/shopify-vs-woocommerce",
+    "type": "text/plain"
+  },
+  {
+    "path": "/organic-social-media-vs-paid-advertising/",
+    "status": 308,
+    "ms": 20,
+    "location": "/organic-social-media-vs-paid-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/amazon-ads-vancouver/",
+    "status": 308,
+    "ms": 19,
+    "location": "/amazon-ads-vancouver",
+    "type": "text/plain"
+  },
+  {
+    "path": "/hvac-digital-marketing/",
+    "status": 308,
+    "ms": 30,
+    "location": "/hvac-digital-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/outdoor-advertising-vancouver/",
+    "status": 308,
+    "ms": 41,
+    "location": "/outdoor-advertising-vancouver",
+    "type": "text/plain"
+  },
+  {
+    "path": "/medical-marketing-vancouver/",
+    "status": 308,
+    "ms": 31,
+    "location": "/medical-marketing-vancouver",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-dental-marketing/",
+    "status": 308,
+    "ms": 30,
+    "location": "/blog-dental-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/vancouver-event-marketing/",
+    "status": 308,
+    "ms": 30,
+    "location": "/vancouver-event-marketing",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-kosick-com-corporate-branding-guide/",
+    "status": 308,
+    "ms": 19,
+    "location": "/blog-kosick-com-corporate-branding-guide",
+    "type": "text/plain"
+  },
+  {
+    "path": "/how-to-buy-tv-advertising-in-canada/",
+    "status": 308,
+    "ms": 29,
+    "location": "/how-to-buy-tv-advertising-in-canada",
+    "type": "text/plain"
+  },
+  {
+    "path": "/vancouver-sponsorships-that-performs/",
+    "status": 308,
+    "ms": 60,
+    "location": "/vancouver-sponsorships-that-performs",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-black-friday-advertising/",
+    "status": 308,
+    "ms": 20,
+    "location": "/blog-black-friday-advertising",
+    "type": "text/plain"
+  },
+  {
+    "path": "/blog-digital-tv-advertising-ad-creative/",
+    "status": 308,
+    "ms": 41,
+    "location": "/blog-digital-tv-advertising-ad-creative",
+    "type": "text/plain"
+  },
+  {
+    "path": "/why-companies-use-digital-marketing-to-grow-their-business/",
+    "status": 308,
+    "ms": 39,
+    "location": "/why-companies-use-digital-marketing-to-grow-their-business",
+    "type": "text/plain"
+  },
+  {
+    "path": "/what-a-marketing-agency-can-do-for-your-business/",
+    "status": 308,
+    "ms": 29,
+    "location": "/what-a-marketing-agency-can-do-for-your-business",
+    "type": "text/plain"
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 404,
+    "ms": 531,
+    "location": null,
+    "type": "text/html; charset=utf-8"
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "ms": 1261,
+    "location": null,
+    "title": "Kosick Communications",
+    "description": "Next.js frontend for Kosick Communications, using the WordPress staging site as the content source.",
+    "robots": "",
+    "canonical": "",
+    "gtm": false,
+    "stagingRefs": 16,
+    "bytes": 451994
+  },
+  {
+    "path": "/thanks/",
+    "status": 308,
+    "ms": 30,
+    "location": "/thanks",
+    "type": "text/plain"
+  },
+  {
+    "path": "/comfortmaker/",
+    "status": 308,
+    "ms": 36,
+    "location": "/comfortmaker",
+    "type": "text/plain"
+  },
+  {
+    "path": "/",
+    "status": 200,
+    "ms": 2334,
+    "location": null,
+    "title": "Home | Media &amp; Marketing",
+    "description": "The Art Of Marketing Digital • Media • Branding • Business Development What We Do Marketing built to move brands forward. We help brands grow through strategy, creative, media, and",
+    "robots": "",
+    "canonical": "",
+    "gtm": true,
+    "stagingRefs": 64,
+    "bytes": 474118
+  },
+  {
+    "path": "/uncorked/",
+    "status": 308,
+    "ms": 29,
+    "location": "/uncorked",
+    "type": "text/plain"
+  },
+  {
+    "path": "/locations.kml",
+    "status": 200,
+    "ms": 5045,
+    "location": null,
+    "title": "Kosick Communications",
+    "description": "Next.js frontend for Kosick Communications, using the WordPress staging site as the content source.",
+    "robots": "",
+    "canonical": "",
+    "gtm": false,
+    "stagingRefs": 16,
+    "bytes": 452039
+  },
+  {
+    "path": "/sitemap_index.xml",
+    "status": 200,
+    "ms": 5368,
+    "location": null,
+    "title": "Kosick Communications",
+    "description": "Next.js frontend for Kosick Communications, using the WordPress staging site as the content source.",
+    "robots": "",
+    "canonical": "",
+    "gtm": false,
+    "stagingRefs": 16,
+    "bytes": 451970
+  },
+  {
+    "path": "/analytics",
+    "status": 404,
+    "ms": 4839,
+    "location": null,
+    "type": "text/html; charset=utf-8"
+  }
+]

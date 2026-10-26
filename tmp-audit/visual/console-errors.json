@@ -1,0 +1,578 @@
+[
+  {
+    "page": "/",
+    "viewport": "mobile",
+    "label": "next",
+    "message": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "mobile",
+    "label": "next",
+    "message": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+  },
+  {
+    "page": "/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/",
+    "viewport": "tablet",
+    "label": "next",
+    "message": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "tablet",
+    "label": "next",
+    "message": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+  },
+  {
+    "page": "/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/",
+    "viewport": "desktop",
+    "label": "next",
+    "message": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "desktop",
+    "label": "next",
+    "message": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+  },
+  {
+    "page": "/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/contact/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "mobile",
+    "label": "next",
+    "message": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "mobile",
+    "label": "next",
+    "message": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "tablet",
+    "label": "next",
+    "message": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "tablet",
+    "label": "next",
+    "message": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "desktop",
+    "label": "next",
+    "message": "Failed to load resource: the server responded with a status of 403 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "desktop",
+    "label": "next",
+    "message": "Loading the script 'https://player.vimeo.com/cdn-cgi/challenge-platform/scripts/precursor/main.js' violates the following Content Security Policy directive: \"script-src 'unsafe-inline'\". Note that 'script-src-elem' was not explicitly set, so 'script-src' is used as a fallback. The action has been blocked."
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/hvac-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/dental-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/services/digital-marketing/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/marketing-programs/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/feature-articles/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "mobile",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "tablet",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Failed to load resource: the server responded with a status of 404 ()"
+  },
+  {
+    "page": "/travel-marketing-canada/",
+    "viewport": "desktop",
+    "label": "wp",
+    "message": "Cannot read properties of undefined (reading 'theme')"
+  }
+]

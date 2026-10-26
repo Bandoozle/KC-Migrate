@@ -1,0 +1,96 @@
+{
+  "overflowX": 0,
+  "heroClipped": false,
+  "heroHeight": 612,
+  "titleLines": [
+    {
+      "text": "Strategic",
+      "height": 46,
+      "top": 238,
+      "bottom": 284,
+      "overflow": false
+    },
+    {
+      "text": "Search Engine Optimization",
+      "height": 92,
+      "top": 288,
+      "bottom": 380,
+      "overflow": false
+    }
+  ],
+  "sections": [
+    {
+      "heading": "StrategicSearch Engine Optimization",
+      "height": 612,
+      "top": 58
+    },
+    {
+      "heading": "What the work covers",
+      "height": 741,
+      "top": 670
+    },
+    {
+      "heading": "Search engine optimization (SEO)",
+      "height": 1196,
+      "top": 1411
+    },
+    {
+      "heading": "Local Search Engine Optimization",
+      "height": 914,
+      "top": 2607
+    },
+    {
+      "heading": "Search Engine Optimization That Drives Real Growth",
+      "height": 761,
+      "top": 3521
+    },
+    {
+      "heading": "Vancouver SEO Services",
+      "height": 637,
+      "top": 4282
+    },
+    {
+      "heading": "Ready to Elevate Your Digital Presence?",
+      "height": 247,
+      "top": 4918
+    }
+  ],
+  "images": [
+    {
+      "alt": "Kosick Communications",
+      "natural": "794x220",
+      "rendered": "101x28",
+      "upscaled": false
+    },
+    {
+      "alt": "Strategic Search Engine Optimization",
+      "natural": "2500x1657",
+      "rendered": "768x612",
+      "upscaled": false
+    },
+    {
+      "alt": "Example Google search for a local service, with related exam",
+      "natural": "1387x1339",
+      "rendered": "722x697",
+      "upscaled": false
+    },
+    {
+      "alt": "Search engine optimization work on a laptop",
+      "natural": "2500x1657",
+      "rendered": "768x288",
+      "upscaled": false
+    },
+    {
+      "alt": "",
+      "natural": "552x476",
+      "rendered": "66x66",
+      "upscaled": false
+    },
+    {
+      "alt": "",
+      "natural": "664x570",
+      "rendered": "38x38",
+      "upscaled": false
+    }
+  ]
+}

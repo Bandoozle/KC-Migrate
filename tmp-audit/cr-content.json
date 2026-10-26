@@ -1,0 +1,313 @@
+{
+  "title": "Creative & Production",
+  "excerpt": "What We offer Creative & Production Creative To Drive Sales Compelling Visuals ThatLeave a Lasting Impression Great creative grabs attention, engages the senses, and inspires action. We pair bold ideas with sharp strategy to produce work that does more than look good, it moves people to buy. Every piece is purpose-built to reinforce your brand…",
+  "hero": {
+    "slides": [
+      {
+        "src": "https://staging.kosick.com/wp-content/uploads/2024/03/hvac.mp4",
+        "alt": "",
+        "kind": "video"
+      },
+      {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/KC-Mov-3.mp4",
+        "alt": "",
+        "kind": "video"
+      },
+      {
+        "src": "https://staging.kosick.com/wp-content/uploads/2017/12/2016-12-21_CGI.mp4",
+        "alt": "",
+        "kind": "video"
+      },
+      {
+        "src": "https://staging.kosick.com/wp-content/uploads/2024/03/tr_how-we-run_70_16x9_020323104508_hd-1.mp4",
+        "alt": "",
+        "kind": "video"
+      }
+    ],
+    "eyebrow": "Brand • Creative • Production",
+    "displayTitle": "Strategic",
+    "subtitle": "Great creative grabs attention, engages the senses, and inspires action.",
+    "cta": {
+      "label": "Start a Project",
+      "href": "/contact/"
+    },
+    "titleSecondary": "Creative & Production",
+    "secondaryCta": {
+      "label": "Let's Talk",
+      "href": "tel:16049255800",
+      "icon": "phone"
+    }
+  },
+  "intro": {
+    "eyebrow": "What We offer",
+    "title": "Creative & Production"
+  },
+  "offerGroups": [
+    {
+      "cards": [
+        {
+          "id": "kt-info-box4753_9bd69b-25",
+          "title": "Video & Cinematography",
+          "body": "Premium cinematography, corporate videos, commercials, and brand documentaries",
+          "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><polygon points=\"23 7 16 12 23 17 23 7\"></polygon><rect x=\"1\" y=\"5\" width=\"15\" height=\"14\" rx=\"2\" ry=\"2\"></rect></svg>"
+        },
+        {
+          "id": "kt-info-box4753_41840d-a1",
+          "title": "Motion Graphics & VFX",
+          "body": "Animation, 3D renderings, visual effects, and dynamic motion design",
+          "iconSvg": "<svg viewBox=\"0 0 512 512\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M224 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32zM80 160l26.66-53.33L160 80l-53.34-26.67L80 0 53.34 53.33 0 80l53.34 26.67L80 160zm352 128l-26.66 53.33L352 368l53.34 26.67L432 448l26.66-53.33L512 368l-53.34-26.67L432 288zm70.62-193.77L417.77 9.38C411.53 3.12 403.34 0 395.15 0c-8.19 0-16.38 3.12-22.63 9.38L9.38 372.52c-12.5 12.5-12.5 32.76 0 45.25l84.85 84.85c6.25 6.25 14.44 9.37 22.62 9.37 8.19 0 16.38-3.12 22.63-9.37l363.14-363.15c12.5-12.48 12.5-32.75 0-45.24zM359.45 203.46l-50.91-50.91 86.6-86.6 50.91 50.91-86.6 86.6z\"></path></svg>"
+        },
+        {
+          "id": "kt-info-box4753_ded068-2f",
+          "title": "Graphic Design",
+          "body": "Brand visuals, digital content, print collateral, and presentation materials",
+          "iconSvg": "<svg viewBox=\"0 0 512 512\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M136.6 138.79a64.003 64.003 0 0 0-43.31 41.35L0 460l14.69 14.69L164.8 324.58c-2.99-6.26-4.8-13.18-4.8-20.58 0-26.51 21.49-48 48-48s48 21.49 48 48-21.49 48-48 48c-7.4 0-14.32-1.81-20.58-4.8L37.31 497.31 52 512l279.86-93.29a64.003 64.003 0 0 0 41.35-43.31L416 224 288 96l-151.4 42.79zm361.34-64.62l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.75 18.75-49.15 0-67.91z\"></path></svg>"
+        },
+        {
+          "id": "kt-info-box4753_0dcf9f-fb",
+          "title": "Audio Production",
+          "body": "Commercial audio, professional voice-over, mixing, mastering, and sound design",
+          "iconSvg": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" xmlns=\"http://www.w3.org/2000/svg\" aria-hidden=\"true\"><path d=\"M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z\"></path><path d=\"M19 10v2a7 7 0 0 1-14 0v-2\"></path><line x1=\"12\" y1=\"19\" x2=\"12\" y2=\"23\"></line><line x1=\"8\" y1=\"23\" x2=\"16\" y2=\"23\"></line></svg>"
+        }
+      ]
+    }
+  ],
+  "features": [
+    {
+      "eyebrow": "Creative To Drive Sales",
+      "title": "Compelling Visuals That Leave a Lasting Impression",
+      "body": "Great creative grabs attention, engages the senses, and inspires action. We pair bold ideas with sharp strategy to produce work that does more than look good, it moves people to buy. Every piece is purpose-built to reinforce your brand identity and deliver consistent results across every channel, from the first impression to the final sale.",
+      "bullets": [
+        "Pre-production planning, storyboarding, and creative direction",
+        "Cinematography with professional lighting and sound",
+        "Post-production editing, color grading, and sound design",
+        "Corporate videos, commercials, and brand documentaries",
+        "Social media content optimized for each platform",
+        "Full distribution and delivery across all channels"
+      ],
+      "cta": {
+        "label": "Learn More",
+        "href": "/contact/"
+      },
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/06/arcteryx-billboard-advertising-750x594.jpg",
+        "alt": "Arc’teryx transit shelter outdoor advertising"
+      },
+      "mediaPosition": "right",
+      "tone": "default"
+    },
+    {
+      "eyebrow": "SALES-OPTIMIZED Production",
+      "title": "Make Your Brand Unforgettable",
+      "body": "People remember how a brand makes them feel. We craft a brand story and pair it with striking visuals to spark real emotion, because clients who connect with you on that level come back and bring others with them. Our creative is built to earn trust, deepen loyalty, and win long-term recognition in a crowded marketplace.",
+      "bullets": [
+        "Brand story development and visual identity alignment",
+        "Custom graphics, illustrations, and visual systems",
+        "Marketing collateral design for print and digital",
+        "Social media creative and content calendars",
+        "Packaging design and environmental graphics",
+        "Brand guidelines and asset management"
+      ],
+      "cta": {
+        "label": "Learn More",
+        "href": "/contact/"
+      },
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/06/social-media-marketing-750x500.jpg",
+        "alt": "Make Your Brand Unforgettable"
+      },
+      "mediaPosition": "left",
+      "tone": "muted"
+    },
+    {
+      "eyebrow": "Artistic Creative Excellence",
+      "title": "Tell The Story With Renders",
+      "body": "Bring ideas to life with photorealistic renders that leave a lasting impression. Our renders give a realistic, immersive view of designs, concepts, and spaces, helping clients understand and picture the finished product before it exists. They also double as powerful marketing tools, letting you communicate your vision clearly before a single step is built or produced.",
+      "bullets": [
+        "Photorealistic 3D renderings and architectural visualizations",
+        "Product renderings for marketing and pre-sales materials",
+        "Interior and exterior environment design",
+        "Animation and fly-through sequences",
+        "Concept visualization for presentations and pitches",
+        "High-resolution output for print and digital campaigns"
+      ],
+      "cta": {
+        "label": "Learn More",
+        "href": "/contact/"
+      },
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/KOSICK-MODEL-LOWER-LEVEL-MARCH-17-2023-ROUGH-2-1-e1686846929767-750x464.jpg",
+        "alt": "Bring your vision to life with high-quality creative and production, paired with photorealistic hi-res rendering."
+      },
+      "mediaPosition": "right",
+      "tone": "default"
+    },
+    {
+      "eyebrow": "Visually Striking Media",
+      "title": "Creative Production For Any Medium",
+      "body": "Versatility meets creativity in our full-service production, spanning digital and traditional media alike. Whether it is video, print, web, or out-of-home, we craft compelling, sales-optimized content that drives results and resonates with your audience. Our in-house team keeps your brand consistent and your execution high-quality across every platform, so the work always feels unmistakably yours.",
+      "bullets": [
+        "Video production for TV, web, and social media platforms",
+        "Print design for magazines, brochures, and outdoor advertising",
+        "Digital content for websites, apps, and email campaigns",
+        "Out-of-home creative for billboards and transit advertising",
+        "Trade show and event materials and displays",
+        "Integrated campaigns spanning all mediums simultaneously"
+      ],
+      "cta": {
+        "label": "Learn More",
+        "href": "/contact/"
+      },
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2026/01/outdoor-billboard-advertising-750x500.jpg",
+        "alt": "Outdoor Advertising"
+      },
+      "mediaPosition": "left",
+      "tone": "muted"
+    }
+  ],
+  "packageSection": null,
+  "packageSections": [],
+  "mediaCardSection": null,
+  "processSection": {
+    "eyebrow": "From Concept to delivery",
+    "title": "Our Process",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery & Strategy",
+        "body": "We learn your brand, goals, and audience to develop a creative strategy that aligns with your business objectives."
+      },
+      {
+        "number": "02",
+        "title": "Concept & Pre-Production",
+        "body": "Storyboarding, scripting, mood boards, and creative direction, every detail planned before production begins."
+      },
+      {
+        "number": "03",
+        "title": "Production & Creation",
+        "body": "Our team executes with precision, filming, designing, rendering, and producing assets to the highest standard."
+      },
+      {
+        "number": "04",
+        "title": "Delivery & Distribution",
+        "body": "Final assets delivered in all required formats with guidance on deployment across your marketing channels."
+      }
+    ]
+  },
+  "statsSection": null,
+  "videoSections": [
+    {
+      "src": "https://player.vimeo.com/video/1055705517?dnt=1&app_id=122963"
+    },
+    {
+      "src": "https://player.vimeo.com/video/230179843?dnt=1&app_id=122963"
+    }
+  ],
+  "mediaTabsSection": null,
+  "gallerySection": null,
+  "partnerLogos": null,
+  "overlayCards": [],
+  "leadSection": null,
+  "leadSections": [],
+  "summary": null,
+  "narrative": null,
+  "linkBanner": null,
+  "promoBand": null,
+  "faqs": {
+    "eyebrow": "Have Questions?",
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What types of video production do you offer?",
+        "answer": "We offer full-service video production including corporate videos, commercials, brand documentaries, product videos, testimonial films, and social media content. Our team handles everything from pre-production planning through cinematography to post-production editing and delivery."
+      },
+      {
+        "question": "Can you create 3D renderings and animations?",
+        "answer": "Yes, our team specializes in photorealistic 3D renderings, architectural visualizations, product renderings, and motion graphics. We use industry-leading software to create stunning visuals that bring concepts to life before they’re built."
+      },
+      {
+        "question": "How long does a typical creative project take?",
+        "answer": "Timelines vary by project scope. A graphic design project may take 1-2 weeks, while a full video production can take 4-8 weeks from concept to delivery. We’ll provide a detailed timeline during our initial consultation."
+      },
+      {
+        "question": "Do you develop social media content?",
+        "answer": "Yes. We develop social media content, including monthly content calendars, post and story graphics, short form video and Reels, captions, and community focused content designed to drive engagement, build a loyal following, and support your broader marketing goals."
+      },
+      {
+        "question": "What industries do you serve?",
+        "answer": "We serve clients across real estate, HVAC, hospitality, technology, healthcare, finance, retail, and more. Our versatile team adapts creative approaches to match each industry’s unique requirements and audience expectations."
+      }
+    ]
+  },
+  "relatedServices": [
+    {
+      "title": "Video & Production",
+      "href": null,
+      "items": [
+        "Pre-Production Planning",
+        "8K Cinematography",
+        "Post-Production Editing",
+        "Distribution & Delivery"
+      ],
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2021/07/video-scaled.jpg",
+        "alt": "Video & Production"
+      }
+    },
+    {
+      "title": "Motion Graphics",
+      "href": null,
+      "items": [
+        "Design + Storytelling",
+        "Animation / Renderings",
+        "Sound Design",
+        "Visual Effects"
+      ],
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2021/07/content-scaled.jpg",
+        "alt": "Motion Graphics"
+      }
+    },
+    {
+      "title": "Audio Production",
+      "href": null,
+      "items": [
+        "Commercial Audio Creation",
+        "Professional Voice Over",
+        "Mixing & Mastering",
+        "Audio Effects"
+      ],
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2021/07/audio-recording.jpg",
+        "alt": "Audio Production"
+      }
+    },
+    {
+      "title": "Graphic Design",
+      "href": null,
+      "items": [
+        "3D Renderings",
+        "Custom Graphics",
+        "Digital Content Creation",
+        "Corporate Presentation Material"
+      ],
+      "image": {
+        "src": "https://staging.kosick.com/wp-content/uploads/2023/06/MBYMockupcards2.jpeg",
+        "alt": "Graphic Design"
+      }
+    }
+  ],
+  "cta": {
+    "title": "Ready to Elevate Your Creative?",
+    "description": "Let’s discuss how compelling creative production can transform your brand.",
+    "primary": {
+      "label": "Get in Touch",
+      "href": "/contact/"
+    },
+    "phone": {
+      "label": "Call us",
+      "href": "tel:16049255800"
+    }
+  }
+}

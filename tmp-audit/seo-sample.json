@@ -1,0 +1,350 @@
+[
+  {
+    "path": "/",
+    "wp": {
+      "status": 200,
+      "final": "https://www.kosick.com/",
+      "title": "Digital Marketing Agency | Kosick Communications",
+      "description": "Award-winning marketing agency blending Google Ads, TV, Streaming, Billboards, Web, and branding to grow your business across Canada and the US. Let's talk.",
+      "canonical": "https://www.kosick.com/",
+      "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "ogTitle": "Digital Marketing Agency | Kosick Communications",
+      "ogDesc": "Award-winning marketing agency blending Google Ads, TV, Streaming, Billboards, Web, and branding to grow your business across Canada and the US. Let's talk.",
+      "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "jsonLdTypes": [
+        "Place",
+        "PostalAddress",
+        "PostalAddress",
+        "ImageObject",
+        "WebSite",
+        "SearchAction",
+        "ImageObject",
+        "WebPage",
+        "Person",
+        "ImageObject",
+        "Article",
+        "VideoObject"
+      ],
+      "h1": [
+        "A Full-Service Branding, Digital Marketing Agency"
+      ]
+    },
+    "next": {
+      "status": 200,
+      "final": "https://kc-migrate.vercel.app/",
+      "title": "Home | Media & Marketing",
+      "description": "The Art Of Marketing Digital • Media • Branding • Business Development What We Do Marketing built to move brands forward. We help brands grow through strategy, creative, media, and digital experiences. With 40+ years of experience, Kosick combines traditional advertising with modern digital marketing to build visibility, reach the right audience, and drive measurable…",
+      "canonical": "",
+      "robots": "",
+      "ogTitle": "",
+      "ogDesc": "",
+      "ogImage": "",
+      "jsonLdTypes": [],
+      "h1": [
+        "THE ART OF MARKETING"
+      ]
+    }
+  },
+  {
+    "path": "/contact/",
+    "wp": {
+      "status": 200,
+      "final": "https://www.kosick.com/contact/",
+      "title": "Contact Us - Kosick Communications",
+      "description": "A full service retail, Branding, digital agency delivering measurable results. Proudly servicing clients in Canada, USA & Mexico. Contact Us",
+      "canonical": "https://www.kosick.com/contact/",
+      "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "ogTitle": "Contact Us - Kosick Communications",
+      "ogDesc": "A full service retail, Branding, digital agency delivering measurable results. Proudly servicing clients in Canada, USA & Mexico. Contact Us",
+      "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/global.png",
+      "jsonLdTypes": [
+        "Place",
+        "PostalAddress",
+        "PostalAddress",
+        "ImageObject",
+        "WebSite",
+        "ImageObject",
+        "ContactPage"
+      ],
+      "h1": [
+        "Kosick Communications Ltd."
+      ]
+    },
+    "next": {
+      "status": 200,
+      "final": "https://kc-migrate.vercel.app/contact",
+      "title": "Contact",
+      "description": "Contact Information Kosick Communications Ltd. Phone: +1 (604) 925-5800Email: moc.kcisokobfsctd-3462a9@ofni VANCOUVER: 4698 Clovelly WalkWest Vancouver, British ColumbiaCanada V7W 1H5 CALGARY: 403-701 3rd Ave SW Calgary, AlbertaCanada T2P 5R3 PHOENIX, USA: 6140 S Kings Ranch Rd, Gold Canyon, AZUnited States, 85118 Proudly Servicing: Canada, USA & Mexico Let’s WorkTogether Ready to amplify your brand? Get in…",
+      "canonical": "",
+      "robots": "",
+      "ogTitle": "",
+      "ogDesc": "",
+      "ogImage": "",
+      "jsonLdTypes": [],
+      "h1": [
+        "Kosick Communications Ltd."
+      ]
+    }
+  },
+  {
+    "path": "/services/",
+    "wp": {
+      "status": 200,
+      "final": "https://www.kosick.com/services/",
+      "title": "Marketing Services & Strategy | Kosick Communications",
+      "description": "Full-service marketing: media buying, digital, SEO, branding, web, and creative built to connect brands with customers. Connect with our team...",
+      "canonical": "https://www.kosick.com/services/",
+      "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "ogTitle": "Marketing Services & Strategy | Kosick Communications",
+      "ogDesc": "Full-service marketing: media buying, digital, SEO, branding, web, and creative built to connect brands with customers. Connect with our team...",
+      "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/ppc-ads.jpg",
+      "jsonLdTypes": [
+        "Place",
+        "PostalAddress",
+        "PostalAddress",
+        "ImageObject",
+        "WebSite",
+        "ImageObject",
+        "WebPage",
+        "Person",
+        "ImageObject",
+        "Article"
+      ],
+      "h1": [
+        "Our Areas of SERVICEs Expertise"
+      ]
+    },
+    "next": {
+      "status": 200,
+      "final": "https://kc-migrate.vercel.app/services",
+      "title": "Our Services & Expertise",
+      "description": "Our Areas of SERVICEs Expertise Marketing Strategist & Creators We are an innovative Marketing Strategist creative services agency focused on creating meaningful connections through how brands connect and resonate with consumers. DIGITAL STRATEGY + SOCIAL At Kosick Communications, we specialize in efficiently managing Google Ads & Facebook/Instagram campaigns. Our digital strategists will work with you…",
+      "canonical": "",
+      "robots": "",
+      "ogTitle": "",
+      "ogDesc": "",
+      "ogImage": "",
+      "jsonLdTypes": [],
+      "h1": [
+        "Our Areas of SERVICEs Expertise"
+      ]
+    }
+  },
+  {
+    "path": "/services/hvac-marketing/",
+    "wp": {
+      "status": 200,
+      "final": "https://www.kosick.com/services/hvac-marketing/",
+      "title": "HVAC Marketing & Lead Generation | Kosick Communications",
+      "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads, and CTV for dealers across North America.",
+      "canonical": "https://www.kosick.com/services/hvac-marketing/",
+      "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "ogTitle": "HVAC Marketing & Lead Generation | Kosick Communications",
+      "ogDesc": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads, and CTV for dealers across North America.",
+      "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/hvac-lead-generation-1.jpg",
+      "jsonLdTypes": [
+        "Place",
+        "PostalAddress",
+        "PostalAddress",
+        "ImageObject",
+        "WebSite",
+        "ImageObject",
+        "WebPage",
+        "Person",
+        "ImageObject",
+        "Article",
+        "VideoObject",
+        "VideoObject"
+      ],
+      "h1": [
+        "HVAC Marketing &amp; Lead Generation"
+      ]
+    },
+    "next": {
+      "status": 200,
+      "final": "https://kc-migrate.vercel.app/services/hvac-marketing",
+      "title": "HVAC Marketing",
+      "description": "What We offer Full-Service HVAC Marketing 20+ YEARS OF HVAC EXPERTISE HVAC Marketing & Lead Generation We don’t just run ads. We build comprehensive, omni-channel marketing programs tailored to the HVAC industry. From Google Ads and Local Service Ads to television, radio, and outdoor billboards, our integrated approach reaches homeowners at every touchpoint. Having partnered…",
+      "canonical": "",
+      "robots": "",
+      "ogTitle": "",
+      "ogDesc": "",
+      "ogImage": "",
+      "jsonLdTypes": [],
+      "h1": [
+        "StrategicHVAC Marketing"
+      ]
+    }
+  },
+  {
+    "path": "/marketing-programs/",
+    "wp": {
+      "status": 200,
+      "final": "https://www.kosick.com/marketing-programs/",
+      "title": "Knowledgeable Marketing Programs - Kosick Communications",
+      "description": "Drive sales with Kosick's national media programs: Google Ads, billboards, transit shelters, television, and digital pre-roll campaigns at preferred rates.",
+      "canonical": "https://www.kosick.com/marketing-programs/",
+      "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "ogTitle": "Knowledgeable Marketing Programs - Kosick Communications",
+      "ogDesc": "Drive sales with Kosick's national media programs: Google Ads, billboards, transit shelters, television, and digital pre-roll campaigns at preferred rates.",
+      "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/digital.jpg",
+      "jsonLdTypes": [
+        "Place",
+        "PostalAddress",
+        "PostalAddress",
+        "ImageObject",
+        "WebSite",
+        "ImageObject",
+        "WebPage",
+        "Person",
+        "ImageObject",
+        "Article"
+      ],
+      "h1": []
+    },
+    "next": {
+      "status": 200,
+      "final": "https://kc-migrate.vercel.app/marketing-programs",
+      "title": "Marketing Programs",
+      "description": "Kosick combines strategy, media, creative, digital, and industry expertise into focused marketing programs designed around real business goals.",
+      "canonical": "",
+      "robots": "",
+      "ogTitle": "",
+      "ogDesc": "",
+      "ogImage": "",
+      "jsonLdTypes": [],
+      "h1": [
+        "Marketing Programs Built Around How Your Business Grows"
+      ]
+    }
+  },
+  {
+    "path": "/feature-articles/",
+    "wp": {
+      "status": 200,
+      "final": "https://www.kosick.com/feature-articles/",
+      "title": "Featured Digital Marketing Articles- Kosick Communications",
+      "description": "Discover actionable marketing insights and strategies to elevate your brand's presence through featured articles in our dynamic marketing blog.",
+      "canonical": "https://www.kosick.com/feature-articles/",
+      "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "ogTitle": "Featured Digital Marketing Articles- Kosick Communications",
+      "ogDesc": "Discover actionable marketing insights and strategies to elevate your brand's presence through featured articles in our dynamic marketing blog.",
+      "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "jsonLdTypes": [
+        "Place",
+        "PostalAddress",
+        "LocalBusiness",
+        "PostalAddress",
+        "ImageObject",
+        "WebSite",
+        "CollectionPage"
+      ],
+      "h1": [
+        "Feature Articles"
+      ]
+    },
+    "next": {
+      "status": 200,
+      "final": "https://kc-migrate.vercel.app/feature-articles",
+      "title": "Feature Articles",
+      "description": "The Latest In Marketing",
+      "canonical": "",
+      "robots": "",
+      "ogTitle": "",
+      "ogDesc": "",
+      "ogImage": "",
+      "jsonLdTypes": [],
+      "h1": [
+        "Feature Articles"
+      ]
+    }
+  },
+  {
+    "path": "/hvac-marketing-strategies/",
+    "wp": {
+      "status": 200,
+      "final": "https://www.kosick.com/hvac-marketing-strategies/",
+      "title": "HVAC Marketing Strategies To Grow Your Business | Kosick Communications",
+      "description": "Discover proven HVAC marketing strategies to win more service calls and installs, from Google Ads and TV to outdoor and social. Read the guide.",
+      "canonical": "https://www.kosick.com/hvac-marketing-strategies/",
+      "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "ogTitle": "HVAC Marketing Strategies To Grow Your Business | Kosick Communications",
+      "ogDesc": "Discover proven HVAC marketing strategies to win more service calls and installs, from Google Ads and TV to outdoor and social. Read the guide.",
+      "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/transit-out-of-home-advertising-1.jpg",
+      "jsonLdTypes": [
+        "Place",
+        "PostalAddress",
+        "PostalAddress",
+        "ImageObject",
+        "WebSite",
+        "ImageObject",
+        "WebPage",
+        "Person",
+        "ImageObject",
+        "BlogPosting"
+      ],
+      "h1": [
+        "HVAC Marketing Strategies to Grow Your Heating and Cooling Business"
+      ]
+    },
+    "next": {
+      "status": 200,
+      "final": "https://kc-migrate.vercel.app/hvac-marketing-strategies",
+      "title": "HVAC Marketing Strategies to Grow Your Heating and Cooling Business",
+      "description": "Running a heating and cooling company keeps you busy, and finding time to bring in new customers can feel like one more job on an already full plate. The good…",
+      "canonical": "/hvac-marketing-strategies/",
+      "robots": "",
+      "ogTitle": "HVAC Marketing Strategies to Grow Your Heating and Cooling Business",
+      "ogDesc": "Running a heating and cooling company keeps you busy, and finding time to bring in new customers can feel like one more job on an already full plate. The good…",
+      "ogImage": "https://staging.kosick.com/wp-content/uploads/2026/06/transit-out-of-home-advertising-1-750x563.jpg",
+      "jsonLdTypes": [],
+      "h1": [
+        "HVAC Marketing Strategies to Grow Your Heating and Cooling Business"
+      ]
+    }
+  },
+  {
+    "path": "/digital-marketing-vs-traditional-advertising/",
+    "wp": {
+      "status": 200,
+      "final": "https://www.kosick.com/digital-marketing-vs-traditional-advertising/",
+      "title": "Digital Marketing Vs Traditional Advertising | Kosick Communications",
+      "description": "Digital marketing vs traditional advertising explained. Learn how Kosick Communications blends digital and media to maximize reach and conversions.",
+      "canonical": "https://www.kosick.com/digital-marketing-vs-traditional-advertising/",
+      "robots": "follow, index, max-snippet:-1, max-video-preview:-1, max-image-preview:large",
+      "ogTitle": "Digital Marketing Vs Traditional Advertising | Kosick Communications",
+      "ogDesc": "Digital marketing vs traditional advertising explained. Learn how Kosick Communications blends digital and media to maximize reach and conversions.",
+      "ogImage": "https://www.kosick.com/wp-content/uploads/2025/12/digital-marketing-campaign.jpg",
+      "jsonLdTypes": [
+        "Place",
+        "PostalAddress",
+        "PostalAddress",
+        "ImageObject",
+        "WebSite",
+        "ImageObject",
+        "WebPage",
+        "Person",
+        "ImageObject",
+        "BlogPosting"
+      ],
+      "h1": [
+        "Digital Marketing vs Traditional Advertising: Why the Best Results Come from Using Both"
+      ]
+    },
+    "next": {
+      "status": 200,
+      "final": "https://kc-migrate.vercel.app/digital-marketing-vs-traditional-advertising",
+      "title": "Digital Marketing vs Traditional Advertising: Why the Best Results Come from Using Both",
+      "description": "If you are weighing digital marketing vs traditional advertising, you are asking the right question. We hear it constantly from business owners and marketing leaders across Vancouver and across Canada. Should…",
+      "canonical": "/digital-marketing-vs-traditional-advertising/",
+      "robots": "",
+      "ogTitle": "Digital Marketing vs Traditional Advertising: Why the Best Results Come from Using Both",
+      "ogDesc": "If you are weighing digital marketing vs traditional advertising, you are asking the right question. We hear it constantly from business owners and marketing leaders across Vancouver and across Canada. Should…",
+      "ogImage": "https://staging.kosick.com/wp-content/uploads/2025/12/digital-marketing-campaign-750x469.jpg",
+      "jsonLdTypes": [],
+      "h1": [
+        "Digital Marketing vs Traditional Advertising: Why the Best Results Come from Using Both"
+      ]
+    }
+  }
+]

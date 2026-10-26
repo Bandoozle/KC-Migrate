@@ -1,0 +1,225 @@
+.stage {
+  display: grid;
+  gap: 1.75rem;
+  margin-top: 1.75rem;
+}
+
+.tuner {
+  display: grid;
+  align-content: start;
+}
+
+.channel,
+.frame,
+.thumb {
+  appearance: none;
+  margin: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: baseline;
+  width: 100%;
+  padding: 1rem 0;
+  border: 0;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.14);
+  color: #6a6f73;
+  transition: color 160ms ease-out, border-color 160ms ease-out;
+}
+
+.channel:first-child {
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
+}
+
+.channel:hover {
+  color: #111111;
+}
+
+.channel[aria-selected="true"] {
+  border-bottom: 2px solid #111111;
+  padding-bottom: calc(1rem - 1px);
+  color: #111111;
+}
+
+.channelIndex,
+.frame span:first-child {
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.channelIndex {
+  color: #8a8f93;
+}
+
+.channel[aria-selected="true"] .channelIndex {
+  color: #111111;
+}
+
+.channelLabel {
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.program {
+  display: grid;
+  gap: 1.75rem;
+  align-content: start;
+}
+
+.programCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.programTitle {
+  margin: 0 0 var(--kosick-title-desc-gap);
+  font-family: var(--kosick-font);
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+  line-height: var(--kosick-subsection-title-leading);
+}
+
+.summary {
+  margin: 0.85rem 0 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  font-weight: var(--kosick-body-weight);
+  line-height: var(--kosick-body-leading);
+}
+
+.programMedia {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+  min-width: 0;
+}
+
+.monitor {
+  position: relative;
+  background: #141414;
+  color: #ffffff;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.monitor img,
+.terms {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000000;
+}
+
+.terms {
+  display: grid;
+  align-content: center;
+  gap: 0;
+  margin: 0;
+  padding: 0 1.25rem;
+  list-style: none;
+}
+
+.terms li {
+  padding: 0.55rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.terms li:first-child {
+  border-top: 0;
+}
+
+.monitor:has(img) .monitorLabel {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 2.75rem 1.15rem 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0));
+}
+
+@media (max-width: 699px) {
+  .monitor:has(img) .monitorLabel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+}
+
+.monitor:has(.terms) {
+  padding-bottom: 0.85rem;
+}
+
+.monitor:has(.terms) .monitorLabel {
+  padding: 0.8rem 1.25rem 0.15rem;
+}
+
+.monitorLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: var(--kosick-body-leading);
+}
+
+.monitorLabel span:last-child:not(:only-child) {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--kosick-meta-size);
+  font-weight: 500;
+}
+
+.points {
+  display: grid;
+  gap: 0;
+}
+
+.points li {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: baseline;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
+  font-size: var(--kosick-body-size);
+  font-weight: var(--kosick-body-weight);
+  line-height: var(--kosick-body-leading);
+}
+
+.points li span:first-child {
+  color: #6e6e73;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (min-width: 700px) {
+  .points {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+}
+

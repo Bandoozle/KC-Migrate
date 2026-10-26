@@ -1,0 +1,478 @@
+[
+  {
+    "name": "golf",
+    "width": 390,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 58,
+      "width": 390,
+      "height": 662.203125
+    },
+    "statusNote": "Strategic Golf Marketing | Kosick Communications",
+    "h1": "Strategic Golf Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/golf-marketing/",
+    "jsonLd": 2,
+    "iframes": [],
+    "heroHeight": 662,
+    "heroTop": 58,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your Golf Business?"
+    ]
+  },
+  {
+    "name": "dental",
+    "width": 390,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 58,
+      "width": 390,
+      "height": 662.203125
+    },
+    "statusNote": "Dental Marketing To Grow Your Practice | Kosick Communications",
+    "h1": "Strategic Dental Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/dental-marketing/",
+    "jsonLd": 1,
+    "iframes": [],
+    "heroHeight": 662,
+    "heroTop": 58,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your Practice?"
+    ]
+  },
+  {
+    "name": "hvac",
+    "width": 390,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 58,
+      "width": 390,
+      "height": 634.3125
+    },
+    "statusNote": "HVAC Marketing & Lead Generation | Kosick Communications",
+    "h1": "Strategic HVAC Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/hvac-marketing/",
+    "jsonLd": 2,
+    "iframes": [
+      "https://player.vimeo.com/video/1055705517?dnt=1&app_id=122963"
+    ],
+    "heroHeight": 634,
+    "heroTop": 58,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflow": 0,
+    "hvacImages": [
+      "http://127.0.0.1:3001/_next/image/?url=%2Fimages%2Fhvac-marketing%2Ffeature-lead-generation.jpg&w=640&q=75",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-lead-generation.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-billboard.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-strategies.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-youtube.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-facebook.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-tiktok.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-instagram.jpg"
+    ],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your HVAC Business?"
+    ]
+  },
+  {
+    "name": "social",
+    "width": 390,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 58,
+      "width": 390,
+      "height": 671.03125
+    },
+    "statusNote": "Social Media Marketing Vancouver | Kosick Communications",
+    "h1": "Strategic Social Media Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/social-media-marketing/",
+    "jsonLd": 2,
+    "iframes": [],
+    "heroHeight": 671,
+    "heroTop": 58,
+    "scrollWidth": 390,
+    "clientWidth": 390,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Transform Your Social Presence?"
+    ]
+  },
+  {
+    "name": "golf",
+    "width": 768,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 58,
+      "width": 768,
+      "height": 590.6875
+    },
+    "statusNote": "Strategic Golf Marketing | Kosick Communications",
+    "h1": "Strategic Golf Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/golf-marketing/",
+    "jsonLd": 2,
+    "iframes": [],
+    "heroHeight": 591,
+    "heroTop": 58,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your Golf Business?"
+    ]
+  },
+  {
+    "name": "dental",
+    "width": 768,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 58,
+      "width": 768,
+      "height": 562.796875
+    },
+    "statusNote": "Dental Marketing To Grow Your Practice | Kosick Communications",
+    "h1": "Strategic Dental Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/dental-marketing/",
+    "jsonLd": 1,
+    "iframes": [],
+    "heroHeight": 563,
+    "heroTop": 58,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your Practice?"
+    ]
+  },
+  {
+    "name": "hvac",
+    "width": 768,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 58,
+      "width": 768,
+      "height": 562.796875
+    },
+    "statusNote": "HVAC Marketing & Lead Generation | Kosick Communications",
+    "h1": "Strategic HVAC Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/hvac-marketing/",
+    "jsonLd": 2,
+    "iframes": [
+      "https://player.vimeo.com/video/1055705517?dnt=1&app_id=122963"
+    ],
+    "heroHeight": 563,
+    "heroTop": 58,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflow": 0,
+    "hvacImages": [
+      "http://127.0.0.1:3001/_next/image/?url=%2Fimages%2Fhvac-marketing%2Ffeature-lead-generation.jpg&w=828&q=75",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-lead-generation.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-billboard.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-strategies.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-youtube.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-facebook.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-tiktok.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-instagram.jpg"
+    ],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your HVAC Business?"
+    ]
+  },
+  {
+    "name": "social",
+    "width": 768,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 58,
+      "width": 768,
+      "height": 562.796875
+    },
+    "statusNote": "Social Media Marketing Vancouver | Kosick Communications",
+    "h1": "Strategic Social Media Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/social-media-marketing/",
+    "jsonLd": 2,
+    "iframes": [],
+    "heroHeight": 563,
+    "heroTop": 58,
+    "scrollWidth": 768,
+    "clientWidth": 768,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Transform Your Social Presence?"
+    ]
+  },
+  {
+    "name": "golf",
+    "width": 1440,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 569.59375
+    },
+    "statusNote": "Strategic Golf Marketing | Kosick Communications",
+    "h1": "Strategic Golf Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/golf-marketing/",
+    "jsonLd": 2,
+    "iframes": [],
+    "heroHeight": 570,
+    "heroTop": 72,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your Golf Business?"
+    ]
+  },
+  {
+    "name": "dental",
+    "width": 1440,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 569.59375
+    },
+    "statusNote": "Dental Marketing To Grow Your Practice | Kosick Communications",
+    "h1": "Strategic Dental Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/dental-marketing/",
+    "jsonLd": 1,
+    "iframes": [],
+    "heroHeight": 570,
+    "heroTop": 72,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your Practice?"
+    ]
+  },
+  {
+    "name": "hvac",
+    "width": 1440,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 569.59375
+    },
+    "statusNote": "HVAC Marketing & Lead Generation | Kosick Communications",
+    "h1": "Strategic HVAC Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/hvac-marketing/",
+    "jsonLd": 2,
+    "iframes": [
+      "https://player.vimeo.com/video/1055705517?dnt=1&app_id=122963"
+    ],
+    "heroHeight": 570,
+    "heroTop": 72,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflow": 0,
+    "hvacImages": [
+      "http://127.0.0.1:3001/_next/image/?url=%2Fimages%2Fhvac-marketing%2Ffeature-lead-generation.jpg&w=750&q=75",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-lead-generation.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-billboard.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-strategies.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-youtube.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-facebook.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-tiktok.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-instagram.jpg"
+    ],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your HVAC Business?"
+    ]
+  },
+  {
+    "name": "social",
+    "width": 1440,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 72,
+      "width": 1440,
+      "height": 569.59375
+    },
+    "statusNote": "Social Media Marketing Vancouver | Kosick Communications",
+    "h1": "Strategic Social Media Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/social-media-marketing/",
+    "jsonLd": 2,
+    "iframes": [],
+    "heroHeight": 570,
+    "heroTop": 72,
+    "scrollWidth": 1440,
+    "clientWidth": 1440,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Transform Your Social Presence?"
+    ]
+  },
+  {
+    "name": "golf",
+    "width": 1920,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 72,
+      "width": 1920,
+      "height": 600
+    },
+    "statusNote": "Strategic Golf Marketing | Kosick Communications",
+    "h1": "Strategic Golf Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/golf-marketing/",
+    "jsonLd": 2,
+    "iframes": [],
+    "heroHeight": 600,
+    "heroTop": 72,
+    "scrollWidth": 1920,
+    "clientWidth": 1920,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your Golf Business?"
+    ]
+  },
+  {
+    "name": "dental",
+    "width": 1920,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 72,
+      "width": 1920,
+      "height": 600
+    },
+    "statusNote": "Dental Marketing To Grow Your Practice | Kosick Communications",
+    "h1": "Strategic Dental Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/dental-marketing/",
+    "jsonLd": 1,
+    "iframes": [],
+    "heroHeight": 600,
+    "heroTop": 72,
+    "scrollWidth": 1920,
+    "clientWidth": 1920,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your Practice?"
+    ]
+  },
+  {
+    "name": "hvac",
+    "width": 1920,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 72,
+      "width": 1920,
+      "height": 600
+    },
+    "statusNote": "HVAC Marketing & Lead Generation | Kosick Communications",
+    "h1": "Strategic HVAC Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/hvac-marketing/",
+    "jsonLd": 2,
+    "iframes": [
+      "https://player.vimeo.com/video/1055705517?dnt=1&app_id=122963"
+    ],
+    "heroHeight": 600,
+    "heroTop": 72,
+    "scrollWidth": 1920,
+    "clientWidth": 1920,
+    "overflow": 0,
+    "hvacImages": [
+      "http://127.0.0.1:3001/_next/image/?url=%2Fimages%2Fhvac-marketing%2Ffeature-lead-generation.jpg&w=1080&q=75",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-lead-generation.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-billboard.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/feature-strategies.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-youtube.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-facebook.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-tiktok.jpg",
+      "http://127.0.0.1:3001/images/hvac-marketing/tab-instagram.jpg"
+    ],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Grow Your HVAC Business?"
+    ]
+  },
+  {
+    "name": "social",
+    "width": 1920,
+    "status": 200,
+    "heroBox": {
+      "x": 0,
+      "y": 72,
+      "width": 1920,
+      "height": 600
+    },
+    "statusNote": "Social Media Marketing Vancouver | Kosick Communications",
+    "h1": "Strategic Social Media Marketing",
+    "h1Count": 1,
+    "canonical": "https://www.kosick.com/services/social-media-marketing/",
+    "jsonLd": 2,
+    "iframes": [],
+    "heroHeight": 600,
+    "heroTop": 72,
+    "scrollWidth": 1920,
+    "clientWidth": 1920,
+    "overflow": 0,
+    "hvacImages": [],
+    "brokenImages": [],
+    "cta": [
+      "Ready to Transform Your Social Presence?"
+    ]
+  }
+]

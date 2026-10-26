@@ -1,0 +1,523 @@
+.page {
+  --ink: #0e0e0f;
+  --stone: #f3f3f1;
+  --block: clamp(4.5rem, 9vw, 8rem);
+  --rule-dark: rgba(255, 255, 255, 0.16);
+  overflow-x: clip;
+  background: #ffffff;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.label,
+.labelOnDark {
+  margin: 0 0 0.85rem;
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.label {
+  color: #111111;
+}
+
+.labelOnDark {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.body {
+  max-width: 38ch;
+  margin: 1rem 0 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.captionOnDark {
+  margin-top: 0.85rem;
+  font-size: var(--kosick-meta-size);
+  line-height: var(--kosick-meta-leading);
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Capability selector */
+
+.capabilities {
+  padding: var(--block) 0;
+}
+
+.offerTitle {
+  margin: 0 0 clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* Video */
+
+.video {
+  padding-bottom: var(--block);
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.cinema {
+  aspect-ratio: 21 / 9;
+}
+
+.videoCopy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 4vw, 4.5rem);
+  align-items: center;
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.video .videoLead .onDark {
+  max-width: 21ch;
+  text-wrap: balance;
+}
+
+.videoLead .bodyOnDark {
+  margin-top: 1.25rem;
+}
+
+.videoActions {
+  margin-top: 2rem;
+}
+
+.page a.primaryOnDark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 52px;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #101010;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.page a.primaryOnDark:hover {
+  background: #e4e4e8;
+}
+
+.page a.primaryOnDark:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+.craftGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.craftCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-height: 100%;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.craftCard:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  transform: translateY(-2px);
+}
+
+.craftIcon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.72);
+  transition: color 180ms ease;
+}
+
+.craftCard:hover .craftIcon {
+  color: #ffffff;
+}
+
+.craftStep {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: var(--kosick-meta-size);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.craftTitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.video .onDark,
+.renders .renderTitle {
+  max-width: 18ch;
+  margin: 0;
+  color: #ffffff !important;
+}
+
+.bodyOnDark {
+  max-width: 40ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+/* Motion */
+
+.motion {
+  padding: var(--block) 0;
+}
+
+.motionTitle,
+.wallTitle,
+.audioTitle {
+  margin: 0;
+}
+
+/* Design wall: three staggered columns, the heading set inside the middle one */
+
+.design {
+  padding: var(--block) 0;
+  background: var(--stone);
+}
+
+/*
+ * One grid under the collage: the heading takes the first row of the middle
+ * column, so the identity sheet and the billboard start on the same line and
+ * the packaging column runs the full height beside them.
+ */
+.wall {
+  --gutter: clamp(1rem, 1.8vw, 1.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.15fr) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: var(--gutter);
+  align-items: start;
+}
+
+.wallColumn {
+  display: grid;
+  gap: var(--gutter);
+}
+
+.wallColumn:nth-child(1) {
+  grid-column: 1;
+  grid-row: 1 / -1;
+}
+
+.wallColumn:nth-child(2) {
+  display: contents;
+}
+
+.wallColumn:nth-child(3) {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.slotIdentity {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.wallIntro {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 0 0 clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.wallIntro .label {
+  margin-bottom: 1rem;
+}
+
+.design .wallTitle {
+  font-size: calc(var(--kosick-section-title-size) * 1.12) !important;
+  line-height: 1.08 !important;
+  text-wrap: balance;
+}
+
+.wallIntro .body {
+  margin-top: 1.1rem;
+}
+
+.tile {
+  margin: 0;
+}
+
+.tileFrame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #e4e4e1;
+}
+
+.tileFrame img {
+  transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.tile:hover .tileFrame img {
+  transform: scale(1.02);
+}
+
+.tileLabel {
+  margin-top: 0.6rem;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  letter-spacing: 0.01em;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+/* Renders */
+
+.renders {
+  padding: var(--block) 0;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.renderHead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: end;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  padding-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  border-bottom: 1px solid var(--rule-dark);
+}
+
+.renderEyebrow {
+  margin: 0 0 0.9rem;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: var(--kosick-eyebrow-weight);
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: var(--kosick-eyebrow-leading);
+}
+
+.renders .renderTitle {
+  max-width: none;
+  text-wrap: balance;
+}
+
+.renderLead {
+  margin: 1.1rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.renders .renderNote {
+  max-width: none;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.inlineList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  max-width: 30rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inlineList li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--rule-dark);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.3;
+}
+
+.inlineList li::before {
+  content: "";
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.renderWide {
+  margin: 0;
+}
+
+.renderFrame {
+  aspect-ratio: 21 / 9;
+  border-radius: 4px;
+}
+
+.renderWide .captionOnDark,
+.renderStill .captionOnDark {
+  margin-top: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.01em;
+}
+
+.renderPair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.renderStill {
+  margin: 0;
+}
+
+.renderStillFrame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #1a1a1c;
+}
+
+/* Audio */
+
+.audio {
+  padding: var(--block) 0;
+  background: var(--stone);
+}
+
+.audioGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+/* Responsive */
+
+@media (max-width: 960px) {
+  /* The collage simplifies to an editorial sequence: heading, then the two
+     portrait pieces side by side, then the landscape applications in pairs */
+  .wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    gap: var(--gutter);
+  }
+
+  .wallColumn,
+  .wallColumn:nth-child(1),
+  .wallColumn:nth-child(3) {
+    display: contents;
+  }
+
+  .wallIntro,
+  .slotIdentity {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .wallIntro {
+    grid-column: 1 / -1;
+    order: 0;
+    max-width: 34rem;
+    padding: 0 0 clamp(0.75rem, 2vw, 1.25rem);
+  }
+
+  .slotIdentity { order: 1; }
+  .slotBillboard { order: 2; }
+  .slotPackaging { order: 3; }
+  .slotStationery { order: 4; }
+  .slotTransit { order: 5; }
+  .slotSocial { order: 6; }
+
+  .tile:not(.tilePortrait) .tileFrame {
+    aspect-ratio: 3 / 2 !important;
+  }
+
+  .videoCopy {
+    grid-template-columns: 1fr;
+    gap: clamp(2.5rem, 6vw, 3.5rem);
+  }
+
+  .renderHead,
+  .audioGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cinema,
+  .renderFrame {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 700px) {
+  .renderPair,
+  .craftGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .craftCard {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 3.25rem 1.1rem 1.1rem;
+  }
+
+  .craftIcon {
+    flex-shrink: 0;
+  }
+
+  .craftStep {
+    top: 50%;
+    right: 1.1rem;
+    transform: translateY(-50%);
+  }
+
+  /* Mobile: one column of large pieces, identity first */
+  .wall {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cinema {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 479px) {
+  .inlineList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tileFrame img,
+  .craftCard {
+    transition: none;
+  }
+
+  .craftCard:hover {
+    transform: none;
+  }
+}

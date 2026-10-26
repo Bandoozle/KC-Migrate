@@ -1,0 +1,823 @@
+/* Surfaces, rules and accent follow the Creative, Television and Business Development pages */
+.page {
+  --ink: #101010;
+  --stone: #f3f3f1;
+  --rule: rgba(17, 17, 17, 0.14);
+  --rule-dark: rgba(255, 255, 255, 0.16);
+  --accent: #7bd88f;
+  --block: clamp(4.5rem, 9vw, 8rem);
+  --gutter: clamp(1rem, 2vw, 1.5rem);
+  overflow-x: clip;
+  background: #ffffff;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.figure {
+  margin: 0;
+}
+
+.frame {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #e4e4e1;
+}
+
+.captionOnDark {
+  margin-top: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--kosick-meta-size);
+  line-height: var(--kosick-meta-leading);
+}
+
+.label,
+.labelOnDark {
+  margin: 0 0 1rem;
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: var(--kosick-eyebrow-weight);
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: var(--kosick-eyebrow-leading);
+}
+
+.label {
+  color: var(--kosick-color-muted);
+}
+
+.labelOnDark {
+  color: var(--accent);
+}
+
+.sectionHead {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.title {
+  margin: 0;
+}
+
+.page .display {
+  margin: 0;
+  font-size: var(--kosick-page-title-size) !important;
+  line-height: var(--kosick-page-title-leading) !important;
+  letter-spacing: var(--kosick-page-title-tracking) !important;
+}
+
+.page .titleOnDark {
+  margin: 0;
+  color: #ffffff !important;
+}
+
+.lead,
+.leadOnDark {
+  max-width: 40ch;
+  margin: 1.5rem 0 0;
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.lead {
+  color: var(--kosick-color-muted);
+}
+
+.leadOnDark {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.body {
+  max-width: 44ch;
+  margin: 0.75rem 0 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: var(--kosick-body-leading);
+}
+
+/* `.kosick-native-page a { color: inherit }` outranks a single class */
+.page a.dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  margin-top: 2rem;
+  padding: 0.8rem 1.45rem;
+  border: 1px solid var(--ink);
+  border-radius: var(--kosick-radius-pill);
+  background: var(--ink);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.page a.dark:hover {
+  border-color: #2a2a2d;
+  background: #2a2a2d;
+}
+
+.page a:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Intro: copy beside a layered collage */
+
+.intro {
+  padding: var(--block) 0;
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: center;
+}
+
+.introCopy {
+  grid-column: 1 / 6;
+}
+
+.collage {
+  grid-column: 7 / 13;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+.collageMain {
+  grid-column: 2 / 7;
+  grid-row: 1;
+  aspect-ratio: 5 / 4;
+}
+
+/* The tall crop rides up over the bottom-left of the main image */
+.collageTall {
+  position: relative;
+  z-index: 1;
+  grid-column: 1 / 4;
+  grid-row: 2;
+  aspect-ratio: 4 / 5;
+  margin-top: -38%;
+}
+
+.collageTall .frame {
+  box-shadow: 0 0 0 8px #ffffff;
+}
+
+.collageSmall {
+  grid-column: 4 / 7;
+  grid-row: 2;
+  align-self: start;
+  justify-self: end;
+  width: 82%;
+  aspect-ratio: 1;
+  margin-top: var(--gutter);
+}
+
+/* Event types */
+
+.types {
+  padding: var(--block) 0;
+  background: var(--stone);
+}
+
+.typesGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
+}
+
+.featured {
+  grid-column: 1 / 8;
+}
+
+.featuredFrame {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #e4e4e1;
+}
+
+.featuredCopy {
+  margin-top: 1.5rem;
+}
+
+.featuredCopy .label {
+  margin-bottom: 0.6rem;
+}
+
+.featuredTitle {
+  margin: 0;
+  color: #111111;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+  line-height: var(--kosick-subsection-title-leading);
+}
+
+.modules {
+  grid-column: 9 / 13;
+  margin: clamp(2rem, 6vw, 5rem) 0 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.page a.module {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  row-gap: 0.4rem;
+  column-gap: 1rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--rule);
+  color: #111111;
+  text-decoration: none;
+}
+
+.moduleLabel {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: var(--kosick-eyebrow-weight);
+  line-height: var(--kosick-eyebrow-leading);
+}
+
+.moduleTitle {
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+  transition: transform 220ms ease;
+}
+
+.moduleLine {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.moduleLabel,
+.moduleTitle,
+.moduleLine {
+  grid-column: 1;
+}
+
+.moduleArrow {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  color: var(--kosick-color-meta);
+  transition: color 220ms ease, transform 220ms ease;
+}
+
+.page a.module:hover .moduleTitle {
+  transform: translateX(4px);
+}
+
+.page a.module:hover .moduleArrow {
+  color: #111111;
+  transform: translateX(4px);
+}
+
+/* Incentive travel: wide destination, overlapping detail, then copy */
+
+.travel {
+  padding: var(--block) 0;
+}
+
+.travelStage {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+.travelMain {
+  grid-column: 1 / 11;
+  grid-row: 1;
+  aspect-ratio: 2 / 1;
+}
+
+.travelDetail {
+  position: relative;
+  z-index: 1;
+  grid-column: 9 / 13;
+  grid-row: 1;
+  align-self: end;
+  aspect-ratio: 4 / 3;
+  margin-bottom: -14%;
+}
+
+.travelDetail .frame {
+  box-shadow: 0 0 0 8px #ffffff;
+}
+
+.travelCopy {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.travelCopy .lead {
+  grid-column: 1 / 6;
+  margin: 0;
+}
+
+.points {
+  grid-column: 7 / 13;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid var(--rule);
+}
+
+.points li {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: 0.3rem 1.5rem;
+  align-items: baseline;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.pointTitle {
+  color: #111111;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.pointLine {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+/* Trade shows: dark band */
+
+.trade {
+  padding: var(--block) 0;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+/*
+ * The stage photo spans two rows on the left; the copy panel starts one column
+ * inside its right edge so the two interlock, and the hospitality detail closes
+ * the right column level with the photo's base. The scope strip runs underneath.
+ */
+.tradeGrid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto 1fr auto;
+  column-gap: var(--gutter);
+}
+
+.tradeStage {
+  grid-column: 1 / 8;
+  grid-row: 1 / 3;
+}
+
+.tradeStageFrame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #1a1a1c;
+}
+
+.tradeCopy {
+  position: relative;
+  z-index: 1;
+  grid-column: 7 / 13;
+  grid-row: 1;
+  align-self: start;
+  margin-top: clamp(3rem, 7vw, 6rem);
+  padding: clamp(1.75rem, 3vw, 2.5rem) 0 clamp(1.75rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.75rem);
+  border-radius: var(--kosick-radius-sm) 0 0 var(--kosick-radius-sm);
+  background: var(--ink);
+}
+
+.page .tradeTitle {
+  max-width: 12ch;
+  margin: 0;
+  color: #ffffff !important;
+  font-size: var(--kosick-page-title-size) !important;
+  line-height: var(--kosick-page-title-leading) !important;
+  letter-spacing: var(--kosick-page-title-tracking) !important;
+}
+
+.tradeCopy .leadOnDark {
+  max-width: 34ch;
+}
+
+.tradeDetail {
+  grid-column: 9 / 13;
+  grid-row: 2;
+  /* Its statement closes level with the stage photo's caption */
+  align-self: end;
+}
+
+.tradeDetailFrame {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #1a1a1c;
+}
+
+.statement {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: var(--kosick-card-title-size);
+  font-weight: 500;
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: 1.3;
+}
+
+.scope {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: clamp(3rem, 6vw, 5rem) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule-dark);
+}
+
+.scopeItem {
+  display: grid;
+  gap: 0.6rem;
+  padding: 1.5rem var(--gutter) 0;
+  border-left: 1px solid var(--rule-dark);
+}
+
+.scopeItem:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.scopeNumber {
+  color: var(--accent);
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.scopeName {
+  color: #ffffff;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+/* People: oversized photograph, then the figures */
+
+.room {
+  padding-bottom: var(--block);
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.roomPhoto {
+  position: relative;
+  height: clamp(28rem, 50vw, 42rem);
+  overflow: hidden;
+}
+
+.roomShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(16, 16, 16, 1) 0%, rgba(16, 16, 16, 0.5) 35%, rgba(16, 16, 16, 0) 70%);
+}
+
+.roomCopy {
+  position: absolute;
+  inset: auto 0 clamp(2rem, 5vw, 4rem);
+  margin: 0 auto;
+}
+
+.roomStatement {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--kosick-font);
+  font-size: var(--kosick-page-title-size);
+  font-weight: var(--kosick-page-title-weight);
+  letter-spacing: var(--kosick-page-title-tracking);
+  line-height: var(--kosick-page-title-leading);
+}
+
+.proof {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.proof li {
+  display: grid;
+  gap: 0.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule-dark);
+}
+
+.proofFigure {
+  color: var(--accent);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.proofLine {
+  max-width: 24ch;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: var(--kosick-body-size);
+  line-height: 1.45;
+}
+
+/* Lifecycle: one rule, four stages */
+
+.lifecycle {
+  padding: var(--block) 0;
+}
+
+.timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--accent), #111111 30%, var(--rule));
+}
+
+.step {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+  padding-top: 1.75rem;
+}
+
+.stepNumber {
+  color: #111111;
+  font-size: clamp(2.75rem, 5vw, 4rem);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.stepName {
+  margin-top: 0.75rem;
+  color: #111111;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+  line-height: var(--kosick-subsection-title-leading);
+}
+
+.stepLine {
+  max-width: 24ch;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+/* Tablet: two-column editorial layouts */
+
+@media (max-width: 960px) {
+  .introCopy,
+  .collage,
+  .featured,
+  .modules,
+  .tradeStage,
+  .tradeCopy {
+    grid-column: 1 / -1;
+  }
+
+  .introGrid,
+  .tradeGrid {
+    row-gap: clamp(2.5rem, 6vw, 3.5rem);
+  }
+
+  .modules {
+    margin-top: 2rem;
+  }
+
+  .travelCopy {
+    row-gap: 2rem;
+  }
+
+  .travelCopy .lead,
+  .points {
+    grid-column: 1 / -1;
+  }
+
+  /* Image first, then the copy, then a smaller detail; no overlap */
+  .tradeGrid {
+    grid-template-rows: none;
+  }
+
+  .tradeStage {
+    grid-row: 1;
+  }
+
+  .tradeStageFrame {
+    aspect-ratio: 4 / 3;
+  }
+
+  .tradeCopy {
+    grid-row: 2;
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+
+  .tradeDetail {
+    grid-column: 1 / 8;
+    grid-row: 3;
+    margin: 0;
+  }
+
+  .tradeDetailFrame {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Scope becomes a ruled list */
+  .scope {
+    grid-row: 4;
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 0;
+    border-top: 0;
+  }
+
+  .scopeItem,
+  .scopeItem:first-child {
+    grid-template-columns: 4rem minmax(0, 1fr);
+    align-items: baseline;
+    padding: 1rem 0;
+    border-left: 0;
+    border-top: 1px solid var(--rule-dark);
+  }
+
+  .scopeNumber {
+    font-size: 2rem;
+  }
+
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+
+  .timeline::before {
+    display: none;
+  }
+
+  .step {
+    border-top: 1px solid var(--rule);
+  }
+}
+
+/* Phone: a straight editorial sequence, no overlaps */
+
+@media (max-width: 640px) {
+  .collage {
+    row-gap: var(--gutter);
+  }
+
+  .collageMain {
+    grid-column: 1 / -1;
+    aspect-ratio: 4 / 3;
+  }
+
+  .collageTall {
+    grid-column: 1 / 4;
+    margin-top: 0;
+  }
+
+  .collageTall .frame {
+    box-shadow: none;
+  }
+
+  .collageSmall {
+    grid-column: 4 / 7;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    margin-top: 0;
+  }
+
+  /* Copy, photo, scope, then the detail */
+  .tradeCopy {
+    grid-row: 1;
+  }
+
+  .tradeStage {
+    grid-row: 2;
+  }
+
+  .tradeStageFrame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .scope {
+    grid-row: 3;
+  }
+
+  .scopeItem,
+  .scopeItem:first-child {
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
+
+  .scopeNumber {
+    font-size: 1.75rem;
+  }
+
+  .tradeDetail {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    width: 75%;
+  }
+
+  .travelMain,
+  .travelDetail {
+    grid-column: 1 / -1;
+  }
+
+  .travelMain {
+    aspect-ratio: 4 / 3;
+  }
+
+  .travelDetail {
+    grid-row: 2;
+    width: 70%;
+    margin: var(--gutter) 0 0 auto;
+  }
+
+  .travelDetail .frame {
+    box-shadow: none;
+  }
+
+  .points li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .proof {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 1.75rem;
+  }
+
+  .timeline {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0;
+  }
+
+  .step {
+    grid-template-columns: 4rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+    padding: 1.5rem 0;
+  }
+
+  .stepNumber {
+    grid-row: 1 / span 2;
+    font-size: 2.25rem;
+  }
+
+  .stepName {
+    margin-top: 0;
+  }
+
+  .stepName,
+  .stepLine {
+    grid-column: 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .moduleTitle,
+  .moduleArrow {
+    transition: none;
+  }
+}

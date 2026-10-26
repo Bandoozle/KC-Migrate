@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
-import { ServicePageView } from "@/components/sections/ServicePageView";
-import { WebsiteShowcase } from "@/components/sections/website/WebsiteShowcase";
+import { WebsiteDevelopmentPage as WebsiteDevelopmentView } from "@/components/sections/website/WebsiteDevelopmentPage";
 import { getWebsiteDevelopmentContent } from "@/lib/wordpress/service-page";
 
 
@@ -11,14 +10,5 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function WebsiteDevelopmentPage() {
   const content = await getWebsiteDevelopmentContent();
-  return (
-    <ServicePageView
-      content={content}
-      media={
-        content.mediaCardSection ? (
-          <WebsiteShowcase section={content.mediaCardSection} />
-        ) : null
-      }
-    />
-  );
+  return <WebsiteDevelopmentView content={content} />;
 }
