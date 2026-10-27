@@ -4,7 +4,7 @@
   --panel: #141416;
   --rule-dark: rgba(255, 255, 255, 0.14);
   --accent: #7bd88f;
-  --block: clamp(4.5rem, 9vw, 8rem);
+  --block: var(--kosick-block);
   --gutter: clamp(1rem, 2vw, 1.5rem);
   overflow-x: clip;
   background: #ffffff;
@@ -383,7 +383,16 @@
   }
 
   .featureFrame {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 16 / 10;
+  }
+
+  .feature {
+    padding: 2.5rem 0;
+    row-gap: 0;
+  }
+
+  .points li {
+    padding: 0.75rem 0;
   }
 }
 

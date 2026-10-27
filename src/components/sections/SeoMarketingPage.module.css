@@ -10,7 +10,7 @@
   --rule-dark: rgba(255, 255, 255, 0.14);
   --accent: #2f6bff;
   --accent-soft: rgba(47, 107, 255, 0.1);
-  --block: clamp(4.5rem, 9vw, 8rem);
+  --block: var(--kosick-block);
   --gutter: clamp(1rem, 2vw, 1.5rem);
   overflow-x: clip;
   background: #ffffff;
@@ -796,6 +796,12 @@
 @media (max-width: 640px) {
   .capabilities {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .capabilities li,
+  .rows li {
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    padding: 1.1rem 0;
   }
 
   /* Photo, then the search card under it, no overlap */

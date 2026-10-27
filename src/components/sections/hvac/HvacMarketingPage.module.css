@@ -11,7 +11,7 @@
   --rule-dark: rgba(255, 255, 255, 0.16);
   --accent: #e2532d;
   --accent-deep: #b93d1d;
-  --block: clamp(4.5rem, 9vw, 8rem);
+  --block: var(--kosick-block);
   --gutter: clamp(1rem, 2vw, 1.5rem);
   overflow-x: clip;
   background: #ffffff;
@@ -240,6 +240,7 @@
 }
 
 .services .actions {
+  justify-content: center;
   margin-top: clamp(2rem, 4vw, 3rem);
 }
 
@@ -302,121 +303,224 @@
   line-height: 1.5;
 }
 
+/* Flow sections: stacked head, then the shared animated process track */
+
+.flowHead {
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.flowHead .lead {
+  max-width: none;
+}
+
 /* Process */
 
 .process {
   padding: var(--block) 0;
 }
 
-.processGrid {
-  display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  gap: clamp(2.5rem, 6vw, 5rem);
-  align-items: start;
+.processTrack {
+  --process-stroke: var(--accent);
+  --process-number: var(--accent);
 }
 
-.steps {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--gutter);
-  margin: 0;
-  padding: 0;
-  list-style: none;
+/* Static co-op stages: accent numbers */
+.coopTrack {
+  --process-number: var(--accent);
 }
 
-.step {
-  display: grid;
-  align-content: start;
-  gap: 0.5rem;
-  padding: clamp(1.35rem, 2.4vw, 1.75rem);
-  border-radius: var(--kosick-radius-md);
-  background: var(--stone);
-}
-
-.stepNumber {
-  display: grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  margin-bottom: 0.75rem;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #ffffff;
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-.stepName {
-  color: #111111;
-  font-size: var(--kosick-card-title-size);
-  font-weight: var(--kosick-card-title-weight);
-  letter-spacing: var(--kosick-card-title-tracking);
-  line-height: var(--kosick-card-title-leading);
-}
-
-.stepLine {
-  color: var(--kosick-color-muted);
-  font-size: var(--kosick-body-size);
-  line-height: 1.5;
-}
-
-/* Co-op: accent band */
+/* Co-op: warm band, five stages ending on the booked job */
 
 .coop {
+  --warm: #f7f1ea;
+  --rule: rgba(17, 17, 17, 0.12);
   padding: var(--block) 0;
-  background: var(--accent);
-  color: #ffffff;
+  background: var(--warm);
 }
 
-.coopHead {
-  max-width: 44rem;
-  margin: 0 auto clamp(2.5rem, 5vw, 3.5rem);
-  text-align: center;
+/* Open columns: the shared track keeps its spacing, without the card shell or connector lines */
+.coopTrack article {
+  background: transparent;
 }
 
-.coopHead .leadOnDark {
-  margin-left: auto;
-  margin-right: auto;
+.coopTrack article > svg,
+.coopTrack li > div[aria-hidden="true"] > span {
+  visibility: hidden;
 }
 
-.coopFlow {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--gutter);
-  margin: 0;
+.coopTrack article > div {
   padding: 0;
-  list-style: none;
 }
 
-.coopStep {
+.coopNote {
+  margin: clamp(2rem, 4vw, 2.75rem) 0 0;
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+}
+
+/* Stage artifacts: small illustrative panels, not cards */
+.artifact {
   display: grid;
-  align-content: start;
-  gap: 0.5rem;
-  padding: clamp(1.35rem, 2.4vw, 1.75rem);
+  align-content: center;
+  gap: 0.55rem;
+  min-height: 7.75rem;
+  margin: 0.2rem 0;
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--rule);
   border-radius: var(--kosick-radius-md);
   background: #ffffff;
   color: #111111;
+  font-size: 0.8125rem;
+  line-height: 1.3;
 }
 
-.coopNumber {
-  color: var(--accent);
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-.coopName {
-  font-size: var(--kosick-card-title-size);
-  font-weight: var(--kosick-card-title-weight);
-  letter-spacing: var(--kosick-card-title-tracking);
-  line-height: var(--kosick-card-title-leading);
-}
-
-.coopLine {
+.artifactRow {
+  display: grid;
+  grid-template-columns: 5.25rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.6rem;
   color: var(--kosick-color-muted);
+}
+
+.bar,
+.barOwn {
+  height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(
+    to right,
+    var(--bar, var(--accent)) calc(var(--share) * 100%),
+    rgba(17, 17, 17, 0.07) 0
+  );
+}
+
+.barOwn {
+  --bar: #111111;
+}
+
+.artifactMarks {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  justify-items: center;
+  gap: 0.5rem;
+}
+
+.mark {
+  display: grid;
+  justify-items: center;
+  gap: 0.55rem;
+  color: var(--kosick-color-muted);
+}
+
+.markSearch,
+.markBoard,
+.markSocial {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Search: a field with a query line */
+.markSearch {
+  width: 2.75rem;
+  height: 1rem;
+  border: 1.5px solid #111111;
+  border-radius: 0.5rem;
+}
+
+.markSearch::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0.4rem;
+  width: 1.1rem;
+  height: 2px;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+
+/* Outdoor: a board on a post */
+.markBoard {
+  width: 2.75rem;
+  height: 1.55rem;
+  margin-bottom: 0.6rem;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.markBoard::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 2px;
+  height: 0.6rem;
+  background: #111111;
+  transform: translateX(-50%);
+}
+
+/* Social: a post with an image */
+.markSocial {
+  width: 1.9rem;
+  height: 2.15rem;
+  border: 1.5px solid #111111;
+  border-radius: 4px;
+}
+
+.markSocial::after {
+  content: "";
+  position: absolute;
+  inset: 3px 3px auto;
+  height: 1.05rem;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+.leadRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  font-weight: 500;
+}
+
+.leadRow + .leadRow {
+  border-top: 1px solid var(--rule);
+}
+
+.leadKind {
+  flex-shrink: 0;
+  width: 2.6rem;
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+.artifactJob {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.jobSlot {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
   font-size: var(--kosick-body-size);
-  line-height: 1.5;
+  font-weight: 600;
+}
+
+.jobCheck {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--accent);
+}
+
+.jobMeta {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* Projects gallery */
@@ -603,7 +707,6 @@
 
 @media (max-width: 960px) {
   .introGrid,
-  .processGrid,
   .effGrid {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -616,8 +719,7 @@
     left: 1rem;
   }
 
-  .serviceGrid,
-  .coopFlow {
+  .serviceGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -637,14 +739,69 @@
     font-size: 1.75rem;
   }
 
-  .serviceGrid,
-  .steps,
-  .coopFlow {
-    grid-template-columns: minmax(0, 1fr);
+  /* Services swipe sideways: one card and a peek of the next */
+  .serviceGrid {
+    display: flex;
+    gap: 0.75rem;
+    margin-inline: calc(-1 * (100vw - 100%) / 2);
+    padding-inline: calc((100vw - 100%) / 2);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: calc((100vw - 100%) / 2);
+    scrollbar-width: none;
+  }
+
+  .serviceGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .serviceGrid > li {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+
+  .services .actions {
+    margin-top: 1.75rem;
   }
 
   .gallery {
     grid-auto-rows: 10rem;
+  }
+
+  /* Co-op: a numbered vertical journey. Only the booked job keeps its visual. */
+  .coopTrack article > div {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    column-gap: 1rem;
+    row-gap: 0.35rem;
+  }
+
+  .coopTrack article > div > :first-child {
+    grid-row: 1 / span 4;
+    font-size: 1.5rem;
+  }
+
+  .coopTrack article > div > :not(:first-child) {
+    grid-column: 2;
+  }
+
+  .coopTrack .artifact:not(.artifactJob) {
+    display: none;
+  }
+
+  .coopTrack .artifactJob {
+    min-height: 0;
+    margin-top: 0.4rem;
+  }
+
+  .coopTrack li:not(:last-child) article::after {
+    content: "";
+    position: absolute;
+    top: 2.25rem;
+    bottom: -1.5rem;
+    left: 0.85rem;
+    width: 1.5px;
+    background: rgba(226, 83, 45, 0.35);
   }
 
   .playLabel {

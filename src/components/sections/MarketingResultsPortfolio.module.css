@@ -35,7 +35,6 @@
 .panel {
   min-width: 0;
   background: #161616;
-  border-top: 2px solid #b6a37a;
 }
 
 .panelMedia,
@@ -364,4 +363,28 @@
 .reduced .photo {
   transition: none;
   transform: none;
+}
+
+/* Phones: featured projects swipe sideways, one panel and a peek of the next */
+@media (max-width: 767px) {
+  .stage {
+    display: flex;
+    gap: 0.75rem;
+    margin-inline: calc(-1 * (100vw - 100%) / 2);
+    padding-inline: calc((100vw - 100%) / 2);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: calc((100vw - 100%) / 2);
+    scrollbar-width: none;
+  }
+
+  .stage::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stage > .panel {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
 }

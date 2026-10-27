@@ -1,8 +1,10 @@
+import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
+import { ProcessTrack } from "@/components/sections/ProcessSteps";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
@@ -27,18 +29,98 @@ const SERVICE_IMAGES = [
 ];
 
 const PROCESS = [
-  { name: "Audit", line: "Your market, competitors, co-op eligibility and current results." },
-  { name: "Strategy", line: "A channel plan, co-op applications and compliant creative." },
-  { name: "Launch", line: "Campaigns live, website built, performance tuned weekly." },
-  { name: "Scale", line: "Cost per lead and booked jobs reported, budget moved to what works." },
+  { name: "Audit", line: "Understand the market, competition and current performance." },
+  { name: "Strategy", line: "Build the right channel mix, offer and campaign plan." },
+  { name: "Launch", line: "Activate campaigns across the channels that matter." },
+  { name: "Scale", line: "Invest more where performance is strongest." },
 ];
 
+/* Co-op flow, manufacturer money through to a job on the schedule. Artifacts are illustrative. */
 const COOP_FLOW = [
-  { name: "Co-op funds", line: "Utility and manufacturer programs found and approved." },
-  { name: "Media plan", line: "Funds placed where they reach the most homeowners." },
-  { name: "Local campaign", line: "Compliant creative launched in your service area." },
-  { name: "Leads", line: "Calls and quote requests tracked, claims submitted." },
+  { key: "funds", name: "Manufacturer co-op", line: "Utility and manufacturer programs you qualify for, found and approved." },
+  { key: "plan", name: "Local media plan", line: "Funds placed on the channels that reach homeowners in your service area." },
+  { key: "campaign", name: "HVAC campaign", line: "Brand-compliant creative live across search, outdoor and social." },
+  { key: "lead", name: "Qualified lead", line: "Calls and quote requests tracked back to the campaign." },
+  { key: "job", name: "Booked job", line: "The install on your schedule, and the co-op claim submitted for you." },
+] as const;
+
+const FUND_SOURCES = [
+  { name: "Manufacturer", share: 0.6 },
+  { name: "Utility", share: 0.4 },
+  { name: "Your budget", share: 0.5, own: true },
 ];
+
+const PLAN_CHANNELS = [
+  { name: "Search", share: 0.9 },
+  { name: "Outdoor", share: 0.65 },
+  { name: "Social", share: 0.5 },
+  { name: "Radio", share: 0.35 },
+];
+
+type CoopKey = (typeof COOP_FLOW)[number]["key"];
+
+/* Small illustrative artifact for each co-op stage */
+function CoopArtifact({ stage }: { stage: CoopKey }) {
+  if (stage === "funds" || stage === "plan") {
+    const rows = stage === "funds" ? FUND_SOURCES : PLAN_CHANNELS;
+    return (
+      <div className={styles.artifact} aria-hidden="true">
+        {rows.map((row) => (
+          <span key={row.name} className={styles.artifactRow}>
+            <span>{row.name}</span>
+            <span
+              className={"own" in row && row.own ? `${styles.bar} ${styles.barOwn}` : styles.bar}
+              style={{ "--share": row.share } as CSSProperties}
+            />
+          </span>
+        ))}
+      </div>
+    );
+  }
+  if (stage === "campaign") {
+    return (
+      <div className={`${styles.artifact} ${styles.artifactMarks}`} aria-hidden="true">
+        <span className={styles.mark}>
+          <span className={styles.markSearch} />
+          Search
+        </span>
+        <span className={styles.mark}>
+          <span className={styles.markBoard} />
+          Outdoor
+        </span>
+        <span className={styles.mark}>
+          <span className={styles.markSocial} />
+          Social
+        </span>
+      </div>
+    );
+  }
+  if (stage === "lead") {
+    return (
+      <div className={styles.artifact} aria-hidden="true">
+        <span className={styles.leadRow}>
+          <span className={styles.leadKind}>Call</span>
+          Furnace replacement
+        </span>
+        <span className={styles.leadRow}>
+          <span className={styles.leadKind}>Form</span>
+          Heat pump quote
+        </span>
+      </div>
+    );
+  }
+  return (
+    <div className={`${styles.artifact} ${styles.artifactJob}`} aria-hidden="true">
+      <span className={styles.jobSlot}>
+        <span className={styles.jobCheck}>
+          <CheckIcon />
+        </span>
+        Install booked
+      </span>
+      <span className={styles.jobMeta}>Co-op claim submitted</span>
+    </div>
+  );
+}
 
 const PROJECTS = [
   { src: `${UPLOADS}/2026/06/hvac-billboard-advertising.jpg`, alt: "Heat pump billboard above a street corner", label: "Outdoor", tall: true },
@@ -188,51 +270,44 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
         </section>
       ) : null}
 
-      {/* Process: four numbered steps on a stone band */}
+      {/* Process: four bordered steps that draw in turn, as on the dental journey */}
       <section className={styles.process} aria-labelledby="hv-process">
         <div className="container">
-          <div className={styles.processGrid}>
-            <div>
-              <p className={styles.label}>How we work</p>
-              <SectionTitle id="hv-process" className={styles.title}>
-                Our simple, proven process.
-              </SectionTitle>
-              <p className={styles.lead}>Four steps from first audit to a marketing program that scales.</p>
-            </div>
-            <ol className={styles.steps}>
-              {PROCESS.map((step, index) => (
-                <Reveal key={step.name} as="li" delay={index * 100} className={styles.step}>
-                  <span className={styles.stepNumber}>{String(index + 1).padStart(2, "0")}</span>
-                  <span className={styles.stepName}>{step.name}</span>
-                  <span className={styles.stepLine}>{step.line}</span>
-                </Reveal>
-              ))}
-            </ol>
+          <div className={styles.flowHead}>
+            <p className={styles.label}>How we work</p>
+            <SectionTitle id="hv-process" className={styles.title}>
+              Our simple, proven process.
+            </SectionTitle>
+            <p className={styles.lead}>Four steps from first audit to a marketing program that scales.</p>
           </div>
+          <ProcessTrack
+            className={styles.processTrack}
+            steps={PROCESS.map((step, index) => ({ number: String(index + 1), title: step.name, body: step.line }))}
+          />
         </div>
       </section>
 
-      {/* Co-op: an accent band with the funds-to-leads flow as four panels */}
+      {/* Co-op: five static stages on a warm band, each with a small visual, ending on the booked job */}
       <section className={styles.coop} aria-labelledby="hv-coop">
         <div className="container">
-          <div className={styles.coopHead}>
-            <p className={styles.labelOnDark}>Co-op programs</p>
-            <SectionTitle id="hv-coop" className={styles.titleOnDark}>
+          <div className={styles.flowHead}>
+            <p className={styles.label}>Co-op programs</p>
+            <SectionTitle id="hv-coop" className={styles.title}>
               From co-op funds to booked jobs.
             </SectionTitle>
-            <p className={styles.leadOnDark}>
+            <p className={styles.lead}>
               We find utility and manufacturer co-op money, build compliant creative and submit the claims.
             </p>
           </div>
-          <ol className={styles.coopFlow}>
-            {COOP_FLOW.map((step, index) => (
-              <Reveal key={step.name} as="li" delay={index * 100} className={styles.coopStep}>
-                <span className={styles.coopNumber}>{String(index + 1).padStart(2, "0")}</span>
-                <span className={styles.coopName}>{step.name}</span>
-                <span className={styles.coopLine}>{step.line}</span>
-              </Reveal>
+          <ProcessTrack
+            className={styles.coopTrack}
+            animate={false}
+            steps={COOP_FLOW.map((stage, index) => ({ number: String(index + 1), title: stage.name, body: stage.line }))}
+            media={COOP_FLOW.map((stage) => (
+              <CoopArtifact key={stage.key} stage={stage.key} />
             ))}
-          </ol>
+          />
+          <p className={styles.coopNote}>Stage visuals are illustrative.</p>
         </div>
       </section>
 

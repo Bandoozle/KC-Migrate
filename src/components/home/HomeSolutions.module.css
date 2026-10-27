@@ -121,3 +121,34 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* Phones: compact rows, a square thumbnail beside the title and line */
+@media (max-width: 639px) {
+  .grid {
+    gap: 0;
+    border-top: 1px solid rgba(17, 17, 17, 0.1);
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: start;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+  }
+
+  .media {
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .content {
+    gap: 0.5rem;
+    padding-right: 0;
+  }
+
+  .link {
+    margin-top: 0.15rem;
+  }
+}

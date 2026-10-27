@@ -69,3 +69,10 @@
   display: block;
   flex-shrink: 0;
 }
+
+/* The phone link is a tap target on phones, not just a line of text */
+@media (max-width: 640px) {
+  .actions .phone {
+    min-height: 44px;
+  }
+}

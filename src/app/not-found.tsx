@@ -8,7 +8,7 @@ export default async function NotFound() {
   return (
     <WordPressShell
       document={document}
-      contentHtml="<p>That page is not available from the WordPress staging site.</p>"
+      contentHtml='<p>Sorry, we couldn’t find that page. <a href="/">Return to the homepage</a> or <a href="/site-map/">browse the site map</a>.</p>'
     />
   );
 }

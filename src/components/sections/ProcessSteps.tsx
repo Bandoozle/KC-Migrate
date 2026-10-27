@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { usePrefersReducedMotion } from "@/components/motion/use-prefers-reduced-motion";
 import { BodyText, SectionIntro } from "@/components/typography";
 import type { ServiceProcessSection } from "@/lib/wordpress/service-page-types";
@@ -85,6 +85,7 @@ function ProcessCard({
   number,
   title,
   body,
+  media,
   index,
   cycle,
   playing,
@@ -93,6 +94,7 @@ function ProcessCard({
   number: string;
   title: string;
   body?: string;
+  media?: ReactNode;
   index: number;
   cycle: number;
   playing: boolean;
@@ -161,6 +163,7 @@ function ProcessCard({
       <div className={styles.cardInner}>
         <span className={styles.number}>{number}</span>
         <h3 className={`card-title ${styles.title}`}>{title}</h3>
+        {media}
         {body ? <BodyText className={styles.body}>{body}</BodyText> : null}
       </div>
     </article>
@@ -202,14 +205,18 @@ type ProcessTrackProps = {
   steps: ServiceProcessSection["steps"];
   /** Optional class on the list, e.g. to recolour the stroke via --process-stroke. */
   className?: string;
+  /** Optional visual per step, by index, shown between the title and the body. */
+  media?: ReactNode[];
+  /** False renders the finished state: borders and connectors drawn, no motion. */
+  animate?: boolean;
 };
 
 /** The animated card row on its own, for pages that set their own section heading. */
-export function ProcessTrack({ steps, className }: ProcessTrackProps) {
+export function ProcessTrack({ steps, className, media, animate = true }: ProcessTrackProps) {
   const rootRef = useRef<HTMLOListElement>(null);
   const [playing, setPlaying] = useState(false);
   const [cycle, setCycle] = useState(0);
-  const reduced = usePrefersReducedMotion();
+  const reduced = usePrefersReducedMotion() || !animate;
   const stepCount = steps.length;
 
   if (reduced && !playing) {
@@ -258,6 +265,7 @@ export function ProcessTrack({ steps, className }: ProcessTrackProps) {
               number={formatStepNumber(step.number, index)}
               title={step.title}
               body={step.body}
+              media={media?.[index]}
               index={index}
               cycle={cycle}
               playing={playing}

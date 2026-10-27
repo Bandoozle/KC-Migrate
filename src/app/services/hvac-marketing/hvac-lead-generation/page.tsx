@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { NativePageShell } from "@/components/layout/NativePageShell";
-import { MarketingProgramPageView } from "@/components/sections/MarketingProgramPageView";
+import { HvacLeadGenerationPage as HvacLeadView } from "@/components/sections/hvac-lead/HvacLeadGenerationPage";
 import { getHvacLeadGenerationContent } from "@/lib/wordpress/marketing-program";
 
 
@@ -13,7 +13,7 @@ export default async function HvacLeadGenerationPage() {
   const content = await getHvacLeadGenerationContent();
   return (
     <NativePageShell>
-      <MarketingProgramPageView content={content} />
+      <HvacLeadView content={content} />
     </NativePageShell>
   );
 }

@@ -5,7 +5,7 @@
   --rule: rgba(17, 17, 17, 0.14);
   --rule-dark: rgba(255, 255, 255, 0.14);
   --accent: #7bd88f;
-  --block: clamp(4.5rem, 9vw, 8rem);
+  --block: var(--kosick-block);
   --gutter: clamp(1rem, 2vw, 1.5rem);
   overflow-x: clip;
   background: #ffffff;
@@ -591,14 +591,17 @@
 /* Phone: one screen at a time */
 
 @media (max-width: 640px) {
-  .collageMain,
-  .collageSecond {
-    grid-column: 1 / -1;
+  /* One primary screen, the second overlapping its lower corner rather than stacked below */
+  .collageMain {
+    grid-column: 1 / 12;
   }
 
   .collageSecond {
+    grid-column: 6 / -1;
     grid-row: 2;
-    margin: var(--gutter) 0 0;
+    margin: -22% 0 0;
+    position: relative;
+    z-index: 1;
   }
 
   .pillars,
@@ -630,13 +633,14 @@
     margin-top: 3rem;
   }
 
-  .storeCrop,
-  .storeSecond {
-    grid-column: 1 / -1;
+  /* The two store details share a row under the main screen */
+  .storeCrop {
+    grid-column: 1 / 7;
   }
 
   .storeSecond {
-    grid-row: 4;
+    grid-column: 7 / 13;
+    grid-row: 3;
   }
 }
 

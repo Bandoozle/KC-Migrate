@@ -6,7 +6,7 @@
   --rule: rgba(17, 17, 17, 0.14);
   --rule-dark: rgba(255, 255, 255, 0.14);
   --accent: #7bd88f;
-  --block: clamp(4.5rem, 9vw, 8rem);
+  --block: var(--kosick-block);
   --gutter: clamp(1rem, 2vw, 1.5rem);
   overflow-x: clip;
   background: #ffffff;
@@ -111,7 +111,7 @@
   background: #e4e4e1;
 }
 
-/* Formats: 60/40, the large Connected TV scene spans both rows */
+/* Formats: one feature card, two matching cards stacked beside it */
 
 .formats {
   padding: var(--block) 0;
@@ -119,39 +119,51 @@
 
 .formatGrid {
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  grid-template-rows: auto auto;
-  gap: clamp(1.75rem, 3vw, 2.5rem) clamp(1.5rem, 3vw, 2.5rem);
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: stretch;
 }
 
-.formatLarge {
-  grid-row: 1 / span 2;
+.formatStack {
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+  min-height: 0;
 }
 
-.formatLarge .photo {
-  min-height: 28rem;
+.formatCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: var(--stone);
 }
 
-.formatSmall {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: var(--gutter);
-  align-items: end;
+.formatCard .photo {
+  flex: 1 1 auto;
+  min-height: 9.5rem;
+  border-radius: 0;
+  aspect-ratio: 16 / 10;
 }
 
-.formatSmall .photo {
-  aspect-ratio: 4 / 5;
+.formatFeature .photo {
+  min-height: 20rem;
+  aspect-ratio: auto;
 }
 
 .formatCopy {
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--rule);
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+  padding: 1.05rem 1.2rem 1.2rem;
 }
 
-.formatLarge .formatCopy {
-  margin-top: 1.25rem;
+.formatCopy .kicker,
+.formatCopy .formatLine {
+  margin: 0;
 }
 
 .kicker {
@@ -176,117 +188,11 @@
   line-height: 1.5;
 }
 
-/* Planning board: dark, one line, an artifact under each stage */
+/* Planning: stone band, the drifting card rows run edge to edge */
 
 .plan {
   padding: var(--block) 0;
-  background: var(--ink);
-  color: #ffffff;
-}
-
-.board {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: var(--gutter);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.board::before {
-  content: "";
-  position: absolute;
-  top: 5px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.25), var(--accent));
-}
-
-.stage {
-  position: relative;
-  display: grid;
-  grid-template-rows: auto auto auto 1fr;
-  gap: 0.55rem;
-  padding: 2.25rem clamp(0.5rem, 1.5vw, 1.5rem) 0 0;
-}
-
-.node {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: var(--ink);
-  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.7);
-}
-
-.nodeLive {
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(123, 216, 143, 0.25);
-}
-
-.stageNumber {
-  color: rgba(255, 255, 255, 0.45);
-  font-size: var(--kosick-meta-size);
-  font-variant-numeric: tabular-nums;
-}
-
-.stageName {
-  color: #ffffff;
-  font-size: clamp(1.5rem, 2.4vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-}
-
-.stageLine {
-  max-width: 26ch;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: var(--kosick-body-size);
-  line-height: 1.5;
-}
-
-.artifact {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  align-content: flex-start;
-  gap: 0.4rem;
-  margin-top: 1.25rem;
-}
-
-.chip,
-.channels {
-  padding: 0.35rem 0.75rem;
-  border: 1px solid var(--rule-dark);
-  border-radius: var(--kosick-radius-pill);
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 0.8rem;
-  line-height: 1.2;
-}
-
-.thumb {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 9rem;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  border-radius: var(--kosick-radius-sm);
-  background: var(--panel);
-}
-
-.thumbPlay {
-  position: relative;
-  width: 0;
-  height: 0;
-  border-top: 7px solid transparent;
-  border-bottom: 7px solid transparent;
-  border-left: 11px solid #ffffff;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.5));
+  background: var(--stone);
 }
 
 .live {
@@ -318,16 +224,20 @@
 
 /* Targeting: segments feed one placement, which lands on three surfaces */
 
+/* White band after the stone planning rows; copy on top, the diagram full width below */
 .target {
   padding: var(--block) 0;
-  background: var(--stone);
+  background: #ffffff;
 }
 
 .targetGrid {
   display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  gap: clamp(2.5rem, 6vw, 5rem);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.targetGrid .lead {
+  max-width: none;
 }
 
 .funnel {
@@ -392,7 +302,7 @@
 
 .placementFrame {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
   border: 6px solid #111111;
   border-radius: var(--kosick-radius-md);
@@ -600,17 +510,21 @@
 .measureLabels {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: var(--gutter);
-  margin: clamp(3rem, 6vw, 4.5rem) 0 0;
+  gap: var(--gutter);
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
   padding: 0;
   list-style: none;
 }
 
 .measureLabels li {
   display: grid;
-  gap: 0.35rem;
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--rule);
+  gap: 0.45rem;
+  align-content: start;
+  min-height: 100%;
+  padding: 1.35rem 1.4rem 1.45rem;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  background: var(--stone);
 }
 
 .measureName {
@@ -644,56 +558,34 @@
   }
 
   .formatGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .formatStack {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: auto;
   }
 
-  .formatLarge {
-    grid-column: 1 / -1;
-    grid-row: auto;
-  }
-
-  .formatLarge .photo {
+  .formatCard .photo,
+  .formatFeature .photo {
+    flex: none;
     min-height: 0;
     aspect-ratio: 16 / 10;
   }
 
-  .formatSmall {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .formatSmall .photo {
-    aspect-ratio: 4 / 3;
-  }
-
-  .board {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 2.75rem;
-  }
-
-  .board::before {
-    display: none;
-  }
-
-  .stage {
-    border-top: 1px solid var(--rule-dark);
-  }
-
-  .node {
-    top: -6px;
-  }
-
   .measureLabels {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 1.75rem;
   }
 }
 
 /* Phone: no overlaps, the funnel stacks top to bottom */
 
 @media (max-width: 640px) {
-  .formatGrid,
-  .board,
   .measureLabels {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .formatStack {
     grid-template-columns: minmax(0, 1fr);
   }
 
@@ -747,4 +639,68 @@
 .head .lead,
 .head .leadOnDark {
   max-width: none;
+}
+
+.centered {
+  text-align: center;
+}
+
+.centered .label {
+  margin-bottom: 0.35rem;
+}
+
+.centered :global(.section-title) {
+  margin-bottom: 0;
+}
+
+.head.centered {
+  gap: 0.4rem;
+}
+
+.head.centered .lead,
+.targetGrid .centered .lead {
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.head.centered .lead {
+  margin-top: 0;
+}
+
+.targetGrid .centered .lead {
+  margin-top: 0.4rem;
+}
+
+/* Phones: Connected TV leads as the one large scene; the two smaller placements become image-and-text rows */
+@media (max-width: 640px) {
+  .formatGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .formatFeature .photo {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .formatStack {
+    grid-template-rows: none;
+    gap: 0.75rem;
+  }
+
+  .formatStack .formatCard {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .formatStack .formatCard .photo {
+    flex: 0 0 7.5rem;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+
+  .formatStack .formatCopy {
+    align-content: center;
+    padding: 0.85rem 1rem;
+  }
 }

@@ -239,137 +239,82 @@ function DesktopNavItem({
   );
 }
 
+/**
+ * Mobile: each category is one full-width toggle row. Mega menu groups open
+ * flat beneath it as labelled lists, so there is only ever one level to expand.
+ */
 function MobileNavSection({
   item,
   expanded,
   onToggle,
   onNavigate,
-  groupExpanded,
-  onToggleGroup,
 }: {
   item: NavItem;
   expanded: boolean;
   onToggle: () => void;
   onNavigate: () => void;
-  groupExpanded: Record<string, boolean>;
-  onToggleGroup: (key: string) => void;
 }) {
+  const panelId = useId();
+
   if (item.type === "link") {
     return (
-      <li>
-        <Link href={item.href} onClick={onNavigate}>
+      <li className={styles.mobileItem}>
+        <Link href={item.href} className={styles.mobileLink} onClick={onNavigate}>
           {item.label}
         </Link>
       </li>
     );
   }
 
-  if (item.type === "menu") {
-    return (
-      <li className={styles.mobileItem}>
-        <div className={styles.mobileRow}>
-          <span>{item.label}</span>
-          <button
-            type="button"
-            className={styles.mobileToggle}
-            aria-expanded={expanded}
-            aria-label={`Toggle ${item.label} submenu`}
-            onClick={onToggle}
-          >
-            <span className={expanded ? styles.chevronOpen : styles.chevron} />
-          </button>
-        </div>
-        {expanded ? (
-          <ul className={styles.mobileSublist}>
-            {item.groups?.map((group) => (
-              <li key={group.title}>
-                <p className={styles.mobileGroupTitle}>{group.title}</p>
-                <ul className={styles.mobileNestedList}>
-                  {group.items.map((child) => (
-                    <li key={child.href + child.label}>
-                      <Link href={child.href} onClick={onNavigate}>
-                        {child.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-            {item.items.map((child) => (
-              <li key={child.href + child.label}>
-                <Link href={child.href} onClick={onNavigate}>
-                  {child.label}
-                </Link>
-              </li>
-            ))}
-            {item.viewAll ? (
-              <li>
-                <Link href={item.viewAll.href} className={styles.mobileFooterLink} onClick={onNavigate}>
-                  {item.viewAll.label} →
-                </Link>
-              </li>
-            ) : null}
-          </ul>
-        ) : null}
-      </li>
-    );
-  }
+  const groups = item.groups ?? [];
+  const items = item.type === "menu" ? item.items : [];
+  const footer = item.type === "menu" ? item.viewAll : item.footer;
 
   return (
     <li className={styles.mobileItem}>
-      <div className={styles.mobileRow}>
+      <button
+        type="button"
+        className={styles.mobileRow}
+        aria-expanded={expanded}
+        aria-controls={panelId}
+        onClick={onToggle}
+      >
         <span>{item.label}</span>
-        <button
-          type="button"
-          className={styles.mobileToggle}
-          aria-expanded={expanded}
-          aria-label={`Toggle ${item.label} submenu`}
-          onClick={onToggle}
-        >
-          <span className={expanded ? styles.chevronOpen : styles.chevron} />
-        </button>
-      </div>
+        <span className={expanded ? styles.chevronOpen : styles.chevron} aria-hidden="true" />
+      </button>
       {expanded ? (
-        <ul className={styles.mobileSublist}>
-          {item.groups.map((group) => {
-            const groupKey = `${item.label}::${group.title}`;
-            const open = Boolean(groupExpanded[groupKey]);
-            return (
-              <li key={group.title} className={styles.mobileGroup}>
-                <div className={styles.mobileGroupRow}>
-                  <span className={styles.mobileGroupTitle}>{group.title}</span>
-                  <button
-                    type="button"
-                    className={styles.mobileToggle}
-                    aria-expanded={open}
-                    aria-label={`Toggle ${group.title}`}
-                    onClick={() => onToggleGroup(groupKey)}
-                  >
-                    <span className={open ? styles.chevronOpen : styles.chevron} />
-                  </button>
-                </div>
-                {open ? (
-                  <ul className={styles.mobileNestedList}>
-                    {group.items.map((child) => (
-                      <li key={child.href + child.label}>
-                        <Link href={child.href} onClick={onNavigate}>
-                          {child.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
-              </li>
-            );
-          })}
-          {item.footer ? (
-            <li>
-              <Link href={item.footer.href} className={styles.mobileFooterLink} onClick={onNavigate}>
-                {item.footer.label} →
-              </Link>
-            </li>
+        <div id={panelId} className={styles.mobilePanel}>
+          {groups.map((group) => (
+            <div key={group.title} className={styles.mobileGroup}>
+              <p className={styles.mobileGroupTitle}>{group.title}</p>
+              <ul className={styles.mobileNestedList}>
+                {group.items.map((child) => (
+                  <li key={child.href + child.label}>
+                    <Link href={child.href} onClick={onNavigate}>
+                      {child.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {items.length > 0 ? (
+            <ul className={styles.mobileNestedList}>
+              {items.map((child) => (
+                <li key={child.href + child.label}>
+                  <Link href={child.href} onClick={onNavigate}>
+                    {child.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           ) : null}
-        </ul>
+          {footer ? (
+            <Link href={footer.href} className={styles.mobileFooterLink} onClick={onNavigate}>
+              {footer.label} →
+            </Link>
+          ) : null}
+        </div>
       ) : null}
     </li>
   );
@@ -381,7 +326,6 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
   const [openNavIndex, setOpenNavIndex] = useState<number | null>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<Record<string, boolean>>({});
-  const [mobileGroupExpanded, setMobileGroupExpanded] = useState<Record<string, boolean>>({});
   const [headerHovered, setHeaderHovered] = useState(false);
 
   useEffect(() => {
@@ -415,12 +359,9 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
   const solid =
     !transparent || scrolled || headerHovered || megaOpen || drawerOpen;
 
+  // One category open at a time keeps the drawer short
   const toggleMobileSection = (label: string) => {
-    setMobileExpanded((current) => ({ ...current, [label]: !current[label] }));
-  };
-
-  const toggleMobileGroup = (key: string) => {
-    setMobileGroupExpanded((current) => ({ ...current, [key]: !current[key] }));
+    setMobileExpanded((current) => ({ [label]: !current[label] }));
   };
 
   return (
@@ -535,8 +476,6 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
                     expanded={Boolean(mobileExpanded[item.label])}
                     onToggle={() => toggleMobileSection(item.label)}
                     onNavigate={() => setDrawerOpen(false)}
-                    groupExpanded={mobileGroupExpanded}
-                    onToggleGroup={toggleMobileGroup}
                   />
                 ))}
               </ul>

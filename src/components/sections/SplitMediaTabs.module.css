@@ -141,10 +141,35 @@
   }
 
   .tab {
+    flex-shrink: 0;
     font-size: var(--kosick-meta-size);
     line-height: var(--kosick-meta-leading);
-    padding: 0 14px;
-    min-height: 38px;
+    padding: 0 16px;
+    min-height: 44px;
+  }
+
+  /* One swipeable row on phones; a wrapped pill bar reads as two broken rows */
+  .tabList {
+    width: 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    border-radius: 26px;
+  }
+
+  .tabList::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    scroll-snap-align: start;
+  }
+
+  .figure {
+    aspect-ratio: 16 / 10;
   }
 }
 

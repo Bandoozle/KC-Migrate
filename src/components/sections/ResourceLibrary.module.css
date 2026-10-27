@@ -250,6 +250,13 @@
 
   .filter {
     flex: 0 0 auto;
+    min-height: 44px;
+  }
+
+  /* Featured carousel titles stay at three lines or fewer */
+  .cardBody h2 {
+    font-size: 1.1875rem;
+    line-height: 1.25;
   }
 }
 

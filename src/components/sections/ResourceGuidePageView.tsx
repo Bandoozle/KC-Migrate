@@ -27,13 +27,6 @@ function anchorId(title: string): string {
     .replace(/(^-|-$)/g, "");
 }
 
-function sentences(body: string): string[] {
-  return body
-    .split(/(?<=[.!?])\s+/)
-    .map((part) => part.trim())
-    .filter(Boolean);
-}
-
 function specValue(spec?: string): string | null {
   if (!spec) return null;
   const [, ...rest] = spec.split(":");
@@ -41,35 +34,26 @@ function specValue(spec?: string): string | null {
   return value || spec;
 }
 
-function introParagraph(parts: string[]): string {
-  const first = parts[0] || "";
-  const markets = parts.find((part) => part.includes("Vancouver")) || "";
-  const closer = parts.find((part) => /breakdown/i.test(part)) || "";
-  return [first, markets, closer].filter((part, index, all) => part && all.indexOf(part) === index).join(" ");
-}
-
-const NOTE_MATCHERS: Record<FormatKind, RegExp> = {
-  super: /highway|large-format|high-speed/i,
-  horizontal: /commuter|expressway/i,
-  digital: /viewing distance|creative space|placement strategy/i,
-  transit: /neighborhood|neighbourhood|regional exposure/i,
+/* Short card copy, condensed from each format's WordPress description */
+const SUMMARY: Record<FormatKind, string> = {
+  super: "Large-format placements built for major highways and long-distance visibility.",
+  horizontal: "A versatile billboard format for high-traffic urban and roadside placements.",
+  digital: "Digital placements that rotate creative throughout the day and allow campaigns to change quickly.",
+  transit: "Street-level placements that reach pedestrians, commuters and local neighbourhood traffic.",
 };
 
-function noteFor(title: string, parts: string[], intro: string): string {
-  return (
-    parts.find((part) => !intro.includes(part) && NOTE_MATCHERS[formatKind(title)].test(part)) || ""
-  );
+const INTRO =
+  "Billboard dimensions in Canada vary by format. The right choice depends on placement, audience and campaign goals.";
+
+/* "Superboards (Large Format Billboards)" reads as "Superboards" on the card */
+function shortName(title: string): string {
+  return title.replace(/\s*\([^)]*\)\s*$/, "").trim() || title;
 }
 
-function FormatCard({
-  section,
-  note,
-}: {
-  section: ResourceGuideSection;
-  note: string;
-}) {
+function FormatCard({ section }: { section: ResourceGuideSection }) {
   const dimension = specValue(section.spec);
-  const description = [section.body, note].filter(Boolean).join(" ");
+  const kind = formatKind(section.title);
+  const name = shortName(section.title);
 
   return (
     <article id={anchorId(section.title)} className={styles.card}>
@@ -80,21 +64,23 @@ function FormatCard({
             alt={section.image.alt || section.title}
             fill
             sizes="(max-width: 767px) 100vw, 50vw"
-            className={formatKind(section.title) === "transit" ? styles.transitPhoto : styles.photo}
+            className={kind === "transit" ? styles.transitPhoto : styles.photo}
           />
         </div>
       ) : null}
       <div className={styles.panel}>
-        {dimension ? <p className={styles.dimension}>{dimension}</p> : null}
-        <h3 className={styles.name}>{section.title}</h3>
-        <p className={styles.body}>{description}</p>
+        {dimension ? (
+          <p className={styles.dimension}>
+            <span className={styles.sizeLabel}>Size</span>
+            {dimension}
+          </p>
+        ) : null}
+        <h3 className={styles.name}>{name}</h3>
+        <p className={styles.body}>{SUMMARY[kind]}</p>
         {section.cta ? (
-          <Link
-            href={section.cta.href}
-            className={styles.button}
-            aria-label={`${section.cta.label} about ${section.title}`}
-          >
-            {section.cta.label}
+          <Link href={section.cta.href} className={styles.textLink} aria-label={`Learn more about ${name}`}>
+            Learn more
+            <span aria-hidden="true">→</span>
           </Link>
         ) : null}
       </div>
@@ -111,8 +97,7 @@ export function ResourceGuidePageView({ content }: ResourceGuidePageViewProps) {
   const mid = words.length <= 4 ? 1 : Math.ceil(words.length / 2);
   const titlePrimary = (colonSecondary ? beforeColon : words.slice(0, mid).join(" ")).trim() || cleaned;
   const titleSecondary = colonSecondary || (words.length > 1 ? words.slice(mid).join(" ") : undefined);
-  const introSentences = content.intro?.body ? sentences(content.intro.body) : [];
-  const intro = introParagraph(introSentences);
+  const intro = content.intro?.body ? INTRO : "";
 
   return (
     <main>
@@ -145,11 +130,7 @@ export function ResourceGuidePageView({ content }: ResourceGuidePageViewProps) {
           {content.sections.length > 0 ? (
             <div className={styles.grid}>
               {content.sections.map((section) => (
-                <FormatCard
-                  key={section.title}
-                  section={section}
-                  note={noteFor(section.title, introSentences, intro)}
-                />
+                <FormatCard key={section.title} section={section} />
               ))}
             </div>
           ) : null}

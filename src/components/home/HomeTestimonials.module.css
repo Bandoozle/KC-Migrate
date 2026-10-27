@@ -239,3 +239,10 @@
     padding: 1.5rem 1.35rem;
   }
 }
+
+@media (pointer: coarse) {
+  .readMore {
+    min-height: 44px;
+    margin-top: 0.35rem;
+  }
+}

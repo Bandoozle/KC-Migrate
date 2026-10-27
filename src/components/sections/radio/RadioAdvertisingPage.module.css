@@ -777,3 +777,26 @@
     transform: none;
   }
 }
+
+/* Phones: points read as compact rows, the number beside the text */
+@media (max-width: 639px) {
+  .points li,
+  .targetingPoints li {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .points li span:first-child,
+  .targetingPoints li span:first-child {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .points li:hover,
+  .targetingPoints li:hover {
+    transform: none;
+  }
+}

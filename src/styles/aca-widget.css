@@ -950,3 +950,12 @@
 	outline-offset: 2px;
 }
 
+
+/* Touch: chat header buttons grow to a comfortable target */
+@media (pointer: coarse) {
+	.aca-header-close,
+	.aca-header-menu-btn {
+		width: 40px;
+		height: 40px;
+	}
+}

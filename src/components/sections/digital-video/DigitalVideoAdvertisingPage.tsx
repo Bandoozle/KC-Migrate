@@ -6,6 +6,7 @@ import { getPartnerName } from "@/components/sections/PartnerLogoGrid";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
+import { FlightMarquee, type FlightStage } from "./FlightMarquee";
 import { PartnerLandscape } from "./PartnerLandscape";
 import styles from "./DigitalVideoAdvertisingPage.module.css";
 
@@ -29,6 +30,38 @@ const FORMATS = {
   preroll: { kicker: "Online video", title: "Pre-roll and mid-roll", line: "Reach viewers around the content they already watch." },
   outstream: { kicker: "In-page video", title: "Outstream and vertical", line: "Video placements beyond the traditional player." },
 };
+
+const FLIGHT: FlightStage[] = [
+  {
+    number: "01",
+    name: "Audience",
+    line: "Viewers chosen by geography, interests and behaviour.",
+    meta: "Geography · Interests",
+    image: SHOTS.couch,
+  },
+  {
+    number: "02",
+    name: "Creative",
+    line: "Message and format matched to how they watch.",
+    meta: "Matched to the screen",
+    image: { src: SHOTS.creative.src, alt: "A campaign creative frame" },
+  },
+  {
+    number: "03",
+    name: "Placement",
+    line: "Connected TV, online video and premium inventory.",
+    meta: "CTV · Pre-roll · Outstream",
+    image: SHOTS.livingRoom,
+  },
+  {
+    number: "04",
+    name: "Optimization",
+    line: "Adjusted in flight for reach, frequency and efficiency.",
+    meta: "Live",
+    live: true,
+    image: SHOTS.tablet,
+  },
+];
 
 const SEGMENTS = ["Demographics", "Geography", "Behaviour", "Context"];
 const SURFACES = ["Streaming", "Mobile", "Desktop"];
@@ -89,7 +122,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
       {/* Formats: one large Connected TV scene, two smaller placements stacked beside it */}
       <section className={styles.formats} aria-labelledby="dv-formats">
         <div className="container">
-          <div className={styles.head}>
+          <div className={`${styles.head} ${styles.centered}`}>
             <div>
               <p className={styles.label}>Placements</p>
               <SectionTitle as="h2" id="dv-formats" className={styles.title}>
@@ -99,95 +132,53 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
             <p className={styles.lead}>Connected TV, online video and premium publisher placements.</p>
           </div>
           <div className={styles.formatGrid}>
-            <Reveal variant="fade" as="article" className={styles.formatLarge}>
+            <Reveal variant="fade" as="article" className={`${styles.formatCard} ${styles.formatFeature}`}>
               <div className={styles.photo}>
-                <Image src={SHOTS.livingRoom.src} alt={SHOTS.livingRoom.alt} fill sizes="(min-width: 960px) 60vw, 100vw" className={styles.cover} />
+                <Image src={SHOTS.livingRoom.src} alt={SHOTS.livingRoom.alt} fill sizes="(min-width: 960px) 58vw, 100vw" className={styles.cover} />
               </div>
               <FormatCopy format={FORMATS.ctv} />
             </Reveal>
-            <Reveal delay={120} as="article" className={styles.formatSmall}>
-              <div className={styles.photo}>
-                <Image src={SHOTS.tablet.src} alt={SHOTS.tablet.alt} fill sizes="(min-width: 960px) 35vw, 100vw" className={styles.cover} />
-              </div>
-              <FormatCopy format={FORMATS.preroll} />
-            </Reveal>
-            <Reveal delay={240} as="article" className={styles.formatSmall}>
-              <div className={styles.photo}>
-                <Image src={SHOTS.wallTv.src} alt={SHOTS.wallTv.alt} fill sizes="(min-width: 960px) 35vw, 100vw" className={styles.cover} />
-              </div>
-              <FormatCopy format={FORMATS.outstream} />
-            </Reveal>
+            <div className={styles.formatStack}>
+              <Reveal delay={120} as="article" className={styles.formatCard}>
+                <div className={styles.photo}>
+                  <Image src={SHOTS.tablet.src} alt={SHOTS.tablet.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} />
+                </div>
+                <FormatCopy format={FORMATS.preroll} />
+              </Reveal>
+              <Reveal delay={240} as="article" className={styles.formatCard}>
+                <div className={styles.photo}>
+                  <Image src={SHOTS.wallTv.src} alt={SHOTS.wallTv.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} />
+                </div>
+                <FormatCopy format={FORMATS.outstream} />
+              </Reveal>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Planning: a media-planning board, four stages on one line with an artifact each */}
+      {/* Planning: the four stages as two drifting rows of cards, top row right, bottom row left */}
       <section className={styles.plan} aria-labelledby="dv-plan">
         <div className="container">
           <div className={styles.head}>
             <div>
-              <p className={styles.labelOnDark}>Media planning</p>
-              <SectionTitle as="h2" id="dv-plan" className={styles.titleOnDark}>
+              <p className={styles.label}>Media planning</p>
+              <SectionTitle as="h2" id="dv-plan" className={styles.title}>
                 How a flight is planned.
               </SectionTitle>
             </div>
-            <p className={styles.leadOnDark}>
+            <p className={styles.lead}>
               A mix of Connected TV, linear TV and digital video, planned for reach and frequency at efficient rates.
             </p>
           </div>
-          <ol className={styles.board}>
-            <Reveal as="li" className={styles.stage}>
-              <span className={styles.node} aria-hidden="true" />
-              <span className={styles.stageNumber}>01</span>
-              <span className={styles.stageName}>Audience</span>
-              <span className={styles.stageLine}>Viewers chosen by geography, interests and behaviour.</span>
-              <span className={styles.artifact} aria-hidden="true">
-                <span className={styles.chip}>Geography</span>
-                <span className={styles.chip}>Interests</span>
-              </span>
-            </Reveal>
-            <Reveal as="li" delay={110} className={styles.stage}>
-              <span className={styles.node} aria-hidden="true" />
-              <span className={styles.stageNumber}>02</span>
-              <span className={styles.stageName}>Creative</span>
-              <span className={styles.stageLine}>Message and format matched to how they watch.</span>
-              <span className={styles.artifact} aria-hidden="true">
-                <span className={styles.thumb}>
-                  <Image src={SHOTS.creative.src} alt="" fill sizes="160px" className={styles.cover} />
-                  <span className={styles.thumbPlay} />
-                </span>
-              </span>
-            </Reveal>
-            <Reveal as="li" delay={220} className={styles.stage}>
-              <span className={styles.node} aria-hidden="true" />
-              <span className={styles.stageNumber}>03</span>
-              <span className={styles.stageName}>Placement</span>
-              <span className={styles.stageLine}>Connected TV, online video and premium inventory.</span>
-              <span className={styles.artifact} aria-hidden="true">
-                <span className={styles.channels}>CTV · Pre-roll · Outstream</span>
-              </span>
-            </Reveal>
-            <Reveal as="li" delay={330} className={styles.stage}>
-              <span className={`${styles.node} ${styles.nodeLive}`} aria-hidden="true" />
-              <span className={styles.stageNumber}>04</span>
-              <span className={styles.stageName}>Optimization</span>
-              <span className={styles.stageLine}>Adjusted in flight for reach, frequency and efficiency.</span>
-              <span className={styles.artifact} aria-hidden="true">
-                <span className={styles.live}>
-                  <i />
-                  Live
-                </span>
-              </span>
-            </Reveal>
-          </ol>
         </div>
+        <FlightMarquee label="Flight planning stages" rows={[FLIGHT.slice(0, 2), FLIGHT.slice(2)]} />
       </section>
 
       {/* Targeting: four segments feed one placement, which lands on three surfaces */}
       <section className={styles.target} aria-labelledby="dv-target">
         <div className="container">
           <div className={styles.targetGrid}>
-            <div>
+            <div className={styles.centered}>
               <p className={styles.label}>Audience targeting</p>
               <SectionTitle as="h2" id="dv-target" className={styles.title}>
                 Target the right creative to the right audience.
@@ -207,7 +198,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
                   </ul>
                   <div className={styles.placement}>
                     <div className={styles.placementFrame}>
-                      <Image src={SHOTS.couch.src} alt="" fill sizes="(min-width: 960px) 35vw, 80vw" className={styles.cover} />
+                      <Image src={SHOTS.couch.src} alt="" fill sizes="(min-width: 960px) 45vw, 80vw" className={styles.cover} />
                     </div>
                     <span className={styles.placementLabel}>One video placement</span>
                   </div>
@@ -325,7 +316,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
       {grouped.length > 0 ? (
         <section className={styles.partners} aria-labelledby="dv-partners">
           <div className="container">
-            <div className={styles.head}>
+            <div className={`${styles.head} ${styles.centered}`}>
               <div>
                 <p className={styles.label}>Distribution</p>
                 <SectionTitle as="h2" id="dv-partners" className={styles.title}>

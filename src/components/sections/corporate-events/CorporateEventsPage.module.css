@@ -5,7 +5,7 @@
   --rule: rgba(17, 17, 17, 0.14);
   --rule-dark: rgba(255, 255, 255, 0.16);
   --accent: #7bd88f;
-  --block: clamp(4.5rem, 9vw, 8rem);
+  --block: var(--kosick-block);
   --gutter: clamp(1rem, 2vw, 1.5rem);
   overflow-x: clip;
   background: #ffffff;
@@ -739,7 +739,7 @@
   }
 
   .tradeStageFrame {
-    aspect-ratio: 4 / 5;
+    aspect-ratio: 4 / 3;
   }
 
   .scope {

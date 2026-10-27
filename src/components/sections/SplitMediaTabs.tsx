@@ -36,7 +36,13 @@ export function SplitMediaTabs({
 
   if (tabs.length === 0) return null;
 
-  const select = (index: number) => setActive(index);
+  // Move focus with the selection (roving tabindex) and keep the tab visible in a scrolled row
+  const select = (index: number) => {
+    setActive(index);
+    const tab = typeof document !== "undefined" ? document.getElementById(`${baseId}-tab-${tabs[index]?.id}`) : null;
+    tab?.focus({ preventScroll: true });
+    tab?.scrollIntoView({ block: "nearest", inline: "nearest" });
+  };
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;

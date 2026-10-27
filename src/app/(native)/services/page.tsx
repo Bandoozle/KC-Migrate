@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
-import { FeatureSplit } from "@/components/sections/FeatureSplit";
 import { InternalPageHero } from "@/components/sections/InternalPageHero";
 import { serviceHeroActions } from "@/lib/content/industry-heroes";
-import { SectionLead } from "@/components/sections/SectionLead";
+import { ServicesOverview } from "@/components/sections/services-overview/ServicesOverview";
 import { getServicesContent } from "@/lib/wordpress/services";
 
 
@@ -45,10 +44,7 @@ export default async function ServicesPage() {
         primaryCTA={actions.cta}
         secondaryCTA={actions.secondaryCta}
       />
-      <SectionLead title={content.intro.title} body={content.intro.body} />
-      {content.categories.map((category) => (
-        <FeatureSplit key={category.title} feature={category} />
-      ))}
+      <ServicesOverview />
     </main>
   );
 }

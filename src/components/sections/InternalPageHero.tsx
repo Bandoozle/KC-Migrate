@@ -23,6 +23,8 @@ export type InternalPageHeroProps = {
   secondaryCTA?: InternalPageCta | null;
   /** Utility pages: same type, alignment, and spacing without a photograph. */
   plain?: boolean;
+  /** With `plain`: short band for index pages such as the site map. */
+  compact?: boolean;
 };
 
 /**
@@ -41,6 +43,7 @@ export function InternalPageHero({
   primaryCTA,
   secondaryCTA,
   plain = false,
+  compact = false,
 }: InternalPageHeroProps) {
   const heading = [titlePrimary, titleSecondary].filter(Boolean).join(" ");
   const media: HeroBannerSlide[] =
@@ -54,6 +57,7 @@ export function InternalPageHero({
     <HeroBanner
       variant="service"
       plain={plain || media.length === 0}
+      compact={compact}
       slides={media}
       title={titlePrimary}
       titleSecondary={titleSecondary}

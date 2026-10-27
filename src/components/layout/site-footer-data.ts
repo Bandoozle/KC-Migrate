@@ -51,19 +51,21 @@ export const SITE_FOOTER_SERVICES: FooterColumn = {
   ],
 };
 
-/**
- * Company column from WordPress footer, plus utility links kept out of the header.
- */
+/** Company column from WordPress footer. */
 export const SITE_FOOTER_COMPANY: FooterColumn = {
   title: "Company",
   links: [
     { label: "Our Company", href: "/" },
     { label: "Our Work", href: "/services/" },
     { label: "Contact", href: "/contact/" },
-    { label: "Pay Your Invoice Online", href: "/online-payments/" },
-    { label: "Site Map", href: "/site-map/" },
   ],
 };
+
+/** Utility links kept out of the header, shown in the bottom bar. */
+export const SITE_FOOTER_UTILITY: FooterLink[] = [
+  { label: "Pay your invoice online", href: "/online-payments/" },
+  { label: "Site map", href: "/site-map/" },
+];
 
 export const SITE_FOOTER_NEWSLETTER = {
   title: "Stay updated",
@@ -78,9 +80,4 @@ export const SITE_FOOTER_NEWSLETTER = {
 export const SITE_FOOTER_COPYRIGHT = {
   prefix: "©",
   owner: "Kosick Communications. All rights reserved.",
-} as const;
-
-export const SITE_FOOTER_BACKGROUND = {
-  image:
-    "https://staging.kosick.com/wp-content/uploads/2022/01/grey-footer.jpg",
 } as const;

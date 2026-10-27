@@ -8,7 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { FORM_NAMES, trackFormSuccess, trackPhoneClick } from "@/lib/analytics/track";
+import { FORM_NAMES, trackFormSuccess } from "@/lib/analytics/track";
 import { getPublicWordPressUrl } from "@/lib/wordpress-public";
 import "@/styles/aca-widget.css";
 
@@ -438,8 +438,8 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
                   <a
                     className="aca-cta-btn"
                     href={phoneHref(cfg.phoneNumber)}
+                    // TrackedLinkDelegation already records tel: clicks site-wide
                     onClick={() => {
-                      trackPhoneClick(phoneHref(cfg.phoneNumber));
                       void trackOutcome("called");
                     }}
                   >

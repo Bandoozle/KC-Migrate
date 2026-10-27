@@ -2,7 +2,7 @@
   --ink: #0e0e0f;
   --stone: #f3f3f1;
   --rule: rgba(17, 17, 17, 0.12);
-  --block: clamp(4.5rem, 9vw, 8rem);
+  --block: var(--kosick-block);
   overflow-x: clip;
   background: #ffffff;
 }

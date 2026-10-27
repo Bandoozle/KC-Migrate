@@ -207,3 +207,74 @@
     min-height: 320px;
   }
 }
+
+/* Touch screens have no hover: show the arrow and the lead descriptions outright */
+@media (hover: none) {
+  .arrow {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Phones: a two-column mosaic, the first and last services full width */
+@media (max-width: 639px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .card1,
+  .card6 {
+    grid-column: 1 / -1;
+    min-height: 260px;
+  }
+
+  .card2,
+  .card3,
+  .card4,
+  .card5 {
+    grid-column: auto;
+    min-height: 168px;
+    padding: 14px;
+  }
+
+  .card2 .title,
+  .card3 .title,
+  .card4 .title,
+  .card5 .title {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.2;
+  }
+
+  .card2 .description,
+  .card3 .description,
+  .card4 .description,
+  .card5 .description {
+    display: none;
+  }
+
+  .card1 .description,
+  .card6 .description {
+    opacity: 1;
+    max-height: none;
+    transform: none;
+    font-size: 15px;
+  }
+
+  .title {
+    font-size: 1.625rem;
+  }
+
+  .index {
+    top: 14px;
+    left: 14px;
+  }
+
+  .arrow {
+    top: 10px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+  }
+}

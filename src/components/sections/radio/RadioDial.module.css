@@ -537,3 +537,50 @@
     transition: none;
   }
 }
+
+/* Phones: genres become one swipeable row of tabs above the receiver */
+@media (max-width: 699px) {
+  .formats {
+    display: flex;
+    gap: 0.5rem;
+    margin-inline: calc(-1 * (100vw - 100%) / 2);
+    padding-inline: calc((100vw - 100%) / 2);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .formats::-webkit-scrollbar {
+    display: none;
+  }
+
+  .format {
+    flex: 0 0 auto;
+    width: auto;
+    grid-template-areas: "signal label";
+    align-items: center;
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    scroll-snap-align: start;
+  }
+
+  .format[aria-selected="true"] {
+    border-color: #ffffff;
+  }
+
+  .formatSignal {
+    margin-top: 0;
+  }
+
+  .formatLabel {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
+  .formatMeta {
+    display: none;
+  }
+}

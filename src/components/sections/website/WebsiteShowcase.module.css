@@ -3,7 +3,7 @@
   --rule: rgba(17, 17, 17, 0.14);
   --accent: #7bd88f;
   --gutter: clamp(1rem, 2vw, 1.5rem);
-  padding: clamp(4.5rem, 9vw, 8rem) 0;
+  padding: var(--kosick-block) 0;
   background: #ffffff;
 }
 

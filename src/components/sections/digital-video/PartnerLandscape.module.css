@@ -163,3 +163,18 @@
     transition: none;
   }
 }
+
+/* Phones: three logos a row at a smaller height, so the wall stays a glance */
+@media (max-width: 640px) {
+  .landscape {
+    --cols: 3;
+  }
+
+  .cell {
+    height: 5.5rem;
+  }
+
+  .logo {
+    max-height: 4.75rem;
+  }
+}

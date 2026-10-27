@@ -205,3 +205,11 @@
     flex: 1;
   }
 }
+
+@media (pointer: coarse) {
+  .mapLink {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}

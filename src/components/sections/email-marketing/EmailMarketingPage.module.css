@@ -9,7 +9,7 @@
   --sand: #d9b98a;
   --rule-dark: rgba(244, 239, 231, 0.14);
   --rule-light: rgba(21, 18, 15, 0.14);
-  --block: clamp(4.5rem, 9vw, 8rem);
+  --block: var(--kosick-block);
   --gutter: clamp(1rem, 2vw, 1.5rem);
   overflow-x: clip;
   background: #ffffff;

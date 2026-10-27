@@ -255,17 +255,25 @@
 }
 
 @media (max-width: 720px) {
+  /* Photo heroes stay tall enough for the subject; text sits low over the shade */
   .service {
-    min-height: 34rem;
+    min-height: min(34rem, 88svh);
   }
 
-  .service.plain {
-    min-height: 22rem;
+  /* Utility heroes are sized by their content on phones */
+  .service.plain,
+  .service.plain .overlay {
+    min-height: 0;
+  }
+
+  .service.plain .overlay {
+    padding: 3.25rem 0 2.75rem;
   }
 
   .service .overlay {
     align-items: flex-end;
-    min-height: 34rem;
+    min-height: min(34rem, 88svh);
+    padding: 2.5rem 0 2.25rem;
     background: linear-gradient(
       180deg,
       rgba(0, 0, 0, 0.25) 0%,
@@ -279,14 +287,23 @@
   }
 
   .service .title {
-    font-size: clamp(2.15rem, 10vw, 3rem);
-    line-height: 1.08;
+    font-size: clamp(2rem, 8.6vw, 2.75rem);
+    line-height: 1.07;
     max-width: none;
     overflow-wrap: break-word;
   }
 
   .service .subtitle {
+    margin-top: 1rem;
     font-size: var(--kosick-section-desc-size);
+  }
+
+  .service .eyebrow {
+    margin-bottom: 0.85rem;
+  }
+
+  .service .actions {
+    margin-top: 1.35rem;
   }
 }
 
@@ -306,4 +323,20 @@
   .slide {
     transition: none;
   }
+}
+
+/* Compact utility band: content sets the height */
+.service.plain.compact,
+.service.plain.compact .overlay {
+  min-height: 0;
+}
+
+.service.plain.compact .overlay {
+  padding: clamp(3rem, 7vw, 4.5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.service.plain.compact .title {
+  font-size: var(--kosick-page-title-size);
+  line-height: var(--kosick-page-title-leading);
+  letter-spacing: var(--kosick-page-title-tracking);
 }

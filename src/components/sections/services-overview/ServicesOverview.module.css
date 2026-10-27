@@ -1,0 +1,749 @@
+/*
+ * All Services: an index, then six chapters with their own compositions.
+ * Rhythm: white index, dark media, white collage, warm digital, white industries,
+ * full-bleed events photo, dark business development.
+ */
+
+.intro,
+.chapter {
+  --rule: rgba(17, 17, 17, 0.14);
+  --rule-dark: rgba(255, 255, 255, 0.16);
+  --accent: #d93b30;
+  padding: var(--kosick-block) 0;
+  background: #ffffff;
+  color: #111111;
+}
+
+.dark {
+  background: #111111;
+  color: #ffffff;
+}
+
+.warm {
+  background: #f6f3ee;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.coverTop {
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Heads: number, title, lead stacked at full content width */
+.head {
+  margin-bottom: clamp(2.25rem, 4.5vw, 3.25rem);
+}
+
+.label,
+.labelOnDark {
+  margin: 0 0 0.9rem;
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+
+.label {
+  color: var(--accent, #d93b30);
+}
+
+.labelOnDark {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.title {
+  margin: 0;
+}
+
+.page .titleOnDark,
+.titleOnDark {
+  margin: 0;
+  color: #ffffff !important;
+}
+
+.display {
+  margin: 0;
+  font-size: var(--kosick-page-title-size) !important;
+  line-height: var(--kosick-page-title-leading) !important;
+  letter-spacing: var(--kosick-page-title-tracking) !important;
+}
+
+.lead,
+.leadOnDark {
+  margin: 1.1rem 0 0;
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.lead {
+  color: var(--kosick-color-muted);
+}
+
+.leadOnDark {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+/* `.kosick-native-page a { color: inherit }` outranks single classes, so links set colour under main */
+main a.indexLink,
+main a.mediaRow,
+main a.tile,
+main a.browserLink,
+main a.capability,
+main a.textLink,
+main a.world,
+main a.row {
+  color: inherit;
+  text-decoration: none;
+}
+
+main a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 180ms ease;
+}
+
+a:hover .arrow,
+a:focus-visible .arrow,
+a[data-active] .arrow {
+  transform: translateX(3px);
+}
+
+/* Index */
+
+.index {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+main a.indexLink {
+  display: grid;
+  gap: 0.6rem;
+  height: 100%;
+  padding: 1.1rem 1rem 0.25rem 0;
+  border-top: 2px solid transparent;
+  margin-top: -1px;
+  transition: border-color 180ms ease;
+}
+
+main a.indexLink:hover {
+  border-top-color: #111111;
+}
+
+.indexNumber {
+  color: var(--accent);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.indexName {
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.chapter {
+  scroll-margin-top: 5rem;
+}
+
+/* 01 Advertising & Media */
+
+.media {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: stretch;
+}
+
+.mediaStage {
+  position: relative;
+  min-height: clamp(22rem, 38vw, 32rem);
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #1d1d1d;
+}
+
+.mediaImage {
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity 420ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mediaImageActive {
+  opacity: 1;
+  transform: none;
+}
+
+.mediaRows {
+  display: grid;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule-dark);
+}
+
+.mediaRows li {
+  border-bottom: 1px solid var(--rule-dark);
+}
+
+main a.mediaRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.3rem 1rem;
+  padding: 1.1rem 0;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 180ms ease;
+}
+
+main a.mediaRow[data-active],
+main a.mediaRow:hover {
+  color: #ffffff;
+}
+
+.mediaName {
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+  line-height: var(--kosick-subsection-title-leading);
+}
+
+.mediaLine {
+  grid-column: 1;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.45;
+}
+
+.mediaRow .arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
+/* 02 Brand & Creative: large branding plate, two smaller plates stacked beside it */
+
+.collage {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-rows: auto auto;
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.collage_branding {
+  grid-row: 1 / span 2;
+}
+
+.collage_creative {
+  grid-column: 2;
+}
+
+.collage_development {
+  grid-column: 2;
+  width: 82%;
+  justify-self: end;
+}
+
+main a.tile {
+  display: grid;
+  gap: 0.85rem;
+  height: 100%;
+}
+
+.tileImage {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #eceae6;
+  aspect-ratio: 4 / 3;
+}
+
+.collage_branding .tileImage {
+  aspect-ratio: auto;
+  min-height: clamp(22rem, 44vw, 36rem);
+  height: calc(100% - 4.5rem);
+}
+
+.tileImage img {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tile:hover .tileImage img {
+  transform: scale(1.03);
+}
+
+.tileCaption,
+.browserCaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.2rem 1rem;
+}
+
+.tileName {
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.tileLine {
+  grid-column: 1;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.tileCaption .arrow {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* 03 Digital Marketing: a browser view beside three capability blocks */
+
+.digital {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+main a.browserLink {
+  display: grid;
+  gap: 1rem;
+}
+
+.browser {
+  display: block;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: var(--kosick-radius-md);
+  background: #ffffff;
+  box-shadow: 0 30px 60px -40px rgba(17, 17, 17, 0.45);
+}
+
+.browserBar {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+}
+
+.browserBar i {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.16);
+}
+
+.browserView {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.browserView img {
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.browserLink:hover .browserView img {
+  transform: scale(1.02);
+}
+
+.browserCaption .explore {
+  grid-column: 1;
+}
+
+.capabilities {
+  display: grid;
+  gap: clamp(0.75rem, 1.5vw, 1rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main a.capability {
+  display: grid;
+  gap: 0.45rem;
+  padding: clamp(1.25rem, 2.2vw, 1.6rem);
+  border-radius: var(--kosick-radius-md);
+  background: #ffffff;
+  transition: box-shadow 200ms ease;
+}
+
+main a.capability:hover {
+  box-shadow: 0 18px 40px -30px rgba(17, 17, 17, 0.45);
+}
+
+.capabilityName {
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.capabilityLine {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.explore {
+  display: inline-flex;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+}
+
+main a.textLink {
+  display: inline-flex;
+  gap: 0.4rem;
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+}
+
+.capabilities main a.textLink,
+.capabilities a.textLink {
+  margin-top: 0.5rem;
+}
+
+/* 04 Industry Marketing: one tall featured world, two stacked beside it */
+
+.industries {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-rows: repeat(2, minmax(15rem, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  min-height: clamp(30rem, 48vw, 40rem);
+}
+
+main a.world {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #1d1d1d;
+  color: #ffffff;
+}
+
+.world_hvac {
+  grid-row: 1 / span 2;
+}
+
+.world img {
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.world:hover img {
+  transform: scale(1.04);
+}
+
+.worldShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.72) 100%);
+}
+
+.worldCopy {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.3rem 1rem;
+  width: 100%;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.worldName {
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.world_hvac .worldName {
+  font-size: var(--kosick-subsection-title-size);
+}
+
+.worldLine {
+  grid-column: 1;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: var(--kosick-body-size);
+  line-height: 1.45;
+}
+
+.worldCopy .arrow {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+/* 05 Events: full-bleed photograph */
+
+.events {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(30rem, 62vw, 42rem);
+  overflow: hidden;
+  background: #111111;
+  color: #ffffff;
+  scroll-margin-top: 5rem;
+}
+
+.eventsShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 30%, rgba(0, 0, 0, 0.78) 100%);
+}
+
+.eventsInner {
+  position: relative;
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+.eventsInner .leadOnDark {
+  max-width: 36rem;
+}
+
+main a.buttonLight {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  margin-top: 1.75rem;
+  padding: 0 1.5rem;
+  border-radius: var(--kosick-radius-pill);
+  background: #ffffff;
+  color: #111111;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 160ms ease;
+}
+
+main a.buttonLight:hover {
+  opacity: 0.88;
+}
+
+/* 06 Business Development: ruled rows on dark */
+
+.rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule-dark);
+}
+
+.rows li {
+  border-bottom: 1px solid var(--rule-dark);
+}
+
+main a.row {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 4fr) minmax(0, 6fr) auto;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem) 0;
+  transition: background-color 180ms ease;
+}
+
+.rowNumber {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--kosick-meta-size);
+  font-variant-numeric: tabular-nums;
+}
+
+.rowName {
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+  line-height: var(--kosick-subsection-title-leading);
+}
+
+.rowLine {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+/* Tablet */
+
+@media (max-width: 960px) {
+  .index {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .media,
+  .digital {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .mediaStage {
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  main a.row {
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  }
+
+  .rowLine {
+    grid-column: 2;
+  }
+
+  .row .arrow {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+
+/* Phone */
+
+.mediaThumb {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .mediaStage {
+    display: none;
+  }
+
+  main a.mediaRow {
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
+    column-gap: 0.9rem;
+    color: #ffffff;
+  }
+
+  .mediaThumb {
+    position: relative;
+    display: block;
+    grid-row: 1 / span 2;
+    width: 4rem;
+    height: 4rem;
+    overflow: hidden;
+    border-radius: var(--kosick-radius-sm);
+    background: #1d1d1d;
+  }
+
+  .mediaName {
+    grid-column: 2;
+    font-size: 1.125rem;
+  }
+
+  .mediaLine {
+    grid-column: 2;
+  }
+
+  .mediaRow .arrow {
+    grid-column: 3;
+  }
+
+  .index {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1rem;
+  }
+
+  main a.indexLink {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+
+  .indexName {
+    font-size: 1rem;
+  }
+  .index {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  main a.indexLink {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    align-items: baseline;
+    padding: 0.85rem 0;
+    border-top: 0;
+    border-bottom: 1px solid var(--rule);
+    margin-top: 0;
+  }
+
+  .collage {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    min-height: 0;
+  }
+
+  /* HVAC leads full width; dental and golf share the row below */
+  .industries {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    gap: 0.75rem;
+    min-height: 0;
+  }
+
+  .collage_branding,
+  .collage_creative,
+  .collage_development {
+    grid-column: auto;
+    grid-row: auto;
+    width: auto;
+  }
+
+  .world_hvac {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .world_dental .worldLine,
+  .world_golf .worldLine {
+    display: none;
+  }
+
+  .worldCopy {
+    padding: 1rem;
+  }
+
+  .collage_branding .tileImage {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  main a.world {
+    min-height: 13rem;
+  }
+
+  main a.world_hvac {
+    min-height: 20rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arrow,
+  .mediaImage,
+  .tileImage img,
+  .browserView img,
+  .world img {
+    transition: none;
+  }
+
+  a:hover .arrow,
+  .tile:hover .tileImage img,
+  .browserLink:hover .browserView img,
+  .world:hover img {
+    transform: none;
+  }
+}

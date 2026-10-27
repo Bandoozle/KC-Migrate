@@ -100,6 +100,36 @@
   --kosick-radius-sm: 4px;
   --kosick-radius-md: 12px;
   --kosick-radius-pill: 9999px;
+
+  /* Vertical rhythm for redesigned page sections */
+  --kosick-block: clamp(4.5rem, 9vw, 8rem);
+  --kosick-block-compact: clamp(3.5rem, 7vw, 6rem);
+}
+
+/*
+ * Mobile scale: phones get their own type and rhythm rather than desktop sizes
+ * squeezed to the clamp floor. Section titles fit in two to three lines at 390px.
+ */
+@media (max-width: 640px) {
+  :root {
+    --kosick-page-title-size: clamp(2rem, 8.4vw, 2.25rem);
+    --kosick-page-title-leading: 1.1;
+    --kosick-section-title-size: clamp(1.75rem, 7.4vw, 2rem);
+    --kosick-section-title-leading: 1.14;
+    --kosick-subsection-title-size: 1.3125rem;
+    --kosick-card-title-size: 1.25rem;
+    --kosick-section-desc-size: 1.0625rem;
+    --kosick-body-size: 1rem;
+    --kosick-feature-title-size: 24px;
+    --kosick-block: clamp(3rem, 12vw, 3.5rem);
+    --kosick-block-compact: clamp(2.75rem, 10vw, 3rem);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
 }
 
 .kosick-native-page {

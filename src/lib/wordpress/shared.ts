@@ -32,7 +32,9 @@ export function toLocalPath(url: string | null, origin = getWordPressUrl()): str
   if (!url) return null;
   if (url === "#" || url.startsWith("#")) return null;
   if (url.startsWith("tel:") || url.startsWith("mailto:")) return url;
-  const bases = [origin, getWordPressUrl(), ...SITE_ORIGINS];
+  const wordpress = getWordPressUrl();
+  // Older posts link to the CMS host over plain http
+  const bases = [origin, wordpress, wordpress.replace(/^https:/, "http:"), ...SITE_ORIGINS];
   for (const base of bases) {
     if (!matchesOrigin(url, base)) continue;
     const path = url.slice(base.length) || "/";
