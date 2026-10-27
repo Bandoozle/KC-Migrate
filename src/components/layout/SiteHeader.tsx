@@ -481,27 +481,30 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
               </ul>
             </nav>
 
-            <Link
-              href={SITE_HEADER_MOBILE_CTA.href}
-              className={styles.mobileCta}
-              onClick={() => setDrawerOpen(false)}
-            >
-              {SITE_HEADER_MOBILE_CTA.label}
-            </Link>
+            {/* Contact button with the social icons beside it */}
+            <div className={styles.drawerFoot}>
+              <Link
+                href={SITE_HEADER_MOBILE_CTA.href}
+                className={styles.mobileCta}
+                onClick={() => setDrawerOpen(false)}
+              >
+                {SITE_HEADER_MOBILE_CTA.label}
+              </Link>
 
-            <div className={styles.social}>
-              {SITE_HEADER_SOCIAL.map((social) => (
-                <a
-                  key={social.href}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className={styles.socialLink}
-                >
-                  {social.label === "Facebook" ? <FacebookIcon /> : <InstagramIcon />}
-                </a>
-              ))}
+              <div className={styles.social}>
+                {SITE_HEADER_SOCIAL.map((social) => (
+                  <a
+                    key={social.href}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className={styles.socialLink}
+                  >
+                    {social.label === "Facebook" ? <FacebookIcon /> : <InstagramIcon />}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </div>

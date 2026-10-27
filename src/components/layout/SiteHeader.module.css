@@ -741,3 +741,17 @@
     min-height: 44px;
   }
 }
+
+/* Drawer foot: contact button and social icons on one line */
+.drawerFoot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.drawerFoot .mobileCta,
+.drawerFoot .social {
+  margin-top: 0;
+}
