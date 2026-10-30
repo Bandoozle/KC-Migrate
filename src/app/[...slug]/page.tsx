@@ -1,71 +1,48 @@
 import type { Metadata } from "next";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { NativePageShell } from "@/components/layout/NativePageShell";
 import { ArticlePageView } from "@/components/article/ArticlePageView";
-import { getPageBySlug } from "@/lib/wordpress";
+import { isPublicArticleSlug } from "@/lib/public-routes";
 import { getArticleBySlug } from "@/lib/wordpress/post";
 import { rankMathMetadata } from "@/lib/seo/rank-math";
-import {
-  renderWordPressPage,
-  renderWordPressPath,
-} from "@/lib/render-wordpress-page";
 
 
 type PageProps = {
   params: Promise<{ slug: string[] }>;
 };
 
-function pathnameFromSegments(segments: string[]): string {
-  return `/${segments.join("/")}`;
+/**
+ * Feature articles at /{slug}/. Only slugs in the public inventory render.
+ * Every other path (archives, attachment pages, feeds, wp-* files, nested
+ * WordPress URLs) is a 404 without asking WordPress. Legacy redirects run in
+ * next.config.ts before this route.
+ */
+function articleSlug(segments: string[]): string | null {
+  return segments.length === 1 && isPublicArticleSlug(segments[0]) ? segments[0] : null;
 }
 
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  if (slug.length === 1 && slug[0] === "home") {
-    return rankMathMetadata("/");
-  }
-  return rankMathMetadata(`/${slug.join("/")}/`);
+  const slug = articleSlug((await params).slug);
+  return slug ? rankMathMetadata(`/${slug}/`) : {};
 }
 
-export default async function WordPressSlugPage({ params }: PageProps) {
-  const { slug } = await params;
-
-  if (slug.length === 1 && slug[0] === "home") {
-    redirect("/");
-  }
-
-  const last = slug.at(-1);
-  let page = null;
-  try {
-    page = last ? await getPageBySlug(last) : null;
-  } catch {
-    page = null;
-  }
-  if (page) {
-    return renderWordPressPage(page);
-  }
+export default async function ArticlePage({ params }: PageProps) {
+  const slug = articleSlug((await params).slug);
+  if (!slug) notFound();
 
   let article = null;
-  if (slug.length === 1) {
-    try {
-      article = await getArticleBySlug(slug[0]);
-    } catch {
-      notFound();
-    }
-  }
-  if (article) {
-    return (
-      <NativePageShell>
-        <ArticlePageView content={article} />
-      </NativePageShell>
-    );
-  }
-
   try {
-    return await renderWordPressPath(pathnameFromSegments(slug));
+    article = await getArticleBySlug(slug);
   } catch {
     notFound();
   }
+  if (!article) notFound();
+
+  return (
+    <NativePageShell>
+      <ArticlePageView content={article} />
+    </NativePageShell>
+  );
 }

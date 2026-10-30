@@ -1,6 +1,6 @@
 /*
  * Layout follows a home-services reference: photo-led intro with figure
- * chips, image-topped service cards, a process band, a work gallery and a
+ * chips, linked "What we offer" cards, a process band, a work gallery and a
  * full-photo close. Type, buttons and spacing stay on the Kosick tokens;
  * a warm ember accent marks HVAC.
  */
@@ -230,77 +230,6 @@
   font-size: var(--kosick-meta-size);
   font-weight: 500;
   line-height: 1.3;
-}
-
-/* Services */
-
-.services {
-  padding: var(--block) 0;
-  background: var(--stone);
-}
-
-.services .actions {
-  justify-content: center;
-  margin-top: clamp(2rem, 4vw, 3rem);
-}
-
-.serviceGrid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: var(--gutter);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.serviceCard {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid var(--rule);
-  border-radius: var(--kosick-radius-md);
-  background: #ffffff;
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.serviceCard:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 22px 45px -32px rgba(17, 17, 17, 0.45);
-}
-
-.serviceImage {
-  position: relative;
-  aspect-ratio: 4 / 3;
-  background: #e4e4e1;
-}
-
-.serviceBody {
-  display: grid;
-  gap: 0.5rem;
-  padding: 1.35rem 1.35rem 1.6rem;
-}
-
-.serviceNumber {
-  color: var(--accent);
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-}
-
-.serviceName {
-  margin: 0;
-  color: #111111;
-  font-size: var(--kosick-card-title-size);
-  font-weight: var(--kosick-card-title-weight);
-  letter-spacing: var(--kosick-card-title-tracking);
-  line-height: var(--kosick-card-title-leading);
-}
-
-.serviceLine {
-  margin: 0;
-  color: var(--kosick-color-muted);
-  font-size: var(--kosick-body-size);
-  line-height: 1.5;
 }
 
 /* Flow sections: stacked head, then the shared animated process track */
@@ -719,10 +648,6 @@
     left: 1rem;
   }
 
-  .serviceGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -737,32 +662,6 @@
 
   .introFigure {
     font-size: 1.75rem;
-  }
-
-  /* Services swipe sideways: one card and a peek of the next */
-  .serviceGrid {
-    display: flex;
-    gap: 0.75rem;
-    margin-inline: calc(-1 * (100vw - 100%) / 2);
-    padding-inline: calc((100vw - 100%) / 2);
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: calc((100vw - 100%) / 2);
-    scrollbar-width: none;
-  }
-
-  .serviceGrid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .serviceGrid > li {
-    flex: 0 0 82%;
-    scroll-snap-align: start;
-  }
-
-  .services .actions {
-    margin-top: 1.75rem;
   }
 
   .gallery {
@@ -811,13 +710,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .serviceCard,
   .tile img,
   .playDisc {
     transition: none;
   }
 
-  .serviceCard:hover,
   .tile:hover img,
   .videoPoster:hover .playDisc {
     transform: none;

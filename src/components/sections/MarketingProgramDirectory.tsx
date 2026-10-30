@@ -5,6 +5,7 @@ import { InternalPageHero } from "@/components/sections/InternalPageHero";
 import { PageCta } from "@/components/sections/PageCta";
 import { serviceHeroActions, INDUSTRY_SERVICE_HEROES } from "@/lib/content/industry-heroes";
 import { SectionTitle } from "@/components/typography";
+import { INDUSTRY_LINKS } from "@/lib/industries/nav";
 import {
   MARKETING_PROGRAMS_CTA,
   MARKETING_PROGRAMS_HERO_VISUALS,
@@ -12,7 +13,7 @@ import {
 } from "@/lib/content/marketing-program-directory";
 import styles from "./MarketingProgramDirectory.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const INDUSTRIES = {
   hvac: {
@@ -22,8 +23,8 @@ const INDUSTRIES = {
     image: { src: `${UPLOADS}/2026/06/hvac-billboard-advertising.jpg`, alt: "Heat pump billboard above a street corner" },
   },
   dental: {
-    name: "Dental Marketing",
-    line: "Visibility, trust and booked appointments for growing practices.",
+    name: "Medical & Dental Marketing",
+    line: "Visibility, trust and booked appointments for growing practices and clinics.",
     href: "/services/dental-marketing/",
     image: { src: `${UPLOADS}/2026/07/Dental-Marketing.jpg`, alt: "A hygienist with a patient in the chair" },
   },
@@ -143,6 +144,16 @@ export function MarketingProgramDirectory() {
                 );
               })}
             </div>
+            <ul className={styles.moreIndustries} aria-label="More industries">
+              {INDUSTRY_LINKS.slice(3).map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className={styles.moreIndustry}>
+                    {link.label}
+                    <ArrowIcon />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

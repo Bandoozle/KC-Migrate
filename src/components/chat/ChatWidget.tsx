@@ -9,7 +9,7 @@ import {
   useState,
 } from "react";
 import { FORM_NAMES, trackFormSuccess } from "@/lib/analytics/track";
-import { getPublicWordPressUrl } from "@/lib/wordpress-public";
+import { localMediaUrl } from "@/lib/media";
 import "@/styles/aca-widget.css";
 
 type ChatRole = "user" | "assistant";
@@ -45,9 +45,9 @@ const DEFAULT_CONFIG: ChatWidgetConfig = {
   widgetTitle: "Connect with us",
   subtitle: "Typically replies in a few minutes",
   avatarUrl:
-    "https://staging.kosick.com/wp-content/uploads/2026/05/kosick-communications.jpg",
+    "/wp-content/uploads/2026/05/kosick-communications.jpg",
   launcherIconUrl:
-    "https://staging.kosick.com/wp-content/uploads/2026/05/chat-feature.jpg",
+    "/wp-content/uploads/2026/05/chat-feature.jpg",
   greeting: "Hello! How can we assist?",
   teaserText: "Hello! How can we assist?",
   showTeaser: true,
@@ -63,22 +63,6 @@ const DEFAULT_CONFIG: ChatWidgetConfig = {
 
 const STORAGE_KEY = "aca_session_v1";
 const TEASER_KEY = "aca_teaser_dismissed_v1";
-
-function mediaUrl(pathOrUrl: string): string {
-  if (pathOrUrl.startsWith("http")) {
-    try {
-      const u = new URL(pathOrUrl);
-      // Prefer same WP origin configured for the app when possible.
-      if (u.pathname.includes("/wp-content/")) {
-        return `${getPublicWordPressUrl()}${u.pathname}${u.search}`;
-      }
-    } catch {
-      /* keep */
-    }
-    return pathOrUrl;
-  }
-  return `${getPublicWordPressUrl()}${pathOrUrl.startsWith("/") ? "" : "/"}${pathOrUrl}`;
-}
 
 function newSessionId() {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
@@ -96,8 +80,8 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
   const cfg: ChatWidgetConfig = {
     ...DEFAULT_CONFIG,
     ...config,
-    avatarUrl: mediaUrl((config.avatarUrl || DEFAULT_CONFIG.avatarUrl)),
-    launcherIconUrl: mediaUrl(
+    avatarUrl: localMediaUrl((config.avatarUrl || DEFAULT_CONFIG.avatarUrl)),
+    launcherIconUrl: localMediaUrl(
       config.launcherIconUrl || DEFAULT_CONFIG.launcherIconUrl,
     ),
   };
@@ -359,6 +343,8 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
           role="dialog"
           aria-label="Chat with us"
           aria-hidden={!open}
+          // Closed panel stays mounted for its transition; inert keeps its controls out of the tab order
+          inert={!open}
         >
           <header className="aca-header">
             <div className="aca-header-content">

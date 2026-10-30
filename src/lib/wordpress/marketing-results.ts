@@ -1,6 +1,6 @@
 import { cache } from "react";
 import * as cheerio from "cheerio";
-import { getPageBySlug, getWordPressUrl, WordPressApiError } from "@/lib/wordpress";
+import { getPageBySlug, CONTENT_ORIGIN, WordPressApiError } from "@/lib/wordpress";
 import type { PageCtaData } from "@/components/sections/PageCta";
 import type { HeroBannerSlide } from "@/components/sections/HeroBanner";
 import {
@@ -43,7 +43,7 @@ export const getMarketingResultsContent = cache(
       );
     }
 
-    const origin = getWordPressUrl();
+    const origin = CONTENT_ORIGIN;
     const html = page.content.rendered;
     const $ = cheerio.load(`<div id="root">${html}</div>`);
 

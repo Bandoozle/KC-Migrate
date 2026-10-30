@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getWordPressUrl } from "@/lib/wordpress";
+import { RATE_LIMITS, rateLimited } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -20,6 +21,9 @@ function clean(value: unknown, max = 2000): string {
 }
 
 export async function POST(request: Request) {
+  const limited = rateLimited(request, RATE_LIMITS.lead);
+  if (limited) return limited;
+
   let body: LeadBody;
   try {
     body = (await request.json()) as LeadBody;

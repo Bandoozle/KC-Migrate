@@ -3,12 +3,8 @@ import * as cheerio from "cheerio";
 import type { CheerioAPI } from "cheerio";
 import type { AnyNode, Element } from "domhandler";
 import { applyIndustryServiceHero, INDUSTRY_SERVICE_HEROES } from "@/lib/content/industry-heroes";
-import {
-  decodeRenderedText,
-  getPageBySlug,
-  getWordPressUrl,
-  WordPressApiError,
-} from "@/lib/wordpress";
+import { localMediaUrl } from "@/lib/media";
+import { decodeRenderedText, getPageBySlug, CONTENT_ORIGIN, WordPressApiError } from "@/lib/wordpress";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import type { WordPressPage } from "@/types/wordpress";
 
@@ -71,11 +67,14 @@ export type DigitalMarketingContent = {
   };
 };
 
-function absUrl(url: string | undefined | null, origin: string): string | null {
-  if (!url) return null;
+function absUrl(rawUrl: string | undefined | null, origin: string): string | null {
+  if (!rawUrl) return null;
+  const url = localMediaUrl(rawUrl);
   if (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("tel:")) {
     return url;
   }
+  // WordPress media is served from public/wp-content/
+  if (url.startsWith("/wp-content/")) return url;
   if (url.startsWith("/")) return `${origin}${url}`;
   return url;
 }
@@ -110,8 +109,8 @@ function extractImage($: CheerioAPI, el: AnyNode | null): MediaImage | null {
   const img = $(el).is("img") ? $(el) : $(el).find("img").first();
   if (!img.length) return null;
   const src =
-    absUrl(img.attr("src"), getWordPressUrl()) ||
-    absUrl(img.attr("data-src"), getWordPressUrl());
+    absUrl(img.attr("src"), CONTENT_ORIGIN) ||
+    absUrl(img.attr("data-src"), CONTENT_ORIGIN);
   if (!src) return null;
   return { src, alt: img.attr("alt") || "" };
 }
@@ -280,7 +279,7 @@ function parseCta($: CheerioAPI, row: Element, origin: string) {
 }
 
 function normalizeHtml(html: string, page: WordPressPage) {
-  const origin = getWordPressUrl();
+  const origin = CONTENT_ORIGIN;
   const $ = cheerio.load(`<div id="dm-root">${html}</div>`);
   const root = $("#dm-root");
 

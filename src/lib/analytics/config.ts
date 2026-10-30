@@ -15,7 +15,6 @@ export const GENERATE_LEAD_EVENT = "generate_lead" as const;
 export const FORM_NAMES = {
   contact: "Kosick Contact Form",
   newsletter: "Kosick Newsletter Form",
-  comfortmaker: "Comfortmaker Registration Form",
   chatLead: "Kosick AI Chat Lead Form",
 } as const;
 

@@ -1,5 +1,7 @@
-import { NextResponse } from "next/server";
-import { getWordPressUrl } from "@/lib/wordpress";
+import { after, NextResponse } from "next/server";
+import { RATE_LIMITS, rateLimited } from "@/lib/rate-limit";
+import { clientIp, filledTooFast, hashIp, turnstilePassed } from "@/lib/forms/spam";
+import { processSubmission } from "@/lib/forms/submit";
 import {
   getKadenceForm,
   isKadenceFormKey,
@@ -60,64 +62,51 @@ function validateForm(
   return { ok: true, values };
 }
 
-function buildWordPressPayload(
-  form: KadenceFormDefinition,
-  values: Record<string, string>,
-): FormData {
-  const payload = new FormData();
-  payload.set("action", "kb_process_advanced_form_submit");
-  payload.set("_kb_adv_form_post_id", form.postId);
-  payload.set("_kb_adv_form_id", form.formId);
-
-  for (const [key, field] of Object.entries(form.fields)) {
-    payload.set(field.name, values[key] ?? "");
+/**
+ * The page the form was on: the form's `_kosick_source`, else the Referer.
+ * Resolved against the host this request came to, so `//other.host/…` or an
+ * absolute URL elsewhere is dropped; only the pathname is kept (no query or hash).
+ */
+function sourcePath(value: FormDataEntryValue | null, request: Request): string | null {
+  const candidate = clean(value) || request.headers.get("referer") || "";
+  if (!candidate) return null;
+  try {
+    const host =
+      request.headers.get("x-forwarded-host") || request.headers.get("host") || new URL(request.url).host;
+    const url = new URL(candidate, `https://${host}`);
+    if (url.host !== host || (url.protocol !== "https:" && url.protocol !== "http:")) return null;
+    return url.pathname.length <= 300 ? url.pathname : null;
+  } catch {
+    return null;
   }
-
-  return payload;
 }
 
-type KadenceAjaxResponse = {
-  success?: boolean;
-  html?: string;
-  submissionResults?: { success?: boolean; entry_id?: number };
-};
-
-function isKadenceSuccess(payload: KadenceAjaxResponse | null): boolean {
-  if (!payload || typeof payload !== "object") return false;
-  if (payload.success === true) return true;
-  if (payload.submissionResults?.success === true) return true;
-  if (
-    typeof payload.html === "string" &&
-    /kb-adv-form-success/i.test(payload.html)
-  ) {
-    return true;
-  }
-  return false;
+function failure(error: string, status: number) {
+  return NextResponse.json({ ok: false, error } satisfies ValidationError, { status });
 }
+
+const GENERIC_FAILURE = "Unable to send your message right now.";
 
 /**
- * Shared Kadence Advanced Form proxy.
- * Clients send `formKey` + field values; server injects WP form IDs.
- * Success requires Kadence JSON success — HTTP 200 alone is not enough.
+ * Contact (Kadence form 11283) and newsletter (11281) submissions.
+ * Clients send `formKey` and the field values, plus the form guard fields
+ * (`_kosick_submission`, `_kosick_elapsed`, `_kosick_source`, Turnstile token).
+ * Delivery order and success rules are in src/lib/forms/submit.ts; with no new
+ * environment variables this is the WordPress relay it always was.
  */
 export async function POST(request: Request) {
+  const limited = rateLimited(request, RATE_LIMITS.lead);
+  if (limited) return limited;
+
   let incoming: FormData;
   try {
     incoming = await request.formData();
   } catch {
-    return NextResponse.json(
-      { ok: false, error: "Invalid form submission." } satisfies ValidationError,
-      { status: 400 },
-    );
+    return failure("Invalid form submission.", 400);
   }
 
   const formKeyRaw = clean(incoming.get("formKey"));
-  if (!isKadenceFormKey(formKeyRaw)) {
-    return NextResponse.json(
-      { ok: false, error: "Unknown form." } satisfies ValidationError,
-      { status: 400 },
-    );
-  }
+  if (!isKadenceFormKey(formKeyRaw)) return failure("Unknown form.", 400);
 
   const formKey = formKeyRaw as KadenceFormKey;
   const form = getKadenceForm(formKey);
@@ -126,59 +115,42 @@ export async function POST(request: Request) {
     return NextResponse.json(validated, { status: 400 });
   }
 
-  if (clean(incoming.get("_kosick_hp"))) {
+  if (clean(incoming.get("_kosick_hp")) || filledTooFast(incoming.get("_kosick_elapsed"))) {
+    return failure(GENERIC_FAILURE, 400);
+  }
+
+  const ip = clientIp(request);
+  if (!(await turnstilePassed(incoming.get("cf-turnstile-response"), ip))) {
+    return failure("Please complete the security check and try again.", 400);
+  }
+
+  const outcome = await processSubmission({
+    kind: formKey,
+    values: validated.values,
+    submissionId: clean(incoming.get("_kosick_submission")) || null,
+    sourcePath: sourcePath(incoming.get("_kosick_source"), request),
+    ipHash: hashIp(ip),
+  });
+
+  if (outcome.status === "rate_limited") {
     return NextResponse.json(
-      { ok: false, error: "Unable to send your message right now." },
-      { status: 400 },
+      { ok: false, error: "Too many requests. Please wait a moment and try again." },
+      { status: 429, headers: { "Retry-After": "600" } },
+    );
+  }
+  if (outcome.status === "failed") {
+    return failure(
+      outcome.relay === "rejected"
+        ? "WordPress did not accept this submission. Please check your details and try again."
+        : GENERIC_FAILURE,
+      502,
     );
   }
 
-  const payload = buildWordPressPayload(form, validated.values);
-  const endpoint = `${getWordPressUrl()}/wp-admin/admin-ajax.php`;
-
-  try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      body: payload,
-      redirect: "manual",
-      signal: AbortSignal.timeout(20_000),
-    });
-
-    const raw = await response.text();
-    let parsed: KadenceAjaxResponse | null = null;
-    try {
-      parsed = JSON.parse(raw) as KadenceAjaxResponse;
-    } catch {
-      parsed = null;
-    }
-
-    if (!response.ok && response.status !== 302) {
-      return NextResponse.json(
-        { ok: false, error: "Unable to send your message right now." },
-        { status: 502 },
-      );
-    }
-
-    if (!isKadenceSuccess(parsed)) {
-      return NextResponse.json(
-        {
-          ok: false,
-          error:
-            "WordPress did not accept this submission. Please check your details and try again.",
-        },
-        { status: 502 },
-      );
-    }
-
-    return NextResponse.json({
-      ok: true,
-      redirect: form.successRedirect,
-      entryId: parsed?.submissionResults?.entry_id ?? null,
-    });
-  } catch {
-    return NextResponse.json(
-      { ok: false, error: "Unable to send your message right now." },
-      { status: 502 },
-    );
-  }
+  if (outcome.followUp) after(outcome.followUp);
+  return NextResponse.json({
+    ok: true,
+    redirect: form.successRedirect,
+    entryId: outcome.entryId,
+  });
 }

@@ -1,3 +1,5 @@
+import { INDUSTRY_LINKS } from "@/lib/industries/nav";
+
 export type NavLink = {
   label: string;
   href: string;
@@ -40,7 +42,7 @@ export type NavMegaItem = {
 export type NavItem = NavLinkItem | NavMenuItem | NavMegaItem;
 
 export const SITE_HEADER_LOGO = {
-  src: "https://staging.kosick.com/wp-content/uploads/2024/02/cropped-Kosick-Communications.png",
+  src: "/wp-content/uploads/2024/02/cropped-Kosick-Communications.png",
   alt: "Kosick Communications",
   width: 794,
   height: 220,
@@ -126,11 +128,7 @@ export const SITE_HEADER_NAV: NavItem[] = [
       },
       {
         title: "Industry Marketing",
-        items: [
-          { label: "HVAC Marketing", href: "/services/hvac-marketing/" },
-          { label: "Dental Marketing", href: "/services/dental-marketing/" },
-          { label: "Golf Marketing", href: "/services/golf-marketing/" },
-        ],
+        items: INDUSTRY_LINKS.map((link) => ({ ...link })),
       },
     ],
     items: [],

@@ -114,7 +114,8 @@ const WORK_COPY: Record<string, WorkCopy> = {
     imagePosition: "42% 58%",
   },
   fashion: {
-    displayTitle: "Fashion",
+    // Shown as Retail: Fashion Marketing was renamed Retail Marketing across the site
+    displayTitle: "Retail",
     solutions: ["brand", "creative", "digital", "web"],
     summary:
       "Branding, social media, influencer campaigns, and e-commerce. The photograph shows packaging.",

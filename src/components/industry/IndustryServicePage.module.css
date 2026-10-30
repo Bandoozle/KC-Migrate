@@ -1,0 +1,1313 @@
+/*
+ * Industry service subpages. One structure; the hero and the "What we offer"
+ * list are composed differently for each industry, and the industry theme
+ * (src/styles/industry-themes.css) supplies the palette. Type and spacing
+ * stay on the Kosick tokens.
+ */
+.page {
+  --gutter: clamp(1rem, 2vw, 1.5rem);
+  overflow-x: clip;
+  background: #ffffff;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+/* ---------- Shared type ---------- */
+.label {
+  margin: 0 0 1rem;
+  color: var(--ind-label);
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.title {
+  margin: 0;
+}
+
+.lead {
+  margin: 1.25rem 0 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+/* Buttons. `.kosick-native-page a { color: inherit }` outranks a single class. */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.page a.primary,
+.page a.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  padding: 0.8rem 1.45rem;
+  border: 1px solid transparent;
+  border-radius: var(--kosick-radius-pill);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.page a.primary {
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+}
+
+.page a.primary:hover {
+  background: var(--ind-accent-deep);
+}
+
+.page a.secondary {
+  border-color: var(--ind-rule);
+  color: var(--kosick-color-text-strong);
+}
+
+.page a.secondary:hover {
+  border-color: currentColor;
+}
+
+/* ================= HERO ================= */
+.hero {
+  position: relative;
+  isolation: isolate;
+  padding-block: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 7vw, 5.5rem);
+}
+
+.heroGrid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "copy" "figure" "note";
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.heroCopy {
+  grid-area: copy;
+  min-width: 0;
+}
+
+.heroCopy nav {
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.heroLabel {
+  margin: 0 0 1rem;
+  color: var(--ind-label);
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.page .heroTitle {
+  margin: 0;
+}
+
+.heroLead {
+  margin: 1.25rem 0 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.heroFigure {
+  grid-area: figure;
+  position: relative;
+  min-height: 260px;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ind-surface);
+}
+
+.heroBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.heroNote {
+  grid-area: note;
+  min-width: 0;
+}
+
+.heroNote ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.heroNoteTitle {
+  margin: 0 0 0.75rem;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+}
+
+.heroNoteIndex {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Dark heroes: white type */
+.heroCourse,
+.heroPostcard,
+.heroEditorial,
+.heroBlueprint {
+  color: #ffffff;
+}
+
+.heroCourse .heroTitle,
+.heroPostcard .heroTitle,
+.heroEditorial .heroTitle,
+.heroBlueprint .heroTitle {
+  color: #ffffff !important;
+}
+
+.heroCourse .heroLead,
+.heroPostcard .heroLead,
+.heroEditorial .heroLead,
+.heroBlueprint .heroLead {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.heroCourse a.secondary,
+.heroPostcard a.secondary,
+.heroEditorial a.secondary,
+.heroBlueprint a.secondary {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+/* --- HVAC: split. Copy on warm stone beside a tall photo with an ember edge. --- */
+.heroSplit {
+  background: var(--ind-surface);
+}
+
+.heroSplit .heroFigure {
+  border-left: 6px solid var(--ind-accent);
+}
+
+.heroSplit .heroNote {
+  padding: 1.25rem 1.4rem;
+  background: var(--ind-ink);
+  color: #ffffff;
+}
+
+.heroSplit .heroNote li {
+  display: flex;
+  gap: 0.75rem;
+  padding-block: 0.55rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-weight: 600;
+}
+
+.heroSplit .heroNoteIndex {
+  color: var(--ind-accent);
+}
+
+@media (min-width: 960px) {
+  .heroSplit .heroGrid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    grid-template-areas: "copy figure" "note figure";
+    align-items: start;
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .heroSplit .heroFigure {
+    height: 100%;
+    min-height: 560px;
+    aspect-ratio: auto;
+  }
+}
+
+/* --- Medical & dental: framed. Calm copy, then a wide framed photo with a checklist chip. --- */
+.heroFramed {
+  background: var(--ind-surface);
+}
+
+.heroFramed .heroGrid {
+  grid-template-areas: "copy" "figure" "note";
+}
+
+.heroFramed .heroFigure {
+  aspect-ratio: 16 / 10;
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
+  box-shadow: 0 24px 60px -36px rgba(14, 43, 41, 0.45);
+}
+
+.heroFramed .heroNote {
+  padding: 1.1rem 1.25rem;
+  background: #ffffff;
+  border: 1px solid var(--ind-rule);
+  border-left: 4px solid var(--ind-accent);
+  border-radius: var(--kosick-radius-sm);
+}
+
+.heroFramed .heroNote li {
+  display: flex;
+  gap: 0.6rem;
+  padding-block: 0.3rem;
+  color: var(--ind-ink);
+  font-weight: 600;
+}
+
+.heroFramed .heroNoteIndex {
+  color: var(--ind-label);
+}
+
+@media (min-width: 960px) {
+  .heroFramed .heroGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.42fr);
+    grid-template-areas: "copy copy" "figure figure";
+  }
+
+  .heroFramed .heroFigure {
+    aspect-ratio: 21 / 9;
+  }
+
+  /* The chip sits over the lower-right corner of the photograph */
+  .heroFramed .heroNote {
+    grid-area: figure;
+    grid-column: 2;
+    align-self: end;
+    margin: 0 1.5rem 1.5rem 0;
+    z-index: 1;
+  }
+}
+
+/* --- Golf: course. Full-bleed photo with a scorecard strip along the bottom. --- */
+.heroCourse {
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(560px, 82vh, 780px);
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.heroCourse .heroBackdrop::after,
+.heroPostcard .heroBackdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Darkest behind the copy on the left, so type stays readable over busy photographs */
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.5) 45%, rgba(0, 0, 0, 0.08) 80%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.1) 35%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+@media (max-width: 959px) {
+  .heroCourse .heroBackdrop::after,
+  .heroPostcard .heroBackdrop::after {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.55) 40%, rgba(0, 0, 0, 0.78) 100%);
+  }
+}
+
+.heroCourse .heroGrid {
+  width: var(--kosick-container);
+  grid-template-areas: "copy" "note";
+}
+
+.heroCourse .heroLabel {
+  color: #efe4c4;
+}
+
+.heroCourse .heroNote {
+  background: var(--ind-surface);
+  color: var(--ind-ink);
+  border-top: 4px solid var(--ind-accent);
+}
+
+.heroCourse .heroNoteTitle {
+  margin: 0;
+  padding: 0.75rem 1.1rem;
+  border-bottom: 1px solid var(--ind-rule);
+}
+
+.heroCourse .heroNote ol {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.heroCourse .heroNote li {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 1.1rem;
+  font-weight: 600;
+}
+
+.heroCourse .heroNote li + li {
+  border-top: 1px solid var(--ind-rule);
+}
+
+.heroCourse .heroNoteIndex {
+  color: var(--ind-label);
+  white-space: nowrap;
+}
+
+@media (min-width: 840px) {
+  .heroCourse .heroNote ol {
+    grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+    grid-auto-flow: column;
+  }
+
+  .heroCourse .heroNote li {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .heroCourse .heroNote li + li {
+    border-top: 0;
+    border-left: 1px solid var(--ind-rule);
+  }
+}
+
+/* --- Retail: editorial. Black page, oversized headline, a tall poster photograph. --- */
+.heroEditorial {
+  background: var(--ind-ink);
+}
+
+.heroEditorial .heroLabel {
+  color: #ff5a6e;
+}
+
+@media (min-width: 960px) {
+  .heroEditorial .page .heroTitle,
+  .heroEditorial .heroTitle {
+    font-size: clamp(3rem, 6vw, 5rem) !important;
+    line-height: 1.02 !important;
+    letter-spacing: -0.035em !important;
+  }
+}
+
+.heroEditorial .heroFigure {
+  aspect-ratio: 4 / 5;
+  background: #1c1c1c;
+}
+
+.heroEditorial .heroNote {
+  border-top: 3px solid var(--ind-accent);
+  padding-top: 1rem;
+}
+
+.heroEditorial .heroNoteTitle {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.heroEditorial .heroNote li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding-block: 0.35rem;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.heroEditorial .heroNoteIndex {
+  color: #ff5a6e;
+  font-size: var(--kosick-meta-size);
+}
+
+@media (min-width: 960px) {
+  .heroEditorial .heroGrid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    grid-template-areas: "copy figure" "note figure";
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+}
+
+/* --- Specialty retail: shopfront. A photo with a hang tag clipped to its corner. --- */
+.heroShopfront {
+  background: var(--ind-surface);
+}
+
+.heroShopfront .heroGrid {
+  grid-template-areas: "copy" "figure" "note";
+}
+
+.heroShopfront .heroFigure {
+  aspect-ratio: 5 / 4;
+}
+
+.heroShopfront .heroNote {
+  position: relative;
+  padding: 2.1rem 1.3rem 1.2rem;
+  background: var(--ind-accent);
+  color: #ffffff;
+  clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%, 0 20px);
+}
+
+.heroShopfront .heroNote::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ind-soft);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.heroShopfront .heroNote li {
+  display: flex;
+  gap: 0.6rem;
+  padding-block: 0.3rem;
+  font-weight: 600;
+}
+
+.heroShopfront .heroNoteIndex {
+  color: var(--ind-soft);
+}
+
+@media (min-width: 960px) {
+  .heroShopfront .heroGrid {
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    grid-template-areas: "figure copy" "figure note";
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .heroShopfront .heroFigure {
+    height: 100%;
+    min-height: 520px;
+    aspect-ratio: auto;
+  }
+
+  .heroShopfront .heroNote {
+    max-width: 360px;
+    transform: rotate(-1.5deg);
+  }
+}
+
+/* --- Construction: blueprint. Drafting grid, a photo inside corner marks. --- */
+.heroBlueprint {
+  background-color: var(--ind-ink);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.heroBlueprint .heroLabel {
+  color: var(--ind-accent);
+}
+
+.heroBlueprint .heroFigure {
+  overflow: visible;
+  background: transparent;
+}
+
+.heroBlueprint .heroFigure img {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Corner marks, as on a drawing */
+.heroBlueprint .heroFigure::before,
+.heroBlueprint .heroFigure::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 34px;
+  height: 34px;
+  border-color: var(--ind-accent);
+  border-style: solid;
+}
+
+.heroBlueprint .heroFigure::before {
+  top: -10px;
+  left: -10px;
+  border-width: 3px 0 0 3px;
+}
+
+.heroBlueprint .heroFigure::after {
+  right: -10px;
+  bottom: -10px;
+  border-width: 0 3px 3px 0;
+}
+
+.heroBlueprint .heroNote {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.heroBlueprint .heroNoteTitle {
+  margin: 0;
+  padding: 0.65rem 1rem;
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+}
+
+.heroBlueprint .heroNote li {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.75rem;
+  padding: 0.65rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-weight: 600;
+}
+
+.heroBlueprint .heroNote li:first-child {
+  border-top: 0;
+}
+
+.heroBlueprint .heroNoteIndex {
+  color: var(--ind-accent);
+}
+
+@media (min-width: 960px) {
+  .heroBlueprint .heroGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "copy figure" "note figure";
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  .heroBlueprint .heroFigure {
+    height: 100%;
+    min-height: 500px;
+    aspect-ratio: auto;
+    margin: 10px;
+  }
+}
+
+/* --- Travel: postcard. Full-bleed photo with a ticket stub listing the stops. --- */
+.heroPostcard {
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(560px, 80vh, 760px);
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.heroPostcard .heroGrid {
+  width: var(--kosick-container);
+  grid-template-areas: "copy" "note";
+  align-items: end;
+}
+
+.heroPostcard .heroLabel {
+  color: #e3f4fb;
+}
+
+.heroPostcard .heroNote {
+  position: relative;
+  padding: 1.25rem 1.4rem;
+  background: #ffffff;
+  color: var(--ind-ink);
+  border-left: 2px dashed var(--ind-rule);
+}
+
+.heroPostcard .heroNoteTitle {
+  color: var(--ind-label);
+}
+
+.heroPostcard .heroNote li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.4rem 0 0.6rem 1.4rem;
+  font-weight: 600;
+}
+
+/* Route line and stops */
+.heroPostcard .heroNote li::before {
+  content: "";
+  position: absolute;
+  top: 0.65rem;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--ind-accent);
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.heroPostcard .heroNote li + li::after {
+  content: "";
+  position: absolute;
+  top: -0.35rem;
+  left: 5px;
+  height: 0.95rem;
+  border-left: 1px dashed var(--ind-accent);
+}
+
+.heroPostcard .heroNoteIndex {
+  color: var(--kosick-color-meta);
+  font-size: var(--kosick-meta-size);
+  font-weight: 500;
+}
+
+@media (min-width: 960px) {
+  .heroPostcard .heroGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+    grid-template-areas: "copy note";
+    column-gap: clamp(2.5rem, 6vw, 6rem);
+  }
+}
+
+/* ================= INTRO ================= */
+.intro {
+  padding-block: var(--kosick-block);
+}
+
+.introBody {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  color: var(--kosick-color-text);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.introBody p {
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .introBody {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+/* ================= WHAT WE OFFER ================= */
+.offers {
+  padding-block: var(--kosick-block);
+  background: var(--ind-surface);
+}
+
+.offerList {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.offerIndex {
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.offerTitle {
+  margin: 0;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  line-height: var(--kosick-card-title-leading);
+  letter-spacing: var(--kosick-card-title-tracking);
+}
+
+.offerBody {
+  margin: 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.6;
+}
+
+/* HVAC: numbered rows with oversized ember numerals */
+.offersRows .offerList {
+  gap: 0;
+  border-top: 1px solid var(--ind-rule);
+}
+
+.offersRows .offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--ind-rule);
+}
+
+.offersRows .offerIndex {
+  color: var(--ind-accent);
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+@media (min-width: 840px) {
+  .offersRows .offer {
+    grid-template-columns: 7rem minmax(0, 0.9fr) minmax(0, 1.4fr);
+    align-items: baseline;
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+  }
+}
+
+/* Medical & dental: white tiles with a teal cap */
+.offersTiles .offer {
+  padding: 1.75rem 1.5rem 1.9rem;
+  background: #ffffff;
+  border-top: 3px solid var(--ind-accent);
+  border-radius: 0 0 var(--kosick-radius-sm) var(--kosick-radius-sm);
+}
+
+.offersTiles .offerIndex {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--ind-soft);
+  color: var(--ind-ink);
+}
+
+@media (min-width: 840px) {
+  .offersTiles .offerList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Golf: a scorecard, one hole per capability */
+.offersScorecard .offerList {
+  gap: 0;
+  border: 1px solid var(--ind-rule);
+  background: #fffdf8;
+}
+
+.offersScorecard .offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  padding: 1.4rem 1.5rem;
+}
+
+.offersScorecard .offer + .offer {
+  border-top: 1px solid var(--ind-rule);
+}
+
+.offersScorecard .offerIndex {
+  align-self: start;
+  justify-self: start;
+  padding: 0.3rem 0.65rem;
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+  font-size: 0.8125rem;
+}
+
+@media (min-width: 840px) {
+  .offersScorecard .offer {
+    grid-template-columns: 6.5rem minmax(0, 0.85fr) minmax(0, 1.5fr);
+    align-items: baseline;
+    column-gap: 2rem;
+    padding: 1.6rem 1.75rem;
+  }
+}
+
+/* Retail: an editorial index on black */
+.offersIndex {
+  background: var(--ind-ink);
+  color: #ffffff;
+}
+
+.offersIndex .label {
+  color: #ff5a6e;
+}
+
+.offersIndex .title {
+  color: #ffffff !important;
+}
+
+.offersIndex .lead {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.offersIndex .offerList {
+  gap: 0;
+}
+
+.offersIndex .offer {
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.offersIndex .offerIndex {
+  color: #ff5a6e;
+}
+
+.offersIndex .offerTitle {
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.offersIndex .offerBody {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (min-width: 840px) {
+  .offersIndex .offer {
+    display: grid;
+    grid-template-columns: 4rem minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: clamp(1.5rem, 3vw, 3rem);
+  }
+}
+
+/* Specialty retail: hang tags */
+.offersTags .offer {
+  padding: 2.25rem 1.4rem 1.6rem;
+  background: #ffffff;
+  border: 1px solid var(--ind-rule);
+  clip-path: polygon(20px 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%, 0 20px);
+}
+
+.offersTags .offer::before {
+  content: "";
+  position: absolute;
+  top: 0.8rem;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ind-accent);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.offersTags .offerIndex {
+  align-self: flex-start;
+  padding: 0.2rem 0.55rem;
+  background: var(--ind-soft);
+  color: var(--ind-ink);
+}
+
+@media (min-width: 840px) {
+  .offersTags .offerList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Construction: a spec sheet */
+.offersSpec {
+  background: var(--ind-surface);
+}
+
+.offersSpec .offerList {
+  gap: 0;
+  border: 2px solid var(--ind-ink);
+  background: #ffffff;
+}
+
+.offersSpec .offer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+  padding: 1.4rem 1.5rem;
+}
+
+.offersSpec .offer + .offer {
+  border-top: 1px solid var(--ind-rule);
+}
+
+.offersSpec .offerIndex {
+  justify-self: start;
+  padding: 0.25rem 0.6rem;
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+}
+
+@media (min-width: 840px) {
+  .offersSpec .offer {
+    grid-template-columns: 7rem minmax(0, 0.85fr) minmax(0, 1.5fr);
+    align-items: baseline;
+    column-gap: 2rem;
+  }
+
+  .offersSpec .offer + .offer {
+    border-top: 1px solid var(--ind-rule);
+  }
+}
+
+/* Travel: an itinerary with stops along a route */
+.offersItinerary .offerList {
+  gap: 0;
+}
+
+.offersItinerary .offer {
+  padding: 0 0 2rem 2.25rem;
+}
+
+.offersItinerary .offer::before {
+  content: "";
+  position: absolute;
+  top: 0.15rem;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--ind-accent);
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.offersItinerary .offer:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 1.25rem;
+  bottom: 0;
+  left: 6px;
+  border-left: 2px dashed var(--ind-accent);
+  opacity: 0.5;
+}
+
+.offersItinerary .offerIndex {
+  color: var(--ind-label);
+}
+
+@media (min-width: 900px) {
+  .offersItinerary .offerList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+
+  .offersItinerary .offer {
+    padding: 2.25rem 0 0;
+  }
+
+  .offersItinerary .offer::before {
+    top: 0;
+  }
+
+  .offersItinerary .offer:not(:last-child)::after {
+    top: 6px;
+    bottom: auto;
+    left: 1.25rem;
+    right: -2rem;
+    border-left: 0;
+    border-top: 2px dashed var(--ind-accent);
+  }
+}
+
+/* ================= DELIVERABLES ================= */
+.deliverables {
+  padding-block: var(--kosick-block);
+}
+
+.checklist {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+  margin: clamp(2rem, 4vw, 2.75rem) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--ind-rule);
+}
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--ind-rule);
+  font-size: var(--kosick-body-size);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.check {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: 0.05rem;
+  border-radius: 50%;
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+}
+
+@media (min-width: 760px) {
+  .checklist {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2rem, 5vw, 4rem);
+  }
+}
+
+/* ================= GALLERY ================= */
+.gallery {
+  padding-bottom: var(--kosick-block);
+}
+
+.galleryGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.galleryItem {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ind-surface);
+}
+
+@media (min-width: 760px) {
+  .galleryGrid[data-count="2"] {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  }
+
+  .galleryGrid[data-count="3"] {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .galleryGrid[data-count="3"] .galleryItem:first-child {
+    grid-row: 1 / 3;
+    aspect-ratio: auto;
+  }
+
+  .galleryGrid[data-count="2"] .galleryItem {
+    aspect-ratio: auto;
+    min-height: 380px;
+  }
+}
+
+/* ================= BENEFITS ================= */
+.benefits {
+  padding-block: var(--kosick-block);
+  background: var(--ind-surface);
+}
+
+.benefitGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.benefit {
+  padding-top: 1.25rem;
+  border-top: 3px solid var(--ind-accent);
+}
+
+.benefitTitle {
+  margin: 0 0 0.6rem;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  line-height: var(--kosick-card-title-leading);
+  letter-spacing: var(--kosick-card-title-tracking);
+}
+
+.benefit p {
+  margin: 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.6;
+}
+
+@media (min-width: 840px) {
+  .benefitGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.applications {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: #ffffff;
+  border: 1px solid var(--ind-rule);
+}
+
+.applicationsTitle {
+  margin: 0 0 1rem;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  line-height: var(--kosick-subsection-title-leading);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+}
+
+.applications ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.75rem 2.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.applications li {
+  position: relative;
+  padding-left: 1.4rem;
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.applications li::before {
+  content: "";
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 0.6rem;
+  height: 2px;
+  background: var(--ind-accent);
+}
+
+@media (min-width: 760px) {
+  .applications ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ================= APPROACH ================= */
+.approach {
+  padding-block: var(--kosick-block);
+}
+
+.approachTrack {
+  --process-stroke: var(--ind-accent);
+  --process-number: var(--ind-label);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+/* ================= RELATED ================= */
+.related {
+  padding-block: var(--kosick-block);
+  border-top: 1px solid var(--ind-rule);
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.relatedGrid > li {
+  display: flex;
+}
+
+.relatedCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid var(--ind-rule);
+  text-decoration: none;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.relatedCard:hover {
+  border-color: var(--ind-accent);
+  background: var(--ind-surface);
+}
+
+.relatedCard:focus-visible {
+  outline: 3px solid var(--ind-accent);
+  outline-offset: 3px;
+}
+
+.relatedHome {
+  background: var(--ind-ink);
+  border-color: var(--ind-ink);
+  color: #ffffff;
+}
+
+.relatedHome:hover {
+  background: var(--ind-ink);
+  border-color: var(--ind-accent);
+}
+
+.relatedName {
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  line-height: var(--kosick-card-title-leading);
+  letter-spacing: var(--kosick-card-title-tracking);
+}
+
+.relatedLine {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.55;
+}
+
+.relatedHome .relatedLine {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.relatedMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  color: var(--ind-label);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+}
+
+.relatedHome .relatedMore {
+  color: #ffffff;
+}
+
+@media (min-width: 720px) {
+  .relatedGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  .relatedGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.further {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.furtherTitle {
+  margin: 0 0 1rem;
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+}
+
+.further ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page a.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid currentColor;
+  color: var(--kosick-color-text-strong);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.page a.textLink:hover {
+  color: var(--ind-label);
+}

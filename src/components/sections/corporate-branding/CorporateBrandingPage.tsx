@@ -11,7 +11,7 @@ import { BrandAnatomy, type AnatomyPart } from "./BrandAnatomy";
 import { BrandProcess, type BrandProcessStep } from "./BrandProcess";
 import styles from "./CorporateBrandingPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const IMAGES = {
   identitySheet: {

@@ -1,7 +1,7 @@
 import { cache } from "react";
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
-import { getPageBySlug, getWordPressUrl, WordPressApiError } from "@/lib/wordpress";
+import { getPageBySlug, CONTENT_ORIGIN, WordPressApiError } from "@/lib/wordpress";
 import type { FeatureSplitData } from "@/components/sections/FeatureSplit";
 import { absUrl, cleanText, toLocalPath } from "@/lib/wordpress/shared";
 
@@ -82,7 +82,7 @@ export const getServicesContent = cache(async (): Promise<ServicesContent> => {
     throw new WordPressApiError("Services page content was not returned by WordPress REST.");
   }
 
-  const origin = getWordPressUrl();
+  const origin = CONTENT_ORIGIN;
   const $ = cheerio.load(`<div id="root">${page.content.rendered}</div>`);
   const rows = $("#root").children(".kb-row-layout-wrap").toArray() as Element[];
 

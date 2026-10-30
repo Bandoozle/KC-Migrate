@@ -14,7 +14,7 @@ const QUOTE_CLAMP_CHARS = 180;
 
 function StarRow({ rating }: { rating: number }) {
   return (
-    <div className={styles.stars} aria-label={`${rating} out of 5 stars`}>
+    <div className={styles.stars} role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: rating }, (_, index) => (
         <svg
           key={index}

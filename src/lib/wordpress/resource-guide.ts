@@ -2,7 +2,8 @@ import { cache } from "react";
 import * as cheerio from "cheerio";
 import type { CheerioAPI } from "cheerio";
 import type { Element } from "domhandler";
-import { getPageBySlug, getWordPressUrl, WordPressApiError } from "@/lib/wordpress";
+import { localMediaUrl } from "@/lib/media";
+import { getPageBySlug, CONTENT_ORIGIN, WordPressApiError } from "@/lib/wordpress";
 import {
   absUrl,
   cleanText,
@@ -92,8 +93,9 @@ function guideImage(
   const img = $(scope).find("img").first();
   const tagged = absUrl(img.attr("src") || img.attr("data-src"), origin);
   const html = $.html(scope) || "";
-  const urls = [...html.matchAll(/https?:\/\/[^"'()\s]+\/wp-content\/uploads\/[^"'()\s]+/g)].map(
-    (match) => match[0],
+  // Saved content uses site-relative media paths; older markup may still carry a host
+  const urls = [...html.matchAll(/(?:https?:\/\/[^"'()\s]+)?\/wp-content\/uploads\/[^"'()\s]+/g)].map(
+    (match) => localMediaUrl(match[0]),
   );
   const src =
     urls.find((url) => !/-\d+x\d+\.(?:jpe?g|png|webp)/i.test(url)) || tagged || urls[0] || "";
@@ -106,7 +108,7 @@ export function normalizeResourceGuideHtml(
   pageTitle: string,
   excerpt = "",
 ): ResourceGuideContent {
-  const origin = getWordPressUrl();
+  const origin = CONTENT_ORIGIN;
   const $ = cheerio.load(`<div id="guide-root">${html}</div>`);
   const rows = collectTopRows($);
   const slides = extractSmartSliderSlides(html, origin);

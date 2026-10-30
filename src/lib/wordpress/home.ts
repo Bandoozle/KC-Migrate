@@ -135,7 +135,7 @@ const BENTO_ITEMS: HomeBentoItem[] = [
       "Performance-driven campaigns across Google Ads, Social Media, YouTube, and more — putting your business in front of ready-to-buy customers.",
     href: "/services/digital-marketing/",
     image:
-      "https://staging.kosick.com/wp-content/uploads/2026/06/social-media-content-marketing-1-640x960.jpg",
+      "/wp-content/uploads/2026/06/social-media-content-marketing-1-640x960.jpg",
     alt: "Digital advertising analytics dashboard",
   },
   {
@@ -144,7 +144,7 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     description:
       "Premium broadcast and streaming placements delivering high visibility and consistent reach to large, trusted audiences.",
     href: "/services/television-advertising/",
-    image: "https://staging.kosick.com/wp-content/uploads/2026/06/tv-advertising-750x600.jpg",
+    image: "/wp-content/uploads/2026/06/tv-advertising-750x600.jpg",
     alt: "Television and broadcast advertising",
   },
   {
@@ -154,7 +154,7 @@ const BENTO_ITEMS: HomeBentoItem[] = [
       "Scheduled ad spots and sponsorships across news, talk, and top music platforms on radio and audio streaming.",
     href: "/services/radio-advertising/",
     image:
-      "https://staging.kosick.com/wp-content/uploads/2026/06/radio-streaming-advertising-750x750.jpg",
+      "/wp-content/uploads/2026/06/radio-streaming-advertising-750x750.jpg",
     alt: "Radio and streaming advertising",
   },
   {
@@ -163,7 +163,7 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     description:
       "Billboards, transit shelters, bus wraps, and digital screens — reaching audiences as they commute, shop, and travel.",
     href: "/services/outdoor-advertising/",
-    image: "https://staging.kosick.com/wp-content/uploads/2026/02/media-buying-750x499.jpg",
+    image: "/wp-content/uploads/2026/02/media-buying-750x499.jpg",
     alt: "Out of home advertising",
   },
   {
@@ -173,7 +173,7 @@ const BENTO_ITEMS: HomeBentoItem[] = [
       "Premium streaming apps and smart TVs — television impact with digital targeting across Crave, Sportsnet+, TSN+, and Tubi.",
     href: "/services/digital-connected-tv/",
     image:
-      "https://staging.kosick.com/wp-content/uploads/2026/06/connected-tv-streaming-750x563.jpg",
+      "/wp-content/uploads/2026/06/connected-tv-streaming-750x563.jpg",
     alt: "Connected TV advertising",
   },
   {
@@ -183,7 +183,7 @@ const BENTO_ITEMS: HomeBentoItem[] = [
       "Strategically defined brands that generate human emotion, meaningful connections, and increased marketshare.",
     href: "/services/corporate-branding/",
     image:
-      "https://staging.kosick.com/wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp",
+      "/wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp",
     alt: "Corporate branding",
   },
 ];
@@ -195,7 +195,7 @@ const SOLUTION_ITEMS: HomeSolutionItem[] = [
       "Performance campaigns across search, social, and YouTube that put your brand in front of ready-to-buy customers.",
     href: "/services/digital-marketing/",
     image:
-      "https://staging.kosick.com/wp-content/uploads/2026/06/social-media-content-marketing-1-640x960.jpg",
+      "/wp-content/uploads/2026/06/social-media-content-marketing-1-640x960.jpg",
     alt: "Digital marketing and social media",
   },
   {
@@ -203,7 +203,7 @@ const SOLUTION_ITEMS: HomeSolutionItem[] = [
     description:
       "Precision media buying across TV, digital, and out-of-home to reach the audiences that matter most.",
     href: "/services/television-advertising/",
-    image: "https://staging.kosick.com/wp-content/uploads/2026/06/tv-advertising-750x600.jpg",
+    image: "/wp-content/uploads/2026/06/tv-advertising-750x600.jpg",
     alt: "Targeted media planning",
   },
   {
@@ -212,7 +212,7 @@ const SOLUTION_ITEMS: HomeSolutionItem[] = [
       "Brand systems that create recognition, emotion, and lasting preference across every touchpoint.",
     href: "/services/corporate-branding/",
     image:
-      "https://staging.kosick.com/wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp",
+      "/wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp",
     alt: "Corporate branding",
   },
   {
@@ -221,7 +221,7 @@ const SOLUTION_ITEMS: HomeSolutionItem[] = [
       "Streaming inventory with television impact and digital targeting across premium CTV platforms.",
     href: "/services/digital-connected-tv/",
     image:
-      "https://staging.kosick.com/wp-content/uploads/2026/06/connected-tv-streaming-750x563.jpg",
+      "/wp-content/uploads/2026/06/connected-tv-streaming-750x563.jpg",
     alt: "Connected TV advertising",
   },
   {
@@ -229,7 +229,7 @@ const SOLUTION_ITEMS: HomeSolutionItem[] = [
     description:
       "Billboards, transit, and digital screens that meet audiences where they commute, shop, and travel.",
     href: "/services/outdoor-advertising/",
-    image: "https://staging.kosick.com/wp-content/uploads/2026/02/media-buying-750x499.jpg",
+    image: "/wp-content/uploads/2026/02/media-buying-750x499.jpg",
     alt: "Out of home advertising",
   },
   {
@@ -238,7 +238,7 @@ const SOLUTION_ITEMS: HomeSolutionItem[] = [
       "Audio spots and sponsorships across news, talk, and music platforms that keep your brand top of mind.",
     href: "/services/radio-advertising/",
     image:
-      "https://staging.kosick.com/wp-content/uploads/2026/06/radio-streaming-advertising-750x750.jpg",
+      "/wp-content/uploads/2026/06/radio-streaming-advertising-750x750.jpg",
     alt: "Radio and streaming advertising",
   },
 ];
@@ -288,7 +288,7 @@ const HOME_CONTENT: HomePageContent = {
       description:
         "Great brands start with a clear understanding of who they are and what they stand for. We help define your positioning, personality, messaging, and visual identity so every part of your brand feels intentional, memorable, and uniquely yours.",
       image:
-        "https://staging.kosick.com/wp-content/uploads/2025/08/digital-marketing-750x500.webp",
+        "/wp-content/uploads/2025/08/digital-marketing-750x500.webp",
       alt: "Digital Marketing Vancouver",
     },
     {
@@ -299,7 +299,7 @@ const HOME_CONTENT: HomePageContent = {
       description:
         "Strong marketing starts with a plan built around your goals, audience, and opportunities. We connect insight with action to create focused strategies that prioritize the right channels, messages, and initiatives for meaningful business growth.",
       image:
-        "https://staging.kosick.com/wp-content/uploads/2026/09/henderson-inclusive-strategy-edited-750x563.jpg",
+        "/wp-content/uploads/2026/09/henderson-inclusive-strategy-edited-750x563.jpg",
       alt: "Brand strategy workshop",
     },
     {
@@ -310,7 +310,7 @@ const HOME_CONTENT: HomePageContent = {
       description:
         "Every interaction should feel like it comes from the same brand. From digital campaigns and social media to advertising, websites, and print, we help maintain a consistent voice and visual identity that builds familiarity and confidence over time.",
       image:
-        "https://staging.kosick.com/wp-content/uploads/2026/09/kc-branding-edited-750x562.jpg",
+        "/wp-content/uploads/2026/09/kc-branding-edited-750x562.jpg",
       alt: "Corporate event specialists organizing high-level meetings and brand activations to create memorable experiences for clients and stakeholders.",
     },
     {
@@ -321,7 +321,7 @@ const HOME_CONTENT: HomePageContent = {
       description:
         "Effective marketing is about more than being seen. We create meaningful connections between your brand and the people you want to reach, combining relevant messaging, thoughtful creative, and the right channels to encourage engagement and long-term loyalty.",
       image:
-        "https://staging.kosick.com/wp-content/uploads/2026/03/digital-marketing-lead-generation-750x563.jpg",
+        "/wp-content/uploads/2026/03/digital-marketing-lead-generation-750x563.jpg",
       alt: "Lead Generation Vancouver HVAC Medical Electrical",
     },
   ],
@@ -391,7 +391,7 @@ const HOME_CONTENT: HomePageContent = {
   quote: {
     text: "Design must be functional, and functionality must be translated into visual aesthetics",
     photoSrc:
-      "https://staging.kosick.com/wp-content/uploads/2026/09/gettyimages-515214352-copy.avif",
+      "/wp-content/uploads/2026/09/gettyimages-515214352-copy.avif",
     photoAlt: "Ferdinand Porsche",
     name: "Ferdinand Porsche",
     role: "Austrian-German automotive engineer",

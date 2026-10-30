@@ -13,7 +13,7 @@ import { MotionStoryboard, type StoryboardFrame } from "./MotionStoryboard";
 import { ReelPlayer } from "./ReelPlayer";
 import styles from "./CreativeProductionPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const FILMS = {
   spot: { src: `${UPLOADS}/2024/03/hvac.mp4`, poster: "/images/creative/reel-spot.jpg" },

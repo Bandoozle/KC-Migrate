@@ -113,6 +113,49 @@
   margin-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
+/* The other industries, as a ruled row of links under the featured three */
+.moreIndustries {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  margin: var(--gutter) 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.moreIndustries li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.page a.moreIndustry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1.1rem 0.25rem;
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.page a.moreIndustry svg {
+  transition: transform 180ms ease;
+}
+
+.page a.moreIndustry:hover svg {
+  transform: translateX(4px);
+}
+
+@media (min-width: 720px) {
+  .moreIndustries li + li {
+    border-left: 1px solid var(--rule);
+  }
+
+  .page a.moreIndustry {
+    padding-inline: 1.25rem;
+  }
+}
+
 .world {
   position: relative;
   overflow: hidden;

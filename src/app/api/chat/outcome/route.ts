@@ -1,9 +1,13 @@
 import { NextResponse } from "next/server";
 import { getWordPressUrl } from "@/lib/wordpress";
+import { RATE_LIMITS, rateLimited } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
 export async function POST(request: Request) {
+  const limited = rateLimited(request, RATE_LIMITS.chatOutcome);
+  if (limited) return limited;
+
   let body: { sessionId?: string; outcome?: string };
   try {
     body = (await request.json()) as { sessionId?: string; outcome?: string };

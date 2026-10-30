@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IndustryOffers } from "@/components/industry/IndustryOffers";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
@@ -7,10 +8,11 @@ import { ProcessTrack } from "@/components/sections/ProcessSteps";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
+import { getIndustry } from "@/lib/industries";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./DentalMarketingPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 /* Sparkle Dental Spa is the one practice carried through the campaign section */
 const IMAGES = {
@@ -103,7 +105,7 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
             <div>
               <p className={styles.label}>The patient journey</p>
               <SectionTitle id="dm-journey" className={styles.title}>
-                Dental marketing built for growing practices.
+                Medical and dental marketing built for growing practices.
               </SectionTitle>
             </div>
             <p className={styles.lead}>Build visibility, earn trust and turn more searches into booked patients.</p>
@@ -118,6 +120,9 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
           />
         </div>
       </section>
+
+      {/* What we offer: one linked card per medical and dental service page */}
+      <IndustryOffers industry={getIndustry("medical-dental")} headingId="dm-offers" />
 
       {/* Acquisition: an illustrative search, map and listing composition */}
       <section className={styles.search} aria-labelledby="dm-search">

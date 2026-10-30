@@ -9,7 +9,7 @@ import { labelCase } from "@/lib/eyebrow";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./SocialMediaMarketingPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const BANNER = {
   src: `${UPLOADS}/2026/02/social-media-content-creation.jpg`,

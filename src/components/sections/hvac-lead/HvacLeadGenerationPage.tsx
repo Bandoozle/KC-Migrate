@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
+import { PageCta, type PageCtaData } from "@/components/sections/PageCta";
 import { getPartnerName } from "@/components/sections/PartnerLogoGrid";
 import { RelatedServices } from "@/components/sections/digital-marketing/RelatedServices";
 import { ServiceHero } from "@/components/sections/ServiceHero";
@@ -10,7 +11,7 @@ import { SectionTitle } from "@/components/typography";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./HvacLeadGenerationPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const PHOTOS = {
   equipment: {
@@ -24,10 +25,6 @@ const PHOTOS = {
   home: {
     src: `${UPLOADS}/2026/03/hvac-marketing.jpg`,
     alt: "An air conditioner beside a home and garden",
-  },
-  close: {
-    src: `${UPLOADS}/2026/07/HVAC-Lead-Generation-Vancouver.jpg`,
-    alt: "A heat pump beside a backyard patio",
   },
 };
 
@@ -106,7 +103,13 @@ function Notes({ items, light = false }: { items: Array<{ title: string; line: s
 export function HvacLeadGenerationPage({ content }: { content: ServicePageContent }) {
   const logos = content.partnerLogos?.logos ?? [];
   const primaryHref = content.cta?.primary?.href || "/contact/";
-  const talkHref = content.cta?.phone?.href || "/contact/";
+  // The shared closing CTA used on every service page, with this page's HVAC copy
+  const closing: PageCtaData = {
+    title: "Ready to grow your HVAC business?",
+    description: "Tell us about the markets you serve. We’ll map a lead system from demand through booked jobs.",
+    primary: { label: "Book a Strategy Call", href: primaryHref },
+    phone: content.cta?.phone ?? null,
+  };
 
   return (
     <main className={styles.page}>
@@ -276,35 +279,9 @@ export function HvacLeadGenerationPage({ content }: { content: ServicePageConten
         <FaqAccordion eyebrow={content.faqs.eyebrow} title={content.faqs.title} items={content.faqs.items} />
       ) : null}
 
-      <section className={styles.close} aria-labelledby="hvac-cta">
-        <div className={`container ${styles.closeInner}`}>
-          <Reveal variant="fade" className={styles.closePhoto}>
-            <Image
-              src={PHOTOS.close.src}
-              alt={PHOTOS.close.alt}
-              fill
-              sizes="(min-width: 960px) 72vw, 100vw"
-              className={styles.cover}
-            />
-          </Reveal>
-          <SectionTitle as="h2" id="hvac-cta" className={styles.onDark}>
-            Ready to grow your HVAC business?
-          </SectionTitle>
-          <p className={styles.closeLead}>
-            Tell us about the markets you serve. We&apos;ll map a lead system from demand through booked jobs.
-          </p>
-          <div className={styles.actions}>
-            <Link className={styles.light} href={primaryHref}>
-              Book a Strategy Call
-            </Link>
-            <Link className={styles.quiet} href={talkHref}>
-              Talk to Our Team
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {content.relatedServices.length > 0 ? <RelatedServices services={content.relatedServices} /> : null}
+
+      <PageCta cta={closing} />
     </main>
   );
 }

@@ -1,16 +1,13 @@
 import { cache } from "react";
 import * as cheerio from "cheerio";
-import {
-  getPageBySlug,
-  getWordPressUrl,
-  WORDPRESS_REVALIDATE_SECONDS,
-  WordPressApiError,
-} from "@/lib/wordpress";
+import { CONTENT_ORIGIN, getPageBySlug, WordPressApiError } from "@/lib/wordpress";
 import type { ArticleListItem } from "@/components/sections/ArticleListing";
 import { resourceTopicIds, resourceTopicLabel } from "@/lib/content/resource-topics";
 import travelArticle from "@/content/articles/travel-marketing-canada.json";
+import { listLocalArticles } from "@/lib/content/local-articles";
 import { absUrl, cleanText, toLocalPath } from "@/lib/wordpress/shared";
-import { resolveResourceImage, type EmbeddedFeaturedMedia } from "@/lib/wordpress/resource-image";
+import { isPublicPath } from "@/lib/public-routes";
+import { resolveResourceImage } from "@/lib/wordpress/resource-image";
 
 export type FeatureArticlesContent = {
   title: string;
@@ -18,48 +15,6 @@ export type FeatureArticlesContent = {
   heroBackground: string | null;
   articles: ArticleListItem[];
 };
-
-type EmbeddedPost = {
-  id: number;
-  slug: string;
-  link: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  content?: { rendered: string };
-  _embedded?: {
-    "wp:featuredmedia"?: EmbeddedFeaturedMedia[];
-  };
-};
-
-async function fetchPostsWithMedia(perPage = 50): Promise<EmbeddedPost[]> {
-  const origin = getWordPressUrl();
-  const endpoint = `${origin}/wp-json/wp/v2/posts?per_page=${Math.min(perPage, 100)}&status=publish&_embed=1&orderby=date&order=desc`;
-  let response: Response;
-  try {
-    response = await fetch(endpoint, {
-      next: { revalidate: WORDPRESS_REVALIDATE_SECONDS },
-      headers: { Accept: "application/json" },
-      signal: AbortSignal.timeout(15_000),
-    });
-  } catch (error) {
-    const reason = error instanceof Error ? error.message : "Unknown network error";
-    throw new WordPressApiError(
-      `Unable to reach WordPress posts endpoint. ${reason}`,
-      undefined,
-      endpoint,
-    );
-  }
-
-  if (!response.ok) {
-    throw new WordPressApiError(
-      `WordPress API returned ${response.status} for posts listing.`,
-      response.status,
-      endpoint,
-    );
-  }
-
-  return (await response.json()) as EmbeddedPost[];
-}
 
 export const getFeatureArticlesContent = cache(
   async (): Promise<FeatureArticlesContent> => {
@@ -70,7 +25,7 @@ export const getFeatureArticlesContent = cache(
       );
     }
 
-    const origin = getWordPressUrl();
+    const origin = CONTENT_ORIGIN;
     let heroTitle = "The Latest In Marketing";
     let heroBackground: string | null = null;
 
@@ -87,9 +42,11 @@ export const getFeatureArticlesContent = cache(
       heroBackground = absUrl(bgMatch?.[2] || null, origin);
     }
 
-    const posts = await fetchPostsWithMedia(50);
+    // The travel article has its own card below, with a local image
+    const posts = listLocalArticles().filter((post) => post.slug !== travelArticle.slug);
 
-    const articles: ArticleListItem[] = posts.map((post) => {
+    // Only articles the site serves: retired (redirected) and unlisted posts would 404 or redirect
+    const articles: ArticleListItem[] = posts.filter((post) => isPublicPath(post.link)).map((post) => {
       const title = cleanText(post.title.rendered);
       const excerpt = cleanText(post.excerpt.rendered);
       const body = cleanText(post.content?.rendered || "").slice(0, 4000);

@@ -10,7 +10,7 @@ import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import { WebsiteShowcase } from "./WebsiteShowcase";
 import styles from "./WebsiteDevelopmentPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const SCREENS = {
   coolComfort: { src: `${UPLOADS}/2024/03/Screenshot-2024-03-07-at-10.07.14-AM-5.png`, alt: "Cool Comfort Solutions home page", host: "coolcomfortsolutions.ca" },

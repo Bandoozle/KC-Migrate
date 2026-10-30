@@ -36,11 +36,6 @@ async function main() {
   const newsRes = await fetch(`${base}/api/contact-form`, { method: "POST", body: news });
   console.log("NEWSLETTER", newsRes.status, await newsRes.text());
 
-  const cm = new FormData();
-  cm.set("formKey", "comfortmaker");
-  const cmRes = await fetch(`${base}/api/gravity-form`, { method: "POST", body: cm });
-  console.log("COMFORT_INVALID", cmRes.status, (await cmRes.text()).slice(0, 500));
-
   const home = await fetch(`${base}/`);
   const html = await home.text();
   const stripped = html.replace(/<script[\s\S]*?<\/script>/gi, "");

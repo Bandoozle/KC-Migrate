@@ -1,7 +1,8 @@
 import * as cheerio from "cheerio";
 import type { AnyNode, Element } from "domhandler";
-import { getWordPressUrl } from "@/lib/wordpress";
+import { CONTENT_ORIGIN } from "@/lib/wordpress";
 import { absUrl, cleanText, toLocalPath } from "@/lib/wordpress/shared";
+import { redirectDestination } from "@/lib/legacy-redirects";
 
 const ALLOWED_TAGS = new Set([
   "p",
@@ -69,7 +70,7 @@ const UNWRAP_SELECTORS = [
  */
 export function normalizeArticleHtml(
   html: string,
-  origin = getWordPressUrl(),
+  origin = CONTENT_ORIGIN,
   options?: { hasLeadingMedia?: boolean },
 ): string {
   if (!html.trim()) return "";
@@ -80,6 +81,20 @@ export function normalizeArticleHtml(
   const root = $("#article-root");
 
   root.find("style, script, noscript").remove();
+
+  // A WordPress email-obfuscation plugin stores addresses reversed, displayed with
+  // right-to-left CSS and padded with a hidden decoy. Inline styles are dropped
+  // below, so write the address out in reading order.
+  root.find('span[style*="bidi-override"]').each((_, el) => {
+    const $el = $(el);
+    $el.find('span[style*="display:none"]').remove();
+    $el.replaceWith([...$el.text()].reverse().join(""));
+  });
+
+  // The article title is the page's only h1; body h1s are section headings
+  root.find("h1").each((_, el) => {
+    el.tagName = "h2";
+  });
 
   // Kadence buttons → paragraph with link
   root.find("a.kb-button, a.kt-button, a.wp-block-button__link").each((_, el) => {
@@ -408,6 +423,7 @@ function rewriteHref(href: string | undefined, origin: string): string | null {
   }
 
   const local = toLocalPath(abs, origin);
+  if (local?.startsWith("/")) return redirectDestination(local) ?? local;
   return local || abs;
 }
 

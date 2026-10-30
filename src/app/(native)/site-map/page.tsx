@@ -3,6 +3,8 @@ import { rankMathMetadata } from "@/lib/seo/rank-math";
 import { InternalPageHero } from "@/components/sections/InternalPageHero";
 import { SiteMapArticles } from "@/components/sections/site-map/SiteMapArticles";
 import { SiteMapDirectory } from "@/components/sections/site-map/SiteMapDirectory";
+import { SiteMapIndustries } from "@/components/sections/site-map/SiteMapIndustries";
+import { INDUSTRY_LINKS } from "@/lib/industries/nav";
 import styles from "@/components/sections/site-map/SiteMap.module.css";
 import { SectionTitle } from "@/components/typography";
 import { getSiteMapContent } from "@/lib/wordpress/site-map";
@@ -15,7 +17,13 @@ export default async function SiteMapPage() {
   const content = await getSiteMapContent();
   // WordPress lists pages and feature articles as separate headed lists
   const articleSection = content.sections.find((section) => /article/i.test(section.title));
-  const pages = content.sections.filter((section) => section !== articleSection).flatMap((section) => section.links);
+  const wordpressPages = content.sections.filter((section) => section !== articleSection).flatMap((section) => section.links);
+  // Industry pages use the site's current names, and the ones built after WordPress are added
+  const industryNames = new Map<string, string>(INDUSTRY_LINKS.map((link) => [link.href, link.label]));
+  const pages = [
+    ...wordpressPages.map((link) => ({ ...link, label: industryNames.get(link.href) ?? link.label })),
+    ...INDUSTRY_LINKS.filter((link) => !wordpressPages.some((page) => page.href === link.href)).map((link) => ({ ...link })),
+  ];
   const articles = articleSection?.links ?? [];
 
   return (
@@ -36,6 +44,17 @@ export default async function SiteMapPage() {
             </SectionTitle>
           </div>
           <SiteMapDirectory links={pages} />
+        </div>
+      </section>
+
+      <section className={styles.directorySection} aria-labelledby="sm-industries">
+        <div className="container">
+          <div className={styles.head}>
+            <SectionTitle as="h2" id="sm-industries" className={styles.title}>
+              Industry services
+            </SectionTitle>
+          </div>
+          <SiteMapIndustries />
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { IndustryOffers } from "@/components/industry/IndustryOffers";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { VimeoFeature } from "@/components/sections/hvac/VimeoFeature";
@@ -6,10 +7,11 @@ import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
+import { getIndustry } from "@/lib/industries";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./GolfMarketingPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const IMAGES = {
   teeShot: { src: `${UPLOADS}/2026/06/golf-course-branding-marketing.jpg`, alt: "A golfer lining up an approach shot on a tree-lined fairway" },
@@ -197,6 +199,9 @@ export function GolfMarketingPage({ content }: GolfMarketingPageProps) {
           </div>
         </div>
       </section>
+
+      {/* What we offer: one linked card per golf service page */}
+      <IndustryOffers industry={getIndustry("golf")} headingId="gm-offers" />
 
       {/* Fairway: a wide walking shot, then the path from traffic to revenue */}
       <section className={styles.fairway} aria-labelledby="gm-fairway">

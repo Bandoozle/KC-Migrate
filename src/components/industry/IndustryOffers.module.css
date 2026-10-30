@@ -1,0 +1,634 @@
+/*
+ * "What We Offer" on industry pages. Every card is one link to its service
+ * page; each industry lays the cards out in its own way. Colours come from
+ * the industry theme (src/styles/industry-themes.css).
+ */
+.section {
+  padding-block: var(--kosick-block);
+  background: #ffffff;
+  overflow-x: clip;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+/* Heading: label, title and lead stacked at full content width */
+.head {
+  margin-bottom: clamp(2.25rem, 5vw, 3.5rem);
+}
+
+.label {
+  margin: 0 0 1rem;
+  color: var(--ind-label);
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.title {
+  margin: 0;
+}
+
+.lead {
+  margin: 1.25rem 0 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  min-width: 0;
+}
+
+/* Shared card anatomy */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.media {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: var(--ind-surface);
+}
+
+.media img {
+  transition: transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.card:hover .media img {
+  transform: scale(1.04);
+}
+
+.body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.index {
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.name {
+  margin: 0;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  line-height: var(--kosick-card-title-leading);
+  letter-spacing: var(--kosick-card-title-tracking);
+}
+
+.summary {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.55;
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+}
+
+.more svg {
+  transition: transform 200ms ease;
+}
+
+.card:hover .more svg {
+  transform: translateX(4px);
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--ind-accent);
+  outline-offset: 4px;
+}
+
+/* ---------- HVAC: mosaic. The first service leads; the rest sit beside it. ---------- */
+.mosaic .grid {
+  grid-template-columns: 1fr;
+}
+
+.mosaic .card {
+  border-top: 3px solid var(--ind-accent);
+  background: var(--ind-surface);
+}
+
+.mosaic .media {
+  aspect-ratio: 16 / 10;
+}
+
+.mosaic .body {
+  padding: 1.5rem 1.5rem 1.6rem;
+}
+
+.mosaic .index {
+  color: var(--ind-accent-deep);
+}
+
+.mosaic .more {
+  color: var(--ind-accent-deep);
+}
+
+@media (min-width: 720px) {
+  .mosaic .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mosaic .item:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .mosaic .item:first-child .card {
+    flex-direction: row;
+  }
+
+  .mosaic .item:first-child .media {
+    flex: 1.2;
+    aspect-ratio: auto;
+    min-height: 320px;
+  }
+
+  .mosaic .item:first-child .body {
+    flex: 1;
+    justify-content: center;
+    padding: clamp(1.75rem, 4vw, 3rem);
+  }
+}
+
+@media (min-width: 1080px) {
+  .mosaic .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .mosaic .item:first-child {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+  }
+
+  .mosaic .item:first-child .card {
+    flex-direction: column;
+  }
+
+  .mosaic .item:first-child .media {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .mosaic .item:first-child .body {
+    flex: none;
+    padding: 1.75rem 1.75rem 2rem;
+  }
+
+  .mosaic .item:first-child .name {
+    font-size: var(--kosick-subsection-title-size);
+  }
+
+  .mosaic .item:not(:first-child) .media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ---------- Medical & dental: a clean clinical list, photo beside text ---------- */
+.clinical .grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--ind-rule);
+}
+
+.clinical .card {
+  flex-direction: row;
+  align-items: stretch;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--ind-rule);
+}
+
+.clinical .media {
+  flex: 0 0 clamp(108px, 28vw, 240px);
+  aspect-ratio: 4 / 3;
+  border-radius: var(--kosick-radius-sm);
+}
+
+.clinical .body {
+  justify-content: center;
+}
+
+.clinical .index {
+  color: var(--ind-label);
+}
+
+.clinical .more {
+  color: var(--ind-label);
+}
+
+.clinical .card::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 2px;
+  background: var(--ind-accent);
+  transition: width 360ms ease;
+}
+
+.clinical .card:hover::after {
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .clinical .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(2rem, 4vw, 3.5rem);
+    border-top: 0;
+  }
+
+  .clinical .item:nth-child(-n + 2) .card {
+    border-top: 1px solid var(--ind-rule);
+  }
+}
+
+@media (max-width: 559px) {
+  .clinical .card {
+    flex-direction: column;
+  }
+
+  .clinical .media {
+    flex-basis: auto;
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ---------- Golf: four holes on a linen scorecard ---------- */
+.holes {
+  background: var(--ind-surface);
+}
+
+.holes .grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  border: 1px solid var(--ind-rule);
+  background: #fffdf8;
+}
+
+.holes .item + .item {
+  border-top: 1px solid var(--ind-rule);
+}
+
+.holes .media {
+  aspect-ratio: 3 / 2;
+}
+
+.holes .body {
+  padding: 1.4rem 1.5rem 1.6rem;
+}
+
+.holes .index {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 0.3rem 0.65rem;
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+  font-size: 0.8125rem;
+}
+
+.holes .more {
+  color: var(--ind-accent);
+}
+
+@media (min-width: 640px) {
+  .holes .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .holes .item + .item {
+    border-top: 0;
+  }
+
+  .holes .item:nth-child(n + 3) {
+    border-top: 1px solid var(--ind-rule);
+  }
+
+  .holes .item:nth-child(even) {
+    border-left: 1px solid var(--ind-rule);
+  }
+}
+
+@media (min-width: 1080px) {
+  .holes .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .holes .item:nth-child(n + 3) {
+    border-top: 0;
+  }
+
+  .holes .item + .item {
+    border-left: 1px solid var(--ind-rule);
+  }
+
+  .holes .media {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* ---------- Retail: three street posters ---------- */
+.posters {
+  background: var(--ind-ink);
+  color: #ffffff;
+}
+
+.posters .label {
+  color: #ff5a6e;
+}
+
+.posters .title {
+  color: #ffffff !important;
+}
+
+.posters .lead {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.posters .grid {
+  grid-template-columns: 1fr;
+  --gap: 1rem;
+}
+
+.posters .card {
+  min-height: 460px;
+  overflow: hidden;
+  background: #1c1c1c;
+}
+
+.posters .media {
+  position: absolute;
+  inset: 0;
+}
+
+.posters .media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 22%, rgba(0, 0, 0, 0.62) 52%, rgba(0, 0, 0, 0.9) 100%);
+}
+
+.posters .body {
+  position: relative;
+  justify-content: flex-end;
+  padding: 1.5rem;
+}
+
+.posters .index {
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.posters .index::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 3px;
+  margin-top: 0.6rem;
+  background: var(--ind-accent);
+}
+
+.posters .summary {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.posters .more {
+  margin-top: 0.5rem;
+  color: #ffffff;
+}
+
+@media (min-width: 840px) {
+  .posters .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .posters .card {
+    min-height: 0;
+    aspect-ratio: 3 / 4.6;
+  }
+
+  .posters .item:nth-child(2) {
+    margin-top: clamp(1.5rem, 4vw, 3rem);
+  }
+}
+
+/* ---------- Specialty retail: hang tags with a punched hole ---------- */
+.tags {
+  background: var(--ind-surface);
+}
+
+.tags .grid {
+  grid-template-columns: 1fr;
+}
+
+.tags .card {
+  padding: 2.1rem 1.1rem 1.3rem;
+  background: #ffffff;
+  border: 1px solid var(--ind-rule);
+  clip-path: polygon(22px 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%, 0 22px);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.tags .card::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--ind-accent);
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.tags .card:hover {
+  transform: translateY(-4px) rotate(-0.4deg);
+}
+
+.tags .media {
+  aspect-ratio: 4 / 3;
+}
+
+.tags .body {
+  padding: 1.2rem 0.3rem 0;
+}
+
+.tags .index {
+  align-self: flex-start;
+  padding: 0.2rem 0.55rem;
+  background: var(--ind-soft);
+  color: var(--ind-ink);
+}
+
+.tags .more {
+  color: var(--ind-accent);
+}
+
+@media (min-width: 640px) {
+  .tags .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1080px) {
+  .tags .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Construction: plan sheets on a drafting grid ---------- */
+.sheets {
+  background-color: var(--ind-ink);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: #ffffff;
+}
+
+.sheets .label {
+  color: var(--ind-accent);
+}
+
+.sheets .title {
+  color: #ffffff !important;
+}
+
+.sheets .lead {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.sheets .grid {
+  grid-template-columns: 1fr;
+}
+
+.sheets .card {
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(29, 33, 37, 0.92);
+  transition: border-color 200ms ease;
+}
+
+.sheets .card:hover {
+  border-color: var(--ind-accent);
+}
+
+.sheets .media {
+  aspect-ratio: 16 / 10;
+  border-bottom: 4px solid var(--ind-accent);
+}
+
+.sheets .body {
+  padding: 1.4rem 1.5rem 1.6rem;
+}
+
+.sheets .index {
+  color: var(--ind-accent);
+  letter-spacing: 0.04em;
+}
+
+.sheets .summary {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.sheets .more {
+  color: #ffffff;
+}
+
+@media (min-width: 840px) {
+  .sheets .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Travel: boarding passes with a perforated stub ---------- */
+.passes {
+  background: var(--ind-surface);
+}
+
+.passes .grid {
+  grid-template-columns: 1fr;
+}
+
+.passes .card {
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid var(--ind-rule);
+  transition: transform 220ms ease;
+}
+
+.passes .card:hover {
+  transform: translateY(-3px);
+}
+
+.passes .media {
+  aspect-ratio: 16 / 9;
+}
+
+.passes .body {
+  position: relative;
+  padding: 1.5rem 1.5rem 1.6rem;
+  border-top: 2px dashed var(--ind-rule);
+}
+
+.passes .index {
+  color: var(--ind-accent);
+}
+
+.passes .more {
+  align-self: flex-start;
+  padding: 0.7rem 1.1rem;
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+}
+
+@media (min-width: 760px) {
+  .passes .card {
+    flex-direction: row;
+  }
+
+  .passes .media {
+    flex: 0 0 42%;
+    aspect-ratio: auto;
+    min-height: 300px;
+  }
+
+  .passes .body {
+    border-top: 0;
+    border-left: 2px dashed var(--ind-rule);
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1180px) {
+  .passes .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

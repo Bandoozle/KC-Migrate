@@ -17,7 +17,7 @@ type OutdoorAdvertisingPageProps = {
   mediaOwner?: ServiceMedia | null;
 };
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 const DIMENSIONS_HREF = "/services/outdoor-advertising/billboard-dimensions/";
 
 /* Each section uses a different real campaign, so no photograph repeats */

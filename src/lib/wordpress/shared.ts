@@ -2,12 +2,13 @@ import * as cheerio from "cheerio";
 import type { CheerioAPI } from "cheerio";
 import type { AnyNode } from "domhandler";
 import { SITE_ORIGINS, matchesOrigin } from "@/lib/site";
-import { decodeRenderedText, getWordPressUrl } from "@/lib/wordpress";
+import { decodeRenderedText, CONTENT_ORIGIN } from "@/lib/wordpress";
 import { isUnavailableMedia } from "@/lib/unavailable-media";
+import { localMediaUrl } from "@/lib/media";
 
-export function absUrl(url: string | undefined | null, origin = getWordPressUrl()): string | null {
+export function absUrl(url: string | undefined | null, origin = CONTENT_ORIGIN): string | null {
   if (!url) return null;
-  const trimmed = url.trim();
+  const trimmed = localMediaUrl(url.trim());
   if (
     trimmed.startsWith("http://") ||
     trimmed.startsWith("https://") ||
@@ -18,8 +19,8 @@ export function absUrl(url: string | undefined | null, origin = getWordPressUrl(
   }
   // Protocol-relative CDN / upload URLs from WordPress / Smart Slider.
   if (trimmed.startsWith("//")) return `https:${trimmed}`;
-  // Files in /public/images stay on this app. Other root paths are CMS assets.
-  if (trimmed.startsWith("/images/")) return trimmed;
+  // Files in /public/images and /public/wp-content stay on this app. Other root paths are CMS assets.
+  if (trimmed.startsWith("/images/") || trimmed.startsWith("/wp-content/")) return trimmed;
   if (trimmed.startsWith("/")) return `${origin}${trimmed}`;
   // Bare domains sometimes appear in CMS link fields (e.g. "example.com").
   if (/^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}([/:?].*)?$/i.test(trimmed)) {
@@ -28,11 +29,11 @@ export function absUrl(url: string | undefined | null, origin = getWordPressUrl(
   return trimmed;
 }
 
-export function toLocalPath(url: string | null, origin = getWordPressUrl()): string | null {
+export function toLocalPath(url: string | null, origin = CONTENT_ORIGIN): string | null {
   if (!url) return null;
   if (url === "#" || url.startsWith("#")) return null;
   if (url.startsWith("tel:") || url.startsWith("mailto:")) return url;
-  const wordpress = getWordPressUrl();
+  const wordpress = CONTENT_ORIGIN;
   // Older posts link to the CMS host over plain http
   const bases = [origin, wordpress, wordpress.replace(/^https:/, "http:"), ...SITE_ORIGINS];
   for (const base of bases) {
@@ -72,7 +73,7 @@ export type SmartSliderSlide = {
 /** Extract Smart Slider background images/videos (n2 markup → native carousel slides). */
 export function extractSmartSliderSlides(
   html: string,
-  origin = getWordPressUrl(),
+  origin = CONTENT_ORIGIN,
 ): SmartSliderSlide[] {
   const $ = cheerio.load(html);
   const slides: SmartSliderSlide[] = [];

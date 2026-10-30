@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { IndustryOffers } from "@/components/industry/IndustryOffers";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
@@ -8,25 +9,18 @@ import { ProcessTrack } from "@/components/sections/ProcessSteps";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
+import { getIndustry } from "@/lib/industries";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import { VimeoFeature } from "./VimeoFeature";
 import styles from "./HvacMarketingPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 const LOCAL = "/images/hvac-marketing";
 
 const IMAGES = {
   intro: { src: `${UPLOADS}/2026/03/hvac-marketing.jpg`, alt: "A Napoleon air conditioner beside a home and garden" },
   efficiency: { src: `${UPLOADS}/2026/07/HVAC-Lead-Generation-Vancouver.jpg`, alt: "A Daikin heat pump beside a backyard patio" },
 };
-
-/* Image-topped service cards, one per offer card in WordPress order */
-const SERVICE_IMAGES = [
-  { src: `${UPLOADS}/2023/07/hvac.jpg`, alt: "An Ayotte Plumbing & Heating billboard for a Comfortmaker furnace" },
-  { src: `${UPLOADS}/2025/12/trane-hvac-advertising.jpeg`, alt: "Two RunTru air conditioners beside a brick home" },
-  { src: `${UPLOADS}/2025/07/home-services-website-design.webp`, alt: "The DirectBuy Furnace website on a laptop" },
-  { src: `${UPLOADS}/2026/06/digital-marketing-services-1.jpg`, alt: "A Google search for a furnace installer in Vancouver on a phone" },
-];
 
 const PROCESS = [
   { name: "Audit", line: "Understand the market, competition and current performance." },
@@ -162,7 +156,6 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
   const { hero, faqs, cta, statsSection } = content;
   const contactHref = cta?.primary.href || "/contact/";
   const phone = cta?.phone;
-  const services = content.offerGroups.flatMap((group) => group.cards).slice(0, 4);
   const video = content.videoSections.find((section) => /vimeo\.com\/video\/\d+/.test(section.src));
   const videoId = video?.src.match(/vimeo\.com\/video\/(\d+)/)?.[1];
   const stats = statsSection?.items ?? [];
@@ -229,46 +222,9 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
         </div>
       </section>
 
-      {/* Services: four image-topped cards */}
-      {services.length > 0 ? (
-        <section className={styles.services} aria-labelledby="hv-services">
-          <div className="container">
-            <div className={styles.head}>
-              <div>
-                <p className={styles.label}>Full-service HVAC marketing</p>
-                <SectionTitle id="hv-services" className={styles.title}>
-                  Everything your HVAC business needs to grow.
-                </SectionTitle>
-              </div>
-            </div>
-            <ul className={styles.serviceGrid}>
-              {services.map((service, index) => {
-                const image = SERVICE_IMAGES[index];
-                return (
-                  <Reveal key={service.id} as="li" delay={index * 90} className={styles.serviceCard}>
-                    {image ? (
-                      <div className={styles.serviceImage}>
-                        <Image src={image.src} alt={image.alt} fill sizes="(min-width: 960px) 25vw, 50vw" className={styles.cover} />
-                      </div>
-                    ) : null}
-                    <div className={styles.serviceBody}>
-                      <span className={styles.serviceNumber}>{String(index + 1).padStart(2, "0")}</span>
-                      <h3 className={styles.serviceName}>{service.title}</h3>
-                      {service.body ? <p className={styles.serviceLine}>{service.body}</p> : null}
-                    </div>
-                  </Reveal>
-                );
-              })}
-            </ul>
-            <div className={styles.actions}>
-              <Link className={styles.primary} href={contactHref}>
-                Talk to our team
-                <ArrowIcon />
-              </Link>
-            </div>
-          </div>
-        </section>
-      ) : null}
+      {/* What we offer: one linked card per HVAC service page */}
+      <IndustryOffers industry={getIndustry("hvac")} headingId="hv-services" />
+
 
       {/* Process: four bordered steps that draw in turn, as on the dental journey */}
       <section className={styles.process} aria-labelledby="hv-process">

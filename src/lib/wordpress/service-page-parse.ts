@@ -3,7 +3,7 @@ import type { CheerioAPI } from "cheerio";
 import type { Element } from "domhandler";
 import type { FeatureSplitData } from "@/components/sections/FeatureSplit";
 import type { PageCtaData } from "@/components/sections/PageCta";
-import { getWordPressUrl } from "@/lib/wordpress";
+import { CONTENT_ORIGIN } from "@/lib/wordpress";
 import {
   absUrl,
   cleanText,
@@ -1055,7 +1055,7 @@ function isIntroRow($: CheerioAPI, row: Element): boolean {
   if ($(row).find(".wp-block-media-text, .wp-block-kadence-infobox, .kt-accordion-pane").length) {
     return false;
   }
-  if (extractBgUrl($(row).html() || "", getWordPressUrl())) return false;
+  if (extractBgUrl($(row).html() || "", CONTENT_ORIGIN)) return false;
   const headings = $(row)
     .find(".wp-block-kadence-advancedheading, h1, h2, h3")
     .toArray()
@@ -1305,7 +1305,7 @@ export function normalizeServicePageHtml(
   pageTitle: string,
   excerpt = "",
 ): ServicePageContent {
-  const origin = getWordPressUrl();
+  const origin = CONTENT_ORIGIN;
   const $ = cheerio.load(`<div id="service-root">${html}</div>`);
   const rows = collectServiceRows($);
 

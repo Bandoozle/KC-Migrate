@@ -3,10 +3,11 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageCta } from "@/components/sections/PageCta";
 import { SectionTitle } from "@/components/typography";
+import { INDUSTRY_LINKS } from "@/lib/industries/nav";
 import { MediaPreview, type MediaService } from "./MediaPreview";
 import styles from "./ServicesOverview.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const CHAPTERS = [
   { id: "advertising-media", name: "Advertising & Media" },
@@ -85,8 +86,8 @@ const INDUSTRIES = {
     image: { src: `${UPLOADS}/2026/03/hvac-marketing.jpg`, alt: "A Napoleon air conditioner beside a home and garden" },
   },
   dental: {
-    name: "Dental Marketing",
-    line: "Patient growth for modern practices.",
+    name: "Medical & Dental Marketing",
+    line: "Patient growth for modern practices and clinics.",
     href: "/services/dental-marketing/",
     image: { src: `${UPLOADS}/2026/07/Dental-Vancouver.jpg`, alt: "The Sparkle Dental Spa waiting room with a gold tooth on the table" },
   },
@@ -317,6 +318,15 @@ export function ServicesOverview() {
               );
             })}
           </div>
+          <ul className={styles.moreIndustries} aria-label="More industries">
+            {INDUSTRY_LINKS.slice(3).map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className={styles.moreIndustry}>
+                  {link.label} <Arrow />
+                </Link>
+              </li>
+            ))}
+          </ul>
           <Link href="/marketing-programs/" className={styles.textLink}>
             All marketing programs <Arrow />
           </Link>

@@ -2,8 +2,9 @@ import { cache } from "react";
 import * as cheerio from "cheerio";
 import type { CheerioAPI } from "cheerio";
 import type { AnyNode } from "domhandler";
-import { getPageBySlug, WordPressApiError, getWordPressUrl } from "@/lib/wordpress";
+import { getPageBySlug, WordPressApiError, CONTENT_ORIGIN } from "@/lib/wordpress";
 import { cleanText, toLocalPath } from "@/lib/wordpress/shared";
+import { isPublicPath } from "@/lib/public-routes";
 import type { DirectorySection } from "@/components/sections/LinkDirectory";
 
 export type SiteMapContent = {
@@ -24,7 +25,8 @@ function collectLinks(
     .each((_, el) => {
       const href = toLocalPath($(el).attr("href") || null, origin);
       const label = cleanText($(el).text());
-      if (!href || !label) return;
+      // Only pages the new site serves as indexable 200s; retired and noindex pages stay out
+      if (!href || !label || !isPublicPath(href)) return;
       const key = `${href}::${label}`;
       if (seen.has(key)) return;
       seen.add(key);
@@ -42,7 +44,7 @@ export const getSiteMapContent = cache(async (): Promise<SiteMapContent> => {
     );
   }
 
-  const origin = getWordPressUrl();
+  const origin = CONTENT_ORIGIN;
   const $ = cheerio.load(`<div id="root">${page.content.rendered}</div>`);
   const root = $("#root");
   const sections: DirectorySection[] = [];

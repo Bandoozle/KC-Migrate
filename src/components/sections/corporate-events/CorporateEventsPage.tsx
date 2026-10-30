@@ -9,7 +9,7 @@ import { labelCase } from "@/lib/eyebrow";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./CorporateEventsPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const IMAGES = {
   sailing: { src: `${UPLOADS}/2023/06/wealth-management.jpg`, alt: "A group sailing in formation on open water at sunset" },

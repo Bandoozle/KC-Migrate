@@ -1,6 +1,7 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
+import { useFormGuard } from "@/components/forms/useFormGuard";
 import { FORM_NAMES, trackFormSuccess } from "@/lib/analytics/track";
 import { SITE_FOOTER_NEWSLETTER } from "./site-footer-data";
 import styles from "./SiteFooter.module.css";
@@ -10,14 +11,17 @@ export function SiteFooterNewsletter() {
     "idle",
   );
   const { placeholder, submitLabel } = SITE_FOOTER_NEWSLETTER;
+  const guard = useFormGuard("newsletter");
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === "submitting") return;
     const formEl = event.currentTarget;
     setStatus("submitting");
 
     const data = new FormData(formEl);
     data.set("formKey", "newsletter");
+    guard.stamp(data);
 
     try {
       const response = await fetch("/api/contact-form/", {
@@ -28,10 +32,12 @@ export function SiteFooterNewsletter() {
         | { ok?: boolean }
         | null;
       if (!response.ok || !result?.ok) throw new Error("Newsletter submit failed");
-      trackFormSuccess(FORM_NAMES.newsletter);
+      guard.succeeded();
+      trackFormSuccess(FORM_NAMES.newsletter, { email: String(data.get("field3d8246-7e") || "") });
       formEl.reset();
       setStatus("success");
     } catch {
+      guard.failed();
       setStatus("error");
     }
   }
@@ -39,6 +45,11 @@ export function SiteFooterNewsletter() {
   return (
     <form className={styles.newsletterForm} onSubmit={onSubmit} noValidate>
       <input type="hidden" name="formKey" value="newsletter" />
+      {/* Bots fill every field; the API rejects any submission with this one set */}
+      <div className={styles.srOnly} aria-hidden="true">
+        <label htmlFor="footer-newsletter-hp">Company website</label>
+        <input id="footer-newsletter-hp" name="_kosick_hp" type="text" tabIndex={-1} autoComplete="off" defaultValue="" />
+      </div>
       <div className={styles.newsletterRow}>
         <label className={styles.srOnly} htmlFor="footer-newsletter-email">
           Email
@@ -62,6 +73,7 @@ export function SiteFooterNewsletter() {
           {status === "submitting" ? "…" : submitLabel}
         </button>
       </div>
+      {guard.challenge}
       {status === "success" ? (
         <p className={styles.newsletterStatus} role="status">
           Thanks — you&apos;re on the list.

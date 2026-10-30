@@ -44,7 +44,7 @@ export function VimeoFeature({ id, title, poster, inline = true }: VimeoFeatureP
           referrerPolicy="strict-origin-when-cross-origin"
         />
       ) : (
-        <button type="button" className={styles.videoPoster} onClick={play}>
+        <button type="button" className={styles.videoPoster} onClick={play} aria-label={`Play ${title}`}>
           <Image src={poster} alt="" fill sizes="(min-width: 1290px) 1290px, 100vw" className={styles.cover} />
           <span className={styles.videoShade} aria-hidden="true" />
           <span className={styles.playDisc} aria-hidden="true">

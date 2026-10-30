@@ -1,14 +1,26 @@
-import { WordPressShell } from "@/components/wordpress/WordPressShell";
-import { getWordPressUrl } from "@/lib/wordpress";
-import { getWordPressDocument } from "@/lib/wordpress-document";
+import type { Metadata } from "next";
+import { NativePageShell } from "@/components/layout/NativePageShell";
+import { InternalPageHero } from "@/components/sections/InternalPageHero";
 
-export default async function NotFound() {
-  const document = await getWordPressDocument(`${getWordPressUrl()}/`);
+export const metadata: Metadata = {
+  title: { absolute: "Page Not Found | Kosick Communications" },
+};
 
+/** Native 404 with the site header and footer, like the Thank You page. */
+export default function NotFound() {
   return (
-    <WordPressShell
-      document={document}
-      contentHtml='<p>Sorry, we couldn’t find that page. <a href="/">Return to the homepage</a> or <a href="/site-map/">browse the site map</a>.</p>'
-    />
+    <NativePageShell>
+      <main>
+        <InternalPageHero
+          plain
+          eyebrow="404"
+          titlePrimary="Page"
+          titleSecondary="Not Found"
+          description="Sorry, we couldn’t find that page. It may have moved, or the link may be out of date."
+          primaryCTA={{ label: "Back to Home", href: "/" }}
+          secondaryCTA={{ label: "Browse the Site Map", href: "/site-map/" }}
+        />
+      </main>
+    </NativePageShell>
   );
 }

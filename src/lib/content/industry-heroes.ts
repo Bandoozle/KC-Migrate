@@ -12,9 +12,9 @@ export const INDUSTRY_SERVICE_HEROES = {
   dental: {
     eyebrow: "Digital • Traditional • Patient Growth • Web",
     displayTitle: "Strategic",
-    titleSecondary: "Dental Marketing",
+    titleSecondary: "Medical & Dental Marketing",
     subtitle:
-      "Kosick Communications helps dental practices build stronger brands, attract new patients, and stay connected with their communities through integrated digital, traditional, and web marketing strategies.",
+      "Kosick Communications helps dental practices and medical clinics build stronger brands, attract new patients, and stay connected with their communities through integrated digital, traditional, and web marketing strategies.",
   },
   golf: {
     eyebrow: "Digital • Traditional • Membership • Events",

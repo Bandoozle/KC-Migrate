@@ -121,7 +121,13 @@ export function HeroBanner({
                 />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
-                <img src={slide.src} alt={slide.alt || heading} className={styles.image} />
+                <img
+                  src={slide.src}
+                  alt={slide.alt || heading}
+                  className={styles.image}
+                  // The first slide is the page's largest paint, so fetch it ahead of other images
+                  fetchPriority={index === 0 ? "high" : "auto"}
+                />
               )}
             </div>
           ))}

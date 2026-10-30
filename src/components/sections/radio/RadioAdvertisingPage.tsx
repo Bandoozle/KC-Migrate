@@ -33,7 +33,7 @@ const MIX_LINKS: { match: RegExp; href: string | null }[] = [
 ];
 
 const STUDIO_IMAGE = {
-  src: "https://staging.kosick.com/wp-content/uploads/2021/07/audio-recording.jpg",
+  src: "/wp-content/uploads/2021/07/audio-recording.jpg",
   alt: "Studio condenser microphone in a shock mount, ready for a voice session",
 };
 

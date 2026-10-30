@@ -2,12 +2,7 @@ import { cache } from "react";
 import * as cheerio from "cheerio";
 import type { CheerioAPI } from "cheerio";
 import type { Element } from "domhandler";
-import {
-  decodeRenderedText,
-  getPageBySlug,
-  getWordPressUrl,
-  WordPressApiError,
-} from "@/lib/wordpress";
+import { decodeRenderedText, getPageBySlug, CONTENT_ORIGIN, WordPressApiError } from "@/lib/wordpress";
 import { absUrl, cleanText, textFrom } from "@/lib/wordpress/shared";
 import { getKadenceForm } from "@/lib/wordpress/kadence-forms";
 
@@ -91,7 +86,7 @@ function normalizeContactHtml(
   pageTitle: string,
   excerpt: string,
 ): ContactPageContent {
-  const origin = getWordPressUrl();
+  const origin = CONTENT_ORIGIN;
   const $ = cheerio.load(`<div id="contact-root">${html}</div>`);
   const rows = $("#contact-root")
     .find(".kb-row-layout-wrap")

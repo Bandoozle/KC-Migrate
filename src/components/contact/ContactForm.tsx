@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { type FormEvent, useId, useState } from "react";
+import { useFormGuard } from "@/components/forms/useFormGuard";
 import { FORM_NAMES, trackFormSuccess } from "@/lib/analytics/track";
 import { labelCase } from "@/lib/eyebrow";
 import type { KadenceFormDefinition } from "@/lib/wordpress/kadence-forms";
@@ -28,6 +29,7 @@ export function ContactForm({
   const [status, setStatus] = useState<"idle" | "submitting" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
+  const guard = useFormGuard(formKey);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -40,6 +42,7 @@ export function ContactForm({
 
     const data = new FormData(formEl);
     if (!data.get("formKey")) data.set("formKey", formKey);
+    guard.stamp(data);
 
     try {
       const response = await fetch("/api/contact-form/", {
@@ -54,6 +57,7 @@ export function ContactForm({
       } | null;
 
       if (!response.ok || !result?.ok) {
+        guard.failed();
         if (result?.fields) setFieldErrors(result.fields);
         setErrorMessage(
           result?.error || "Something went wrong. Please try again or email us directly.",
@@ -62,7 +66,8 @@ export function ContactForm({
         return;
       }
 
-      // Fire only after confirmed WP success — never on validation failure.
+      guard.succeeded();
+      // Fire only after the API confirms the lead was stored or delivered — never on validation failure.
       trackFormSuccess(FORM_NAMES.contact, {
         email: String(data.get(form.fields.email.name) || ""),
         phone: String(data.get(form.fields.phone.name) || ""),
@@ -70,6 +75,7 @@ export function ContactForm({
       });
       router.push(result.redirect || "/thanks/");
     } catch {
+      guard.failed();
       setErrorMessage("Something went wrong. Please try again or email us directly.");
       setStatus("error");
     }
@@ -174,6 +180,8 @@ export function ContactForm({
           {restFields.map(([key, field]) => renderField(key, field))}
         </>
       )}
+
+      {guard.challenge}
 
       {status === "error" && errorMessage ? (
         <p className={styles.error} role="alert">

@@ -14,7 +14,7 @@ type DigitalVideoAdvertisingPageProps = {
   content: ServicePageContent;
 };
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const SHOTS = {
   livingRoom: { src: `${UPLOADS}/2026/06/tv-streaming-advertising-1.jpg`, alt: "Living-room television open to the Prime Video app" },

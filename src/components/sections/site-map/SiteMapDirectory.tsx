@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { DirectoryLink } from "@/components/sections/LinkDirectory";
+import { INDUSTRY_LINKS } from "@/lib/industries/nav";
 import styles from "./SiteMap.module.css";
 
 type Group = { title?: string; hrefs: string[] };
@@ -43,7 +44,7 @@ const COLUMNS: Column[] = [
       },
       {
         title: "Industry Marketing",
-        hrefs: ["/services/hvac-marketing/", "/services/dental-marketing/", "/services/golf-marketing/"],
+        hrefs: INDUSTRY_LINKS.map((link) => link.href),
       },
     ],
   },
@@ -51,7 +52,7 @@ const COLUMNS: Column[] = [
     title: "Company",
     groups: [
       {
-        hrefs: ["/", "/marketing-results/", "/contact/", "/online-payments/", "/site-map/", "/thanks/"],
+        hrefs: ["/", "/marketing-results/", "/contact/", "/online-payments/", "/site-map/"],
       },
     ],
   },
@@ -64,10 +65,6 @@ const COLUMNS: Column[] = [
           "/services/hvac-marketing/hvac-lead-generation/",
           "/services/outdoor-advertising/billboard-dimensions/",
         ],
-      },
-      {
-        title: "Client events",
-        hrefs: ["/mexico-2026-welcome-itinerary/", "/comfortmaker/", "/uncorked/"],
       },
     ],
   },

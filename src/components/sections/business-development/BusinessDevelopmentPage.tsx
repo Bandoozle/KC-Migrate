@@ -8,7 +8,7 @@ import { labelCase } from "@/lib/eyebrow";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./BusinessDevelopmentPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const IMAGES = {
   team: {

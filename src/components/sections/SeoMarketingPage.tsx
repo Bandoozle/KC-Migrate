@@ -9,7 +9,7 @@ import { labelCase } from "@/lib/eyebrow";
 import type { ServiceInfoCard, ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./SeoMarketingPage.module.css";
 
-const UPLOADS = "https://staging.kosick.com/wp-content/uploads";
+const UPLOADS = "/wp-content/uploads";
 
 const PHOTOS = {
   search: { src: `${UPLOADS}/2026/06/digital-marketing-services-1.jpg`, alt: "A phone showing a Google search for a furnace installer in Vancouver" },

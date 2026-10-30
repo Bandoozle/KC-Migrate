@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getWordPressUrl } from "@/lib/wordpress";
+import { RATE_LIMITS, rateLimited } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
@@ -28,6 +29,9 @@ function isMessage(value: unknown): value is ChatMessage {
  * Public chat works without WP nonce (verified on staging).
  */
 export async function POST(request: Request) {
+  const limited = rateLimited(request, RATE_LIMITS.chat);
+  if (limited) return limited;
+
   let body: ChatBody;
   try {
     body = (await request.json()) as ChatBody;
