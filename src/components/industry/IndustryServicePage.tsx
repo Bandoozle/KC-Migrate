@@ -8,6 +8,7 @@ import { serviceHeroActions } from "@/lib/content/industry-heroes";
 import { servicePath, type Industry, type IndustryId, type IndustryService } from "@/lib/industries";
 import { canonicalUrl } from "@/lib/site";
 import { Breadcrumbs } from "./Breadcrumbs";
+import { IndustryIntro } from "./IndustryIntro";
 import "@/styles/industry-themes.css";
 import styles from "./IndustryServicePage.module.css";
 
@@ -89,6 +90,7 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
     { label: industry.name, href: industry.path },
     { label: service.title, href: servicePath(industry, service) },
   ];
+  const [introImage, ...deliverablePhotos] = service.gallery;
   const image = service.hero.image;
   const imageStyle = image.position ? { objectPosition: image.position } : undefined;
 
@@ -149,20 +151,17 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
         </div>
       </header>
 
-      {/* Intro: what the service means for this industry */}
-      <section className={styles.intro} aria-labelledby="svc-intro">
-        <div className="container">
-          <p className={styles.label}>{industry.name}</p>
-          <SectionTitle id="svc-intro" className={styles.title}>
-            {service.intro.title}
-          </SectionTitle>
-          <div className={styles.introBody}>
-            {service.intro.paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Intro: what the service means for this industry, with the first supporting photograph */}
+      {introImage ? (
+        <IndustryIntro
+          industry={industry.id}
+          headingId="svc-intro"
+          label={industry.name}
+          title={service.intro.title}
+          paragraphs={service.intro.paragraphs}
+          image={introImage}
+        />
+      ) : null}
 
       {/* What we offer: the capabilities inside this service, as information cards */}
       <section className={`${styles.offers} ${styles[variant.offers]}`} aria-labelledby="svc-offers">
@@ -187,47 +186,43 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
         </div>
       </section>
 
-      {/* Deliverables: what the engagement produces */}
+      {/* Deliverables: the checklist beside the rest of the service's photography */}
       <section className={styles.deliverables} aria-labelledby="svc-deliverables">
-        <div className="container">
-          <p className={styles.label}>Capabilities &amp; deliverables</p>
-          <SectionTitle id="svc-deliverables" className={styles.title}>
-            What you get.
-          </SectionTitle>
-          <ul className={styles.checklist}>
-            {service.deliverables.map((item) => (
-              <li key={item}>
-                <span className={styles.check}>
-                  <CheckIcon />
-                </span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* Supporting photography */}
-      {service.gallery.length > 0 ? (
-        <section className={styles.gallery} aria-label={`${service.title} examples`}>
-          <div className="container">
-            <ul className={styles.galleryGrid} data-count={service.gallery.length}>
-              {service.gallery.map((photo, index) => (
-                <Reveal key={photo.src} as="li" variant="fade" delay={index * 90} className={styles.galleryItem}>
+        <div className={`container ${styles.deliverablesGrid}`} data-photos={deliverablePhotos.length}>
+          <div className={styles.deliverablesCopy}>
+            <p className={styles.label}>Capabilities &amp; deliverables</p>
+            <SectionTitle id="svc-deliverables" className={styles.title}>
+              What you get.
+            </SectionTitle>
+            <ul className={styles.checklist}>
+              {service.deliverables.map((item) => (
+                <li key={item}>
+                  <span className={styles.check}>
+                    <CheckIcon />
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {deliverablePhotos.length > 0 ? (
+            <ul className={styles.deliverablesPhotos} aria-label={`${service.title} examples`}>
+              {deliverablePhotos.map((photo, index) => (
+                <Reveal key={photo.src} as="li" variant="fade" delay={index * 90} className={styles.deliverablesPhoto}>
                   <Image
                     src={photo.src}
                     alt={photo.alt}
                     fill
-                    sizes={service.gallery.length > 2 ? "(min-width: 960px) 33vw, 100vw" : "(min-width: 960px) 50vw, 100vw"}
+                    sizes="(min-width: 960px) 40vw, 100vw"
                     className={styles.cover}
                     style={photo.position ? { objectPosition: photo.position } : undefined}
                   />
                 </Reveal>
               ))}
             </ul>
-          </div>
-        </section>
-      ) : null}
+          ) : null}
+        </div>
+      </section>
 
       {/* Benefits and where the service is used */}
       <section className={styles.benefits} aria-labelledby="svc-benefits">

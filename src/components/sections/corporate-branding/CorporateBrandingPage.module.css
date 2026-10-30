@@ -287,15 +287,13 @@
 
 /* Statement: the rebrand line, set large */
 
+/* Statement: one full-width line with small crops of the brand work set inline, then the supporting copy */
 .statement {
-  padding: var(--block) 0;
+  padding: clamp(3.5rem, 7vw, 5.5rem) 0;
 }
 
 .statementGrid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  display: block;
 }
 
 .statementLabel {
@@ -307,19 +305,30 @@
 }
 
 .statementText {
-  max-width: 22ch;
-  margin: 0 auto;
+  margin: 0;
   color: #111111;
-  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  font-size: clamp(2rem, 4.6vw, 3.75rem);
   font-weight: 600;
   letter-spacing: -0.03em;
-  line-height: 1.08;
-  text-wrap: balance;
+  line-height: 1.12;
+}
+
+.statementChip {
+  position: relative;
+  display: inline-block;
+  width: 1.9em;
+  height: 0.95em;
+  margin: 0 0.18em 0 0.22em;
+  overflow: hidden;
+  vertical-align: -0.08em;
+  border-radius: var(--kosick-radius-sm);
+  background: #f3f3f1;
 }
 
 .statementBody {
-  max-width: 46ch;
-  margin: 1.5rem auto 0;
+  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+  padding-top: clamp(1.25rem, 2.5vw, 1.75rem);
+  border-top: 1px solid rgba(17, 17, 17, 0.14);
   color: var(--kosick-color-muted);
   font-size: var(--kosick-section-desc-size);
   line-height: var(--kosick-section-desc-leading);

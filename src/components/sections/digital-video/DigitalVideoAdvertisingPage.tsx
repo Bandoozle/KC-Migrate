@@ -75,11 +75,23 @@ const MEASURES = [
 ];
 
 const MEASURE_LABELS = [
-  { name: "Completion", line: "How much of the spot viewers watch." },
-  { name: "Reach & frequency", line: "How many people, how often." },
-  { name: "Brand lift", line: "What changes after they see it." },
-  { name: "Attribution", line: "Site visits and conversions across devices." },
-];
+  { name: "Completion", line: "How much of the spot viewers watch.", icon: "completion" },
+  { name: "Reach & frequency", line: "How many people, how often.", icon: "reach" },
+  { name: "Brand lift", line: "What changes after they see it.", icon: "lift" },
+  { name: "Attribution", line: "Site visits and conversions across devices.", icon: "attribution" },
+] as const;
+
+/* Line icons for the four measures, drawn on a 24px grid */
+const MEASURE_ICONS: Record<(typeof MEASURE_LABELS)[number]["icon"], string> = {
+  // A play button inside a mostly completed progress ring
+  completion: "M12 3a9 9 0 1 1-8.5 6M10 9l5 3-5 3z",
+  // Two people
+  reach: "M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM3 19a6 6 0 0 1 12 0M16 5.3a3 3 0 0 1 0 5.4M17 14a6 6 0 0 1 4 5",
+  // Bars rising to an arrow
+  lift: "M4 20h16M7 16v-3M12 16V9M17 16V5M14.5 7.5 17 5l2.5 2.5",
+  // A cursor clicking on a screen
+  attribution: "M4 15V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v6M2 19h9M14 13l7 2.5-3 1.2-1.2 3z",
+};
 
 const PARTNER_GROUPS: Array<{ title: string; test: RegExp }> = [
   { title: "Sports", test: /sportsnet|tsn|espn|golf/i },
@@ -88,6 +100,18 @@ const PARTNER_GROUPS: Array<{ title: string; test: RegExp }> = [
   { title: "Entertainment", test: /fox|nbc|cbs|discovery|hgtv|tlc|food|rogers|\be!/i },
   { title: "Audio", test: /spotify/i },
 ];
+
+/* Player chrome over a placement photo: an ad badge and a scrub bar, so each scene reads as a video in play */
+function PlayerChrome({ progress }: { progress: number }) {
+  return (
+    <span className={styles.chrome} aria-hidden="true">
+      <span className={styles.adBadge}>Ad</span>
+      <span className={styles.scrub}>
+        <span className={styles.scrubFill} style={{ width: `${progress}%` }} />
+      </span>
+    </span>
+  );
+}
 
 function FormatCopy({ format }: { format: (typeof FORMATS)[keyof typeof FORMATS] }) {
   return (
@@ -135,6 +159,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
             <Reveal variant="fade" as="article" className={`${styles.formatCard} ${styles.formatFeature}`}>
               <div className={styles.photo}>
                 <Image src={SHOTS.livingRoom.src} alt={SHOTS.livingRoom.alt} fill sizes="(min-width: 960px) 58vw, 100vw" className={styles.cover} />
+                <PlayerChrome progress={64} />
               </div>
               <FormatCopy format={FORMATS.ctv} />
             </Reveal>
@@ -142,12 +167,14 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
               <Reveal delay={120} as="article" className={styles.formatCard}>
                 <div className={styles.photo}>
                   <Image src={SHOTS.tablet.src} alt={SHOTS.tablet.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} />
+                  <PlayerChrome progress={28} />
                 </div>
                 <FormatCopy format={FORMATS.preroll} />
               </Reveal>
               <Reveal delay={240} as="article" className={styles.formatCard}>
                 <div className={styles.photo}>
                   <Image src={SHOTS.wallTv.src} alt={SHOTS.wallTv.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} />
+                  <PlayerChrome progress={46} />
                 </div>
                 <FormatCopy format={FORMATS.outstream} />
               </Reveal>
@@ -170,6 +197,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
               A mix of Connected TV, linear TV and digital video, planned for reach and frequency at efficient rates.
             </p>
           </div>
+          <div className={styles.ruler} aria-hidden="true" />
         </div>
         <FlightMarquee label="Flight planning stages" rows={[FLIGHT.slice(0, 2), FLIGHT.slice(2)]} />
       </section>
@@ -304,6 +332,11 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
           <ul className={styles.measureLabels}>
             {MEASURE_LABELS.map((item) => (
               <li key={item.name}>
+                <span className={styles.measureIcon} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" focusable="false">
+                    <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d={MEASURE_ICONS[item.icon]} />
+                  </svg>
+                </span>
                 <span className={styles.measureName}>{item.name}</span>
                 <span className={styles.measureLine}>{item.line}</span>
               </li>

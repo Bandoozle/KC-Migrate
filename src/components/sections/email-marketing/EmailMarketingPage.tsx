@@ -28,6 +28,37 @@ function ArrowIcon() {
   );
 }
 
+function FolderIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+      <path fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" d="M3 7.5V18a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-8l-2-2.5H4a1 1 0 0 0-1 1z" />
+    </svg>
+  );
+}
+
+/* The top of a message in a mail client: who it is from and what it is about */
+function MailHeader({ from, subject }: { from: string; subject: string }) {
+  return (
+    <div className={styles.mailHeader} aria-hidden="true">
+      <span className={styles.mailDots}>
+        <i />
+        <i />
+        <i />
+      </span>
+      <dl className={styles.mailFields}>
+        <div>
+          <dt>From</dt>
+          <dd>{from}</dd>
+        </div>
+        <div>
+          <dt>Subject</dt>
+          <dd>{subject}</dd>
+        </div>
+      </dl>
+    </div>
+  );
+}
+
 function EnvelopeIcon() {
   return (
     <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
@@ -117,8 +148,11 @@ export function EmailMarketingPage({ content }: EmailMarketingPageProps) {
                 ) : null}
               </div>
               <Reveal variant="fade" className={styles.campaignMedia}>
-                <div className={styles.frame}>
-                  <Image src={IMAGES.campaign.src} alt={IMAGES.campaign.alt} fill sizes="(min-width: 960px) 50vw, 100vw" className={styles.cover} />
+                <div className={styles.mailWindow}>
+                  <MailHeader from="Your brand" subject={labelCase(campaign.title)} />
+                  <div className={styles.frame}>
+                    <Image src={IMAGES.campaign.src} alt={IMAGES.campaign.alt} fill sizes="(min-width: 960px) 50vw, 100vw" className={styles.cover} />
+                  </div>
                 </div>
               </Reveal>
             </div>
@@ -180,14 +214,17 @@ export function EmailMarketingPage({ content }: EmailMarketingPageProps) {
                 <p className={styles.body}>{analytics.body}</p>
               </div>
               {analytics.bullets && analytics.bullets.length > 0 ? (
-                <ol className={styles.lines}>
-                  {analytics.bullets.map((bullet, index) => (
-                    <li key={bullet}>
-                      <span className={styles.lineNumber}>{String(index + 1).padStart(2, "0")}</span>
-                      <span className={styles.lineName}>{bullet}</span>
-                    </li>
-                  ))}
-                </ol>
+                <div className={styles.reportMail}>
+                  <MailHeader from="Kosick Communications" subject="Your campaign report" />
+                  <ol className={styles.lines}>
+                    {analytics.bullets.map((bullet, index) => (
+                      <li key={bullet}>
+                        <span className={styles.lineNumber}>{String(index + 1).padStart(2, "0")}</span>
+                        <span className={styles.lineName}>{bullet}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
               ) : null}
             </div>
           </div>
@@ -205,7 +242,17 @@ export function EmailMarketingPage({ content }: EmailMarketingPageProps) {
             <div className={styles.columns}>
               {services.map((service) => (
                 <div key={service.title} className={styles.column}>
-                  <h3 className={styles.columnTitle}>{service.title}</h3>
+                  <h3 className={styles.columnTitle}>
+                    <span className={styles.folder}>
+                      <FolderIcon />
+                    </span>
+                    <span className={styles.columnName}>{service.title}</span>
+                    {service.items && service.items.length > 0 ? (
+                      <span className={styles.count} aria-label={`${service.items.length} items`}>
+                        {service.items.length}
+                      </span>
+                    ) : null}
+                  </h3>
                   {service.items && service.items.length > 0 ? (
                     <ul className={styles.items}>
                       {service.items.map((item) => (

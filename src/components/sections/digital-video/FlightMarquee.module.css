@@ -46,7 +46,7 @@
 }
 
 .number {
-  color: var(--kosick-color-meta);
+  color: #0a7ea6;
   font-size: var(--kosick-meta-size);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
@@ -82,7 +82,18 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #2f9e4f;
+  background: #ff4d4d;
+}
+
+/* A thin signal line under each stage photo */
+.media::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: #3fd8ff;
 }
 
 @media (prefers-reduced-motion: no-preference) {

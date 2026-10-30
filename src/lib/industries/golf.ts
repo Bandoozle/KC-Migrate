@@ -7,6 +7,10 @@ export const GOLF: Industry = {
   name: "Golf Marketing",
   noun: "golf",
   path: "/services/golf-marketing/",
+  directory: {
+    line: "Rounds, memberships and tournaments for courses and clubs.",
+    image: { src: `${UP}/2026/03/golf-course-branding.jpg`, alt: "A golfer walking a sunlit fairway with his bag" },
+  },
   offersIntro: {
     label: "What we offer",
     title: "Four services, one full season.",

@@ -490,8 +490,9 @@
   width: 3rem;
   height: 3rem;
   border-radius: var(--kosick-radius-sm);
-  background: var(--ink);
-  color: var(--accent);
+  /* A light tint of the page green rather than a black tile */
+  background: rgba(123, 216, 143, 0.2);
+  color: #23733a;
   transition: transform 200ms ease;
 }
 

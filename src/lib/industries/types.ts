@@ -61,9 +61,11 @@ export type IndustryLanding = {
   hero: { label: string; title: string; lead: string; image: IndustryImage };
   intro: { title: string; paragraphs: string[] };
   /** Why the industry works differently, and how Kosick plans for it. */
-  reasons: TitledText[];
+  reasonsTitle: string;
+  reasons: Array<TitledText & { image?: IndustryImage }>;
+  /** Optional: the moments the intro names, each shown with a photograph (Retail). */
+  moments?: Array<{ caption: string; image: IndustryImage }>;
   gallery: IndustryImage[];
-  reading: TextLink[];
 };
 
 export type Industry = {
@@ -73,6 +75,8 @@ export type Industry = {
   /** Used in running copy, e.g. "medical and dental". */
   noun: string;
   path: string;
+  /** Card on the Services and Marketing Programs directories; every industry gets the same treatment. */
+  directory: { line: string; image: IndustryImage };
   /** Header for the industry page's "What We Offer" section. */
   offersIntro: { label: string; title: string; lead: string };
   services: IndustryService[];

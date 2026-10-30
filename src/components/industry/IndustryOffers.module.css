@@ -211,74 +211,136 @@
   }
 }
 
-/* ---------- Medical & dental: a clean clinical list, photo beside text ---------- */
+/* ---------- Medical & dental: a treatment plan, one numbered entry per service ---------- */
+.clinical {
+  background: var(--ind-surface);
+}
+
+.chartHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem clamp(1.1rem, 2.5vw, 1.75rem);
+  border-radius: var(--kosick-radius-sm) var(--kosick-radius-sm) 0 0;
+  background: var(--ind-accent);
+  color: #ffffff;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+}
+
+.chartHead span:last-child {
+  opacity: 0.8;
+}
+
 .clinical .grid {
+  counter-reset: plan;
   grid-template-columns: 1fr;
   gap: 0;
-  border-top: 1px solid var(--ind-rule);
+  position: relative;
+  padding: 0.5rem 0;
+  border: 1px solid var(--ind-rule);
+  border-top: 0;
+  border-radius: 0 0 var(--kosick-radius-sm) var(--kosick-radius-sm);
+  background: #ffffff;
+}
+
+/* The margin line of a medical form */
+.clinical .grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 3.25rem;
+  border-left: 2px solid var(--ind-soft);
+}
+
+.clinical .item {
+  counter-increment: plan;
+}
+
+.clinical .item + .item .card {
+  border-top: 1px dashed var(--ind-rule);
 }
 
 .clinical .card {
-  flex-direction: row;
-  align-items: stretch;
-  gap: clamp(1rem, 3vw, 2rem);
-  padding-block: clamp(1.25rem, 3vw, 2rem);
-  border-bottom: 1px solid var(--ind-rule);
+  display: grid;
+  grid-template-columns: 3.25rem minmax(0, 1fr);
+  grid-template-areas: "tick body" ". media";
+  align-items: start;
+  column-gap: 1rem;
+  padding: 1.25rem clamp(1rem, 2.5vw, 1.75rem) 1.25rem 0;
+  transition: background-color 180ms ease;
 }
 
-.clinical .media {
-  flex: 0 0 clamp(108px, 28vw, 240px);
-  aspect-ratio: 4 / 3;
-  border-radius: var(--kosick-radius-sm);
+.clinical .card:hover {
+  background: rgba(31, 138, 122, 0.04);
+}
+
+/* Tick box with the entry number; it fills on hover */
+.clinical .card::before {
+  content: counter(plan);
+  grid-area: tick;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 2px solid var(--ind-accent);
+  border-radius: 6px;
+  background: #ffffff;
+  color: var(--ind-accent);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.clinical .card:hover::before {
+  background: var(--ind-accent);
+  color: #ffffff;
 }
 
 .clinical .body {
-  justify-content: center;
+  grid-area: body;
+}
+
+.clinical .media {
+  grid-area: media;
+  width: min(100%, 15rem);
+  margin-top: 0.9rem;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--kosick-radius-sm);
 }
 
 .clinical .index {
-  color: var(--ind-label);
+  display: none;
 }
 
 .clinical .more {
   color: var(--ind-label);
 }
 
-.clinical .card::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -1px;
-  width: 0;
-  height: 2px;
-  background: var(--ind-accent);
-  transition: width 360ms ease;
-}
-
-.clinical .card:hover::after {
-  width: 100%;
-}
-
-@media (min-width: 960px) {
-  .clinical .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: clamp(2rem, 4vw, 3.5rem);
-    border-top: 0;
-  }
-
-  .clinical .item:nth-child(-n + 2) .card {
-    border-top: 1px solid var(--ind-rule);
-  }
-}
-
-@media (max-width: 559px) {
+@media (min-width: 760px) {
   .clinical .card {
-    flex-direction: column;
+    grid-template-columns: 3.25rem minmax(0, 13rem) minmax(0, 1fr);
+    grid-template-areas: "tick media body";
+    align-items: center;
+    column-gap: clamp(1.25rem, 3vw, 2.25rem);
+  }
+
+  .clinical .card::before {
+    align-self: start;
+    margin-top: 0.25rem;
   }
 
   .clinical .media {
-    flex-basis: auto;
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    margin-top: 0;
+  }
+
+  .clinical .more {
+    margin-top: 0;
   }
 }
 

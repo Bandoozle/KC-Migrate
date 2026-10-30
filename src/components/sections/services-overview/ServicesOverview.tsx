@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IndustryGrid } from "@/components/industry/IndustryGrid";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageCta } from "@/components/sections/PageCta";
 import { SectionTitle } from "@/components/typography";
-import { INDUSTRY_LINKS } from "@/lib/industries/nav";
 import { MediaPreview, type MediaService } from "./MediaPreview";
 import styles from "./ServicesOverview.module.css";
 
@@ -77,27 +77,6 @@ const DIGITAL = [
   { name: "Social Media Marketing", line: "Strategy, content and paid social across every platform.", href: "/services/social-media-marketing/" },
   { name: "Email Marketing", line: "Campaigns and automations that keep customers coming back.", href: "/services/email-marketing/" },
 ];
-
-const INDUSTRIES = {
-  hvac: {
-    name: "HVAC Marketing",
-    line: "Campaigns and co-op programs for dealers and manufacturers.",
-    href: "/services/hvac-marketing/",
-    image: { src: `${UPLOADS}/2026/03/hvac-marketing.jpg`, alt: "A Napoleon air conditioner beside a home and garden" },
-  },
-  dental: {
-    name: "Medical & Dental Marketing",
-    line: "Patient growth for modern practices and clinics.",
-    href: "/services/dental-marketing/",
-    image: { src: `${UPLOADS}/2026/07/Dental-Vancouver.jpg`, alt: "The Sparkle Dental Spa waiting room with a gold tooth on the table" },
-  },
-  golf: {
-    name: "Golf Marketing",
-    line: "Rounds, memberships and events for clubs and courses.",
-    href: "/services/golf-marketing/",
-    image: { src: `${UPLOADS}/2026/03/golf-course-branding.jpg`, alt: "A golfer walking down a sunlit fairway with his bag" },
-  },
-};
 
 const EVENT_IMAGE = {
   src: `${UPLOADS}/2025/08/IMG_2596-scaled.jpg`,
@@ -287,7 +266,7 @@ export function ServicesOverview() {
         </div>
       </section>
 
-      {/* 04 Industry Marketing: one featured industry, two supporting */}
+      {/* 04 Industry Marketing: every industry at the same size and weight */}
       <section id={CHAPTERS[3]!.id} className={styles.chapter} aria-labelledby={`${CHAPTERS[3]!.id}-title`}>
         <div className="container">
           <ChapterHead
@@ -296,40 +275,15 @@ export function ServicesOverview() {
             title="Industry Marketing"
             lead="Specialist programs for the industries we know best."
           />
-          <div className={styles.industries}>
-            {(["hvac", "dental", "golf"] as const).map((key) => {
-              const item = INDUSTRIES[key];
-              return (
-                <Link key={key} href={item.href} className={`${styles.world} ${styles[`world_${key}`]}`}>
-                  <Image
-                    src={item.image.src}
-                    alt={item.image.alt}
-                    fill
-                    sizes={key === "hvac" ? "(min-width: 960px) 62vw, 100vw" : "(min-width: 960px) 36vw, 100vw"}
-                    className={styles.cover}
-                  />
-                  <span className={styles.worldShade} aria-hidden="true" />
-                  <span className={styles.worldCopy}>
-                    <span className={styles.worldName}>{item.name}</span>
-                    <span className={styles.worldLine}>{item.line}</span>
-                    <Arrow />
-                  </span>
-                </Link>
-              );
-            })}
-          </div>
-          <ul className={styles.moreIndustries} aria-label="More industries">
-            {INDUSTRY_LINKS.slice(3).map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className={styles.moreIndustry}>
-                  {link.label} <Arrow />
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <Link href="/marketing-programs/" className={styles.textLink}>
-            All marketing programs <Arrow />
-          </Link>
+          <IndustryGrid
+            linkLabel="Explore program"
+            closing={{
+              title: "All marketing programs",
+              line: "Industry and digital programs, side by side.",
+              label: "View programs",
+              href: "/marketing-programs/",
+            }}
+          />
         </div>
       </section>
 

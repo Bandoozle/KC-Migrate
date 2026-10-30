@@ -7,6 +7,10 @@ export const HVAC: Industry = {
   name: "HVAC Marketing",
   noun: "HVAC",
   path: "/services/hvac-marketing/",
+  directory: {
+    line: "Omni-channel programs that keep a dealer’s schedule full, year-round.",
+    image: { src: `${UP}/2026/06/hvac-billboard-advertising.jpg`, alt: "A Belyea Bros. heat pump billboard above a Toronto street corner", position: "center 30%" },
+  },
   offersIntro: {
     label: "What we offer",
     title: "Five ways we grow HVAC businesses.",

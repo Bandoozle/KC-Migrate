@@ -704,3 +704,199 @@
     padding: 0.85rem 1rem;
   }
 }
+
+/* ================= Digital signal theme =================
+ * A streaming-broadcast look over the same layout and type: signal-cyan
+ * accent, a dark screen band for placements,
+ * player chrome on the photos, a timeline ruler and moving data lines.
+ */
+.page {
+  --accent: #3fd8ff;
+  --signal-ink: #0a7ea6;
+  --screen: #0a0c11;
+  --screen-panel: #12151d;
+}
+
+/* Placements: a dark screen band with a fine pixel grid */
+.formats {
+  background-color: var(--screen);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 14px 14px;
+  color: #ffffff;
+}
+
+.formats .label {
+  color: var(--accent);
+}
+
+.formats :global(.section-title) {
+  color: #ffffff !important;
+}
+
+.formats .lead {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.formatCard {
+  border-color: rgba(255, 255, 255, 0.1);
+  background: var(--screen-panel);
+}
+
+.formatCard .photo {
+  background: #000000;
+}
+
+.formatTitle {
+  color: #ffffff;
+}
+
+.formatLine {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.formatCopy .kicker {
+  color: var(--accent);
+}
+
+/* Player chrome */
+.chrome {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.adBadge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(10, 12, 17, 0.78);
+  color: #ffd84a;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.scrub {
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.scrubFill {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.scrubFill::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(63, 216, 255, 0.45);
+  transform: translateY(-50%);
+}
+
+/* Planning: a timeline ruler sits over the drifting stages */
+.plan {
+  background: #eef3f6;
+}
+
+.ruler {
+  height: 22px;
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  background:
+    repeating-linear-gradient(90deg, rgba(10, 12, 17, 0.45) 0 1px, transparent 1px 80px) bottom / 100% 14px no-repeat,
+    repeating-linear-gradient(90deg, rgba(10, 12, 17, 0.2) 0 1px, transparent 1px 16px) bottom / 100% 7px no-repeat;
+  border-bottom: 1px solid rgba(10, 12, 17, 0.25);
+}
+
+/* Targeting: signals flow along the connectors into the placement and out to each screen */
+.segments li {
+  border-color: rgba(10, 126, 166, 0.35);
+  background: #f2fbfe;
+  color: #0a2a3a;
+}
+
+.surfaces li {
+  border-color: var(--screen);
+  background: var(--screen);
+}
+
+.segments li::after,
+.surfaces li::before {
+  height: 2px;
+  border-top: 0;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 6px, transparent 6px 12px);
+  background-size: 24px 2px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .segments li::after,
+  .surfaces li::before {
+    animation: signalFlow 900ms linear infinite;
+  }
+
+}
+
+@keyframes signalFlow {
+  to {
+    background-position: 24px 0;
+  }
+}
+
+.placementFrame {
+  border-color: var(--screen);
+  box-shadow: 0 0 0 1px rgba(63, 216, 255, 0.4), 0 30px 60px -36px rgba(10, 126, 166, 0.55);
+}
+
+/* Reporting: the dashboard becomes a broadcast monitor with faint scan lines */
+.dashboard {
+  position: relative;
+  background: var(--screen);
+  box-shadow: 0 0 0 1px rgba(63, 216, 255, 0.25), 0 40px 80px -50px rgba(10, 12, 17, 0.7);
+}
+
+.dashboard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0 1px, transparent 1px 3px);
+  pointer-events: none;
+}
+
+.live {
+  background: rgba(255, 77, 77, 0.14);
+  color: #ff6b6b;
+}
+
+.live i {
+  background: #ff4d4d;
+}
+
+.measureLabels li {
+  border-color: rgba(10, 126, 166, 0.22);
+  background: #f2fbfe;
+}
+
+.measureIcon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 0.6rem;
+  border-radius: 12px;
+  background: rgba(63, 216, 255, 0.16);
+  color: var(--signal-ink);
+}

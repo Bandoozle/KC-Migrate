@@ -7,6 +7,10 @@ export const TRAVEL: Industry = {
   name: "Travel Marketing",
   noun: "travel",
   path: "/services/travel-marketing/",
+  directory: {
+    line: "Television and lead generation that turn travellers into bookings.",
+    image: { src: "/images/articles/travel-marketing-canada-cruise.jpg", alt: "A cruise ship anchored in a turquoise bay" },
+  },
   offersIntro: {
     label: "What we offer",
     title: "Two ways we fill seats and rooms.",
@@ -35,6 +39,7 @@ export const TRAVEL: Industry = {
         "The brands winning share are present across that whole journey. Television builds the dream and the trust; lead generation captures the traveller who's ready to compare options and book. We plan both around the travellers you want, in the markets they travel from.",
       ],
     },
+    reasonsTitle: "Planned for the whole journey.",
     reasons: [
       {
         title: "Qualified travellers, not mass reach",
@@ -57,10 +62,6 @@ export const TRAVEL: Industry = {
       { src: `${UP}/2026/02/resort-marketing.jpg`, alt: "A resort pool lined with palm trees and yellow loungers" },
       { src: `${UP}/2022/01/Motor-Court.webp`, alt: "A Mediterranean-style resort entrance framed by palm trees" },
       { src: `${UP}/2026/06/social-media-marketing.jpg`, alt: "The Expedia Cruises Facebook page on desktop and mobile" },
-    ],
-    reading: [
-      { label: "Travel marketing in Canada", href: "/travel-marketing-canada/" },
-      { label: "Corporate events & incentive travel", href: "/corporate-events/" },
     ],
   },
   services: [

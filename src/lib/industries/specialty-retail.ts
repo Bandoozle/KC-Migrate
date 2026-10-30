@@ -7,6 +7,10 @@ export const SPECIALTY_RETAIL: Industry = {
   name: "Specialty Retail Marketing",
   noun: "specialty retail",
   path: "/services/specialty-retail-marketing/",
+  directory: {
+    line: "E-commerce, social, radio and creative for independent stores.",
+    image: { src: `${UP}/2023/06/hearth-advertising.jpg`, alt: "A pellet stove glowing in a living room with snow outside" },
+  },
   offersIntro: {
     label: "What we offer",
     title: "Four services for independent retailers.",
@@ -35,6 +39,7 @@ export const SPECIALTY_RETAIL: Industry = {
         "We plan around the rhythm of your year, from spring planting to the first cold snap to the holiday rush, and use the channels that suit a local, loyal customer base: your website and online store, social media, radio and in-store creative.",
       ],
     },
+    reasonsTitle: "Planned for a local, loyal customer.",
     reasons: [
       {
         title: "Seasonal by nature",
@@ -57,10 +62,6 @@ export const SPECIALTY_RETAIL: Industry = {
       { src: `${UP}/2026/08/Social-Media.jpg`, alt: "Garden centre Instagram posts of flowers and a succulent planter" },
       { src: `${UP}/2023/06/hearth-advertising.jpg`, alt: "A pellet stove glowing in a living room with snow outside the window" },
       { src: `${UP}/2025/10/website-development.jpg`, alt: "An online tool store website on a laptop" },
-    ],
-    reading: [
-      { label: "Outdoor advertising for local impact", href: "/outdoor-advertising-maximize-local-impact/" },
-      { label: "Why media buying matters", href: "/why-media-buying-matters/" },
     ],
   },
   services: [

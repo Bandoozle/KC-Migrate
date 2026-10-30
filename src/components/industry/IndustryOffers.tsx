@@ -59,6 +59,12 @@ export function IndustryOffers({ industry, headingId = "industry-offers", classN
           </SectionTitle>
           <p className={styles.lead}>{offersIntro.lead}</p>
         </div>
+        {layout === "clinical" ? (
+          <div className={styles.chartHead} aria-hidden="true">
+            <span>Treatment plan</span>
+            <span>Your practice</span>
+          </div>
+        ) : null}
         <ul className={styles.grid} data-count={services.length}>
           {services.map((service, index) => {
             const image = service.card ?? service.hero.image;

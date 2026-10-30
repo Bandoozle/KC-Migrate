@@ -7,6 +7,10 @@ export const RETAIL: Industry = {
   name: "Retail Marketing",
   noun: "retail",
   path: "/services/retail-marketing/",
+  directory: {
+    line: "Outdoor, brand and digital campaigns for apparel and lifestyle brands.",
+    image: { src: `${UP}/2026/06/arcteryx-billboard-advertising.jpg`, alt: "A Veilance poster in a downtown transit shelter", position: "center 35%" },
+  },
   offersIntro: {
     label: "What we offer",
     title: "Three services for retail and fashion brands.",
@@ -35,32 +39,37 @@ export const RETAIL: Industry = {
         "We build that clarity into the brand, then carry it into the channels where retail is decided: the street, the store and the feed. Every campaign is planned so outdoor, digital and in-store work together around a launch, a season or a sale.",
       ],
     },
+    reasonsTitle: "Planned around the retail calendar.",
     reasons: [
       {
         title: "Brand first",
         body: "Strong identity and packaging make every ad dollar work harder, so we start there.",
+        image: { src: `${UP}/2023/06/product-packaging.jpg`, alt: "A black naked product box" },
       },
       {
         title: "Seasons and drops",
         body: "Campaigns are built around collections, launches and the retail calendar, from back-to-school to Black Friday.",
+        image: { src: `${UP}/2025/11/black-friday-advertising.jpg`, alt: "A Black Friday sale sign with red sale tags and a clock" },
       },
       {
         title: "Street to screen",
         body: "Outdoor builds fame in your markets; digital and social convert it into visits and online orders.",
+        image: { src: `${UP}/2025/07/mobile-marketing.webp`, alt: "A hand holding a phone with social media icons rising from the screen" },
       },
       {
         title: "Measured, not guessed",
         body: "Digital campaigns are tracked to sales, and outdoor is planned against the audiences you need.",
       },
     ],
+    moments: [
+      { caption: "A glance at a transit shelter", image: { src: `${UP}/2026/06/billboard-2.jpg`, alt: "A Veilance transit shelter poster on a tree-lined street" } },
+      { caption: "A thumb pausing on a post", image: { src: `${UP}/2026/06/social-media-advertising.jpg`, alt: "A retail brand's Instagram profile on a phone" } },
+      { caption: "A package picked up from a shelf", image: { src: `${UP}/2023/06/packaging.jpg`, alt: "A row of naked underwear boxes with model photography" } },
+    ],
     gallery: [
       { src: `${UP}/2023/06/packaging.jpg`, alt: "A row of naked underwear boxes with model photography" },
       { src: `${UP}/2026/06/billboard-2.jpg`, alt: "A Veilance transit shelter poster on a tree-lined street" },
       { src: `${UP}/2025/11/black-friday-advertising.jpg`, alt: "A Black Friday sale sign with red sale tags and a clock" },
-    ],
-    reading: [
-      { label: "Outdoor advertising for local impact", href: "/outdoor-advertising-maximize-local-impact/" },
-      { label: "Our marketing results", href: "/marketing-results/" },
     ],
   },
   services: [

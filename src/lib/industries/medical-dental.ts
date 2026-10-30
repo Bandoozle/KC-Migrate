@@ -7,6 +7,10 @@ export const MEDICAL_DENTAL: Industry = {
   name: "Medical & Dental Marketing",
   noun: "medical and dental",
   path: "/services/dental-marketing/",
+  directory: {
+    line: "Visibility, trust and booked appointments for growing practices and clinics.",
+    image: { src: `${UP}/2026/06/dental-marketing.jpg`, alt: "A dental hygienist preparing to treat a patient" },
+  },
   offersIntro: {
     label: "What we offer",
     title: "Four services for growing practices.",

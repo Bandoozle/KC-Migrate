@@ -86,6 +86,15 @@ const STEP_COPY: Record<string, Omit<BrandProcessStep, "number" | "title">> = {
   },
 };
 
+/* A small inline crop inside the statement; decorative, as each image is described where it appears in full */
+function StatementChip({ image }: { image: { src: string; position?: string } }) {
+  return (
+    <span className={styles.statementChip} aria-hidden="true">
+      <Image src={image.src} alt="" fill sizes="160px" className={styles.cover} style={image.position ? { objectPosition: image.position } : undefined} />
+    </span>
+  );
+}
+
 function ArrowIcon() {
   return (
     <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
@@ -249,8 +258,12 @@ export function CorporateBrandingPage({ content }: CorporateBrandingPageProps) {
               {labelCase(promoBand.title)}
             </h2>
             <div>
+              {/* Each claim sits beside a crop of brand work shown elsewhere on this page */}
               <p className={styles.statementText}>
-                We build brands that look sharp, sound consistent, and perform across every channel.
+                We build brands that look sharp,
+                <StatementChip image={IMAGES.identitySheet} /> sound consistent,
+                <StatementChip image={IMAGES.tonalCards} /> and perform across every channel.
+                <StatementChip image={IMAGES.website} />
               </p>
               <p className={styles.statementBody}>
                 From visual identity and messaging to content direction and campaign creative, we create brand assets

@@ -118,6 +118,10 @@ export const SITE_HEADER_NAV: NavItem[] = [
     },
     groups: [
       {
+        title: "Industry Marketing",
+        items: INDUSTRY_LINKS.map((link) => ({ ...link })),
+      },
+      {
         title: "Digital Marketing",
         items: [
           { label: "Social Media Marketing", href: "/services/social-media-marketing/" },
@@ -125,10 +129,6 @@ export const SITE_HEADER_NAV: NavItem[] = [
           { label: "Search Engine Optimization", href: "/services/search-engine-optimization/" },
           { label: "Website Development & E-Commerce", href: "/services/website-development/" },
         ],
-      },
-      {
-        title: "Industry Marketing",
-        items: INDUSTRY_LINKS.map((link) => ({ ...link })),
       },
     ],
     items: [],

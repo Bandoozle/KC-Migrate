@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IndustryGrid } from "@/components/industry/IndustryGrid";
 import { Reveal } from "@/components/motion/Reveal";
 import { InternalPageHero } from "@/components/sections/InternalPageHero";
 import { PageCta } from "@/components/sections/PageCta";
@@ -15,74 +16,67 @@ import styles from "./MarketingProgramDirectory.module.css";
 
 const UPLOADS = "/wp-content/uploads";
 
-const INDUSTRIES = {
-  hvac: {
-    name: "HVAC Marketing",
-    line: "Omni-channel programs that keep a dealer’s schedule full, year-round.",
-    href: "/services/hvac-marketing/",
-    image: { src: `${UPLOADS}/2026/06/hvac-billboard-advertising.jpg`, alt: "Heat pump billboard above a street corner" },
-  },
-  dental: {
-    name: "Medical & Dental Marketing",
-    line: "Visibility, trust and booked appointments for growing practices and clinics.",
-    href: "/services/dental-marketing/",
-    image: { src: `${UPLOADS}/2026/07/Dental-Marketing.jpg`, alt: "A hygienist with a patient in the chair" },
-  },
-  golf: {
-    name: "Golf Marketing",
-    line: "Rounds, memberships and tournaments for courses and clubs.",
-    href: "/services/golf-marketing/",
-    image: { src: `${UPLOADS}/2026/03/golf-course-branding.jpg`, alt: "A golfer walking a sunlit fairway" },
-  },
-};
-
-const DIGITAL = {
-  website: {
-    name: "Website Development & E-Commerce",
+/* The channels a program draws on, at equal weight; one strategy decides the mix */
+const CHANNELS = [
+  {
+    name: "Website & E-Commerce",
     line: "Fast, flexible sites and stores that turn traffic into results.",
     href: "/services/website-development/",
-    image: { src: `${UPLOADS}/2025/07/home-services-website-design.webp`, alt: "The DirectBuy Furnace website on a laptop" },
   },
-  supporting: [
-    {
-      name: "Social Media Marketing",
-      line: "Content and paid social that keep the brand in the feed.",
-      href: "/services/social-media-marketing/",
-      image: { src: `${UPLOADS}/2026/06/social-media-advertising.jpg`, alt: "The Kosick Instagram profile on a phone" },
-    },
-    {
-      name: "Email Marketing",
-      line: "Campaigns and automation that bring customers back.",
-      href: "/services/email-marketing/",
-      image: { src: `${UPLOADS}/2026/07/Email-Marketing.jpg`, alt: "A garden centre email open in Mailchimp" },
-    },
-    {
-      name: "Search Engine Optimization",
-      line: "Technical, content and local search that compounds.",
-      href: "/services/search-engine-optimization/",
-      image: { src: `${UPLOADS}/2026/06/digital-marketing-services-1.jpg`, alt: "A Google search for a furnace installer on a phone" },
-    },
-  ],
-};
+  {
+    name: "Social Media",
+    line: "Content and paid social that keep the brand in the feed.",
+    href: "/services/social-media-marketing/",
+  },
+  {
+    name: "Search & SEO",
+    line: "Technical, content and local search that compounds.",
+    href: "/services/search-engine-optimization/",
+  },
+  {
+    name: "Email",
+    line: "Campaigns and automation that bring customers back.",
+    href: "/services/email-marketing/",
+  },
+  {
+    name: "Media",
+    line: "Planning and buying across TV, radio, streaming and outdoor.",
+    href: "/services/#advertising-media",
+  },
+];
 
-const SYSTEM = {
-  industries: ["HVAC", "Dental", "Golf"],
-  channels: ["Search", "Social", "Email", "Web", "Media"],
-};
+const INDUSTRY_NAMES = INDUSTRY_LINKS.map((link) => link.label.replace(/ Marketing$/, ""));
 
-/* Sparkle Dental Spa, one practice carried across its placements */
+/* Live Sparkle Dental Spa placements: one practice carried across them */
 const CAMPAIGN = {
-  outdoor: { src: `${UPLOADS}/2026/06/outdoor-advertising.jpg`, alt: "Sparkle Dental Spa transit shelter ad" },
+  outdoor: { src: `${UPLOADS}/2026/06/outdoor-advertising.jpg`, alt: "A Sparkle Dental Spa poster with a bright smile in a transit shelter" },
   website: { src: `${UPLOADS}/2026/07/Dental-Web-Development.jpg`, alt: "The Sparkle Dental Spa website on a laptop" },
-  site: { src: `${UPLOADS}/2026/07/Screenshot-2026-07-22-at-11.22.57-PM.jpg`, alt: "Sparkle Dental Spa site on a phone" },
-  social: { src: `${UPLOADS}/2026/07/Social-Media-Dental.jpg`, alt: "Sparkle Dental Spa social content" },
+  social: { src: `${UPLOADS}/2026/07/Social-Media-Dental.jpg`, alt: "Sparkle Dental Spa social posts of the reception, a gold tooth and products" },
+  site: { src: `${UPLOADS}/2026/07/Screenshot-2026-07-22-at-11.22.57-PM.jpg`, alt: "The Sparkle Dental Spa site on a phone" },
 };
 
-const PARTNERSHIP = [
-  { name: "Strategy", line: "Where to compete and how to grow." },
-  { name: "Creative", line: "Ideas and execution that make the brand memorable." },
-  { name: "Media", line: "Planning and buying across the right channels." },
-  { name: "Digital", line: "Search, social, websites and measurable performance." },
+/* What the partnership brings, each shown with real KC work */
+const DISCIPLINES = [
+  {
+    name: "Strategy",
+    line: "Where to compete and how to grow.",
+    image: { src: `${UPLOADS}/2026/09/henderson-inclusive-strategy-edited.jpg`, alt: "A team fitting coloured gears together on a meeting table" },
+  },
+  {
+    name: "Creative",
+    line: "Ideas and execution that make the brand memorable.",
+    image: { src: `${UPLOADS}/2026/06/corporate-branding.jpg`, alt: "A brand identity sheet with logo, colours, type and applications" },
+  },
+  {
+    name: "Media",
+    line: "Planning and buying across the right channels.",
+    image: { src: `${UPLOADS}/2024/03/digital-superboard.webp`, alt: "A Pattison digital superboard beside a highway" },
+  },
+  {
+    name: "Digital",
+    line: "Search, social, websites and measurable performance.",
+    image: { src: `${UPLOADS}/2026/06/hvac-social-media-marketing-1.jpg`, alt: "HVAC social posts on a phone" },
+  },
 ];
 
 function ArrowIcon() {
@@ -90,15 +84,6 @@ function ArrowIcon() {
     <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
       <path fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
     </svg>
-  );
-}
-
-function ProgramLink({ label }: { label: string }) {
-  return (
-    <span className={styles.explore}>
-      Explore {label}
-      <ArrowIcon />
-    </span>
   );
 }
 
@@ -119,192 +104,145 @@ export function MarketingProgramDirectory() {
       />
 
       <div className={styles.page}>
-        {/* Industries: one large world and two smaller ones */}
+        {/* Industries: every program at the same size and weight */}
         <section className={styles.industries} aria-labelledby="mp-industry">
           <div className="container">
             <p className={styles.label}>Industry marketing</p>
             <SectionTitle id="mp-industry" className={styles.title}>
               Industry marketing built around how your business actually works.
             </SectionTitle>
-            <div className={styles.industryGrid}>
-              {(["hvac", "dental", "golf"] as const).map((key, index) => {
-                const item = INDUSTRIES[key];
-                return (
-                  <Reveal key={key} delay={index * 110} className={key === "hvac" ? `${styles.world} ${styles.worldLarge}` : styles.world}>
-                    <Link href={item.href} className={styles.worldLink}>
-                      <Image src={item.image.src} alt={item.image.alt} fill sizes={key === "hvac" ? "(min-width: 960px) 58vw, 100vw" : "(min-width: 960px) 40vw, 100vw"} className={styles.cover} />
-                      <span className={styles.worldShade} aria-hidden="true" />
-                      <span className={styles.worldCopy}>
-                        <span className={styles.worldName}>{item.name}</span>
-                        <span className={styles.worldLine}>{item.line}</span>
-                        <ProgramLink label="program" />
-                      </span>
-                    </Link>
-                  </Reveal>
-                );
-              })}
-            </div>
-            <ul className={styles.moreIndustries} aria-label="More industries">
-              {INDUSTRY_LINKS.slice(3).map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className={styles.moreIndustry}>
-                    {link.label}
-                    <ArrowIcon />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <IndustryGrid
+              linkLabel="Explore program"
+              closing={{
+                title: "Not sure which fits?",
+                line: "Tell us about your business and we’ll recommend the right program.",
+                label: "Talk to us",
+                href: "/contact/",
+              }}
+            />
           </div>
         </section>
 
-        {/* Digital: one featured capability beside three ruled rows */}
-        <section className={styles.digital} aria-labelledby="mp-digital">
+        {/* 1. The mix: industry in, one strategy at the centre, channels chosen around it, outcomes out */}
+        <section className={styles.mix} aria-labelledby="mp-mix">
           <div className="container">
-            <p className={styles.label}>Digital marketing</p>
-            <SectionTitle id="mp-digital" className={styles.title}>
-              The channels that carry the program.
-            </SectionTitle>
-            <div className={styles.digitalGrid}>
-              <Reveal variant="fade" className={styles.featured}>
-                <Link href={DIGITAL.website.href} className={styles.featuredLink}>
-                  <span className={styles.featuredFrame}>
-                    <Image src={DIGITAL.website.image.src} alt={DIGITAL.website.image.alt} fill sizes="(min-width: 960px) 55vw, 100vw" className={styles.cover} />
-                  </span>
-                  <span className={styles.featuredName}>{DIGITAL.website.name}</span>
-                  <span className={styles.featuredLine}>{DIGITAL.website.line}</span>
-                  <ProgramLink label="program" />
-                </Link>
-              </Reveal>
-              <ul className={styles.capabilities}>
-                {DIGITAL.supporting.map((item, index) => (
-                  <Reveal key={item.href} as="li" delay={index * 100}>
-                    <Link href={item.href} className={styles.capability}>
-                      <span className={styles.capThumb}>
-                        <Image src={item.image.src} alt={item.image.alt} fill sizes="160px" className={styles.cover} />
-                      </span>
-                      <span className={styles.capCopy}>
-                        <span className={styles.capName}>{item.name}</span>
-                        <span className={styles.capLine}>{item.line}</span>
-                      </span>
-                      <span className={styles.capArrow} aria-hidden="true">
-                        <ArrowIcon />
-                      </span>
-                    </Link>
-                  </Reveal>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* System: industry knowledge and channels meet in one strategy */}
-        <section className={styles.system} aria-labelledby="mp-system">
-          <div className="container">
-            <p className={styles.labelOnDark}>How it fits together</p>
-            <SectionTitle id="mp-system" className={styles.titleOnDark}>
+            <p className={styles.label}>How a program comes together</p>
+            <SectionTitle id="mp-mix" className={styles.title}>
               Industry knowledge meets channel expertise.
             </SectionTitle>
-            <p className={styles.leadOnDark}>
+            <p className={styles.lead}>
               We start with how your industry buys, build one strategy around it, then run it across the channels
               that reach your customers.
             </p>
-            <ol className={styles.flow}>
-              <Reveal as="li" className={styles.flowStep}>
-                <span className={styles.flowNumber}>01</span>
-                <span className={styles.flowName}>Industry</span>
-                <span className={styles.flowTags}>
-                  {SYSTEM.industries.map((name) => (
-                    <span key={name}>{name}</span>
+            <div className={styles.board}>
+              <div className={styles.boardIndustry}>
+                <p className={styles.boardHeading}>Your industry</p>
+                <ul className={styles.industryTags}>
+                  {INDUSTRY_NAMES.map((name) => (
+                    <li key={name}>{name}</li>
                   ))}
-                </span>
+                </ul>
+              </div>
+              <Reveal variant="fade" className={styles.core}>
+                <p className={styles.coreKicker}>One strategy</p>
+                <p className={styles.coreStatement}>One plan, one budget, one set of goals.</p>
+                <p className={styles.coreOutcome}>
+                  <span>Measured by</span>
+                  Leads, bookings and revenue you can measure.
+                </p>
               </Reveal>
-              <Reveal as="li" delay={120} className={styles.flowStep}>
-                <span className={styles.flowNumber}>02</span>
-                <span className={styles.flowName}>Strategy</span>
-                <span className={styles.flowNote}>One plan, one budget, one set of goals.</span>
-              </Reveal>
-              <Reveal as="li" delay={240} className={styles.flowStep}>
-                <span className={styles.flowNumber}>03</span>
-                <span className={styles.flowName}>Channels</span>
-                <span className={styles.flowTags}>
-                  {SYSTEM.channels.map((name) => (
-                    <span key={name}>{name}</span>
+              <div className={styles.boardChannels}>
+                <p className={styles.boardHeading}>The channels it calls for</p>
+                <ul className={styles.channelList}>
+                  {CHANNELS.map((channel, index) => (
+                    <Reveal key={channel.href} as="li" delay={index * 70}>
+                      <Link href={channel.href} className={styles.channel}>
+                        <span className={styles.channelCopy}>
+                          <span className={styles.channelName}>{channel.name}</span>
+                          <span className={styles.channelLine}>{channel.line}</span>
+                        </span>
+                        <span className={styles.channelArrow} aria-hidden="true">
+                          <ArrowIcon />
+                        </span>
+                      </Link>
+                    </Reveal>
                   ))}
-                </span>
-              </Reveal>
-              <Reveal as="li" delay={360} className={`${styles.flowStep} ${styles.flowEnd}`}>
-                <span className={styles.flowNumber}>04</span>
-                <span className={styles.flowName}>Results</span>
-                <span className={styles.flowNote}>Leads, bookings and revenue you can measure.</span>
-              </Reveal>
-            </ol>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* Campaign: one practice across its placements */}
+        {/* 2. The idea first, then one real program as the example */}
         <section className={styles.campaign} aria-labelledby="mp-campaign">
           <div className="container">
-            <p className={styles.label}>Sparkle Dental Spa</p>
-            <SectionTitle id="mp-campaign" className={styles.display}>
+            <p className={styles.label}>What it looks like in market</p>
+            <SectionTitle id="mp-campaign" className={styles.title}>
               One strategy. Every channel.
             </SectionTitle>
             <p className={styles.lead}>
-              One practice, one look and one message, carried from the street to the screen.
+              A complete program carries the same positioning and creative across every touchpoint, physical and
+              digital, so each placement reinforces the others. For Sparkle Dental Spa, a Medical &amp; Dental Marketing
+              client, that meant one look and one message from the street to the screen.
             </p>
-            <div className={styles.mosaic}>
-              <Reveal variant="fade" className={`${styles.tile} ${styles.tileOutdoor}`}>
-                <Image src={CAMPAIGN.outdoor.src} alt={CAMPAIGN.outdoor.alt} fill sizes="(min-width: 960px) 40vw, 100vw" className={styles.cover} />
-                <span className={styles.tileLabel}>Outdoor</span>
+            <div className={styles.campaignBoard}>
+              <Reveal variant="fade" className={`${styles.shot} ${styles.shotOutdoor}`}>
+                <Image src={CAMPAIGN.outdoor.src} alt={CAMPAIGN.outdoor.alt} fill sizes="(min-width: 960px) 34vw, 50vw" className={styles.cover} />
+                <span className={styles.shotLabel}>Transit shelter</span>
               </Reveal>
-              <Reveal delay={90} className={`${styles.tile} ${styles.tileWebsite}`}>
-                <Image src={CAMPAIGN.website.src} alt={CAMPAIGN.website.alt} fill sizes="(min-width: 960px) 30vw, 50vw" className={styles.cover} />
-                <span className={styles.tileLabel}>Website</span>
+              <Reveal delay={90} className={`${styles.shot} ${styles.shotWebsite}`}>
+                <Image src={CAMPAIGN.website.src} alt={CAMPAIGN.website.alt} fill sizes="(min-width: 960px) 40vw, 50vw" className={styles.cover} />
+                <span className={styles.shotLabel}>Website</span>
               </Reveal>
-              <Reveal delay={180} className={`${styles.tile} ${styles.tileSearch}`}>
-                <span className={styles.searchCard} aria-hidden="true">
-                  <span className={styles.searchQuery}>dentist south surrey</span>
-                  <span className={styles.searchTag}>Sponsored</span>
-                  <span className={styles.searchTitle}>Sparkle Dental Spa</span>
-                  <span className={styles.searchUrl}>sparkledentalspa.ca</span>
-                </span>
-                <span className={styles.tileLabel}>Search</span>
+              <Reveal delay={180} className={`${styles.shot} ${styles.shotSocial}`}>
+                <Image src={CAMPAIGN.social.src} alt={CAMPAIGN.social.alt} fill sizes="(min-width: 960px) 22vw, 50vw" className={styles.cover} />
+                <span className={styles.shotLabel}>Social</span>
               </Reveal>
-              <Reveal delay={270} className={`${styles.tile} ${styles.tileSocial}`}>
-                <Image src={CAMPAIGN.social.src} alt={CAMPAIGN.social.alt} fill sizes="(min-width: 960px) 30vw, 50vw" className={styles.cover} />
-                <span className={styles.tileLabel}>Social</span>
-              </Reveal>
-              <Reveal delay={360} className={`${styles.tile} ${styles.tileMobile}`}>
+              <Reveal delay={270} className={`${styles.shot} ${styles.shotMobile}`}>
                 <span className={styles.phone}>
                   <span className={styles.phoneScreen}>
-                    <Image src={CAMPAIGN.site.src} alt={CAMPAIGN.site.alt} fill sizes="160px" className={styles.cover} style={{ objectPosition: "20% 0%" }} />
+                    <Image src={CAMPAIGN.site.src} alt={CAMPAIGN.site.alt} fill sizes="140px" className={styles.cover} style={{ objectPosition: "20% 0%" }} />
                   </span>
                 </span>
-                <span className={styles.tileLabel}>Mobile</span>
+                <span className={styles.shotLabel}>Mobile</span>
               </Reveal>
             </div>
-            <p className={styles.caption}>Search result is illustrative. All other placements are live Sparkle Dental Spa work.</p>
+            <div className={styles.campaignFoot}>
+              <p>Sparkle Dental Spa: transit, website, social and mobile, all live work.</p>
+              <Link href="/services/dental-marketing/" className={styles.textLink}>
+                Medical &amp; Dental Marketing
+                <ArrowIcon />
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* Partnership: four large rows */}
+        {/* 3. The partner: four disciplines adding up to one program */}
         <section className={styles.partner} aria-labelledby="mp-partner">
-          <div className="container">
-            <p className={styles.labelOnDark}>Full-service partnership</p>
-            <SectionTitle id="mp-partner" className={styles.titleOnDark}>
-              More than a campaign. A complete marketing partner.
-            </SectionTitle>
-            <p className={styles.leadOnDark}>
-              Strategy, creative, media and digital under one roof, so every program works as one.
-            </p>
-            <ol className={styles.rows}>
-              {PARTNERSHIP.map((row, index) => (
-                <li key={row.name} className={styles.row}>
-                  <span className={styles.rowNumber}>{String(index + 1).padStart(2, "0")}</span>
-                  <span className={styles.rowName}>{row.name}</span>
-                  <span className={styles.rowLine}>{row.line}</span>
-                </li>
+          <div className={`container ${styles.partnerGrid}`}>
+            <div className={styles.partnerCopy}>
+              <p className={styles.label}>Full-service partnership</p>
+              <SectionTitle id="mp-partner" className={styles.title}>
+                More than a campaign. A complete marketing partner.
+              </SectionTitle>
+              <p className={styles.lead}>
+                Strategy, creative, media and digital under one roof, so every program works as one.
+              </p>
+            </div>
+            <ul className={styles.layers}>
+              {DISCIPLINES.map((discipline, index) => (
+                <Reveal key={discipline.name} as="li" delay={index * 110} className={styles.layer}>
+                  <span className={styles.layerThumb}>
+                    <Image src={discipline.image.src} alt={discipline.image.alt} fill sizes="120px" className={styles.cover} />
+                  </span>
+                  <span className={styles.layerCopy}>
+                    <span className={styles.layerName}>{discipline.name}</span>
+                    <span className={styles.layerLine}>{discipline.line}</span>
+                  </span>
+                </Reveal>
               ))}
-            </ol>
+              <li className={styles.layerSum}>One coordinated program</li>
+            </ul>
           </div>
         </section>
       </div>

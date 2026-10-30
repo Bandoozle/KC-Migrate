@@ -7,6 +7,10 @@ export const CONSTRUCTION: Industry = {
   name: "Construction Marketing",
   noun: "construction",
   path: "/services/construction-marketing/",
+  directory: {
+    line: "Websites, social and content that win builders better projects.",
+    image: { src: `${UP}/2023/06/services.jpg`, alt: "A rendering of a modern timber and stone home" },
+  },
   offersIntro: {
     label: "What we offer",
     title: "Three services for builders and contractors.",
@@ -35,6 +39,7 @@ export const CONSTRUCTION: Industry = {
         "Our job is to make that judgment easy. We show your finished work and your process, explain your services clearly and make it simple to request a consultation, so the enquiries you get are for the projects you actually want.",
       ],
     },
+    reasonsTitle: "Planned for long, considered decisions.",
     reasons: [
       {
         title: "Long, considered decisions",
@@ -57,10 +62,6 @@ export const CONSTRUCTION: Industry = {
       { src: `${UP}/2023/09/construction-marketing.png`, alt: "A finished bedroom with built-in bunk beds and the Padwood Construction logo" },
       { src: `${UP}/2023/06/real-estate-design-1.jpg`, alt: "A modern home with a glass balcony above a pool" },
       { src: `${UP}/2026/02/home-services-marketing.jpg`, alt: "A modern two-storey home with a glass garage door" },
-    ],
-    reading: [
-      { label: "Website development & e-commerce", href: "/services/website-development/" },
-      { label: "Our marketing results", href: "/marketing-results/" },
     ],
   },
   services: [
