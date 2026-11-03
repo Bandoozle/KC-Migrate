@@ -150,8 +150,8 @@ export const RETAIL: Industry = {
         { src: `${UP}/2026/01/outdoor-billboard-advertising.jpg`, alt: "A cyclist passing a blank billboard under a bridge" },
       ],
       related: [
-        { label: "Outdoor advertising", href: "/services/outdoor-advertising/" },
-        { label: "Canadian billboard dimensions", href: "/services/outdoor-advertising/billboard-dimensions/" },
+        { label: "Billboard Dimensions & Formats", href: "/services/outdoor-advertising/billboard-dimensions/", kind: "guide", body: "Standard Canadian billboard sizes and formats for planning creative." },
+        { label: "Outdoor Advertising", href: "/services/outdoor-advertising/", kind: "service", body: "Billboard, transit and digital out-of-home, planned and bought across Canada." },
       ],
     },
     {
@@ -229,10 +229,7 @@ export const RETAIL: Industry = {
         { src: `${UP}/2023/06/product-packaging.jpg`, alt: "A black naked product box on a white background" },
         { src: `${UP}/2025/07/branding-agency.webp`, alt: "An orange brand identity card on a desk beside a keyboard" },
       ],
-      related: [
-        { label: "Corporate branding", href: "/services/corporate-branding/" },
-        { label: "Creative & production", href: "/services/creative/" },
-      ],
+      related: [],
     },
     {
       slug: "digital-social-media",
@@ -309,11 +306,7 @@ export const RETAIL: Industry = {
         { src: `${UP}/2025/11/black-friday-advertising.jpg`, alt: "A Black Friday sale sign with red sale tags and a clock" },
         { src: `${UP}/2025/07/mobile-marketing.webp`, alt: "A hand holding a phone with social media icons rising from the screen" },
       ],
-      related: [
-        { label: "Social media marketing", href: "/services/social-media-marketing/" },
-        { label: "Digital marketing", href: "/services/digital-marketing/" },
-        { label: "Website development & e-commerce", href: "/services/website-development/" },
-      ],
+      related: [],
     },
   ],
 };

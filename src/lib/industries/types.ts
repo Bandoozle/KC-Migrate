@@ -24,6 +24,23 @@ export type TitledText = { title: string; body: string };
 
 export type TextLink = { label: string; href: string };
 
+/**
+ * A contextual link from a service subpage to a Kosick page outside the
+ * industry: a guide or article not reachable from the site navigation, or the
+ * general service closest to this one.
+ */
+export type RelatedLink = TextLink & { kind: "service" | "guide"; body: string };
+
+/** A small UI diagram drawn beside a benefit (HVAC service pages). */
+export type BenefitVisual = "calls" | "campaigns" | "editor";
+
+export type Benefit = TitledText & { visual?: BenefitVisual };
+
+export type ApplicationIcon = "phone" | "rebate" | "calendar" | "pin";
+
+/** A plain sentence, or a short title with the sentence as its explanation. */
+export type Application = string | { title: string; body: string; icon?: ApplicationIcon };
+
 export type IndustryService = {
   /** URL segment under the industry path. */
   slug: string;
@@ -43,14 +60,18 @@ export type IndustryService = {
   /** The subpage's own "What We Offer": informative cards, not links. */
   offers: TitledText[];
   deliverables: string[];
-  benefits: TitledText[];
+  benefits: Benefit[];
   /** Short, concrete situations the service is used in. */
-  applications: string[];
+  applications: Application[];
   approach: TitledText[];
   /** Supporting photography shown together on the page. */
   gallery: IndustryImage[];
-  /** Kosick's general service pages and articles on the same subject. */
-  related: TextLink[];
+  /**
+   * "Continue exploring" tiles: two or three links that add something the
+   * sibling services, the site navigation and the CTA don't. Leave empty when
+   * every candidate is already a header/footer link; the row is then omitted.
+   */
+  related: RelatedLink[];
   /** Card photograph on the industry page when it should differ from the hero. */
   card?: IndustryImage;
 };

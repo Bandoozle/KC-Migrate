@@ -8,7 +8,17 @@ import { SPECIALTY_RETAIL } from "./specialty-retail";
 import { TRAVEL } from "./travel";
 import type { Industry, IndustryId, IndustryService } from "./types";
 
-export type { Industry, IndustryId, IndustryImage, IndustryLanding, IndustryService } from "./types";
+export type {
+  Application,
+  ApplicationIcon,
+  Benefit,
+  BenefitVisual,
+  Industry,
+  IndustryId,
+  IndustryImage,
+  IndustryLanding,
+  IndustryService,
+} from "./types";
 
 /** Navigation order. */
 export const INDUSTRIES: readonly Industry[] = [HVAC, MEDICAL_DENTAL, GOLF, RETAIL, SPECIALTY_RETAIL, CONSTRUCTION, TRAVEL];

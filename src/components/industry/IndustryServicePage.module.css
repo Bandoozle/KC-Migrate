@@ -195,22 +195,41 @@
   border-left: 6px solid var(--ind-accent);
 }
 
+/* "In this service": stacked index chips, each led by a square ember badge */
 .heroSplit .heroNote {
-  padding: 1.25rem 1.4rem;
-  background: var(--ind-ink);
-  color: #ffffff;
+  max-width: 34rem;
+}
+
+.heroSplit .heroNoteTitle {
+  color: var(--kosick-color-muted);
+}
+
+.heroSplit .heroNote ol {
+  display: grid;
+  gap: 0.45rem;
 }
 
 .heroSplit .heroNote li {
   display: flex;
-  gap: 0.75rem;
-  padding-block: 0.55rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
+  background: rgba(255, 255, 255, 0.7);
   font-weight: 600;
 }
 
 .heroSplit .heroNoteIndex {
-  color: var(--ind-accent);
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--ind-badge-radius);
+  background: var(--ind-tint);
+  color: var(--ind-label);
+  font-size: var(--kosick-meta-size);
 }
 
 @media (min-width: 960px) {
@@ -225,6 +244,11 @@
     height: 100%;
     min-height: 560px;
     aspect-ratio: auto;
+  }
+
+  /* The index settles on the photo's bottom edge */
+  .heroSplit .heroNote {
+    align-self: end;
   }
 }
 
@@ -319,16 +343,22 @@
   color: #efe4c4;
 }
 
+/* A linen scorecard: the title sits on a green tab, each hole on a pill */
 .heroCourse .heroNote {
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
   background: var(--ind-surface);
   color: var(--ind-ink);
-  border-top: 4px solid var(--ind-accent);
+  box-shadow: 0 24px 50px -30px rgba(0, 0, 0, 0.55);
 }
 
 .heroCourse .heroNoteTitle {
+  display: inline-block;
   margin: 0;
-  padding: 0.75rem 1.1rem;
-  border-bottom: 1px solid var(--ind-rule);
+  padding: 0.45rem 1.1rem;
+  border-bottom-right-radius: var(--kosick-radius-sm);
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
 }
 
 .heroCourse .heroNote ol {
@@ -348,7 +378,12 @@
 }
 
 .heroCourse .heroNoteIndex {
+  align-self: flex-start;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--kosick-radius-pill);
+  background: var(--ind-tint);
   color: var(--ind-label);
+  font-size: 0.8125rem;
   white-space: nowrap;
 }
 
@@ -392,9 +427,10 @@
   background: #1c1c1c;
 }
 
-.heroEditorial .heroNote {
-  border-top: 3px solid var(--ind-accent);
-  padding-top: 1rem;
+/* A contents list from a magazine: sharp red folio badges beside large titles */
+.heroEditorial .heroNote ol {
+  display: grid;
+  gap: 0.35rem;
 }
 
 .heroEditorial .heroNoteTitle {
@@ -411,8 +447,18 @@
   letter-spacing: -0.01em;
 }
 
+.heroEditorial .heroNote li {
+  align-items: center;
+}
+
 .heroEditorial .heroNoteIndex {
-  color: #ff5a6e;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  background: var(--ind-accent);
+  color: #ffffff;
   font-size: var(--kosick-meta-size);
 }
 
@@ -726,12 +772,13 @@
   }
 }
 
-/* Medical & dental: white tiles with a teal cap */
+/* Medical & dental: white tiles led by a round teal badge that fills on hover */
 .offersTiles .offer {
   padding: 1.75rem 1.5rem 1.9rem;
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
   background: #ffffff;
-  border-top: 3px solid var(--ind-accent);
-  border-radius: 0 0 var(--kosick-radius-sm) var(--kosick-radius-sm);
+  transition: border-color 220ms ease, box-shadow 280ms ease;
 }
 
 .offersTiles .offerIndex {
@@ -739,9 +786,23 @@
   place-items: center;
   width: 2.5rem;
   height: 2.5rem;
+  margin-bottom: 0.4rem;
   border-radius: 50%;
   background: var(--ind-soft);
   color: var(--ind-ink);
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .offersTiles .offer:hover {
+    border-color: color-mix(in srgb, var(--ind-accent) 45%, transparent);
+    box-shadow: 0 20px 40px -30px rgba(14, 43, 41, 0.45);
+  }
+
+  .offersTiles .offer:hover .offerIndex {
+    background: var(--ind-accent);
+    color: var(--ind-on-accent);
+  }
 }
 
 @media (min-width: 840px) {
@@ -1083,18 +1144,75 @@
   background: var(--ind-surface);
 }
 
+/*
+ * Benefit cards: an index badge leads each card (shape and tint from the
+ * industry theme), the title carries the hierarchy, and on desktop the middle
+ * card steps down so the row doesn't read as three identical boxes.
+ */
 .benefitGrid {
+  counter-reset: benefit;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: clamp(1.5rem, 3vw, 2.5rem);
+  gap: 1rem;
   margin: clamp(2rem, 4vw, 3rem) 0 0;
   padding: 0;
   list-style: none;
 }
 
 .benefit {
-  padding-top: 1.25rem;
-  border-top: 3px solid var(--ind-accent);
+  counter-increment: benefit;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.35rem, 2.4vw, 1.9rem);
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
+  background: #ffffff;
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 280ms ease;
+}
+
+.benefit::before {
+  content: counter(benefit, decimal-leading-zero);
+  display: grid;
+  place-items: center;
+  align-self: flex-start;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 1.1rem;
+  padding: 0 0.6rem;
+  border-radius: var(--ind-badge-radius, 3px);
+  background: var(--ind-tint);
+  color: var(--ind-label);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .benefit:hover {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--ind-accent) 45%, transparent);
+    box-shadow: 0 20px 40px -28px rgba(0, 0, 0, 0.4);
+  }
+
+  .benefit:hover::before {
+    background: var(--ind-accent);
+    color: var(--ind-on-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit {
+    transition: none;
+  }
+
+  .benefit:hover {
+    transform: none;
+  }
 }
 
 .benefitTitle {
@@ -1115,18 +1233,25 @@
 @media (min-width: 840px) {
   .benefitGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1rem, 1.8vw, 1.5rem);
+    align-items: start;
+  }
+
+  .benefitGrid > :nth-child(3n + 2) {
+    margin-top: clamp(1.5rem, 3vw, 2.5rem);
   }
 }
 
+/*
+ * Real-world applications: numbered scenario tiles in two columns rather than
+ * a boxed bullet list.
+ */
 .applications {
-  margin-top: clamp(2.5rem, 5vw, 4rem);
-  padding: clamp(1.5rem, 3vw, 2.25rem);
-  background: #ffffff;
-  border: 1px solid var(--ind-rule);
+  margin-top: clamp(3rem, 6vw, 4.5rem);
 }
 
 .applicationsTitle {
-  margin: 0 0 1rem;
+  margin: 0 0 1.25rem;
   font-size: var(--kosick-subsection-title-size);
   font-weight: var(--kosick-subsection-title-weight);
   line-height: var(--kosick-subsection-title-leading);
@@ -1134,34 +1259,61 @@
 }
 
 .applications ul {
+  counter-reset: application;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 0.75rem 2.5rem;
+  gap: 0.6rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .applications li {
-  position: relative;
-  padding-left: 1.4rem;
+  counter-increment: application;
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  align-items: center;
+  column-gap: 1rem;
+  padding: 0.85rem 1.1rem 0.85rem 0.85rem;
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
+  background: color-mix(in srgb, #ffffff 72%, transparent);
   font-size: var(--kosick-body-size);
-  line-height: 1.5;
+  font-weight: 500;
+  line-height: 1.45;
+  transition: border-color 220ms ease, background-color 220ms ease;
 }
 
 .applications li::before {
-  content: "";
-  position: absolute;
-  top: 0.62em;
-  left: 0;
-  width: 0.6rem;
-  height: 2px;
-  background: var(--ind-accent);
+  content: counter(application);
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--ind-badge-radius, 3px);
+  background: var(--ind-tint);
+  color: var(--ind-label);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .applications li:hover {
+    border-color: color-mix(in srgb, var(--ind-accent) 45%, transparent);
+    background: #ffffff;
+  }
+
+  .applications li:hover::before {
+    background: var(--ind-accent);
+    color: var(--ind-on-accent);
+  }
 }
 
 @media (min-width: 760px) {
   .applications ul {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 }
 
@@ -1227,6 +1379,59 @@
   border-color: var(--ind-accent);
 }
 
+/* HVAC: the "all services" card leads with a photograph over a warm stone body, not a black fill */
+.relatedHome.relatedHomePhoto {
+  overflow: hidden;
+  padding-top: 0;
+  border-color: var(--ind-rule);
+  background: var(--ind-surface);
+  color: var(--kosick-color-text-strong);
+}
+
+.relatedHome.relatedHomePhoto:hover {
+  border-color: var(--ind-accent);
+  background: var(--ind-surface);
+}
+
+.relatedHomeMedia {
+  position: relative;
+  display: block;
+  height: 132px;
+  margin: 0 -1.5rem 0.75rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--ind-rule);
+}
+
+.relatedHomeMedia img {
+  transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.relatedHomePhoto:hover .relatedHomeMedia img {
+  transform: scale(1.04);
+}
+
+.relatedHome.relatedHomePhoto .relatedName {
+  color: var(--kosick-color-text-strong);
+}
+
+.relatedHome.relatedHomePhoto .relatedLine {
+  color: var(--kosick-color-muted);
+}
+
+.relatedHome.relatedHomePhoto .relatedMore {
+  color: var(--ind-label);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .relatedHomeMedia img {
+    transition: none;
+  }
+
+  .relatedHomePhoto:hover .relatedHomeMedia img {
+    transform: none;
+  }
+}
+
 .relatedName {
   font-size: var(--kosick-card-title-size);
   font-weight: var(--kosick-card-title-weight);
@@ -1238,6 +1443,11 @@
   color: var(--kosick-color-muted);
   font-size: var(--kosick-body-size);
   line-height: 1.55;
+}
+
+/* Explicit: a global rule otherwise sets the title dark on the dark card */
+.relatedHome .relatedName {
+  color: #ffffff;
 }
 
 .relatedHome .relatedLine {
@@ -1271,77 +1481,178 @@
   }
 }
 
-.further {
-  margin-top: clamp(2rem, 4vw, 3rem);
+/*
+ * Continue exploring: two or three tinted editorial tiles that lead off the
+ * industry (guides, then the closest Kosick services). Tinted rather than
+ * outlined so they read apart from the sibling cards above.
+ */
+.explore {
+  margin-top: clamp(2.75rem, 5vw, 4rem);
 }
 
-.furtherTitle {
-  margin: 0 0 1rem;
-  font-size: var(--kosick-body-size);
-  font-weight: 600;
-}
-
-.further ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem 2rem;
+.exploreTitle {
   margin: 0;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  line-height: var(--kosick-subsection-title-leading);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+}
+
+.exploreGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.6rem;
+  margin: clamp(1.25rem, 2.5vw, 1.75rem) 0 0;
   padding: 0;
   list-style: none;
 }
 
-.page a.textLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding-bottom: 0.2rem;
-  border-bottom: 1px solid currentColor;
-  color: var(--kosick-color-text-strong);
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  text-decoration: none;
+.exploreGrid > li {
+  display: flex;
 }
 
-.page a.textLink:hover {
+.page a.exploreTile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "kind arrow" "name arrow" "body arrow";
+  grid-template-rows: auto auto 1fr;
+  align-items: start;
+  column-gap: 1rem;
+  row-gap: 0.3rem;
+  width: 100%;
+  padding: 1rem 1.1rem;
+  border-radius: var(--kosick-radius-sm);
+  background: var(--ind-surface);
+  color: var(--kosick-color-text-strong);
+  text-decoration: none;
+  transition: background-color 220ms ease;
+}
+
+.page a.exploreTile:hover {
+  background: color-mix(in srgb, var(--ind-surface), #000000 4%);
+}
+
+.page a.exploreTile:focus-visible {
+  outline: 3px solid var(--ind-accent);
+  outline-offset: 3px;
+}
+
+.exploreKind {
+  grid-area: kind;
   color: var(--ind-label);
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.exploreName {
+  grid-area: name;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.exploreBody {
+  grid-area: body;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.5;
+}
+
+.exploreArrow {
+  grid-area: arrow;
+  align-self: center;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--ind-rule);
+  border-radius: 50%;
+  background: #ffffff;
+  transition:
+    background-color 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease,
+    transform 220ms ease;
+}
+
+.page a.exploreTile:hover .exploreArrow {
+  border-color: var(--ind-accent);
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+  transform: translateX(3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page a.exploreTile:hover .exploreArrow {
+    transform: none;
+  }
+}
+
+@media (min-width: 840px) {
+  .exploreGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--gutter);
+  }
+
+  .exploreGrid[data-count="3"] {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Wider tiles: the arrow settles at the bottom right, under the description */
+  .page a.exploreTile {
+    row-gap: 0.4rem;
+    padding: 1.4rem 1.5rem;
+  }
+
+  .exploreArrow {
+    align-self: end;
+  }
 }
 
 /* ================= BENEFITS, PER INDUSTRY =================
- * The same benefits and applications, set differently for each industry so
- * the lower half of the service pages doesn't repeat. HVAC keeps the ruled
- * columns above.
+ * The base card (index badge, staggered row) is shared; each industry sets it
+ * in its own material so the lower half of the service pages doesn't repeat.
+ * HVAC uses HvacOutcomes instead.
  */
 
-/* Medical & dental: numbered clinical rows */
+/* Medical & dental: numbered clinical rows, like entries on a chart */
 :global(.industry-medical-dental) .benefitGrid {
-  counter-reset: benefit;
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
   border-top: 1px solid var(--ind-rule);
 }
 
 :global(.industry-medical-dental) .benefit {
-  counter-increment: benefit;
   display: grid;
   grid-template-columns: 2.75rem minmax(0, 1fr);
   column-gap: 1rem;
-  padding: 1.25rem 0;
-  border-top: 0;
+  margin-top: 0;
+  padding: 1.25rem 0.75rem;
+  border: 0;
   border-bottom: 1px solid var(--ind-rule);
+  border-radius: 0;
+  background: transparent;
 }
 
 :global(.industry-medical-dental) .benefit::before {
   content: counter(benefit);
   grid-row: 1 / 3;
-  display: grid;
-  place-items: center;
   width: 2.25rem;
+  min-width: 0;
   height: 2.25rem;
-  border-radius: 50%;
-  background: var(--ind-accent);
-  color: var(--ind-on-accent);
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
+  margin: 0;
+  padding: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :global(.industry-medical-dental) .benefit:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--ind-rule);
+    background: var(--ind-tint);
+  }
 }
 
 @media (min-width: 840px) {
@@ -1360,16 +1671,29 @@
   }
 }
 
-/* Golf: one scorecard row */
+/* Golf: one scorecard row; each cell carries its hole number */
 :global(.industry-golf) .benefitGrid {
   gap: 0;
   border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
   background: #fffdf8;
 }
 
 :global(.industry-golf) .benefit {
+  margin-top: 0;
   padding: 1.5rem;
-  border-top: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+:global(.industry-golf) .benefit::before {
+  content: "Hole " counter(benefit);
+  min-width: 0;
+  height: auto;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--kosick-radius-pill);
+  font-size: 0.8125rem;
 }
 
 :global(.industry-golf) .benefit + .benefit {
@@ -1380,6 +1704,14 @@
   color: var(--ind-accent);
 }
 
+@media (hover: hover) and (pointer: fine) {
+  :global(.industry-golf) .benefit:hover {
+    transform: none;
+    box-shadow: none;
+    background: var(--ind-tint);
+  }
+}
+
 @media (min-width: 840px) {
   :global(.industry-golf) .benefit + .benefit {
     border-top: 0;
@@ -1387,7 +1719,7 @@
   }
 }
 
-/* Retail: a black band with red rules */
+/* Retail: smoked panels on a black band, with oversized titles */
 :global(.industry-retail) .benefits {
   background: var(--ind-ink);
   color: #ffffff;
@@ -1402,6 +1734,17 @@
   color: #ffffff !important;
 }
 
+:global(.industry-retail) .benefit {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+:global(.industry-retail) .benefit::before,
+:global(.industry-retail) .applications li::before {
+  background: rgba(255, 90, 110, 0.16);
+  color: #ff5a6e;
+}
+
 :global(.industry-retail) .benefit p {
   color: rgba(255, 255, 255, 0.74);
 }
@@ -1411,15 +1754,33 @@
   letter-spacing: -0.02em;
 }
 
-:global(.industry-retail) .applications {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.2);
+:global(.industry-retail) .applications li {
+  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.86);
 }
 
-/* Specialty retail: titles marked like a shelf label */
+@media (hover: hover) and (pointer: fine) {
+  :global(.industry-retail) .benefit:hover,
+  :global(.industry-retail) .applications li:hover {
+    border-color: rgba(255, 90, 110, 0.55);
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  :global(.industry-retail) .benefit:hover::before,
+  :global(.industry-retail) .applications li:hover::before {
+    background: var(--ind-accent);
+    color: #ffffff;
+  }
+}
+
+/* Specialty retail: titles marked like a shelf label. Block flow so the marker hugs the words. */
 :global(.industry-specialty-retail) .benefit {
-  padding-top: 0;
-  border-top: 0;
+  display: block;
+}
+
+:global(.industry-specialty-retail) .benefit::before {
+  width: fit-content;
 }
 
 :global(.industry-specialty-retail) .benefitTitle {
@@ -1434,7 +1795,7 @@
   margin-top: 0.75rem;
 }
 
-/* Construction: a charcoal drafting band */
+/* Construction: spec panels on a charcoal drafting band, with a corner mark */
 :global(.industry-construction) .benefits {
   background-color: var(--ind-ink);
   background-image:
@@ -1453,33 +1814,47 @@
   color: #ffffff !important;
 }
 
+:global(.industry-construction) .benefit,
+:global(.industry-construction) .applications li {
+  border-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  background: rgba(29, 33, 37, 0.92);
+}
+
+:global(.industry-construction) .benefit::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 18px;
+  height: 18px;
+  border-top: 3px solid var(--ind-accent);
+  border-right: 3px solid var(--ind-accent);
+}
+
+:global(.industry-construction) .benefit::before,
+:global(.industry-construction) .applications li::before {
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+}
+
 :global(.industry-construction) .benefit p,
 :global(.industry-construction) .applications li {
-  color: rgba(255, 255, 255, 0.78);
+  color: rgba(255, 255, 255, 0.8);
 }
 
-:global(.industry-construction) .applications {
-  background: rgba(29, 33, 37, 0.9);
-  border-color: rgba(255, 255, 255, 0.2);
+@media (hover: hover) and (pointer: fine) {
+  :global(.industry-construction) .benefit:hover,
+  :global(.industry-construction) .applications li:hover {
+    border-color: var(--ind-accent);
+    background: rgba(29, 33, 37, 0.98);
+  }
 }
 
-/* Travel: large route numbers above each benefit */
-:global(.industry-travel) .benefitGrid {
-  counter-reset: benefit;
-}
-
-:global(.industry-travel) .benefit {
-  counter-increment: benefit;
-  border-top: 2px dashed var(--ind-accent);
-}
-
+/* Travel: each benefit is a stop on the route, numbered on a pill */
 :global(.industry-travel) .benefit::before {
-  content: counter(benefit, decimal-leading-zero);
-  display: block;
-  margin-bottom: 0.5rem;
-  color: var(--ind-accent);
-  font-size: clamp(2.25rem, 4vw, 3rem);
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  content: "Stop " counter(benefit, decimal-leading-zero);
+  height: 2rem;
+  padding: 0 0.85rem;
+  font-size: 0.8125rem;
 }

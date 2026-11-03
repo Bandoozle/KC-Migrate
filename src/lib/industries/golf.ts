@@ -97,10 +97,7 @@ export const GOLF: Industry = {
         { src: `${UP}/2026/02/arizona-golf-course-marketing.jpg`, alt: "An aerial view of a desert golf course below a mountain ridge" },
         { src: `${UP}/2025/05/golf-1.webp`, alt: "A clubhouse dining room with tall windows and set tables" },
       ],
-      related: [
-        { label: "Website development & e-commerce", href: "/services/website-development/" },
-        { label: "Golf marketing strategies", href: "/blog-golf-marketing-strategies/" },
-      ],
+      related: [],
     },
     {
       slug: "branding",
@@ -179,8 +176,9 @@ export const GOLF: Industry = {
         { src: `${UP}/2026/06/golf-course-branding-marketing.jpg`, alt: "A golfer finishing her swing on a fairway lined with evergreens" },
       ],
       related: [
-        { label: "Corporate branding", href: "/services/corporate-branding/" },
-        { label: "Creative & production", href: "/services/creative/" },
+        { label: "Golf Course Branding", href: "/blog-golf-marketing-strategies/", kind: "guide", body: "Brand strategy, website and content for premium clubs." },
+        { label: "Corporate Branding", href: "/services/corporate-branding/", kind: "service", body: "Brand strategy and identity systems, built to last." },
+        { label: "Creative & Production", href: "/services/creative/", kind: "service", body: "Video, photography, design and audio production." },
       ],
     },
     {
@@ -259,11 +257,7 @@ export const GOLF: Industry = {
         { src: `${UP}/2026/04/canadian-golf-course-marketing.jpg`, alt: "A golfer blasting a ball out of a greenside bunker" },
         { src: `${UP}/2026/02/golf-marketing.jpg`, alt: "A golf ball at the edge of the cup beside the flagstick" },
       ],
-      related: [
-        { label: "Television advertising", href: "/services/television-advertising/" },
-        { label: "Digital & connected TV", href: "/services/digital-connected-tv/" },
-        { label: "Golf marketing in Vancouver", href: "/golf-marketing-digital-marketing-vancouver/" },
-      ],
+      related: [],
     },
     {
       slug: "social-media-lead-generation",
@@ -342,9 +336,9 @@ export const GOLF: Industry = {
         { src: `${UP}/2024/05/tournament-1.webp`, alt: "Two cocktails beside a bottle of tequila" },
       ],
       related: [
-        { label: "Social media marketing", href: "/services/social-media-marketing/" },
-        { label: "How to fill tee times", href: "/how-to-fill-tee-times-golf-marketing/" },
-        { label: "Increase golf course revenue", href: "/increase-golf-course-revenue/" },
+        { label: "How to Fill Tee Times", href: "/how-to-fill-tee-times-golf-marketing/", kind: "guide", body: "Local SEO, Google Ads, social and reviews for public courses." },
+        { label: "Golf Membership Marketing", href: "/golf-marketing-digital-marketing-vancouver/", kind: "guide", body: "How digital, social and modern websites help private clubs grow membership." },
+        { label: "Increase Golf Course Revenue", href: "/increase-golf-course-revenue/", kind: "guide", body: "Growing rounds at public courses and members at private clubs." },
       ],
     },
   ],

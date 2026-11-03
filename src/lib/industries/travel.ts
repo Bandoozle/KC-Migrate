@@ -143,9 +143,9 @@ export const TRAVEL: Industry = {
         { src: `${UP}/2021/08/travel.jpg`, alt: "A tablet and phone showing social media apps" },
       ],
       related: [
-        { label: "Digital marketing", href: "/services/digital-marketing/" },
-        { label: "Email marketing", href: "/services/email-marketing/" },
-        { label: "Travel marketing in Canada", href: "/travel-marketing-canada/" },
+        { label: "Travel Marketing in Canada", href: "/travel-marketing-canada/", kind: "guide", body: "Sponsorship, linear TV and digital working together to drive bookings." },
+        { label: "Digital Marketing", href: "/services/digital-marketing/", kind: "service", body: "Google Ads, paid social and pre-roll, measured against results." },
+        { label: "Email Marketing", href: "/services/email-marketing/", kind: "service", body: "Campaigns and automations that turn your list into bookings." },
       ],
     },
     {
@@ -224,9 +224,9 @@ export const TRAVEL: Industry = {
         { src: `${UP}/2017/07/resort-marketing-scaled.jpg`, alt: "An aerial rendering of a beachfront resort beside a golf course" },
       ],
       related: [
-        { label: "Television advertising", href: "/services/television-advertising/" },
-        { label: "Digital & connected TV", href: "/services/digital-connected-tv/" },
-        { label: "Media buying in Canada", href: "/blog-media-buying-canada-tv-streaming-radio/" },
+        { label: "Media Buying: TV, Streaming & Radio", href: "/blog-media-buying-canada-tv-streaming-radio/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
+        { label: "Television Advertising", href: "/services/television-advertising/", kind: "service", body: "Broadcast TV campaigns, planned and bought by our media team." },
+        { label: "Digital & Connected TV", href: "/services/digital-connected-tv/", kind: "service", body: "Streaming and connected TV with targeted reach and measurable delivery." },
       ],
     },
   ],

@@ -72,21 +72,24 @@ export const HVAC: Industry = {
         {
           title: "More calls from the same traffic",
           body: "Clear paths to call or book turn more of your existing visitors into service requests.",
+          visual: "calls",
         },
         {
           title: "Campaigns that land somewhere",
           body: "Search, social and co-op campaigns point to pages built for that offer, not a generic home page.",
+          visual: "campaigns",
         },
         {
           title: "A site your team can update",
           body: "Change offers, seasonal promotions and rebates yourself, without waiting on a developer.",
+          visual: "editor",
         },
       ],
       applications: [
-        "Replacing an outdated dealer site that doesn't work on phones",
-        "Launching landing pages for heat pump rebates or seasonal tune-ups",
-        "Adding online booking for maintenance plans",
-        "Building location pages as you expand into new service areas",
+        { title: "Rebuild for mobile", body: "Replacing an outdated dealer site that doesn't work on phones", icon: "phone" },
+        { title: "Rebate & tune-up pages", body: "Launching landing pages for heat pump rebates or seasonal tune-ups", icon: "rebate" },
+        { title: "Book maintenance online", body: "Adding online booking for maintenance plans", icon: "calendar" },
+        { title: "Pages for new areas", body: "Building location pages as you expand into new service areas", icon: "pin" },
       ],
       approach: [
         { title: "Discover", body: "Your services, margins, service areas and the jobs you want more of." },
@@ -99,9 +102,9 @@ export const HVAC: Industry = {
         { src: `${UP}/2023/09/hvac-website-development.png`, alt: "The DirectBuy Furnace website hero with flame and snowflake icons" },
       ],
       related: [
-        { label: "Website development & e-commerce", href: "/services/website-development/" },
-        { label: "Search engine optimization", href: "/services/search-engine-optimization/" },
-        { label: "HVAC website development guide", href: "/blog-hvac-website-development/" },
+        { label: "HVAC Website Development Guide", href: "/blog-hvac-website-development/", kind: "guide", body: "What an HVAC site needs to educate homeowners and generate leads." },
+        { label: "Search Engine Optimization", href: "/services/search-engine-optimization/", kind: "service", body: "Organic rankings that bring qualified leads to the pages you build." },
+        { label: "Website Development & E-commerce", href: "/services/website-development/", kind: "service", body: "Custom WordPress and e-commerce builds, with design and ongoing support." },
       ],
     },
     {
@@ -183,9 +186,9 @@ export const HVAC: Industry = {
         { src: `${UP}/2023/07/outdoor-advertising-1-scaled.jpg`, alt: "A Trane We Run Together billboard between office towers" },
       ],
       related: [
-        { label: "Corporate branding", href: "/services/corporate-branding/" },
-        { label: "Outdoor advertising", href: "/services/outdoor-advertising/" },
-        { label: "FortisBC co-op advertising for HVAC", href: "/hvac-marketing-fortisbc-co-op-advertising/" },
+        { label: "FortisBC Co-op Advertising for HVAC", href: "/hvac-marketing-fortisbc-co-op-advertising/", kind: "guide", body: "Using FortisBC co-op funding to pay for more of your media." },
+        { label: "Outdoor Advertising", href: "/services/outdoor-advertising/", kind: "service", body: "Billboard, transit and digital out-of-home, planned and bought across Canada." },
+        { label: "Corporate Branding", href: "/services/corporate-branding/", kind: "service", body: "Brand strategy and identity systems, built to last." },
       ],
     },
     {
@@ -264,9 +267,9 @@ export const HVAC: Industry = {
         { src: `${UP}/2026/02/hvac-digital-marketing.webp`, alt: "A Daikin heat pump on a patio beside a fire table" },
       ],
       related: [
-        { label: "How HVAC lead generation works", href: "/services/hvac-marketing/hvac-lead-generation/" },
-        { label: "Social media marketing", href: "/services/social-media-marketing/" },
-        { label: "HVAC digital marketing article", href: "/hvac-digital-marketing/" },
+        { label: "How HVAC Lead Generation Works", href: "/services/hvac-marketing/hvac-lead-generation/", kind: "guide", body: "Paid search, Local Service Ads and the rest of the lead mix, in plain English." },
+        { label: "HVAC Digital Marketing", href: "/hvac-digital-marketing/", kind: "guide", body: "Google Ads, Meta, connected TV and the funnels that turn them into leads." },
+        { label: "Social Media Marketing", href: "/services/social-media-marketing/", kind: "service", body: "Content, platform management and paid social across every channel." },
       ],
     },
     {
@@ -346,11 +349,7 @@ export const HVAC: Industry = {
         { src: "/images/hvac-marketing/tab-youtube.jpg", alt: "A Daikin heat pump with a YouTube play button" },
         { src: `${UP}/2025/12/trane-hvac-advertising.jpeg`, alt: "Two RunTru air conditioners beside a brick home" },
       ],
-      related: [
-        { label: "Television advertising", href: "/services/television-advertising/" },
-        { label: "Digital & connected TV", href: "/services/digital-connected-tv/" },
-        { label: "Creative & production", href: "/services/creative/" },
-      ],
+      related: [],
     },
     {
       slug: "business-growth",
@@ -429,9 +428,9 @@ export const HVAC: Industry = {
         { src: `${UP}/2026/02/fortisbc-coop-hvac-marketing.jpg`, alt: "A ductless heat pump head mounted on a white wall" },
       ],
       related: [
-        { label: "Corporate events & incentive travel", href: "/corporate-events/" },
-        { label: "Business development", href: "/services/business-development/" },
-        { label: "HVAC marketing strategies guide", href: "/hvac-marketing-strategies-guide/" },
+        { label: "HVAC Dealer Marketing Guide", href: "/hvac-marketing-strategies-guide/", kind: "guide", body: "Cost-efficient lead generation for dealers, manufacturers and distributors." },
+        { label: "Corporate Events & Incentive Travel", href: "/corporate-events/", kind: "service", body: "Events, conferences and group incentive trips, planned end to end." },
+        { label: "Business Development", href: "/services/business-development/", kind: "service", body: "Growth strategy, sales training and acquisition support." },
       ],
     },
   ],

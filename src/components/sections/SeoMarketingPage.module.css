@@ -398,30 +398,6 @@
   opacity: 0.9;
 }
 
-/* Queries drift along the base of the hero */
-.queryRow {
-  display: flex;
-  gap: 2.5rem;
-  width: max-content;
-  padding: 1rem 0;
-  border-top: 1px solid var(--rule-dark);
-  color: rgba(255, 255, 255, 0.4);
-  font-size: var(--kosick-body-size);
-  white-space: nowrap;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .queryRow {
-    animation: drift 50s linear infinite;
-  }
-}
-
-@keyframes drift {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @media (min-width: 960px) {
   .heroGrid {
     grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);

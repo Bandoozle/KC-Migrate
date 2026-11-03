@@ -1,0 +1,132 @@
+.browser {
+  --chrome-bg: #ffffff;
+  --chrome-ink: #5d6470;
+  --chrome-field: #f1f2f5;
+  --chrome-rule: rgba(17, 20, 28, 0.1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--chrome-rule);
+  border-radius: 10px;
+  background: var(--chrome-bg);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.6) inset,
+    0 30px 60px -36px rgba(10, 12, 20, 0.55),
+    0 12px 24px -18px rgba(10, 12, 20, 0.35);
+}
+
+.browser[data-tone="dark"] {
+  --chrome-bg: #1b1e25;
+  --chrome-ink: rgba(255, 255, 255, 0.62);
+  --chrome-field: rgba(255, 255, 255, 0.07);
+  --chrome-rule: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8);
+}
+
+.chrome {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.75rem;
+  height: 2.1rem;
+  padding: 0 0.75rem;
+  border-bottom: 1px solid var(--chrome-rule);
+}
+
+/* Balances the dots so the address sits centred */
+.chrome::after {
+  content: "";
+  width: 2.6rem;
+}
+
+.dots {
+  display: flex;
+  gap: 0.35rem;
+  width: 2.6rem;
+}
+
+.dots i {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: #ff5f57;
+}
+
+.dots i:nth-child(2) {
+  background: #febc2e;
+}
+
+.dots i:nth-child(3) {
+  background: #28c840;
+}
+
+.address {
+  display: inline-flex;
+  align-items: center;
+  justify-self: center;
+  gap: 0.4rem;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.22rem 0.85rem;
+  border-radius: 999px;
+  background: var(--chrome-field);
+  color: var(--chrome-ink);
+  font-size: 0.6875rem;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.address svg {
+  flex: none;
+  opacity: 0.7;
+}
+
+.host,
+.path {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.path {
+  opacity: 0.55;
+}
+
+.viewport {
+  position: relative;
+  aspect-ratio: var(--ratio);
+  overflow: hidden;
+  background: #e9eaee;
+}
+
+.browser[data-tone="dark"] .viewport {
+  background: #0d0f13;
+}
+
+/* Recordings: full width, shifted up past Chrome's own toolbar (94 of 1920px) */
+.recording {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: -4.896%;
+}
+
+@media (max-width: 559px) {
+  .chrome {
+    height: 1.6rem;
+    padding: 0 0.55rem;
+  }
+
+  .chrome::after,
+  .dots {
+    width: 1.9rem;
+  }
+
+  .dots i {
+    width: 0.42rem;
+    height: 0.42rem;
+  }
+
+  .address {
+    padding: 0.12rem 0.6rem;
+    font-size: 0.5625rem;
+  }
+}

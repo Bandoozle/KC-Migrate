@@ -1,0 +1,610 @@
+/*
+ * HVAC benefits and applications. Palette comes from the HVAC industry theme
+ * (--ind-*); type and spacing stay on the Kosick tokens. White panels with
+ * hairline borders sit on the warm stone surface; ink appears only inside the
+ * diagrams (the phone, the publish button), where it means something.
+ */
+.outcomes {
+  --ember-wash: rgba(226, 83, 45, 0.1);
+  --ember-ring: rgba(226, 83, 45, 0.22);
+  --ink-soft: rgba(26, 19, 16, 0.08);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  padding-block: var(--kosick-block);
+  background: var(--ind-surface);
+}
+
+.label,
+.appsKicker {
+  margin: 0 0 1rem;
+  color: var(--ind-label);
+  font-size: var(--kosick-body-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.title {
+  margin: 0;
+}
+
+/* ================= BENEFITS ================= */
+.stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.slot {
+  display: flex;
+}
+
+.benefit {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  padding: clamp(1.35rem, 2.4vw, 2rem);
+  overflow: hidden;
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
+  background: #ffffff;
+  transition:
+    transform 320ms var(--ease),
+    box-shadow 320ms var(--ease),
+    border-color 320ms var(--ease);
+}
+
+
+.benefitCopy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
+.outcomeTag {
+  color: var(--ind-label);
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.3;
+}
+
+.benefitTitle {
+  margin: 0;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  line-height: var(--kosick-card-title-leading);
+  letter-spacing: var(--kosick-card-title-tracking);
+}
+
+.benefitBody {
+  margin: 0;
+  max-width: 36rem;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.6;
+}
+
+.featured .benefitTitle {
+  font-size: clamp(1.5rem, 2.6vw, 2.125rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Diagrams (shared frame) ---------- */
+.visual {
+  position: relative;
+  min-width: 0;
+  padding: 1rem;
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
+  background: var(--ind-surface);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ind-ink);
+  user-select: none;
+}
+
+/* ---------- Calls: a phone with the two actions, and the same traffic producing more ---------- */
+.calls {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1rem, 2.4vw, 1.75rem);
+}
+
+.phone {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 172px;
+  padding: 16px 9px 12px;
+  border: 3px solid #2b211c;
+  border-radius: 18px;
+  background: var(--ind-ink);
+  box-shadow: 0 14px 30px -18px rgba(26, 19, 16, 0.6);
+}
+
+.phoneBar {
+  width: 42%;
+  height: 6px;
+  margin-bottom: 6px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.phoneLine {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.phoneLine.short {
+  width: 68%;
+}
+
+.phoneCall,
+.phoneBook {
+  padding: 6px 4px;
+  border-radius: var(--kosick-radius-pill);
+  color: #ffffff;
+  font-size: 10.5px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.phoneCall {
+  margin-top: auto;
+  background: var(--ind-accent);
+  transition: box-shadow 420ms var(--ease);
+}
+
+.phoneBook {
+  border: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+.meters {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  min-width: 0;
+}
+
+.meter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.meterLabel {
+  color: var(--kosick-color-muted);
+}
+
+.meterTrack {
+  position: relative;
+  display: block;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: var(--ink-soft);
+}
+
+.meterFill {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.meterVisitors {
+  width: 100%;
+  background: rgba(26, 19, 16, 0.26);
+}
+
+.meterCalls {
+  width: 60%;
+  background: var(--ind-accent);
+  transition: width 900ms var(--ease);
+}
+
+/* Where the calls bar sat before: a fixed tick, so the growth reads as "more" */
+.meter:last-child .meterTrack::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 34%;
+  width: 2px;
+  background: rgba(26, 19, 16, 0.55);
+}
+
+/* ---------- Campaigns: three sources routed to one offer page ---------- */
+.campaigns {
+  display: grid;
+  grid-template-columns: auto minmax(1.25rem, 1fr) auto;
+  align-items: center;
+}
+
+.sources {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 96px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sources li {
+  padding: 5px 10px;
+  border: 1px solid var(--ind-rule);
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.routes {
+  display: block;
+  width: 100%;
+  height: 96px;
+  overflow: visible;
+}
+
+.routes path {
+  fill: none;
+  stroke: rgba(26, 19, 16, 0.3);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+  vector-effect: non-scaling-stroke;
+  transition: stroke 320ms var(--ease);
+}
+
+.landing {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 8px 11px;
+  border: 1.5px solid var(--ind-accent);
+  border-radius: 3px;
+  background: #ffffff;
+  white-space: nowrap;
+}
+
+.landingDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ind-accent);
+}
+
+/* ---------- Editor: the offer field, a rebate switch and publish ---------- */
+.editor {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.editorHead {
+  color: var(--kosick-color-muted);
+}
+
+.editorField {
+  display: flex;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid var(--ind-rule);
+  border-radius: 3px;
+  background: #ffffff;
+}
+
+.caret {
+  width: 1.5px;
+  height: 14px;
+  margin-left: 2px;
+  background: var(--ind-accent);
+  opacity: 0;
+}
+
+.editorRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-weight: 500;
+}
+
+.toggle {
+  position: relative;
+  flex: none;
+  width: 32px;
+  height: 18px;
+  border-radius: 9px;
+  background: var(--ind-accent);
+  transition: background-color 320ms var(--ease);
+}
+
+.toggle span {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transform: translateX(14px);
+  transition: transform 320ms var(--ease);
+}
+
+.publish {
+  justify-self: end;
+  padding: 5px 13px;
+  border-radius: var(--kosick-radius-pill);
+  background: var(--ind-ink);
+  color: #ffffff;
+  font-size: 0.75rem;
+  transition: background-color 320ms var(--ease);
+}
+
+/*
+ * Hover: on pointer devices the diagrams rest in their "before" state and the
+ * outcome plays when the panel is hovered. Touch devices show the outcome.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .meterCalls {
+    width: 34%;
+  }
+
+  .toggle {
+    background: rgba(26, 19, 16, 0.2);
+  }
+
+  .toggle span {
+    transform: none;
+  }
+
+  .benefit:hover {
+    transform: translateY(-4px);
+    border-color: rgba(26, 19, 16, 0.24);
+    box-shadow: 0 22px 44px -28px rgba(26, 19, 16, 0.45);
+  }
+
+  .benefit:hover .meterCalls {
+    width: 60%;
+  }
+
+  .benefit:hover .phoneCall {
+    box-shadow: 0 0 0 5px var(--ember-ring);
+  }
+
+  .benefit:hover .routes path {
+    stroke: var(--ind-accent);
+    animation: route-flow 900ms linear infinite;
+  }
+
+  .benefit:hover .toggle {
+    background: var(--ind-accent);
+  }
+
+  .benefit:hover .toggle span {
+    transform: translateX(14px);
+  }
+
+  .benefit:hover .caret {
+    animation: caret-blink 1s steps(1) infinite;
+  }
+
+  .benefit:hover .publish {
+    background: var(--ind-accent);
+  }
+}
+
+@keyframes route-flow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .benefit,
+  .meterCalls,
+  .toggle,
+  .toggle span {
+    transition: none;
+  }
+
+  .benefit:hover {
+    transform: none;
+  }
+
+  .benefit:hover .routes path,
+  .benefit:hover .caret {
+    animation: none;
+  }
+}
+
+/* Supporting panels: copy beside a compact diagram once there's room */
+@media (min-width: 640px) {
+  .slot:not(.featured) .benefit:not([data-visual="none"]) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 240px);
+    align-items: center;
+    column-gap: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .calls {
+    grid-template-columns: 124px minmax(0, 1fr);
+  }
+
+  .phone {
+    height: 196px;
+  }
+}
+
+/* Desktop: the lead outcome is a tall panel, the two others stack beside it */
+@media (min-width: 960px) {
+  .stage[data-count="3"] {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: clamp(1rem, 1.6vw, 1.5rem);
+  }
+
+  .stage[data-count="3"] .featured {
+    grid-row: 1 / span 2;
+  }
+
+  .featured .benefit {
+    gap: 2rem;
+    padding: clamp(2rem, 3vw, 2.75rem);
+  }
+
+  .featured .visual {
+    margin-top: auto;
+  }
+}
+
+/* ================= APPLICATIONS ================= */
+.apps {
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.appsTitle {
+  margin: 0;
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  line-height: var(--kosick-subsection-title-leading);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+}
+
+.appGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.6rem;
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.appSlot {
+  display: flex;
+}
+
+/* Scenario tiles: translucent on the stone surface, so they sit back from the white outcome panels. Mobile: icon beside the copy. */
+.app {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.3rem;
+  align-content: start;
+  width: 100%;
+  padding: 1rem 1.1rem 1.1rem 1rem;
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-sm);
+  background: rgba(255, 255, 255, 0.55);
+  transition:
+    background-color 320ms var(--ease),
+    border-color 320ms var(--ease),
+    transform 320ms var(--ease);
+}
+
+.appIcon {
+  grid-row: 1 / span 2;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid transparent;
+  border-radius: var(--ind-badge-radius, 3px);
+  background: var(--ind-tint);
+  color: var(--ind-label);
+  transition:
+    background-color 320ms var(--ease),
+    border-color 320ms var(--ease),
+    color 320ms var(--ease),
+    transform 320ms var(--ease);
+}
+
+.appTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.appBody {
+  margin: 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.55;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .app:hover {
+    transform: translateY(-3px);
+    border-color: rgba(226, 83, 45, 0.4);
+    background: #ffffff;
+  }
+
+  .app:hover .appIcon {
+    border-color: var(--ind-accent);
+    background: var(--ind-accent);
+    color: var(--ind-on-accent);
+    transform: translateY(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app,
+  .appIcon {
+    transition: none;
+  }
+
+  .app:hover,
+  .app:hover .appIcon {
+    transform: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .appGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+/* Desktop: four tiles in a row, icon above the copy */
+@media (min-width: 1080px) {
+  .appGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.6rem;
+    padding: 1.5rem 1.4rem 1.6rem;
+  }
+
+  .appIcon {
+    grid-row: auto;
+    margin-bottom: 0.65rem;
+  }
+
+  .appBody {
+    font-size: var(--kosick-body-size);
+  }
+}

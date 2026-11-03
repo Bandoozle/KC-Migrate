@@ -79,8 +79,6 @@ const SPOKES: Array<[number, number]> = [
 /* The metrics the reporting copy names, in the order a search becomes revenue */
 const MEASURES = ["Keyword rankings", "Organic traffic", "Conversions", "Return on investment"];
 
-const QUERIES = ["services near me", "best local provider", "how much does it cost", "open now", "reviews"];
-
 function findCard(cards: ServiceInfoCard[], pattern: RegExp) {
   return cards.find((card) => pattern.test(card.title));
 }
@@ -212,12 +210,6 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
               </div>
             ) : null}
           </div>
-        </div>
-        {/* Queries drifting along the bottom of the hero, as texture */}
-        <div className={styles.queryRow} aria-hidden="true">
-          {[...QUERIES, ...QUERIES].map((query, index) => (
-            <span key={`${query}-${index}`}>&ldquo;{query}&rdquo;</span>
-          ))}
         </div>
       </header>
 

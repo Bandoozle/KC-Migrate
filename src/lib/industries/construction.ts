@@ -140,10 +140,7 @@ export const CONSTRUCTION: Industry = {
         { src: `${UP}/2023/09/construction-marketing.png`, alt: "A finished bedroom with built-in bunk beds and the Padwood Construction logo" },
         { src: `${UP}/2023/06/real-estate.jpeg`, alt: "A bright living room opening onto a view of the ocean" },
       ],
-      related: [
-        { label: "Website development & e-commerce", href: "/services/website-development/" },
-        { label: "Search engine optimization", href: "/services/search-engine-optimization/" },
-      ],
+      related: [],
     },
     {
       slug: "social-media",
@@ -220,10 +217,7 @@ export const CONSTRUCTION: Industry = {
         { src: `${UP}/2023/06/real-estate-design-1.jpg`, alt: "A modern home with a glass balcony above a pool" },
         { src: `${UP}/2026/06/social-media-content-marketing-1.jpg`, alt: "A social media analytics dashboard on a laptop" },
       ],
-      related: [
-        { label: "Social media marketing", href: "/services/social-media-marketing/" },
-        { label: "Digital marketing", href: "/services/digital-marketing/" },
-      ],
+      related: [],
     },
     {
       slug: "content-development",
@@ -300,10 +294,7 @@ export const CONSTRUCTION: Industry = {
         { src: `${UP}/2023/06/services.jpg`, alt: "A rendering of a modern timber and stone home in tall grass" },
         { src: `${UP}/2023/06/real-estate.jpeg`, alt: "A bright living room opening onto a view of the ocean" },
       ],
-      related: [
-        { label: "Creative & production", href: "/services/creative/" },
-        { label: "Search engine optimization", href: "/services/search-engine-optimization/" },
-      ],
+      related: [],
     },
   ],
 };

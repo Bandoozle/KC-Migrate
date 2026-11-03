@@ -8,6 +8,7 @@ import { serviceHeroActions } from "@/lib/content/industry-heroes";
 import { servicePath, type Industry, type IndustryId, type IndustryService } from "@/lib/industries";
 import { canonicalUrl } from "@/lib/site";
 import { Breadcrumbs } from "./Breadcrumbs";
+import { HvacOutcomes } from "./HvacOutcomes";
 import { IndustryIntro } from "./IndustryIntro";
 import "@/styles/industry-themes.css";
 import styles from "./IndustryServicePage.module.css";
@@ -224,7 +225,10 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
         </div>
       </section>
 
-      {/* Benefits and where the service is used */}
+      {/* Benefits and where the service is used. HVAC sets them as outcome panels and scenario tiles. */}
+      {industry.id === "hvac" ? (
+        <HvacOutcomes benefits={service.benefits} applications={service.applications} />
+      ) : (
       <section className={styles.benefits} aria-labelledby="svc-benefits">
         <div className="container">
           <p className={styles.label}>Benefits</p>
@@ -242,13 +246,15 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
           <div className={styles.applications}>
             <h3 className={styles.applicationsTitle}>Real-world applications</h3>
             <ul>
-              {service.applications.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
+              {service.applications.map((item) => {
+                const text = typeof item === "string" ? item : item.body;
+                return <li key={text}>{text}</li>;
+              })}
             </ul>
           </div>
         </div>
       </section>
+      )}
 
       {/* Approach: how Kosick runs the service */}
       <section className={styles.approach} aria-labelledby="svc-approach">
@@ -265,7 +271,7 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
         </div>
       </section>
 
-      {/* Related: the other services for this industry, then Kosick's general pages */}
+      {/* Related: the other services for this industry, then contextual guides and services elsewhere on the site */}
       <section className={styles.related} aria-labelledby="svc-related">
         <div className="container">
           <p className={styles.label}>Related services</p>
@@ -286,7 +292,22 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
               </li>
             ))}
             <li>
-              <Link href={industry.path} className={`${styles.relatedCard} ${styles.relatedHome}`}>
+              <Link
+                href={industry.path}
+                className={`${styles.relatedCard} ${styles.relatedHome} ${industry.id === "hvac" ? styles.relatedHomePhoto : ""}`}
+              >
+                {industry.id === "hvac" ? (
+                  <span className={styles.relatedHomeMedia} aria-hidden="true">
+                    <Image
+                      src={industry.directory.image.src}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1080px) 30vw, (min-width: 720px) 45vw, 100vw"
+                      className={styles.cover}
+                      style={industry.directory.image.position ? { objectPosition: industry.directory.image.position } : undefined}
+                    />
+                  </span>
+                ) : null}
                 <span className={styles.relatedName}>All {industry.name} services</span>
                 <span className={styles.relatedLine}>Every service for {industry.noun} clients, in one place.</span>
                 <span className={styles.relatedMore}>
@@ -297,14 +318,18 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
             </li>
           </ul>
           {service.related.length > 0 ? (
-            <div className={styles.further}>
-              <h3 className={styles.furtherTitle}>Also from Kosick</h3>
-              <ul>
+            <div className={styles.explore}>
+              <h3 className={styles.exploreTitle}>Continue exploring</h3>
+              <ul className={styles.exploreGrid} data-count={service.related.length}>
                 {service.related.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className={styles.textLink}>
-                      {link.label}
-                      <ArrowIcon />
+                    <Link href={link.href} className={styles.exploreTile}>
+                      <span className={styles.exploreKind}>{link.kind === "guide" ? "Guide" : "Kosick service"}</span>
+                      <span className={styles.exploreName}>{link.label}</span>
+                      <span className={styles.exploreBody}>{link.body}</span>
+                      <span className={styles.exploreArrow}>
+                        <ArrowIcon />
+                      </span>
                     </Link>
                   </li>
                 ))}

@@ -97,8 +97,8 @@ export const MEDICAL_DENTAL: Industry = {
         { src: `${UP}/2026/07/Dental-Vancouver.jpg`, alt: "A dental spa reception with a gold tooth sculpture on the counter" },
       ],
       related: [
-        { label: "Website development & e-commerce", href: "/services/website-development/" },
-        { label: "Dental marketing article", href: "/blog-dental-marketing/" },
+        { label: "Dental Marketing in Vancouver", href: "/blog-dental-marketing/", kind: "guide", body: "Websites, social and search for practices that want more new patients." },
+        { label: "Website Development & E-commerce", href: "/services/website-development/", kind: "service", body: "Custom WordPress and e-commerce builds, with design and ongoing support." },
       ],
     },
     {
@@ -178,9 +178,9 @@ export const MEDICAL_DENTAL: Industry = {
         { src: `${UP}/2026/06/dental-marketing.jpg`, alt: "A dental hygienist preparing to treat a patient" },
       ],
       related: [
-        { label: "Search engine optimization", href: "/services/search-engine-optimization/" },
-        { label: "Digital marketing", href: "/services/digital-marketing/" },
-        { label: "Medical marketing in Vancouver", href: "/medical-marketing-vancouver/" },
+        { label: "Medical Marketing for Clinics", href: "/medical-marketing-vancouver/", kind: "guide", body: "Branding, media and social for aesthetics and dental clinics." },
+        { label: "Search Engine Optimization", href: "/services/search-engine-optimization/", kind: "service", body: "Organic rankings that bring qualified leads to the pages you build." },
+        { label: "Digital Marketing", href: "/services/digital-marketing/", kind: "service", body: "Google Ads, paid social and pre-roll, measured against results." },
       ],
     },
     {
@@ -258,10 +258,7 @@ export const MEDICAL_DENTAL: Industry = {
         { src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`, alt: "SkinCeuticals serums lined up with a dropper above them" },
         { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
       ],
-      related: [
-        { label: "Social media marketing", href: "/services/social-media-marketing/" },
-        { label: "Email marketing", href: "/services/email-marketing/" },
-      ],
+      related: [],
     },
     {
       slug: "video-tv-billboard-advertising",
@@ -339,11 +336,7 @@ export const MEDICAL_DENTAL: Industry = {
         { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
         { src: `${UP}/2026/07/Vancouver-Dental-Marketing.jpg`, alt: "A dental instrument tray with protective glasses" },
       ],
-      related: [
-        { label: "Television advertising", href: "/services/television-advertising/" },
-        { label: "Outdoor advertising", href: "/services/outdoor-advertising/" },
-        { label: "Creative & production", href: "/services/creative/" },
-      ],
+      related: [],
     },
   ],
 };

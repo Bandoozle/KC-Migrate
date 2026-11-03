@@ -141,10 +141,7 @@ export const SPECIALTY_RETAIL: Industry = {
         { src: `${UP}/2026/07/Garden-Centre-Nursery-Marketing.jpg`, alt: "A garden centre website on a laptop beside a vase of olive branches" },
         { src: `${UP}/2025/08/mobile-responsive-website-design.jpeg`, alt: "A retailer's website open on a tablet in a stand" },
       ],
-      related: [
-        { label: "Website development & e-commerce", href: "/services/website-development/" },
-        { label: "Search engine optimization", href: "/services/search-engine-optimization/" },
-      ],
+      related: [],
     },
     {
       slug: "social-media",
@@ -220,10 +217,7 @@ export const SPECIALTY_RETAIL: Industry = {
         { src: `${UP}/2026/08/Social-Media.jpg`, alt: "Garden centre Instagram posts of flowers and a succulent planter" },
         { src: `${UP}/2026/06/social-media-advertising.jpg`, alt: "A retailer's Instagram profile on a phone resting on a laptop" },
       ],
-      related: [
-        { label: "Social media marketing", href: "/services/social-media-marketing/" },
-        { label: "Email marketing", href: "/services/email-marketing/" },
-      ],
+      related: [],
     },
     {
       slug: "radio-advertising",
@@ -301,8 +295,8 @@ export const SPECIALTY_RETAIL: Industry = {
         { src: `${UP}/2021/07/audio-recording.jpg`, alt: "A studio microphone in a recording booth" },
       ],
       related: [
-        { label: "Radio advertising", href: "/services/radio-advertising/" },
-        { label: "Media buying in Canada", href: "/blog-media-buying-canada-tv-streaming-radio/" },
+        { label: "Media Buying: TV, Streaming & Radio", href: "/blog-media-buying-canada-tv-streaming-radio/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
+        { label: "Radio Advertising", href: "/services/radio-advertising/", kind: "service", body: "FM and streaming audio campaigns that build frequency." },
       ],
     },
     {
@@ -380,10 +374,7 @@ export const SPECIALTY_RETAIL: Industry = {
         { src: `${UP}/2023/06/print-ads.jpg`, alt: "A printed magazine layout open on a table" },
         { src: `${UP}/2023/06/MBYMockupcards2.jpeg`, alt: "MBY Interiors business cards fanned on a wooden surface" },
       ],
-      related: [
-        { label: "Creative & production", href: "/services/creative/" },
-        { label: "Corporate branding", href: "/services/corporate-branding/" },
-      ],
+      related: [],
     },
   ],
 };

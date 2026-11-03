@@ -63,19 +63,24 @@
   background: var(--ind-surface);
 }
 
+/* Caption led by a sharp red folio badge, like a poster number */
 .caption {
   display: grid;
-  gap: 0.2rem;
-  margin: 0.6rem 0 0;
-  padding-top: 0.5rem;
-  border-top: 3px solid var(--ind-accent);
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 0.55rem;
+  margin: 0.7rem 0 0;
   font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.3;
 }
 
 .captionIndex {
-  color: var(--ind-accent);
+  padding: 0.15rem 0.4rem;
+  background: var(--ind-accent);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .close {
