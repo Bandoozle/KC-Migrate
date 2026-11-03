@@ -8,9 +8,8 @@
   grid-template-rows: repeat(4, minmax(0, 1fr));
   gap: 12px;
   margin: 0;
-  min-height: 840px;
-  aspect-ratio: 16 / 11;
-  max-height: 920px;
+  /* A fixed height band: min-height plus aspect-ratio would widen the grid past the page below ~1,260px */
+  height: clamp(840px, 62vw, 920px);
 }
 
 .card {
@@ -185,9 +184,7 @@
   .grid {
     grid-template-columns: 1fr;
     grid-template-rows: none;
-    min-height: 0;
-    aspect-ratio: auto;
-    max-height: none;
+    height: auto;
     gap: 10px;
   }
 

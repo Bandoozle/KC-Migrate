@@ -82,10 +82,10 @@
   gap: 0.85rem;
 }
 
-/* Long lists run in two columns under one heading */
+/* Long lists run in two columns under one heading; labels wrap rather than spill into the next column */
 .linkListSplit {
   display: grid;
-  grid-template-columns: repeat(2, max-content);
+  grid-template-columns: repeat(2, minmax(0, max-content));
   gap: 0.85rem 2.5rem;
 }
 
@@ -267,9 +267,25 @@
   }
 }
 
-@media (min-width: 640px) and (max-width: 1023px) {
+/* Small tablets: Services and Company side by side, newsletter on its own row */
+@media (min-width: 640px) and (max-width: 899px) {
   .grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr) minmax(0, 1.3fr);
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  }
+
+  .linkListSplit {
+    column-gap: 1.75rem;
+  }
+}
+
+/* Large tablets and small laptops: brand row above Services, Company and newsletter */
+@media (min-width: 900px) and (max-width: 1279px) {
+  .grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 0.9fr) minmax(0, 1.35fr);
+  }
+
+  .linkListSplit {
+    column-gap: 1.75rem;
   }
 
   .newsletterCol {
@@ -283,6 +299,16 @@
     padding-bottom: 2.25rem;
   }
 
+  .bottom {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 3.5rem;
+  }
+}
+
+/* Four columns once Services has room for its two link columns */
+@media (min-width: 1280px) {
   .grid {
     grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.6fr) minmax(0, 0.9fr) minmax(0, 1.35fr);
     gap: 0;
@@ -303,13 +329,6 @@
   .newsletterCol {
     grid-column: auto;
     padding-right: 0;
-  }
-
-  .bottom {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 3.5rem;
   }
 }
 
