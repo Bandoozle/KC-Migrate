@@ -7,7 +7,7 @@ Moving www.kosick.com from WordPress to the Next.js site on Vercel. Recorded 3 N
 | Item | Value |
 | --- | --- |
 | Production URL | https://kc-migrate.vercel.app |
-| Production deployment | `dpl_DaNkHAN3McNfPpS1JavvXFfnByBU`, commit `a907866` on `main` (plus any later docs-only commits) |
+| Production deployment | `dpl_9nbMpbU44LGNNtp55pUScdxqRPxg`, commit `91b093d` on `main` (later commits that only change this runbook don't change the site) |
 | Vercel project | `kc-migrate` in team `bandoozles-projects` (Hobby plan, see §2) |
 | Production branch | `main`. The release branch `release/vercel-preview-2026-10-22` is identical. |
 | Custom domains on the project | None. `kosick.com` is registered in the Vercel team but not attached. |
