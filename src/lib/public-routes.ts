@@ -1,5 +1,6 @@
 import { localArticleSlugs } from "@/lib/content/local-articles";
 import { INDUSTRY_PAGE_PATHS } from "@/lib/industries";
+import { PRIVACY_POLICY_PATH, PRIVACY_POLICY_PUBLISHED } from "@/lib/privacy-policy";
 
 /**
  * The public page inventory. Native routes are listed so the sitemap and the
@@ -50,6 +51,8 @@ const publicPaths = new Set<string>([
   // New industry pages and every industry service subpage (src/lib/industries)
   ...INDUSTRY_PAGE_PATHS,
   ...PUBLIC_ARTICLE_SLUGS.map((slug) => `/${slug}/`),
+  // Indexable once approved; until then a noindex draft (src/lib/privacy-policy.ts)
+  ...(PRIVACY_POLICY_PUBLISHED ? [PRIVACY_POLICY_PATH] : []),
 ]);
 
 export function isPublicArticleSlug(slug: string): boolean {

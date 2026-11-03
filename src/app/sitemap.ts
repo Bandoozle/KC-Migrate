@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { INDUSTRY_PAGE_PATHS } from "@/lib/industries";
 import { isRedirectedPath } from "@/lib/legacy-redirects";
 import { isPublicPath } from "@/lib/public-routes";
+import { PRIVACY_POLICY_PATH, PRIVACY_POLICY_PUBLISHED } from "@/lib/privacy-policy";
 import { listIndexableUrls } from "@/lib/seo/rank-math";
 import { canonicalUrl } from "@/lib/site";
 
@@ -13,6 +14,7 @@ export const revalidate = 3600;
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const captured = await listIndexableUrls();
-  const urls = [...new Set([...captured, ...INDUSTRY_PAGE_PATHS.map((path) => canonicalUrl(path))])];
+  const native = [...INDUSTRY_PAGE_PATHS, ...(PRIVACY_POLICY_PUBLISHED ? [PRIVACY_POLICY_PATH] : [])];
+  const urls = [...new Set([...captured, ...native.map((path) => canonicalUrl(path))])];
   return urls.filter((url) => isPublicPath(url) && !isRedirectedPath(url)).map((url) => ({ url }));
 }

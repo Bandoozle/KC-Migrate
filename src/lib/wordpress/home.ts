@@ -1,5 +1,4 @@
 import { cache } from "react";
-import { getWordPressUrl } from "@/lib/wordpress";
 
 export type HomeBentoItem = {
   titlePrimary: string;
@@ -114,7 +113,6 @@ export type HomePageContent = {
     form: {
       postId: string;
       formId: string;
-      ajaxUrl: string;
       fields: {
         name: string;
         email: string;
@@ -416,7 +414,6 @@ const HOME_CONTENT: HomePageContent = {
     form: {
       postId: "11283",
       formId: "11283-cpt-id",
-      ajaxUrl: "",
       fields: {
         name: "field652327-6b",
         email: "field4d218f-d3",
@@ -430,16 +427,4 @@ const HOME_CONTENT: HomePageContent = {
 };
 
 /** Typed homepage content — parity constants from the live WP homepage / island data. */
-export const getHomePageContent = cache(async (): Promise<HomePageContent> => {
-  const origin = getWordPressUrl();
-  return {
-    ...HOME_CONTENT,
-    contact: {
-      ...HOME_CONTENT.contact,
-      form: {
-        ...HOME_CONTENT.contact.form,
-        ajaxUrl: `${origin}/wp-admin/admin-ajax.php`,
-      },
-    },
-  };
-});
+export const getHomePageContent = cache(async (): Promise<HomePageContent> => HOME_CONTENT);

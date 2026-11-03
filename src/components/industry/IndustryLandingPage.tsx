@@ -1,6 +1,7 @@
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import type { Industry, IndustryLanding } from "@/lib/industries";
+import { servicePath, type Industry, type IndustryLanding } from "@/lib/industries";
+import { canonicalUrl } from "@/lib/site";
 import { IndustryIntro } from "./IndustryIntro";
 import { IndustryOffers } from "./IndustryOffers";
 import { IndustryReasons } from "./IndustryReasons";
@@ -9,6 +10,42 @@ import "@/styles/industry-themes.css";
 import styles from "./IndustryLandingPage.module.css";
 
 const PHONE = { label: "604.925.5800", href: "tel:+16049255800" };
+
+/* These pages have no Rank Math record, so their structured data is written here */
+function landingJsonLd(industry: Industry & { landing: IndustryLanding }) {
+  const url = canonicalUrl(industry.path);
+  const organization = { "@type": "Organization", name: "Kosick Communications", url: canonicalUrl("/") };
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${url}#service`,
+        name: industry.name,
+        description: industry.landing.seo.description,
+        url,
+        areaServed: "CA",
+        provider: organization,
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: industry.name,
+          itemListElement: industry.services.map((service) => ({
+            "@type": "Offer",
+            itemOffered: { "@type": "Service", name: service.title, url: canonicalUrl(servicePath(industry, service)) },
+          })),
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: canonicalUrl("/") },
+          { "@type": "ListItem", position: 2, name: "Marketing Programs", item: canonicalUrl("/marketing-programs/") },
+          { "@type": "ListItem", position: 3, name: industry.name, item: url },
+        ],
+      },
+    ],
+  };
+}
 
 type IndustryLandingPageProps = {
   industry: Industry & { landing: IndustryLanding };
@@ -21,6 +58,10 @@ export function IndustryLandingPage({ industry }: IndustryLandingPageProps) {
 
   return (
     <main className={`${styles.page} industry-${industry.id}`}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(landingJsonLd(industry)).replace(/</g, "\\u003c") }}
+      />
       <ServiceHero
         title={industry.name}
         hero={{

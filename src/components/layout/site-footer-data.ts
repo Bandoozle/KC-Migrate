@@ -1,3 +1,5 @@
+import { PRIVACY_POLICY_PATH, PRIVACY_POLICY_PUBLISHED } from "@/lib/privacy-policy";
+
 export type FooterLink = {
   label: string;
   href: string;
@@ -65,6 +67,8 @@ export const SITE_FOOTER_COMPANY: FooterColumn = {
 export const SITE_FOOTER_UTILITY: FooterLink[] = [
   { label: "Pay your invoice online", href: "/online-payments/" },
   { label: "Site map", href: "/site-map/" },
+  // Linked once the policy is approved (src/lib/privacy-policy.ts)
+  ...(PRIVACY_POLICY_PUBLISHED ? [{ label: "Privacy policy", href: PRIVACY_POLICY_PATH }] : []),
 ];
 
 export const SITE_FOOTER_NEWSLETTER = {
