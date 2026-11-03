@@ -1,8 +1,10 @@
 import { NextResponse } from "next/server";
-import { getWordPressUrl } from "@/lib/wordpress";
+import { relayToWordPress } from "@/lib/wordpress-relay";
 import { RATE_LIMITS, rateLimited } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+
+const OUTCOME_TIMEOUT_MS = 5_000;
 
 export async function POST(request: Request) {
   const limited = rateLimited(request, RATE_LIMITS.chatOutcome);
@@ -23,17 +25,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Missing fields." }, { status: 400 });
   }
 
-  try {
-    await fetch(`${getWordPressUrl()}/wp-json/aca/v1/conversation/outcome`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ sessionId, outcome }),
-      cache: "no-store",
-      keepalive: true,
-    });
-  } catch {
-    // Fire-and-forget analytics; don't fail the client UX.
-  }
+  // Analytics only: a slow or failed write is logged by the relay but never fails the visitor
+  await relayToWordPress({
+    route: "aca/v1/conversation/outcome",
+    body: { sessionId, outcome },
+    timeoutMs: OUTCOME_TIMEOUT_MS,
+    fallbackError: "",
+    label: "outcome",
+  });
 
   return NextResponse.json({ ok: true });
 }

@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
-import { getWordPressUrl } from "@/lib/wordpress";
+import { relayToWordPress } from "@/lib/wordpress-relay";
 import { RATE_LIMITS, rateLimited } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+export const maxDuration = 30;
+
+// Covers the plugin saving the lead and sending its notification email
+const LEAD_TIMEOUT_MS = 20_000;
 
 type LeadBody = {
   name?: string;
@@ -47,32 +51,18 @@ export async function POST(request: Request) {
     sessionId: clean(body.sessionId, 120),
   };
 
-  const endpoint = `${getWordPressUrl()}/wp-json/aca/v1/lead`;
+  const result = await relayToWordPress({
+    route: "aca/v1/lead",
+    body: payload,
+    timeoutMs: LEAD_TIMEOUT_MS,
+    fallbackError:
+      "We could not send your details just now. Please try again, or call us at 604-925-5800.",
+    label: "lead",
+  });
 
-  try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(payload),
-      cache: "no-store",
-    });
-    const data = (await response.json().catch(() => null)) as Record<
-      string,
-      unknown
-    > | null;
-
-    if (!response.ok) {
-      return NextResponse.json(
-        { error: (data?.error as string) || "Lead submission failed." },
-        { status: response.status >= 400 ? response.status : 502 },
-      );
-    }
-
-    return NextResponse.json({ ok: true, ...(data || {}) });
-  } catch {
-    return NextResponse.json(
-      { error: "Unable to submit lead." },
-      { status: 502 },
-    );
+  if (!result.ok) {
+    return NextResponse.json({ error: result.error }, { status: result.status });
   }
+
+  return NextResponse.json({ ok: true, ...result.data });
 }

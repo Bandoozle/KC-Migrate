@@ -1,8 +1,12 @@
 import { NextResponse } from "next/server";
-import { getWordPressUrl } from "@/lib/wordpress";
+import { relayToWordPress } from "@/lib/wordpress-relay";
 import { RATE_LIMITS, rateLimited } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
+// The plugin waits up to 30s on its AI call; leave room for the relay timeout below
+export const maxDuration = 40;
+
+const CHAT_TIMEOUT_MS = 32_000;
 
 type ChatMessage = { role: "user" | "assistant"; content: string };
 
@@ -55,35 +59,28 @@ export async function POST(request: Request) {
       ? body.pageUrl
       : undefined;
 
-  const endpoint = `${getWordPressUrl()}/wp-json/aca/v1/chat`;
+  const result = await relayToWordPress({
+    route: "aca/v1/chat",
+    body: { messages, sessionId, pageUrl },
+    timeoutMs: CHAT_TIMEOUT_MS,
+    fallbackError:
+      "Sorry, the assistant is not available right now. Please try again in a moment, or call us at 604-925-5800.",
+    exposeServerErrors: true,
+    label: "chat",
+  });
 
-  try {
-    const response = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({ messages, sessionId, pageUrl }),
-      cache: "no-store",
-    });
-    const data = (await response.json().catch(() => null)) as Record<
-      string,
-      unknown
-    > | null;
+  if (!result.ok) {
+    return NextResponse.json({ error: result.error }, { status: result.status });
+  }
 
-    if (!response.ok) {
-      return NextResponse.json(
-        { error: (data?.error as string) || "Chat request failed." },
-        { status: response.status === 403 ? 502 : response.status },
-      );
-    }
-
-    return NextResponse.json({
-      reply: typeof data?.reply === "string" ? data.reply : "",
-      cta: data?.cta ?? null,
-    });
-  } catch {
+  const reply = typeof result.data.reply === "string" ? result.data.reply : "";
+  if (!reply.trim()) {
+    console.error("[wordpress-relay] chat returned an empty reply");
     return NextResponse.json(
-      { error: "Unable to reach chat service." },
+      { error: "Sorry, something went wrong. Please try again." },
       { status: 502 },
     );
   }
+
+  return NextResponse.json({ reply, cta: result.data.cta ?? null });
 }

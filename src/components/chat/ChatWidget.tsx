@@ -14,11 +14,11 @@ import "@/styles/aca-widget.css";
 
 type ChatRole = "user" | "assistant";
 type ChatMessage = { role: ChatRole; content: string };
+/** The reply's CTA as both backends return it: { type: "call", label, value } or { type: "form", label }. */
 type ChatCta = {
   type?: string;
   label?: string;
-  phone?: string;
-  href?: string;
+  value?: string;
 } | null;
 
 type ChatWidgetConfig = {
@@ -418,32 +418,34 @@ export function ChatWidget({ config = DEFAULT_CONFIG }: { config?: Partial<ChatW
                 </div>
               </div>
             ) : null}
-            {!busy && lastCta ? (
+            {/* One button per reply, chosen by the reply's CTA (as the plugin's widget renders it).
+                The server already turns a call into the lead form outside business hours. */}
+            {!busy && lastCta?.type === "call" && cfg.enablePhoneCta ? (
               <div className="aca-cta-row">
-                {cfg.enablePhoneCta ? (
-                  <a
-                    className="aca-cta-btn"
-                    href={phoneHref(cfg.phoneNumber)}
-                    // TrackedLinkDelegation already records tel: clicks site-wide
-                    onClick={() => {
-                      void trackOutcome("called");
-                    }}
-                  >
-                    {cfg.phoneCtaLabel}
-                  </a>
-                ) : null}
-                {cfg.enableFormCta ? (
-                  <button
-                    type="button"
-                    className="aca-cta-btn"
-                    onClick={() => {
-                      void trackOutcome("opened_form");
-                      setLeadOpen(true);
-                    }}
-                  >
-                    {cfg.formCtaLabel}
-                  </button>
-                ) : null}
+                <a
+                  className="aca-cta-btn"
+                  href={phoneHref(lastCta.value || cfg.phoneNumber)}
+                  // TrackedLinkDelegation already records tel: clicks site-wide
+                  onClick={() => {
+                    void trackOutcome("called");
+                  }}
+                >
+                  {lastCta.label || cfg.phoneCtaLabel}
+                </a>
+              </div>
+            ) : null}
+            {!busy && lastCta?.type === "form" && cfg.enableFormCta ? (
+              <div className="aca-cta-row">
+                <button
+                  type="button"
+                  className="aca-cta-btn"
+                  onClick={() => {
+                    void trackOutcome("opened_form");
+                    setLeadOpen(true);
+                  }}
+                >
+                  {lastCta.label || cfg.formCtaLabel}
+                </button>
               </div>
             ) : null}
           </div>
