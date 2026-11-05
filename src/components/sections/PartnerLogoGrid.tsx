@@ -179,7 +179,6 @@ export function PartnerLogoGrid({ section }: PartnerLogoGridProps) {
                     decoding="async"
                   />
                 </div>
-                <span className={styles.label}>{name}</span>
               </Reveal>
             );
           })}

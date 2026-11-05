@@ -210,7 +210,7 @@ export function MarketingProgramDirectory() {
             <div className={styles.campaignFoot}>
               <p>Sparkle Dental Spa: transit, website, social and mobile, all live work.</p>
               <Link href="/services/dental-marketing/" className={styles.textLink}>
-                Medical &amp; Dental Marketing
+                Dental Marketing
                 <ArrowIcon />
               </Link>
             </div>

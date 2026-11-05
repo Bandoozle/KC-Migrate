@@ -47,16 +47,25 @@ function ProjectPhoto({
   );
 }
 
-function ProjectCopy({ item }: { item: MarketingResultWork }) {
+function discussLabel(href: string | null) {
+  return href && href.startsWith("/services/") ? "Explore this work" : "Discuss this work";
+}
+
+function ProjectCopy({ item, linked = false }: { item: MarketingResultWork; linked?: boolean }) {
+  const label = discussLabel(item.href);
   return (
     <div className={styles.copy}>
       <p className={styles.kicker}>{labelCase(solutionLabel(item))}</p>
       <h3 className={styles.title}>{item.displayTitle}</h3>
       <p className={styles.summary}>{item.summary}</p>
       {item.href ? (
-        <Link href={item.href} className={styles.discuss}>
-          Discuss this work
-        </Link>
+        linked ? (
+          <span className={styles.discuss}>{label}</span>
+        ) : (
+          <Link href={item.href} className={styles.discuss}>
+            {label}
+          </Link>
+        )
       ) : null}
     </div>
   );
@@ -113,13 +122,27 @@ export function MarketingResultsPortfolio({ work }: { work: MarketingResultWork[
           <div className={styles.stage}>
             {featured.map((item, index) => (
               <article key={item.id} className={styles.panel} data-project={item.id}>
-                <ProjectPhoto
-                  item={item}
-                  className={styles.panelMedia}
-                  sizes="(max-width: 767px) 100vw, (max-width: 1179px) 50vw, 34vw"
-                  priority={index === 0}
-                />
-                <ProjectCopy item={item} />
+                {item.href ? (
+                  <Link href={item.href} className={styles.panelLink}>
+                    <ProjectPhoto
+                      item={item}
+                      className={styles.panelMedia}
+                      sizes="(max-width: 767px) 100vw, (max-width: 1179px) 50vw, 34vw"
+                      priority={index === 0}
+                    />
+                    <ProjectCopy item={item} linked />
+                  </Link>
+                ) : (
+                  <>
+                    <ProjectPhoto
+                      item={item}
+                      className={styles.panelMedia}
+                      sizes="(max-width: 767px) 100vw, (max-width: 1179px) 50vw, 34vw"
+                      priority={index === 0}
+                    />
+                    <ProjectCopy item={item} />
+                  </>
+                )}
               </article>
             ))}
           </div>

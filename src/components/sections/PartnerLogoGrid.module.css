@@ -26,28 +26,24 @@
 
 .card {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.65rem;
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
-  min-height: 128px;
+  min-height: 7rem;
   margin: 0;
-  padding: 1rem 0.85rem 0.85rem;
+  padding: 1rem 0.85rem;
   background: #ffffff;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
   box-shadow: none;
-  text-align: center;
 }
 
 .logoWrap {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1 1 auto;
   width: 100%;
   min-height: 3.25rem;
 }
@@ -64,22 +60,6 @@
   opacity: 1;
 }
 
-.label {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-  width: 100%;
-  max-width: 11rem;
-  margin: 0;
-  color: #111111;
-  font-size: var(--kosick-meta-size);
-  font-weight: var(--kosick-meta-weight);
-  line-height: var(--kosick-meta-leading);
-  letter-spacing: -0.01em;
-  text-wrap: balance;
-}
-
 @media (max-width: 1100px) {
   .grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -93,8 +73,8 @@
   }
 
   .card {
-    min-height: 118px;
-    padding: 0.85rem 0.65rem 0.75rem;
+    min-height: 6.5rem;
+    padding: 0.85rem 0.65rem;
   }
 
   .logo {

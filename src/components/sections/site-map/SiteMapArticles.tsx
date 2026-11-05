@@ -10,7 +10,7 @@ const TOPICS: Array<{ title: string; test: RegExp }> = [
   { title: "HVAC & home services", test: /hvac|home services|fortisbc/i },
   { title: "Social & digital", test: /social|tiktok|amazon|ga4|digital marketing/i },
   { title: "Golf", test: /golf|tee times/i },
-  { title: "Dental & medical", test: /dental|medical/i },
+  { title: "Dental & medical aesthetics", test: /dental|medical|aesthetics/i },
   { title: "Advertising & media buying", test: /television|tv advertising|connected tv|media buy|outdoor advertising|sponsorship/i },
   { title: "Brand, web & growth", test: /branding|web development|seo|lead generation/i },
 ];

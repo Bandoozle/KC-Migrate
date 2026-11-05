@@ -33,12 +33,24 @@ export const MARKETING_SOLUTIONS: Array<{
   { id: "traditional", label: "Traditional Advertising", short: "Traditional" },
 ];
 
-const FEATURED_IDS = ["real-estate-developments", "hvac-services", "medical-aesthetics"];
+/** Featured stage: Dental left, HVAC centre, Construction right. */
+const FEATURED_IDS = ["dental", "hvac-services", "residential-construction"];
+
+/** Result cards link to industry pages when those pages already exist. */
+const INDUSTRY_HREFS: Record<string, string> = {
+  dental: "/services/dental-marketing/",
+  "hvac-services": "/services/hvac-marketing/",
+  "residential-construction": "/services/construction-marketing/",
+  "medical-aesthetics": "/services/medical-aesthetics-marketing/",
+  retail: "/services/retail-marketing/",
+  hearth: "/services/specialty-retail-marketing/",
+};
 
 const BROWSE_ORDER = [
-  "residential-construction",
+  "medical-aesthetics",
+  "real-estate-developments",
   "logistics-transportation",
-  "fashion",
+  "retail",
   "home-services",
   "luxury-automotive",
   "wealth-management",
@@ -47,6 +59,24 @@ const BROWSE_ORDER = [
   "petroleum",
   "auction-liquidation",
 ];
+
+/** Dental is not on the WordPress results grid; featured stage still needs it. */
+const DENTAL_FEATURED: MarketingResultWork = {
+  id: "dental",
+  displayTitle: "Dental",
+  href: INDUSTRY_HREFS.dental,
+  image: {
+    src: "/wp-content/uploads/2026/06/dental-marketing.jpg",
+    alt: "A dental hygienist preparing to treat a patient",
+  },
+  solutions: ["digital", "brand"],
+  summary: "Visibility, trust and booked appointments for growing dental practices.",
+  services: ["Local SEO", "Google Ads", "Websites", "Reputation"],
+  deliverable: "Dental practice photography published with this entry.",
+  outcome: null,
+  crop: "landscape",
+  imagePosition: "center 42%",
+};
 
 type WorkCopy = Omit<MarketingResultWork, "id" | "href" | "image">;
 
@@ -209,14 +239,19 @@ export function solutionLabel(item: MarketingResultWork): string {
   return match?.short || "Selected work";
 }
 
+function resolveHref(id: string, fallback: string | null): string | null {
+  return INDUSTRY_HREFS[id] ?? fallback;
+}
+
 export function classifyMarketingResults(projects: MarketingResultProject[]): MarketingResultWork[] {
   return projects.map((project) => {
     const copy = WORK_COPY[workKey(project.title)];
     if (!copy) {
+      const id = workId(project.title);
       return {
-        id: workId(project.title),
+        id,
         displayTitle: project.title,
-        href: project.href,
+        href: resolveHref(id, project.href),
         image: project.image,
         solutions: [],
         summary: project.image.alt || "Selected work published on the marketing results page.",
@@ -227,10 +262,11 @@ export function classifyMarketingResults(projects: MarketingResultProject[]): Ma
         imagePosition: "center",
       };
     }
+    const id = workId(copy.displayTitle);
     return {
       ...copy,
-      id: workId(copy.displayTitle),
-      href: project.href,
+      id,
+      href: resolveHref(id, project.href),
       image: project.image,
     };
   });
@@ -240,13 +276,14 @@ export function splitMarketingResults(work: MarketingResultWork[]): {
   featured: MarketingResultWork[];
   collection: MarketingResultWork[];
 } {
-  const featured = FEATURED_IDS.map((id) => work.find((item) => item.id === id)).filter(
+  const catalog = work.some((item) => item.id === "dental") ? work : [DENTAL_FEATURED, ...work];
+  const featured = FEATURED_IDS.map((id) => catalog.find((item) => item.id === id)).filter(
     (item): item is MarketingResultWork => Boolean(item),
   );
-  const chosen = featured.length > 0 ? featured : work.slice(0, 3);
+  const chosen = featured.length > 0 ? featured : catalog.slice(0, 3);
   const chosenIds = new Set(chosen.map((item) => item.id));
   const rank = new Map(BROWSE_ORDER.map((id, index) => [id, index]));
-  const collection = work
+  const collection = catalog
     .filter((item) => !chosenIds.has(item.id))
     .sort((a, b) => (rank.get(a.id) ?? 100) - (rank.get(b.id) ?? 100));
   return { featured: chosen, collection };

@@ -37,6 +37,22 @@
   background: #161616;
 }
 
+.panelLink {
+  display: grid;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+.panelLink:focus-visible {
+  outline: 2px solid #b6a37a;
+  outline-offset: 3px;
+}
+
+.panelLink:hover .discuss {
+  color: #b6a37a;
+}
+
 .panelMedia,
 .tileMedia {
   position: relative;

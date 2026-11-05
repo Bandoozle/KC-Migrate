@@ -146,7 +146,8 @@ function DesktopNavItem({
           id={panelId}
           className={[
             styles.dropdown,
-            item.groups && item.groups.length > 1 ? styles.dropdownColumns : "",
+            item.columns === 2 || (item.groups && item.groups.length > 1) ? styles.dropdownColumns : "",
+            item.columns === 2 ? styles.dropdownFlat : "",
           ]
             .filter(Boolean)
             .join(" ")}
@@ -171,36 +172,50 @@ function DesktopNavItem({
               ))}
             </div>
           ) : null}
-          <ul className={styles.dropdownList}>
-            {item.groups && item.groups.length > 1
-              ? null
-              : item.groups?.map((group) => (
-                  <li key={group.title} role="none" className={styles.dropdownGroup}>
-                    <p className={styles.dropdownGroupTitle}>{group.title}</p>
-                    <ul className={styles.dropdownList}>
-                      {group.items.map((child) => (
-                        <li key={child.href + child.label} role="none">
-                          <Link href={child.href} className={styles.dropdownLink} role="menuitem">
-                            {child.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                ))}
-            {item.items.map((child) => (
-              <li key={child.href + child.label} role="none">
-                <Link href={child.href} className={styles.dropdownLink} role="menuitem">
-                  {child.label}
-                </Link>
-              </li>
-            ))}
-            {item.viewAll ? (
-              <li role="none" className={styles.dropdownFooterItem}>
-                <FooterLink link={item.viewAll} className={styles.dropdownFooter} />
-              </li>
-            ) : null}
-          </ul>
+          {item.columns === 2 && item.items.length > 0 ? (
+            <ul className={`${styles.dropdownList} ${styles.dropdownFlatGrid}`}>
+              {item.items.map((child) => (
+                <li key={child.href + child.label} role="none">
+                  <Link href={child.href} className={styles.dropdownLink} role="menuitem">
+                    {child.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul className={styles.dropdownList}>
+              {item.groups && item.groups.length > 1
+                ? null
+                : item.groups?.map((group) => (
+                    <li key={group.title} role="none" className={styles.dropdownGroup}>
+                      <p className={styles.dropdownGroupTitle}>{group.title}</p>
+                      <ul className={styles.dropdownList}>
+                        {group.items.map((child) => (
+                          <li key={child.href + child.label} role="none">
+                            <Link href={child.href} className={styles.dropdownLink} role="menuitem">
+                              {child.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+              {item.columns === 2
+                ? null
+                : item.items.map((child) => (
+                    <li key={child.href + child.label} role="none">
+                      <Link href={child.href} className={styles.dropdownLink} role="menuitem">
+                        {child.label}
+                      </Link>
+                    </li>
+                  ))}
+            </ul>
+          )}
+          {item.viewAll ? (
+            <div className={styles.dropdownFooterBottom}>
+              <FooterLink link={item.viewAll} className={styles.dropdownFooter} />
+            </div>
+          ) : null}
         </div>
       ) : (
         <div

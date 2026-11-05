@@ -32,7 +32,7 @@ export const MARKETING_PROGRAM_GROUPS: MarketingProgramGroup[] = [
     id: "industry",
     title: "Industry Marketing",
     eyebrow: "Industry",
-    lead: "Programs built for HVAC, dental, and golf businesses.",
+    lead: "Programs built for HVAC, dental, medical aesthetics, and golf businesses.",
     programs: [
       {
         title: "HVAC Marketing",
@@ -47,6 +47,13 @@ export const MARKETING_PROGRAM_GROUPS: MarketingProgramGroup[] = [
           "Kosick Communications helps dental practices build stronger brands, attract new patients, and stay connected with their communities through integrated digital, traditional, and web marketing strategies.",
         href: "/services/dental-marketing/",
         image: MARKETING_PROGRAM_ASSETS.dental,
+      },
+      {
+        title: "Medical Aesthetics Marketing",
+        description:
+          "Marketing for medical aesthetics clinics like Skinfolio Medesthetics: websites, search, social and brand campaigns that fill treatment calendars and grow product sales.",
+        href: "/services/medical-aesthetics-marketing/",
+        image: MARKETING_PROGRAM_ASSETS.medicalAesthetics,
       },
       {
         title: "Golf Marketing",

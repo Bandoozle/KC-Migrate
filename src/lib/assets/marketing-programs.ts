@@ -12,6 +12,10 @@ export const MARKETING_PROGRAM_ASSETS = {
     src: "/images/marketing-programs/dental.jpg",
     alt: "Dental practice search advertising",
   },
+  medicalAesthetics: {
+    src: "/wp-content/uploads/2023/09/medical-aesthetics.png",
+    alt: "Skinfolio Medesthetics campaign creative",
+  },
   golf: {
     src: "/images/marketing-programs/golf.jpg",
     alt: "Golf course marketing",

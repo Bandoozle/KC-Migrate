@@ -17,7 +17,7 @@ export type NavLinkItem = {
   href: string;
 };
 
-/** Compact dropdown (single column of links). */
+/** Compact dropdown (single column of links, or a flat multi-column grid). */
 export type NavMenuItem = {
   type: "menu";
   label: string;
@@ -29,6 +29,8 @@ export type NavMenuItem = {
   viewAll?: NavLink;
   /** Labeled groups rendered above the flat items. */
   groups?: NavGroup[];
+  /** Flat item grid columns (e.g. 2 for the Advertising-style panel). */
+  columns?: 2;
 };
 
 /** Wide grouped mega menu. */
@@ -79,59 +81,69 @@ export const SITE_HEADER_SOCIAL = [
   },
 ] as const;
 
-/** Primary navigation — grouped mega-menu IA. */
+/** Primary navigation — top-level categories with two-column panels. */
 export const SITE_HEADER_NAV: NavItem[] = [
   {
-    type: "mega",
-    label: "Services",
-    groups: [
-      {
-        title: "Advertising & Media",
-        items: [
-          { label: "Television Advertising", href: "/services/television-advertising/" },
-          { label: "Radio Advertising", href: "/services/radio-advertising/" },
-          { label: "Outdoor Advertising", href: "/services/outdoor-advertising/" },
-          { label: "Digital Video Advertising", href: "/services/digital-connected-tv/" },
-        ],
-      },
-      {
-        title: "Brand & Creative",
-        items: [
-          { label: "Strategic Corporate Branding", href: "/services/corporate-branding/" },
-          { label: "Creative & Production", href: "/services/creative/" },
-          { label: "Business Development", href: "/services/business-development/" },
-        ],
-      },
-      {
-        title: "Events",
-        items: [{ label: "Corporate Events", href: "/corporate-events/" }],
-      },
+    type: "menu",
+    label: "Advertising",
+    columns: 2,
+    viewAll: {
+      label: "View All Services",
+      href: "/services/",
+    },
+    items: [
+      { label: "Television Advertising", href: "/services/television-advertising/" },
+      { label: "Radio Advertising", href: "/services/radio-advertising/" },
+      { label: "Digital Video Advertising", href: "/services/digital-connected-tv/" },
+      { label: "Billboards, Transit, Outdoor", href: "/services/outdoor-advertising/" },
     ],
-    footer: { label: "View All Services", href: "/services/" },
+  },
+  {
+    type: "menu",
+    label: "Strategic Branding",
+    columns: 2,
+    viewAll: {
+      label: "View All Services",
+      href: "/services/",
+    },
+    items: [
+      { label: "Strategic Corporate Branding", href: "/services/corporate-branding/" },
+      { label: "Creative & Production", href: "/services/creative/" },
+      { label: "Business Development", href: "/services/business-development/" },
+      { label: "Corporate Events", href: "/corporate-events/" },
+    ],
+  },
+  {
+    type: "menu",
+    label: "Digital",
+    columns: 2,
+    viewAll: {
+      label: "View All Services",
+      href: "/services/",
+    },
+    items: [
+      { label: "Digital Marketing", href: "/services/digital-marketing/" },
+      { label: "Social Media Marketing", href: "/services/social-media-marketing/" },
+      { label: "Email Marketing", href: "/services/email-marketing/" },
+      { label: "Search Engine Optimization", href: "/services/search-engine-optimization/" },
+    ],
   },
   {
     type: "menu",
     label: "Marketing Programs",
+    columns: 2,
     viewAll: {
       label: "View All Marketing Programs",
       href: "/marketing-programs/",
     },
-    groups: [
-      {
-        title: "Industry Marketing",
-        items: INDUSTRY_LINKS.map((link) => ({ ...link })),
-      },
-      {
-        title: "Digital Marketing",
-        items: [
-          { label: "Social Media Marketing", href: "/services/social-media-marketing/" },
-          { label: "Email Marketing", href: "/services/email-marketing/" },
-          { label: "Search Engine Optimization", href: "/services/search-engine-optimization/" },
-          { label: "Website Development & E-Commerce", href: "/services/website-development/" },
-        ],
-      },
+    items: INDUSTRY_LINKS.map((link) => ({ ...link })),
+  },
+  {
+    type: "menu",
+    label: "Web",
+    items: [
+      { label: "Website Development & E-Commerce", href: "/services/website-development/" },
     ],
-    items: [],
   },
   {
     type: "menu",

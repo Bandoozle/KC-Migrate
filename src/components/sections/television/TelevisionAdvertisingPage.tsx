@@ -255,8 +255,7 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
                 return (
                   <li key={`${logo.src}-${index}`} className={styles.brandTile}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={logo.src} alt="" />
-                    <span>{name}</span>
+                    <img src={logo.src} alt={name} />
                   </li>
                 );
               })}
