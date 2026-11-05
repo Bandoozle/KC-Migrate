@@ -27,6 +27,7 @@ export const PUBLIC_PAGE_PATHS = [
   "/services/corporate-branding/",
   "/services/creative/",
   "/services/dental-marketing/",
+  "/services/medical-aesthetics-marketing/",
   "/services/digital-connected-tv/",
   "/services/digital-marketing/",
   "/services/email-marketing/",

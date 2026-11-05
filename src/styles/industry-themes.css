@@ -9,19 +9,20 @@
  * construction, pills for specialty retail and travel).
  */
 .industry-hvac {
-  --ind-accent: #e2532d;
-  --ind-accent-deep: #b93d1d;
+  /* Steel, soot and furnace rust — built for a male-skewed trade audience */
+  --ind-accent: #e24a1c;
+  --ind-accent-deep: #9a2f10;
   --ind-on-accent: #ffffff;
-  --ind-label: #c2431f;
-  --ind-ink: #1a1310;
-  --ind-surface: #f6f1ec;
-  --ind-soft: #fbe3d9;
-  --ind-rule: rgba(26, 19, 16, 0.14);
-  --ind-badge-radius: 3px;
-  --ind-tint: rgba(226, 83, 45, 0.12);
+  --ind-label: #c43a12;
+  --ind-ink: #0d0d0d;
+  --ind-surface: #d9d6d1;
+  --ind-soft: #a8a29a;
+  --ind-rule: rgba(13, 13, 13, 0.18);
+  --ind-badge-radius: 2px;
+  --ind-tint: rgba(226, 74, 28, 0.16);
 }
 
-.industry-medical-dental {
+.industry-dental {
   --ind-accent: #1f8a7a;
   --ind-accent-deep: #166a5e;
   --ind-on-accent: #ffffff;
@@ -32,6 +33,19 @@
   --ind-rule: rgba(14, 43, 41, 0.13);
   --ind-badge-radius: 50%;
   --ind-tint: rgba(31, 138, 122, 0.12);
+}
+
+.industry-medical-aesthetics {
+  --ind-accent: #a85d6c;
+  --ind-accent-deep: #844852;
+  --ind-on-accent: #ffffff;
+  --ind-label: #8f4f5c;
+  --ind-ink: #2a151a;
+  --ind-surface: #f7f1f2;
+  --ind-soft: #efd5da;
+  --ind-rule: rgba(42, 21, 26, 0.13);
+  --ind-badge-radius: 50%;
+  --ind-tint: rgba(168, 93, 108, 0.12);
 }
 
 .industry-golf {

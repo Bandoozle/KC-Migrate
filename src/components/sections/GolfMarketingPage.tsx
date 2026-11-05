@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { VimeoFeature } from "@/components/sections/hvac/VimeoFeature";
 import { PageCta } from "@/components/sections/PageCta";
+import { GolfJourney } from "@/components/industry/journeys/GolfJourney";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
@@ -103,6 +104,7 @@ export function GolfMarketingPage({ content }: GolfMarketingPageProps) {
   return (
     <main className={styles.page}>
       <ServiceHero title={content.title} hero={hero} />
+      <GolfJourney />
 
       {/* Scorecard: the four plays as a card you'd find in the cart */}
       <section className={styles.scorecardSection} aria-labelledby="gm-scorecard">

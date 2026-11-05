@@ -186,22 +186,36 @@
   color: #ffffff;
 }
 
-/* --- HVAC: split. Copy on warm stone beside a tall photo with an ember edge. --- */
+/* --- HVAC: split. Copy on soot beside a tall photo with a hard furnace edge. --- */
 .heroSplit {
-  background: var(--ind-surface);
+  background: #141412;
+  color: #f2f1ef;
+}
+
+.heroSplit .heroTitle {
+  color: #ffffff !important;
+}
+
+.heroSplit .heroLead {
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.heroSplit .heroLabel {
+  color: var(--ind-accent);
 }
 
 .heroSplit .heroFigure {
-  border-left: 6px solid var(--ind-accent);
+  border-left: 8px solid var(--ind-accent);
+  border-radius: 2px;
 }
 
-/* "In this service": stacked index chips, each led by a square ember badge */
+/* "In this service": stacked index chips, each led by a square rust stamp */
 .heroSplit .heroNote {
   max-width: 34rem;
 }
 
 .heroSplit .heroNoteTitle {
-  color: var(--kosick-color-muted);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .heroSplit .heroNote ol {
@@ -214,9 +228,10 @@
   align-items: center;
   gap: 0.9rem;
   padding: 0.5rem 1rem 0.5rem 0.5rem;
-  border: 1px solid var(--ind-rule);
-  border-radius: var(--kosick-radius-sm);
-  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  background: #1f1f1c;
+  color: #ffffff;
   font-weight: 600;
 }
 
@@ -227,9 +242,10 @@
   width: 2rem;
   height: 2rem;
   border-radius: var(--ind-badge-radius);
-  background: var(--ind-tint);
-  color: var(--ind-label);
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
   font-size: var(--kosick-meta-size);
+  font-weight: 700;
 }
 
 @media (min-width: 960px) {
@@ -743,10 +759,30 @@
   line-height: 1.6;
 }
 
-/* HVAC: numbered rows with oversized ember numerals */
+/* HVAC: numbered rows with oversized rust numerals on soot */
+.offersRows {
+  background: #141412;
+  color: #f2f1ef;
+}
+
+.offersRows .label {
+  color: var(--ind-accent);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.offersRows .title {
+  color: #ffffff !important;
+}
+
+.offersRows .lead {
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .offersRows .offerList {
   gap: 0;
-  border-top: 1px solid var(--ind-rule);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .offersRows .offer {
@@ -754,14 +790,23 @@
   grid-template-columns: minmax(0, 1fr);
   gap: 0.5rem;
   padding-block: clamp(1.5rem, 3vw, 2.25rem);
-  border-bottom: 1px solid var(--ind-rule);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.offersRows .offerTitle {
+  color: #ffffff;
+}
+
+.offersRows .offerBody {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .offersRows .offerIndex {
   color: var(--ind-accent);
   font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
 }
 
 @media (min-width: 840px) {
@@ -1617,14 +1662,16 @@
  * HVAC uses HvacOutcomes instead.
  */
 
-/* Medical & dental: numbered clinical rows, like entries on a chart */
-:global(.industry-medical-dental) .benefitGrid {
+/* Dental and medical aesthetics: numbered clinical rows, like entries on a chart */
+:global(.industry-dental) .benefitGrid,
+:global(.industry-medical-aesthetics) .benefitGrid {
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
   border-top: 1px solid var(--ind-rule);
 }
 
-:global(.industry-medical-dental) .benefit {
+:global(.industry-dental) .benefit,
+:global(.industry-medical-aesthetics) .benefit {
   display: grid;
   grid-template-columns: 2.75rem minmax(0, 1fr);
   column-gap: 1rem;
@@ -1636,7 +1683,8 @@
   background: transparent;
 }
 
-:global(.industry-medical-dental) .benefit::before {
+:global(.industry-dental) .benefit::before,
+:global(.industry-medical-aesthetics) .benefit::before {
   content: counter(benefit);
   grid-row: 1 / 3;
   width: 2.25rem;
@@ -1647,7 +1695,8 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  :global(.industry-medical-dental) .benefit:hover {
+  :global(.industry-dental) .benefit:hover,
+  :global(.industry-medical-aesthetics) .benefit:hover {
     transform: none;
     box-shadow: none;
     border-color: var(--ind-rule);
@@ -1656,17 +1705,20 @@
 }
 
 @media (min-width: 840px) {
-  :global(.industry-medical-dental) .benefit {
+  :global(.industry-dental) .benefit,
+  :global(.industry-medical-aesthetics) .benefit {
     grid-template-columns: 2.75rem minmax(0, 0.8fr) minmax(0, 1.4fr);
     align-items: baseline;
   }
 
-  :global(.industry-medical-dental) .benefit::before {
+  :global(.industry-dental) .benefit::before,
+  :global(.industry-medical-aesthetics) .benefit::before {
     grid-row: auto;
     align-self: center;
   }
 
-  :global(.industry-medical-dental) .benefitTitle {
+  :global(.industry-dental) .benefitTitle,
+  :global(.industry-medical-aesthetics) .benefitTitle {
     margin: 0;
   }
 }

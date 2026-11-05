@@ -10,16 +10,16 @@ type Props = { params: Promise<{ service: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return serviceParams("medical-dental");
+  return serviceParams("dental");
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const match = findService("medical-dental", (await params).service);
+  const match = findService("dental", (await params).service);
   return match ? industryServiceMetadata(match.industry, match.service) : {};
 }
 
-export default async function MedicalDentalServicePage({ params }: Props) {
-  const match = findService("medical-dental", (await params).service);
+export default async function DentalServicePage({ params }: Props) {
+  const match = findService("dental", (await params).service);
   if (!match) notFound();
   return <IndustryServicePage industry={match.industry} service={match.service} />;
 }

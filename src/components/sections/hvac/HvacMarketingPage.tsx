@@ -6,6 +6,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ProcessTrack } from "@/components/sections/ProcessSteps";
+import { HvacJourney } from "@/components/industry/journeys/HvacJourney";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
@@ -165,6 +166,7 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
   return (
     <main className={styles.page}>
       <ServiceHero title={content.title} hero={hero} />
+      <HvacJourney />
 
       {/* Intro: headline, CTA and figures beside one large photo carrying a figure chip */}
       <section className={styles.intro} aria-labelledby="hv-intro">

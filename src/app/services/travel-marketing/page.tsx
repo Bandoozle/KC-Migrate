@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { IndustryLandingPage } from "@/components/industry/IndustryLandingPage";
+import { TravelJourney } from "@/components/industry/journeys/TravelJourney";
 import { getIndustry } from "@/lib/industries";
 import { industryLandingMetadata } from "@/lib/industries/metadata";
 
@@ -11,5 +12,5 @@ export function generateMetadata(): Metadata {
 export default function TravelMarketingPage() {
   const industry = getIndustry("travel");
   if (!industry.landing) notFound();
-  return <IndustryLandingPage industry={{ ...industry, landing: industry.landing }} />;
+  return <IndustryLandingPage industry={{ ...industry, landing: industry.landing }} journey={<TravelJourney />} />;
 }

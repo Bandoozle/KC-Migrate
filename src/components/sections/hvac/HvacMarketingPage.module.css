@@ -1,20 +1,21 @@
 /*
  * Layout follows a home-services reference: photo-led intro with figure
  * chips, linked "What we offer" cards, a process band, a work gallery and a
- * full-photo close. Type, buttons and spacing stay on the Kosick tokens;
- * a warm ember accent marks HVAC.
+ * full-photo close. Type and spacing stay on the Kosick tokens; steel,
+ * soot and furnace rust keep HVAC gritty and masculine.
  */
 .page {
-  --ink: #101010;
-  --stone: #f3f3f1;
-  --rule: rgba(17, 17, 17, 0.14);
+  --ink: #0d0d0d;
+  --stone: #d9d6d1;
+  --steel: #2a2a28;
+  --rule: rgba(13, 13, 13, 0.18);
   --rule-dark: rgba(255, 255, 255, 0.16);
-  --accent: #e2532d;
-  --accent-deep: #b93d1d;
+  --accent: #e24a1c;
+  --accent-deep: #9a2f10;
   --block: var(--kosick-block);
   --gutter: clamp(1rem, 2vw, 1.5rem);
   overflow-x: clip;
-  background: #ffffff;
+  background: #f2f1ef;
 }
 
 .cover {
@@ -99,11 +100,13 @@
   min-height: 50px;
   padding: 0.8rem 1.45rem;
   border: 1px solid transparent;
-  border-radius: var(--kosick-radius-pill);
+  border-radius: 3px;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.2;
+  letter-spacing: 0.01em;
   text-decoration: none;
+  text-transform: uppercase;
   transition: background-color 160ms ease, border-color 160ms ease;
 }
 
@@ -178,10 +181,10 @@
 }
 
 .introFigure {
-  color: #111111;
+  color: #0d0d0d;
   font-size: clamp(2rem, 3.6vw, 2.75rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.04em;
   line-height: 1;
 }
 
@@ -199,11 +202,12 @@
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
-  border-radius: var(--kosick-radius-md);
-  background: #e4e4e1;
+  border-radius: 2px;
+  background: #2a2a28;
+  border-left: 6px solid var(--accent);
 }
 
-/* A white figure chip sitting over the photo's lower-left corner */
+/* A soot figure chip sitting over the photo's lower-left corner */
 .chip {
   position: absolute;
   left: clamp(-2rem, -3vw, -1rem);
@@ -212,24 +216,27 @@
   gap: 0.3rem;
   max-width: 15rem;
   padding: 1.1rem 1.35rem;
-  border-radius: var(--kosick-radius-md);
-  background: #ffffff;
-  box-shadow: 0 20px 50px -24px rgba(17, 17, 17, 0.4);
+  border-radius: 2px;
+  background: var(--ink);
+  color: #ffffff;
+  box-shadow: 0 22px 40px -20px rgba(0, 0, 0, 0.55);
 }
 
 .chipFigure {
   color: var(--accent);
   font-size: clamp(1.75rem, 3vw, 2.25rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
+  font-weight: 700;
+  letter-spacing: -0.04em;
   line-height: 1;
 }
 
 .chipLabel {
-  color: #111111;
+  color: rgba(255, 255, 255, 0.82);
   font-size: var(--kosick-meta-size);
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 /* Flow sections: stacked head, then the shared animated process track */
@@ -258,13 +265,12 @@
   --process-number: var(--accent);
 }
 
-/* Co-op: warm band, five stages ending on the booked job */
+/* Co-op: concrete band, five stages ending on the booked job */
 
 .coop {
-  --warm: #f7f1ea;
-  --rule: rgba(17, 17, 17, 0.12);
+  --rule: rgba(13, 13, 13, 0.16);
   padding: var(--block) 0;
-  background: var(--warm);
+  background: var(--stone);
 }
 
 /* Open columns: the shared track keeps its spacing, without the card shell or connector lines */
@@ -296,9 +302,9 @@
   margin: 0.2rem 0;
   padding: 0.95rem 1rem;
   border: 1px solid var(--rule);
-  border-radius: var(--kosick-radius-md);
-  background: #ffffff;
-  color: #111111;
+  border-radius: 2px;
+  background: #efeeec;
+  color: #0d0d0d;
   font-size: 0.8125rem;
   line-height: 1.3;
 }
@@ -443,7 +449,7 @@
   place-items: center;
   width: 1.6rem;
   height: 1.6rem;
-  border-radius: 50%;
+  border-radius: 2px;
   background: #ffffff;
   color: var(--accent);
 }
@@ -456,6 +462,20 @@
 
 .projects {
   padding: var(--block) 0;
+  background: #141412;
+  color: #ffffff;
+}
+
+.projects .label {
+  color: var(--accent);
+}
+
+.projects .title {
+  color: #ffffff !important;
+}
+
+.projects .lead {
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .gallery {
@@ -471,8 +491,8 @@
 .tile {
   position: relative;
   overflow: hidden;
-  border-radius: var(--kosick-radius-md);
-  background: #e4e4e1;
+  border-radius: 2px;
+  background: #2a2a28;
 }
 
 .tileTall {
@@ -491,13 +511,15 @@
   position: absolute;
   left: 0.85rem;
   bottom: 0.85rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--kosick-radius-pill);
-  background: #ffffff;
-  color: #111111;
+  padding: 0.4rem 0.75rem;
+  border-radius: 2px;
+  background: var(--ink);
+  color: #ffffff;
   font-size: var(--kosick-meta-size);
   font-weight: 600;
   line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* Video */
@@ -512,7 +534,7 @@
   position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: var(--kosick-radius-md);
+  border-radius: 2px;
   background: #000000;
 }
 
@@ -551,9 +573,9 @@
   place-items: center;
   width: clamp(4.5rem, 8vw, 6rem);
   height: clamp(4.5rem, 8vw, 6rem);
-  border-radius: 50%;
-  background: #ffffff;
-  color: var(--ink);
+  border-radius: 3px;
+  background: var(--accent);
+  color: #ffffff;
   transition: transform 200ms ease;
 }
 
@@ -599,8 +621,8 @@
   position: relative;
   aspect-ratio: 5 / 4;
   overflow: hidden;
-  border-radius: var(--kosick-radius-md);
-  background: #e4e4e1;
+  border-radius: 2px;
+  background: #2a2a28;
 }
 
 .checklist {
@@ -627,7 +649,7 @@
   place-items: center;
   width: 1.6rem;
   height: 1.6rem;
-  border-radius: 50%;
+  border-radius: 2px;
   background: var(--accent);
   color: #ffffff;
 }

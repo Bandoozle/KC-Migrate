@@ -1,7 +1,8 @@
 import { CONSTRUCTION } from "./construction";
+import { DENTAL } from "./dental";
 import { GOLF } from "./golf";
 import { HVAC } from "./hvac";
-import { MEDICAL_DENTAL } from "./medical-dental";
+import { MEDICAL_AESTHETICS } from "./medical-aesthetics";
 import { INDUSTRY_LINKS } from "./nav";
 import { RETAIL } from "./retail";
 import { SPECIALTY_RETAIL } from "./specialty-retail";
@@ -21,14 +22,29 @@ export type {
 } from "./types";
 
 /** Navigation order. */
-export const INDUSTRIES: readonly Industry[] = [HVAC, MEDICAL_DENTAL, GOLF, RETAIL, SPECIALTY_RETAIL, CONSTRUCTION, TRAVEL];
+export const INDUSTRIES: readonly Industry[] = [
+  HVAC,
+  DENTAL,
+  MEDICAL_AESTHETICS,
+  GOLF,
+  RETAIL,
+  SPECIALTY_RETAIL,
+  CONSTRUCTION,
+  TRAVEL,
+];
 
 // The header reads the lighter nav.ts list; fail the build if it drifts from the registry
-if (
-  INDUSTRY_LINKS.length !== INDUSTRIES.length ||
-  INDUSTRIES.some((industry, index) => INDUSTRY_LINKS[index]?.href !== industry.path || INDUSTRY_LINKS[index]?.label !== industry.name)
-) {
-  throw new Error("src/lib/industries/nav.ts does not match the industry registry");
+{
+  const drift = INDUSTRIES.map((industry, index) => {
+    const link = INDUSTRY_LINKS[index];
+    if (link?.href === industry.path && link?.label === industry.name) return null;
+    return `${index}: registry ${industry.name} (${industry.path}) vs nav ${link?.label ?? "missing"} (${link?.href ?? "missing"})`;
+  }).filter(Boolean);
+  if (INDUSTRY_LINKS.length !== INDUSTRIES.length || drift.length > 0) {
+    throw new Error(
+      `src/lib/industries/nav.ts does not match the industry registry (links ${INDUSTRY_LINKS.length}, industries ${INDUSTRIES.length}${drift.length ? `; ${drift.join("; ")}` : ""})`,
+    );
+  }
 }
 
 export function getIndustry(id: IndustryId): Industry {

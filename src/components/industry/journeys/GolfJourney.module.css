@@ -1,0 +1,90 @@
+.scene {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  height: 100%;
+  background: #f6f2e7;
+}
+
+.photos {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* The site on the laptop, not the wall behind it */
+.laptop {
+  transform: scale(1.5) !important;
+  transform-origin: 50% 45%;
+}
+
+.caption {
+  bottom: 0.65rem;
+  left: 0.65rem;
+}
+
+/* A scorecard rather than a software table: ruled rows on linen */
+.sheet {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 0.8rem;
+  color: #1c2b23;
+}
+
+.sheetHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 0.45rem;
+  border-bottom: 2px solid #1c2b23;
+}
+
+.sheetHead b {
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.sheetHead small {
+  color: #47574e;
+  font-size: 0.75rem;
+}
+
+.row {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 2.4rem minmax(0, 1fr);
+  align-items: center;
+  border-bottom: 1px solid rgba(28, 43, 35, 0.2);
+  transition: background-color 400ms ease;
+}
+
+.row em {
+  padding-left: 0.2rem;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.row[data-lit="true"] {
+  background: rgba(31, 77, 58, 0.14);
+}
+
+.players {
+  display: block;
+  height: 0.5rem;
+  border-radius: 2px;
+  background: rgba(28, 43, 35, 0.28);
+}
+
+.open {
+  color: #47574e;
+  font-size: 0.75rem;
+}
+
+.member {
+  margin-top: 0.55rem;
+  color: #1c2b23;
+  font-size: 0.71875rem;
+  font-weight: 600;
+  line-height: 1.2;
+}

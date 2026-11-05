@@ -18,7 +18,8 @@ type Variant = { hero: string; offers: string };
 /* One content structure; each industry composes the hero and its offers differently */
 const VARIANTS: Record<IndustryId, Variant> = {
   hvac: { hero: "heroSplit", offers: "offersRows" },
-  "medical-dental": { hero: "heroFramed", offers: "offersTiles" },
+  dental: { hero: "heroFramed", offers: "offersTiles" },
+  "medical-aesthetics": { hero: "heroFramed", offers: "offersTiles" },
   golf: { hero: "heroCourse", offers: "offersScorecard" },
   retail: { hero: "heroEditorial", offers: "offersIndex" },
   "specialty-retail": { hero: "heroShopfront", offers: "offersTags" },
@@ -173,7 +174,10 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
           </SectionTitle>
           <p className={styles.lead}>
             {NUMBER_WORDS[service.offers.length] ?? service.offers.length} capabilities, planned and run together for{" "}
-            {industry.noun === "medical and dental" ? "medical and dental practices" : `${industry.noun} businesses`}.
+            {industry.id === "dental" || industry.id === "medical-aesthetics"
+              ? `${industry.noun} clinics`
+              : `${industry.noun} businesses`}
+            .
           </p>
           <ol className={styles.offerList}>
             {service.offers.map((offer, index) => (

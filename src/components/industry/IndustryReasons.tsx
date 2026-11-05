@@ -149,6 +149,33 @@ function ConstructionReasons({ industry, photos }: ReasonsProps) {
   );
 }
 
+/* Medical aesthetics: a treatment menu. Numbered cards with soft photos, calm clinical pacing. */
+function ClinicalReasons({ industry }: ReasonsProps) {
+  return (
+    <section className={`${styles.section} ${styles.clinical}`} aria-labelledby="ind-reasons">
+      <div className="container">
+        <Head industry={industry} />
+        <ol className={styles.menu}>
+          {industry.landing.reasons.map((reason, index) => (
+            <Reveal key={reason.title} as="li" delay={index * 90} className={styles.menuItem}>
+              <span className={styles.menuIndex} aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <div className={styles.menuCopy}>
+                <h3 className={styles.menuName}>{reason.title}</h3>
+                <p className={styles.menuBody}>{reason.body}</p>
+              </div>
+              {reason.image ? (
+                <Photo photo={reason.image} sizes="(min-width: 960px) 18vw, 40vw" className={styles.menuFrame} />
+              ) : null}
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
 /* Travel: a boarding pass. The photo sits in the stub; each reason fills a field on the pass. */
 const PASS_FIELDS = ["Who", "From", "Route", "When"];
 
@@ -195,6 +222,8 @@ export function IndustryReasons(props: ReasonsProps) {
       return <ConstructionReasons {...props} />;
     case "travel":
       return <TravelReasons {...props} />;
+    case "medical-aesthetics":
+      return <ClinicalReasons {...props} />;
     default:
       return null;
   }

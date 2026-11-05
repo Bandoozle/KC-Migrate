@@ -1,29 +1,33 @@
 /*
  * HVAC benefits and applications. Palette comes from the HVAC industry theme
- * (--ind-*); type and spacing stay on the Kosick tokens. White panels with
- * hairline borders sit on the warm stone surface; ink appears only inside the
- * diagrams (the phone, the publish button), where it means something.
+ * (--ind-*); type and spacing stay on the Kosick tokens. Steel panels sit on
+ * soot; furnace rust marks the diagrams and stamps.
  */
 .outcomes {
-  --ember-wash: rgba(226, 83, 45, 0.1);
-  --ember-ring: rgba(226, 83, 45, 0.22);
-  --ink-soft: rgba(26, 19, 16, 0.08);
+  --ember-wash: rgba(226, 74, 28, 0.14);
+  --ember-ring: rgba(226, 74, 28, 0.28);
+  --ink-soft: rgba(255, 255, 255, 0.14);
+  --visual-muted: rgba(255, 255, 255, 0.8);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   padding-block: var(--kosick-block);
-  background: var(--ind-surface);
+  background: #141412;
+  color: #f2f1ef;
 }
 
 .label,
 .appsKicker {
   margin: 0 0 1rem;
-  color: var(--ind-label);
+  color: var(--ind-accent);
   font-size: var(--kosick-body-size);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.3;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .title {
   margin: 0;
+  color: #ffffff !important;
 }
 
 /* ================= BENEFITS ================= */
@@ -48,12 +52,12 @@
   width: 100%;
   padding: clamp(1.35rem, 2.4vw, 2rem);
   overflow: hidden;
-  border: 1px solid var(--ind-rule);
-  border-radius: var(--kosick-radius-sm);
-  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  background: #1f1f1c;
+  color: #f2f1ef;
   transition:
     transform 320ms var(--ease),
-    box-shadow 320ms var(--ease),
     border-color 320ms var(--ease);
 }
 
@@ -66,7 +70,7 @@
 }
 
 .outcomeTag {
-  color: var(--ind-label);
+  color: #f4764c;
   font-size: var(--kosick-eyebrow-size);
   font-weight: 600;
   font-variant-numeric: tabular-nums;
@@ -75,6 +79,7 @@
 
 .benefitTitle {
   margin: 0;
+  color: #ffffff;
   font-size: var(--kosick-card-title-size);
   font-weight: var(--kosick-card-title-weight);
   line-height: var(--kosick-card-title-leading);
@@ -84,7 +89,7 @@
 .benefitBody {
   margin: 0;
   max-width: 36rem;
-  color: var(--kosick-color-muted);
+  color: rgba(255, 255, 255, 0.7);
   font-size: var(--kosick-body-size);
   line-height: 1.6;
 }
@@ -100,13 +105,13 @@
   position: relative;
   min-width: 0;
   padding: 1rem;
-  border: 1px solid var(--ind-rule);
-  border-radius: var(--kosick-radius-sm);
-  background: var(--ind-surface);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  background: #2a2a28;
   font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1.2;
-  color: var(--ind-ink);
+  color: #f2f1ef;
   user-select: none;
 }
 
@@ -125,10 +130,10 @@
   gap: 6px;
   height: 172px;
   padding: 16px 9px 12px;
-  border: 3px solid #2b211c;
+  border: 3px solid rgba(255, 255, 255, 0.26);
   border-radius: 18px;
   background: var(--ind-ink);
-  box-shadow: 0 14px 30px -18px rgba(26, 19, 16, 0.6);
+  box-shadow: 0 14px 30px -18px rgba(0, 0, 0, 0.8);
 }
 
 .phoneBar {
@@ -136,13 +141,13 @@
   height: 6px;
   margin-bottom: 6px;
   border-radius: 3px;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .phoneLine {
   height: 5px;
   border-radius: 3px;
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .phoneLine.short {
@@ -154,19 +159,19 @@
   padding: 6px 4px;
   border-radius: var(--kosick-radius-pill);
   color: #ffffff;
-  font-size: 10.5px;
+  font-size: 11.5px;
   text-align: center;
   white-space: nowrap;
 }
 
 .phoneCall {
   margin-top: auto;
-  background: var(--ind-accent);
+  background: var(--ind-label);
   transition: box-shadow 420ms var(--ease);
 }
 
 .phoneBook {
-  border: 1px solid rgba(255, 255, 255, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .meters {
@@ -183,7 +188,7 @@
 }
 
 .meterLabel {
-  color: var(--kosick-color-muted);
+  color: var(--visual-muted);
 }
 
 .meterTrack {
@@ -203,7 +208,7 @@
 
 .meterVisitors {
   width: 100%;
-  background: rgba(26, 19, 16, 0.26);
+  background: rgba(255, 255, 255, 0.55);
 }
 
 .meterCalls {
@@ -220,7 +225,7 @@
   bottom: 0;
   left: 34%;
   width: 2px;
-  background: rgba(26, 19, 16, 0.55);
+  background: rgba(255, 255, 255, 0.75);
 }
 
 /* ---------- Campaigns: three sources routed to one offer page ---------- */
@@ -245,6 +250,7 @@
   border: 1px solid var(--ind-rule);
   border-radius: 3px;
   background: #ffffff;
+  color: var(--ind-ink);
 }
 
 .routes {
@@ -256,7 +262,7 @@
 
 .routes path {
   fill: none;
-  stroke: rgba(26, 19, 16, 0.3);
+  stroke: rgba(255, 255, 255, 0.55);
   stroke-width: 1.5;
   stroke-dasharray: 4 4;
   vector-effect: non-scaling-stroke;
@@ -271,6 +277,7 @@
   border: 1.5px solid var(--ind-accent);
   border-radius: 3px;
   background: #ffffff;
+  color: var(--ind-ink);
   white-space: nowrap;
 }
 
@@ -288,7 +295,7 @@
 }
 
 .editorHead {
-  color: var(--kosick-color-muted);
+  color: var(--visual-muted);
 }
 
 .editorField {
@@ -298,6 +305,7 @@
   border: 1px solid var(--ind-rule);
   border-radius: 3px;
   background: #ffffff;
+  color: var(--ind-ink);
 }
 
 .caret {
@@ -343,10 +351,12 @@
   justify-self: end;
   padding: 5px 13px;
   border-radius: var(--kosick-radius-pill);
-  background: var(--ind-ink);
-  color: #ffffff;
+  background: #ffffff;
+  color: var(--ind-ink);
   font-size: 0.75rem;
-  transition: background-color 320ms var(--ease);
+  transition:
+    background-color 320ms var(--ease),
+    color 320ms var(--ease);
 }
 
 /*
@@ -359,7 +369,7 @@
   }
 
   .toggle {
-    background: rgba(26, 19, 16, 0.2);
+    background: rgba(255, 255, 255, 0.28);
   }
 
   .toggle span {
@@ -368,8 +378,8 @@
 
   .benefit:hover {
     transform: translateY(-4px);
-    border-color: rgba(26, 19, 16, 0.24);
-    box-shadow: 0 22px 44px -28px rgba(26, 19, 16, 0.45);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 22px 44px -28px rgba(0, 0, 0, 0.8);
   }
 
   .benefit:hover .meterCalls {
@@ -398,7 +408,8 @@
   }
 
   .benefit:hover .publish {
-    background: var(--ind-accent);
+    background: var(--ind-label);
+    color: #ffffff;
   }
 }
 
@@ -483,6 +494,7 @@
 
 .appsTitle {
   margin: 0;
+  color: #ffffff;
   font-size: var(--kosick-subsection-title-size);
   font-weight: var(--kosick-subsection-title-weight);
   line-height: var(--kosick-subsection-title-leading);
@@ -502,7 +514,7 @@
   display: flex;
 }
 
-/* Scenario tiles: translucent on the stone surface, so they sit back from the white outcome panels. Mobile: icon beside the copy. */
+/* Scenario tiles on soot. Mobile: icon beside the copy. */
 .app {
   position: relative;
   display: grid;
@@ -512,9 +524,9 @@
   align-content: start;
   width: 100%;
   padding: 1rem 1.1rem 1.1rem 1rem;
-  border: 1px solid var(--ind-rule);
-  border-radius: var(--kosick-radius-sm);
-  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  background: #1f1f1c;
   transition:
     background-color 320ms var(--ease),
     border-color 320ms var(--ease),
@@ -528,9 +540,9 @@
   width: 44px;
   height: 44px;
   border: 1px solid transparent;
-  border-radius: var(--ind-badge-radius, 3px);
-  background: var(--ind-tint);
-  color: var(--ind-label);
+  border-radius: var(--ind-badge-radius, 2px);
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
   transition:
     background-color 320ms var(--ease),
     border-color 320ms var(--ease),
@@ -540,6 +552,7 @@
 
 .appTitle {
   margin: 0;
+  color: #ffffff;
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1.25;
@@ -548,16 +561,16 @@
 
 .appBody {
   margin: 0;
-  color: var(--kosick-color-muted);
+  color: rgba(255, 255, 255, 0.68);
   font-size: var(--kosick-meta-size);
   line-height: 1.55;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .app:hover {
-    transform: translateY(-3px);
-    border-color: rgba(226, 83, 45, 0.4);
-    background: #ffffff;
+    transform: translateY(-2px);
+    border-color: var(--ind-accent);
+    background: #2a2a28;
   }
 
   .app:hover .appIcon {

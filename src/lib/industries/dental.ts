@@ -2,19 +2,19 @@ import type { Industry } from "./types";
 
 const UP = "/wp-content/uploads";
 
-export const MEDICAL_DENTAL: Industry = {
-  id: "medical-dental",
-  name: "Medical & Dental Marketing",
-  noun: "medical and dental",
+export const DENTAL: Industry = {
+  id: "dental",
+  name: "Dental Marketing",
+  noun: "dental",
   path: "/services/dental-marketing/",
   directory: {
-    line: "Visibility, trust and booked appointments for growing practices and clinics.",
+    line: "Visibility, trust and booked appointments for growing dental practices.",
     image: { src: `${UP}/2026/06/dental-marketing.jpg`, alt: "A dental hygienist preparing to treat a patient" },
   },
   offersIntro: {
     label: "What we offer",
     title: "Four services for growing practices.",
-    lead: "For dental offices, medical clinics and aesthetic practices. Open a service to see what we build and how it brings in new patients.",
+    lead: "For dental offices and dental spas. Open a service to see what we build and how it brings in new patients.",
   },
   cta: {
     title: "Let's grow your patient list.",
@@ -26,27 +26,27 @@ export const MEDICAL_DENTAL: Industry = {
       title: "Website Design & Development",
       summary: "Calm, credible practice websites with online booking that patients trust on the first visit.",
       seo: {
-        title: "Medical & Dental Website Design | Kosick Communications",
+        title: "Dental Website Design | Kosick Communications",
         description:
-          "Website design and development for dental offices and medical clinics: trustworthy, accessible practice websites with online booking, built by Kosick Communications.",
+          "Website design and development for dental offices: trustworthy, accessible practice websites with online booking, built by Kosick Communications.",
       },
       hero: {
-        label: "Medical & dental website design",
+        label: "Dental website design",
         title: "The first visit happens on your website.",
-        lead: "Patients judge a practice by its website before they ever see the waiting room. We build medical and dental websites that feel calm and credible, explain treatments clearly and make booking easy.",
+        lead: "Patients judge a practice by its website before they ever see the waiting room. We build dental websites that feel calm and credible, explain treatments clearly and make booking easy.",
         image: { src: `${UP}/2026/07/Dental-Web-Development.jpg`, alt: "A dental clinic website on a laptop resting on a grey sofa" },
       },
       intro: {
         title: "Trust is built before the appointment.",
         paragraphs: [
-          "Choosing a dentist or a clinic is personal. New patients look for signs they'll be in good hands: real photos of the team and space, clear explanations of treatments, and an easy way to book or ask a question.",
+          "Choosing a dentist is personal. New patients look for signs they'll be in good hands: real photos of the team and space, clear explanations of treatments, and an easy way to book or ask a question.",
           "We design practice websites around that decision. Each treatment gets a page that answers the questions patients actually ask, the booking path is never more than a tap away, and the site is fast, accessible and easy for your team to keep current.",
         ],
       },
       offers: [
         {
           title: "Practice websites",
-          body: "Custom websites for dental offices, medical clinics and aesthetic practices, designed around your brand, your team and the patients you want to attract.",
+          body: "Custom websites for dental offices and dental spas, designed around your brand, your team and the patients you want to attract.",
         },
         {
           title: "Treatment & service pages",
@@ -104,16 +104,16 @@ export const MEDICAL_DENTAL: Industry = {
     {
       slug: "google-ads-seo",
       title: "Google Ads & SEO",
-      summary: "Show up when local patients search for a dentist or clinic, in paid results, the map and organic search.",
+      summary: "Show up when local patients search for a dentist, in paid results, the map and organic search.",
       seo: {
-        title: "Google Ads & SEO for Dental and Medical Practices | Kosick Communications",
+        title: "Google Ads & SEO for Dental Practices | Kosick Communications",
         description:
-          "Google Ads, local SEO and Google Business Profile management for dental offices and medical clinics. Kosick helps practices appear when nearby patients search.",
+          "Google Ads, local SEO and Google Business Profile management for dental offices. Kosick helps practices appear when nearby patients search.",
       },
       hero: {
         label: "Google Ads & SEO for practices",
         title: "Be the practice patients find first.",
-        lead: "When someone searches for a dentist near them or a clinic for a specific treatment, the practices at the top get the call. We put yours there with Google Ads, local SEO and a well-run Google Business Profile.",
+        lead: "When someone searches for a dentist near them or a specific treatment, the practices at the top get the call. We put yours there with Google Ads, local SEO and a well-run Google Business Profile.",
         image: { src: `${UP}/2026/07/Dental-Marketing.jpg`, alt: "A Google search ad for a dental clinic on a phone, with map and review panels" },
       },
       intro: {
@@ -165,7 +165,7 @@ export const MEDICAL_DENTAL: Industry = {
         "Filling hygiene schedules at a newly opened office",
         "Growing implant, orthodontic or cosmetic cases",
         "Ranking a second location in a nearby city",
-        "Promoting a medical aesthetics clinic's signature treatments",
+        "Promoting a new associate or specialty service",
       ],
       approach: [
         { title: "Audit", body: "Your search presence, competitors and current campaigns." },
@@ -178,7 +178,6 @@ export const MEDICAL_DENTAL: Industry = {
         { src: `${UP}/2026/06/dental-marketing.jpg`, alt: "A dental hygienist preparing to treat a patient" },
       ],
       related: [
-        { label: "Medical Marketing for Clinics", href: "/medical-marketing-vancouver/", kind: "guide", body: "Branding, media and social for aesthetics and dental clinics." },
         { label: "Search Engine Optimization", href: "/services/search-engine-optimization/", kind: "service", body: "Organic rankings that bring qualified leads to the pages you build." },
         { label: "Digital Marketing", href: "/services/digital-marketing/", kind: "service", body: "Google Ads, paid social and pre-roll, measured against results." },
       ],
@@ -188,9 +187,9 @@ export const MEDICAL_DENTAL: Industry = {
       title: "Social Media, Content & AI Marketing",
       summary: "Social channels, patient-friendly content and AI tools that keep your practice familiar and easy to reach.",
       seo: {
-        title: "Social Media, Content & AI Marketing for Practices | Kosick Communications",
+        title: "Social Media, Content & AI Marketing for Dental Practices | Kosick Communications",
         description:
-          "Social media management, patient education content and AI marketing tools for dental offices and medical clinics, from Kosick Communications.",
+          "Social media management, patient education content and AI marketing tools for dental offices, from Kosick Communications.",
       },
       hero: {
         label: "Social media, content & AI marketing",
@@ -201,7 +200,7 @@ export const MEDICAL_DENTAL: Industry = {
       intro: {
         title: "Social proof for a personal decision.",
         paragraphs: [
-          "Most people feel some nerves about a medical or dental visit. Seeing the team, the office and real explanations of treatments makes the decision easier, and it keeps existing patients connected between visits.",
+          "Most people feel some nerves about a dental visit. Seeing the team, the office and real explanations of treatments makes the decision easier, and it keeps existing patients connected between visits.",
           "We plan and produce the content, run the channels and add AI tools where they genuinely help, such as a website assistant that answers common questions and routes booking requests to your front desk.",
         ],
       },
@@ -244,7 +243,7 @@ export const MEDICAL_DENTAL: Industry = {
       ],
       applications: [
         "Introducing a new associate or hygienist",
-        "Explaining a treatment such as clear aligners or skin rejuvenation",
+        "Explaining a treatment such as clear aligners",
         "Promoting a referral or new-patient offer",
         "Answering after-hours questions on the website",
       ],
@@ -255,8 +254,8 @@ export const MEDICAL_DENTAL: Industry = {
         { title: "Grow", body: "Engagement and enquiries measured, and the plan refined." },
       ],
       gallery: [
-        { src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`, alt: "SkinCeuticals serums lined up with a dropper above them" },
-        { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
+        { src: `${UP}/2026/07/Social-Media-Dental.jpg`, alt: "A collage of dental spa social posts" },
+        { src: `${UP}/2026/07/Dental-Vancouver.jpg`, alt: "A dental spa reception with a gold tooth sculpture on the counter" },
       ],
       related: [],
     },
@@ -265,9 +264,9 @@ export const MEDICAL_DENTAL: Industry = {
       title: "Video, TV & Billboard Advertising",
       summary: "Video, television and outdoor campaigns that make your practice a familiar name across the community.",
       seo: {
-        title: "Video, TV & Billboard Advertising for Clinics | Kosick Communications",
+        title: "Video, TV & Billboard Advertising for Dental Practices | Kosick Communications",
         description:
-          "Video production, television and billboard advertising for dental offices and medical clinics. Kosick builds local visibility for practices across Canada.",
+          "Video production, television and billboard advertising for dental offices. Kosick builds local visibility for practices across Canada.",
       },
       hero: {
         label: "Video, TV & billboard advertising",
@@ -323,7 +322,7 @@ export const MEDICAL_DENTAL: Industry = {
         "Announcing a new or relocated practice",
         "Transit shelter ads within a few blocks of the office",
         "A team introduction video for the website and social media",
-        "Connected TV campaigns for a cosmetic or aesthetic treatment",
+        "Connected TV campaigns for a cosmetic dental treatment",
       ],
       approach: [
         { title: "Concept", body: "One clear idea and message for the campaign." },
@@ -333,7 +332,6 @@ export const MEDICAL_DENTAL: Industry = {
       ],
       gallery: [
         { src: `${UP}/2026/02/ctv-morning-live.jpg`, alt: "Two people talking on the set of a Vancouver morning television show" },
-        { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
         { src: `${UP}/2026/07/Vancouver-Dental-Marketing.jpg`, alt: "A dental instrument tray with protective glasses" },
       ],
       related: [],

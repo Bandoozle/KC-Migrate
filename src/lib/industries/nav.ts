@@ -5,7 +5,8 @@
  */
 export const INDUSTRY_LINKS = [
   { label: "HVAC Marketing", href: "/services/hvac-marketing/" },
-  { label: "Medical & Dental Marketing", href: "/services/dental-marketing/" },
+  { label: "Dental Marketing", href: "/services/dental-marketing/" },
+  { label: "Medical Aesthetics Marketing", href: "/services/medical-aesthetics-marketing/" },
   { label: "Golf Marketing", href: "/services/golf-marketing/" },
   { label: "Retail Marketing", href: "/services/retail-marketing/" },
   { label: "Specialty Retail Marketing", href: "/services/specialty-retail-marketing/" },

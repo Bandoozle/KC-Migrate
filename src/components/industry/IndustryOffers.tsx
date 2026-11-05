@@ -9,7 +9,8 @@ import styles from "./IndustryOffers.module.css";
 /* Each industry sets its service cards differently; the content and link behaviour are the same */
 const LAYOUT: Record<IndustryId, keyof typeof styles> = {
   hvac: "mosaic",
-  "medical-dental": "clinical",
+  dental: "clinical",
+  "medical-aesthetics": "clinical",
   golf: "holes",
   retail: "posters",
   "specialty-retail": "tags",

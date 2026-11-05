@@ -51,14 +51,18 @@ export const LEGACY_REDIRECTS = [
     source: "/fashion-marketing",
     destination: "/services/retail-marketing/",
   },
-  // Medical & Dental Marketing keeps the established dental URL
+  // Legacy combined medical/dental URL stays on dental; medical now has its own page
   {
     source: "/services/medical-dental-marketing",
     destination: "/services/dental-marketing/",
   },
   {
     source: "/services/medical-marketing",
-    destination: "/services/dental-marketing/",
+    destination: "/services/medical-aesthetics-marketing/",
+  },
+  {
+    source: "/services/medical-aesthetics",
+    destination: "/services/medical-aesthetics-marketing/",
   },
   {
     source: "/feature-articles/page/:page*",

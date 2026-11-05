@@ -1,0 +1,136 @@
+/*
+ * Shared parts for the journey scenes. The base rule is the finished look;
+ * data-on="false" rewinds it, and layers crossfade through data-show.
+ */
+.fade,
+.pop,
+.growX,
+.draw {
+  transition:
+    opacity 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 480ms cubic-bezier(0.22, 1, 0.36, 1),
+    stroke-dashoffset 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade[data-on="false"] {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.pop[data-on="false"] {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.growX {
+  transform-origin: left;
+}
+
+.growX[data-on="false"] {
+  transform: scaleX(0);
+}
+
+/* SVG paths need pathLength={1} */
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+
+.draw[data-on="false"] {
+  opacity: 0;
+  stroke-dashoffset: 1;
+}
+
+/* A full-frame layer. Photos settle very slightly as they arrive, for depth without obvious movement. */
+.layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 650ms ease;
+}
+
+.layer[data-show="true"] {
+  opacity: 1;
+}
+
+.layer > img {
+  transform: scale(1.05);
+  transition: transform 3600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.layer[data-show="true"] > img {
+  transform: none;
+}
+
+/* A small, opaque label on a photograph */
+.tag {
+  position: absolute;
+  padding: 0.3rem 0.55rem;
+  border-radius: 3px;
+  background: rgba(10, 10, 10, 0.82);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* A phone body: scenes set its size and position */
+.phone {
+  position: relative;
+  overflow: hidden;
+  border: 4px solid #0d0d0d;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.14),
+    0 22px 40px -18px rgba(0, 0, 0, 0.75);
+}
+
+.card {
+  border-radius: 4px;
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 16px 32px -18px rgba(0, 0, 0, 0.6);
+}
+
+.skel {
+  display: block;
+  height: 6px;
+  border-radius: 2px;
+  background: #e2e0d8;
+}
+
+.muted {
+  color: #50565b;
+}
+
+.tick {
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--ind-label);
+}
+
+.tick::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 5.25px;
+  width: 3.5px;
+  height: 6.5px;
+  border: solid #ffffff;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(40deg);
+}
+
+.done {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #111111;
+  font-weight: 600;
+}

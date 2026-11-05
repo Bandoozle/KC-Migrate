@@ -1,0 +1,64 @@
+.window {
+  height: 100%;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 300%;
+  height: 100%;
+  transition: transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pane {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.caption {
+  bottom: 0.7rem;
+  left: 0.7rem;
+}
+
+.booking {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  display: grid;
+  gap: 0.4rem;
+  padding: 0.7rem 0.8rem;
+}
+
+.booking b {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.day {
+  color: #50565b;
+  font-size: 0.75rem;
+}
+
+.times {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.3rem;
+}
+
+.time {
+  padding: 0.4rem 0.2rem;
+  border-radius: 3px;
+  box-shadow: inset 0 0 0 1px #d9d7cf;
+  text-align: center;
+}
+
+.time[data-picked="true"] {
+  background: var(--ind-label);
+  box-shadow: none;
+  color: #ffffff;
+  font-weight: 600;
+}

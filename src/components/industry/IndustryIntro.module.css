@@ -95,25 +95,58 @@
   margin-top: 1rem;
 }
 
-/* ---------- HVAC: workbench. A tall photo with an ember edge beside the copy. ---------- */
-.workbench .frame {
-  border-left: 6px solid var(--ind-accent);
+/* ---------- HVAC: workbench. Tall photo with a hard furnace edge beside the copy. ---------- */
+.workbench {
+  background: #e8e6e2;
 }
 
-/* "What we do" sits on a warm panel; both kickers read as small ember chips */
+.workbench .label {
+  color: var(--ind-accent);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.workbench .frame {
+  border-left: 8px solid var(--ind-accent);
+  border-radius: 2px;
+}
+
+/* "What we do" sits on soot; kickers read as square rust stamps */
 .workbench .answer {
   padding: clamp(1.25rem, 2.5vw, 1.75rem);
-  border-radius: var(--kosick-radius-sm);
-  background: var(--ind-surface);
+  border-radius: 2px;
+  border: 1px solid rgba(13, 13, 13, 0.12);
+  background: #1a1a18;
+  color: #f2f1ef;
 }
 
-.workbench .kicker {
+.workbench .answer p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.workbench .context .kicker,
+.workbench .answer .kicker {
   display: inline-flex;
   margin-bottom: 0.85rem;
-  padding: 0.25rem 0.65rem;
+  padding: 0.28rem 0.7rem;
   border-radius: var(--ind-badge-radius);
-  background: var(--ind-tint);
-  font-size: 0.8125rem;
+  background: var(--ind-accent);
+  color: var(--ind-on-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.workbench .context {
+  padding-left: 1rem;
+  border-left: 4px solid var(--ind-ink);
+}
+
+.workbench .context p {
+  color: var(--ind-ink);
+  font-weight: 500;
 }
 
 @media (min-width: 960px) {

@@ -13,7 +13,8 @@ import styles from "./IndustryIntro.module.css";
  */
 const COMPOSITION: Record<IndustryId, keyof typeof styles> = {
   hvac: "workbench",
-  "medical-dental": "consultation",
+  dental: "consultation",
+  "medical-aesthetics": "consultation",
   golf: "yardage",
   retail: "spread",
   "specialty-retail": "window",

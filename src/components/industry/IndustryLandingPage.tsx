@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { servicePath, type Industry, type IndustryLanding } from "@/lib/industries";
@@ -49,10 +50,12 @@ function landingJsonLd(industry: Industry & { landing: IndustryLanding }) {
 
 type IndustryLandingPageProps = {
   industry: Industry & { landing: IndustryLanding };
+  /** The industry's own interactive journey, passed in so each page loads only its own. */
+  journey: ReactNode;
 };
 
 /** Main page for an industry that has no WordPress page: the shared service hero, then the industry's own sections. */
-export function IndustryLandingPage({ industry }: IndustryLandingPageProps) {
+export function IndustryLandingPage({ industry, journey }: IndustryLandingPageProps) {
   const { landing } = industry;
   const [introImage, ...reasonPhotos] = landing.gallery;
 
@@ -73,6 +76,7 @@ export function IndustryLandingPage({ industry }: IndustryLandingPageProps) {
         }}
         backgroundPosition={landing.hero.image.position}
       />
+      {journey}
 
       {/* Intro: why the industry needs its own approach, with the first photograph */}
       {landing.moments ? (

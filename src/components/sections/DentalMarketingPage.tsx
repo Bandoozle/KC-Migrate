@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ProcessTrack } from "@/components/sections/ProcessSteps";
+import { DentalJourney } from "@/components/industry/journeys/DentalJourney";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
@@ -97,6 +98,7 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
   return (
     <main className={styles.page}>
       <ServiceHero title={content.title} hero={hero} />
+      <DentalJourney />
 
       {/* Journey: four stages on one line */}
       <section className={styles.journey} aria-labelledby="dm-journey">
@@ -105,7 +107,7 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
             <div>
               <p className={styles.label}>The patient journey</p>
               <SectionTitle id="dm-journey" className={styles.title}>
-                Medical and dental marketing built for growing practices.
+                Dental marketing built for growing practices.
               </SectionTitle>
             </div>
             <p className={styles.lead}>Build visibility, earn trust and turn more searches into booked patients.</p>
@@ -121,8 +123,8 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
         </div>
       </section>
 
-      {/* What we offer: one linked card per medical and dental service page */}
-      <IndustryOffers industry={getIndustry("medical-dental")} headingId="dm-offers" />
+      {/* What we offer: one linked card per dental service page */}
+      <IndustryOffers industry={getIndustry("dental")} headingId="dm-offers" />
 
       {/* Acquisition: an illustrative search, map and listing composition */}
       <section className={styles.search} aria-labelledby="dm-search">

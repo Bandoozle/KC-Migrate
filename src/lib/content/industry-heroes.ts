@@ -12,9 +12,16 @@ export const INDUSTRY_SERVICE_HEROES = {
   dental: {
     eyebrow: "Digital • Traditional • Patient Growth • Web",
     displayTitle: "Strategic",
-    titleSecondary: "Medical & Dental Marketing",
+    titleSecondary: "Dental Marketing",
     subtitle:
-      "Kosick Communications helps dental practices and medical clinics build stronger brands, attract new patients, and stay connected with their communities through integrated digital, traditional, and web marketing strategies.",
+      "Kosick Communications helps dental practices build stronger brands, attract new patients, and stay connected with their communities through integrated digital, traditional, and web marketing strategies.",
+  },
+  medicalAesthetics: {
+    eyebrow: "Digital • Treatments • Retail • Brand",
+    displayTitle: "Strategic",
+    titleSecondary: "Medical Aesthetics Marketing",
+    subtitle:
+      "Kosick Communications helps medical aesthetics clinics like Skinfolio Medesthetics build stronger brands, fill treatment calendars, and grow product sales through integrated digital, traditional, and web marketing.",
   },
   golf: {
     eyebrow: "Digital • Traditional • Membership • Events",

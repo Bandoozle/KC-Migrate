@@ -6,7 +6,8 @@
 
 export type IndustryId =
   | "hvac"
-  | "medical-dental"
+  | "dental"
+  | "medical-aesthetics"
   | "golf"
   | "specialty-retail"
   | "retail"
@@ -91,9 +92,9 @@ export type IndustryLanding = {
 
 export type Industry = {
   id: IndustryId;
-  /** Navigation and heading name, e.g. "Medical & Dental Marketing". */
+  /** Navigation and heading name, e.g. "Dental Marketing". */
   name: string;
-  /** Used in running copy, e.g. "medical and dental". */
+  /** Used in running copy, e.g. "dental". */
   noun: string;
   path: string;
   /** Card on the Services and Marketing Programs directories; every industry gets the same treatment. */

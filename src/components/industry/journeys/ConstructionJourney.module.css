@@ -1,0 +1,121 @@
+.scene {
+  position: relative;
+  height: 100%;
+  background: #0e161e;
+}
+
+.build > img {
+  transform: none !important;
+}
+
+/* The same photograph drawn as a plan: an inverted, blue-toned copy under a drafting grid */
+.plan {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 0 0 52%);
+}
+
+.plan[data-wipe="true"] {
+  animation: plan-wipe 1500ms cubic-bezier(0.65, 0, 0.35, 1) 300ms both;
+}
+
+.planImage {
+  filter: grayscale(1) contrast(1.25) brightness(1.05);
+}
+
+/* Drafting blue multiplied over the grey image, with the grid lines on top */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-color: #1d4a78;
+  mix-blend-mode: multiply;
+}
+
+.lines {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 52%;
+  width: 2px;
+  background: var(--ind-accent);
+}
+
+.seam[data-wipe="true"] {
+  animation: seam-wipe 1500ms cubic-bezier(0.65, 0, 0.35, 1) 300ms both;
+}
+
+@keyframes plan-wipe {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes seam-wipe {
+  from {
+    left: 0;
+  }
+}
+
+.left {
+  bottom: 0.7rem;
+  left: 0.7rem;
+}
+
+.right {
+  right: 0.7rem;
+  bottom: 0.7rem;
+}
+
+.laptop {
+  transform: scale(1.22) !important;
+  transform-origin: 35% 68%;
+}
+
+.shortlist {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: grid;
+  gap: 0.4rem;
+  width: 48%;
+  padding: 0.6rem 0.7rem;
+}
+
+.shortlist b {
+  font-weight: 600;
+}
+
+.you {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.35rem;
+  border-radius: 2px;
+  background: var(--ind-tint);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.request {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.55rem 0.75rem;
+  border-left: 4px solid var(--ind-accent);
+}
+
+.request small {
+  color: #3d3d3a;
+  font-size: 0.75rem;
+}

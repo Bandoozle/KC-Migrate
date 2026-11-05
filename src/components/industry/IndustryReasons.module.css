@@ -129,6 +129,91 @@
   }
 }
 
+/* ================= Medical aesthetics: treatment menu ================= */
+.clinical {
+  background: #ffffff;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.35rem);
+}
+
+.menuItem {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  grid-template-areas:
+    "num copy"
+    ". photo";
+  column-gap: 0.9rem;
+  row-gap: 1rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  border: 1px solid var(--ind-rule);
+  border-radius: var(--kosick-radius-md);
+  background: var(--ind-surface);
+}
+
+.menuIndex {
+  grid-area: num;
+  color: var(--ind-accent);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.menuCopy {
+  grid-area: copy;
+  min-width: 0;
+}
+
+.menuName {
+  margin: 0 0 0.45rem;
+  color: var(--ind-ink);
+  font-size: var(--kosick-subsection-title-size);
+  font-weight: var(--kosick-subsection-title-weight);
+  line-height: var(--kosick-subsection-title-leading);
+  letter-spacing: var(--kosick-subsection-title-tracking);
+}
+
+.menuBody {
+  margin: 0;
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.55;
+  max-width: 48ch;
+}
+
+.menuFrame {
+  grid-area: photo;
+  position: relative;
+  margin: 0;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+  background: #ffffff;
+}
+
+@media (min-width: 900px) {
+  .menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menuItem {
+    grid-template-columns: 2.75rem minmax(0, 1fr) minmax(7.5rem, 9rem);
+    grid-template-areas: "num copy photo";
+    align-items: center;
+    column-gap: 1.25rem;
+    min-height: 100%;
+  }
+
+  .menuFrame {
+    aspect-ratio: 1 / 1;
+  }
+}
+
 /* ================= Specialty retail: hang tags on a shop rail ================= */
 .shop {
   background: var(--ind-accent);
