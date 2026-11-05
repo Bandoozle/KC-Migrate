@@ -344,3 +344,75 @@
   line-height: var(--kosick-page-title-leading);
   letter-spacing: var(--kosick-page-title-tracking);
 }
+
+/* Cinematic: the photograph has the room, and the copy sits low on a shade that rises from the bottom */
+.cinematic {
+  min-height: clamp(36rem, 82vh, 48rem);
+}
+
+.cinematic .overlay {
+  align-items: flex-end;
+  min-height: clamp(36rem, 82vh, 48rem);
+  padding-block: clamp(3rem, 8vh, 5rem) clamp(2.5rem, 6vh, 4rem);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.78) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.22) 60%, rgba(0, 0, 0, 0.08) 100%);
+}
+
+.cinematic .title {
+  max-width: 12em;
+  font-size: clamp(2.5rem, 6.4vw, 5.75rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.cinematic .subtitle {
+  max-width: 36rem;
+  margin-top: 1.25rem;
+  color: #ffffff;
+}
+
+.cinematic .actions .primary,
+.cinematic .actions .secondary {
+  min-height: 52px;
+  padding-inline: 1.6rem;
+  font-size: 1rem;
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.cinematic .actions .primary:hover,
+.cinematic .actions .primary:focus-visible {
+  background: #e7e7e4;
+}
+
+/* The active photograph drifts very slightly while it holds */
+.cinematic .active .image {
+  animation: hero-drift 7s ease-out both;
+}
+
+@keyframes hero-drift {
+  from {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 720px) {
+  .cinematic,
+  .cinematic .overlay {
+    min-height: min(36rem, 88svh);
+  }
+
+  .cinematic .title {
+    font-size: clamp(2.375rem, 11vw, 3.25rem);
+    line-height: 1.03;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cinematic .active .image {
+    animation: none;
+  }
+}

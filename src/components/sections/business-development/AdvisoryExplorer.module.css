@@ -1,0 +1,243 @@
+.explorer {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+}
+
+/* ---------- Photograph ---------- */
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #1a1a1a;
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 600ms ease,
+    transform 1600ms var(--ease);
+}
+
+.photo[data-active="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+.mediaTag {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.6rem 0.8rem;
+  border-radius: 3px;
+  background: rgba(10, 10, 10, 0.78);
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  backdrop-filter: blur(6px);
+}
+
+.pips {
+  display: flex;
+  flex: none;
+  gap: 0.3rem;
+}
+
+.pips i {
+  width: 1.1rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.32);
+  transition: background-color 300ms ease;
+}
+
+.pips i[data-active="true"] {
+  background: #ffffff;
+}
+
+/* ---------- Selectable list ---------- */
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--rule);
+}
+
+.item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.itemHeading {
+  margin: 0;
+  font: inherit;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  min-height: 56px;
+  margin: 0;
+  padding: 0.85rem 0;
+  border: 0;
+  background: none;
+  color: var(--kosick-color-muted);
+  font: inherit;
+  font-size: clamp(1.1875rem, 1.7vw, 1.4375rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    color 220ms ease,
+    padding-left 320ms var(--ease);
+}
+
+.item[data-open="true"] .trigger {
+  color: var(--ink);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Grows into a line on the selected row */
+.triggerMark {
+  flex: none;
+  width: 0.5rem;
+  height: 2px;
+  background: currentColor;
+  transition: width 420ms var(--ease);
+}
+
+.item[data-open="true"] .triggerMark {
+  width: 2.5rem;
+}
+
+.panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  visibility: hidden;
+  transition:
+    grid-template-rows 420ms var(--ease),
+    visibility 0s linear 420ms;
+}
+
+.item[data-open="true"] .panel {
+  grid-template-rows: 1fr;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.panelInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.summary {
+  margin: 0 0 0.75rem;
+  color: var(--ink);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.points {
+  display: grid;
+  gap: 0.3rem;
+  margin: 0 0 0.75rem;
+  padding: 0;
+  list-style: none;
+  color: var(--kosick-color-muted);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.points li {
+  position: relative;
+  padding-left: 0.95rem;
+}
+
+.points li::before {
+  content: "";
+  position: absolute;
+  top: 0.62em;
+  left: 0;
+  width: 0.45rem;
+  height: 1px;
+  background: var(--ink);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  margin-bottom: 0.35rem;
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.more svg {
+  transition: transform 260ms var(--ease);
+}
+
+.more:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .item:not([data-open="true"]) .trigger:hover {
+    padding-left: 0.5rem;
+    color: var(--ink);
+  }
+
+  .more:hover svg {
+    transform: translateX(4px);
+  }
+}
+
+@media (min-width: 960px) {
+  .explorer {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    align-items: start;
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  /* Close to the height of the list beside it, so neither side trails off */
+  .media {
+    aspect-ratio: 3 / 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo,
+  .pips i,
+  .trigger,
+  .triggerMark,
+  .panel,
+  .more svg {
+    transition: none !important;
+  }
+
+  .photo {
+    transform: none;
+  }
+}

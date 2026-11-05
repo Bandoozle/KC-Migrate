@@ -25,6 +25,8 @@ export type InternalPageHeroProps = {
   plain?: boolean;
   /** With `plain`: short band for index pages such as the site map. */
   compact?: boolean;
+  /** See HeroBanner. */
+  cinematic?: boolean;
 };
 
 /**
@@ -44,6 +46,7 @@ export function InternalPageHero({
   secondaryCTA,
   plain = false,
   compact = false,
+  cinematic = false,
 }: InternalPageHeroProps) {
   const heading = [titlePrimary, titleSecondary].filter(Boolean).join(" ");
   const media: HeroBannerSlide[] =
@@ -58,6 +61,7 @@ export function InternalPageHero({
       variant="service"
       plain={plain || media.length === 0}
       compact={compact}
+      cinematic={cinematic}
       slides={media}
       title={titlePrimary}
       titleSecondary={titleSecondary}

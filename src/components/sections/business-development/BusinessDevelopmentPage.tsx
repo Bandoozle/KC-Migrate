@@ -1,20 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
-import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import { SectionTitle } from "@/components/typography";
+import { SectionDescription, SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
+import { AdvisoryExplorer } from "./AdvisoryExplorer";
+import { DealFile } from "./DealFile";
+import { SalesEngine } from "./SalesEngine";
 import styles from "./BusinessDevelopmentPage.module.css";
 
 const UPLOADS = "/wp-content/uploads";
 
 const IMAGES = {
-  team: {
-    src: `${UPLOADS}/2026/09/henderson-inclusive-strategy-edited.jpg`,
-    alt: "A team fitting coloured gears together on a meeting table",
-  },
   market: {
     src: `${UPLOADS}/2023/06/vancouver-agency.jpg`,
     alt: "Vancouver waterfront and skyline at sunset",
@@ -25,47 +24,29 @@ const IMAGES = {
   },
   room: {
     src: `${UPLOADS}/2024/10/corporate-events.webp`,
-    alt: "A business audience listening to speakers at the front of a room",
-  },
-  file: {
-    src: `${UPLOADS}/2024/01/pexels-sora-shimazaki-5668473-2.png`,
-    alt: "Black binders beside a gavel on a dark desk",
+    alt: "",
   },
   built: {
-    src: `${UPLOADS}/2023/06/real-estate-design-1.jpg`,
-    alt: "Modern glass and stone building above a pool",
+    src: `${UPLOADS}/2023/06/real-estate.jpeg`,
+    alt: "A bright living room opening onto a view of the ocean",
   },
 };
 
-const AREAS = [
-  { href: "#growth", title: "Growth Strategy", summary: "Clarify direction, identify opportunities and build a plan for sustainable growth." },
-  { href: "#sales", title: "Corporate Sales", summary: "Prepare, position and support the business through a sale or acquisition." },
-  { href: "#legal", title: "Legal & Compliance", summary: "Navigate corporate structure, documentation and transaction requirements." },
-  { href: "#exit", title: "Exit Strategy", summary: "Prepare the business for transition, succession or sale." },
+/* From the Business Development Strategy deliverables */
+const BENEFITS = [
+  "Market analysis & competitive positioning frameworks",
+  "Revenue model optimization & pricing strategy",
+  "Strategic partnership identification & development",
+  "Business plan creation & investor-ready pitch decks",
+  "Operational efficiency audits & process improvement",
 ];
 
-/* The four calls every opportunity ends in */
-const THEMES = [
-  { name: "Pursue now", line: "Strong market, and the capability to win it.", lead: true },
+/* The four calls every opportunity ends in: capability across, market up */
+const CALLS = [
   { name: "Build or partner", line: "Strong market, capability still to build." },
-  { name: "Optimize", line: "Proven fit in a mature market." },
+  { name: "Pursue now", line: "Strong market, and the capability to win it.", lead: true },
   { name: "Deprioritize", line: "Limited market and a poor fit." },
-];
-
-const PIPELINE = [
-  { name: "Position", detail: "Offer, pricing and target accounts." },
-  { name: "Qualify", detail: "Pipeline built and scored in the CRM." },
-  { name: "Negotiate", detail: "Proposals and terms structured to win." },
-  { name: "Close", detail: "High-value deals over the line." },
-  { name: "Transition", detail: "Handed to delivery, then grown." },
-];
-
-const TRANSACTION_FILE = [
-  { title: "Corporate structure", detail: "Entities, ownership and governance set up for the deal." },
-  { title: "Documentation", detail: "Contracts drafted, reviewed and negotiated." },
-  { title: "Due diligence", detail: "Records organized before anyone asks." },
-  { title: "Compliance", detail: "Regulatory risk identified and addressed." },
-  { title: "Agreements", detail: "Partnership and joint venture terms structured." },
+  { name: "Optimize", line: "Proven fit in a mature market." },
 ];
 
 const EXIT_PATH = [
@@ -76,18 +57,17 @@ const EXIT_PATH = [
   { name: "Transition", detail: "A clean, well-timed handover." },
 ];
 
-function ArrowIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-      <path fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
-function CheckIcon() {
+function PhoneIcon() {
   return (
     <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false">
-      <path fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="m5 12.5 4.5 4.5L19 7.5" />
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.61 2.62a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.46-1.18a2 2 0 0 1 2.11-.45c.84.28 1.72.49 2.62.61A2 2 0 0 1 22 16.92z"
+      />
     </svg>
   );
 }
@@ -98,217 +78,159 @@ type BusinessDevelopmentPageProps = {
 
 export function BusinessDevelopmentPage({ content }: BusinessDevelopmentPageProps) {
   const { hero, intro, faqs, cta } = content;
-  const closing = cta
-    ? {
-        title: "Planning the next move?",
-        description: "Growth, a sale or a succession: the earlier the conversation, the more options you keep.",
-        primary: { label: "Talk to us", href: cta.primary.href },
-        phone: cta.phone ? { label: "Start a conversation", href: cta.phone.href } : null,
-      }
-    : null;
 
   return (
     <main className={styles.page}>
-      <ServiceHero title={content.title} hero={hero} />
+      <ServiceHero title={content.title} hero={hero} cinematic />
 
-      {/* Intro: headline and a tall crop on the left, an offset index of the four areas on the right */}
-      <section className={styles.intro} aria-labelledby="bd-intro">
+      {/* Advisory: one large photograph that changes with the service selected beside it */}
+      <section className={styles.advisory} aria-labelledby="bd-intro">
         <div className="container">
-          <div className={styles.introGrid}>
-            <div className={styles.introLead}>
-              <p className={styles.label}>{labelCase(intro?.eyebrow || "What we offer")}</p>
-              <SectionTitle id="bd-intro" className={styles.display}>
-                Strategic advisory across every phase of business.
-              </SectionTitle>
-              <p className={styles.lead}>
-                Senior guidance for the decisions that shape a company: where to grow, how to sell, how to close and
-                when to step back.
-              </p>
-            </div>
-            <Reveal variant="fade" className={styles.introPhotoWrap}>
-              <div className={styles.introPhoto}>
-                <Image src={IMAGES.team.src} alt={IMAGES.team.alt} fill sizes="(min-width: 960px) 30vw, 100vw" className={styles.cover} />
-              </div>
-            </Reveal>
-            <ol className={styles.index}>
-              {AREAS.map((area, index) => (
-                <li key={area.href}>
-                  <a className={styles.indexLink} href={area.href}>
-                    <span className={styles.indexNumber}>{String(index + 1).padStart(2, "0")}</span>
-                    <span className={styles.indexTitle}>{area.title}</span>
-                    <span className={styles.indexSummary}>{area.summary}</span>
-                    <span className={styles.indexArrow} aria-hidden="true">
-                      <ArrowIcon />
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <p className={styles.label}>{labelCase(intro?.eyebrow || "What we offer")}</p>
+          <SectionTitle id="bd-intro" className={styles.title}>
+            Strategic advisory across every phase of business.
+          </SectionTitle>
+          <SectionDescription className={styles.lead}>
+            Senior guidance for the decisions that shape a company: where to grow, how to sell, how to close and when
+            to step back.
+          </SectionDescription>
+          <AdvisoryExplorer />
         </div>
       </section>
 
-      {/* Growth: a large market image with the headline panel overlapping it, then a smaller image and the four calls */}
+      {/* Growth: the statement carries the section, with photographs layered off the right edge */}
       <section id="growth" className={styles.growth} aria-labelledby="bd-growth">
-        <div className="container">
-          <div className={styles.sectionHead}>
-            <p className={styles.label}>01 Growth strategy</p>
-            <SectionTitle id="bd-growth" className={styles.title}>
+        <div className={styles.growthStage}>
+          <div className="container">
+            <div className={styles.growthCopy}>
+            <h2 id="bd-growth" className={styles.growthHeading}>
               Scale with confidence.
-            </SectionTitle>
-          </div>
-          <div className={styles.growthStage}>
-            <Reveal variant="fade" className={styles.growthMain}>
-              <div className={styles.growthPhoto}>
-                <Image src={IMAGES.market.src} alt={IMAGES.market.alt} fill sizes="(min-width: 960px) 70vw, 100vw" className={styles.cover} />
-              </div>
+            </h2>
+            <Reveal>
+              <p className={styles.statement}>Growth should be a plan, not a gamble.</p>
             </Reveal>
-            <div className={styles.growthPanel}>
-              <p className={styles.panelLead}>
-                Growth should be a plan, not a guess. Every opportunity is tested before resources are committed.
-              </p>
+            <p className={styles.growthLead}>
+              Every opportunity is tested against market intelligence, competitive analysis and financial modelling
+              before resources are committed.
+            </p>
             </div>
           </div>
-
-          <div className={styles.growthDetail}>
-            <Reveal className={styles.growthSmall}>
-              <figure className={styles.figure}>
-                <div className={styles.smallPhoto}>
-                  <Image src={IMAGES.operations.src} alt={IMAGES.operations.alt} fill sizes="(min-width: 960px) 30vw, 100vw" className={styles.cover} />
-                </div>
-                <figcaption className={styles.caption}>Expansion planned around the operation, not the other way round.</figcaption>
-              </figure>
+          <div className={styles.growthMedia}>
+            <Reveal variant="fade" className={styles.growthMain}>
+              <Image
+                src={IMAGES.market.src}
+                alt={IMAGES.market.alt}
+                fill
+                sizes="(min-width: 960px) 58vw, 100vw"
+                className={styles.cover}
+              />
             </Reveal>
-            <div className={styles.themes}>
-              <p className={styles.label}>Every opportunity ends in one of four calls</p>
-              <ul className={styles.themeList}>
-                {THEMES.map((theme) => (
-                  <li key={theme.name} className={theme.lead ? `${styles.theme} ${styles.themeLead}` : styles.theme}>
-                    <span className={styles.themeName}>{theme.name}</span>
-                    <span className={styles.themeLine}>{theme.line}</span>
-                  </li>
+            <Reveal delay={200} className={styles.growthInset}>
+              <Image
+                src={IMAGES.operations.src}
+                alt={IMAGES.operations.alt}
+                fill
+                sizes="(min-width: 960px) 24vw, 45vw"
+                className={styles.cover}
+              />
+            </Reveal>
+          </div>
+        </div>
+
+        <div className={`container ${styles.growthDetail}`}>
+          <div>
+            <h3 className={styles.subheading}>What the plan covers</h3>
+            <ul className={styles.benefits}>
+              {BENEFITS.map((benefit, index) => (
+                <Reveal key={benefit} as="li" delay={index * 70} className={styles.benefit}>
+                  {benefit}
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className={styles.subheading}>Every opportunity ends in one of four calls</h3>
+            <div className={styles.matrix}>
+              <span className={styles.axisY}>Market strength</span>
+              <div className={styles.matrixGrid}>
+                {CALLS.map((call, index) => (
+                  <Reveal
+                    key={call.name}
+                    delay={index * 80}
+                    className={call.lead ? `${styles.call} ${styles.callLead}` : styles.call}
+                  >
+                    <span className={styles.callName}>{call.name}</span>
+                    <span className={styles.callLine}>{call.line}</span>
+                  </Reveal>
                 ))}
-              </ul>
+              </div>
+              <span className={styles.axisX}>Capability to win</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* People: one large crop, a single statement and the one supported proof point */}
-      <section className={styles.room} aria-labelledby="bd-room">
-        <Reveal variant="fade">
-          <div className={styles.roomPhoto}>
-            <Image src={IMAGES.room.src} alt={IMAGES.room.alt} fill sizes="100vw" className={styles.cover} />
-            <div className={styles.roomShade} aria-hidden="true" />
-            <div className={`container ${styles.roomCopy}`}>
-              <h2 id="bd-room" className={styles.roomStatement}>
-                Advisors in the room for the decisions that shape the business.
-              </h2>
-              <p className={styles.roomProof}>
-                <span className={styles.roomFigure}>40+</span>
-                <span>years of experience</span>
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* Sales: headline beside a short brief, then one ruled progression across the page */}
+      {/* Sales: a compact, selectable framework */}
       <section id="sales" className={styles.sales} aria-labelledby="bd-sales">
         <div className="container">
-          <div className={styles.salesHead}>
-            <p className={styles.label}>02 Corporate sales</p>
-            <SectionTitle id="bd-sales" className={styles.title}>
-              Build a scalable sales engine.
-            </SectionTitle>
-            <p className={styles.lead}>
-              Enterprise-grade sales infrastructure, built alongside your team and run by them long after the
-              engagement ends.
-            </p>
+          <p className={styles.label}>Corporate sales</p>
+          <SectionTitle id="bd-sales" className={styles.title}>
+            Build a scalable sales engine.
+          </SectionTitle>
+          <SectionDescription className={styles.lead}>
+            Enterprise-grade sales infrastructure, built alongside your team and run by them long after the engagement
+            ends.
+          </SectionDescription>
+          <SalesEngine />
+        </div>
+      </section>
+
+      {/* Legal: an accordion that fills in the transaction file beside it */}
+      <section id="legal" className={styles.legal} aria-labelledby="bd-legal">
+        <div className="container">
+          <p className={styles.label}>Legal &amp; compliance</p>
+          <SectionTitle id="bd-legal" className={styles.title}>
+            Navigate complex deals with clarity.
+          </SectionTitle>
+          <SectionDescription className={styles.lead}>
+            Deals stall on structure and paperwork. Alongside your legal counsel, every transaction is prepared to
+            close.
+          </SectionDescription>
+          <DealFile />
+        </div>
+      </section>
+
+      {/* Exit: dark and full-bleed, the headline on the photograph and the path running to the handover */}
+      <section id="exit" className={styles.exit} aria-labelledby="bd-exit">
+        <div className={styles.exitMedia}>
+          <Image src={IMAGES.built.src} alt={IMAGES.built.alt} fill sizes="100vw" className={styles.exitImage} />
+          <div className={styles.exitShade} aria-hidden="true" />
+          <div className={`container ${styles.exitHead}`}>
+            <p className={styles.labelOnDark}>Exit strategy &amp; succession</p>
+            <h2 id="bd-exit" className={styles.exitTitle}>
+              Prepare the business before the decision is urgent.
+            </h2>
           </div>
-          <ol className={styles.pipeline} aria-label="Corporate sales process">
-            {PIPELINE.map((stage, index) => (
-              <Reveal key={stage.name} as="li" delay={index * 100} className={styles.stage}>
-                <span className={styles.stageNode} aria-hidden="true" />
-                <span className={styles.stageNumber}>{String(index + 1).padStart(2, "0")}</span>
-                <span className={styles.stageName}>{stage.name}</span>
-                <span className={styles.stageDetail}>{stage.detail}</span>
+        </div>
+        <div className="container">
+          <p className={styles.exitLead}>
+            A sale, merger or succession goes best when value is built years ahead. Methodical and confidential, from
+            first valuation to handover.
+          </p>
+          <Reveal variant="fade">
+            <div className={styles.pathLine} aria-hidden="true">
+              <span>Years ahead</span>
+              <span>Handover</span>
+            </div>
+          </Reveal>
+          <ol className={styles.path}>
+            {EXIT_PATH.map((step, index) => (
+              <Reveal key={step.name} as="li" delay={index * 90} className={styles.pathStep}>
+                <span className={styles.pathName}>{step.name}</span>
+                <span className={styles.pathDetail}>{step.detail}</span>
               </Reveal>
             ))}
           </ol>
-        </div>
-      </section>
-
-      {/* Legal: a tall document photo on the left, the transaction file ruled on the right */}
-      <section id="legal" className={styles.legal} aria-labelledby="bd-legal">
-        <div className="container">
-          <div className={styles.sectionHead}>
-            <p className={styles.label}>03 Legal &amp; compliance</p>
-            <SectionTitle id="bd-legal" className={styles.title}>
-              Navigate complex deals with clarity.
-            </SectionTitle>
-          </div>
-          <div className={styles.legalGrid}>
-            <Reveal variant="fade" className={styles.legalPhotoWrap}>
-              <div className={styles.legalPhoto}>
-                <Image src={IMAGES.file.src} alt={IMAGES.file.alt} fill sizes="(min-width: 960px) 40vw, 100vw" className={styles.cover} />
-              </div>
-            </Reveal>
-            <div className={styles.legalCopy}>
-              <p className={styles.lead}>
-                Deals stall on structure and paperwork. Alongside your legal counsel, every transaction is prepared
-                to close.
-              </p>
-              <ol className={styles.file}>
-                {TRANSACTION_FILE.map((item) => (
-                  <li key={item.title} className={styles.fileRow}>
-                    <span className={styles.fileCheck}>
-                      <CheckIcon />
-                    </span>
-                    <span className={styles.fileTitle}>{item.title}</span>
-                    <span className={styles.fileDetail}>{item.detail}</span>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Exit: dark, a headline across the top, then the building beside the path */}
-      <section id="exit" className={styles.exit} aria-labelledby="bd-exit">
-        <div className="container">
-          <div className={styles.exitHead}>
-            <p className={styles.labelOnDark}>04 Exit strategy &amp; succession</p>
-            <SectionTitle id="bd-exit" className={styles.displayOnDark}>
-              Prepare the business before the decision is urgent.
-            </SectionTitle>
-          </div>
-          <div className={styles.exitGrid}>
-            <Reveal variant="fade" className={styles.exitPhotoWrap}>
-              <figure className={styles.figure}>
-                <div className={styles.exitPhoto}>
-                  <Image src={IMAGES.built.src} alt={IMAGES.built.alt} fill sizes="(min-width: 960px) 58vw, 100vw" className={styles.cover} />
-                </div>
-                <figcaption className={styles.captionOnDark}>Everything you have worked to build, handed on well.</figcaption>
-              </figure>
-            </Reveal>
-            <div className={styles.exitCopy}>
-              <p className={styles.leadOnDark}>
-                A sale, merger or succession goes best when value is built years ahead. Methodical and confidential,
-                from first valuation to handover.
-              </p>
-              <ol className={styles.path}>
-                {EXIT_PATH.map((step, index) => (
-                  <Reveal key={step.name} as="li" delay={index * 110} className={styles.pathStep}>
-                    <span className={styles.pathNode} aria-hidden="true" />
-                    <span className={styles.pathName}>{step.name}</span>
-                    <span className={styles.pathDetail}>{step.detail}</span>
-                  </Reveal>
-                ))}
-              </ol>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -316,7 +238,32 @@ export function BusinessDevelopmentPage({ content }: BusinessDevelopmentPageProp
         <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} />
       ) : null}
 
-      {closing ? <PageCta cta={closing} /> : null}
+      {/* Closing: back in the room where these conversations happen */}
+      {cta ? (
+        <section className={styles.closing} aria-labelledby="bd-closing">
+          <Image src={IMAGES.room.src} alt={IMAGES.room.alt} fill sizes="100vw" className={styles.closingImage} />
+          <div className={styles.closingShade} aria-hidden="true" />
+          <div className={`container ${styles.closingInner}`}>
+            <h2 id="bd-closing" className={styles.closingTitle}>
+              Planning the next move?
+            </h2>
+            <p className={styles.closingLead}>
+              Growth, a sale or a succession: the earlier the conversation, the more options you keep.
+            </p>
+            <div className={styles.closingActions}>
+              <Link href={cta.primary.href} className={styles.closingPrimary}>
+                Start a conversation
+              </Link>
+              {cta.phone ? (
+                <a href={cta.phone.href} className={styles.closingSecondary}>
+                  <PhoneIcon />
+                  604.925.5800
+                </a>
+              ) : null}
+            </div>
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }

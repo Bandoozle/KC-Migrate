@@ -33,6 +33,8 @@ type HeroBannerProps = {
   plain?: boolean;
   /** With `plain`: a short band for index and utility pages, no fixed hero height. */
   compact?: boolean;
+  /** Taller and bottom-anchored with larger type, for a page that opens on its photography. */
+  cinematic?: boolean;
 };
 
 function PhoneIcon() {
@@ -63,6 +65,7 @@ export function HeroBanner({
   backgroundPositionMobile,
   plain = false,
   compact = false,
+  cinematic = false,
 }: HeroBannerProps) {
   const items = slides.map((slide) => ({
     ...slide,
@@ -93,7 +96,7 @@ export function HeroBanner({
 
   return (
     <section
-      className={[styles.hero, isService ? styles.service : "", plain ? styles.plain : "", plain && compact ? styles.compact : ""]
+      className={[styles.hero, isService ? styles.service : "", plain ? styles.plain : "", plain && compact ? styles.compact : "", cinematic ? styles.cinematic : ""]
         .filter(Boolean)
         .join(" ")}
       style={positionStyle}

@@ -27,11 +27,14 @@ export function ServiceHero({
   hero,
   backgroundPosition,
   backgroundPositionMobile,
+  cinematic = false,
 }: {
   title: string;
   hero: ServiceHeroData;
   backgroundPosition?: string;
   backgroundPositionMobile?: string;
+  /** See HeroBanner. */
+  cinematic?: boolean;
 }) {
   const fallback = splitFallbackTitle(hero.displayTitle || title);
   const titlePrimary = hero.titleSecondary ? hero.displayTitle || title : fallback.primary;
@@ -49,6 +52,7 @@ export function ServiceHero({
       secondaryCTA={hero.secondaryCta === undefined ? defaults.secondaryCta : hero.secondaryCta}
       backgroundPosition={backgroundPosition}
       backgroundPositionMobile={backgroundPositionMobile}
+      cinematic={cinematic}
     />
   );
 }
