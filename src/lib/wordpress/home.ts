@@ -2,15 +2,7 @@ import { cache } from "react";
 
 export type HomeBentoItem = {
   titlePrimary: string;
-  titleSecondary: string;
-  description: string;
-  href: string;
-  image: string;
-  alt: string;
-};
-
-export type HomeSolutionItem = {
-  title: string;
+  titleSecondary?: string;
   description: string;
   href: string;
   image: string;
@@ -61,10 +53,17 @@ export type HomeWhyTile = {
   line2: string;
 };
 
+export type HomeHeroRotation = {
+  word: string;
+  subtitle: string;
+};
+
 export type HomePageContent = {
   hero: {
     title: string;
     subtitle: string;
+    /** Rotating “THE ART OF …” words with matching subtext. */
+    rotations: HomeHeroRotation[];
     ctaLabel: string;
     ctaHref: string;
     vimeoSrc: string;
@@ -74,11 +73,6 @@ export type HomePageContent = {
     description: string;
   };
   bento: HomeBentoItem[];
-  solutions: {
-    title: string;
-    subtitle: string;
-    items: HomeSolutionItem[];
-  };
   brandTabsPreceding: {
     title: string;
     lead: string;
@@ -146,14 +140,12 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     alt: "Television and broadcast advertising",
   },
   {
-    titlePrimary: "Radio",
-    titleSecondary: "& Streaming",
+    titlePrimary: "Web",
     description:
-      "Scheduled ad spots and sponsorships across news, talk, and top music platforms on radio and audio streaming.",
-    href: "/services/radio-advertising/",
-    image:
-      "/wp-content/uploads/2026/06/radio-streaming-advertising-750x750.jpg",
-    alt: "Radio and streaming advertising",
+      "Custom websites and e-commerce stores, designed and developed to perform on every device and easy for search engines to read.",
+    href: "/services/website-development/",
+    image: "/wp-content/uploads/2026/03/website-development-e-commerce.jpg",
+    alt: "A storefront website open on a laptop",
   },
   {
     titlePrimary: "Out of",
@@ -186,61 +178,6 @@ const BENTO_ITEMS: HomeBentoItem[] = [
   },
 ];
 
-const SOLUTION_ITEMS: HomeSolutionItem[] = [
-  {
-    title: "Digital Marketing + Social",
-    description:
-      "Performance campaigns across search, social, and YouTube that put your brand in front of ready-to-buy customers.",
-    href: "/services/digital-marketing/",
-    image:
-      "/wp-content/uploads/2026/06/social-media-content-marketing-1-640x960.jpg",
-    alt: "Digital marketing and social media",
-  },
-  {
-    title: "Targeted Media",
-    description:
-      "Precision media buying across TV, digital, and out-of-home to reach the audiences that matter most.",
-    href: "/services/television-advertising/",
-    image: "/wp-content/uploads/2026/06/tv-advertising-750x600.jpg",
-    alt: "Targeted media planning",
-  },
-  {
-    title: "Branding",
-    description:
-      "Brand systems that create recognition, emotion, and lasting preference across every touchpoint.",
-    href: "/services/corporate-branding/",
-    image:
-      "/wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp",
-    alt: "Corporate branding",
-  },
-  {
-    title: "Connected TV",
-    description:
-      "Streaming inventory with television impact and digital targeting across premium CTV platforms.",
-    href: "/services/digital-connected-tv/",
-    image:
-      "/wp-content/uploads/2026/06/connected-tv-streaming-750x563.jpg",
-    alt: "Connected TV advertising",
-  },
-  {
-    title: "Out of Home",
-    description:
-      "Billboards, transit, and digital screens that meet audiences where they commute, shop, and travel.",
-    href: "/services/outdoor-advertising/",
-    image: "/wp-content/uploads/2026/02/media-buying-750x499.jpg",
-    alt: "Out of home advertising",
-  },
-  {
-    title: "Radio & Streaming",
-    description:
-      "Audio spots and sponsorships across news, talk, and music platforms that keep your brand top of mind.",
-    href: "/services/radio-advertising/",
-    image:
-      "/wp-content/uploads/2026/06/radio-streaming-advertising-750x750.jpg",
-    alt: "Radio and streaming advertising",
-  },
-];
-
 const WHY_CHOOSE_CAPABILITIES: HomeCapability[] = [
   { label: "Brand Strategy", icon: "strategy" },
   { label: "Web Development", icon: "web" },
@@ -254,8 +191,30 @@ const WHY_CHOOSE_CAPABILITIES: HomeCapability[] = [
 
 const HOME_CONTENT: HomePageContent = {
   hero: {
-    title: "THE ART OF MARKETING",
-    subtitle: "Digital • Media • Branding • Business Development",
+    title: "THE ART OF GROWTH",
+    subtitle: "Connect strategy, creative, and execution to drive measurable growth.",
+    rotations: [
+      {
+        word: "GROWTH",
+        subtitle: "Connect strategy, creative, and execution to drive measurable growth.",
+      },
+      {
+        word: "BRANDING",
+        subtitle: "Build a brand people recognize, remember, and trust.",
+      },
+      {
+        word: "VISIBILITY",
+        subtitle: "Build awareness and demand across the channels that matter.",
+      },
+      {
+        word: "DEMAND",
+        subtitle: "Traditional and digital marketing working together to grow your business.",
+      },
+      {
+        word: "MOMENTUM",
+        subtitle: "From brand positioning to lead generation, we help businesses move forward.",
+      },
+    ],
     ctaLabel: "CONNECT WITH US",
     ctaHref: "/contact/",
     vimeoSrc:
@@ -267,12 +226,6 @@ const HOME_CONTENT: HomePageContent = {
       "We help brands grow through strategy, creative, media, and digital experiences. With 40+ years of experience, Kosick combines traditional advertising with modern digital marketing to build visibility, reach the right audience, and drive measurable growth.",
   },
   bento: BENTO_ITEMS,
-  solutions: {
-    title: "Our bespoke solutions",
-    subtitle:
-      "Strategy, creative, and media working together — tailored solutions that build visibility and drive measurable growth.",
-    items: SOLUTION_ITEMS,
-  },
   brandTabsPreceding: {
     title: "Build a brand people remember",
     lead: "From strategy to consistency, create meaningful experiences across every touchpoint.",
@@ -324,7 +277,7 @@ const HOME_CONTENT: HomePageContent = {
     },
   ],
   testimonials: {
-    title: "Hear it from our customers",
+    title: "Hear it from our clients",
     lead: "See how our work helps create real results.",
     items: [
       {

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import type { HomePageContent } from "@/lib/wordpress/home";
+import { HomeHeroRotator } from "./HomeHeroRotator";
 import styles from "./HomeHero.module.css";
 
 type HomeHeroProps = {
@@ -22,10 +23,7 @@ export function HomeHero({ content }: HomeHeroProps) {
       </div>
       <div className={styles.inner}>
         <Reveal variant="fadeUp">
-          <h1 className={styles.title}>{content.title}</h1>
-        </Reveal>
-        <Reveal variant="fadeUp" delay={90}>
-          <p className={styles.subtitle}>{content.subtitle}</p>
+          <HomeHeroRotator rotations={content.rotations} />
         </Reveal>
         <Reveal variant="fadeUp" delay={180}>
           <Link href={content.ctaHref} className={styles.cta}>

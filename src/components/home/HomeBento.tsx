@@ -29,7 +29,6 @@ export function HomeBento({ items }: HomeBentoProps) {
     <section className={`${shared.rail} ${styles.section}`} aria-label="What we do">
       <div className={styles.grid}>
         {items.map((item, index) => {
-          const n = index + 1;
           return (
             <Link
               key={item.href}
@@ -45,13 +44,10 @@ export function HomeBento({ items }: HomeBentoProps) {
                 decoding="async"
               />
               <span className={styles.overlay} aria-hidden="true" />
-              <span className={styles.index} aria-hidden="true">
-                {String(n).padStart(2, "0")}
-              </span>
               <div className={styles.content}>
                 <h3 className={styles.title}>
                   <span className={styles.titlePrimary}>{item.titlePrimary}</span>
-                  <span className={styles.titleSecondary}>{item.titleSecondary}</span>
+                  {item.titleSecondary ? <span className={styles.titleSecondary}>{item.titleSecondary}</span> : null}
                 </h3>
                 <p className={styles.description}>{item.description}</p>
               </div>

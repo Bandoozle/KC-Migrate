@@ -6,7 +6,6 @@ import { HomeContact } from "./HomeContact";
 import { HomeHero } from "./HomeHero";
 import { HomeIntro } from "./HomeIntro";
 import { HomeQuote } from "./HomeQuote";
-import { HomeSolutions } from "./HomeSolutions";
 import { HomeTestimonials } from "./HomeTestimonials";
 import { HomeWhyChoose } from "./HomeWhyChoose";
 import { SectionSeparator } from "./SectionSeparator";
@@ -25,10 +24,6 @@ export function HomePageView({ content }: HomePageViewProps) {
       </Reveal>
       <Reveal variant="fadeUp">
         <HomeBento items={content.bento} />
-      </Reveal>
-      <SectionSeparator />
-      <Reveal variant="fadeUp">
-        <HomeSolutions content={content.solutions} />
       </Reveal>
       <SectionSeparator />
       <Reveal variant="fadeUp">
