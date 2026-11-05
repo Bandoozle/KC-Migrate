@@ -6,15 +6,16 @@ import { decodeRenderedText, getPageBySlug, CONTENT_ORIGIN, WordPressApiError } 
 import { absUrl, cleanText, textFrom } from "@/lib/wordpress/shared";
 import { getKadenceForm } from "@/lib/wordpress/kadence-forms";
 
-export type ContactOffice = {
-  label: string;
-  address: string;
-};
-
 export type ContactDetailLink = {
   label: string;
   display: string;
   href: string;
+};
+
+export type ContactOffice = {
+  label: string;
+  /** Optional city phone; addresses are not shown on the contact page. */
+  phone?: ContactDetailLink | null;
 };
 
 export type ContactPageContent = {
@@ -64,21 +65,49 @@ function decodeObfuscatedEmail(display: string, href: string): string {
   return display;
 }
 
-function parseOffices($: CheerioAPI, scope: Element): ContactOffice[] {
+const CALGARY_PHONE: ContactDetailLink = {
+  label: "Phone",
+  display: "403-809-9450",
+  href: "tel:14038099450",
+};
+
+function parseOffices(
+  $: CheerioAPI,
+  scope: Element,
+  vancouverPhone: ContactDetailLink,
+): ContactOffice[] {
   const headings = $(scope).find("h4, .wp-block-kadence-advancedheading").toArray();
   const offices: ContactOffice[] = [];
   for (let i = 0; i < headings.length; i += 1) {
     const label = nodeText($, headings[i]);
     if (!label || !/:$/.test(label)) continue;
+    const city = cleanText(label.replace(/:$/, ""));
+    // Drop USA / Phoenix entirely from the contact page.
+    if (/usa|united states|phoenix/i.test(city)) continue;
     const addressEl = headings[i + 1];
     const address = addressEl ? linesFrom($, addressEl) : "";
     if (!address || /:$/.test(address)) continue;
+    if (/usa|united states/i.test(address)) continue;
     offices.push({
-      label: cleanText(label.replace(/:$/, "")),
-      address,
+      label: city,
+      phone: /calgary/i.test(city)
+        ? CALGARY_PHONE
+        : /vancouver/i.test(city)
+          ? vancouverPhone
+          : null,
     });
   }
   return offices;
+}
+
+function withoutUsaServicing(value: string): string {
+  return value
+    .replace(/\s*,\s*USA\s*&/i, " &")
+    .replace(/\s*&\s*USA\s*,/i, " &")
+    .replace(/\s*,\s*USA\b/i, "")
+    .replace(/\bUSA\s*,\s*/i, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
 function normalizeContactHtml(
@@ -120,9 +149,10 @@ function normalizeContactHtml(
     ? absUrl(img.attr("src") || img.attr("data-src"), origin)
     : null;
 
-  const servicing =
+  const servicing = withoutUsaServicing(
     infoHeadings.find((h) => /proudly servicing/i.test(h)) ||
-    "Proudly Servicing: Canada, USA & Mexico";
+      "Proudly Servicing: Canada & Mexico",
+  );
 
   const formHeadings = formRow
     ? $(formRow)
@@ -146,6 +176,12 @@ function normalizeContactHtml(
     ? $(formRow).find('a[href^="mailto:"]').first()
     : emailLink;
 
+  const vancouverPhone: ContactDetailLink = {
+    label: "Phone",
+    display: phoneDisplay,
+    href: phoneLink?.attr("href") || "tel:16049255800",
+  };
+
   return {
     title: cleanText(decodeRenderedText(pageTitle)) || "Contact",
     excerpt: cleanText(decodeRenderedText(excerpt)),
@@ -156,11 +192,7 @@ function normalizeContactHtml(
       company:
         infoHeadings.find((h) => /kosick communications/i.test(h)) ||
         "Kosick Communications Ltd.",
-      phone: {
-        label: "Phone",
-        display: phoneDisplay,
-        href: phoneLink?.attr("href") || "tel:16049255800",
-      },
+      phone: vancouverPhone,
       email: {
         label: "Email",
         display: emailDisplay,
@@ -168,7 +200,7 @@ function normalizeContactHtml(
           ? emailHref
           : `mailto:${emailDisplay}`,
       },
-      offices: infoRow ? parseOffices($, infoRow) : [],
+      offices: infoRow ? parseOffices($, infoRow, vancouverPhone) : [],
       servicing,
       image: imgSrc
         ? {

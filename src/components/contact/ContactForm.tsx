@@ -193,8 +193,10 @@ export function ContactForm({
         className={styles.submit}
         type="submit"
         disabled={status === "submitting"}
+        aria-busy={status === "submitting"}
       >
-        {status === "submitting" ? "Sending…" : form.submitLabel}
+        <span>{status === "submitting" ? "Sending…" : form.submitLabel}</span>
+        {studio ? <span className={status === "submitting" ? styles.submitBusy : styles.submitArrow} aria-hidden="true" /> : null}
       </button>
     </form>
   );

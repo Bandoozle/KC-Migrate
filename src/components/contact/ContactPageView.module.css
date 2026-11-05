@@ -1,215 +1,353 @@
 .main {
+  --signal: #d4bd8e;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
   overflow-x: clip;
 }
 
-.srOnly {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+/* ---------- Hero: the form on a white sheet is the brightest thing on a black page ---------- */
+.hero {
+  padding-block: clamp(1.25rem, 2.4vw, 2rem) clamp(2rem, 3vw, 2.5rem);
+  background: #000000;
+  color: #ffffff;
 }
 
-.studio {
+/* One column: headline, form, then the direct routes. Two columns: the form spans both rows. */
+.heroGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.heroCopy,
+.direct {
+  min-width: 0;
+}
+
+.heroEyebrow {
+  margin: 0 0 0.6rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--kosick-meta-size);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(2.125rem, 4vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.heroTitleMuted {
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.heroLead {
+  max-width: 28rem;
+  margin: 0.85rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--kosick-section-desc-size, 1.125rem);
+  line-height: 1.45;
+}
+
+.sheet {
+  min-width: 0;
+  padding: clamp(1.25rem, 2.2vw, 2rem);
+  scroll-margin-top: 5.5rem;
+  border-radius: 3px;
+  background: #ffffff;
+  color: #111111;
+  box-shadow: 0 30px 70px -30px rgba(212, 189, 142, 0.35);
+}
+
+.sheetHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.2rem 1rem;
+  margin-bottom: 1rem;
+}
+
+.sheetTitle {
+  margin: 0;
+  color: #111111;
+  font-size: clamp(1.375rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.sheetNote {
+  margin: 0;
+  color: var(--kosick-color-meta);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.routes {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.routes li {
+  min-width: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.main .route {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.1rem 1rem;
+  padding: 0.7rem 0;
+  color: #ffffff;
+  text-decoration: none;
+  transition:
+    color 220ms var(--ease),
+    padding-left 220ms var(--ease);
+}
+
+.routeLabel {
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+}
+
+.routeValue {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.main .route:hover,
+.main .route:focus-visible {
+  padding-left: 0.4rem;
+  color: var(--signal);
+}
+
+.main .route:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 2px;
+}
+
+.hours {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0.85rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.hours b {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.hoursDot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  margin-top: 0.38rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.hours[data-open="true"] .hoursDot {
+  background: var(--signal);
+  box-shadow: 0 0 0 4px rgba(212, 189, 142, 0.2);
+}
+
+.servicing {
+  margin: 0.3rem 0 0 calc(8px + 0.6rem);
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+/* ---------- Compact partner brands: a credibility strip, not a feature ---------- */
+.partners {
+  padding-block: clamp(1.25rem, 2.5vw, 2rem);
   background: #ffffff;
 }
 
-.shell {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  overflow: hidden;
-  border: 1px solid #e4e4e2;
-  border-radius: var(--kosick-radius-md, 12px);
-  background: #f7f7f5;
-}
-
-.panel {
-  display: flex;
-  flex-direction: column;
-  gap: 1.35rem;
-  min-width: 0;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: #161616;
-  color: #f4f4f4;
-}
-
-.eyebrow {
+.partnersTitle {
   margin: 0;
-  font-family: var(--kosick-font, "Gellix", sans-serif);
-  font-size: var(--kosick-eyebrow-size, 0.8125rem);
-  font-weight: 600;
-  letter-spacing: var(--kosick-eyebrow-tracking);
-  line-height: 1.3;
-  color: #b6a37a;
-}
-
-.heading {
-  margin: 0;
-  max-width: 16ch;
-  font-family: var(--kosick-font, "Gellix", sans-serif);
-  font-size: var(--kosick-section-title-size);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  color: #f7f7f5;
-}
-
-.intro {
-  margin: 0;
-  max-width: 34rem;
-  font-family: var(--kosick-font, "Gellix", sans-serif);
-  font-size: var(--kosick-section-desc-size, 1.125rem);
-  font-weight: 400;
-  line-height: 1.55;
-  color: rgba(244, 244, 244, 0.78);
-}
-
-.direct {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
-  gap: 1rem 1.5rem;
-  margin: 0.35rem 0 0;
-}
-
-.direct p {
-  display: grid;
-  gap: 0.3rem;
-  margin: 0;
-}
-
-.directLabel {
-  font-family: var(--kosick-font, "Gellix", sans-serif);
-  font-size: var(--kosick-eyebrow-size, 0.8125rem);
-  font-weight: 600;
-  letter-spacing: var(--kosick-eyebrow-tracking);
-  line-height: 1.3;
-  color: #b6a37a;
-}
-
-.direct a {
-  color: #f7f7f5;
-  font-size: 1.0625rem;
+  color: var(--kosick-color-muted);
+  font-size: 0.9375rem;
   font-weight: 500;
   line-height: 1.4;
-  text-decoration: none;
+  letter-spacing: 0;
+  text-align: center;
 }
 
-.direct a:hover,
-.direct a:focus-visible,
-.mapLink:hover,
-.mapLink:focus-visible {
-  text-decoration: underline;
-}
-
-.panel a:focus-visible {
-  outline: 2px solid #b6a37a;
-  outline-offset: 3px;
-}
-
-.offices {
-  display: grid;
-  gap: 0;
+.logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 0.25rem 0 0;
   padding: 0;
   list-style: none;
 }
 
-.offices li {
-  display: grid;
-  gap: 0.35rem;
-  padding: 1rem 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.officeLabel {
-  margin: 0;
-  font-family: var(--kosick-font, "Gellix", sans-serif);
-  font-size: var(--kosick-eyebrow-size, 0.8125rem);
-  font-weight: 600;
-  letter-spacing: var(--kosick-eyebrow-tracking);
-  line-height: 1.3;
-  color: #f7f7f5;
-}
-
-.officeAddress {
-  display: grid;
-  margin: 0;
-  color: rgba(244, 244, 244, 0.82);
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-.mapLink {
-  width: fit-content;
-  color: #b6a37a;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  line-height: 1.4;
-  text-decoration: none;
-}
-
-.servicing {
-  margin: 0.15rem 0 0;
-  color: rgba(244, 244, 244, 0.68);
-  font-size: 0.9375rem;
-  line-height: 1.5;
-}
-
-.formPane {
-  display: flex;
-  flex-direction: column;
+.logo {
+  flex: 0 0 25%;
   min-width: 0;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
-  scroll-margin-top: 5.5rem;
-  background: #f7f7f5;
 }
 
-.formPane > form {
-  display: flex;
-  flex-direction: column;
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition:
+    filter 260ms var(--ease),
+    opacity 260ms var(--ease);
 }
 
-.formHeading {
-  margin: 0;
-  font-family: var(--kosick-font, "Gellix", sans-serif);
-  font-size: var(--kosick-card-title-size, 1.375rem);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+@media (hover: hover) and (pointer: fine) {
+  .logo img {
+    filter: grayscale(1);
+    opacity: 0.72;
+  }
+
+  .logo:hover img {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+/* ---------- One featured review ---------- */
+.voice {
+  padding-block: var(--kosick-block-compact);
+  background: #f4f3ef;
   color: #111111;
 }
 
-.formNote {
-  margin: 0.55rem 0 1.25rem;
-  color: #6e6e73;
+.voiceInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin-block: 0;
+}
+
+.voiceQuote {
+  max-width: 58rem;
+  margin: 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.875rem);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-align: center;
+}
+
+.voiceBy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem 0.85rem;
+  color: var(--kosick-color-muted);
   font-size: 0.9375rem;
-  line-height: 1.45;
+  line-height: 1.4;
+}
+
+.voiceName {
+  color: #111111;
+  font-weight: 600;
+}
+
+.voiceSource {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.voiceStars {
+  display: inline-flex;
+  gap: 1px;
+  color: #7d6636;
+}
+
+.voiceStars svg {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .logo {
+    flex-basis: calc(100% / 6);
+  }
 }
 
 @media (min-width: 960px) {
-  .shell {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
-    align-items: stretch;
+  /* The form takes the larger column and both rows; the routes settle at its base */
+  .heroGrid {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(2.5rem, 5vw, 5rem);
+    row-gap: 1.5rem;
   }
 
-  .panel,
-  .formPane {
-    padding: clamp(2rem, 2.6vw, 2.75rem);
+  .heroCopy {
+    grid-area: 1 / 1;
+    padding-top: 0.75rem;
   }
 
-  .formPane > form {
-    flex: 1;
+  .sheet {
+    grid-area: 1 / 2 / span 2;
+  }
+
+  .direct {
+    grid-area: 2 / 1;
+    align-self: end;
+  }
+}
+
+@media (min-width: 960px) and (min-height: 820px) {
+  .sheet {
+    padding: clamp(1.75rem, 2.6vw, 2.5rem);
+  }
+
+  .sheetHead {
+    margin-bottom: 1.35rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .logos {
+    flex-wrap: nowrap;
+  }
+
+  .logo {
+    flex: 1 1 0;
   }
 }
 
 @media (pointer: coarse) {
-  .mapLink {
-    display: inline-flex;
+  .main .route {
     align-items: center;
     min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .main .route,
+  .logo img {
+    transition: none !important;
+  }
+
+  .main .route:hover,
+  .main .route:focus-visible {
+    padding-left: 0;
   }
 }
