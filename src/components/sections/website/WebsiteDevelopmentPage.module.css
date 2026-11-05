@@ -1,7 +1,7 @@
 /*
  * Website Development & E-Commerce. An interface palette: ink, an off-white
  * design canvas, warm paper for commerce, and one selection indigo used the
- * way a design tool uses it (guides, outlines, the active state).
+ * way a design tool uses it (outlines, the active state).
  */
 .page {
   --ink: #111318;
@@ -73,23 +73,6 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: clamp(2.5rem, 5vw, 3.5rem);
-}
-
-/* Layout guides: the 12-column grid, switched on */
-.guides {
-  position: absolute;
-  inset: -12rem 0;
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: var(--gutter);
-  pointer-events: none;
-}
-
-.guides i {
-  background: rgba(91, 91, 247, 0.035);
-  box-shadow:
-    inset 1px 0 rgba(91, 91, 247, 0.08),
-    inset -1px 0 rgba(91, 91, 247, 0.08);
 }
 
 .heroCopy {
@@ -302,16 +285,6 @@
 
   .heroVisual {
     margin-right: calc(-1 * clamp(0rem, 3vw, 3rem));
-  }
-}
-
-@media (max-width: 999px) {
-  .guides {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .guides i:nth-child(n + 5) {
-    display: none;
   }
 }
 

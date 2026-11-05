@@ -17,8 +17,8 @@ import styles from "./WebsiteDevelopmentPage.module.css";
 
 /*
  * Website Development & E-Commerce. The page is built from the materials of
- * the work itself: browser canvases, breakpoints, layout guides, selection
- * outlines, a sitemap. Every screen is a real client site; the two
+ * the work itself: browser canvases, breakpoints, selection outlines,
+ * a sitemap. Every screen is a real client site; the two
  * recordings were captured on the live DirectBuy Furnace and Skinfolio sites.
  */
 
@@ -95,15 +95,9 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
 
   return (
     <main className={styles.page}>
-      {/* Hero: the headline on a layout canvas, with live client sites stacked like open windows */}
+      {/* Hero: the headline with live client sites stacked like open windows */}
       <header className={styles.hero}>
         <div className={`container ${styles.heroGrid}`}>
-          <div className={styles.guides} aria-hidden="true">
-            {Array.from({ length: 12 }, (_, index) => (
-              <i key={index} />
-            ))}
-          </div>
-
           <div className={styles.heroCopy}>
             {hero.eyebrow ? <p className={styles.heroEyebrow}>{hero.eyebrow}</p> : null}
             <PageTitle className={styles.heroTitle}>
