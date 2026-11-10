@@ -2,6 +2,7 @@
 
 import { JourneyFrame, Photo, on, show } from "./JourneyFrame";
 import kit from "./kit.module.css";
+import p from "./places.module.css";
 import s from "./ConstructionJourney.module.css";
 
 const U = "/wp-content/uploads";
@@ -20,7 +21,7 @@ export function ConstructionJourney() {
       steps={[
         { label: "Show the work", body: "Social media and a strong portfolio show your builds as they happen." },
         { label: "Shortlist", body: "A website that looks the part, and content that proves you know the trade, earn the spot on the list." },
-        { label: "Site visit", body: "A clear next step turns the shortlist into a request for a site visit." },
+        { label: "Site visit", body: "A clear next step makes it easy to go from the shortlist to a site visit request." },
       ]}
     >
       {(stage) => (
@@ -40,13 +41,22 @@ export function ConstructionJourney() {
           <div className={kit.layer} {...show(stage, 1)}>
             <Photo src={`${U}/2024/03/padwood-construction.webp`} position="50% 62%" className={s.laptop} />
             <div className={`${kit.card} ${s.shortlist}`}>
-              <b>Builder shortlist</b>
-              <span className={kit.skel} />
-              <span className={kit.skel} />
-              <span className={s.you}>
-                <span className={kit.tick} />
-                Your company
+              <span className={s.listHead}>
+                <b>Saved builders</b>
+                <small>3 saved</small>
               </span>
+              <span className={s.you}>
+                <span className={s.youThumb}>
+                  <Photo src={HOME} position="50% 50%" />
+                </span>
+                <span className={s.youText}>
+                  <b>Your company</b>
+                  <small>Custom homes · Renovations</small>
+                </span>
+                <span className={kit.tick} />
+              </span>
+              <span className={s.others}>+ 2 other builders</span>
+              <span className={s.visitBtn}>Request a site visit</span>
             </div>
           </div>
 
@@ -60,6 +70,7 @@ export function ConstructionJourney() {
               <small>New build · Thursday morning</small>
             </div>
           </div>
+          <span className={p.note}>Illustrative</span>
         </div>
       )}
     </JourneyFrame>

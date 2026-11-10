@@ -9,7 +9,7 @@ export const SPECIALTY_RETAIL: Industry = {
   path: "/services/specialty-retail-marketing/",
   directory: {
     line: "E-commerce, social, radio and creative for independent stores.",
-    image: { src: `${UP}/2023/06/hearth-advertising.jpg`, alt: "A pellet stove glowing in a living room with snow outside" },
+    image: { src: "/images/industries/specialty-retail/garden-centre-greenhouse-tables.jpg", alt: "Benches of marigolds and spring flowers in a garden centre greenhouse", position: "50% 55%" },
   },
   offersIntro: {
     label: "What we offer",
@@ -30,7 +30,7 @@ export const SPECIALTY_RETAIL: Industry = {
       label: "Specialty retail marketing",
       title: "Specialty Retail Marketing",
       lead: "Marketing for independent and specialty stores that win on expertise, selection and service: e-commerce, social media, radio and creative campaigns that bring shoppers in the door and to the online store.",
-      image: { src: `${UP}/2026/07/Garden-Centre-Nursery-Marketing.jpg`, alt: "A garden centre website on a laptop beside a vase of olive branches" },
+      image: { src: "/images/industries/specialty-retail/garden-centre-hanging-baskets.jpg", position: "50% 30%", alt: "Hanging baskets of petunias in a garden centre greenhouse" },
     },
     intro: {
       title: "Big-box prices can't buy your expertise.",
@@ -60,7 +60,7 @@ export const SPECIALTY_RETAIL: Industry = {
     ],
     gallery: [
       { src: `${UP}/2026/08/Social-Media.jpg`, alt: "Garden centre Instagram posts of flowers and a succulent planter" },
-      { src: `${UP}/2023/06/hearth-advertising.jpg`, alt: "A pellet stove glowing in a living room with snow outside the window" },
+      { src: "/images/industries/specialty-retail/garden-centre-greenhouse.jpg", alt: "A garden centre staff member hanging flower baskets in a greenhouse", position: "50% 45%" },
       { src: `${UP}/2025/10/website-development.jpg`, alt: "An online tool store website on a laptop" },
     ],
   },
@@ -138,7 +138,7 @@ export const SPECIALTY_RETAIL: Industry = {
         { title: "Launch & grow", body: "Tracking from day one, then improvements based on sales." },
       ],
       gallery: [
-        { src: `${UP}/2026/07/Garden-Centre-Nursery-Marketing.jpg`, alt: "A garden centre website on a laptop beside a vase of olive branches" },
+        { src: "/images/industries/specialty-retail/garden-centre-planter.jpg", alt: "A garden centre staff member holding a planter of pansies and ranunculus", position: "50% 50%" },
         { src: `${UP}/2025/08/mobile-responsive-website-design.jpeg`, alt: "A retailer's website open on a tablet in a stand" },
       ],
       related: [],
@@ -226,7 +226,7 @@ export const SPECIALTY_RETAIL: Industry = {
       seo: {
         title: "Radio Advertising for Specialty Retailers | Kosick Communications",
         description:
-          "Radio and streaming audio advertising for specialty retailers: media planning, buying and spot production that drive local store traffic.",
+          "Radio and streaming audio advertising for specialty retailers: media planning, buying and spot production built to drive local store traffic.",
       },
       hero: {
         label: "Specialty retail radio advertising",
@@ -312,7 +312,7 @@ export const SPECIALTY_RETAIL: Industry = {
         label: "Content development & creative campaigns",
         title: "Show the product the way you see it.",
         lead: "Specialty products deserve better than a supplier photo. We create photography, video and campaign creative that show off your range and give every promotion a look worth stopping for.",
-        image: { src: `${UP}/2023/06/hearth-advertising.jpg`, alt: "A pellet stove glowing in a living room with snow outside the window" },
+        image: { src: "/images/industries/specialty-retail/garden-centre-greenhouse-tables.jpg", position: "50% 55%", alt: "Benches of marigolds and spring flowers in a garden centre greenhouse" },
       },
       intro: {
         title: "Great products, shown in their best light.",

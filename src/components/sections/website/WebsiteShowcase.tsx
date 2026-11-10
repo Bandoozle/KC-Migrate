@@ -7,6 +7,7 @@ import { SectionTitle } from "@/components/typography";
 import type { ServiceMediaCardSection } from "@/lib/wordpress/service-page-types";
 import { Browser, RECORDINGS, type RecordingKey } from "./Browser";
 import { LoopVideo } from "./LoopVideo";
+import { ScrollPreview } from "./ScrollPreview";
 import styles from "./WebsiteShowcase.module.css";
 
 type WebsiteShowcaseProps = {
@@ -19,10 +20,35 @@ type Project = {
   objective: string;
   delivered: string[];
   recording?: RecordingKey;
+  /** A full-page screenshot that scrolls in the canvas, for sites without a screen recording. */
+  scroll?: { src: string; alt: string; width: number; height: number };
   href: string | null;
   host: string;
   image: { src: string; alt: string };
 };
+
+/*
+ * Completed sites shown ahead of the WordPress list. Class A Heating leads:
+ * screenshots captured from the live site, classaheating.ca (Nov 2026).
+ */
+const FEATURED: Project[] = [
+  {
+    title: "Class A Heating",
+    industry: "HVAC",
+    objective:
+      "A modern, fully responsive website for a Chilliwack heating and cooling company, built around lead generation: quote and estimate requests, click-to-call, a rebate finder and product pages for every system.",
+    delivered: ["Modern design", "Responsive layout", "Quote requests", "Click-to-call", "Rebate finder", "Product pages"],
+    href: "https://classaheating.ca/",
+    host: "classaheating.ca",
+    image: { src: "/images/website-projects/class-a-heating-hero.jpg", alt: "The Class A Heating home page: HVAC Chilliwack heating & cooling specialists" },
+    scroll: {
+      src: "/images/website-projects/class-a-heating-full.jpg",
+      alt: "The full Class A Heating home page, from the hero to the quote form and footer",
+      width: 1440,
+      height: 5914,
+    },
+  },
+];
 
 /*
  * Industry, a one-line objective and what was delivered, per client. The
@@ -84,8 +110,8 @@ function hostOf(href: string | null) {
 }
 
 function projectsFrom(section: ServiceMediaCardSection): Project[] {
-  const seen = new Set<string>();
-  const projects: Project[] = [];
+  const seen = new Set<string>(FEATURED.map((project) => project.title.toLowerCase()));
+  const projects: Project[] = [...FEATURED];
   for (const card of section.cards) {
     if (!card.image?.src || !card.title) continue;
     const key = card.title.toLowerCase().trim();
@@ -141,6 +167,8 @@ export function WebsiteShowcase({ section }: WebsiteShowcaseProps) {
   const behindIndex = preview !== null && preview !== active ? preview : (active + 1) % count;
   const behind = projects[behindIndex];
   const showRecording = fullPage && current.recording;
+  const showScroll = fullPage && !current.recording && current.scroll;
+  const hasFullPage = Boolean(current.recording || current.scroll);
 
   function go(index: number, focus = false) {
     const target = (index + count) % count;
@@ -219,19 +247,21 @@ export function WebsiteShowcase({ section }: WebsiteShowcaseProps) {
             <div key={`front-${active}`} className={styles.front} data-dir={direction} style={tiltStyle}>
               <Browser
                 host={current.host || current.title}
-                path={showRecording ? " / full page" : undefined}
+                path={showRecording || showScroll ? " / full page" : undefined}
                 tone="dark"
                 ratio={showRecording && current.recording ? RECORDINGS[current.recording].ratio : 16 / 10}
               >
                 {showRecording && current.recording ? (
                   <LoopVideo recording={current.recording} />
+                ) : showScroll && current.scroll ? (
+                  <ScrollPreview {...current.scroll} />
                 ) : (
                   <Image src={current.image.src} alt={current.image.alt} fill priority={active === 0} sizes="(min-width: 960px) 62vw, 100vw" quality={85} className={styles.shot} />
                 )}
               </Browser>
             </div>
 
-            {current.recording ? (
+            {hasFullPage ? (
               <div className={styles.viewSwitch} role="group" aria-label="Canvas view">
                 <button type="button" aria-pressed={!fullPage} onClick={() => setFullPage(false)}>
                   Hero
@@ -319,7 +349,7 @@ export function WebsiteShowcase({ section }: WebsiteShowcaseProps) {
                   <span className={styles.thumbView}>
                     <Image src={project.image.src} alt="" fill sizes="200px" className={styles.shot} />
                   </span>
-                  {project.recording ? <span className={styles.liveTag}>Recording</span> : null}
+                  {project.recording ? <span className={styles.liveTag}>Recording</span> : project.scroll ? <span className={styles.liveTag}>Full page</span> : null}
                 </span>
                 <span className={styles.frameText}>
                   <span className={styles.frameNumber}>{pad(index + 1)}</span>

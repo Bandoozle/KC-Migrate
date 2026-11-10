@@ -203,7 +203,7 @@ export function BusinessDevelopmentPage({ content }: BusinessDevelopmentPageProp
       {/* Exit: dark and full-bleed, the headline on the photograph and the path running to the handover */}
       <section id="exit" className={styles.exit} aria-labelledby="bd-exit">
         <div className={styles.exitMedia}>
-          <Image src={IMAGES.built.src} alt={IMAGES.built.alt} fill sizes="100vw" className={styles.exitImage} />
+          <Image src={IMAGES.built.src} alt={IMAGES.built.alt} fill sizes="(max-width: 767px) 180vw, 100vw" className={styles.exitImage} />
           <div className={styles.exitShade} aria-hidden="true" />
           <div className={`container ${styles.exitHead}`}>
             <p className={styles.labelOnDark}>Exit strategy &amp; succession</p>
@@ -241,7 +241,7 @@ export function BusinessDevelopmentPage({ content }: BusinessDevelopmentPageProp
       {/* Closing: back in the room where these conversations happen */}
       {cta ? (
         <section className={styles.closing} aria-labelledby="bd-closing">
-          <Image src={IMAGES.room.src} alt={IMAGES.room.alt} fill sizes="100vw" className={styles.closingImage} />
+          <Image src={IMAGES.room.src} alt={IMAGES.room.alt} fill sizes="(max-width: 767px) 180vw, 100vw" className={styles.closingImage} />
           <div className={styles.closingShade} aria-hidden="true" />
           <div className={`container ${styles.closingInner}`}>
             <h2 id="bd-closing" className={styles.closingTitle}>

@@ -45,7 +45,7 @@ export function RetailAttention({ label, landing }: RetailAttentionProps) {
                   src={moment.image.src}
                   alt={moment.image.alt}
                   fill
-                  sizes="(min-width: 960px) 30vw, 33vw"
+                  sizes="(min-width: 960px) 62vw, 66vw"
                   className={styles.cover}
                   style={moment.image.position ? { objectPosition: moment.image.position } : undefined}
                 />

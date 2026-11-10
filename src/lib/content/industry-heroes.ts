@@ -37,13 +37,6 @@ export const INDUSTRY_SERVICE_HEROES = {
     subtitle:
       "Kosick Communications builds integrated marketing programs that combine digital, traditional, co-op, and web strategies to help businesses strengthen their brand, reach the right audience, and generate consistent growth.",
   },
-  leadGeneration: {
-    eyebrow: "Digital • Local SEO • Paid Media • Automation",
-    displayTitle: "Strategic",
-    titleSecondary: "HVAC Lead Generation",
-    subtitle:
-      "We connect HVAC companies with homeowners actively searching for heating, cooling, and indoor air quality solutions using paid search, social ads, local SEO, and automated follow-up designed to turn interest into booked service calls.",
-  },
   digital: {
     eyebrow: "Digital • Campaigns • Paid Media • Strategy",
     displayTitle: "Strategic",

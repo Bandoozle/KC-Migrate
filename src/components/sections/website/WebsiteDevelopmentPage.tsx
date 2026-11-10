@@ -10,6 +10,7 @@ import { labelCase } from "@/lib/eyebrow";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import { Browser, RECORDINGS } from "./Browser";
 import { CommerceJourney } from "./CommerceJourney";
+import { PlatformLogos } from "./PlatformLogos";
 import { LoopVideo } from "./LoopVideo";
 import { ResponsiveStudio } from "./ResponsiveStudio";
 import { WebsiteShowcase } from "./WebsiteShowcase";
@@ -32,10 +33,12 @@ const SCREENS = {
 };
 
 const STORE = [
-  { name: "Product experience", icon: "M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v5H4zM13 14h7v5h-7z" },
+  { name: "Shopify store setup & customization", icon: "M5 7h14l-1.2 11H6.2zM9 7a3 3 0 0 1 6 0" },
+  { name: "Product collections & navigation", icon: "M4 5h7v7H4zM13 5h7v7h-7zM4 14h7v5H4zM13 14h7v5h-7z" },
   { name: "Mobile shopping", icon: "M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zM11 18h2" },
-  { name: "Checkout", icon: "M3 7h18v10H3zM3 11h18M7 15h3" },
-  { name: "Integrations", icon: "M9 4v4M15 4v4M7 8h10v4a5 5 0 0 1-10 0zM12 17v3" },
+  { name: "Secure checkout & payments", icon: "M3 7h18v10H3zM3 11h18M7 15h3" },
+  { name: "Conversion-focused design", icon: "M4 19V5M4 19h16M8 15l4-4 3 3 5-6" },
+  { name: "Ongoing improvements & store management", icon: "M9 4v4M15 4v4M7 8h10v4a5 5 0 0 1-10 0zM12 17v3" },
 ];
 
 const PERFORMANCE = [
@@ -130,12 +133,12 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
             </div>
             <div className={styles.heroBack} aria-hidden="true">
               <Browser host={SCREENS.chilliwack.host}>
-                <Image src={SCREENS.chilliwack.src} alt="" fill sizes="30vw" className={styles.cover} />
+                <Image src={SCREENS.chilliwack.src} alt="" fill sizes="(min-width: 960px) 30vw, 70vw" className={styles.cover} />
               </Browser>
             </div>
             <div className={styles.heroMid} aria-hidden="true">
               <Browser host={SCREENS.padwood.host}>
-                <Image src={SCREENS.padwood.src} alt="" fill sizes="30vw" className={styles.cover} />
+                <Image src={SCREENS.padwood.src} alt="" fill sizes="(min-width: 960px) 30vw, 70vw" className={styles.cover} />
               </Browser>
             </div>
             <div className={styles.heroFront}>
@@ -169,8 +172,8 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
               Optimize your web presence.
             </SectionTitle>
             <p className={styles.lead}>
-              Fast, secure WordPress and e-commerce sites that look sharp, load quickly and turn visitors into
-              customers, from first concept to launch and support.
+              Fast, secure WordPress and e-commerce sites that look sharp, load quickly and are built to turn
+              visitors into customers, from first concept to launch and support.
             </p>
           </div>
           <ResponsiveStudio />
@@ -181,13 +184,15 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
       <section className={styles.commerce} aria-labelledby="wd-commerce">
         <div className="container">
           <div className={styles.sectionHead}>
-            <p className={styles.label}>Shopify &amp; WooCommerce</p>
+            <PlatformLogos />
             <SectionTitle id="wd-commerce" className={`${styles.title} ${styles.statement}`}>
               E-commerce built to convert.
             </SectionTitle>
             <p className={styles.lead}>
-              Scalable, secure stores where products, inventory and payments are easy to manage, and checkout is easy
-              to finish.
+              We build Shopify and WooCommerce stores designed to make shopping easier, from product discovery to
+              checkout. As a Shopify Partner, we help businesses create, manage and grow their online stores: custom
+              store development, Shopify setup and customization, clear collections, mobile shopping, secure payments
+              and ongoing improvements after launch.
             </p>
           </div>
 
@@ -196,7 +201,7 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
           <div className={styles.commerceBelow}>
             <Reveal variant="fade" className={styles.storePhoto}>
               <div className={styles.photo}>
-                <Image src={SCREENS.store.src} alt={SCREENS.store.alt} fill sizes="(min-width: 960px) 50vw, 100vw" className={styles.cover} />
+                <Image src={SCREENS.store.src} alt={SCREENS.store.alt} fill sizes="(min-width: 960px) 65vw, 100vw" className={styles.cover} />
               </div>
             </Reveal>
 
@@ -222,7 +227,7 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
                   Launch your store
                   <ArrowIcon />
                 </Link>
-                <p className={styles.cartNote}>Shopify · WooCommerce</p>
+                <PlatformLogos tone="compact" />
               </aside>
             </Reveal>
           </div>
@@ -250,7 +255,7 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
             </SectionTitle>
             <p className={styles.lead}>
               A site needs more than launch day. We monitor speed and technical performance, then fine-tune and
-              maintain it so small issues never reach your customers.
+              maintain it so small issues are caught before they reach your customers.
             </p>
             <div className={styles.health}>
               <p className={styles.healthHead}>

@@ -92,12 +92,12 @@ export function CorporateEventsPage({ content }: CorporateEventsPageProps) {
             <div className={styles.collage}>
               <Reveal variant="fade" className={styles.collageMain}>
                 <div className={styles.frame}>
-                  <Image src={IMAGES.sailing.src} alt={IMAGES.sailing.alt} fill sizes="(min-width: 960px) 40vw, 100vw" className={styles.cover} />
+                  <Image src={IMAGES.sailing.src} alt={IMAGES.sailing.alt} fill sizes="(min-width: 960px) 50vw, 100vw" className={styles.cover} />
                 </div>
               </Reveal>
               <Reveal delay={120} className={styles.collageTall}>
                 <div className={styles.frame}>
-                  <Image src={IMAGES.coast.src} alt={IMAGES.coast.alt} fill sizes="(min-width: 960px) 22vw, 50vw" className={styles.cover} />
+                  <Image src={IMAGES.coast.src} alt={IMAGES.coast.alt} fill sizes="(min-width: 960px) 45vw, 90vw" className={styles.cover} />
                 </div>
               </Reveal>
               <Reveal delay={240} className={styles.collageSmall}>
@@ -234,7 +234,7 @@ export function CorporateEventsPage({ content }: CorporateEventsPageProps) {
       <section className={styles.room} aria-labelledby="ce-room">
         <Reveal variant="fade">
           <div className={styles.roomPhoto}>
-            <Image src={IMAGES.room.src} alt={IMAGES.room.alt} fill sizes="100vw" className={styles.cover} style={{ objectPosition: "50% 70%" }} />
+            <Image src={IMAGES.room.src} alt={IMAGES.room.alt} fill sizes="(max-width: 767px) 200vw, 100vw" className={styles.cover} style={{ objectPosition: "50% 70%" }} />
             <div className={styles.roomShade} aria-hidden="true" />
             <div className={`container ${styles.roomCopy}`}>
               <h2 id="ce-room" className={styles.roomStatement}>

@@ -22,7 +22,7 @@ function StageCard({ stage, hidden }: { stage: FlightStage; hidden?: boolean }) 
   return (
     <article className={styles.card} aria-hidden={hidden || undefined}>
       <div className={styles.media}>
-        <Image src={stage.image.src} alt={hidden ? "" : stage.image.alt} fill sizes="240px" className={styles.cover} />
+        <Image src={stage.image.src} alt={hidden ? "" : stage.image.alt} fill sizes="(max-width: 640px) 90vw, 520px" className={styles.cover} />
       </div>
       <div className={styles.body}>
         <span className={styles.number}>{stage.number}</span>

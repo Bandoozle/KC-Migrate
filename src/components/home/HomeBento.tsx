@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { HomeBentoItem } from "@/lib/wordpress/home";
 import shared from "./home-shared.module.css";
@@ -35,13 +36,13 @@ export function HomeBento({ items }: HomeBentoProps) {
               href={item.href}
               className={`${styles.card} ${CARD_POSITION[index]}`}
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 className={styles.image}
                 src={item.image}
                 alt={item.alt}
-                loading={index === 0 ? "eager" : "lazy"}
-                decoding="async"
+                fill
+                priority={index === 0}
+                sizes="(min-width: 960px) 50vw, 100vw"
               />
               <span className={styles.overlay} aria-hidden="true" />
               <div className={styles.content}>

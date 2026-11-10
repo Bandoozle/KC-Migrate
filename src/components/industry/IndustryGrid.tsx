@@ -31,7 +31,7 @@ export function IndustryGrid({ linkLabel, closing, className }: IndustryGridProp
               src={industry.directory.image.src}
               alt={industry.directory.image.alt}
               fill
-              sizes="(min-width: 1080px) 25vw, (min-width: 560px) 50vw, 100vw"
+              sizes="(min-width: 1080px) 48vw, (min-width: 560px) 94vw, 100vw"
               className={styles.cover}
               style={industry.directory.image.position ? { objectPosition: industry.directory.image.position } : undefined}
             />

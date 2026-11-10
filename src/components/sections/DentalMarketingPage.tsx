@@ -20,7 +20,9 @@ const IMAGES = {
   hygienist: { src: `${UPLOADS}/2026/07/Dental-Marketing.jpg`, alt: "A hygienist preparing instruments beside a patient in the chair" },
   recall: { src: `${UPLOADS}/2026/07/Dental-Lead-Generation.jpg`, alt: "A hygienist with a patient, an appointment calendar overlaid" },
   social: { src: `${UPLOADS}/2026/07/Social-Media-Dental.jpg`, alt: "Social content for a dental spa: waiting room, products and details" },
-  sparkleSite: { src: `${UPLOADS}/2026/07/Screenshot-2026-07-22-at-11.22.57-PM.jpg`, alt: "Sparkle Dental Spa home page" },
+  /* Captured from the live site, sparkledentalspa.ca (Nov 2026): crisp at every size */
+  sparkleSite: { src: "/images/website-projects/sparkle-dental-spa-desktop.jpg", alt: "The Sparkle Dental Spa home page: Luxury Dental Care in South Surrey" },
+  sparkleMobile: { src: "/images/website-projects/sparkle-dental-spa-mobile.jpg", alt: "The Sparkle Dental Spa home page on a phone" },
   sparkleLaptop: { src: `${UPLOADS}/2026/07/Dental-Web-Development.jpg`, alt: "The Sparkle Dental Spa website on a laptop" },
   sparkleOutdoor: { src: `${UPLOADS}/2026/06/outdoor-advertising.jpg`, alt: "Sparkle Dental Spa transit shelter ad reading Be Flossome" },
   sparkleSpa: { src: `${UPLOADS}/2026/07/Dental-Vancouver.jpg`, alt: "The Sparkle Dental Spa waiting room with a gold tooth on the table" },
@@ -91,7 +93,7 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
     ? {
         ...cta,
         title: "Ready to grow your practice?",
-        description: "Let’s build a plan that fills your schedule with the patients you want.",
+        description: "Let’s build a plan to attract the patients you want.",
       }
     : null;
 
@@ -152,7 +154,7 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
                   </div>
                   <div className={styles.phone}>
                     <div className={styles.phoneScreen}>
-                      <Image src={IMAGES.sparkleSite.src} alt="" fill sizes="200px" className={styles.cover} style={{ objectPosition: "20% 0%" }} />
+                      <Image src={IMAGES.sparkleMobile.src} alt="" fill sizes="200px" className={styles.cover} style={{ objectPosition: "50% 0%" }} />
                     </div>
                   </div>
                 </div>
@@ -257,14 +259,14 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
             </Reveal>
             <Reveal as="li" delay={110} className={styles.paidStep}>
               <div className={styles.paidVisual}>
-                <Image src={IMAGES.social.src} alt={IMAGES.social.alt} fill sizes="(min-width: 960px) 22vw, 50vw" className={styles.cover} />
+                <Image src={IMAGES.social.src} alt={IMAGES.social.alt} fill sizes="(min-width: 960px) 45vw, 90vw" className={styles.cover} />
               </div>
               <span className={styles.paidName}>Social &amp; display</span>
               <span className={styles.paidLine}>Facebook and Instagram awareness.</span>
             </Reveal>
             <Reveal as="li" delay={220} className={styles.paidStep}>
               <div className={styles.paidVisual}>
-                <Image src={IMAGES.sparkleSite.src} alt={IMAGES.sparkleSite.alt} fill sizes="(min-width: 960px) 22vw, 50vw" className={styles.cover} style={{ objectPosition: "top left" }} />
+                <Image src={IMAGES.sparkleSite.src} alt={IMAGES.sparkleSite.alt} fill sizes="(min-width: 960px) 45vw, 90vw" className={styles.cover} style={{ objectPosition: "top left" }} />
               </div>
               <span className={styles.paidName}>Landing page</span>
               <span className={styles.paidLine}>One page per treatment, built to book.</span>
@@ -327,7 +329,7 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
           </div>
           <div className={styles.mosaic}>
             <Reveal variant="fade" className={`${styles.mosaicTile} ${styles.mosaicOutdoor}`}>
-              <Image src={IMAGES.sparkleOutdoor.src} alt={IMAGES.sparkleOutdoor.alt} fill sizes="(min-width: 960px) 40vw, 100vw" className={styles.cover} />
+              <Image src={IMAGES.sparkleOutdoor.src} alt={IMAGES.sparkleOutdoor.alt} fill sizes="(min-width: 960px) 60vw, 100vw" className={styles.cover} />
               <span className={styles.mosaicLabel}>Outdoor</span>
             </Reveal>
             <Reveal delay={100} className={`${styles.mosaicTile} ${styles.mosaicWebsite}`}>
@@ -338,7 +340,7 @@ export function DentalMarketingPage({ content }: DentalMarketingPageProps) {
               <div className={styles.mobileStage}>
                 <div className={styles.phone}>
                   <div className={styles.phoneScreen}>
-                    <Image src={IMAGES.sparkleSite.src} alt="Sparkle Dental Spa site on a phone" fill sizes="200px" className={styles.cover} style={{ objectPosition: "20% 0%" }} />
+                    <Image src={IMAGES.sparkleMobile.src} alt={IMAGES.sparkleMobile.alt} fill sizes="200px" className={styles.cover} style={{ objectPosition: "50% 0%" }} />
                   </div>
                 </div>
               </div>

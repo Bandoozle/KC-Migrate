@@ -5,6 +5,7 @@ import { HomeBrandTabs } from "./HomeBrandTabs";
 import { HomeContact } from "./HomeContact";
 import { HomeHero } from "./HomeHero";
 import { HomeIntro } from "./HomeIntro";
+import { HomePartners } from "./HomePartners";
 import { HomeQuote } from "./HomeQuote";
 import { HomeTestimonials } from "./HomeTestimonials";
 import { HomeWhyChoose } from "./HomeWhyChoose";
@@ -29,7 +30,9 @@ export function HomePageView({ content }: HomePageViewProps) {
       <Reveal variant="fadeUp">
         <HomeBrandTabs preceding={content.brandTabsPreceding} tabs={content.brandTabs} />
       </Reveal>
-      <SectionSeparator tight />
+      <SectionSeparator />
+      <HomePartners />
+      <SectionSeparator />
       <Reveal variant="fadeUp">
         <HomeTestimonials content={content.testimonials} />
       </Reveal>

@@ -77,7 +77,13 @@ export function IndustryOffers({ industry, headingId = "industry-offers", classN
                       src={image.src}
                       alt=""
                       fill
-                      sizes={layout === "passes" ? "(min-width: 960px) 22vw, 40vw" : "(min-width: 960px) 34vw, 100vw"}
+                      sizes={
+                        layout === "passes"
+                          ? "(min-width: 960px) 32vw, 90vw"
+                          : layout === "mosaic" && index === 0
+                            ? "(min-width: 960px) 75vw, 100vw"
+                            : "(min-width: 960px) 72vw, 130vw"
+                      }
                       className={styles.cover}
                       style={image.position ? { objectPosition: image.position } : undefined}
                     />

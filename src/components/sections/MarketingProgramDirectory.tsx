@@ -20,7 +20,7 @@ const UPLOADS = "/wp-content/uploads";
 const CHANNELS = [
   {
     name: "Website & E-Commerce",
-    line: "Fast, flexible sites and stores that turn traffic into results.",
+    line: "Fast, flexible sites and stores built to turn traffic into enquiries and sales.",
     href: "/services/website-development/",
   },
   {
@@ -187,7 +187,7 @@ export function MarketingProgramDirectory() {
             </p>
             <div className={styles.campaignBoard}>
               <Reveal variant="fade" className={`${styles.shot} ${styles.shotOutdoor}`}>
-                <Image src={CAMPAIGN.outdoor.src} alt={CAMPAIGN.outdoor.alt} fill sizes="(min-width: 960px) 34vw, 50vw" className={styles.cover} />
+                <Image src={CAMPAIGN.outdoor.src} alt={CAMPAIGN.outdoor.alt} fill sizes="(min-width: 960px) 34vw, 100vw" className={styles.cover} />
                 <span className={styles.shotLabel}>Transit shelter</span>
               </Reveal>
               <Reveal delay={90} className={`${styles.shot} ${styles.shotWebsite}`}>
@@ -195,13 +195,13 @@ export function MarketingProgramDirectory() {
                 <span className={styles.shotLabel}>Website</span>
               </Reveal>
               <Reveal delay={180} className={`${styles.shot} ${styles.shotSocial}`}>
-                <Image src={CAMPAIGN.social.src} alt={CAMPAIGN.social.alt} fill sizes="(min-width: 960px) 22vw, 50vw" className={styles.cover} />
+                <Image src={CAMPAIGN.social.src} alt={CAMPAIGN.social.alt} fill sizes="(min-width: 960px) 45vw, 90vw" className={styles.cover} />
                 <span className={styles.shotLabel}>Social</span>
               </Reveal>
               <Reveal delay={270} className={`${styles.shot} ${styles.shotMobile}`}>
                 <span className={styles.phone}>
                   <span className={styles.phoneScreen}>
-                    <Image src={CAMPAIGN.site.src} alt={CAMPAIGN.site.alt} fill sizes="140px" className={styles.cover} style={{ objectPosition: "20% 0%" }} />
+                    <Image src={CAMPAIGN.site.src} alt={CAMPAIGN.site.alt} fill sizes="360px" className={styles.cover} style={{ objectPosition: "20% 0%" }} />
                   </span>
                 </span>
                 <span className={styles.shotLabel}>Mobile</span>

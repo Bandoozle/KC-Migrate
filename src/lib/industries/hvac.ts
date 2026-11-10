@@ -10,11 +10,12 @@ export const HVAC: Industry = {
   directory: {
     line: "Omni-channel programs that keep a dealer’s schedule full, year-round.",
     image: { src: `${UP}/2026/06/hvac-billboard-advertising.jpg`, alt: "A Belyea Bros. heat pump billboard above a Toronto street corner", position: "center 30%" },
+    wideImage: { src: `${UP}/2026/03/hvac-marketing-strategies.jpg`, alt: "A heat pump on a stand beside a modern house in the trees", position: "50% 70%" },
   },
   offersIntro: {
     label: "What we offer",
-    title: "Five ways we grow HVAC businesses.",
-    lead: "Each service has its own page with the detail: what we build, how it runs and where it fits in a dealer's year.",
+    title: "Five ways to bring in more HVAC enquiries.",
+    lead: "From HVAC website development and Google Ads to television, billboards and co-op programs. Each service has its own page with the detail: what we build, how it runs and where it fits in a dealer's year.",
   },
   cta: {
     title: "Let's fill your schedule.",
@@ -36,7 +37,7 @@ export const HVAC: Industry = {
         lead: "We design and build HVAC websites around the moment a homeowner needs help: clear services, a phone number that's always in reach, and booking that takes less than a minute.",
         image: { src: `${UP}/2026/03/hvac-web-development.png`, alt: "The Neels Heating & Cooling website open on a laptop" },
       },
-      card: { src: `${UP}/2025/07/home-services-website-design.webp`, alt: "An HVAC dealer website on a laptop beside a plant" },
+      card: { src: `${UP}/2026/03/hvac-web-development.png`, alt: "The Neels Heating & Cooling website open on a laptop", position: "50% 70%" },
       intro: {
         title: "Built for the homeowner with no heat.",
         paragraphs: [
@@ -70,8 +71,8 @@ export const HVAC: Industry = {
       ],
       benefits: [
         {
-          title: "More calls from the same traffic",
-          body: "Clear paths to call or book turn more of your existing visitors into service requests.",
+          title: "Built to turn traffic into calls",
+          body: "Clear paths to call or book make it easier for existing visitors to request service.",
           visual: "calls",
         },
         {
@@ -98,7 +99,7 @@ export const HVAC: Industry = {
         { title: "Launch & improve", body: "Tracking from day one, then refinements based on calls and bookings." },
       ],
       gallery: [
-        { src: `${UP}/2025/07/home-services-website-design.webp`, alt: "A home comfort dealer website on a laptop on a desk" },
+        { src: "/images/hvac-marketing/feature-strategies.jpg", alt: "The Cool Comfort Solutions website on a laptop" },
         { src: `${UP}/2023/09/hvac-website-development.png`, alt: "The DirectBuy Furnace website hero with flame and snowflake icons" },
       ],
       related: [
@@ -108,215 +109,135 @@ export const HVAC: Industry = {
       ],
     },
     {
-      slug: "branding-advertising",
-      title: "Branding & Traditional Advertising",
-      summary: "A brand homeowners remember, carried onto billboards and co-op campaigns funded by your manufacturers.",
+      slug: "digital-advertising",
+      title: "Digital Advertising",
+      summary: "Google Ads, Local Service Ads and paid social, targeted to homeowners in your service area and built to generate HVAC leads.",
       seo: {
-        title: "HVAC Branding, Billboard & Co-op Advertising | Kosick Communications",
+        title: "HVAC Digital Advertising: Google Ads & Lead Generation | Kosick Communications",
         description:
-          "Branding, billboard advertising and co-op advertising for HVAC dealers. Kosick builds the brand and places it where homeowners see it, using manufacturer co-op funds.",
+          "Google Ads, Local Service Ads, paid social and audience targeting for HVAC dealers. Kosick builds digital advertising that turns homeowner searches into calls and service enquiries.",
       },
       hero: {
-        label: "HVAC branding & traditional advertising",
-        title: "Be the name homeowners already know.",
-        lead: "When a furnace fails, homeowners call the company they remember. We build HVAC brands that stand out from the truck to the billboard, and fund more of the media with co-op.",
-        image: { src: `${UP}/2026/06/hvac-billboard-advertising.jpg`, alt: "A Belyea Bros. heat pump billboard above a Toronto street corner", position: "center 30%" },
+        label: "HVAC digital advertising & lead generation",
+        title: "Be the first result when the furnace quits.",
+        lead: "Homeowners with no heat search, compare for a minute and call. We put your company at the top of that search with Google Ads and Local Service Ads, reach the rest of your market with paid social, and track every call and form back to the campaign.",
+        image: { src: `${UP}/2026/06/hvac-social-media-marketing-1.jpg`, alt: "HVAC social media ads on a phone beside a printed card" },
       },
-      card: { src: `${UP}/2023/07/hvac.jpg`, alt: "An Ayotte Plumbing & Heating billboard for a Comfortmaker furnace" },
+      card: { src: `${UP}/2026/06/hvac-lead-generation-1.jpg`, alt: "An HVAC energy efficiency ad on a phone beside a printed flyer" },
       intro: {
-        title: "Recognition is decided before the emergency.",
+        title: "Turn high-intent searches into service enquiries.",
         paragraphs: [
-          "Heating and cooling is a category homeowners rarely think about until they need it. The dealers who get the call are the ones whose name, colours and promise were already familiar.",
-          "We build that familiarity in two steps. First, a brand system that works on trucks, uniforms, yard signs and the web. Then traditional media, from billboards to print, placed in the neighbourhoods you serve and paid for in part by manufacturer co-op programs.",
+          "Most HVAC jobs start with a search: furnace repair near me, heat pump installers, AC not cooling. Paid search and Local Service Ads put your company in front of homeowners at that moment, in the areas you serve and the hours you can answer.",
+          "Paid social does the longer work. Facebook, Instagram and YouTube keep your offers and rebates in front of homeowners before they need you, and retarget the ones who visited your site. Content and automated follow-up support both, so an enquiry made at 10 p.m. still reaches your team.",
         ],
       },
       offers: [
         {
-          title: "Branding",
-          body: "Logo refinement, colour, type and a clear brand promise, with guidelines that keep every truck wrap, invoice and ad consistent.",
+          title: "Google Ads & Local Service Ads",
+          body: "Search campaigns for the jobs you want more of, from emergency repair to heat pump installs, with call extensions, service-area targeting and ad schedules that follow your hours.",
         },
         {
-          title: "Billboard advertising",
-          body: "Static and digital boards chosen for traffic through your service area, with creative designed to be read in a few seconds from the road.",
+          title: "Paid social & audience targeting",
+          body: "Facebook, Instagram and YouTube campaigns targeted by location, home ownership and season, with retargeting for homeowners who have already visited your site.",
         },
         {
-          title: "Co-op advertising",
-          body: "Campaigns built to manufacturer and utility co-op rules, from brand-compliant creative to proof of performance, so more of your media is reimbursed.",
+          title: "Lead capture & follow-up",
+          body: "Landing pages, call tracking, AI chat on your website and automated email follow-up, so every call and form is captured and attributed to the campaign that produced it.",
         },
       ],
       deliverables: [
-        "Brand audit and positioning",
-        "Logo, colour and typography system",
-        "Brand guidelines for trucks, uniforms and signage",
-        "Billboard and transit creative",
-        "Outdoor media planning and booking",
-        "Co-op eligible creative for your brands",
-        "Co-op claim documentation and proof of performance",
-        "Print, direct mail and door hanger design",
-      ],
-      benefits: [
-        {
-          title: "Remembered when it counts",
-          body: "Consistent branding and outdoor presence put your name first when the system breaks down.",
-        },
-        {
-          title: "Media budgets that go further",
-          body: "Co-op programs can reimburse part of qualifying advertising for the brands you carry.",
-        },
-        {
-          title: "One look everywhere",
-          body: "Trucks, boards, the website and social posts read as the same company.",
-        },
-      ],
-      applications: [
-        "Refreshing a family business brand for the next generation",
-        "Billboards on the commuter routes into a new service area",
-        "Manufacturer co-op campaigns for Trane, Daikin, Comfortmaker and other brands",
-        "Pre-season awareness before the first cold snap",
-      ],
-      approach: [
-        { title: "Audit", body: "Your current brand, competitors and the co-op programs you qualify for." },
-        { title: "Build the brand", body: "Identity, messaging and guidelines your team can use." },
-        { title: "Plan the media", body: "Billboard locations and traditional placements mapped to your service area." },
-        { title: "Run & claim", body: "Campaigns in market, with co-op documentation prepared for submission." },
-      ],
-      gallery: [
-        { src: `${UP}/2023/07/hvac.jpg`, alt: "An Ayotte Plumbing & Heating billboard promoting a Comfortmaker furnace" },
-        { src: `${UP}/2023/07/home-services-billboards.jpg`, alt: "A GE residential HVAC billboard against a blue sky" },
-        { src: `${UP}/2023/07/outdoor-advertising-1-scaled.jpg`, alt: "A Trane We Run Together billboard between office towers" },
-      ],
-      related: [
-        { label: "FortisBC Co-op Advertising for HVAC", href: "/hvac-marketing-fortisbc-co-op-advertising/", kind: "guide", body: "Using FortisBC co-op funding to pay for more of your media." },
-        { label: "Outdoor Advertising", href: "/services/outdoor-advertising/", kind: "service", body: "Billboard, transit and digital out-of-home, planned and bought across Canada." },
-        { label: "Corporate Branding", href: "/services/corporate-branding/", kind: "service", body: "Brand strategy and identity systems, built to last." },
-      ],
-    },
-    {
-      slug: "digital-marketing",
-      title: "Digital Marketing & Lead Generation",
-      summary: "Social media, content and AI tools that keep your company in front of homeowners between service calls.",
-      seo: {
-        title: "HVAC Digital Marketing: Social, Content & AI | Kosick Communications",
-        description:
-          "Social media marketing, content development and AI marketing tools for HVAC dealers. Kosick keeps your brand visible and turns interest into service requests.",
-      },
-      hero: {
-        label: "HVAC digital marketing & lead generation",
-        title: "Stay in the feed between service calls.",
-        lead: "Homeowners scroll long before they search. We keep your company in front of them with social media, useful content and AI tools that answer questions and capture leads at any hour.",
-        image: { src: `${UP}/2026/06/hvac-social-media-marketing-1.jpg`, alt: "HVAC social media posts on a phone and a printed card" },
-      },
-      intro: {
-        title: "Demand starts long before the search.",
-        paragraphs: [
-          "A homeowner who sees your posts all year, reads your advice on heat pumps and gets a quick answer at 10 p.m. is far more likely to call you than a name in a list of ads.",
-          "This service covers the always-on side of HVAC marketing: social media, content and AI tools. Paid search and Local Service Ads are covered in our HVAC lead generation guide, and the two work best together.",
-        ],
-      },
-      offers: [
-        {
-          title: "Social media marketing",
-          body: "Organic posting and paid campaigns on Facebook, Instagram, YouTube and TikTok, timed to the heating and cooling seasons and targeted to your service area.",
-        },
-        {
-          title: "Content development",
-          body: "Articles, guides, short videos and graphics that answer the questions homeowners ask, from rebates to replacement costs, and give your social channels something worth sharing.",
-        },
-        {
-          title: "AI marketing tools",
-          body: "AI chat assistants for your website, AI-assisted content production and automated follow-up, set up so a homeowner gets a useful answer and your team gets the lead.",
-        },
-      ],
-      deliverables: [
-        "Social media strategy and content calendar",
-        "Post design, copy and short-form video",
+        "Keyword and service-area plan",
+        "Google Ads and Local Service Ads set-up and management",
         "Paid social campaigns with service-area targeting",
-        "Blog articles and homeowner guides",
-        "Website AI chat assistant set-up",
-        "Automated lead follow-up by email",
-        "Monthly reporting on reach, leads and cost per lead",
+        "Retargeting audiences",
+        "Landing pages for seasonal offers and rebates",
+        "Call tracking and form tracking",
+        "Website AI chat assistant and automated follow-up",
+        "Monthly reporting on calls, forms and cost per lead",
       ],
       benefits: [
         {
-          title: "Visible all year",
-          body: "Seasonal content keeps your brand present in the quiet months, not only during the rush.",
+          title: "Found at the moment of need",
+          body: "Search ads put your number in front of homeowners who are ready to call.",
         },
         {
-          title: "Leads after hours",
-          body: "AI assistants and forms capture questions and requests while the office is closed.",
+          title: "Know which campaigns bring in leads",
+          body: "Calls and forms are tracked by campaign, so budget follows what works.",
         },
         {
-          title: "Content that does double duty",
-          body: "One guide becomes posts, an email and a search-friendly page.",
+          title: "Present between emergencies",
+          body: "Paid social and content keep your name familiar through the quiet months.",
         },
       ],
       applications: [
-        "Promoting heat pump rebates as programs change",
-        "Pre-season tune-up and maintenance plan campaigns",
-        "Answering common questions on the website through an AI assistant",
-        "Recruiting technicians through social channels",
+        "Emergency furnace and AC repair campaigns",
+        "Heat pump installation and rebate promotions",
+        "Pre-season tune-up and maintenance plan offers",
+        "Launching ads in a new service area",
       ],
       approach: [
-        { title: "Listen", body: "What your customers ask, which jobs you want and where they spend time online." },
-        { title: "Plan", body: "A content calendar matched to the heating and cooling seasons." },
-        { title: "Create & launch", body: "Posts, articles, video and AI tools, built in your brand." },
-        { title: "Measure", body: "Reach, engagement and leads reviewed monthly, then adjusted." },
+        { title: "Research", body: "The jobs you want, your service area and what homeowners search for." },
+        { title: "Build", body: "Campaigns, landing pages and call and form tracking." },
+        { title: "Launch", body: "Search and social live, timed to the heating and cooling seasons." },
+        { title: "Optimize", body: "Budget moved to the keywords and audiences that produce enquiries." },
       ],
       gallery: [
         { src: `${UP}/2026/06/hvac-lead-generation-1.jpg`, alt: "An HVAC energy efficiency ad on a phone beside a printed flyer" },
+        { src: "/images/hvac-marketing/tab-facebook.jpg", alt: "Facebook ads for an HVAC dealer" },
         { src: `${UP}/2026/02/hvac-digital-marketing.webp`, alt: "A Daikin heat pump on a patio beside a fire table" },
       ],
       related: [
-        { label: "How HVAC Lead Generation Works", href: "/services/hvac-marketing/hvac-lead-generation/", kind: "guide", body: "Paid search, Local Service Ads and the rest of the lead mix, in plain English." },
         { label: "HVAC Digital Marketing", href: "/hvac-digital-marketing/", kind: "guide", body: "Google Ads, Meta, connected TV and the funnels that turn them into leads." },
+        { label: "Digital Marketing", href: "/services/digital-marketing/", kind: "service", body: "Google Ads, paid social and pre-roll, measured against results." },
         { label: "Social Media Marketing", href: "/services/social-media-marketing/", kind: "service", body: "Content, platform management and paid social across every channel." },
       ],
     },
     {
       slug: "video-tv-advertising",
-      title: "Video & Television Advertising",
-      summary: "TV spots, streaming and video production that put your company on the screens homeowners watch.",
+      title: "Television & Streaming Advertising",
+      summary: "Broadcast TV, connected TV and streaming commercials, produced and placed so homeowners know your name before they need you.",
       seo: {
-        title: "HVAC TV Advertising & Video Production | Kosick Communications",
+        title: "HVAC Television & Streaming Advertising | Kosick Communications",
         description:
-          "Television advertising, connected TV and video production for HVAC dealers. Kosick plans, produces and places commercial campaigns that build trust at scale.",
+          "Television, connected TV and streaming commercials for HVAC dealers. Kosick produces your spots and plans and buys the media, so homeowners know your company before they need a new system.",
       },
       hero: {
-        label: "HVAC video & television advertising",
+        label: "HVAC television & streaming advertising",
         title: "Earn trust on the biggest screen in the house.",
-        lead: "Television and video show your people, your trucks and your work. We produce HVAC commercials and place them on broadcast, streaming and YouTube so homeowners know you before they need you.",
-        image: { src: "/images/television/trane-poster.png", alt: "A Trane air conditioner lit in green on a dark stage" },
+        lead: "Television and streaming show your people, your trucks and your work. We produce HVAC commercials and place them on broadcast TV, connected TV and streaming services so homeowners know you before they need you.",
+        image: { src: `${UP}/2026/01/media-buying.jpg`, alt: "A Trane commercial on a wall-mounted TV in a living room" },
       },
-      card: { src: "/images/television/trane-poster.png", alt: "A Trane air conditioner lit in green on a dark stage" },
+      card: { src: `${UP}/2026/01/media-buying.jpg`, alt: "A Trane commercial on a wall-mounted TV in a living room" },
       intro: {
-        title: "Video does what a search ad can't.",
+        title: "Reach the homeowners who aren't searching yet.",
         paragraphs: [
-          "A search ad catches the homeowner who is already looking. Television and video reach the much larger group who will need a new system in the next year or two, and they show the people behind the company.",
-          "We handle the whole campaign: the idea, the shoot, the edit and the media plan across broadcast TV, connected TV and online video, with versions sized for every placement.",
+          "A search ad catches the homeowner who is already looking. Television and streaming reach the much larger group who will need a new system in the next year or two, and they show the people behind the company.",
+          "We handle the whole campaign: the idea, the shoot, the edit and the media plan across broadcast TV, connected TV and streaming, with versions sized for every placement and connected TV targeted to the postal codes you serve.",
         ],
       },
       offers: [
         {
-          title: "TV advertising",
-          body: "Broadcast and connected TV plans built around your service area and season, negotiated and booked by our media team, with reporting on delivery.",
+          title: "Broadcast television",
+          body: "Local and regional TV plans built around your service area and season, negotiated and booked by our media team, with reporting on delivery.",
         },
         {
-          title: "Video production",
-          body: "Scripts, shoots and edits that feature your technicians, trucks and customers, with cut-downs for social, YouTube and your website.",
+          title: "Connected TV & streaming",
+          body: "Streaming commercials targeted to homeowners by region and postal code, with reporting on completed views and website visits.",
         },
         {
-          title: "Commercial campaigns",
-          body: "Seasonal and brand campaigns that run across TV, streaming and online video together, including manufacturer co-op versions where eligible.",
+          title: "Commercial production",
+          body: "Scripts, shoots and edits that feature your technicians, trucks and customers, with :30, :15 and :06 versions and cut-downs for YouTube and social.",
         },
       ],
       deliverables: [
         "Campaign concept and scripts",
         "Production: crew, casting, locations and shoot",
         "Editing, colour, sound and voice-over",
-        ":30, :15 and :06 versions for TV and online",
+        ":30, :15 and :06 versions for TV and streaming",
         "Broadcast and connected TV media plans",
-        "YouTube and social video campaigns",
-        "Delivery and performance reporting",
+        "Negotiated media placements",
+        "YouTube and social video cut-downs",
+        "Delivery and response reporting",
       ],
       benefits: [
         {
@@ -329,41 +250,128 @@ export const HVAC: Industry = {
         },
         {
           title: "One shoot, many uses",
-          body: "A single production supplies TV spots, social clips and website video.",
+          body: "A single production supplies TV spots, streaming ads and social clips.",
         },
       ],
       applications: [
         "A brand campaign introducing a family-owned dealer to a growing market",
         "Pre-season heating and cooling spots",
         "Connected TV targeted to homeowners in your postal codes",
-        "Customer story videos for the website and social media",
+        "Manufacturer co-op commercials where eligible",
       ],
       approach: [
         { title: "Concept", body: "The message, the audience and how the campaign will look." },
         { title: "Produce", body: "Script, shoot and edit, with your team on camera where it helps." },
-        { title: "Place", body: "Broadcast, streaming and online video booked to your plan." },
+        { title: "Place", body: "Broadcast, connected TV and streaming booked to your plan." },
         { title: "Report", body: "Delivery, reach and response tracked through the campaign." },
       ],
       gallery: [
         { src: "/images/hvac-marketing/video-poster.jpg", alt: "The Belyea Bros. Heating & Cooling logo on red, from the This is Belyea campaign" },
+        { src: "/images/television/trane-poster.png", alt: "A Trane air conditioner lit in green on a dark stage, from a Trane commercial" },
         { src: "/images/hvac-marketing/tab-youtube.jpg", alt: "A Daikin heat pump with a YouTube play button" },
-        { src: `${UP}/2025/12/trane-hvac-advertising.jpeg`, alt: "Two RunTru air conditioners beside a brick home" },
       ],
-      related: [],
+      related: [
+        { label: "Television Advertising", href: "/services/television-advertising/", kind: "service", body: "Broadcast TV campaigns, planned and bought by our media team." },
+        { label: "Digital & Connected TV", href: "/services/digital-connected-tv/", kind: "service", body: "Streaming and connected TV with targeted reach and measurable delivery." },
+        { label: "Media Buying: TV, Streaming & Radio", href: "/blog-media-buying-canada-tv-streaming-radio/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
+      ],
+    },
+    {
+      slug: "outdoor-advertising",
+      title: "Outdoor Advertising & Billboards",
+      summary: "Billboards and outdoor placements on the routes homeowners drive, building local awareness across your service area.",
+      seo: {
+        title: "HVAC Billboard & Outdoor Advertising | Kosick Communications",
+        description:
+          "Billboard and outdoor advertising for HVAC dealers. Kosick plans placements across your service area, designs brand-consistent creative and helps fund the media with manufacturer co-op programs.",
+      },
+      hero: {
+        label: "HVAC outdoor advertising & billboards",
+        title: "Be the name homeowners already know.",
+        lead: "When a furnace fails, homeowners call the company they remember. We put your name on the routes they drive every day, with billboards and outdoor placements across your service area, and fund more of the media with co-op.",
+        image: { src: `${UP}/2023/07/hvac.jpg`, alt: "An Ayotte Plumbing & Heating billboard for a Comfortmaker furnace" },
+      },
+      card: { src: `${UP}/2023/07/hvac.jpg`, alt: "An Ayotte Plumbing & Heating billboard for a Comfortmaker furnace" },
+      intro: {
+        title: "Recognition is decided before the emergency.",
+        paragraphs: [
+          "Heating and cooling is a category homeowners rarely think about until they need it. The dealers who get the call are the ones whose name, colours and promise were already familiar.",
+          "Billboards build that familiarity across a whole service area. We choose placements on the commuter routes and main roads your customers use, design creative that reads in a few seconds and stays consistent with your trucks and website, and use manufacturer and utility co-op programs to pay for more of it.",
+        ],
+      },
+      offers: [
+        {
+          title: "Billboard advertising",
+          body: "Static and digital boards chosen for traffic through your service area, with creative designed to be read in a few seconds from the road.",
+        },
+        {
+          title: "Outdoor placements across your markets",
+          body: "Transit shelters, street-level posters and superboards planned around the neighbourhoods you serve and the markets you want to grow into.",
+        },
+        {
+          title: "Brand creative & co-op",
+          body: "Creative that carries your brand from the truck to the billboard, built to manufacturer and utility co-op rules so more of the media is reimbursed.",
+        },
+      ],
+      deliverables: [
+        "Service-area and route planning",
+        "Billboard and outdoor media planning and booking",
+        "Billboard, transit and poster creative",
+        "Brand guidelines for trucks, uniforms and signage",
+        "Co-op eligible creative for your brands",
+        "Co-op claim documentation and proof of performance",
+        "Installation photos and campaign reporting",
+      ],
+      benefits: [
+        {
+          title: "Remembered when it counts",
+          body: "Repeated exposure on daily routes puts your name first when the system breaks down.",
+        },
+        {
+          title: "Media budgets that go further",
+          body: "Co-op programs can reimburse part of qualifying advertising for the brands you carry.",
+        },
+        {
+          title: "One look everywhere",
+          body: "Boards, trucks, the website and your ads read as the same company.",
+        },
+      ],
+      applications: [
+        "Billboards on the commuter routes into a new service area",
+        "Pre-season awareness before the first cold snap",
+        "Manufacturer co-op campaigns for Trane, Daikin, Comfortmaker and other brands",
+        "Refreshing a family business brand on the road",
+      ],
+      approach: [
+        { title: "Map", body: "Your service area, the routes homeowners drive and the co-op programs you qualify for." },
+        { title: "Plan & book", body: "Locations and formats negotiated to your budget." },
+        { title: "Design", body: "Creative made for distance, speed and your brand." },
+        { title: "Post & claim", body: "Boards in market, photographed and reported, with co-op documentation prepared." },
+      ],
+      gallery: [
+        { src: `${UP}/2026/06/hvac-billboard-advertising.jpg`, alt: "A Belyea Bros. heat pump billboard above a Toronto street corner" },
+        { src: `${UP}/2023/07/home-services-billboards.jpg`, alt: "A GE residential HVAC billboard against a blue sky" },
+        { src: `${UP}/2023/07/outdoor-advertising-1-scaled.jpg`, alt: "A Trane We Run Together billboard between office towers" },
+      ],
+      related: [
+        { label: "FortisBC Co-op Advertising for HVAC", href: "/hvac-marketing-fortisbc-co-op-advertising/", kind: "guide", body: "Using FortisBC co-op funding to pay for more of your media." },
+        { label: "Outdoor Advertising", href: "/services/outdoor-advertising/", kind: "service", body: "Billboard, transit and digital out-of-home, planned and bought across Canada." },
+        { label: "Corporate Branding", href: "/services/corporate-branding/", kind: "service", body: "Brand strategy and identity systems, built to last." },
+      ],
     },
     {
       slug: "business-growth",
-      title: "HVAC Business Growth Solutions",
-      summary: "Co-op funding, incentive travel and growth strategy for dealers and manufacturers planning their next stage.",
+      title: "HVAC Growth Solutions",
+      summary: "Manufacturer co-op programs, dealer growth strategy, business development and incentive travel for long-term growth.",
       seo: {
-        title: "HVAC Business Growth: Co-op Funding & Incentive Travel | Kosick Communications",
+        title: "HVAC Growth Solutions: Co-op, Strategy & Incentive Travel | Kosick Communications",
         description:
           "Co-op funding, incentive travel programs and business growth strategy for HVAC dealers and manufacturers, from Kosick Communications.",
       },
       hero: {
-        label: "HVAC business growth solutions",
+        label: "HVAC growth solutions",
         title: "Grow the business, not only the leads.",
-        lead: "Beyond campaigns, we help HVAC dealers and manufacturers find the money, motivation and plan to grow: co-op funding, incentive travel that rewards top performers, and strategy for the next stage.",
+        lead: "Beyond campaigns, we help HVAC dealers and manufacturers find the money, motivation and plan to grow: manufacturer co-op programs, business development, incentive travel that rewards top performers, and a long-term marketing strategy for the next stage.",
         image: { src: `${UP}/2026/03/hvac-marketing-strategies.jpg`, alt: "A heat pump beside a modern home with tall trees behind" },
       },
       intro: {

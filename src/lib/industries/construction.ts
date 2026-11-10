@@ -14,7 +14,7 @@ export const CONSTRUCTION: Industry = {
   offersIntro: {
     label: "What we offer",
     title: "Three services for builders and contractors.",
-    lead: "A website that wins the shortlist, social media that shows the work, and content that proves you know the trade.",
+    lead: "A website built to win the shortlist, social media that shows the work, and content that proves you know the trade.",
   },
   cta: {
     title: "Let's build your pipeline.",
@@ -68,7 +68,7 @@ export const CONSTRUCTION: Industry = {
     {
       slug: "website-design",
       title: "Website Design & Development",
-      summary: "Portfolio-led websites that show your best projects and turn visitors into consultation requests.",
+      summary: "Portfolio-led websites that show your best projects and invite visitors to request a consultation.",
       seo: {
         title: "Construction Website Design for Builders & Contractors | Kosick Communications",
         description:
@@ -291,7 +291,7 @@ export const CONSTRUCTION: Industry = {
         { title: "Distribute", body: "Published on the site, shared on social and used in sales." },
       ],
       gallery: [
-        { src: `${UP}/2023/06/services.jpg`, alt: "A rendering of a modern timber and stone home in tall grass" },
+        { src: "/images/industries/construction/framing-on-site.jpg", alt: "A welder working on a steel frame at a building site", position: "50% 35%" },
         { src: `${UP}/2023/06/real-estate.jpeg`, alt: "A bright living room opening onto a view of the ocean" },
       ],
       related: [],

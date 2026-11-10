@@ -20,7 +20,7 @@ const PHONE = { label: "604.925.5800", href: "tel:+16049255800" };
 const JOURNEY = [
   { name: "Get found", line: "Search and local visibility for treatments." },
   { name: "Get trusted", line: "Calm brand, reviews and clear education." },
-  { name: "Get booked", line: "Treatment pages that convert to appointments." },
+  { name: "Get booked", line: "Treatment pages built to convert to appointments." },
   { name: "Keep buying", line: "Retail, recall and product follow-up." },
 ];
 
@@ -40,9 +40,9 @@ const SYSTEM = [
 
 const SKINFOLIO = [
   {
-    src: `${UP}/2023/09/medical-aesthetics.png`,
-    alt: "A Skinfolio ad with SkinCeuticals bottles in black and white",
-    label: "Brand",
+    src: "/images/industries/medical-aesthetics/lip-treatment.jpg",
+    alt: "A close-up of a lip treatment with a fine syringe",
+    label: "Treatments",
     className: styles.mosaicBrand,
   },
   {
@@ -226,7 +226,7 @@ export function MedicalAestheticsMarketingPage() {
           <div className={styles.mosaic}>
             {SKINFOLIO.map((tile, index) => (
               <Reveal key={tile.label} variant="fade" delay={index * 90} className={`${styles.mosaicTile} ${tile.className}`}>
-                <Image src={tile.src} alt={tile.alt} fill sizes="(min-width: 960px) 40vw, 100vw" className={styles.cover} />
+                <Image src={tile.src} alt={tile.alt} fill sizes="(min-width: 960px) 70vw, 100vw" className={styles.cover} />
                 <span className={styles.mosaicLabel}>{tile.label}</span>
               </Reveal>
             ))}

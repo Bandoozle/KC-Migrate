@@ -127,7 +127,7 @@ const BENTO_ITEMS: HomeBentoItem[] = [
       "Performance-driven campaigns across Google Ads, Social Media, YouTube, and more — putting your business in front of ready-to-buy customers.",
     href: "/services/digital-marketing/",
     image:
-      "/wp-content/uploads/2026/06/social-media-content-marketing-1-640x960.jpg",
+      "/wp-content/uploads/2026/06/social-media-content-marketing-1.jpg",
     alt: "Digital advertising analytics dashboard",
   },
   {
@@ -153,8 +153,9 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     description:
       "Billboards, transit shelters, bus wraps, and digital screens — reaching audiences as they commute, shop, and travel.",
     href: "/services/outdoor-advertising/",
-    image: "/wp-content/uploads/2026/02/media-buying-750x499.jpg",
-    alt: "Out of home advertising",
+    image:
+      "/wp-content/uploads/2025/08/home-services-lead-generation-1.webp",
+    alt: "A Belyea Bros. Trane heat pump billboard",
   },
   {
     titlePrimary: "Connected",
@@ -162,9 +163,8 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     description:
       "Premium streaming apps and smart TVs — television impact with digital targeting across Crave, Sportsnet+, TSN+, and Tubi.",
     href: "/services/digital-connected-tv/",
-    image:
-      "/wp-content/uploads/2026/06/connected-tv-streaming-750x563.jpg",
-    alt: "Connected TV advertising",
+    image: "/wp-content/uploads/2026/02/media-buying.jpg",
+    alt: "A Formula 1 race on a wall-mounted TV in a living room",
   },
   {
     titlePrimary: "Corporate",
@@ -172,9 +172,8 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     description:
       "Strategically defined brands that generate human emotion, meaningful connections, and increased marketshare.",
     href: "/services/corporate-branding/",
-    image:
-      "/wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp",
-    alt: "Corporate branding",
+    image: "/images/home/corporate-branding-van-kam.jpg",
+    alt: "The Van-Kam Freightways logo on the side of a truck cab",
   },
 ];
 
@@ -238,9 +237,8 @@ const HOME_CONTENT: HomePageContent = {
       subtitle: "Build a brand people recognize, remember, and trust.",
       description:
         "Great brands start with a clear understanding of who they are and what they stand for. We help define your positioning, personality, messaging, and visual identity so every part of your brand feels intentional, memorable, and uniquely yours.",
-      image:
-        "/wp-content/uploads/2025/08/digital-marketing-750x500.webp",
-      alt: "Digital Marketing Vancouver",
+      image: "/images/home/brand-identity-amsterdam-cap.jpg",
+      alt: "An Amsterdam Garden Centre cap with the embroidered logo, among flowers",
     },
     {
       id: "strategy",
@@ -249,9 +247,8 @@ const HOME_CONTENT: HomePageContent = {
       subtitle: "Turn clear direction into smarter marketing decisions.",
       description:
         "Strong marketing starts with a plan built around your goals, audience, and opportunities. We connect insight with action to create focused strategies that prioritize the right channels, messages, and initiatives for meaningful business growth.",
-      image:
-        "/wp-content/uploads/2026/09/henderson-inclusive-strategy-edited-750x563.jpg",
-      alt: "Brand strategy workshop",
+      image: "/images/home/strategy-masterplan-aerial.jpg",
+      alt: "An aerial masterplan rendering of a beachfront resort community",
     },
     {
       id: "consistency",
@@ -260,9 +257,8 @@ const HOME_CONTENT: HomePageContent = {
       subtitle: "Create one recognizable brand across every touchpoint.",
       description:
         "Every interaction should feel like it comes from the same brand. From digital campaigns and social media to advertising, websites, and print, we help maintain a consistent voice and visual identity that builds familiarity and confidence over time.",
-      image:
-        "/wp-content/uploads/2026/09/kc-branding-edited-750x562.jpg",
-      alt: "Corporate event specialists organizing high-level meetings and brand activations to create memorable experiences for clients and stakeholders.",
+      image: "/images/home/consistency-westmount-van-wrap.jpg",
+      alt: "The Westmount Electrical van wrap shown from every side",
     },
     {
       id: "connections",
@@ -271,9 +267,8 @@ const HOME_CONTENT: HomePageContent = {
       subtitle: "Create experiences that turn attention into relationships.",
       description:
         "Effective marketing is about more than being seen. We create meaningful connections between your brand and the people you want to reach, combining relevant messaging, thoughtful creative, and the right channels to encourage engagement and long-term loyalty.",
-      image:
-        "/wp-content/uploads/2026/03/digital-marketing-lead-generation-750x563.jpg",
-      alt: "Lead Generation Vancouver HVAC Medical Electrical",
+      image: "/images/home/connections-garden-centre-staff.jpg",
+      alt: "A smiling Amsterdam Garden Centre team member among spring plants",
     },
   ],
   testimonials: {
@@ -288,12 +283,6 @@ const HOME_CONTENT: HomePageContent = {
           "The progress we've made since working with them speaks for itself. They don't feel like an outside marketing company—they feel like part of our team. I would highly recommend Kosick Communications to any business looking for honest, hardworking people who will take the time to understand your company and help it grow.",
       },
       {
-        name: "Frances Johnson",
-        rating: 5,
-        quote:
-          "They take the time to understand our business, explain the reasoning behind their recommendations, and genuinely care about helping us grow. Their communication is excellent, and we always leave our meetings feeling confident about the direction we're headed.",
-      },
-      {
         name: "LC Fitness Management",
         rating: 5,
         quote:
@@ -304,6 +293,12 @@ const HOME_CONTENT: HomePageContent = {
         rating: 5,
         quote:
           "Kosick has been very helpful with my marketing and website for my business. They are very friendly to deal with and have a great way of explaining all the complexities of SEO and web design to someone who is foreign to that whole world.",
+      },
+      {
+        name: "Frances Johnson",
+        rating: 5,
+        quote:
+          "They take the time to understand our business, explain the reasoning behind their recommendations, and genuinely care about helping us grow. Their communication is excellent, and we always leave our meetings feeling confident about the direction we're headed.",
       },
       {
         name: "SkinONE Innovations",

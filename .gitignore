@@ -40,3 +40,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Original high-res assets from Bretton (6.4 GB); optimised copies live in public/images/
+/reference-images/

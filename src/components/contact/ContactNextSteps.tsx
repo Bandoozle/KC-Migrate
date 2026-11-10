@@ -131,18 +131,18 @@ type StepContent = {
 
 const STEPS: StepContent[] = [
   {
-    title: "Let’s talk",
-    body: "Call, email or send the form below. We start by learning what you sell, who you sell to, and what has or hasn’t worked so far.",
+    title: "Let’s strategize",
+    body: "Tell us about your business and what you want to achieve. We’ll discuss your goals and challenges, explore opportunities, and identify the right direction for your marketing.",
     Visual: InquiryVisual,
   },
   {
     title: "We build your strategy",
-    body: "Search, social, TV, radio, outdoor and your website get planned together, so every channel works toward the same goal and the same budget.",
+    body: "We choose the channels that fit your goals, from search and social to TV, radio, outdoor and your website, and coordinate them as one plan with one budget.",
     Visual: ChannelVisual,
   },
   {
-    title: "Let’s make it happen",
-    body: "We produce the creative, launch the campaign and report on what it’s doing, so you can see where the results are coming from.",
+    title: "Track results with our technology",
+    body: "See how your marketing is performing with clear reporting and insights. Depending on your program, our tools, including KC Analytics and MSZR, help connect campaign activity with measurable business outcomes.",
     Visual: LaunchVisual,
   },
 ];

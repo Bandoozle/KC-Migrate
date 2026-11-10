@@ -155,3 +155,73 @@
   background: var(--ind-tint);
   font-size: 0.75rem;
 }
+
+/* Pickup choice and the store it points to */
+.option {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px #dedbd4;
+  font-size: 0.6875rem;
+  line-height: 1.2;
+}
+
+.option > span:last-child {
+  display: grid;
+}
+
+.option b {
+  font-weight: 600;
+}
+
+.option small {
+  color: #5f6368;
+  font-size: 0.625rem;
+}
+
+.option[data-selected="true"] {
+  box-shadow: inset 0 0 0 1.5px var(--ind-accent);
+}
+
+.radio {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid #9aa0a6;
+  border-radius: 50%;
+}
+
+.option[data-selected="true"] .radio {
+  border: 3px solid var(--ind-accent);
+}
+
+.store {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.1rem 0 0;
+  font-size: 0.6875rem;
+  line-height: 1.2;
+}
+
+.store svg {
+  flex: none;
+  width: 28px;
+  height: 28px;
+}
+
+.store > span {
+  display: grid;
+}
+
+.store b {
+  font-weight: 600;
+}
+
+.store small {
+  color: #5f6368;
+  font-size: 0.625rem;
+}

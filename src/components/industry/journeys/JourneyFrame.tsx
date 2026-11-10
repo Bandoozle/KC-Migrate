@@ -33,7 +33,7 @@ export function Photo({ src, position, className }: { src: string; position?: st
       src={src}
       alt=""
       fill
-      sizes="(max-width: 999px) 92vw, 520px"
+      sizes="(max-width: 999px) 112vw, 700px"
       className={className}
       style={{ objectFit: "cover", objectPosition: position }}
     />
@@ -43,7 +43,8 @@ export function Photo({ src, position, className }: { src: string; position?: st
 export type JourneyStep = { label: string; body: string };
 
 type JourneyFrameProps = {
-  industry: IndustryId;
+  /** An industry palette, or "outdoor" for the Outdoor Advertising service page. */
+  industry: IndustryId | "outdoor" | "digital";
   title: string;
   lead: string;
   /** What the visual shows, for assistive technology. The visual itself is decorative. */

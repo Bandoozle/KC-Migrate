@@ -1,90 +1,221 @@
 "use client";
 
-import { JourneyFrame, Photo, on, show } from "./JourneyFrame";
+import { JourneyFrame, Photo, show } from "./JourneyFrame";
 import kit from "./kit.module.css";
 import s from "./HvacJourney.module.css";
 
-const SITE = "/wp-content/uploads/2023/09/hvac-website-development.png";
 const UNIT = "/wp-content/uploads/2026/02/hvac-digital-marketing.webp";
-const SLOTS = ["9 AM", "11 AM", "1 PM", "3 PM"];
 
-/** One phone carries the homeowner from search to call; the job lands on the dealer's schedule beside it. */
+/* The dealer's day before the call comes in. Names and jobs are illustrative. */
+const BOOKED = [
+  { time: "8 AM", title: "AC tune-up", meta: "Maintenance", tech: "MR", kind: "maintain" },
+  { time: "10 AM", title: "Heat pump install", meta: "Install", tech: "JT", kind: "install" },
+  { time: "1 PM", title: null, meta: null, tech: null, kind: "open" },
+  { time: "3 PM", title: "Furnace check", meta: "Maintenance", tech: "MR", kind: "maintain" },
+] as const;
+
+function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="10" height="10" aria-hidden="true" focusable="false">
+      <path
+        fill="currentColor"
+        d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"
+      />
+    </svg>
+  );
+}
+
+function StatusBar({ dark = false }: { dark?: boolean }) {
+  return (
+    <span className={dark ? `${s.status} ${s.statusDark}` : s.status}>
+      <b>9:41</b>
+      <span className={s.statusIcons}>
+        <i />
+        <i />
+        <i />
+      </span>
+    </span>
+  );
+}
+
+/**
+ * Search → Find → Call → Booked. The phone carries the homeowner; the dealer's
+ * schedule beside it shows the call arrive as a new lead, then become a booking.
+ */
 export function HvacJourney() {
   return (
     <JourneyFrame
       industry="hvac"
       title="When the furnace quits, the call should come to you."
-      lead="Homeowners with no heat don't compare for long. We put your company at the top of the search, make it one tap to call, and get the job on your schedule."
-      summary="A homeowner searches for furnace repair, finds your company, calls, and the job lands on your service schedule."
+      lead="Homeowners with no heat don't compare for long. HVAC Google Ads and local SEO put you at the top of the search, and your website turns the visit into a tracked call."
+      summary="Illustration: a homeowner searches for furnace repair near me, taps your sponsored result, calls from your website, and the call arrives on your schedule as a new lead that your team books into an open slot."
       side="right"
       story="list"
       steps={[
-        { label: "Search", body: "Google Ads and local SEO put your company in front of them at that moment." },
-        { label: "Find", body: "Your website shows you're local and ready to help, so they stop looking." },
-        { label: "Call", body: "A clear call button on a fast mobile site turns the visit into a phone call." },
-        { label: "Booked", body: "The job lands on your schedule, and the campaign keeps bringing in the next one." },
+        { label: "Search", body: "HVAC Google Ads and local SEO put you in front of homeowners searching right now." },
+        { label: "Find", body: "A fast, local landing page shows you serve their area." },
+        { label: "Call", body: "One tap to call. It arrives as a new lead, tracked to the campaign." },
+        { label: "Booked", body: "Your team books the visit into an open slot on the schedule." },
       ]}
     >
       {(stage) => (
-        <div className={s.scene}>
+        <div className={s.scene} data-stage={stage}>
+          <span className={s.note}>Illustrative</span>
+
           <div className={`${kit.phone} ${s.phone}`}>
-            <div className={`${kit.layer} ${s.search}`} {...show(stage, 0)}>
-              <span className={s.searchBar}>furnace repair near me</span>
-              <span className={s.sponsored}>Sponsored</span>
-              <span className={s.adTitle}>Your company</span>
-              <span className={s.adLine}>Furnace repair. Local technicians, open now.</span>
-              <span className={s.adLinks}>
-                <span>Call</span>
-                <span>Website</span>
+            <span className={s.island} />
+
+            {/* 1. Search results: the ad is one result among several, not the whole screen */}
+            <div className={`${kit.layer} ${s.screen} ${s.serp}`} {...show(stage, 0)}>
+              <StatusBar />
+              <span className={s.query}>
+                <span className={s.queryIcon} />
+                furnace repair near me
               </span>
-              <span className={kit.skel} />
-              <span className={`${kit.skel} ${s.short}`} />
-              <span className={kit.skel} />
+              <span className={s.tabs}>
+                <b>All</b>
+                <span>Maps</span>
+                <span>Images</span>
+                <span>News</span>
+              </span>
+              <span className={s.ad}>
+                <span className={s.adLabel}>Sponsored</span>
+                <span className={s.adSource}>
+                  <span className={s.favicon}>YC</span>
+                  <span>
+                    <b>Your Company Heating &amp; Cooling</b>
+                    <small>yourcompany.ca</small>
+                  </span>
+                </span>
+                <span className={s.adTitle}>Furnace Repair Near You | Same-Day Service</span>
+                <span className={s.adBody}>Licensed local technicians. Upfront pricing on every repair.</span>
+                <span className={s.adActions}>
+                  <span>
+                    <PhoneIcon />
+                    Call
+                  </span>
+                  <span>Website</span>
+                </span>
+                <span className={`${s.tap} ${s.tapAd}`} />
+              </span>
+              <span className={s.places}>
+                <b>Places</b>
+                <span className={s.map}>
+                  <i />
+                  <i />
+                  <i />
+                </span>
+              </span>
+              <span className={s.result}>
+                <i />
+                <i />
+                <i />
+              </span>
             </div>
 
-            <div className={`${kit.layer} ${s.site}`} {...show(stage, 1)}>
-              <span className={s.siteNav}>
-                <i />
-                <i />
-                <i />
+            {/* 2. The landing page the ad opens */}
+            <div className={`${kit.layer} ${s.screen} ${s.site}`} {...show(stage, 1)}>
+              <StatusBar />
+              <span className={s.siteBar}>
+                <b>Your Company</b>
+                <span className={s.siteCall}>
+                  <PhoneIcon />
+                </span>
               </span>
               <span className={s.siteHero}>
-                <Photo src={SITE} position="50% 50%" />
+                <Photo src={UNIT} position="55% 45%" />
               </span>
-              <b>Furnace repair, today</b>
-              <span className={kit.skel} />
-              <span className={`${kit.skel} ${s.short}`} />
-              <span className={s.siteCta}>Call now</span>
+              <span className={s.siteBody}>
+                <b>Furnace repair, today.</b>
+                <small>Licensed technicians serving your area. Financing available.</small>
+                <span className={s.siteCta}>
+                  <PhoneIcon />
+                  Call now
+                  <span className={`${s.tap} ${s.tapCall}`} />
+                </span>
+                <span className={s.siteSecondary}>Book online</span>
+              </span>
+              <span className={s.trust}>
+                <span>Same-day service</span>
+                <span>Licensed &amp; insured</span>
+              </span>
             </div>
 
-            <div className={`${kit.layer} ${s.call}`} {...show(stage, 2, 3)}>
+            {/* 3. The call */}
+            <div className={`${kit.layer} ${s.screen} ${s.call}`} {...show(stage, 2)}>
+              <StatusBar dark />
               <span className={s.avatar}>YC</span>
-              <span className={s.callName}>Your company</span>
-              <span className={s.callState}>{stage === 3 ? "Call connected" : "Calling…"}</span>
-              <span className={s.ring} data-live={stage === 2} />
+              <b className={s.callName}>Your Company</b>
+              <span className={s.callState}>Calling…</span>
+              <span className={s.callKeys}>
+                <i />
+                <i />
+                <i />
+              </span>
+              <span className={s.hangup}>
+                <PhoneIcon />
+              </span>
+            </div>
+
+            {/* 4. The confirmation the homeowner receives once the visit is booked */}
+            <div className={`${kit.layer} ${s.screen} ${s.confirm}`} {...show(stage, 3)}>
+              <StatusBar />
+              <span className={s.thread}>Your Company</span>
+              <span className={s.bubble}>
+                Thanks for calling. Your furnace repair is booked for today, 1–3 PM. Reply to reschedule.
+              </span>
+              <span className={s.delivered}>Delivered</span>
+              <span className={s.compose}>Text message</span>
             </div>
           </div>
 
+          {/* The dealer's side: a day view with an enquiry tray above it */}
           <div className={s.board}>
-            <span className={s.boardHead}>Today&rsquo;s schedule</span>
-            {SLOTS.map((slot, index) => (
-              <span key={slot} className={s.slot}>
-                <em>{slot}</em>
-                {index === 2 ? (
-                  <span className={`${s.job} ${kit.pop}`} {...on(stage, 3)}>
-                    <span className={s.thumb}>
-                      <Photo src={UNIT} position="55% 40%" />
-                    </span>
-                    <span className={s.jobText}>
-                      <b>Furnace repair</b>
-                      <small>New customer</small>
-                    </span>
-                  </span>
-                ) : (
-                  <span className={index === 0 ? s.taken : s.open} />
-                )}
+            <span className={s.boardHead}>
+              <b>Today</b>
+              <span>Service schedule</span>
+            </span>
+
+            <span className={s.sectionLabel}>New enquiries</span>
+            <span className={s.tray}>
+              <span className={s.trayEmpty} data-hidden={stage === 2}>
+                {stage === 3 ? "All enquiries booked" : "Calls and forms land here"}
               </span>
-            ))}
+            </span>
+
+            <span className={s.sectionLabel}>Schedule</span>
+            <span className={s.rows}>
+              {BOOKED.map((row) => (
+                <span key={row.time} className={s.row}>
+                  <em>{row.time}</em>
+                  {row.title ? (
+                    <span className={s.appt} data-kind={row.kind}>
+                      <span className={s.apptText}>
+                        <b>{row.title}</b>
+                        <small>{row.meta}</small>
+                      </span>
+                      <span className={s.tech}>{row.tech}</span>
+                    </span>
+                  ) : (
+                    <span className={s.open}>Open</span>
+                  )}
+                </span>
+              ))}
+            </span>
+
+            {/* One card: it arrives as a lead from the call, then moves into the open slot once booked */}
+            <span className={s.lead} data-at={stage < 2 ? "away" : stage === 2 ? "tray" : "slot"}>
+              <span className={s.leadIcon}>
+                <PhoneIcon />
+              </span>
+              <span className={s.leadText}>
+                <b>Furnace repair</b>
+                <small>{stage === 3 ? "New customer · Google Ads" : "Incoming call · Google Ads"}</small>
+              </span>
+              <span className={s.leadPill} data-booked={stage === 3}>
+                {stage === 3 ? "Booked" : "New lead"}
+              </span>
+            </span>
           </div>
         </div>
       )}

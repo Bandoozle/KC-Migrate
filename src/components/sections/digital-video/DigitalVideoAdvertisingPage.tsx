@@ -17,12 +17,16 @@ type DigitalVideoAdvertisingPageProps = {
 const UPLOADS = "/wp-content/uploads";
 
 const SHOTS = {
-  livingRoom: { src: `${UPLOADS}/2026/06/tv-streaming-advertising-1.jpg`, alt: "Living-room television open to the Prime Video app" },
-  tablet: { src: `${UPLOADS}/2023/06/streaming-ads.png`, alt: "Tablet playing a motorsport video, with the TSN mark in the corner" },
+  livingRoom: { src: `${UPLOADS}/2026/09/Television-Advertising.jpg`, alt: "A family watching hockey on a large living-room TV" },
+  tablet: { src: `${UPLOADS}/2026/01/amazon-prime-ads.jpg`, alt: "The Prime Video home screen with featured shows" },
   wallTv: { src: `${UPLOADS}/2026/06/digital-streaming-advertising-1.jpg`, alt: "Wall-mounted television showing a Formula 1 race" },
   couch: { src: `${UPLOADS}/2026/02/connected-tv-advertising.jpg`, alt: "A viewer streaming on a tablet from the couch" },
+  homeComfort: { src: `${UPLOADS}/2026/07/Media-Buying.jpg`, alt: "A family watching a Home Comfort ad on their living-room TV" },
+  sportsBar: { src: `${UPLOADS}/2026/09/TV-Ads.jpg`, alt: "Fans watching a Blue Jays game on screens in a sports bar" },
+  watchParty: { src: `${UPLOADS}/2025/12/television-advertising-media-buying.jpg`, alt: "Friends watching soccer together on a living-room TV" },
   /* One creative frame, reused on every screen in the campaign section */
-  creative: { src: `${UPLOADS}/2026/02/media-buying.jpg`, alt: "" },
+  creative: { src: "/images/television/spot-end.png", alt: "" },
+  creativeAlt: { src: "/images/television/trane-poster.png", alt: "" },
 };
 
 const FORMATS = {
@@ -44,14 +48,14 @@ const FLIGHT: FlightStage[] = [
     name: "Creative",
     line: "Message and format matched to how they watch.",
     meta: "Matched to the screen",
-    image: { src: SHOTS.creative.src, alt: "A campaign creative frame" },
+    image: SHOTS.homeComfort,
   },
   {
     number: "03",
     name: "Placement",
     line: "Connected TV, online video and premium inventory.",
     meta: "CTV · Pre-roll · Outstream",
-    image: SHOTS.livingRoom,
+    image: SHOTS.sportsBar,
   },
   {
     number: "04",
@@ -59,7 +63,7 @@ const FLIGHT: FlightStage[] = [
     line: "Adjusted in flight for reach, frequency and efficiency.",
     meta: "Live",
     live: true,
-    image: SHOTS.tablet,
+    image: SHOTS.watchParty,
   },
 ];
 
@@ -158,7 +162,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
           <div className={styles.formatGrid}>
             <Reveal variant="fade" as="article" className={`${styles.formatCard} ${styles.formatFeature}`}>
               <div className={styles.photo}>
-                <Image src={SHOTS.livingRoom.src} alt={SHOTS.livingRoom.alt} fill sizes="(min-width: 960px) 58vw, 100vw" className={styles.cover} />
+                <Image src={SHOTS.livingRoom.src} alt={SHOTS.livingRoom.alt} fill sizes="(min-width: 960px) 85vw, 100vw" className={styles.cover} />
                 <PlayerChrome progress={64} />
               </div>
               <FormatCopy format={FORMATS.ctv} />
@@ -266,13 +270,13 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
             </div>
             <div className={styles.tabletDevice} aria-hidden="true">
               <div className={styles.screen}>
-                <Image src={SHOTS.creative.src} alt="" fill sizes="30vw" className={styles.cover} />
+                <Image src={SHOTS.creative.src} alt="" fill sizes="(min-width: 960px) 30vw, 85vw" className={styles.cover} />
                 <span className={styles.screenTag}>Pre-roll</span>
               </div>
             </div>
             <div className={styles.phone} aria-hidden="true">
               <div className={styles.screen}>
-                <Image src={SHOTS.creative.src} alt="" fill sizes="20vw" className={styles.cover} style={{ objectPosition: "62% 50%" }} />
+                <Image src={SHOTS.creative.src} alt="" fill sizes="(min-width: 960px) 640px, 80vw" className={styles.cover} />
                 <span className={styles.screenTag}>Vertical</span>
               </div>
             </div>
@@ -306,7 +310,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
                   </div>
                   <div className={styles.dashCreative}>
                     <span className={styles.dashThumb}>
-                      <Image src={SHOTS.creative.src} alt="" fill sizes="200px" className={styles.cover} />
+                      <Image src={SHOTS.creativeAlt.src} alt="" fill sizes="320px" className={styles.cover} />
                     </span>
                     <span className={styles.dashMeta}>
                       <span>CTV · Pre-roll · Outstream</span>

@@ -41,6 +41,11 @@ const IMAGES = {
     src: `${UPLOADS}/2026/06/social-media-engagement.jpg`,
     alt: "Tablet showing a branded resort website",
   },
+  fleet: {
+    src: "/images/branding/van-kam-driver-cab.jpg",
+    alt: "A Van-Kam Freightways driver waving from a truck cab with the Van-Kam logo on the door",
+    position: "38% 50%",
+  },
 };
 
 const ANATOMY: AnatomyPart[] = [
@@ -103,10 +108,6 @@ function ArrowIcon() {
   );
 }
 
-function fullSize(src: string) {
-  return src.replace(/-\d+x\d+(?=\.\w+$)/, "");
-}
-
 type CorporateBrandingPageProps = {
   content: ServicePageContent;
 };
@@ -127,7 +128,6 @@ export function CorporateBrandingPage({ content }: CorporateBrandingPageProps) {
   });
 
   const capabilities = content.relatedServices.filter((service) => service.image?.src);
-  const billboard = feature?.image?.src ? { src: fullSize(feature.image.src), alt: "Billboard for high-efficiency heat pumps above a street corner" } : null;
   return (
     <main className={styles.page}>
       <ServiceHero title={content.title} hero={hero} />
@@ -178,19 +178,24 @@ export function CorporateBrandingPage({ content }: CorporateBrandingPageProps) {
         <section className={styles.services} aria-labelledby="cb-services">
           <div className="container">
             <div className={styles.servicesGrid}>
-              {billboard ? (
-                <Reveal className={styles.billboardWrap}>
-                  <figure className={styles.billboard}>
-                    <div className={styles.billboardFrame}>
-                      <Image src={billboard.src} alt={billboard.alt} fill sizes="(min-width: 980px) 56vw, 100vw" className={styles.cover} />
-                    </div>
-                    <figcaption className={styles.figCaption}>
-                      <span className={styles.fig}>Fig. 03</span>
-                      Identity carried to street scale.
-                    </figcaption>
-                  </figure>
-                </Reveal>
-              ) : null}
+              <Reveal className={styles.billboardWrap}>
+                <figure className={styles.billboard}>
+                  <div className={styles.billboardFrame}>
+                    <Image
+                      src={IMAGES.fleet.src}
+                      alt={IMAGES.fleet.alt}
+                      fill
+                      sizes="(min-width: 980px) 75vw, 100vw"
+                      className={styles.cover}
+                      style={{ objectPosition: IMAGES.fleet.position }}
+                    />
+                  </div>
+                  <figcaption className={styles.figCaption}>
+                    <span className={styles.fig}>Fig. 03</span>
+                    Identity carried onto the fleet, mile after mile.
+                  </figcaption>
+                </figure>
+              </Reveal>
               <div className={styles.servicesCopy}>
                 <SectionTitle id="cb-services">{labelCase(feature.title)}</SectionTitle>
                 <SectionDescription className={styles.servicesLead}>
@@ -232,7 +237,7 @@ export function CorporateBrandingPage({ content }: CorporateBrandingPageProps) {
                           src={service.image!.src}
                           alt={`${service.title} example`}
                           fill
-                          sizes="(min-width: 980px) 25vw, (min-width: 560px) 50vw, 100vw"
+                          sizes="(min-width: 980px) 48vw, (min-width: 560px) 94vw, 100vw"
                           className={styles.capabilityImage}
                         />
                       </div>

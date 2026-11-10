@@ -23,7 +23,7 @@ type MarketingProgramPageViewProps = {
 };
 
 /**
- * Industry marketing program pages (HVAC / Dental / Golf / HVAC Lead Generation).
+ * Industry marketing program pages (HVAC / Dental / Golf).
  * Same content model as service pages, with program-oriented section order.
  */
 export function MarketingProgramPageView({ content }: MarketingProgramPageViewProps) {

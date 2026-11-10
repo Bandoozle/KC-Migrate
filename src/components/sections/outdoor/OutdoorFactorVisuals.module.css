@@ -1,0 +1,105 @@
+.svg {
+  /* The map kit takes its accent from the journey theme; this section sets its own */
+  --ind-accent: #d93b30;
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-family: var(--kosick-font);
+}
+
+/* Location */
+.area {
+  fill: rgba(217, 59, 48, 0.08);
+  stroke: rgba(217, 59, 48, 0.55);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 4;
+}
+
+.areaLabel {
+  fill: #a82a21;
+  font-size: 10px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: #eef0ea;
+  stroke-width: 3px;
+}
+
+.legend {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.legendText {
+  fill: #202124;
+  font-size: 9.5px;
+  font-weight: 600;
+}
+
+/* Timing */
+.title {
+  fill: #141414;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.tag {
+  fill: #f3f0ea;
+}
+
+.tagText {
+  fill: #6b6d68;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.peak {
+  fill: rgba(217, 59, 48, 0.08);
+}
+
+.peakLabel {
+  fill: #a82a21;
+  font-size: 9.5px;
+  font-weight: 700;
+}
+
+.fill {
+  fill: rgba(217, 59, 48, 0.14);
+}
+
+.line {
+  fill: none;
+  stroke: #d93b30;
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+
+.axis {
+  stroke: rgba(17, 17, 17, 0.16);
+}
+
+.tick {
+  fill: #6b6d68;
+  font-size: 9.5px;
+}
+
+.day {
+  fill: #d93b30;
+}
+
+.dayLight {
+  fill: rgba(217, 59, 48, 0.18);
+}
+
+.dayText {
+  fill: #ffffff;
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.dayTextLight {
+  fill: #a82a21;
+  font-size: 10.5px;
+  font-weight: 700;
+}

@@ -46,7 +46,7 @@ const EVENT_THEMES = [
   /* Tee times only set the order of play on the sheet */
   { tee: "Week 1", name: "Tournament promotion", line: "Registration and awareness campaigns." },
   { tee: "Week 2", name: "Sponsor visibility", line: "Sponsor acquisition and on-course presence." },
-  { tee: "Week 4", name: "Player registration", line: "Email and SMS sequences that drive attendance." },
+  { tee: "Week 4", name: "Player registration", line: "Email and SMS sequences built to drive attendance." },
   { tee: "After", name: "Post-event follow-up", line: "Content and photos that sell next year." },
 ];
 
@@ -229,7 +229,7 @@ export function GolfMarketingPage({ content }: GolfMarketingPageProps) {
             <Reveal delay={150} className={styles.fairwayDetail}>
               <figure className={styles.figure}>
                 <div className={styles.photo}>
-                  <Image src={IMAGES.clubhouse.src} alt={IMAGES.clubhouse.alt} fill sizes="(min-width: 960px) 25vw, 60vw" className={styles.cover} />
+                  <Image src={IMAGES.clubhouse.src} alt={IMAGES.clubhouse.alt} fill sizes="(min-width: 960px) 30vw, 60vw" className={styles.cover} />
                 </div>
                 <figcaption className={styles.caption}>Food and beverage counts toward the round.</figcaption>
               </figure>
@@ -382,7 +382,7 @@ export function GolfMarketingPage({ content }: GolfMarketingPageProps) {
                 <Image src={IMAGES.green.src} alt={IMAGES.green.alt} fill sizes="(min-width: 960px) 40vw, 100vw" className={styles.cover} />
               </div>
             </Reveal>
-            <p className={styles.greenNote}>Every round ends on the green: more tee times, more members and fuller events.</p>
+            <p className={styles.greenNote}>The goal of every round: more tee times, more members and fuller events.</p>
           </div>
         </div>
       </section>

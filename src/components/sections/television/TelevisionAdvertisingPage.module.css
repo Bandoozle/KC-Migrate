@@ -32,7 +32,6 @@
 }
 
 .page a:focus-visible,
-.channel:focus-visible,
 .frame:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
@@ -55,6 +54,155 @@
   color: #ffffff;
 }
 
+.reelIntro {
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
+.reelKicker {
+  margin: 0 0 0.4rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--kosick-eyebrow-size);
+  font-weight: var(--kosick-eyebrow-weight);
+  letter-spacing: var(--kosick-eyebrow-tracking);
+  line-height: var(--kosick-eyebrow-leading);
+}
+
+.reelTitle {
+  color: #ffffff;
+  text-wrap: balance;
+}
+
+.reelBody {
+  max-width: none;
+  margin: 0.85rem 0 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.screen {
+  margin: 0;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+  border-radius: 10px;
+}
+
+.screenCaption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.35rem 1.5rem;
+  margin-top: 0.9rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.45;
+}
+
+.screenClient {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+/* How one spot becomes a campaign: four beats on one rule */
+.arc {
+  margin-top: clamp(2.75rem, 5vw, 4rem);
+}
+
+.arcHeading {
+  margin: 0 0 1.25rem;
+  color: #ffffff;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.arcSteps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.arcStep {
+  min-width: 0;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.arcLabel {
+  display: flex;
+  gap: 0.6rem;
+  margin: 0;
+  color: #d8c39a;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.arcLabel span {
+  color: rgba(255, 255, 255, 0.45);
+  font-variant-numeric: tabular-nums;
+}
+
+.arcTitle {
+  margin: 0.6rem 0 0;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.arcBody {
+  margin: 0.45rem 0 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.55;
+}
+
+.reel a.light {
+  margin-top: clamp(2.25rem, 4vw, 3rem);
+}
+
+@media (max-width: 999px) {
+  .arcSteps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2rem;
+  }
+}
+
+/* Phones: the beats run down a single rule on the left */
+@media (max-width: 599px) {
+  .arcSteps {
+    grid-template-columns: 1fr;
+    row-gap: 0;
+    padding-left: 1.25rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .arcStep {
+    padding: 0 0 1.75rem;
+    border-top: 0;
+  }
+
+  .arcStep:last-child {
+    padding-bottom: 0;
+  }
+
+  .screenCaption {
+    flex-direction: column;
+  }
+}
+
+
+
 .reelTitle,
 .storyTitle {
   margin: 0;
@@ -63,38 +211,6 @@
   font-weight: var(--kosick-section-title-weight);
   letter-spacing: var(--kosick-section-title-tracking);
   line-height: var(--kosick-section-title-leading);
-}
-
-.reelTitle {
-  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
-  color: #ffffff;
-  text-wrap: balance;
-}
-
-.screen {
-  margin: 0 0 clamp(1.75rem, 3.5vw, 2.5rem);
-}
-
-.video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  background: #000000;
-  border-radius: 6px;
-}
-
-.reelLead {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: clamp(2rem, 4vw, 3rem);
-}
-
-.reelBody {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: var(--kosick-section-desc-size);
-  line-height: var(--kosick-section-desc-leading);
 }
 
 .page a.light {
@@ -132,131 +248,6 @@
   list-style: none;
 }
 
-
-
-.lineup {
-  background: #f3f0ea;
-}
-
-.lineupTitle {
-  display: block;
-  width: 100%;
-  max-width: none;
-}
-
-.stage {
-  display: grid;
-  gap: 1.75rem;
-  margin-top: 1.75rem;
-}
-
-.tuner {
-  display: grid;
-  align-content: start;
-}
-
-.channel,
-.frame {
-  appearance: none;
-  margin: 0;
-  background: transparent;
-  font-family: inherit;
-  font-size: inherit;
-  cursor: pointer;
-  text-align: left;
-}
-
-.channel {
-  display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr);
-  gap: 0.5rem;
-  align-items: baseline;
-  width: 100%;
-  padding: 1rem 0;
-  border: 0;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.14);
-  color: #6a6f73;
-  transition: color 160ms ease-out, border-color 160ms ease-out;
-}
-
-.channel:first-child {
-  border-top: 1px solid rgba(17, 17, 17, 0.14);
-}
-
-.channel:hover {
-  color: #111111;
-}
-
-.channel[aria-selected="true"] {
-  border-bottom: 2px solid #111111;
-  padding-bottom: calc(1rem - 1px);
-  color: #111111;
-}
-
-.channelIndex,
-.frame span:first-child {
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  font-variant-numeric: tabular-nums;
-}
-
-.channelIndex {
-  color: #8a8f93;
-}
-
-.channel[aria-selected="true"] .channelIndex {
-  color: #111111;
-}
-
-.channelLabel {
-  font-size: var(--kosick-card-title-size);
-  font-weight: var(--kosick-card-title-weight);
-  letter-spacing: var(--kosick-card-title-tracking);
-  line-height: var(--kosick-card-title-leading);
-}
-
-.program {
-  display: grid;
-  gap: 1.75rem;
-  align-content: start;
-}
-
-/* The selected channel's sentence and link, directly under the channel list */
-.programDetail {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 0;
-}
-
-.programSummary {
-  min-width: 0;
-  margin: 0;
-  /* Reserves two lines so switching channels does not shift the layout */
-  min-height: calc(var(--kosick-section-desc-leading) * 2em);
-}
-
-.programDetail a.solid {
-  margin-top: 1.25rem;
-}
-
-@media (max-width: 999px) {
-  .monitor {
-    order: -1;
-  }
-}
-
-.monitor {
-  position: relative;
-  align-self: start;
-  aspect-ratio: 16 / 9;
-  container-type: inline-size;
-  background: #000000;
-  color: #ffffff;
-  overflow: hidden;
-  border-radius: 4px;
-}
 
 
 .networks {
@@ -411,6 +402,16 @@
   list-style: none;
 }
 
+/* Production step tabs are buttons: drop the browser's button look */
+.frame {
+  appearance: none;
+  margin: 0;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
 .frame {
   display: grid;
   grid-template-columns: 2.25rem minmax(0, 1fr);
@@ -462,53 +463,6 @@
 
   .storyDetails {
     align-self: end;
-  }
-}
-
-@media (min-width: 1000px) {
-  /* The tabpanel spans both columns on a subgrid so its copy sits under the
-     selector while its media fills the right column, without display: contents. */
-  /* One row: channel list and the selected sentence on the left, the monitor
-     centred beside them. The tabpanel uses a subgrid so its copy can sit under
-     the list while its media fills the right column. */
-  .stage {
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-    /* Extra monitor height goes below the summary, not between it and the list */
-    grid-template-rows: auto 1fr;
-    column-gap: clamp(2.5rem, 4vw, 4.5rem);
-    row-gap: 1.75rem;
-    align-items: start;
-  }
-
-  .tuner {
-    z-index: 1;
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  .program {
-    grid-column: 1 / -1;
-    grid-row: 1 / -1;
-    grid-template-columns: subgrid;
-    grid-template-rows: subgrid;
-    gap: inherit;
-    pointer-events: none;
-  }
-
-  .programDetail,
-  .monitor {
-    pointer-events: auto;
-  }
-
-  .programDetail {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .monitor {
-    grid-column: 2;
-    grid-row: 1 / span 2;
-    align-self: center;
   }
 }
 

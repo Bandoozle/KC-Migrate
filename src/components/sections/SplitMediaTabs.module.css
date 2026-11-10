@@ -9,6 +9,7 @@
 }
 
 .tabList {
+  position: relative;
   width: fit-content;
   max-width: 100%;
   margin: 0 auto 16px;
@@ -45,6 +46,40 @@
   background: #ffffff;
   color: #000000;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* The sliding white pill. Once it has measured, it carries the active background instead of the tab */
+.pill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  pointer-events: none;
+}
+
+.tabList[data-pill] .pill {
+  display: block;
+}
+
+.tabList[data-pill="slide"] .pill {
+  transition:
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 420ms cubic-bezier(0.22, 1, 0.36, 1),
+    height 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tabList[data-pill] .tab {
+  position: relative;
+  z-index: 1;
+  transition: color 240ms ease;
+}
+
+.tabList[data-pill] .tabActive {
+  background: transparent;
+  box-shadow: none;
 }
 
 .panel {
@@ -190,6 +225,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .tabList[data-pill] .pill {
+    transition: none;
+  }
+
   .panelIn {
     animation: none;
   }

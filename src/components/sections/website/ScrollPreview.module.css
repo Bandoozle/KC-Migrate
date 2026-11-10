@@ -1,0 +1,42 @@
+/* The browser viewport is the window; the tall screenshot moves inside it */
+.window {
+  position: absolute;
+  z-index: 0;
+  /* Its own layer, so the moving page can never sit above the play/pause control */
+  isolation: isolate;
+  inset: 0;
+  overflow: hidden;
+  container-type: size;
+  background: #ffffff;
+}
+
+.page {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: page-scroll 24s linear infinite;
+  animation-play-state: paused;
+  will-change: transform;
+}
+
+.window[data-playing="true"] .page {
+  animation-play-state: running;
+}
+
+/* Rest at the top, glide to the bottom, rest, glide back */
+@keyframes page-scroll {
+  0%,
+  6% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  }
+  46%,
+  56% {
+    transform: translateY(calc(-100% + 100cqh));
+    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1);
+  }
+  94%,
+  100% {
+    transform: translateY(0);
+  }
+}

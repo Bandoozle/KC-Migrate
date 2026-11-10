@@ -311,6 +311,61 @@
   }
 }
 
+/* Portrait photographs in the panoramic compositions: a tall frame beside the copy instead of a cropped band */
+.consultation.portrait .frame,
+.yardage.portrait .frame {
+  aspect-ratio: 4 / 5;
+}
+
+@media (max-width: 959px) {
+  .consultation.portrait .frame {
+    aspect-ratio: auto;
+    height: min(70svh, 125vw);
+  }
+}
+
+@media (max-width: 899px) {
+  .yardage.portrait .frame {
+    aspect-ratio: auto;
+    height: min(70svh, 125vw);
+  }
+}
+
+@media (min-width: 960px) {
+  .consultation.portrait .grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas: "head head" "context context" "media answer";
+  }
+
+  .consultation.portrait .frame {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (min-width: 900px) {
+  .yardage.portrait .grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-areas: "media head" "media context" "media answer";
+    grid-template-rows: auto auto 1fr;
+    column-gap: clamp(2rem, 4vw, 3.5rem);
+    row-gap: 1.25rem;
+  }
+
+  .yardage.portrait .frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .yardage.portrait .head {
+    margin-bottom: 0;
+  }
+
+  .yardage.portrait .context,
+  .yardage.portrait .answer {
+    align-self: start;
+    margin: 0;
+  }
+}
+
 /* ---------- Retail: editorial spread. Portrait photo left, a drop-cap opening right. ---------- */
 .spread .title {
   letter-spacing: -0.03em;

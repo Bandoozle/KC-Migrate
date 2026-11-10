@@ -86,7 +86,7 @@
   bottom: 0.75rem;
   display: grid;
   gap: 0.4rem;
-  width: 48%;
+  width: 52%;
   padding: 0.6rem 0.7rem;
 }
 
@@ -118,4 +118,55 @@
 .request small {
   color: #3d3d3a;
   font-size: 0.75rem;
+}
+
+/* Saved builders: your company first, with the next step on the card */
+.listHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.listHead small,
+.others {
+  color: #5f6368;
+  font-size: 0.6875rem;
+}
+
+.youThumb {
+  position: relative;
+  flex: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.youText {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.youText b,
+.youText small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.youText small {
+  color: #5f6368;
+  font-size: 0.6875rem;
+  font-weight: 500;
+}
+
+.visitBtn {
+  padding: 0.4rem;
+  border-radius: 999px;
+  background: #111111;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
 }

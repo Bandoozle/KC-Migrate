@@ -13,7 +13,7 @@ export const MEDICAL_AESTHETICS: Industry = {
   path: "/services/medical-aesthetics-marketing/",
   directory: {
     line: "Brand, booking and product sales for medical aesthetics clinics.",
-    image: { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
+    image: { src: "/images/industries/medical-aesthetics/consultation-mirror.jpg", alt: "A clinician holding a mirror for a smiling client during an aesthetic consultation", position: "50% 35%" },
   },
   offersIntro: {
     label: "What we offer",
@@ -28,13 +28,13 @@ export const MEDICAL_AESTHETICS: Industry = {
     seo: {
       title: "Medical Aesthetics Marketing | Kosick Communications",
       description:
-        "Medical aesthetics marketing for clinics like Skinfolio Medesthetics: websites, e-commerce, SEO, Google Ads, social and brand campaigns that fill the treatment calendar.",
+        "Medical aesthetics marketing for clinics like Skinfolio Medesthetics: websites, e-commerce, SEO, Google Ads, social and brand campaigns built to fill the treatment calendar.",
     },
     hero: {
       label: "Medical aesthetics marketing",
       title: "Medical Aesthetics Marketing",
-      lead: "Marketing for medical aesthetics clinics: calm branding, treatment and product pages that convert, and campaigns that fill the chair and the cart. Work includes Skinfolio Medesthetics.",
-      image: { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
+      lead: "Marketing for medical aesthetics clinics: calm branding, treatment and product pages built to convert, and campaigns designed to fill the chair and the cart. Work includes Skinfolio Medesthetics.",
+      image: { src: "/images/industries/medical-aesthetics/consultation-mirror.jpg", alt: "A clinician holding a mirror for a smiling client during an aesthetic consultation", position: "50% 35%" },
     },
     intro: {
       title: "Clinics win on trust and clarity.",
@@ -48,17 +48,17 @@ export const MEDICAL_AESTHETICS: Industry = {
       {
         title: "Treatments first",
         body: "Campaigns and pages are built around the procedures you want more of, not a generic clinic brochure.",
-        image: { src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`, alt: "SkinCeuticals serums lined up with a dropper above them" },
+        image: { src: "/images/industries/medical-aesthetics/clinic-interior.jpg", alt: "A bright aesthetics clinic with treatment stations below tall city windows" },
       },
       {
         title: "Clinic and cart together",
         body: "Bookings and product sales share one brand system, so Skinfolio-style clinics grow both sides of the business.",
-        image: { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
+        image: { src: "/images/industries/medical-aesthetics/hydrate-iv-consultation.jpg", alt: "A stethoscope and a Hydrate IV notepad on a clinic desk" },
       },
       {
         title: "Calm, credible creative",
         body: "Photography and copy that feel clinical without feeling cold, so clients trust the experience before they arrive.",
-        image: { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
+        image: { src: "/images/industries/medical-aesthetics/facial-assessment.jpg", alt: "A practitioner measuring a smiling client's facial proportions with calipers", position: "50% 40%" },
       },
       {
         title: "Local and high-intent",
@@ -67,9 +67,9 @@ export const MEDICAL_AESTHETICS: Industry = {
       },
     ],
     gallery: [
-      { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
-      { src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`, alt: "SkinCeuticals serums lined up with a dropper above them" },
-      { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
+      { src: "/images/industries/medical-aesthetics/treatment-lounge.jpg", alt: "A calm treatment lounge with white armchairs and soft blue cushions" },
+      { src: "/images/industries/medical-aesthetics/lip-treatment.jpg", alt: "A close-up of a lip treatment with a fine syringe", position: "50% 40%" },
+      { src: "/images/industries/medical-aesthetics/treatment-lounge.jpg", alt: "A calm treatment lounge with white armchairs and soft blue cushions" },
       { src: `${UP}/2022/01/medical-aesthetics.webp`, alt: "A serum dropper and cream on a glass dish" },
     ],
   },
@@ -87,7 +87,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         label: "Medical aesthetics website design",
         title: "A clinic site that books and sells.",
         lead: "We build medical aesthetics websites that feel calm and credible, explain treatments clearly, and connect booking with retail, as on Skinfolio Medesthetics.",
-        image: { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
+        image: { src: "/images/industries/medical-aesthetics/treatment-lounge.jpg", alt: "A calm treatment lounge with white armchairs and soft blue cushions" },
       },
       intro: {
         title: "Treatments and products on one site.",
@@ -146,7 +146,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         { title: "Launch & support", body: "Tracking in place, then updates as the clinic grows." },
       ],
       gallery: [
-        { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
+        { src: "/images/industries/medical-aesthetics/clinic-interior.jpg", alt: "A bright aesthetics clinic with treatment stations below tall city windows" },
         { src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`, alt: "SkinCeuticals serums lined up with a dropper above them" },
       ],
       related: [
@@ -167,7 +167,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         label: "Google Ads & SEO for aesthetics clinics",
         title: "Be the clinic clients find first.",
         lead: "When someone searches for a treatment or a medical aesthetics clinic nearby, the names at the top get the enquiry. We put yours there with ads, local SEO and a strong Google Business Profile.",
-        image: { src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`, alt: "SkinCeuticals serums lined up with a dropper above them" },
+        image: { src: "/images/industries/medical-aesthetics/clinic-interior.jpg", alt: "A bright aesthetics clinic with treatment stations below tall city windows" },
       },
       intro: {
         title: "Search is where treatment research starts.",
@@ -228,7 +228,7 @@ export const MEDICAL_AESTHETICS: Industry = {
       ],
       gallery: [
         { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
-        { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
+        { src: "/images/industries/medical-aesthetics/hydrate-iv-consultation.jpg", alt: "A stethoscope and a Hydrate IV notepad on a clinic desk" },
       ],
       related: [
         { label: "Search Engine Optimization", href: "/services/search-engine-optimization/", kind: "service", body: "Organic rankings that bring qualified leads to the pages you build." },
@@ -248,7 +248,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         label: "Social media, content & AI marketing",
         title: "Familiar before the first visit.",
         lead: "Clients choose clinics they feel they know. We help aesthetics practices share their team, treatments and products on social, publish education that builds confidence, and use AI where it genuinely helps.",
-        image: { src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`, alt: "SkinCeuticals serums lined up with a dropper above them" },
+        image: { src: "/images/industries/medical-aesthetics/lip-treatment.jpg", alt: "A close-up of a lip treatment with a fine syringe", position: "50% 40%" },
       },
       intro: {
         title: "Education that feels personal.",
@@ -282,7 +282,7 @@ export const MEDICAL_AESTHETICS: Industry = {
       ],
       benefits: [
         {
-          title: "Less hesitation, more bookings",
+          title: "Less hesitation, easier booking",
           body: "Clients who have seen your team and results feel more comfortable booking.",
         },
         {
@@ -307,7 +307,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         { title: "Grow", body: "Engagement and enquiries measured, and the plan refined." },
       ],
       gallery: [
-        { src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`, alt: "SkinCeuticals serums lined up with a dropper above them" },
+        { src: "/images/industries/medical-aesthetics/consultation-mirror.jpg", alt: "A clinician holding a mirror for a smiling client during an aesthetic consultation", position: "50% 35%" },
         { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
       ],
       related: [],
@@ -325,7 +325,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         label: "Video, TV & billboard advertising",
         title: "Make your clinic a local landmark.",
         lead: "Search captures clients who are already looking. Video, television and outdoor advertising make your clinic the name the community knows, so you are the first choice when they are ready.",
-        image: { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
+        image: { src: "/images/industries/medical-aesthetics/consultation-mirror.jpg", alt: "A clinician holding a mirror for a smiling client during an aesthetic consultation", position: "50% 35%" },
       },
       intro: {
         title: "Visibility beyond the search results.",
@@ -384,7 +384,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         { title: "Measure", body: "Reach, branded searches and new client trends tracked." },
       ],
       gallery: [
-        { src: `${UP}/2023/09/medical-aesthetics.png`, alt: "A Skinfolio ad with SkinCeuticals bottles in black and white" },
+        { src: "/images/industries/medical-aesthetics/facial-assessment.jpg", alt: "A practitioner measuring a smiling client's facial proportions with calipers", position: "50% 40%" },
         { src: `${UP}/2026/02/ctv-morning-live.jpg`, alt: "Two people talking on the set of a Vancouver morning television show" },
       ],
       related: [],

@@ -1,0 +1,384 @@
+/*
+ * Map-app parts shared by the local journeys. Sizes are in the scene's own
+ * units (JourneyFrame scales the whole scene), modelled on a phone map app.
+ */
+
+.map {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.street {
+  fill: #8a8c86;
+  font-size: 7.5px;
+  font-weight: 500;
+}
+
+.poi {
+  fill: #6b6d68;
+  font-size: 7.5px;
+  font-weight: 600;
+}
+
+.pinLabel {
+  fill: #1f2124;
+  font-size: 10px;
+  font-weight: 700;
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 3px;
+}
+
+/* Search bar, as a map app floats it over the map */
+.search {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 6px 0 12px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(32, 33, 36, 0.24);
+  color: #5f6368;
+  font-size: 11px;
+}
+
+.query {
+  flex: 1;
+  overflow: hidden;
+  color: #202124;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.avatar {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #c9cdd2, #9aa0a6);
+}
+
+.chips {
+  position: absolute;
+  z-index: 2;
+  top: 50px;
+  left: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.chips span {
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(32, 33, 36, 0.22);
+  color: #3c4043;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* Place card: the listing a map app slides up for the chosen pin */
+.place {
+  position: absolute;
+  z-index: 2;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 6px 10px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 20px -6px rgba(32, 33, 36, 0.4);
+  color: #202124;
+}
+
+.thumb {
+  position: relative;
+  grid-row: span 2;
+  display: block;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.info {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  align-content: start;
+}
+
+.info b {
+  overflow: hidden;
+  font-size: 12.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.info small {
+  overflow: hidden;
+  color: #5f6368;
+  font-size: 9.5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.open {
+  color: #188038;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 5px;
+  align-self: end;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px #dadce0;
+  color: var(--ind-label);
+  font-size: 9.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.action[data-active="true"] {
+  background: var(--ind-label);
+  box-shadow: none;
+  color: #ffffff;
+}
+
+/* Bottom sheet for booking: handle, title, day chips, time slots, button */
+.sheet {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  gap: 8px;
+  padding: 8px 14px 14px;
+  border-radius: 16px 16px 0 0;
+  background: #ffffff;
+  box-shadow: 0 -8px 24px -10px rgba(32, 33, 36, 0.45);
+  color: #202124;
+  transition:
+    transform 600ms var(--ease, cubic-bezier(0.22, 1, 0.36, 1)),
+    opacity 400ms ease;
+}
+
+.sheet[data-on="false"] {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.handle {
+  justify-self: center;
+  width: 30px;
+  height: 4px;
+  border-radius: 4px;
+  background: #dadce0;
+}
+
+.sheetHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.sheetHead b {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.sheetHead small {
+  color: #5f6368;
+  font-size: 9.5px;
+}
+
+.days,
+.slots {
+  display: grid;
+  gap: 5px;
+}
+
+.days {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.slots {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.days span,
+.slots span {
+  display: grid;
+  place-items: center;
+  height: 26px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 0 1px #dadce0;
+  font-size: 10px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.days small {
+  color: #5f6368;
+  font-size: 8px;
+  font-weight: 500;
+}
+
+.days span {
+  height: 32px;
+  line-height: 1.1;
+}
+
+.days [data-selected="true"],
+.slots [data-selected="true"] {
+  background: var(--ind-label);
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.days [data-selected="true"] small {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.slots [data-taken="true"] {
+  color: #b0b3b8;
+  text-decoration: line-through;
+  box-shadow: inset 0 0 0 1px #eceef0;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--ind-label);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  transition: background-color 300ms ease;
+}
+
+.cta[data-done="true"] {
+  background: #188038;
+}
+
+/* A confirmation or check-in card over a photograph */
+.confirm {
+  position: absolute;
+  z-index: 2;
+  left: 12px;
+  bottom: 12px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 2px 9px;
+  align-items: center;
+  max-width: calc(100% - 24px);
+  padding: 10px 14px 10px 10px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px -12px rgba(0, 0, 0, 0.6);
+  color: #202124;
+}
+
+.tick {
+  display: grid;
+  grid-row: span 2;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #188038;
+  color: #ffffff;
+}
+
+.tick svg {
+  width: 13px;
+  height: 13px;
+}
+
+.confirm b {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.confirm small {
+  color: #5f6368;
+  font-size: 9.5px;
+}
+
+/* Small map card that rides with the confirmation: the trip that got them there */
+.trip {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  width: 132px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px -12px rgba(0, 0, 0, 0.6);
+  color: #202124;
+}
+
+.trip svg {
+  display: block;
+  width: 100%;
+  height: 70px;
+}
+
+.trip span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px;
+  font-size: 9.5px;
+  font-weight: 600;
+}
+
+.trip small {
+  color: #5f6368;
+  font-weight: 500;
+}
+
+.note {
+  position: absolute;
+  z-index: 4;
+  top: 50px;
+  right: 12px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.85);
+  color: rgba(32, 33, 36, 0.6);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

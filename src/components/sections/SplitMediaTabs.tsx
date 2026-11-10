@@ -3,6 +3,7 @@
 import { useId, useState, type KeyboardEvent } from "react";
 import { BodyText, CardTitle, SubsectionTitle } from "@/components/typography";
 import styles from "./SplitMediaTabs.module.css";
+import { useSlidingPill } from "./useSlidingPill";
 
 export type SplitMediaTab = {
   id: string;
@@ -33,6 +34,7 @@ export function SplitMediaTabs({
 }: SplitMediaTabsProps) {
   const baseId = useId();
   const [active, setActive] = useState(0);
+  const { listRef, pillStyle, pillState } = useSlidingPill<HTMLDivElement>(active);
 
   if (tabs.length === 0) return null;
 
@@ -62,11 +64,14 @@ export function SplitMediaTabs({
   return (
     <div className={className ? `${styles.tabs} ${className}` : styles.tabs}>
       <div
+        ref={listRef}
         className={scrollTabsOnMobile ? `${styles.tabList} ${styles.tabListScroll}` : styles.tabList}
         role="tablist"
         aria-label={ariaLabel}
         onKeyDown={onKeyDown}
+        data-pill={pillState}
       >
+        <span className={styles.pill} style={pillStyle} aria-hidden="true" />
         {tabs.map((tab, index) => {
           const selected = index === active;
           return (

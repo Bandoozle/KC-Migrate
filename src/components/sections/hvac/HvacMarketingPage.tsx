@@ -23,11 +23,20 @@ const IMAGES = {
   efficiency: { src: `${UPLOADS}/2026/07/HVAC-Lead-Generation-Vancouver.jpg`, alt: "A Daikin heat pump beside a backyard patio" },
 };
 
+/* Hero and closing copy for this page; the WordPress text spoke about advertising, not leads */
+const HERO_LEAD =
+  "An HVAC marketing agency built around lead generation. With 20+ years partnering with Trane, RunTru, GE and leading HVAC brands, we turn homeowner searches into calls, quote requests and booked work, all year.";
+const CLOSING = {
+  title: "Ready for more HVAC leads?",
+  description:
+    "Tell us about your service area, your brands and your busy seasons. We'll show you where your next calls and service enquiries can come from.",
+};
+
 const PROCESS = [
-  { name: "Audit", line: "Understand the market, competition and current performance." },
-  { name: "Strategy", line: "Build the right channel mix, offer and campaign plan." },
-  { name: "Launch", line: "Activate campaigns across the channels that matter." },
-  { name: "Scale", line: "Invest more where performance is strongest." },
+  { name: "Audit", line: "Review your market, competitors, website and where today's leads come from." },
+  { name: "Strategy", line: "Choose the channels, offers and landing pages most likely to bring in the jobs you want." },
+  { name: "Launch", line: "Go live with call and form tracking in place from day one." },
+  { name: "Scale", line: "Put more budget behind the campaigns that bring in qualified leads." },
 ];
 
 /* Co-op flow, manufacturer money through to a job on the schedule. Artifacts are illustrative. */
@@ -123,14 +132,15 @@ const PROJECTS = [
   { src: `${LOCAL}/tab-youtube.jpg`, alt: "YouTube and connected TV HVAC advertising", label: "YouTube & CTV" },
   { src: `${LOCAL}/feature-strategies.jpg`, alt: "The Cool Comfort Solutions website on a laptop", label: "Website", tall: true },
   { src: `${LOCAL}/tab-facebook.jpg`, alt: "Facebook HVAC ads", label: "Facebook" },
-  { src: `${LOCAL}/feature-billboard.jpg`, alt: "HVAC co-op billboard", label: "Co-op creative" },
+  { src: `${UPLOADS}/2023/07/billboards-scaled.png`, alt: "A Trane high-efficiency gas furnace billboard with Home Depot and FortisBC co-op branding", label: "Co-op creative" },
 ];
 
 const CHANNELS = [
   "Google Ads & Local Service Ads",
+  "Local SEO & Map Pack",
   "Meta, YouTube & Connected TV",
   "Television, radio & outdoor",
-  "Local SEO & Map Pack",
+  "Call & form tracking by campaign",
 ];
 
 function ArrowIcon() {
@@ -165,7 +175,7 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
 
   return (
     <main className={styles.page}>
-      <ServiceHero title={content.title} hero={hero} />
+      <ServiceHero title={content.title} hero={{ ...hero, subtitle: HERO_LEAD }} />
       <HvacJourney />
 
       {/* Intro: headline, CTA and figures beside one large photo carrying a figure chip */}
@@ -175,11 +185,11 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
             <div>
               <p className={styles.label}>HVAC marketing &amp; lead generation</p>
               <SectionTitle id="hv-intro" className={styles.display}>
-                Marketing that keeps your schedule full, all year.
+                Advertising built to generate HVAC leads.
               </SectionTitle>
               <p className={styles.lead}>
-                Partnered with Trane, RunTru, GE, York, Daikin, Fujitsu and other national brands, we know what drives
-                booked jobs for dealers across Canada.
+                Partnered with Trane, RunTru, GE, York, Daikin, Fujitsu and other national brands, we know what brings
+                in installation, repair and maintenance enquiries for dealers across Canada.
               </p>
               <div className={styles.actions}>
                 <Link className={styles.primary} href={contactHref}>
@@ -208,7 +218,7 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
             </div>
             <Reveal variant="fade" className={styles.introMedia}>
               <div className={styles.introPhoto}>
-                <Image src={IMAGES.intro.src} alt={IMAGES.intro.alt} fill sizes="(min-width: 960px) 50vw, 100vw" className={styles.cover} priority />
+                <Image src={IMAGES.intro.src} alt={IMAGES.intro.alt} fill sizes="(min-width: 960px) 80vw, 100vw" className={styles.cover} priority />
               </div>
               {leadStat ? (
                 <div className={styles.chip}>
@@ -234,9 +244,9 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
           <div className={styles.flowHead}>
             <p className={styles.label}>How we work</p>
             <SectionTitle id="hv-process" className={styles.title}>
-              Our simple, proven process.
+              From first audit to a steady flow of leads.
             </SectionTitle>
-            <p className={styles.lead}>Four steps from first audit to a marketing program that scales.</p>
+            <p className={styles.lead}>Four steps to an HVAC lead generation program that grows with your business.</p>
           </div>
           <ProcessTrack
             className={styles.processTrack}
@@ -254,7 +264,8 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
               From co-op funds to booked jobs.
             </SectionTitle>
             <p className={styles.lead}>
-              We find utility and manufacturer co-op money, build compliant creative and submit the claims.
+              We find utility and manufacturer co-op money, build compliant creative and submit the claims, so more
+              of your budget goes toward calls and quote requests.
             </p>
           </div>
           <ProcessTrack
@@ -279,7 +290,10 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
                 Your brand. Every platform.
               </SectionTitle>
             </div>
-            <p className={styles.lead}>One campaign system, built to reach homeowners wherever they are.</p>
+            <p className={styles.lead}>
+              HVAC advertising across search, social, video and outdoor, with every channel pointing homeowners to a
+              call or a quote request.
+            </p>
           </div>
           <ul className={styles.gallery}>
             {PROJECTS.map((project, index) => (
@@ -329,13 +343,13 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
               </div>
             </Reveal>
             <div>
-              <p className={styles.label}>Digital &amp; traditional</p>
+              <p className={styles.label}>HVAC digital marketing &amp; advertising</p>
               <SectionTitle id="hv-efficiency" className={styles.title}>
-                Reach homeowners at every touchpoint.
+                Know which campaigns are bringing in leads.
               </SectionTitle>
               <p className={styles.lead}>
-                Search when the furnace fails, TV and radio before the season turns, and outdoor in every service
-                area you cover.
+                Search when the furnace fails, TV and radio before the season turns, and outdoor across your service
+                area. Calls and form submissions are tracked by campaign, so you can see what each channel brings in.
               </p>
               <ul className={styles.checklist}>
                 {CHANNELS.map((channel) => (
@@ -347,7 +361,7 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
                   </li>
                 ))}
               </ul>
-              <Link className={styles.primary} href="/services/hvac-marketing/hvac-lead-generation/">
+              <Link className={styles.primary} href={contactHref}>
                 Start generating leads
                 <ArrowIcon />
               </Link>
@@ -360,7 +374,7 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
         <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} />
       ) : null}
 
-      {cta ? <PageCta cta={cta} /> : null}
+      {cta ? <PageCta cta={{ ...cta, ...CLOSING }} /> : null}
     </main>
   );
 }

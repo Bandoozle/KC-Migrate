@@ -1,100 +1,239 @@
 .scene {
   position: relative;
   height: 100%;
+  overflow: hidden;
   background: #0a3346;
+  color: #202124;
 }
 
-.ticket {
+.note {
+  top: 10px;
+}
+
+.dim {
+  filter: brightness(0.82);
+}
+
+/* Streaming ad overlay: the player's own ad bar */
+.ad {
   position: absolute;
-  right: 0.75rem;
-  bottom: 0.75rem;
-  left: 0.75rem;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 4.75rem;
+  gap: 7px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(12, 14, 16, 0.82);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
 }
 
-.main {
-  display: grid;
-  gap: 0.1rem;
-  min-width: 0;
-  padding: 0.55rem 0.75rem 0.65rem;
+.adHead {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
 }
 
-.kicker {
-  color: var(--ind-label);
-  font-size: 0.75rem;
+.adHead b {
   font-weight: 600;
 }
 
-.value {
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-  animation: ticket-in 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+.adHead small {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
 }
 
-.main small {
-  color: #3d3d3a;
-  font-size: 0.75rem;
+.adTag {
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #f3c969;
+  color: #141414;
+  font-size: 8.5px;
+  font-weight: 700;
 }
 
-.route {
+.track {
   position: relative;
-  display: block;
-  height: 2px;
-  margin-top: 0.5rem;
-  border-radius: 1px;
-  background: #dedcd4;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.25);
 }
 
-.routeFill {
+.fill {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  background: var(--ind-accent);
-  transition: width 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+  inset: 0 60% 0 0;
+  background: #f3c969;
 }
 
-.plane {
+.adFoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.audience {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 8.5px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.adCta {
+  flex: none;
+  justify-self: start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0a3346;
+  font-size: 9.5px;
+  font-weight: 600;
+}
+
+/* Enquiry form */
+.form {
   position: absolute;
   top: 50%;
-  width: 11px;
-  height: 11px;
-  margin: -5.5px 0 0 -5.5px;
-  border: 2.5px solid var(--ind-accent);
-  border-radius: 50%;
+  right: 14px;
+  display: grid;
+  gap: 6px;
+  width: 196px;
+  padding: 12px;
+  border-radius: 12px;
   background: #ffffff;
-  transition: left 1100ms cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.65);
+  transform: translateY(-50%);
 }
 
-.stub {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.3rem;
-  border-left: 2px dashed #cfcdc5;
-  color: #50565b;
-  font-size: 0.75rem;
+.formTitle {
+  font-size: 12.5px;
   font-weight: 600;
-  transition: background-color 300ms ease;
 }
 
-.stub[data-booked="true"] {
-  background: var(--ind-tint);
-  color: #111111;
+.field {
+  display: grid;
+  gap: 1px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  box-shadow: inset 0 0 0 1px #dadce0;
+  font-size: 10.5px;
 }
 
-.barcode {
-  width: 2.1rem;
-  height: 1.15rem;
-  background: repeating-linear-gradient(90deg, #55534d 0 2px, transparent 2px 5px);
+.field small {
+  color: #5f6368;
+  font-size: 8px;
 }
 
-@keyframes ticket-in {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
+.sent {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 2px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: #e6f4ea;
+  color: #188038;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* The reservations inbox: one new opportunity among others at different stages */
+.inbox {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  display: grid;
+  gap: 6px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.65);
+}
+
+.inboxHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eceef0;
+}
+
+.inboxHead b {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.inboxHead small {
+  color: #5f6368;
+  font-size: 9px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  opacity: 0.62;
+}
+
+.row[data-highlight="true"] {
+  background: #eef7fb;
+  box-shadow: inset 0 0 0 1px #b9dcea;
+  opacity: 1;
+}
+
+.rowText {
+  display: grid;
+  flex: 1;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.rowText b {
+  overflow: hidden;
+  font-size: 10.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.rowText small {
+  color: #5f6368;
+  font-size: 9px;
+}
+
+.source {
+  color: #0b6e99;
+  font-weight: 600;
+}
+
+.status {
+  flex: none;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 8.5px;
+  font-weight: 700;
+}
+
+.status[data-tone="quote"] {
+  background: #fdf0d5;
+  color: #8a5a00;
+}
+
+.status[data-tone="new"] {
+  background: #e3f0f7;
+  color: #0b6e99;
+}
+
+.status[data-tone="booked"] {
+  background: #e6f4ea;
+  color: #188038;
 }

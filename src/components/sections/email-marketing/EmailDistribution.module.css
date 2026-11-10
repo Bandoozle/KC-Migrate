@@ -1,0 +1,277 @@
+/* One campaign, many devices: cream section, copy beside a compact product-style drawing */
+
+.section {
+  --espresso: #15120f;
+  --muted: #5a5249;
+  --rule: rgba(21, 18, 15, 0.14);
+  padding: var(--kosick-block-compact) 0;
+  background: #f4efe7;
+  color: var(--espresso);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1.75rem, 4vw, 2.5rem);
+  align-items: center;
+}
+
+.label {
+  margin: 0 0 1rem;
+  color: #8a6a3e;
+  font-size: clamp(1.125rem, 1.6vw, 1.375rem);
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.25;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--kosick-font);
+  font-size: var(--kosick-section-title-size);
+  font-weight: var(--kosick-section-title-weight);
+  letter-spacing: var(--kosick-section-title-tracking);
+  line-height: var(--kosick-section-title-leading);
+  text-wrap: balance;
+}
+
+.lead {
+  max-width: 46ch;
+  margin: 1.1rem 0 0;
+  color: var(--muted);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+/* Compose, Send, Deliver: follows the drawing */
+.phases {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  max-width: 26rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.phases li {
+  position: relative;
+  display: flex;
+  gap: 0.45rem;
+  align-items: baseline;
+  padding-top: 0.7rem;
+  color: #9a9086;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  line-height: 1.3;
+  transition: color 250ms ease;
+}
+
+.phases li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--rule);
+  transition: background-color 250ms ease;
+}
+
+.phases li[data-state="done"],
+.phases li[data-state="active"] {
+  color: var(--espresso);
+}
+
+.phases li[data-state="done"]::before {
+  background: #c9a46f;
+}
+
+.phases li[data-state="active"]::before {
+  background: var(--espresso);
+}
+
+.phaseIndex {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 40px;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid var(--rule);
+  border-radius: 9999px;
+  background: transparent;
+  color: var(--espresso);
+  font-family: inherit;
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+
+.control:hover {
+  border-color: rgba(21, 18, 15, 0.3);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.control:focus-visible {
+  outline: 2px solid var(--espresso);
+  outline-offset: 2px;
+}
+
+/* The drawing sits on a soft paper panel; its size never changes while it plays */
+.stage {
+  width: 100%;
+  max-width: 680px;
+  padding: clamp(0.5rem, 1.6vw, 1.25rem);
+  border: 1px solid rgba(21, 18, 15, 0.08);
+  border-radius: 18px;
+  background:
+    radial-gradient(90% 70% at 50% 42%, #fffdf9 0%, rgba(255, 253, 249, 0) 70%),
+    linear-gradient(180deg, #faf6ef 0%, #efe7da 100%);
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: var(--kosick-font);
+}
+
+.compact {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  .wide {
+    display: none;
+  }
+
+  .compact {
+    display: block;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+/* The narrowest phones: the drawing uses the full column instead of a padded panel */
+@media (max-width: 359px) {
+  .stage {
+    padding: 0.25rem 0;
+    border-width: 1px 0;
+    border-radius: 0;
+  }
+}
+
+/* A restart fades the finished network away before the timeline rewinds */
+.network,
+.dynamic {
+  transition: opacity 420ms ease;
+}
+
+.stage[data-resetting] .network,
+.stage[data-resetting] .dynamic {
+  opacity: 0;
+}
+
+/* Text inside the drawing */
+.cardTitle {
+  fill: #15120f;
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.cardMeta {
+  fill: #7a7066;
+  font-size: 9px;
+  font-weight: 500;
+}
+
+.pill {
+  fill: #5a5249;
+  font-size: 8.5px;
+  font-weight: 600;
+}
+
+.brand {
+  fill: #15120f;
+  font-size: 6.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.headline {
+  fill: #15120f;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.bodyText {
+  fill: #7a7066;
+  font-size: 7.5px;
+}
+
+.cta {
+  fill: #ffffff;
+  font-size: 7px;
+  font-weight: 600;
+}
+
+.button {
+  fill: #ffffff;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.chipFrom {
+  fill: #7a7066;
+  font-size: 7.5px;
+  font-weight: 500;
+}
+
+.chipSubject {
+  fill: #15120f;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* Side by side once the drawing can keep close to full size beside the copy */
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: minmax(0, 4.25fr) minmax(0, 7.75fr);
+    column-gap: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .stage {
+    justify-self: end;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phases li,
+  .phases li::before,
+  .control,
+  .network,
+  .dynamic {
+    transition: none;
+  }
+}
+
+.intro {
+  min-width: 0;
+}

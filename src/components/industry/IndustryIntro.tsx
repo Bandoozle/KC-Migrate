@@ -22,6 +22,17 @@ const COMPOSITION: Record<IndustryId, keyof typeof styles> = {
   travel: "route",
 };
 
+/* Rendered width of the cover-cropped photograph per composition, including the crop overflow of tall frames */
+const SIZES: Record<string, string> = {
+  workbench: "(min-width: 960px) 90vw, 100vw",
+  consultation: "(min-width: 1320px) 1280px, 100vw",
+  yardage: "(min-width: 1320px) 1280px, 100vw",
+  spread: "(min-width: 960px) 75vw, 100vw",
+  window: "(min-width: 960px) 70vw, 100vw",
+  spec: "(min-width: 960px) 75vw, 100vw",
+  route: "(min-width: 960px) 60vw, 100vw",
+};
+
 type IndustryIntroProps = {
   industry: IndustryId;
   headingId: string;
@@ -34,9 +45,13 @@ type IndustryIntroProps = {
 export function IndustryIntro({ industry, headingId, label, title, paragraphs, image }: IndustryIntroProps) {
   const [context, ...rest] = paragraphs;
   const composition = COMPOSITION[industry];
+  const portrait = image.orientation === "portrait";
 
   return (
-    <section className={`${styles.intro} ${styles[composition]} industry-${industry}`} aria-labelledby={headingId}>
+    <section
+      className={`${styles.intro} ${styles[composition]} ${portrait ? styles.portrait : ""} industry-${industry}`}
+      aria-labelledby={headingId}
+    >
       <div className={`container ${styles.grid}`}>
         <div className={styles.head}>
           <p className={styles.label}>{label}</p>
@@ -50,7 +65,7 @@ export function IndustryIntro({ industry, headingId, label, title, paragraphs, i
               src={image.src}
               alt={image.alt}
               fill
-              sizes="(min-width: 960px) 45vw, 100vw"
+              sizes={portrait ? "(min-width: 960px) 45vw, 100vw" : (SIZES[composition] ?? "(min-width: 960px) 60vw, 100vw")}
               className={styles.cover}
               style={image.position ? { objectPosition: image.position } : undefined}
             />

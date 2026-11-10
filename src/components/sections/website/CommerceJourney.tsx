@@ -1,81 +1,106 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { usePrefersReducedMotion } from "@/components/motion/use-prefers-reduced-motion";
-import { Browser, RECORDINGS, recordingCropClass } from "./Browser";
+import { Browser } from "./Browser";
 import styles from "./CommerceJourney.module.css";
 
 /*
- * The Skinfolio store, recorded live, split into the four moments of a
- * purchase. The chapters are timestamps in that one recording, so every
- * frame shown is the real store.
+ * Amsterdam Garden Centre, a Shopify store built by Kosick, followed through
+ * the four moments of a purchase. Every screen is a screenshot of the live
+ * store (amsterdamgardencentre.ca, captured Nov 2026), so nothing is mocked.
  */
+const HOST = "amsterdamgardencentre.ca";
+const SHOTS = "/images/website-projects/amsterdam-garden-centre";
 const CHAPTERS = [
-  { verb: "Discover", where: "Home page", line: "The brand up front, with a clear way into the shop.", start: 0, end: 4.9 },
-  { verb: "Browse", where: "Categories and ranges", line: "Products grouped to scan, with add-to-cart on every card.", start: 5, end: 21.9 },
-  { verb: "Choose", where: "Product page", line: "Details, price and options together in one view.", start: 22, end: 24.4 },
-  { verb: "Convert", where: "Checkout cues", line: "Secure checkout and related products, right below the button.", start: 24.5, end: 32.4 },
+  {
+    verb: "Discover",
+    where: "Home page",
+    path: "/",
+    line: "The season's story up front, with clear ways into the shop and the garden centre.",
+    image: { src: `${SHOTS}-home.jpg`, alt: "Amsterdam Garden Centre home page: Christmas In Bloom, with Get Directions" },
+  },
+  {
+    verb: "Browse",
+    where: "Collections",
+    path: "/collections/hydrangeas",
+    line: "Collections with filters by type, supplier and price, and a clean grid to scan.",
+    image: { src: `${SHOTS}-collection.jpg`, alt: "The Hydrangeas collection with filters and a grid of products and prices" },
+  },
+  {
+    verb: "Choose",
+    where: "Product page",
+    path: "/products/hydrangea-arborescens-annabelle",
+    line: "Photo, price, quantity and pickup details together, with one clear button.",
+    image: { src: `${SHOTS}-product.jpg`, alt: "Product page for Hydrangea arborescens 'Annabelle' with price, quantity and Add to Wheelbarrow" },
+  },
+  {
+    verb: "Convert",
+    where: "Cart & checkout",
+    path: "/cart",
+    line: "A tidy cart with the subtotal, a secure checkout button and related products.",
+    image: { src: `${SHOTS}-cart.jpg`, alt: "The cart with one hydrangea, the subtotal, a Checkout button and Customers also bought" },
+  },
 ] as const;
 
-const { src, host, ratio, label } = RECORDINGS.skinfolio;
+/** Time on each screen while playing. */
+const STEP_MS = 4200;
 
 export function CommerceJourney() {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const reduced = usePrefersReducedMotion();
-  const [time, setTime] = useState(0);
+  const [active, setActive] = useState(0);
+  const [progress, setProgress] = useState(0);
   const [visible, setVisible] = useState(false);
   const [paused, setPaused] = useState<boolean | null>(null);
-  const [playing, setPlaying] = useState(false);
-
-  let active = 0;
-  CHAPTERS.forEach((chapter, index) => {
-    if (time >= chapter.start) active = index;
-  });
 
   useEffect(() => {
-    const node = videoRef.current;
+    const node = ref.current;
     if (!node) return;
     const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: 0.35 });
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
 
-  const shouldPlay = visible && (paused === null ? !reduced : !paused);
+  // Paused by the visitor wins; otherwise play while on screen unless they prefer reduced motion
+  const playing = visible && (paused === null ? !reduced : !paused);
 
-  useEffect(() => {
-    const node = videoRef.current;
-    if (!node) return;
-    if (shouldPlay) node.play().catch(() => setPlaying(false));
-    else node.pause();
-  }, [shouldPlay]);
-
-  // Smooth progress while playing; timeupdate alone only fires a few times a second
+  // Fill the current step's bar, then move to the next screen
   useEffect(() => {
     if (!playing) return;
     let frame = 0;
-    const tick = () => {
-      if (videoRef.current) setTime(videoRef.current.currentTime);
+    const start = performance.now() - progress * STEP_MS;
+    const tick = (now: number) => {
+      const p = Math.min((now - start) / STEP_MS, 1);
+      setProgress(p);
+      if (p >= 1) {
+        setProgress(0);
+        setActive((current) => (current + 1) % CHAPTERS.length);
+        return;
+      }
       frame = requestAnimationFrame(tick);
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [playing]);
+    // progress is read once when (re)starting, so a resume continues where it stopped
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [playing, active]);
 
   function jump(index: number) {
-    const node = videoRef.current;
-    if (!node) return;
-    node.currentTime = CHAPTERS[index].start + 0.05;
-    setTime(CHAPTERS[index].start);
-    if (paused === null && reduced) return; // Reduced motion: show the frame, don't start playback
+    setActive(index);
+    setProgress(0);
+    if (paused === null && reduced) return; // Reduced motion: show the screen, don't start playback
     setPaused(false);
   }
 
-  function progress(index: number) {
-    const chapter = CHAPTERS[index];
-    if (time >= chapter.end) return 1;
-    if (time <= chapter.start) return 0;
-    return (time - chapter.start) / (chapter.end - chapter.start);
+  function fill(index: number) {
+    if (index < active) return 1;
+    if (index > active) return 0;
+    return progress;
   }
+
+  const current = CHAPTERS[active];
 
   return (
     <div className={styles.journey}>
@@ -87,7 +112,7 @@ export function CommerceJourney() {
               className={styles.chapter}
               aria-current={index === active ? "step" : undefined}
               onClick={() => jump(index)}
-              style={{ "--p": progress(index) } as CSSProperties}
+              style={{ "--p": fill(index) } as CSSProperties}
             >
               <span className={styles.bar} aria-hidden="true">
                 <i />
@@ -103,27 +128,26 @@ export function CommerceJourney() {
         ))}
       </ol>
 
-      <div className={styles.screen}>
-        <Browser host={host} path={` / ${CHAPTERS[active].where.toLowerCase()}`} ratio={ratio} className={styles.browser}>
-          <video
-            ref={videoRef}
-            className={recordingCropClass}
-            src={`${src}#t=0.1`}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-label={label}
-            onPlay={() => setPlaying(true)}
-            onPause={() => setPlaying(false)}
-            onTimeUpdate={(event) => setTime(event.currentTarget.currentTime)}
-            onSeeked={(event) => setTime(event.currentTarget.currentTime)}
-          />
+      <div ref={ref} className={styles.screen}>
+        <Browser host={HOST} path={current.path === "/" ? undefined : current.path} ratio={16 / 10} className={styles.browser}>
+          {CHAPTERS.map((chapter, index) => (
+            <div key={chapter.verb} className={styles.shot} data-active={index === active} aria-hidden={index !== active}>
+              <Image
+                src={chapter.image.src}
+                alt={chapter.image.alt}
+                fill
+                sizes="(min-width: 1000px) 60vw, 100vw"
+                quality={85}
+                priority={index === 0}
+                className={styles.shotImage}
+              />
+            </div>
+          ))}
           <button
             type="button"
             className={styles.control}
             onClick={() => setPaused(playing)}
-            aria-label={playing ? "Pause the store recording" : "Play the store recording"}
+            aria-label={playing ? "Pause the store tour" : "Play the store tour"}
           >
             {playing ? (
               <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true" focusable="false">
@@ -134,10 +158,10 @@ export function CommerceJourney() {
                 <path fill="currentColor" d="M4 2.5v11l9-5.5z" />
               </svg>
             )}
-            <span>{playing ? "Recording" : "Paused"}</span>
+            <span>{playing ? "Playing" : "Paused"}</span>
           </button>
         </Browser>
-        <p className={styles.caption}>Skinfolio Medesthetics, recorded on the live store.</p>
+        <p className={styles.caption}>Amsterdam Garden Centre, a Shopify store built by Kosick. Screens from the live store.</p>
       </div>
     </div>
   );

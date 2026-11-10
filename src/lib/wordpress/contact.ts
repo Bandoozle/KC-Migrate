@@ -67,8 +67,8 @@ function decodeObfuscatedEmail(display: string, href: string): string {
 
 const CALGARY_PHONE: ContactDetailLink = {
   label: "Phone",
-  display: "403-809-9450",
-  href: "tel:14038099450",
+  display: "+1 (403) 809-9450",
+  href: "tel:+14038099450",
 };
 
 function parseOffices(
@@ -100,14 +100,9 @@ function parseOffices(
   return offices;
 }
 
-function withoutUsaServicing(value: string): string {
-  return value
-    .replace(/\s*,\s*USA\s*&/i, " &")
-    .replace(/\s*&\s*USA\s*,/i, " &")
-    .replace(/\s*,\s*USA\b/i, "")
-    .replace(/\bUSA\s*,\s*/i, "")
-    .replace(/\s{2,}/g, " ")
-    .trim();
+/** The USA office isn't listed, but the United States is still served: spell it out in full. */
+function spelledOutServicing(value: string): string {
+  return value.replace(/\bUSA\b/, "United States").replace(/\s{2,}/g, " ").trim();
 }
 
 function normalizeContactHtml(
@@ -149,9 +144,9 @@ function normalizeContactHtml(
     ? absUrl(img.attr("src") || img.attr("data-src"), origin)
     : null;
 
-  const servicing = withoutUsaServicing(
+  const servicing = spelledOutServicing(
     infoHeadings.find((h) => /proudly servicing/i.test(h)) ||
-      "Proudly Servicing: Canada & Mexico",
+      "Proudly Servicing: Canada, United States & Mexico",
   );
 
   const formHeadings = formRow

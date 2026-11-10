@@ -2,6 +2,7 @@
 
 import { JourneyFrame, Photo, on, show } from "./JourneyFrame";
 import kit from "./kit.module.css";
+import p from "./places.module.css";
 import s from "./SpecialtyRetailJourney.module.css";
 
 const SHOWROOM = "/wp-content/uploads/2023/06/hearth-advertising.jpg";
@@ -82,6 +83,7 @@ export function SpecialtyRetailJourney() {
               <small>Asking your team, not an aisle</small>
             </span>
           </div>
+          <span className={p.note}>Illustrative</span>
         </div>
       )}
     </JourneyFrame>

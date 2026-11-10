@@ -345,7 +345,7 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
             <div>
               <Layer n={4}>Local SEO</Layer>
               <SectionTitle id="seo-local" className={styles.title}>
-                Own the local search results.
+                Stand out in local search.
               </SectionTitle>
               <p className={styles.lead}>
                 {localCard?.body || "Optimized Google Business profiles, citations and location-based strategies."}{" "}
@@ -506,7 +506,7 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
                 Analytics &amp; reporting
               </Layer>
               <SectionTitle id="seo-reporting" className={styles.titleOnDark}>
-                SEO that drives measurable growth.
+                SEO built for measurable growth.
               </SectionTitle>
               <p className={styles.leadOnDark}>
                 We track keyword rankings, organic traffic and conversions, then report in plain language every month

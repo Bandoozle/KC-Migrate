@@ -1,0 +1,254 @@
+.geo {
+  --accent: #5b63f5;
+  --ink: #16191d;
+  --muted: #5f6368;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.map {
+  position: relative;
+  aspect-ratio: 560 / 360;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow:
+    0 0 0 1px rgba(16, 18, 24, 0.08),
+    0 28px 50px -34px rgba(16, 18, 24, 0.55);
+}
+
+.map svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.place {
+  fill: #8a8c86;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  paint-order: stroke;
+  stroke: #eceee8;
+  stroke-width: 3px;
+}
+
+/* The targeting circle: one circle scaled, so the change animates smoothly */
+.ring {
+  transform: scale(var(--k));
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.area {
+  fill: rgba(91, 99, 245, 0.14);
+  stroke: #5b63f5;
+  stroke-width: 1.6px;
+  vector-effect: non-scaling-stroke;
+}
+
+.person {
+  fill: #a7abb3;
+  opacity: 0.55;
+  transition:
+    fill 500ms ease,
+    opacity 500ms ease;
+}
+
+.person[data-in="true"] {
+  fill: #5b63f5;
+  opacity: 1;
+}
+
+.edge {
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.edge rect {
+  fill: #ffffff;
+  stroke: #5b63f5;
+  stroke-width: 1px;
+}
+
+.edge text {
+  fill: #3f46c9;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.88);
+  color: rgba(22, 25, 29, 0.6);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* The campaign setting panel */
+.panel {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 1px rgba(16, 18, 24, 0.08),
+    0 24px 44px -30px rgba(16, 18, 24, 0.5);
+  color: var(--ink);
+}
+
+.panelTitle {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+
+.panelMeta {
+  margin: -6px 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.radii {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  padding: 3px;
+  border-radius: 9px;
+  background: #f0f1f4;
+}
+
+.radii button {
+  min-height: 34px;
+  padding: 0 4px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.radii button[aria-pressed="true"] {
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(16, 18, 24, 0.16);
+  color: #3f46c9;
+}
+
+.radii button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.radiusNote {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.8125rem;
+}
+
+.settings {
+  display: grid;
+  gap: 6px;
+  margin: 2px 0 0;
+  padding: 8px 0 0;
+  border-top: 1px solid #eceef1;
+  list-style: none;
+  font-size: 0.75rem;
+}
+
+.settings li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.switch {
+  position: relative;
+  flex: none;
+  width: 24px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--accent);
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.6875rem;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dotIn,
+.dotOut {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.dotOut {
+  background: #a7abb3;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Wide: the panel floats over the map's lower left corner */
+@media (min-width: 760px) {
+  .geo {
+    padding-bottom: 0;
+  }
+
+  .panel {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    width: 250px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring,
+  .edge,
+  .person,
+  .radii button {
+    transition: none;
+  }
+}

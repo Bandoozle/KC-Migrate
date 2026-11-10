@@ -1,30 +1,30 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, type KeyboardEvent } from "react";
 import Link from "next/link";
 import { SectionDescription, SectionTitle } from "@/components/typography";
 import { eyebrowLabel } from "@/lib/eyebrow";
-import styles from "./TelevisionAdvertisingPage.module.css";
+import { useSlidingPill } from "@/components/sections/useSlidingPill";
+import styles from "./TelevisionExplorer.module.css";
 import { TelevisionVisual, type TelevisionVisualKind } from "./TelevisionVisual";
-
-export type TelevisionStill = {
-  src: string;
-  alt: string;
-};
 
 export type TelevisionLineupItem = {
   id: string;
   label: string;
-  /** Short sentence shown under the channel list. */
+  /** A few words under the service name in the selector. */
+  tagline: string;
+  /** The published one-line description of the service. */
   summary: string;
+  /** A second sentence that says what the service involves. */
+  detail?: string;
   cta: { label: string; href: string } | null;
   visual: TelevisionVisualKind;
-  still?: TelevisionStill | null;
 };
 
 type TelevisionLineupProps = {
   eyebrow?: string;
   title: string;
+  lead?: string;
   items: TelevisionLineupItem[];
 };
 
@@ -43,83 +43,118 @@ function ArrowIcon() {
   );
 }
 
-export function TelevisionLineup({ eyebrow, title, items }: TelevisionLineupProps) {
+/**
+ * Television services explorer: the four services on the left, and for the
+ * chosen one a visual and a short explanation on the right. Every panel is
+ * rendered in one grid cell, so switching never changes the section height.
+ */
+export function TelevisionLineup({ eyebrow, title, lead, items }: TelevisionLineupProps) {
   const baseId = useId();
   const [active, setActive] = useState(0);
-  const item = items[active] ?? items[0];
-  if (!item) return null;
+  const { listRef, pillStyle, pillState } = useSlidingPill<HTMLDivElement>(active);
+  if (items.length === 0) return null;
+
+  const tabId = (index: number) => `${baseId}-tab-${items[index]?.id}`;
+  const panelId = (index: number) => `${baseId}-panel-${items[index]?.id}`;
 
   function move(next: number) {
     const index = (next + items.length) % items.length;
     setActive(index);
-    document.getElementById(`${baseId}-tab-${items[index]?.id}`)?.focus();
+    document.getElementById(tabId(index))?.focus();
+  }
+
+  function onKeyDown(event: KeyboardEvent<HTMLDivElement>) {
+    const keys: Record<string, number> = {
+      ArrowRight: active + 1,
+      ArrowDown: active + 1,
+      ArrowLeft: active - 1,
+      ArrowUp: active - 1,
+      Home: 0,
+      End: items.length - 1,
+    };
+    if (!(event.key in keys)) return;
+    event.preventDefault();
+    move(keys[event.key]);
   }
 
   const kicker = eyebrowLabel(eyebrow, title);
 
   return (
-    <section className={`section ${styles.lineup}`} aria-labelledby={`${baseId}-title`}>
+    <section className={`section ${styles.explorer}`} aria-labelledby={`${baseId}-title`}>
       <div className="container">
-        {kicker ? <p className={styles.kicker}>{kicker}</p> : null}
-        <SectionTitle id={`${baseId}-title`} className={styles.lineupTitle}>
-          {title}
-        </SectionTitle>
-        <div className={styles.stage}>
+        <header className={styles.intro}>
+          {kicker ? <p className={styles.kicker}>{kicker}</p> : null}
+          <SectionTitle id={`${baseId}-title`} className={styles.title}>
+            {title}
+          </SectionTitle>
+          {lead ? <SectionDescription className={styles.lead}>{lead}</SectionDescription> : null}
+        </header>
+
+        <div className={styles.layout}>
           <div
-            className={styles.tuner}
+            ref={listRef}
+            className={styles.list}
             role="tablist"
             aria-label="Television services"
-            onKeyDown={(event) => {
-              if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-                event.preventDefault();
-                move(active + 1);
-              } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-                event.preventDefault();
-                move(active - 1);
-              } else if (event.key === "Home") {
-                event.preventDefault();
-                move(0);
-              } else if (event.key === "End") {
-                event.preventDefault();
-                move(items.length - 1);
-              }
-            }}
+            aria-orientation="vertical"
+            data-pill={pillState}
+            onKeyDown={onKeyDown}
           >
+            <span className={styles.marker} style={pillStyle} aria-hidden="true" />
             {items.map((entry, index) => {
               const selected = index === active;
               return (
                 <button
                   key={entry.id}
-                  id={`${baseId}-tab-${entry.id}`}
-                  className={styles.channel}
+                  id={tabId(index)}
+                  className={styles.tab}
                   type="button"
                   role="tab"
                   aria-selected={selected}
-                  aria-controls={`${baseId}-panel`}
+                  aria-controls={panelId(index)}
                   tabIndex={selected ? 0 : -1}
                   onClick={() => setActive(index)}
                 >
-                  <span className={styles.channelIndex}>{String(index + 1).padStart(2, "0")}</span>
-                  <span className={styles.channelLabel}>{entry.label}</span>
+                  <span className={styles.tabIndex}>{String(index + 1).padStart(2, "0")}</span>
+                  <span className={styles.tabText}>
+                    <span className={styles.tabLabel}>{entry.label}</span>
+                    <span className={styles.tabTagline}>{entry.tagline}</span>
+                  </span>
                 </button>
               );
             })}
           </div>
-          <div id={`${baseId}-panel`} className={styles.program} role="tabpanel" aria-labelledby={`${baseId}-tab-${item.id}`}>
-            <div className={styles.programDetail}>
-              {item.summary ? (
-                <SectionDescription className={styles.programSummary}>{item.summary}</SectionDescription>
-              ) : null}
-              {item.cta ? (
-                <Link className={styles.solid} href={item.cta.href}>
-                  {item.cta.label}
-                  <ArrowIcon />
-                </Link>
-              ) : null}
-            </div>
-            <div className={styles.monitor}>
-              <TelevisionVisual kind={item.visual} label={item.label} still={item.still} />
-            </div>
+
+          <div className={styles.panels}>
+            {items.map((entry, index) => {
+              const selected = index === active;
+              return (
+                <div
+                  key={entry.id}
+                  id={panelId(index)}
+                  className={styles.panel}
+                  role="tabpanel"
+                  aria-labelledby={tabId(index)}
+                  data-active={selected}
+                  inert={!selected}
+                >
+                  <div className={styles.monitor}>
+                    <TelevisionVisual kind={entry.visual} label={entry.label} />
+                  </div>
+                  <div className={styles.copy}>
+                    <h3 className={styles.copyTitle}>{entry.label}</h3>
+                    {entry.summary ? <p className={styles.summary}>{entry.summary}</p> : null}
+                    {entry.detail ? <p className={styles.detail}>{entry.detail}</p> : null}
+                    {entry.cta ? (
+                      <Link className={styles.link} href={entry.cta.href}>
+                        {entry.cta.label}
+                        <ArrowIcon />
+                      </Link>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

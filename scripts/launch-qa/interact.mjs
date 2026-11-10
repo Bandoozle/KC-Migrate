@@ -18,7 +18,7 @@ const check = (name, pass, detail = "") => {
 
 const browser = await chromium.launch({
   channel: "chrome",
-  args: ["--host-resolver-rules=MAP www.kosick.com 127.0.0.1:3107", "--disable-features=HttpsUpgrades"],
+  args: ["--host-resolver-rules=MAP www.kosick.com 127.0.0.1:3107", "--disable-features=HttpsUpgrades,HttpsFirstBalancedModeAutoEnable,HttpsFirstModeV2ForTypicallySecureUsers"],
 });
 
 async function newPage(width, opts = {}) {

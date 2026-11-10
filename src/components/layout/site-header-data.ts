@@ -150,19 +150,13 @@ export const SITE_HEADER_NAV: NavItem[] = [
     label: "Resources",
     items: [
       { label: "Feature Articles", href: "/feature-articles/" },
-      {
-        label: "HVAC Lead Generation",
-        href: "/services/hvac-marketing/hvac-lead-generation/",
-      },
-      {
-        label: "Canadian Billboard Dimensions",
-        href: "/services/outdoor-advertising/billboard-dimensions/",
-      },
     ],
   },
   {
-    type: "link",
+    type: "menu",
     label: "Results",
-    href: "/marketing-results/",
+    items: [
+      { label: "Marketing Results", href: "/marketing-results/" },
+    ],
   },
 ];

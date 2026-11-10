@@ -6,8 +6,7 @@ import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionDescription, SectionTitle } from "@/components/typography";
 import { getPartnerName } from "@/components/sections/PartnerLogoGrid";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
-import { CampaignFlow, type CampaignStep } from "./CampaignFlow";
-import { TelevisionLineup, type TelevisionLineupItem, type TelevisionStill } from "./TelevisionLineup";
+import { TelevisionLineup, type TelevisionLineupItem } from "./TelevisionLineup";
 import {
   TelevisionStoryboard,
   type TelevisionFrame,
@@ -36,11 +35,12 @@ const PRODUCTION_FOOTAGE: TelevisionFrame[] = [
   { src: "/images/television/spot-scene.png", alt: "Overhead live-action shot from the Trane television commercial" },
 ];
 
-const CAMPAIGN_STEPS: CampaignStep[] = [
-  { label: "Broadcast", title: "National and local placement", body: "Broadcast network buys, from local spots to national campaigns." },
-  { label: "Streaming", title: "Connected TV and OTT", body: "Streaming campaigns that extend reach beyond the broadcast." },
-  { label: "Amplify", title: "Cross-channel strategy", body: "Digital and out-of-home planned alongside TV for maximum reach." },
-  { label: "Produce", title: "Commercial production", body: "Compelling TV commercials, from concept to final cut." },
+/** How one commercial travels, told as a sequence so it does not repeat the services above. */
+const CAMPAIGN_ARC = [
+  { label: "Produce", title: "One commercial", body: "Concept, script, shoot and edit, handled by our in-house team." },
+  { label: "Broadcast", title: "On air", body: "Cut to length and scheduled where the audience is already watching." },
+  { label: "Streaming", title: "On every screen", body: "The same spot follows viewers onto smart TVs and streaming apps." },
+  { label: "Amplify", title: "Beyond TV", body: "Digital and out-of-home carry the message, so every channel backs up the spot." },
 ];
 
 function sentenceCase(value: string) {
@@ -90,7 +90,6 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
 
   const networks = content.faqs?.items.find((item) => /networks and platforms/i.test(item.question));
   const production = content.faqs?.items.find((item) => /creative|commercial/i.test(item.question));
-  const stillFor = (index: number): TelevisionStill => COMMERCIAL_FRAMES[index] ?? COMMERCIAL_FRAMES[0];
   const creativeProcess = creative?.processSection?.steps ?? [];
   const creativeBullets = creative?.features.flatMap((feature) => feature.bullets ?? []) ?? [];
   const creativeCards = creative?.offerGroups.flatMap((group) => group.cards) ?? [];
@@ -151,32 +150,47 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
   const video = content.hero.slides.find((slide) => slide.kind === "video" && /trane-web/i.test(slide.src))
     || content.hero.slides.find((slide) => slide.kind === "video");
 
+  // Second sentences come from the page's own FAQ answers where one exists
+  const faqSentence = (question: RegExp, sentence: RegExp) =>
+    content.faqs?.items
+      .find((item) => question.test(item.question))
+      ?.answer.replace(/<[^>]+>/g, "")
+      .match(sentence)?.[0]
+      ?.trim();
+  const networkSentence = faqSentence(/networks and platforms/i, /We have direct relationships[\s\S]*?\.(?=\s+[A-Z]|\s*$)/);
+  const measureSentence = faqSentence(/measure/i, /We use a combination of[^.]*\./i);
+  const flightSentence = faqSentence(/minimum commitment/i, /We recommend[^.]*\./i);
+
   const lineup: TelevisionLineupItem[] = [];
   if (linearCard) {
     lineup.push({
       id: "linear",
       label: linearCard.title,
+      tagline: "Local spots to national network buys",
       summary: linearCard.body || "",
+      detail: networkSentence,
       cta: null,
       visual: "broadcast",
-      still: stillFor(1),
     });
   }
   if (connectedCard || mix) {
     lineup.push({
       id: "connected",
       label: connectedCard?.title || "Connected TV",
+      tagline: "Smart TVs, streaming apps and OTT",
       summary: connectedCard?.body || mix?.body || "",
+      detail: "Your commercial runs in streaming ad breaks, reaching the viewers who no longer watch scheduled TV.",
       cta: sentenceCta(mix?.cta),
       visual: "streaming",
-      still: stillFor(2),
     });
   }
   if (buyingCard || targeting) {
     lineup.push({
       id: "buying",
       label: buyingCard?.title || "Media buying",
+      tagline: "Networks, markets and audiences in one buy",
       summary: buyingCard?.body || targeting?.body || "",
+      detail: ["Placements are planned together and bought as one schedule.", flightSentence].filter(Boolean).join(" "),
       cta: sentenceCta(targeting?.cta),
       visual: "plan",
     });
@@ -185,7 +199,9 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
     lineup.push({
       id: "performance",
       label: performanceCard.title,
+      tagline: "Reporting tied to your business objectives",
       summary: performanceCard.body || "",
+      detail: measureSentence,
       cta: null,
       visual: "report",
     });
@@ -195,12 +211,28 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
     <main className={styles.page}>
       <ServiceHero title={content.title} hero={content.hero} />
 
+      {content.intro && lineup.length > 0 ? (
+        <TelevisionLineup
+          eyebrow={content.intro.eyebrow}
+          title={content.intro.title}
+          lead={content.intro.body}
+          items={lineup}
+        />
+      ) : null}
+
       {reach && video ? (
         <section className={`section ${styles.reel}`} aria-labelledby="tv-reach">
           <div className="container">
-            <h2 id="tv-reach" className={styles.reelTitle}>
-              Big-screen reach, planned as one campaign.
-            </h2>
+            <header className={styles.reelIntro}>
+              <p className={styles.reelKicker}>Our work on screen</p>
+              <h2 id="tv-reach" className={styles.reelTitle}>
+                Big-screen reach, planned as one campaign.
+              </h2>
+              <p className={styles.reelBody}>
+                One example from Kosick’s television and production work. The same approach carries any brand, in
+                any industry, from a single commercial to every screen its audience watches.
+              </p>
+            </header>
             <Reveal variant="fade">
               <figure className={styles.screen}>
                 <video
@@ -210,33 +242,39 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
                   preload="metadata"
                   poster="/images/television/trane-poster.png"
                   src={video.src}
-                  aria-label="Television commercial"
+                  aria-label="Trane television commercial, an example of Kosick’s work"
                 />
+                <figcaption className={styles.screenCaption}>
+                  <span className={styles.screenClient}>Trane · “It’s Hard To Stop A Trane.”</span>
+                  <span>Television commercial · Example of our work</span>
+                </figcaption>
               </figure>
             </Reveal>
-            <CampaignFlow steps={CAMPAIGN_STEPS} label="How a television campaign comes together" />
-            <div className={styles.reelLead}>
-              <p className={styles.reelBody}>
-                Television still delivers unmatched reach and credibility. Kosick plans broadcast campaigns from
-                local spots to national buys, then connects them with streaming, digital and out-of-home so every
-                channel works together.
-              </p>
-              <Link className={styles.light} href={reach.cta?.href || "/contact/"}>
-                Plan a television campaign
-                <ArrowIcon />
-              </Link>
+            <div className={styles.arc}>
+              <h3 className={styles.arcHeading}>How one spot becomes a campaign</h3>
+              <ol className={styles.arcSteps}>
+                {CAMPAIGN_ARC.map((step, index) => (
+                  <li key={step.label} className={styles.arcStep}>
+                    <Reveal delay={index * 90}>
+                      <p className={styles.arcLabel}>
+                        <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                        {step.label}
+                      </p>
+                      <p className={styles.arcTitle}>{step.title}</p>
+                      <p className={styles.arcBody}>{step.body}</p>
+                    </Reveal>
+                  </li>
+                ))}
+              </ol>
             </div>
+            <Link className={styles.light} href={reach.cta?.href || "/contact/"}>
+              Plan a television campaign
+              <ArrowIcon />
+            </Link>
           </div>
         </section>
       ) : null}
 
-      {content.intro && lineup.length > 0 ? (
-        <TelevisionLineup
-          eyebrow={content.intro.eyebrow}
-          title={content.intro.title}
-          items={lineup}
-        />
-      ) : null}
 
       {content.partnerLogos && content.partnerLogos.logos.length > 0 ? (
         <section className={`section ${styles.networks}`} aria-labelledby="tv-networks">

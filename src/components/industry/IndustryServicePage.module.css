@@ -322,6 +322,33 @@
     margin: 0 1.5rem 1.5rem 0;
     z-index: 1;
   }
+
+  /* Portrait photographs stand beside the copy instead of being cropped to a panoramic band */
+  .heroFramed.heroPortrait .heroGrid {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-areas: "copy figure" "note figure";
+    align-items: start;
+  }
+
+  .heroFramed.heroPortrait .heroFigure {
+    aspect-ratio: 4 / 5;
+  }
+
+  .heroFramed.heroPortrait .heroNote {
+    grid-area: note;
+    grid-column: auto;
+    align-self: start;
+    max-width: 30rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 959px) {
+  .heroFramed.heroPortrait .heroFigure {
+    aspect-ratio: 4 / 5;
+    max-height: 70svh;
+    width: 100%;
+  }
 }
 
 /* --- Golf: course. Full-bleed photo with a scorecard strip along the bottom. --- */

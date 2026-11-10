@@ -14,7 +14,7 @@ export const DENTAL: Industry = {
   offersIntro: {
     label: "What we offer",
     title: "Four services for growing practices.",
-    lead: "For dental offices and dental spas. Open a service to see what we build and how it brings in new patients.",
+    lead: "For dental offices and dental spas. Open a service to see what we build and how it helps bring in new patients.",
   },
   cta: {
     title: "Let's grow your patient list.",
@@ -34,7 +34,7 @@ export const DENTAL: Industry = {
         label: "Dental website design",
         title: "The first visit happens on your website.",
         lead: "Patients judge a practice by its website before they ever see the waiting room. We build dental websites that feel calm and credible, explain treatments clearly and make booking easy.",
-        image: { src: `${UP}/2026/07/Dental-Web-Development.jpg`, alt: "A dental clinic website on a laptop resting on a grey sofa" },
+        image: { src: `${UP}/2026/07/Dental-Web-Development.jpg`, alt: "A dental clinic website on a laptop resting on a grey sofa", orientation: "portrait" },
       },
       intro: {
         title: "Trust is built before the appointment.",
@@ -94,7 +94,7 @@ export const DENTAL: Industry = {
       ],
       gallery: [
         { src: `${UP}/2026/06/dental-clinic-branding.jpg`, alt: "A dental practice home page reading Luxury Dental Care in South Surrey" },
-        { src: `${UP}/2026/07/Dental-Vancouver.jpg`, alt: "A dental spa reception with a gold tooth sculpture on the counter" },
+        { src: "/images/industries/dental/front-desk.jpg", alt: "A smiling receptionist at a dental clinic front desk", position: "50% 40%" },
       ],
       related: [
         { label: "Dental Marketing in Vancouver", href: "/blog-dental-marketing/", kind: "guide", body: "Websites, social and search for practices that want more new patients." },
@@ -114,7 +114,7 @@ export const DENTAL: Industry = {
         label: "Google Ads & SEO for practices",
         title: "Be the practice patients find first.",
         lead: "When someone searches for a dentist near them or a specific treatment, the practices at the top get the call. We put yours there with Google Ads, local SEO and a well-run Google Business Profile.",
-        image: { src: `${UP}/2026/07/Dental-Marketing.jpg`, alt: "A Google search ad for a dental clinic on a phone, with map and review panels" },
+        image: { src: "/images/industries/dental/hygienist-xray.jpg", alt: "A hygienist pointing to a panoramic dental X-ray on a screen", position: "50% 30%", orientation: "portrait" },
       },
       intro: {
         title: "Search is where new patients start.",
@@ -174,8 +174,8 @@ export const DENTAL: Industry = {
         { title: "Optimize", body: "Calls and bookings reviewed monthly; budgets shifted to what works." },
       ],
       gallery: [
-        { src: `${UP}/2026/07/Dental-Lead-Generation.jpg`, alt: "A hygienist with a patient in a modern dental operatory" },
-        { src: `${UP}/2026/06/dental-marketing.jpg`, alt: "A dental hygienist preparing to treat a patient" },
+        { src: `${UP}/2026/07/Dental-Lead-Generation.jpg`, alt: "A hygienist with a patient in a modern dental operatory", orientation: "portrait" },
+        { src: "/images/industries/dental/smiling-hygienist.jpg", alt: "A smiling hygienist preparing an operatory", position: "50% 30%" },
       ],
       related: [
         { label: "Search Engine Optimization", href: "/services/search-engine-optimization/", kind: "service", body: "Organic rankings that bring qualified leads to the pages you build." },
@@ -195,7 +195,7 @@ export const DENTAL: Industry = {
         label: "Social media, content & AI marketing",
         title: "Familiar faces before the first appointment.",
         lead: "Patients choose people they feel they know. We help practices share their team, their space and their expertise on social media, publish content that educates, and use AI tools to answer questions around the clock.",
-        image: { src: `${UP}/2026/07/Social-Media-Dental.jpg`, alt: "A collage of dental spa social posts: the reception, a gold tooth and a toothbrush" },
+        image: { src: "/images/industries/dental/patient-headphones.jpg", alt: "A patient settling into the chair with noise-cancelling headphones", position: "50% 40%", orientation: "portrait" },
       },
       intro: {
         title: "Social proof for a personal decision.",
@@ -229,7 +229,7 @@ export const DENTAL: Industry = {
       ],
       benefits: [
         {
-          title: "Less anxiety, more bookings",
+          title: "Less anxiety, easier booking",
           body: "Patients who have seen your team and space feel more comfortable booking.",
         },
         {
@@ -254,7 +254,7 @@ export const DENTAL: Industry = {
         { title: "Grow", body: "Engagement and enquiries measured, and the plan refined." },
       ],
       gallery: [
-        { src: `${UP}/2026/07/Social-Media-Dental.jpg`, alt: "A collage of dental spa social posts" },
+        { src: "/images/industries/dental/reception-check-in.jpg", alt: "A hygienist reviewing paperwork with the receptionist at a dark modern front desk", position: "50% 45%", orientation: "portrait" },
         { src: `${UP}/2026/07/Dental-Vancouver.jpg`, alt: "A dental spa reception with a gold tooth sculpture on the counter" },
       ],
       related: [],

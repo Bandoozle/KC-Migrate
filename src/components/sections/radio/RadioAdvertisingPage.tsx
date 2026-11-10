@@ -14,16 +14,41 @@ type RadioAdvertisingPageProps = {
   articles: RadioArticles;
 };
 
-/** Frequencies for the Vancouver stations named in "The Power of Radio Advertising". */
+/*
+ * Example stations by format in each market. They name the kinds of stations a
+ * plan can include; they are not partnerships, and availability varies.
+ */
 const STATION_DIRECTORY: (Omit<RadioStation, "id"> & { match: RegExp })[] = [
-  { match: /Rock 101/i, name: "Rock 101", call: "CFMI", band: "FM", frequency: 101.1 },
-  { match: /\bCFOX\b/, name: "CFOX", band: "FM", frequency: 99.3 },
-  { match: /Virgin Radio/i, name: "Virgin Radio", band: "FM", frequency: 94.5 },
-  { match: /Z95\.3/i, name: "Z95.3", band: "FM", frequency: 95.3 },
-  { match: /\bCKNW\b/, name: "CKNW", band: "AM", frequency: 980 },
-  { match: /CBC Radio One/i, name: "CBC Radio One", band: "AM", frequency: 690 },
-  { match: /\bJRFM\b/i, name: "JRFM", band: "FM", frequency: 93.7 },
+  { match: /\bQ107\b/, name: "Q107", call: "Toronto", band: "FM", frequency: 107.1 },
+  { match: /CJAY 92/i, name: "CJAY 92", call: "Calgary", band: "FM", frequency: 92.1 },
+  { match: /Rock 101/i, name: "Rock 101", call: "Vancouver", band: "FM", frequency: 101.1 },
+  { match: /CHUM 104\.5/i, name: "CHUM 104.5", call: "Toronto", band: "FM", frequency: 104.5 },
+  { match: /Virgin Radio 98\.5/i, name: "Virgin Radio 98.5", call: "Calgary", band: "FM", frequency: 98.5 },
+  { match: /Z95\.3/i, name: "Z95.3", call: "Vancouver", band: "FM", frequency: 95.3 },
+  { match: /Newstalk 1010/i, name: "Newstalk 1010", call: "Toronto", band: "AM", frequency: 1010 },
+  { match: /QR Calgary/i, name: "QR Calgary", call: "Calgary", band: "AM", frequency: 770 },
+  { match: /\bCKNW\b/, name: "CKNW", call: "Vancouver", band: "AM", frequency: 730 },
+  { match: /Country 105/i, name: "Country 105", call: "Calgary", band: "FM", frequency: 105.1 },
+  { match: /JR Country/i, name: "93.7 JR Country", call: "Vancouver", band: "FM", frequency: 93.7 },
 ];
+
+/* Format descriptions for Toronto, Calgary and Vancouver, in place of the Vancouver-only article copy */
+const FORMAT_TEXT: { match: RegExp; text: string }[] = [
+  { match: /rock/i, text: "Rock stations such as Q107 in Toronto, CJAY 92 in Calgary and Rock 101 in Vancouver attract loyal, long-term listeners, often adults 25–54 with disposable income. They suit lifestyle brands, automotive and home services." },
+  { match: /pop|hits/i, text: "Pop and hit-music stations such as CHUM 104.5 in Toronto, Virgin Radio 98.5 in Calgary and Z95.3 in Vancouver reach younger, trend-focused audiences. They work well for retail, entertainment, restaurants and brands that want to feel current." },
+  { match: /news|talk/i, text: "For professionals, decision-makers and engaged citizens, news and talk stations such as Newstalk 1010 in Toronto, QR Calgary and CKNW in Vancouver offer credibility and influence. They are especially strong for financial services, healthcare and B2B campaigns." },
+  { match: /specialty/i, text: "From multicultural programming to country stations like Country 105 in Calgary and 93.7 JR Country in Vancouver, each market has formats that reach very specific segments of the population." },
+];
+
+const formatText = (label: string, fallback: string) => FORMAT_TEXT.find((entry) => entry.match.test(label))?.text ?? fallback;
+
+/* The WordPress copy was written for Vancouver only; campaigns run across Canada */
+function canadaWide(text: string) {
+  return text
+    .replace(/\bVancouverites\b/gi, "Canadians")
+    .replace(/\bVancouver radio\b/gi, "Canadian radio")
+    .replace(/\bin Vancouver\b/gi, "across Canada");
+}
 
 const MIX_LINKS: { match: RegExp; href: string | null }[] = [
   { match: /linear tv/i, href: "/services/television-advertising/" },
@@ -159,12 +184,15 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
   const productionFaq = faq(/production|copywriting/i);
 
   const guide = articles.guide;
-  const formats: RadioFormat[] = (guide?.formats?.items ?? []).map((item) => ({
-    id: slug(item.label),
-    label: labelCase(item.label),
-    text: item.text,
-    stations: stationsIn(item.text),
-  }));
+  const formats: RadioFormat[] = (guide?.formats?.items ?? []).map((item) => {
+    const text = formatText(item.label, item.text);
+    return {
+      id: slug(item.label),
+      label: labelCase(item.label),
+      text,
+      stations: stationsIn(text),
+    };
+  });
   const streaming = guide?.streaming;
   if (streaming && streaming.items.length > 0) {
     const named = streaming.lead?.match(/Platforms like (.+?) allow/i)?.[1];
@@ -178,7 +206,7 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
     formats.push({
       id: "streaming",
       label: "Streaming audio",
-      text: (streaming.lead ?? "").replace(/:\s*$/, "."),
+      text: canadaWide(streaming.lead ?? "").replace(/:\s*$/, "."),
       stations: [],
       platforms: [...new Set(platforms)],
       points: streaming.items.map((item) => ({ label: labelCase(item.label), text: item.text })),
@@ -220,7 +248,7 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
   const process = guide?.process;
   const localEyebrow = eyebrowLabel(local?.eyebrow, local?.title);
   const mixEyebrow = eyebrowLabel(mix?.eyebrow, mix?.title);
-  const targetingEyebrow = eyebrowLabel(targeting?.eyebrow, targeting?.title);
+  const targetingEyebrow = eyebrowLabel(targeting?.eyebrow && canadaWide(targeting.eyebrow), targeting?.title);
   const productionDetail = productionFaq?.answer.replace(/^Yes\.\s*/i, "");
 
   return (
@@ -267,7 +295,7 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
           <div className="container">
             <div className={styles.dialHead}>
               <h2 id="radio-formats" className={styles.sectionTitle}>
-                {labelCase(guide.formats.title)}
+                Radio formats in Toronto, Calgary and Vancouver
               </h2>
               {guide.formats.lead ? (
                 <p className={styles.lead}>{guide.formats.lead.replace(/:\s*$/, ".")}</p>
@@ -285,7 +313,7 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
         <section className={`section ${styles.channels}`} aria-labelledby="radio-channels">
           <div className="container">
             <h2 id="radio-channels" className={styles.sectionTitle}>
-              {content.intro.title}
+              {/^radio advertising$/i.test(content.intro.title.trim()) ? "Radio advertising across Canada" : content.intro.title}
             </h2>
             {content.intro.body ? <p className={styles.lead}>{content.intro.body}</p> : null}
             <ul className={styles.console}>
@@ -421,7 +449,7 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
         <section className={`section ${styles.studio}`} aria-labelledby="radio-studio">
           <div className={`container ${styles.studioGrid}`}>
             <figure className={styles.studioPhoto}>
-              <Image src={STUDIO_IMAGE.src} alt={STUDIO_IMAGE.alt} fill sizes="(max-width: 899px) 100vw, 38vw" />
+              <Image src={STUDIO_IMAGE.src} alt={STUDIO_IMAGE.alt} fill sizes="(max-width: 899px) 100vw, 92vw" />
             </figure>
             <div className={styles.studioCopy}>
               <h2 id="radio-studio" className={styles.sectionTitle}>
@@ -434,7 +462,7 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
                     <span className={styles.runIndex}>{String(index + 1).padStart(2, "0")}</span>
                     <div>
                       <h3 className={styles.runTitle}>{labelCase(item.label)}</h3>
-                      <p className={styles.runText}>{item.text}</p>
+                      <p className={styles.runText}>{canadaWide(item.text)}</p>
                       {/creative/i.test(item.label) && productionDetail ? (
                         <p className={styles.runDetail}>{productionDetail}</p>
                       ) : null}

@@ -1,6 +1,5 @@
 import { cache } from "react";
 import { applyHvacMarketingLocalAssets } from "@/lib/assets/hvac-marketing";
-import { applyHvacLeadGenerationLayout } from "@/lib/content/hvac-lead-generation";
 import { applyIndustryServiceHero, INDUSTRY_SERVICE_HEROES } from "@/lib/content/industry-heroes";
 import { getPageBySlug, WordPressApiError } from "@/lib/wordpress";
 import { normalizeServicePageHtml } from "@/lib/wordpress/service-page-parse";
@@ -35,13 +34,4 @@ export const getDentalMarketingContent = cache(async () => {
 export const getGolfMarketingContent = cache(async () => {
   const content = await loadMarketingProgramPage("golf-marketing");
   return { ...content, hero: applyIndustryServiceHero(content, INDUSTRY_SERVICE_HEROES.golf) };
-});
-
-export const getHvacLeadGenerationContent = cache(async () => {
-  const content = await loadMarketingProgramPage("hvac-lead-generation");
-  return applyHvacLeadGenerationLayout({
-    ...content,
-    hero: applyIndustryServiceHero(content, INDUSTRY_SERVICE_HEROES.leadGeneration),
-    intro: null,
-  });
 });

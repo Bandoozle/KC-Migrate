@@ -19,7 +19,7 @@ type ReasonsProps = {
 function Head({ industry, dark = false }: { industry: Industry & { landing: IndustryLanding }; dark?: boolean }) {
   return (
     <div className={styles.head}>
-      <p className={dark ? `${styles.label} ${styles.labelOnDark}` : styles.label}>How we plan {industry.noun} marketing</p>
+      <p className={dark ? `${styles.label} ${styles.labelOnDark}` : styles.label}>{industry.landing.reasonsLabel ?? `How we plan ${industry.noun} marketing`}</p>
       <SectionTitle id="ind-reasons" className={dark ? `${styles.title} ${styles.titleOnDark}` : styles.title}>
         {industry.landing.reasonsTitle}
       </SectionTitle>
@@ -59,7 +59,7 @@ function RetailReasons({ industry }: ReasonsProps) {
               </div>
               {reason.image ? (
                 <Reveal variant="fade" className={styles.lineShot}>
-                  <Photo photo={reason.image} sizes="(min-width: 960px) 18vw, 40vw" className={styles.lineFrame} />
+                  <Photo photo={reason.image} sizes="(min-width: 960px) 18vw, 85vw" className={styles.lineFrame} />
                 </Reveal>
               ) : null}
             </li>

@@ -1,0 +1,129 @@
+.section {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  text-align: center;
+}
+
+.intro {
+  margin-bottom: var(--kosick-intro-content-gap);
+}
+
+.intro :global(.section-description) {
+  max-width: 46rem;
+  text-wrap: balance;
+}
+
+.stack {
+  display: grid;
+}
+
+.panel {
+  grid-area: 1 / 1;
+  min-width: 0;
+  visibility: hidden;
+}
+
+.panel[data-active="true"] {
+  visibility: visible;
+}
+
+.note {
+  margin: 0.25rem 0 clamp(1rem, 2vw, 1.5rem);
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-meta-size);
+  line-height: 1.4;
+}
+
+/* The chosen wall plays in; the other simply stays hidden */
+.panel[data-active="true"] .note {
+  animation: partners-fade 300ms ease both;
+}
+
+/* One quiet row of nine on desktop; centred rows on tablets; 3 x 3 on phones */
+.wall {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cell {
+  flex: 0 0 calc(100% / 3);
+}
+
+.panel[data-active="true"] .cell {
+  animation: partners-rise 420ms var(--ease) both;
+}
+
+@keyframes partners-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes partners-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.logo {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.logo img {
+  transition:
+    filter 300ms ease,
+    opacity 300ms ease;
+}
+
+/* The network files frame each mark with wide white margins: crop in so every mark reads at one size */
+.wall[data-kind="media"] .logo img {
+  object-fit: cover;
+  transform: scale(1.12);
+}
+
+.wall[data-kind="brand"] .logo img {
+  object-fit: contain;
+  transform: scale(1.1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .logo img {
+    filter: grayscale(1);
+    opacity: 0.7;
+  }
+
+  .cell:hover .logo img {
+    filter: none;
+    opacity: 1;
+  }
+}
+
+@media (min-width: 640px) {
+  .cell {
+    flex-basis: 20%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .cell {
+    flex-basis: calc(100% / 9);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel[data-active="true"] .note,
+  .panel[data-active="true"] .cell {
+    animation: none;
+  }
+
+  .logo img {
+    transition: none !important;
+  }
+}

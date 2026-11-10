@@ -1,122 +1,89 @@
-.deck {
+.scene {
   position: relative;
   height: 100%;
   overflow: hidden;
-  background: #1c3f66;
+  background: #eef0ea;
 }
 
-/* The water photograph, softened: a real surface for the deck to rest on */
 .backdrop {
-  position: absolute;
-  inset: 0;
-  opacity: 0.8;
+  filter: saturate(0.85);
 }
 
-.card {
+/* A sponsored post at a believable size: a feed card, not a poster */
+.post {
   position: absolute;
   top: 50%;
   left: 50%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 52%;
-  height: 90%;
-  padding: 0.65rem;
-  transition:
-    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 450ms ease;
-}
-
-.card[data-pos="front"] {
-  z-index: 3;
+  display: grid;
+  width: 188px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.6);
+  color: #202124;
   transform: translate(-50%, -50%);
-}
-
-.card[data-pos="past"] {
-  z-index: 1;
-  opacity: 0.7;
-  transform: translate(-108%, -50%) rotate(-4deg) scale(0.88);
-}
-
-.card[data-pos="next"] {
-  z-index: 2;
-  opacity: 0.7;
-  transform: translate(8%, -50%) rotate(4deg) scale(0.88);
 }
 
 .postHead {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 7px;
+  padding: 7px 9px;
+}
+
+.postHead > span:last-child {
+  display: grid;
+  line-height: 1.15;
+}
+
+.postHead b {
+  font-size: 10px;
   font-weight: 600;
 }
 
+.postHead small {
+  color: #6b6f74;
+  font-size: 8px;
+}
+
 .avatar {
-  width: 18px;
-  height: 18px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: var(--ind-accent);
+  color: #ffffff;
+  font-size: 7.5px;
+  font-weight: 700;
 }
 
 .media {
   position: relative;
   display: block;
-  flex: 1;
-  min-height: 0;
+  height: 150px;
   overflow: hidden;
-  border-radius: 2px;
 }
 
-.postFoot {
+.postCta {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 0.35rem;
-  color: #3d3d3a;
-  font-size: 0.75rem;
-}
-
-.postFoot svg {
-  flex: none;
-}
-
-.cardTitle {
-  font-size: 0.9375rem;
+  padding: 7px 9px;
+  background: var(--ind-soft, #f3e5e8);
+  color: var(--ind-accent-deep, #844852);
+  font-size: 9.5px;
   font-weight: 600;
 }
 
-.list {
-  display: grid;
-  gap: 0.3rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.caption {
+  padding: 6px 9px 9px;
+  color: #3c4043;
+  font-size: 8.5px;
+  line-height: 1.35;
 }
 
-.list li {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.78125rem;
-}
-
-.field {
-  padding: 0.4rem 0.5rem;
-  background: #f4f3ef;
-  box-shadow: inset 0 -1px 0 #8d8b84;
-  color: #50565b;
-  font-size: 0.78125rem;
-}
-
-.submit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  margin-top: auto;
-  padding: 0.45rem 0.3rem;
-  border-radius: 999px;
-  background: var(--ind-tint);
-  font-size: 0.78125rem;
+.caption b {
+  color: #202124;
   font-weight: 600;
-  text-align: center;
 }

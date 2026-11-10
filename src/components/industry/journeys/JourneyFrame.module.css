@@ -63,6 +63,15 @@
   --j-fill: #8fdcf5;
 }
 
+.section[data-look="digital"] {
+  --j-ground: #f4f2ee;
+  --j-fill: #5b63f5;
+}
+
+.section[data-look="outdoor"] {
+  --j-ground: #f3f0ea;
+}
+
 .grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);

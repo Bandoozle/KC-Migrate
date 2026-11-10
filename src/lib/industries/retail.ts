@@ -29,7 +29,7 @@ export const RETAIL: Industry = {
     hero: {
       label: "Retail & fashion marketing",
       title: "Retail Marketing",
-      lead: "Marketing for apparel, lifestyle and retail brands: outdoor campaigns that own the street, branding that holds up on the shelf, and digital and social marketing that turns attention into sales.",
+      lead: "Marketing for apparel, lifestyle and retail brands: outdoor campaigns that own the street, branding that holds up on the shelf, and digital and social marketing designed to turn attention into sales.",
       image: { src: `${UP}/2026/06/arcteryx-billboard-advertising.jpg`, alt: "A Veilance poster of a woman in a dark coat in a downtown transit shelter", position: "center 35%" },
     },
     intro: {
@@ -53,7 +53,7 @@ export const RETAIL: Industry = {
       },
       {
         title: "Street to screen",
-        body: "Outdoor builds fame in your markets; digital and social convert it into visits and online orders.",
+        body: "Outdoor builds fame in your markets; digital and social work to convert it into visits and online orders.",
         image: { src: `${UP}/2025/07/mobile-marketing.webp`, alt: "A hand holding a phone with social media icons rising from the screen" },
       },
       {
@@ -150,7 +150,6 @@ export const RETAIL: Industry = {
         { src: `${UP}/2026/01/outdoor-billboard-advertising.jpg`, alt: "A cyclist passing a blank billboard under a bridge" },
       ],
       related: [
-        { label: "Billboard Dimensions & Formats", href: "/services/outdoor-advertising/billboard-dimensions/", kind: "guide", body: "Standard Canadian billboard sizes and formats for planning creative." },
         { label: "Outdoor Advertising", href: "/services/outdoor-advertising/", kind: "service", body: "Billboard, transit and digital out-of-home, planned and bought across Canada." },
       ],
     },
@@ -234,11 +233,11 @@ export const RETAIL: Industry = {
     {
       slug: "digital-social-media",
       title: "Digital & Social Media Marketing",
-      summary: "Social, influencer and paid digital campaigns that turn attention into store visits and online orders.",
+      summary: "Social, influencer and paid digital campaigns built to turn attention into store visits and online orders.",
       seo: {
         title: "Retail Digital & Social Media Marketing | Kosick Communications",
         description:
-          "Digital and social media marketing for retail and fashion brands: social content, influencer campaigns and paid digital that drive store visits and e-commerce sales.",
+          "Digital and social media marketing for retail and fashion brands: social content, influencer campaigns and paid digital built to drive store visits and e-commerce sales.",
       },
       hero: {
         label: "Retail digital & social media marketing",

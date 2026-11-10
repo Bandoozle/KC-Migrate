@@ -95,6 +95,7 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
   const [introImage, ...deliverablePhotos] = service.gallery;
   const image = service.hero.image;
   const imageStyle = image.position ? { objectPosition: image.position } : undefined;
+  const relatedImage = industry.directory.wideImage ?? industry.directory.image;
 
   return (
     <main className={`${styles.page} industry-${industry.id}`}>
@@ -104,10 +105,10 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
       />
 
       {/* Hero: same copy everywhere, composed per industry */}
-      <header className={`${styles.hero} ${styles[variant.hero]}`}>
+      <header className={`${styles.hero} ${styles[variant.hero]} ${image.orientation === "portrait" ? styles.heroPortrait : ""}`}>
         {backdrop ? (
           <div className={styles.heroBackdrop}>
-            <Image src={image.src} alt={image.alt} fill priority sizes="100vw" className={styles.cover} style={imageStyle} />
+            <Image src={image.src} alt={image.alt} fill priority sizes="(max-width: 959px) 200vw, 100vw" className={styles.cover} style={imageStyle} />
           </div>
         ) : null}
         <div className={`container ${styles.heroGrid}`}>
@@ -133,7 +134,7 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
                 alt={image.alt}
                 fill
                 priority
-                sizes="(min-width: 960px) 46vw, 100vw"
+                sizes="(min-width: 960px) 90vw, 130vw"
                 className={styles.cover}
                 style={imageStyle}
               />
@@ -218,7 +219,7 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
                     src={photo.src}
                     alt={photo.alt}
                     fill
-                    sizes="(min-width: 960px) 40vw, 100vw"
+                    sizes="(min-width: 960px) 75vw, 100vw"
                     className={styles.cover}
                     style={photo.position ? { objectPosition: photo.position } : undefined}
                   />
@@ -303,12 +304,12 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
                 {industry.id === "hvac" ? (
                   <span className={styles.relatedHomeMedia} aria-hidden="true">
                     <Image
-                      src={industry.directory.image.src}
+                      src={relatedImage.src}
                       alt=""
                       fill
                       sizes="(min-width: 1080px) 30vw, (min-width: 720px) 45vw, 100vw"
                       className={styles.cover}
-                      style={industry.directory.image.position ? { objectPosition: industry.directory.image.position } : undefined}
+                      style={relatedImage.position ? { objectPosition: relatedImage.position } : undefined}
                     />
                   </span>
                 ) : null}

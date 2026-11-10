@@ -112,3 +112,31 @@
   --ind-badge-radius: 999px;
   --ind-tint: rgba(11, 110, 153, 0.1);
 }
+
+/* Outdoor Advertising service page: the campaign-artwork red used on that page */
+.industry-outdoor {
+  --ind-accent: #d93b30;
+  --ind-accent-deep: #a82a21;
+  --ind-on-accent: #ffffff;
+  --ind-label: #c2332a;
+  --ind-ink: #101010;
+  --ind-surface: #f3f0ea;
+  --ind-soft: #f6dcd8;
+  --ind-rule: rgba(16, 16, 16, 0.14);
+  --ind-badge-radius: 3px;
+  --ind-tint: rgba(217, 59, 48, 0.1);
+}
+
+/* Digital Marketing service page: a signal blue-violet on a deep navy */
+.industry-digital {
+  --ind-accent: #5b63f5;
+  --ind-accent-deep: #3f46c9;
+  --ind-on-accent: #ffffff;
+  --ind-label: #4f57e8;
+  --ind-ink: #0d1017;
+  --ind-surface: #f2f1ee;
+  --ind-soft: #e3e5ff;
+  --ind-rule: rgba(13, 16, 23, 0.14);
+  --ind-badge-radius: 6px;
+  --ind-tint: rgba(91, 99, 245, 0.12);
+}

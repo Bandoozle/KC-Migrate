@@ -4,21 +4,19 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import type { ResourceGuideContent } from "@/lib/wordpress/resource-guide-types";
 import type { ServiceMedia, ServicePageContent } from "@/lib/wordpress/service-page-types";
-import { OutdoorFormatShowcase, type OutdoorFormat } from "./OutdoorFormatShowcase";
+import { OutdoorPricing, type OutdoorPrice } from "./OutdoorPricing";
+import { OutdoorJourney } from "./OutdoorJourney";
+import { LocationVisual, TimingVisual } from "./OutdoorFactorVisuals";
 import styles from "./OutdoorAdvertisingPage.module.css";
 
 type OutdoorAdvertisingPageProps = {
   content: ServicePageContent;
-  /** Billboard Dimensions guide, the published source for format sizes. */
-  dimensions?: ResourceGuideContent | null;
   /** Media-owner logo from the Kosick partner wall. */
   mediaOwner?: ServiceMedia | null;
 };
 
 const UPLOADS = "/wp-content/uploads";
-const DIMENSIONS_HREF = "/services/outdoor-advertising/billboard-dimensions/";
 
 /* Each section uses a different real campaign, so no photograph repeats */
 const OPENING = {
@@ -27,8 +25,8 @@ const OPENING = {
 };
 
 const BILLBOARD = {
-  src: `${UPLOADS}/2026/06/hvac-billboard-advertising.jpg`,
-  alt: "Belyea Bros. high-efficiency heat pump billboard above a city street",
+  src: "/images/outdoor/trane-we-run-together-billboard.jpg",
+  alt: "A Trane We Run Together billboard against downtown towers",
 };
 
 const SUPERBOARD = {
@@ -57,34 +55,45 @@ const CITY_MARKERS = [
 
 const READABLE = { src: `${UPLOADS}/2023/07/hvac.jpg`, alt: "Ayotte “Upgrade your furnace” billboard" };
 
-const FORMAT_SET = [
+/*
+ * Starting prices supplied by Kosick, cheapest first. No billing period is
+ * shown because none has been confirmed. Each card uses a real placement.
+ */
+const PRICES: Array<Omit<OutdoorPrice, "size"> & { scale?: string }> = [
   {
-    id: "billboards",
-    label: "Billboard",
-    card: /billboard/i,
-    feature: /billboard poster/i,
-    image: { src: `${UPLOADS}/2023/07/home-services-billboards.jpg`, alt: "GE residential HVAC billboard against a blue sky", position: "55% 45%" },
+    id: "street-level",
+    name: "Street-Level (TSA)",
+    price: "$550",
+    description: "Transit shelter posters at eye level, where people wait, walk and shop.",
+    scale: "Street level",
+    plate: "Street-level shelter",
+    image: { src: `${UPLOADS}/2026/06/outdoor-advertising.jpg`, alt: "Sparkle Dental Spa poster in a street-level transit shelter", position: "55% 45%" },
+  },
+  {
+    id: "billboard-posters",
+    name: "Billboard Posters",
+    price: "$1,000",
+    description: "Roadside posters that repeat your message along busy commuter routes.",
+    scale: "Billboard",
+    plate: "Roadside poster",
+    image: { src: `${UPLOADS}/2024/03/billboard-advertising.webp`, alt: "Belyea Bros. Trane high-efficiency heat pump billboard poster", position: "45% 50%" },
   },
   {
     id: "transit",
-    label: "Transit",
-    card: /transit/i,
-    feature: /transit/i,
-    image: { src: `${UPLOADS}/2026/06/transit-out-of-home-advertising-1.jpg`, alt: "Elevated SkyTrain line crossing a downtown Vancouver street", position: "50% 45%" },
+    name: "Transit Advertising",
+    price: "$1,000",
+    description: "Placements on and around transit that travel with riders across the city.",
+    plate: "SkyTrain corridor",
+    image: { src: `${UPLOADS}/2026/06/transit-out-of-home-advertising-1.jpg`, alt: "SkyTrain crossing a downtown Vancouver street", position: "45% 40%" },
   },
   {
-    id: "street-level",
-    label: "Street-level",
-    card: /street/i,
-    feature: /street/i,
-    image: { src: `${UPLOADS}/2026/06/outdoor-advertising.jpg`, alt: "Illuminated poster in a transit shelter on a tree-lined sidewalk", position: "60% 50%" },
-  },
-  {
-    id: "digital",
-    label: "Digital OOH",
-    card: /digital/i,
-    feature: /^$/,
-    image: { src: `${UPLOADS}/2024/03/digital-superboard.webp`, alt: "Pattison digital superboard beside a multi-lane highway", position: "55% 50%" },
+    id: "superboards",
+    name: "Superboards",
+    price: "$1,500",
+    description: "Oversized premium boards for landmark visibility on major roads.",
+    scale: "Superboard",
+    plate: "Superboard",
+    image: { src: SUPERBOARD.src, alt: SUPERBOARD.alt, position: "40% 50%" },
   },
 ];
 
@@ -96,35 +105,18 @@ const THREE_THINGS = [
 
 const BILLBOARD_LABELS = ["High traffic", "Repeated exposure", "Local reach"];
 
-/* Illustrative only: the parts of a day a plan is built around */
-const DAYPARTS = [
-  { name: "AM commute", peak: true },
-  { name: "Midday", peak: false },
-  { name: "PM commute", peak: true },
-  { name: "Weekend", peak: false },
-];
-
 type Size = { label: string; width: number; height: number; display: string };
 
-function specOf(dimensions: ResourceGuideContent | null | undefined, pattern: RegExp) {
-  const section = dimensions?.sections.find((item) => pattern.test(item.title));
-  return section?.spec?.replace(/^typical size:\s*/i, "").trim() || undefined;
-}
-
-/** First published size (feet ′ or inches ″) as width × height in feet. */
-function sizeFrom(spec: string | undefined, label: string, portrait = false): Size | null {
-  const match = spec?.replace(/\([^)]*\)/g, "").match(/(\d+(?:\.\d+)?)\s*([′'″"])\s*[×x]\s*(\d+(?:\.\d+)?)\s*([′'″"])/);
-  if (!match) return null;
-  const toFeet = (value: string, unit: string) => (/[″"]/.test(unit) ? Number(value) / 12 : Number(value));
-  const a = toFeet(match[1], match[2]);
-  const b = toFeet(match[3], match[4]);
-  return {
-    label,
-    width: portrait ? Math.min(a, b) : Math.max(a, b),
-    height: portrait ? Math.max(a, b) : Math.min(a, b),
-    display: `${match[1]}${match[2]} × ${match[3]}${match[4]}`,
-  };
-}
+/*
+ * Typical Canadian sizes, carried over from the retired Billboard Dimensions
+ * guide. The first three are drawn to scale; every format is listed with its note.
+ */
+const SIZES: Array<Size & { name: string; note: string; drawn: boolean }> = [
+  { label: "Street level", name: "Transit shelter ads", display: "47″ × 68″ (about 4′ × 6′)", width: 47 / 12, height: 68 / 12, drawn: true, note: "Street-level placements that reach pedestrians, commuters and local neighbourhood traffic." },
+  { label: "Billboard", name: "Horizontal posters", display: "10′ × 20′", width: 20, height: 10, drawn: true, note: "A versatile format for high-traffic urban and roadside placements." },
+  { label: "Digital", name: "Digital horizontal posters", display: "10′ × 20′, digital rotation", width: 20, height: 10, drawn: false, note: "Creative rotates through the day and can change quickly." },
+  { label: "Superboard", name: "Superboards", display: "10′ × 32′ or 14′ × 48′", width: 32, height: 10, drawn: true, note: "Large-format placements for major highways and long-distance visibility." },
+];
 
 function firstSentences(text: string | undefined, count: number) {
   if (!text) return "";
@@ -164,45 +156,31 @@ function Route({ variant }: { variant: keyof typeof ROUTES }) {
   );
 }
 
-export function OutdoorAdvertisingPage({ content, dimensions, mediaOwner }: OutdoorAdvertisingPageProps) {
-  const cards = content.offerGroups.flatMap((group) => group.cards).filter((card) => card.title);
+/* One drawing in feet: the drawn formats stand side by side on a shared ground line */
+const GAP = 3;
+const scale = SIZES.filter((size) => size.drawn);
+const scaleHeight = Math.max(...scale.map((size) => size.height), 1) + 2.5;
+const placed = scale.map((size, index) => ({
+  ...size,
+  x: scale.slice(0, index).reduce((sum, prior) => sum + prior.width + GAP, 0),
+}));
+const scaleWidth = placed.length ? placed[placed.length - 1].x + placed[placed.length - 1].width : 0;
+
+export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisingPageProps) {
   const contactHref = content.cta?.primary.href || "/contact/";
 
-  const formats: OutdoorFormat[] = FORMAT_SET.flatMap((format) => {
-    const card = cards.find((item) => format.card.test(item.title));
-    if (!card?.body) return [];
-    const price = content.features.find((item) => format.feature.test(item.title))?.eyebrow;
-    return [
-      {
-        id: format.id,
-        label: format.label,
-        line: card.body,
-        meta: price && /\$\d/.test(price) ? price.replace(/^starting from/i, "Starting from") : undefined,
-        image: format.image,
-      },
-    ];
-  });
-
   const superboard = content.features.find((item) => /superboard/i.test(item.title));
-  const scale = [
-    sizeFrom(specOf(dimensions, /transit shelter/i), "Street level", true),
-    sizeFrom(specOf(dimensions, /^horizontal poster/i), "Billboard"),
-    sizeFrom(specOf(dimensions, /^superboard/i), "Superboard"),
-  ].filter((size): size is Size => Boolean(size));
-  // One drawing in feet: boards stand on a shared ground line
-  const GAP = 3;
-  const scaleHeight = Math.max(...scale.map((size) => size.height), 1) + 2.5;
-  let cursor = 0;
-  const placed = scale.map((size) => {
-    const x = cursor;
-    cursor += size.width + GAP;
-    return { ...size, x };
-  });
-  const scaleWidth = cursor - GAP;
+  const prices: OutdoorPrice[] = PRICES.map(({ scale: sizeLabel, ...item }) => ({
+    ...item,
+    size: SIZES.find((size) => size.label === sizeLabel)?.display.replace(/ \(about .*\)$/, ""),
+  }));
 
   return (
     <main className={styles.page}>
       <ServiceHero title={content.title} hero={content.hero} />
+
+      {/* Billboard exposure on the drive, then the trip to the store: first, directly under the hero */}
+      <OutdoorJourney />
 
       {/* Opening: 40/60, one campaign in two Vancouver shelters, offset with crop marks */}
       <section className={styles.opening} aria-labelledby="oo-opening">
@@ -232,7 +210,7 @@ export function OutdoorAdvertisingPage({ content, dimensions, mediaOwner }: Outd
               </Reveal>
               <Reveal delay={150} className={styles.collageSecond}>
                 <div className={styles.photo}>
-                  <Image src={OPENING.second.src} alt={OPENING.second.alt} fill sizes="(min-width: 960px) 22vw, 50vw" className={styles.cover} style={{ objectPosition: "62% 50%" }} />
+                  <Image src={OPENING.second.src} alt={OPENING.second.alt} fill sizes="(min-width: 960px) 45vw, 90vw" className={styles.cover} style={{ objectPosition: "62% 50%" }} />
                 </div>
                 <span className={styles.plate}>Street-level</span>
               </Reveal>
@@ -241,17 +219,8 @@ export function OutdoorAdvertisingPage({ content, dimensions, mediaOwner }: Outd
         </div>
       </section>
 
-      {/* Formats: a numbered strip of environments over one wide placement */}
-      {formats.length > 1 ? (
-        <section className={styles.formats} aria-labelledby="oo-formats">
-          <div className="container">
-            <h2 id="oo-formats" className={styles.title}>
-              Choose your environment.
-            </h2>
-            <OutdoorFormatShowcase formats={formats} />
-          </div>
-        </section>
-      ) : null}
+      {/* Formats and starting prices; extra bottom room for the billboard to cross into */}
+      <OutdoorPricing prices={prices} contactHref={contactHref} className={styles.formats} />
 
       {/* Billboard: near full width, crossing up into the section above, copy panel set on the image */}
       <section className={styles.billboard} aria-labelledby="oo-billboard">
@@ -271,8 +240,8 @@ export function OutdoorAdvertisingPage({ content, dimensions, mediaOwner }: Outd
                 <li key={label}>{label}</li>
               ))}
             </ul>
-            <Link className={styles.textLink} href={DIMENSIONS_HREF}>
-              Explore billboard formats
+            <Link className={styles.textLink} href="#oo-pricing">
+              See starting prices
               <ArrowIcon />
             </Link>
           </div>
@@ -327,16 +296,15 @@ export function OutdoorAdvertisingPage({ content, dimensions, mediaOwner }: Outd
                   })}
                 </svg>
                 <ol className={styles.scaleKey}>
-                  {placed.map((size) => (
-                    <li key={size.label}>
-                      <span>{size.label}</span>
+                  {SIZES.map((size) => (
+                    <li key={size.name}>
+                      <span>{size.name}</span>
                       <span>{size.display}</span>
+                      <span className={styles.scaleKeyNote}>{size.note}</span>
                     </li>
                   ))}
                 </ol>
-                <p className={styles.scaleNote}>
-                  Typical sizes from our <Link href={DIMENSIONS_HREF}>billboard dimensions guide</Link>.
-                </p>
+                <p className={styles.scaleNote}>Typical Canadian sizes. Exact dimensions vary by media owner and location.</p>
               </figure>
             ) : null}
           </div>
@@ -407,8 +375,7 @@ export function OutdoorAdvertisingPage({ content, dimensions, mediaOwner }: Outd
           <ol className={styles.triptych}>
             <li className={styles.part}>
               <span className={styles.visualGrid} aria-hidden="true">
-                <span className={styles.visualPin} style={{ left: "58%", top: "42%" }} />
-                <span className={styles.visualPin} style={{ left: "30%", top: "70%" }} />
+                <LocationVisual />
               </span>
               <span className={styles.partNumber}>01</span>
               <span className={styles.partName}>{THREE_THINGS[0].name}</span>
@@ -416,12 +383,7 @@ export function OutdoorAdvertisingPage({ content, dimensions, mediaOwner }: Outd
             </li>
             <li className={styles.part}>
               <span className={styles.visualTime} aria-hidden="true">
-                {DAYPARTS.map((part) => (
-                  <span key={part.name} className={part.peak ? `${styles.timeSlot} ${styles.timePeak}` : styles.timeSlot}>
-                    <span className={styles.timeBar} />
-                    <span className={styles.timeName}>{part.name}</span>
-                  </span>
-                ))}
+                <TimingVisual />
               </span>
               <span className={styles.partNumber}>02</span>
               <span className={styles.partName}>{THREE_THINGS[1].name}</span>

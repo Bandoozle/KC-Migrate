@@ -19,6 +19,8 @@ export type IndustryImage = {
   alt: string;
   /** CSS object-position when the subject is off-centre. */
   position?: string;
+  /** Portrait photographs get tall frames instead of panoramic bands. */
+  orientation?: "portrait";
 };
 
 export type TitledText = { title: string; body: string };
@@ -84,6 +86,8 @@ export type IndustryLanding = {
   intro: { title: string; paragraphs: string[] };
   /** Why the industry works differently, and how Kosick plans for it. */
   reasonsTitle: string;
+  /** Optional label above reasonsTitle; defaults to "How we plan {noun} marketing". */
+  reasonsLabel?: string;
   reasons: Array<TitledText & { image?: IndustryImage }>;
   /** Optional: the moments the intro names, each shown with a photograph (Retail). */
   moments?: Array<{ caption: string; image: IndustryImage }>;
@@ -98,7 +102,8 @@ export type Industry = {
   noun: string;
   path: string;
   /** Card on the Services and Marketing Programs directories; every industry gets the same treatment. */
-  directory: { line: string; image: IndustryImage };
+  /** `wideImage` replaces a portrait `image` where the card crops it to a short strip. */
+  directory: { line: string; image: IndustryImage; wideImage?: IndustryImage };
   /** Header for the industry page's "What We Offer" section. */
   offersIntro: { label: string; title: string; lead: string };
   services: IndustryService[];

@@ -7,6 +7,7 @@ import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
+import { EmailDistribution } from "./EmailDistribution";
 import styles from "./EmailMarketingPage.module.css";
 
 const UPLOADS = "/wp-content/uploads";
@@ -84,6 +85,9 @@ export function EmailMarketingPage({ content }: EmailMarketingPageProps) {
   return (
     <main className={styles.page}>
       <ServiceHero title={content.title} hero={hero} />
+
+      {/* One campaign to many devices, before the services it is built from */}
+      <EmailDistribution />
 
       {/* Inbox: headline across, a tall campaign photo beside the four services set as inbox rows */}
       {offers.length > 0 ? (

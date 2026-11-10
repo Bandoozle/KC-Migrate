@@ -6,7 +6,11 @@ import { LEGACY_REDIRECTS } from "./src/lib/legacy-redirects";
 const nextConfig: NextConfig = {
   trailingSlash: true,
   async redirects() {
-    return LEGACY_REDIRECTS.map((entry) => ({ ...entry, permanent: true }));
+    return LEGACY_REDIRECTS.map((entry) =>
+      "statusCode" in entry
+        ? { source: entry.source, destination: entry.destination, statusCode: entry.statusCode }
+        : { ...entry, permanent: true },
+    );
   },
 };
 

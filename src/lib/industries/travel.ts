@@ -13,49 +13,50 @@ export const TRAVEL: Industry = {
   },
   offersIntro: {
     label: "What we offer",
-    title: "Two ways we fill seats and rooms.",
-    lead: "Television to inspire the trip, lead generation to capture the traveller who's ready to plan. Each has its own page.",
+    title: "Build demand. Capture the enquiry.",
+    lead: "Travel advertising builds awareness for your brand; travel lead generation turns that interest into enquiries. Each service has its own page.",
   },
   cta: {
-    title: "Let's put your destination on the itinerary.",
-    description: "Tell us about your destination, your travellers and your booking season. We'll plan the campaign around them.",
+    title: "Let's plan your next booking campaign.",
+    description: "Tell us about your brand, the customers you want to reach and your booking season. We'll plan a campaign around your goals.",
   },
   landing: {
     seo: {
       title: "Travel & Tourism Marketing | Kosick Communications",
       description:
-        "Travel marketing for destinations, resorts, cruise lines and tour operators: TV advertising and lead generation that reach qualified Canadian travellers.",
+        "Travel marketing agency for cruise lines, resorts, destinations and tour operators: TV, digital advertising and lead generation that reach the right audiences and create booking opportunities.",
     },
     hero: {
       label: "Travel & tourism marketing",
       title: "Travel Marketing",
-      lead: "Marketing for destinations, resorts, cruise lines and tour operators: television that inspires the trip and lead generation that turns qualified travellers into bookings.",
-      image: { src: "/images/articles/travel-marketing-canada-cruise.jpg", alt: "A cruise ship anchored in a turquoise bay beside a tropical island" },
+      lead: "A travel marketing agency for cruise lines, resorts, destinations and tour operators. We combine television, streaming, search and social to reach the people most likely to book and encourage enquiries your team can convert.",
+      image: { src: "/images/industries/travel/cabo-coastline-aerial.jpg", alt: "An aerial view of a resort coastline with a golden beach and turquoise sea" },
     },
     intro: {
-      title: "Travel is a long decision. Be there for all of it.",
+      title: "Put your travel brand in front of the right people.",
       paragraphs: [
-        "Travel is one of the most considered purchases a household makes. The planning window runs for weeks or months, several people weigh in, and the final choice is as emotional as it is practical.",
-        "The brands winning share are present across that whole journey. Television builds the dream and the trust; lead generation captures the traveller who's ready to compare options and book. We plan both around the travellers you want, in the markets they travel from.",
+        "Travel is a considered purchase. Your future guests research for weeks or months, compare options and often decide as a household, so the brands they remember are the ones that stayed visible through that whole window.",
+        "From cruise lines to resorts and tourism operators, we build coordinated advertising campaigns that put your brand in front of relevant audiences, generate enquiries and create more opportunities for bookings. Television and streaming build awareness at scale; search, social and landing pages capture the people who are ready to plan.",
       ],
     },
-    reasonsTitle: "Planned for the whole journey.",
+    reasonsLabel: "Travel advertising & lead generation",
+    reasonsTitle: "Marketing designed to drive bookings.",
     reasons: [
       {
-        title: "Qualified travellers, not mass reach",
-        body: "Campaigns target people with the means, the interest and the intent to book, by income, life stage and travel history.",
+        title: "Reach the right audience",
+        body: "Television builds broad awareness, and targeting by income, life stage, interests and travel history focuses the rest of the budget on people likely to book.",
       },
       {
-        title: "Origin markets matter",
-        body: "We focus spend on the Canadian cities with the flights, sailings and drive times that suit your product.",
+        title: "Markets that can book",
+        body: "Spend follows the Canadian cities with the flights, sailings and drive times that suit your product.",
       },
       {
-        title: "Inspiration to booking",
-        body: "TV and video start the conversation; digital lead generation carries it through to the booking.",
+        title: "Awareness to enquiry",
+        body: "TV and streaming build the brand; search, social and landing pages turn that interest into booking enquiries.",
       },
       {
-        title: "Booking windows, not calendar months",
-        body: "Flighting follows when your travellers plan, which is often months before they travel.",
+        title: "Timed to booking windows",
+        body: "Campaigns run when your customers plan, such as wave season for cruise lines or early-booking periods for resorts.",
       },
     ],
     gallery: [
@@ -68,7 +69,7 @@ export const TRAVEL: Industry = {
     {
       slug: "lead-generation",
       title: "Lead Generation",
-      summary: "Search, social and landing pages that capture travellers who are ready to plan, and nurture them to a booking.",
+      summary: "Search, social and landing pages that turn interested audiences into qualified enquiries for your sales and reservations team.",
       seo: {
         title: "Travel Lead Generation for Resorts, Cruises & Tours | Kosick Communications",
         description:
@@ -78,7 +79,7 @@ export const TRAVEL: Industry = {
         label: "Travel lead generation",
         title: "Capture the traveller who's ready to plan.",
         lead: "When a trip moves from daydream to planning, travellers search, compare and ask for information. We put your offer in front of them and capture the lead, then nurture it through to a booking.",
-        image: { src: `${UP}/2026/06/social-media-marketing-2.jpg`, alt: "A resort website open on a tablet against a white wall" },
+        image: { src: "/images/industries/travel/expedia-cruises-laptop.jpg", alt: "An Expedia Cruises ad on a laptop as a traveller plans from the couch" },
       },
       card: { src: `${UP}/2026/06/social-media-marketing.jpg`, alt: "The Expedia Cruises Facebook page on desktop and mobile" },
       intro: {
@@ -151,7 +152,7 @@ export const TRAVEL: Industry = {
     {
       slug: "tv-advertising",
       title: "TV Advertising",
-      summary: "Broadcast, connected TV and sponsorship that put your destination in Canadian living rooms.",
+      summary: "Broadcast, connected TV and sponsorship that build awareness for your brand in the Canadian markets you sell to.",
       seo: {
         title: "Travel TV Advertising in Canada | Kosick Communications",
         description:
@@ -219,7 +220,7 @@ export const TRAVEL: Industry = {
         { title: "Report", body: "Delivery and response measured through the season." },
       ],
       gallery: [
-        { src: `${UP}/2026/06/tv-streaming-advertising-1.jpg`, alt: "A streaming service home screen on a TV in a living room" },
+        { src: "/images/industries/travel/expedia-cruises-tv-spot.jpg", alt: "An Expedia Cruises television spot on a living-room TV" },
         { src: `${UP}/2026/02/ctv-morning-live.jpg`, alt: "Two people talking on the set of a Vancouver morning television show" },
         { src: `${UP}/2017/07/resort-marketing-scaled.jpg`, alt: "An aerial rendering of a beachfront resort beside a golf course" },
       ],

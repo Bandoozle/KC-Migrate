@@ -94,7 +94,7 @@ export const GOLF: Industry = {
         { title: "Launch & support", body: "Tracking in place and updates through the season." },
       ],
       gallery: [
-        { src: `${UP}/2026/02/arizona-golf-course-marketing.jpg`, alt: "An aerial view of a desert golf course below a mountain ridge" },
+        { src: "/images/industries/golf/sudden-valley-aerial-lake.jpg", alt: "An aerial view of a lakeside golf hole with bunkers and a green on a point", position: "50% 45%", orientation: "portrait" },
         { src: `${UP}/2025/05/golf-1.webp`, alt: "A clubhouse dining room with tall windows and set tables" },
       ],
       related: [],
@@ -171,7 +171,7 @@ export const GOLF: Industry = {
         { title: "Roll out", body: "Signage, merchandise, print and digital updated in order." },
       ],
       gallery: [
-        { src: `${UP}/2026/03/golf-course-branding.jpg`, alt: "A golfer walking a sunlit fairway with his bag" },
+        { src: "/images/industries/golf/sudden-valley-tee-shot.jpg", alt: "A golfer finishing his tee shot in front of tall evergreens", position: "50% 30%", orientation: "portrait" },
         { src: `${UP}/2026/07/Golf-Marketing-e1784584580271.jpg`, alt: "A smiling golfer leaning on a carved 16th hole par 3 sign" },
         { src: `${UP}/2026/06/golf-course-branding-marketing.jpg`, alt: "A golfer finishing her swing on a fairway lined with evergreens" },
       ],
@@ -254,7 +254,7 @@ export const GOLF: Industry = {
         { title: "Report", body: "Delivery, views and website visits tracked." },
       ],
       gallery: [
-        { src: `${UP}/2026/04/canadian-golf-course-marketing.jpg`, alt: "A golfer blasting a ball out of a greenside bunker" },
+        { src: "/images/industries/golf/sudden-valley-aerial-fairway.jpg", alt: "A drone view of a tree-lined fairway and bunker in morning light", position: "50% 50%", orientation: "portrait" },
         { src: `${UP}/2026/02/golf-marketing.jpg`, alt: "A golf ball at the edge of the cup beside the flagstick" },
       ],
       related: [],
@@ -262,11 +262,11 @@ export const GOLF: Industry = {
     {
       slug: "social-media-lead-generation",
       title: "Social Media & Lead Generation",
-      summary: "Social content and targeted campaigns that turn followers into rounds, members and event bookings.",
+      summary: "Social content and targeted campaigns designed to turn followers into rounds, members and event bookings.",
       seo: {
         title: "Golf Social Media Marketing & Lead Generation | Kosick Communications",
         description:
-          "Social media marketing and lead generation for golf courses: content, paid social and search campaigns that drive tee times, memberships and events.",
+          "Social media marketing and lead generation for golf courses: content, paid social and search campaigns built to drive tee times, memberships and events.",
       },
       hero: {
         label: "Golf social media & lead generation",
@@ -292,7 +292,7 @@ export const GOLF: Industry = {
         },
         {
           title: "Lead capture & nurturing",
-          body: "Landing pages, enquiry forms and email follow-up that turn interest into membership tours, tournament bookings and repeat rounds.",
+          body: "Landing pages, enquiry forms and email follow-up designed to turn interest into membership tours, tournament bookings and repeat rounds.",
         },
       ],
       deliverables: [
@@ -306,7 +306,7 @@ export const GOLF: Industry = {
       ],
       benefits: [
         {
-          title: "Quiet tee times filled",
+          title: "Offers for quiet tee times",
           body: "Targeted offers reach local golfers when you have space to sell.",
         },
         {
@@ -331,9 +331,9 @@ export const GOLF: Industry = {
         { title: "Track", body: "Bookings and enquiries tied back to each campaign." },
       ],
       gallery: [
-        { src: `${UP}/2026/06/golf-social-media-marketing.jpg`, alt: "Pink blossoms framing a fairway and mountains" },
+        { src: `${UP}/2026/06/golf-social-media-marketing.jpg`, alt: "Pink blossoms framing a fairway and mountains", orientation: "portrait" },
         { src: `${UP}/2026/06/golf-course-marketing-food-beverage.jpg`, alt: "Tacos, salads and a spritz on a clubhouse patio table" },
-        { src: `${UP}/2024/05/tournament-1.webp`, alt: "Two cocktails beside a bottle of tequila" },
+        { src: "/images/industries/golf/sudden-valley-instagram.jpg", alt: "An Instagram graphic over an aerial view of a lakeside golf course" },
       ],
       related: [
         { label: "How to Fill Tee Times", href: "/how-to-fill-tee-times-golf-marketing/", kind: "guide", body: "Local SEO, Google Ads, social and reviews for public courses." },

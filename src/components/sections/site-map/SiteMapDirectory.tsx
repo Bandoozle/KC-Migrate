@@ -62,8 +62,6 @@ const COLUMNS: Column[] = [
       {
         hrefs: [
           "/feature-articles/",
-          "/services/hvac-marketing/hvac-lead-generation/",
-          "/services/outdoor-advertising/billboard-dimensions/",
         ],
       },
     ],

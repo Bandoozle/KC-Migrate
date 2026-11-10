@@ -256,7 +256,7 @@ export function CreativeProductionPage({ content }: CreativeProductionPageProps)
                   <Reveal key={tile.src} delay={(columnIndex + tileIndex) * 90} className={styles[tile.slot]}>
                     <figure className={tile.height > tile.width ? `${styles.tile} ${styles.tilePortrait}` : styles.tile}>
                       <div className={styles.tileFrame} style={{ aspectRatio: `${tile.width} / ${tile.height}` }}>
-                        <Image src={tile.src} alt={tile.alt} fill sizes="(min-width: 960px) 30vw, 50vw" className={styles.cover} />
+                        <Image src={tile.src} alt={tile.alt} fill sizes="(min-width: 960px) 30vw, 90vw" className={styles.cover} />
                       </div>
                       <figcaption className={styles.tileLabel}>{tile.label}</figcaption>
                     </figure>

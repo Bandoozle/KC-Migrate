@@ -5,16 +5,17 @@
  */
 export const MARKETING_PROGRAM_ASSETS = {
   hvac: {
-    src: "/images/hvac-marketing/feature-lead-generation.jpg",
-    alt: "HVAC heating and cooling campaign creative",
+    src: "/images/marketing-programs/hvac-ductless-bedroom.jpg",
+    alt: "A ductless heat pump above a bright, calm bedroom",
   },
   dental: {
     src: "/images/marketing-programs/dental.jpg",
     alt: "Dental practice search advertising",
   },
   medicalAesthetics: {
-    src: "/wp-content/uploads/2023/09/medical-aesthetics.png",
-    alt: "Skinfolio Medesthetics campaign creative",
+    src: "/images/industries/medical-aesthetics/consultation-mirror.jpg",
+    alt: "A clinician holding a mirror for a smiling client during an aesthetic consultation",
+    position: "50% 35%",
   },
   golf: {
     src: "/images/marketing-programs/golf.jpg",

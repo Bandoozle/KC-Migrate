@@ -52,15 +52,17 @@ type PostWithEmbed = {
 
 function pickFeaturedImage(media: EmbeddedMedia | undefined, title: string): ArticleMedia | null {
   if (!media?.source_url) return null;
+  // The full original: WordPress's "large" size here is only 750px wide, which the
+  // article shows at 900px. next/image serves each screen a right-sized copy anyway.
   const large = media.media_details?.sizes?.large;
-  const mediumLarge = media.media_details?.sizes?.medium_large;
-  const src = large?.source_url || mediumLarge?.source_url || media.source_url;
+  const src = media.source_url || large?.source_url;
   if (!src) return null;
+  const full = src === media.source_url;
   return {
     src,
     alt: media.alt_text || title,
-    width: large?.width || media.media_details?.width,
-    height: large?.height || media.media_details?.height,
+    width: full ? media.media_details?.width : large?.width,
+    height: full ? media.media_details?.height : large?.height,
   };
 }
 
