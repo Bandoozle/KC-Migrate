@@ -38,7 +38,8 @@ function FlipLetters({
             } as CSSProperties
           }
         >
-          <span className={styles.letterFace}>{char === " " ? "\u00A0" : char}</span>
+          {/* Drawn from data-char by CSS so crawlers read the heading as words, not letters */}
+          <span className={styles.letterFace} data-char={char === " " ? "\u00A0" : char} />
         </span>
       ))}
     </span>
@@ -89,12 +90,12 @@ export function HomeHeroRotator({ rotations }: HomeHeroRotatorProps) {
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
+      {/* The sizers reserve space for the longest word and line; their text comes from CSS
+          (data-text) so the heading's text content is only "THE ART OF <word>". */}
       <h1 className={styles.title}>
-        <span className={styles.titlePrefix}>THE ART OF</span>
+        <span className={styles.titlePrefix}>THE ART OF</span>{" "}
         <span className={styles.wordSlot} aria-live="polite" aria-atomic="true">
-          <span className={styles.wordSizer} aria-hidden="true">
-            {longestWord}
-          </span>
+          <span className={styles.wordSizer} aria-hidden="true" data-text={longestWord} />
           <span className={styles.word}>
             <span className={styles.srOnly}>{active.word}</span>
             <FlipLetters text={active.word} motionClass={motionClass} />
@@ -102,9 +103,7 @@ export function HomeHeroRotator({ rotations }: HomeHeroRotatorProps) {
         </span>
       </h1>
       <p className={styles.subtitleSlot} aria-live="polite" aria-atomic="true">
-        <span className={styles.subtitleSizer} aria-hidden="true">
-          {longestSubtitle}
-        </span>
+        <span className={styles.subtitleSizer} aria-hidden="true" data-text={longestSubtitle} />
         <span className={styles.subtitle}>{active.subtitle}</span>
       </p>
     </div>

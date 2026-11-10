@@ -70,7 +70,7 @@ export const SPECIALTY_RETAIL: Industry = {
       title: "E-commerce & Website Development",
       summary: "Online stores and websites that show your range, take orders and drive visits to the shop.",
       seo: {
-        title: "E-commerce & Website Development for Specialty Retail | Kosick Communications",
+        title: "Specialty Retail E-commerce Websites | Kosick Communications",
         description:
           "E-commerce and website development for specialty retailers: online stores, product catalogues and click-and-collect, built by Kosick Communications.",
       },
@@ -148,7 +148,7 @@ export const SPECIALTY_RETAIL: Industry = {
       title: "Social Media Management",
       summary: "Day-to-day social media that shows new arrivals, shares expert advice and builds a local following.",
       seo: {
-        title: "Social Media Management for Specialty Retail | Kosick Communications",
+        title: "Specialty Retail Social Media | Kosick Communications",
         description:
           "Social media management for specialty retailers: content, posting, community management and paid social that bring local shoppers into the store.",
       },
@@ -304,7 +304,7 @@ export const SPECIALTY_RETAIL: Industry = {
       title: "Content Development & Creative Campaigns",
       summary: "Photography, video and campaign creative that show off your products and make every promotion look its best.",
       seo: {
-        title: "Content Development & Creative Campaigns for Retail | Kosick Communications",
+        title: "Retail Content & Creative Campaigns | Kosick Communications",
         description:
           "Content development and creative campaigns for specialty retailers: product photography, video, flyers, signage and seasonal campaign creative.",
       },

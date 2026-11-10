@@ -158,7 +158,7 @@ export const RETAIL: Industry = {
       title: "Branding & Creative Development",
       summary: "Identity, packaging and campaign creative that make your brand unmistakable on the shelf and on the street.",
       seo: {
-        title: "Retail & Fashion Branding and Packaging Design | Kosick Communications",
+        title: "Retail & Fashion Branding and Packaging | Kosick Communications",
         description:
           "Branding, packaging and creative development for retail and fashion brands: identity, packaging design, photography and campaign creative.",
       },
@@ -237,7 +237,7 @@ export const RETAIL: Industry = {
       seo: {
         title: "Retail Digital & Social Media Marketing | Kosick Communications",
         description:
-          "Digital and social media marketing for retail and fashion brands: social content, influencer campaigns and paid digital built to drive store visits and e-commerce sales.",
+          "Digital and social media marketing for retail and fashion brands: social content, influencer campaigns and paid digital that drive store visits and online sales.",
       },
       hero: {
         label: "Retail digital & social media marketing",

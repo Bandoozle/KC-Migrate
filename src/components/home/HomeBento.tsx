@@ -41,14 +41,18 @@ export function HomeBento({ items }: HomeBentoProps) {
                 src={item.image}
                 alt={item.alt}
                 fill
-                priority={index === 0}
                 sizes="(min-width: 960px) 50vw, 100vw"
               />
               <span className={styles.overlay} aria-hidden="true" />
               <div className={styles.content}>
                 <h3 className={styles.title}>
                   <span className={styles.titlePrimary}>{item.titlePrimary}</span>
-                  {item.titleSecondary ? <span className={styles.titleSecondary}>{item.titleSecondary}</span> : null}
+                  {item.titleSecondary ? (
+                    <>
+                      {" "}
+                      <span className={styles.titleSecondary}>{item.titleSecondary}</span>
+                    </>
+                  ) : null}
                 </h3>
                 <p className={styles.description}>{item.description}</p>
               </div>

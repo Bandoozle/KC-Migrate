@@ -104,7 +104,7 @@ export const GOLF: Industry = {
       title: "Branding & Creative Development",
       summary: "A club identity and creative that carry from the crest on the flag to every ad, scorecard and post.",
       seo: {
-        title: "Golf Course Branding & Creative Development | Kosick Communications",
+        title: "Golf Course Branding & Creative | Kosick Communications",
         description:
           "Branding and creative development for golf courses and clubs: identity, crests, signage, photography and campaign creative, from Kosick Communications.",
       },
@@ -264,7 +264,7 @@ export const GOLF: Industry = {
       title: "Social Media & Lead Generation",
       summary: "Social content and targeted campaigns designed to turn followers into rounds, members and event bookings.",
       seo: {
-        title: "Golf Social Media Marketing & Lead Generation | Kosick Communications",
+        title: "Golf Social Media & Lead Generation | Kosick Communications",
         description:
           "Social media marketing and lead generation for golf courses: content, paid social and search campaigns built to drive tee times, memberships and events.",
       },

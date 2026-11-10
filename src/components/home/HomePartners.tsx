@@ -51,6 +51,17 @@ const GROUPS = [
       { name: "Ruud", src: `${U}/2026/07/RUUD.png` },
     ],
   },
+  {
+    id: "platforms",
+    label: "Platform partners",
+    note: "Partner programs for search, social and video advertising.",
+    kind: "partner" as const,
+    logos: [
+      { name: "Google Partner badge", src: "/images/partners/google-partner.png" },
+      { name: "Meta Business Partner badge", src: "/images/partners/meta-business-partner.png" },
+      { name: "TikTok Marketing Partner badge", src: "/images/partners/tiktok-marketing-partner.png" },
+    ],
+  },
 ];
 
 /** Partner logos behind the same pill switcher as "Build a brand people remember". */
@@ -76,7 +87,7 @@ export function HomePartners() {
     <section className={`${shared.rail} ${styles.section}`} aria-labelledby={`${baseId}-title`}>
       <div className={`${shared.introCentered} ${styles.intro}`}>
         <SectionTitle id={`${baseId}-title`}>Trusted partners</SectionTitle>
-        <SectionDescription>The networks we buy from directly, and the brands we&rsquo;ve run campaigns with.</SectionDescription>
+        <SectionDescription>The networks we buy from directly, the brands we&rsquo;ve run campaigns with, and the ad platforms we partner with.</SectionDescription>
       </div>
 
       <div
@@ -127,7 +138,12 @@ export function HomePartners() {
                 {group.logos.map((logo, logoIndex) => (
                   <li key={logo.name} className={styles.cell} style={{ animationDelay: `${logoIndex * 35}ms` }}>
                     <span className={styles.logo}>
-                      <Image src={logo.src} alt={logo.name} fill sizes="(max-width: 767px) 30vw, 160px" />
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        fill
+                        sizes={group.kind === "partner" ? "(max-width: 639px) 33vw, 260px" : "(max-width: 767px) 30vw, 160px"}
+                      />
                     </span>
                   </li>
                 ))}

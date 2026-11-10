@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { isProductionHost, requestHostname } from "@/lib/site";
 
 export function proxy(request: NextRequest) {
   const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() || "";
@@ -13,7 +14,14 @@ export function proxy(request: NextRequest) {
 
   const headers = new Headers(request.headers);
   headers.set("x-pathname", request.nextUrl.pathname);
-  return NextResponse.next({ request: { headers } });
+  const response = NextResponse.next({ request: { headers } });
+
+  // Preview, *.vercel.app and any other non-production host: never indexed, even
+  // when a crawler ignores the disallow-all robots.txt those hosts serve.
+  const servedHost = requestHostname(request.headers.get("x-forwarded-host") || request.headers.get("host"));
+  if (!isProductionHost(servedHost)) response.headers.set("X-Robots-Tag", "noindex, nofollow");
+
+  return response;
 }
 
 export const config = {

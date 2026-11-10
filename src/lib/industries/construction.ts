@@ -22,7 +22,7 @@ export const CONSTRUCTION: Industry = {
   },
   landing: {
     seo: {
-      title: "Construction Marketing for Builders & Contractors | Kosick Communications",
+      title: "Construction Marketing Agency | Kosick Communications",
       description:
         "Construction marketing for home builders, renovators and contractors: website design, social media and content development that win better projects.",
     },
@@ -70,7 +70,7 @@ export const CONSTRUCTION: Industry = {
       title: "Website Design & Development",
       summary: "Portfolio-led websites that show your best projects and invite visitors to request a consultation.",
       seo: {
-        title: "Construction Website Design for Builders & Contractors | Kosick Communications",
+        title: "Construction Website Design | Kosick Communications",
         description:
           "Website design and development for home builders, renovators and contractors: project portfolios, service pages and consultation requests, by Kosick Communications.",
       },
@@ -147,7 +147,7 @@ export const CONSTRUCTION: Industry = {
       title: "Social Media Marketing",
       summary: "Progress photos, finished reveals and the people on site, shared where future clients are watching.",
       seo: {
-        title: "Social Media Marketing for Construction Companies | Kosick Communications",
+        title: "Construction Social Media Marketing | Kosick Communications",
         description:
           "Social media marketing for builders, renovators and contractors: project content, community management and paid social that generate construction leads.",
       },
@@ -224,7 +224,7 @@ export const CONSTRUCTION: Industry = {
       title: "Content Development",
       summary: "Project case studies, guides and video that answer client questions and prove your expertise.",
       seo: {
-        title: "Content Development for Construction Companies | Kosick Communications",
+        title: "Construction Content Development | Kosick Communications",
         description:
           "Content development for builders and contractors: project case studies, planning guides, photography and video that build trust and search visibility.",
       },

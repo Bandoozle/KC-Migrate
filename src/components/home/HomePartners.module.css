@@ -74,12 +74,8 @@
   display: block;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-}
-
-.logo img {
-  transition:
-    filter 300ms ease,
-    opacity 300ms ease;
+  /* `scale` composes with each wall's crop-in transform on the image */
+  transition: scale 300ms var(--ease);
 }
 
 /* The network files frame each mark with wide white margins: crop in so every mark reads at one size */
@@ -93,15 +89,19 @@
   transform: scale(1.1);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .logo img {
-    filter: grayscale(1);
-    opacity: 0.7;
-  }
+/* Partner badges are pre-balanced on identical transparent canvases */
+.wall[data-kind="partner"] .logo {
+  aspect-ratio: 2 / 1;
+}
 
-  .cell:hover .logo img {
-    filter: none;
-    opacity: 1;
+.wall[data-kind="partner"] .logo img {
+  object-fit: contain;
+}
+
+/* Logos show in full colour; hover only lifts the mark slightly */
+@media (hover: hover) and (pointer: fine) {
+  .cell:hover .logo {
+    scale: 1.08;
   }
 }
 
@@ -117,13 +117,26 @@
   }
 }
 
+/* Only three two-line badges: wider cells so their sub-text reads at the networks' scale */
+@media (min-width: 640px) {
+  .wall[data-kind="partner"] .cell {
+    flex-basis: 30%;
+  }
+}
+
+@media (min-width: 1100px) {
+  .wall[data-kind="partner"] .cell {
+    flex-basis: calc(100% / 6);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .panel[data-active="true"] .note,
   .panel[data-active="true"] .cell {
     animation: none;
   }
 
-  .logo img {
+  .logo {
     transition: none !important;
   }
 }

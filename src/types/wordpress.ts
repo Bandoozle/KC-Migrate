@@ -22,7 +22,11 @@ export type WordPressPage = WordPressContentEntity & {
 
 export type WordPressPost = WordPressContentEntity & {
   type?: "post";
+  /** UTC, without a zone suffix (WordPress REST). */
+  date_gmt?: string;
   modified?: string;
+  /** UTC, without a zone suffix (WordPress REST). */
+  modified_gmt?: string;
   categories?: number[];
   tags?: number[];
 };
