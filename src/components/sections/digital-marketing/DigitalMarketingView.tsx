@@ -8,7 +8,7 @@ import { FaqAccordion } from "./FaqAccordion";
 import { GeoTargeting } from "./GeoTargeting";
 import { PageCta } from "./PageCta";
 import { PerformanceDashboard } from "./PerformanceDashboard";
-import { RelatedServices } from "./RelatedServices";
+import { ServiceDirectory } from "./ServiceDirectory";
 import styles from "./DigitalMarketingView.module.css";
 
 const HERO_LEAD =
@@ -146,7 +146,7 @@ export function DigitalMarketingView({ content }: DigitalMarketingViewProps) {
       ) : null}
 
       <FaqAccordion eyebrow={content.faqs.eyebrow} title={content.faqs.title} items={content.faqs.items} />
-      <RelatedServices services={content.relatedServices} />
+      <ServiceDirectory services={content.relatedServices} />
       <PageCta cta={content.cta} />
     </main>
   );

@@ -14,19 +14,24 @@ type VimeoFeatureProps = {
 };
 
 /*
- * The Vimeo video only embeds on domains listed in its privacy settings
- * (staging.kosick.com answers 200, other hosts get 403). On those domains the
- * poster swaps for the inline player; anywhere else the same video opens on
- * Vimeo instead of showing the player's privacy error.
+ * Prefer an on-page Vimeo embed. Privacy settings on the video must allow the
+ * current host; localhost is included for local review. When inline is false
+ * (or the host is unknown), open the watch URL instead of a privacy error.
  */
-const EMBED_HOSTS = ["kosick.com", "www.kosick.com", "staging.kosick.com"];
+const EMBED_HOSTS = new Set([
+  "kosick.com",
+  "www.kosick.com",
+  "staging.kosick.com",
+  "localhost",
+  "127.0.0.1",
+]);
 
 export function VimeoFeature({ id, title, poster, inline = true }: VimeoFeatureProps) {
   const [playing, setPlaying] = useState(false);
   const watchUrl = `https://vimeo.com/${id}`;
 
   function play() {
-    if (inline && EMBED_HOSTS.includes(window.location.hostname)) {
+    if (inline && EMBED_HOSTS.has(window.location.hostname)) {
       setPlaying(true);
       return;
     }

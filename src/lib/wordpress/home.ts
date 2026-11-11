@@ -66,7 +66,8 @@ export type HomePageContent = {
     rotations: HomeHeroRotation[];
     ctaLabel: string;
     ctaHref: string;
-    vimeoSrc: string;
+    /** Self-hosted background loop (fast-start MP4) and the frame shown until it plays. */
+    video: { src: string; poster: string };
   };
   whatWeDoIntro: {
     title: string;
@@ -136,8 +137,8 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     description:
       "Premium broadcast and streaming placements delivering high visibility and consistent reach to large, trusted audiences.",
     href: "/services/television-advertising/",
-    image: "/wp-content/uploads/2026/06/tv-advertising-750x600.jpg",
-    alt: "Television and broadcast advertising",
+    image: "/images/home/television-expedia-cruises-tv.jpg",
+    alt: "An Expedia Cruises TV ad on a living-room television",
   },
   {
     titlePrimary: "Web",
@@ -216,8 +217,10 @@ const HOME_CONTENT: HomePageContent = {
     ],
     ctaLabel: "CONNECT WITH US",
     ctaHref: "/contact/",
-    vimeoSrc:
-      "https://player.vimeo.com/video/911448655?autoplay=1&controls=0&mute=1&muted=1&loop=1&playlist=911448655&disablekb=1&modestbranding=1&playsinline=1&rel=0&background=1",
+    video: {
+      src: "/videos/home/KC-Mov-3a.mp4",
+      poster: "/images/home/hero-poster.webp",
+    },
   },
   whatWeDoIntro: {
     title: "Marketing built to move brands forward.",
@@ -237,8 +240,8 @@ const HOME_CONTENT: HomePageContent = {
       subtitle: "Build a brand people recognize, remember, and trust.",
       description:
         "Great brands start with a clear understanding of who they are and what they stand for. We help define your positioning, personality, messaging, and visual identity so every part of your brand feels intentional, memorable, and uniquely yours.",
-      image: "/images/home/brand-identity-amsterdam-cap.jpg",
-      alt: "An Amsterdam Garden Centre cap with the embroidered logo, among flowers",
+      image: "/images/home/define-yourself-trane-logo.jpg",
+      alt: "The Trane logo badge on a rain-beaded outdoor HVAC unit",
     },
     {
       id: "strategy",

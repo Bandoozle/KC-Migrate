@@ -84,7 +84,21 @@ export function SiteFooter() {
                 loading="lazy"
               />
             </Link>
-            <p className={styles.brandBlurb}>{SITE_FOOTER_BRAND.blurb}</p>
+            <div className={styles.brandCopy}>
+              <p className={styles.brandBlurb}>{SITE_FOOTER_BRAND.blurb}</p>
+              <span className={styles.partnerBadgeWrap}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={SITE_FOOTER_BRAND.partner.src}
+                  alt={SITE_FOOTER_BRAND.partner.alt}
+                  width={SITE_FOOTER_BRAND.partner.width}
+                  height={SITE_FOOTER_BRAND.partner.height}
+                  className={styles.partnerBadge}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </span>
+            </div>
           </div>
 
           <FooterColumnNav column={SITE_FOOTER_SERVICES} listClassName={styles.linkListSplit} />

@@ -187,7 +187,7 @@ export const DENTAL: Industry = {
       title: "Social Media, Content & AI Marketing",
       summary: "Social channels, patient-friendly content and AI tools that keep your practice familiar and easy to reach.",
       seo: {
-        title: "Social Media, Content & AI Marketing for Dental Practices | Kosick Communications",
+        title: "Dental Social Media & Content Marketing | Kosick Communications",
         description:
           "Social media management, patient education content and AI marketing tools for dental offices, from Kosick Communications.",
       },
@@ -264,7 +264,7 @@ export const DENTAL: Industry = {
       title: "Video, TV & Billboard Advertising",
       summary: "Video, television and outdoor campaigns that make your practice a familiar name across the community.",
       seo: {
-        title: "Video, TV & Billboard Advertising for Dental Practices | Kosick Communications",
+        title: "Dental Video, TV & Billboard Advertising | Kosick Communications",
         description:
           "Video production, television and billboard advertising for dental offices. Kosick builds local visibility for practices across Canada.",
       },

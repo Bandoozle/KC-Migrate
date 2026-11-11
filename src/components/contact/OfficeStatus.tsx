@@ -1,21 +1,22 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { BUSINESS_HOURS } from "@/lib/business-hours";
 import styles from "./ContactPageView.module.css";
 
 const PACIFIC = new Intl.DateTimeFormat("en-CA", {
-  timeZone: "America/Vancouver",
+  timeZone: BUSINESS_HOURS.timeZone,
   weekday: "short",
   hour: "numeric",
   hourCycle: "h23",
 });
 
-/** The hours the chat assistant publishes: Monday to Friday, 8 AM to 5 PM Pacific. */
+/** Business hours (src/lib/business-hours.ts), the same ones the structured data publishes. */
 function withinOfficeHours(): boolean {
   const parts = PACIFIC.formatToParts(new Date());
   const weekday = parts.find((part) => part.type === "weekday")?.value ?? "";
   const hour = Number(parts.find((part) => part.type === "hour")?.value);
-  return !["Sat", "Sun"].includes(weekday) && hour >= 8 && hour < 17;
+  return !["Sat", "Sun"].includes(weekday) && hour >= BUSINESS_HOURS.openHour && hour < BUSINESS_HOURS.closeHour;
 }
 
 function subscribe(onChange: () => void) {
@@ -31,7 +32,7 @@ export function OfficeStatus() {
       <span className={styles.hoursDot} aria-hidden="true" />
       <span>
         {open === null ? null : <b>{open ? "Within office hours now. " : "Outside office hours now. "}</b>}
-        Monday to Friday, 8:00 AM to 5:00 PM Pacific
+        {BUSINESS_HOURS.label}
       </span>
     </p>
   );

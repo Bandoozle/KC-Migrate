@@ -6,6 +6,7 @@ import { ProcessTrack } from "@/components/sections/ProcessSteps";
 import { PageTitle, SectionTitle } from "@/components/typography";
 import { serviceHeroActions } from "@/lib/content/industry-heroes";
 import { servicePath, type Industry, type IndustryId, type IndustryService } from "@/lib/industries";
+import { ORGANIZATION_REF } from "@/lib/seo/organization";
 import { canonicalUrl } from "@/lib/site";
 import { Breadcrumbs } from "./Breadcrumbs";
 import { HvacOutcomes } from "./HvacOutcomes";
@@ -68,11 +69,7 @@ function serviceJsonLd(industry: Industry, service: IndustryService) {
     description: service.seo.description,
     url: canonicalUrl(servicePath(industry, service)),
     areaServed: "CA",
-    provider: {
-      "@type": "Organization",
-      name: "Kosick Communications",
-      url: canonicalUrl("/"),
-    },
+    provider: ORGANIZATION_REF,
   };
 }
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useId, useState, type KeyboardEvent } from "react";
 import { BodyText, CardTitle, SubsectionTitle } from "@/components/typography";
 import styles from "./SplitMediaTabs.module.css";
@@ -111,8 +112,7 @@ export function SplitMediaTabs({
               className={[styles.panelGrid, selected ? styles.panelIn : ""].filter(Boolean).join(" ")}
             >
               <figure className={styles.figure}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={tab.image} alt={tab.alt} loading="lazy" decoding="async" />
+                <Image src={tab.image} alt={tab.alt} fill sizes="(max-width: 900px) 100vw, 50vw" />
               </figure>
               <div className={styles.copy}>
                 <SubsectionTitle as="h3" className={styles.title}>

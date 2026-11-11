@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArticleTableOfContents } from "@/components/article/ArticleTableOfContents";
 import { MotionImage, Reveal } from "@/components/motion/Reveal";
@@ -47,13 +48,26 @@ export function ArticlePageView({ content }: ArticlePageViewProps) {
         {content.featuredImage ? (
           <div className={styles.featured}>
             <div className={`container ${styles.featuredInner}`}>
-              <MotionImage
-                src={content.featuredImage.src}
-                alt={content.featuredImage.alt}
-                width={content.featuredImage.width}
-                height={content.featuredImage.height}
-                className={styles.featuredImage}
-              />
+              {content.featuredImage.width && content.featuredImage.height ? (
+                // The featured image is the article's largest paint: resized, modern format, fetched first
+                <Reveal variant="scale">
+                  <Image
+                    src={content.featuredImage.src}
+                    alt={content.featuredImage.alt}
+                    width={content.featuredImage.width}
+                    height={content.featuredImage.height}
+                    priority
+                    sizes="(max-width: 900px) 100vw, 900px"
+                    className={styles.featuredImage}
+                  />
+                </Reveal>
+              ) : (
+                <MotionImage
+                  src={content.featuredImage.src}
+                  alt={content.featuredImage.alt}
+                  className={styles.featuredImage}
+                />
+              )}
             </div>
           </div>
         ) : null}

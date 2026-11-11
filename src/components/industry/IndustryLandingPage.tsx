@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { servicePath, type Industry, type IndustryLanding } from "@/lib/industries";
+import { ORGANIZATION_REF } from "@/lib/seo/organization";
 import { canonicalUrl } from "@/lib/site";
 import { IndustryIntro } from "./IndustryIntro";
 import { IndustryOffers } from "./IndustryOffers";
@@ -15,7 +16,7 @@ const PHONE = { label: "604.925.5800", href: "tel:+16049255800" };
 /* These pages have no Rank Math record, so their structured data is written here */
 function landingJsonLd(industry: Industry & { landing: IndustryLanding }) {
   const url = canonicalUrl(industry.path);
-  const organization = { "@type": "Organization", name: "Kosick Communications", url: canonicalUrl("/") };
+  const organization = ORGANIZATION_REF;
   return {
     "@context": "https://schema.org",
     "@graph": [

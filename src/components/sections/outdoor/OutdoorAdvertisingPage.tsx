@@ -34,11 +34,20 @@ const SUPERBOARD = {
   alt: "Trane “Heat Cool Clean” superboard against a blue sky",
 };
 
-/* Trane “We run together”: one creative in three placements */
+/* Three formats, three industries — outdoor that isn’t locked to one category */
 const CAMPAIGN = {
-  billboard: { src: `${UPLOADS}/2026/01/outdoor-advertising.jpg`, alt: "Trane “We run together” billboard on a rooftop structure" },
-  transit: { src: `${UPLOADS}/2024/03/transit-shelter-ads.webp`, alt: "Trane “We run together” poster in a transit shelter" },
-  street: { src: `${UPLOADS}/2023/07/outdoor-advertising-1-scaled.jpg`, alt: "Trane “We run together” vertical board among downtown towers" },
+  billboard: {
+    src: `${UPLOADS}/2026/01/outdoor-billboard-advertising.jpg`,
+    alt: "An urban roadside billboard on a brick wall as traffic passes",
+  },
+  transit: {
+    src: `${UPLOADS}/2026/06/arcteryx-billboard-advertising.jpg`,
+    alt: "Arc’teryx Veilance poster in a transit shelter on W Georgia St, Vancouver",
+  },
+  street: {
+    src: "/images/industries/medical-aesthetics/skinfolio-transit-shelter.jpg",
+    alt: "Skinfolio street-level digital display on a downtown sidewalk",
+  },
 };
 
 const CITY = {
@@ -104,6 +113,8 @@ const THREE_THINGS = [
 ];
 
 const BILLBOARD_LABELS = ["High traffic", "Repeated exposure", "Local reach"];
+
+const DIMENSIONS_HREF = "/services/outdoor-advertising/billboard-dimensions/";
 
 type Size = { label: string; width: number; height: number; display: string };
 
@@ -240,10 +251,16 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
                 <li key={label}>{label}</li>
               ))}
             </ul>
-            <Link className={styles.textLink} href="#oo-pricing">
-              See starting prices
-              <ArrowIcon />
-            </Link>
+            <div className={styles.bleedActions}>
+              <Link className={styles.solid} href={DIMENSIONS_HREF}>
+                View Billboard Sizes
+                <ArrowIcon />
+              </Link>
+              <Link className={styles.textLink} href="#oo-pricing">
+                See starting prices
+                <ArrowIcon />
+              </Link>
+            </div>
           </div>
         </Reveal>
       </section>
@@ -304,7 +321,15 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
                     </li>
                   ))}
                 </ol>
-                <p className={styles.scaleNote}>Typical Canadian sizes. Exact dimensions vary by media owner and location.</p>
+                <p className={styles.scaleNote}>
+                  Typical Canadian sizes from our{" "}
+                  <Link href={DIMENSIONS_HREF}>billboard dimensions guide</Link>. Exact dimensions vary by media owner
+                  and location.
+                </p>
+                <Link className={styles.scaleCta} href={DIMENSIONS_HREF}>
+                  View Billboard Sizes
+                  <ArrowIcon />
+                </Link>
               </figure>
             ) : null}
           </div>
@@ -316,28 +341,31 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
         <Route variant="b" />
         <div className="container">
           <div className={styles.campaignHead}>
-            <p className={styles.kicker}>Trane · We run together</p>
+            <p className={styles.kicker}>Outdoor advertising</p>
             <h2 id="oo-campaign" className={styles.title}>
               One campaign. Across the city.
             </h2>
-            <p className={styles.lead}>One creative system, adapted to every placement and environment.</p>
+            <p className={styles.lead}>
+              Billboards, transit and street-level placements adapted for every environment — retail, clinics, destinations
+              and local brands alike.
+            </p>
           </div>
           <div className={styles.spread}>
             <Reveal variant="fade" className={`${styles.spreadMain} ${styles.marked}`}>
               <div className={styles.photo}>
-                <Image src={CAMPAIGN.billboard.src} alt={CAMPAIGN.billboard.alt} fill sizes="(min-width: 960px) 60vw, 100vw" className={styles.cover} style={{ objectPosition: "50% 40%" }} />
+                <Image src={CAMPAIGN.billboard.src} alt={CAMPAIGN.billboard.alt} fill sizes="(min-width: 960px) 60vw, 100vw" className={styles.cover} style={{ objectPosition: "50% 45%" }} />
               </div>
               <span className={styles.plate}>Billboard</span>
             </Reveal>
             <Reveal delay={120} className={styles.spreadTop}>
-              <div className={`${styles.photo} ${styles.photoWhite}`}>
-                <Image src={CAMPAIGN.transit.src} alt={CAMPAIGN.transit.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.contain} />
+              <div className={styles.photo}>
+                <Image src={CAMPAIGN.transit.src} alt={CAMPAIGN.transit.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} style={{ objectPosition: "55% 40%" }} />
               </div>
               <span className={styles.plate}>Transit</span>
             </Reveal>
             <Reveal delay={240} className={styles.spreadBottom}>
               <div className={styles.photo}>
-                <Image src={CAMPAIGN.street.src} alt={CAMPAIGN.street.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} style={{ objectPosition: "50% 38%" }} />
+                <Image src={CAMPAIGN.street.src} alt={CAMPAIGN.street.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} style={{ objectPosition: "50% 40%" }} />
               </div>
               <span className={styles.plate}>Street-level</span>
             </Reveal>

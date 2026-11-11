@@ -28,7 +28,7 @@ export const MEDICAL_AESTHETICS: Industry = {
     seo: {
       title: "Medical Aesthetics Marketing | Kosick Communications",
       description:
-        "Medical aesthetics marketing for clinics like Skinfolio Medesthetics: websites, e-commerce, SEO, Google Ads, social and brand campaigns built to fill the treatment calendar.",
+        "Medical aesthetics marketing for clinics: websites, e-commerce, SEO, Google Ads, social and brand campaigns built to fill the treatment calendar.",
     },
     hero: {
       label: "Medical aesthetics marketing",
@@ -81,7 +81,7 @@ export const MEDICAL_AESTHETICS: Industry = {
       seo: {
         title: "Medical Aesthetics Website Design | Kosick Communications",
         description:
-          "Website and e-commerce design for medical aesthetics clinics, including Skinfolio Medesthetics-style booking and product experiences, built by Kosick Communications.",
+          "Website and e-commerce design for medical aesthetics clinics, with online booking and product sales, built by Kosick Communications.",
       },
       hero: {
         label: "Medical aesthetics website design",
@@ -240,7 +240,7 @@ export const MEDICAL_AESTHETICS: Industry = {
       title: "Social Media, Content & AI Marketing",
       summary: "Social channels, treatment education and AI tools that keep your clinic familiar between visits.",
       seo: {
-        title: "Social Media & Content for Medical Aesthetics | Kosick Communications",
+        title: "Medical Aesthetics Social Media & Content | Kosick Communications",
         description:
           "Social media management, treatment education and AI marketing tools for medical aesthetics clinics, from Kosick Communications.",
       },
@@ -317,7 +317,7 @@ export const MEDICAL_AESTHETICS: Industry = {
       title: "Video, TV & Billboard Advertising",
       summary: "Video, television and outdoor campaigns that make your clinic a familiar name in the community.",
       seo: {
-        title: "Video, TV & Billboard Advertising for Medical Aesthetics | Kosick Communications",
+        title: "Medical Aesthetics Video & TV Advertising | Kosick Communications",
         description:
           "Video production, television and billboard advertising for medical aesthetics clinics. Kosick builds local visibility for clinics across Canada.",
       },

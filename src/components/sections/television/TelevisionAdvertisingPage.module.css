@@ -1,4 +1,25 @@
-﻿.page {
+﻿/*
+ * One heading system for every section on the page (shared with the
+ * TelevisionModes, TelevisionReach and TelevisionJourney modules): the same
+ * title scale and width, the same lead width, the same spacing to content.
+ * Widths are in ch/rem so they scale with the type, not the viewport.
+ */
+.page {
+  --tv-title-size: clamp(2.125rem, 3.8vw, 3.125rem);
+  --tv-title-leading: 1.08;
+  --tv-title-tracking: -0.03em;
+  --tv-title-max: 57.5rem; /* ~920px */
+  --tv-lead-size: clamp(1.0625rem, 1.3vw, 1.1875rem);
+  --tv-lead-leading: 1.6;
+  --tv-lead-max: 50rem; /* ~800px */
+  --tv-title-lead-gap: 1rem;
+  --tv-intro-gap: clamp(2.25rem, 4.5vw, 3.5rem);
+  --tv-section-pad: clamp(4.5rem, 8.5vw, 7rem);
+
+  --tv-accent: #8a6a2f;
+  --tv-accent-on-dark: #e4c48c;
+  --tv-warm: #f4f1ea;
+
   background: #ffffff;
   color: #141414;
   overflow-x: clip;
@@ -11,18 +32,17 @@
   width: fit-content;
   min-height: 46px;
   margin-top: 1.35rem;
-  padding: 0.7rem 1.2rem;
-  border-radius: 9999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  line-height: 1.2;
-  text-decoration: none;
-}
-
-.page a.solid {
-  background: #141414;
+  padding: 0.7rem 1.35rem;
   border: 1px solid #141414;
+  border-radius: 9999px;
+  background: #141414;
   color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .page a.solid:hover,
@@ -31,57 +51,214 @@
   color: #ffffff;
 }
 
-.page a:focus-visible,
-.frame:focus-visible {
+.page a:focus-visible {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
 
-.kicker {
-  margin: 0 0 0.4rem;
-  font-size: var(--kosick-eyebrow-size);
-  font-weight: var(--kosick-eyebrow-weight);
-  letter-spacing: var(--kosick-eyebrow-tracking);
-  line-height: var(--kosick-eyebrow-leading);
+.sectionIntro {
+  margin-bottom: var(--tv-intro-gap);
 }
 
-.kicker {
-  color: var(--kosick-color-meta);
+.sectionTitle,
+.workTitle {
+  max-width: var(--tv-title-max);
+  margin: 0;
+  font-size: var(--tv-title-size);
+  font-weight: 600;
+  line-height: var(--tv-title-leading);
+  letter-spacing: var(--tv-title-tracking);
+  text-wrap: pretty;
 }
 
-.reel {
+.sectionLead,
+.workLead {
+  max-width: var(--tv-lead-max);
+  margin: var(--tv-title-lead-gap) 0 0;
+  color: rgba(20, 20, 20, 0.72);
+  font-size: var(--tv-lead-size);
+  line-height: var(--tv-lead-leading);
+}
+
+/* Capabilities: three image-led cards */
+.capabilities {
+  padding: var(--tv-section-pad) 0;
+  background: #ffffff;
+}
+
+.capabilitiesInner {
+  display: grid;
+}
+
+.capabilitiesInner .sectionIntro {
+  margin-bottom: var(--tv-intro-gap);
+}
+
+.capabilityList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  align-items: start;
+}
+
+/* The middle card sits lower: an editorial stagger rather than a row of equal boxes */
+.capability:nth-child(2) {
+  margin-top: clamp(2rem, 5vw, 4rem);
+}
+
+.capabilityMedia {
+  position: relative;
+  margin: 0 0 1.35rem;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #ece8df;
+}
+
+.capabilityMedia img {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.capability:hover .capabilityMedia img {
+  transform: scale(1.04);
+}
+
+.capabilityTitle {
+  margin: 0;
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.capabilityTitle::after {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  border-radius: 2px;
+  background: var(--tv-accent);
+  transform-origin: left;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.capability:hover .capabilityTitle::after {
+  width: 3.5rem;
+}
+
+.capabilityBody {
+  max-width: 26rem;
+  margin: 0.85rem 0 0;
+  color: rgba(20, 20, 20, 0.74);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+/* Benefits — alternating photo / type bands */
+.benefits {
+  padding: var(--tv-section-pad) 0;
   background: #101010;
   color: #ffffff;
 }
 
-.reelIntro {
-  margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem);
-}
-
-.reelKicker {
-  margin: 0 0 0.4rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: var(--kosick-eyebrow-size);
-  font-weight: var(--kosick-eyebrow-weight);
-  letter-spacing: var(--kosick-eyebrow-tracking);
-  line-height: var(--kosick-eyebrow-leading);
-}
-
-.reelTitle {
+.benefits .sectionTitle {
   color: #ffffff;
+  margin-bottom: var(--tv-intro-gap);
+}
+
+.benefitsInner {
+  display: grid;
+}
+
+.benefitGrid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+}
+
+.benefit {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: center;
+}
+
+.benefit[data-layout="image-right"] {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+}
+
+.benefit[data-layout="image-right"] .benefitMedia {
+  order: 2;
+}
+
+.benefit[data-layout="image-right"] .benefitCopy {
+  order: 1;
+}
+
+.benefitMedia {
+  position: relative;
+  min-height: clamp(14rem, 28vw, 22rem);
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.benefitImage {
+  object-fit: cover;
+  object-position: center;
+}
+
+.benefitCopy {
+  display: grid;
+  gap: 0.65rem;
+  max-width: 28rem;
+}
+
+.benefitIndex {
+  margin: 0;
+  color: rgba(228, 196, 140, 0.9);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums;
+}
+
+.benefitTitle {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.45rem, 2.4vw, 1.9rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
-.reelBody {
-  max-width: none;
-  margin: 0.85rem 0 0;
+.benefitBody {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+
+/* Featured work */
+.work {
+  padding: var(--tv-section-pad) 0;
+  background: #0d0f12;
+  color: #ffffff;
+}
+
+.work .workTitle {
+  color: #ffffff;
+}
+
+.work .workLead {
   color: rgba(255, 255, 255, 0.72);
-  font-size: var(--kosick-section-desc-size);
-  line-height: var(--kosick-section-desc-leading);
 }
 
 .screen {
-  margin: 0;
+  margin: 0 0 clamp(1.5rem, 3vw, 2.25rem);
 }
 
 .video {
@@ -89,7 +266,6 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   background: #000000;
-  border-radius: 10px;
 }
 
 .screenCaption {
@@ -104,396 +280,205 @@
 }
 
 .screenClient {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   font-weight: 600;
 }
 
-/* How one spot becomes a campaign: four beats on one rule */
-.arc {
-  margin-top: clamp(2.75rem, 5vw, 4rem);
-}
-
-.arcHeading {
-  margin: 0 0 1.25rem;
-  color: #ffffff;
-  font-size: var(--kosick-card-title-size);
-  font-weight: var(--kosick-card-title-weight);
-  letter-spacing: var(--kosick-card-title-tracking);
-  line-height: var(--kosick-card-title-leading);
-}
-
-.arcSteps {
+.frames {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0 clamp(1.5rem, 3vw, 2.5rem);
-  margin: 0;
-  padding: 0;
-  list-style: none;
+  gap: 0.65rem;
 }
 
-.arcStep {
-  min-width: 0;
-  padding-top: 1.1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: #1a1a1a;
+  aspect-ratio: 16 / 9;
 }
 
-.arcLabel {
-  display: flex;
-  gap: 0.6rem;
-  margin: 0;
-  color: #d8c39a;
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  line-height: 1.3;
+.frameImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.arcLabel span {
-  color: rgba(255, 255, 255, 0.45);
-  font-variant-numeric: tabular-nums;
-}
-
-.arcTitle {
-  margin: 0.6rem 0 0;
+.frameSuper {
+  position: absolute;
+  left: 0.65rem;
+  right: 0.65rem;
+  bottom: 0.55rem;
   color: #ffffff;
-  font-size: 1.125rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  line-height: 1.3;
+  letter-spacing: 0.02em;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.55);
 }
 
-.arcBody {
-  margin: 0.45rem 0 0;
-  color: rgba(255, 255, 255, 0.66);
-  font-size: var(--kosick-meta-size);
-  line-height: 1.55;
-}
-
-.reel a.light {
-  margin-top: clamp(2.25rem, 4vw, 3rem);
-}
-
-@media (max-width: 999px) {
-  .arcSteps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    row-gap: 2rem;
-  }
-}
-
-/* Phones: the beats run down a single rule on the left */
-@media (max-width: 599px) {
-  .arcSteps {
-    grid-template-columns: 1fr;
-    row-gap: 0;
-    padding-left: 1.25rem;
-    border-left: 1px solid rgba(255, 255, 255, 0.18);
-  }
-
-  .arcStep {
-    padding: 0 0 1.75rem;
-    border-top: 0;
-  }
-
-  .arcStep:last-child {
-    padding-bottom: 0;
-  }
-
-  .screenCaption {
-    flex-direction: column;
-  }
-}
-
-
-
-.reelTitle,
-.storyTitle {
-  margin: 0;
-  font-family: var(--kosick-font);
-  font-size: var(--kosick-section-title-size);
-  font-weight: var(--kosick-section-title-weight);
-  letter-spacing: var(--kosick-section-title-tracking);
-  line-height: var(--kosick-section-title-leading);
-}
-
-.page a.light {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  min-height: 50px;
-  margin-top: 1.5rem;
-  padding: 0.8rem 1.45rem;
-  border: 1px solid #ffffff;
-  border-radius: 999px;
-  background: #ffffff;
-  color: #101010;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-decoration: none;
-  transition: background-color 160ms ease, border-color 160ms ease;
-}
-
-.page a.light:hover {
-  background: #e4e4e8;
-  border-color: #e4e4e8;
-}
-
-.reel a.light:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 3px;
-}
-
-.networkList {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-
-
+/* Network wall: logos straight on the background, no tiles */
 .networks {
+  padding: var(--tv-section-pad) 0;
   background: #ffffff;
 }
 
 .brandWall {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.7rem;
-  margin: 1.75rem 0 0;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .brandTile {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 6.5rem;
-  margin: 0;
-  padding: 1.1rem 0.85rem;
-  background: #ffffff;
-  border: 1px solid rgba(17, 17, 17, 0.1);
+  display: grid;
+  place-items: center;
 }
 
+/* Each file is a 2:1 canvas with its mark already balanced to one visual weight */
 .brandTile img {
   display: block;
-  width: min(100%, 11rem);
-  height: 4.25rem;
-  object-fit: contain;
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.story {
-  background: #141414;
-  color: #ffffff;
+.brandTile:hover img {
+  transform: scale(1.06);
 }
 
-.storyTitle {
-  max-width: 14em;
-  color: #ffffff;
+/* Getting started */
+.start {
+  padding: var(--tv-section-pad) 0;
+  background: var(--tv-warm);
 }
 
-.storyBody {
-  max-width: 40rem;
-  margin: 0.9rem 0 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: var(--kosick-section-desc-size);
-  line-height: var(--kosick-section-desc-leading);
-}
-
-.storyLayout {
+.startInner {
   display: grid;
-  grid-template-areas:
-    "copy"
-    "tabs"
-    "screen"
-    "detail";
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+  align-items: start;
 }
 
-.storyCopy {
-  grid-area: copy;
-}
-
-.storyScreen {
-  grid-area: screen;
-  margin: 0;
-}
-
-.storyMonitor {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  container-type: inline-size;
-  overflow: hidden;
-  border-radius: 4px;
-  background: #000000;
-}
-
-.storyScreen figcaption {
-  margin-top: 0.55rem;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: var(--kosick-meta-size);
-  font-weight: var(--kosick-meta-weight);
-  line-height: var(--kosick-meta-leading);
-}
-
-@media (max-width: 699px) {
-  .storyScreen figcaption {
-    min-height: calc(var(--kosick-meta-leading) * 2em);
-  }
-}
-
-.storyDetails {
-  display: grid;
-  grid-area: detail;
-}
-
-.storyDetail {
-  grid-area: 1 / 1;
+/* The copy uses its whole column; the shared title/lead tokens cap it on wide screens */
+.startCopy {
   min-width: 0;
 }
 
-.storyDetail[data-active="false"] {
-  visibility: hidden;
-}
-
-.storyStepIndex {
-  margin: 0 0 0.5rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  line-height: var(--kosick-meta-leading);
-}
-
-.storyStepTitle {
-  margin: 0;
-  color: #ffffff;
-  font-family: var(--kosick-font);
-  font-size: var(--kosick-subsection-title-size);
-  font-weight: var(--kosick-subsection-title-weight);
-  letter-spacing: var(--kosick-subsection-title-tracking);
-  line-height: var(--kosick-subsection-title-leading);
-  text-wrap: balance;
-}
-
-.storyStepBody {
-  max-width: 34rem;
-  margin: 0.75rem 0 0;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: var(--kosick-body-size);
-  line-height: var(--kosick-body-leading);
-}
-
-.storyStepDetail {
-  max-width: 34rem;
-  margin: 0.75rem 0 0;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  color: rgba(255, 255, 255, 0.62);
-  font-size: var(--kosick-meta-size);
-  line-height: var(--kosick-meta-leading);
-}
-
-.frames {
-  display: grid;
-  grid-area: tabs;
-  gap: 0;
+.startSteps {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-/* Production step tabs are buttons: drop the browser's button look */
-.frame {
-  appearance: none;
-  margin: 0;
-  background: transparent;
-  font-family: inherit;
-  cursor: pointer;
-  text-align: left;
-}
-
-.frame {
   display: grid;
-  grid-template-columns: 2.25rem minmax(0, 1fr);
-  gap: 0.7rem;
-  align-items: start;
-  width: 100%;
-  padding: 0.85rem 0;
-  border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.22);
-  color: rgba(255, 255, 255, 0.62);
-  font-size: var(--kosick-body-size);
+  gap: 0;
+  border-top: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.startStep {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+  padding: 1.15rem 0;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.12);
+}
+
+.startIndex {
+  grid-row: 1 / span 2;
+  margin: 0.2rem 0 0;
+  color: #8a6a2f;
+  font-size: 0.8125rem;
   font-weight: 600;
-  line-height: var(--kosick-body-leading);
-  transition: color 160ms ease-out;
+  letter-spacing: 0.08em;
 }
 
-.frame:hover {
-  color: #ffffff;
+.startTitle {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
-.frame[aria-selected="true"] {
-  border-top: 2px solid #ffffff;
-  padding-top: calc(0.85rem - 1px);
-  color: #ffffff;
-}
-
-.timeline .frame {
-  color: rgba(255, 255, 255, 0.86);
-  cursor: default;
-}
-
-@media (min-width: 720px) {
-  .brandWall {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 900px) {
-  .storyLayout {
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-      "copy screen"
-      "detail screen"
-      "tabs tabs";
-    gap: 2rem 3rem;
-    align-items: start;
-  }
-
-  .storyDetails {
-    align-self: end;
-  }
-}
-
-@media (min-width: 760px) {
-  .frames {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0 1.15rem;
-  }
-}
-
-@media (min-width: 1100px) {
-
-  .brandWall {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 0.75rem;
-  }
+.startBody {
+  margin: 0;
+  color: rgba(20, 20, 20, 0.72);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page a.light {
+  .capabilityMedia img,
+  .capabilityTitle::after,
+  .brandTile img {
     transition: none;
   }
 }
 
-@media (max-width: 640px) {
-  .page a.light {
-    width: 100%;
+@media (max-width: 1099px) {
+  .brandWall {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
-/* The partners line runs the full content width */
-.page .networksLead {
-  max-width: none;
+@media (max-width: 899px) {
+  /* Two cards across, the third spanning beneath at a landscape crop */
+  .capabilityList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .capability:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .capability:nth-child(3) {
+    grid-column: 1 / -1;
+  }
+
+  .capability:nth-child(3) .capabilityMedia {
+    aspect-ratio: 16 / 9;
+  }
+
+  .benefit,
+  .benefit[data-layout="image-right"] {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit[data-layout="image-right"] .benefitMedia,
+  .benefit[data-layout="image-right"] .benefitCopy {
+    order: initial;
+  }
+
+  .benefitMedia {
+    min-height: min(58vw, 16rem);
+  }
+
+  .frames {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .startInner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .capabilityList {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .capability .capabilityMedia,
+  .capability:nth-child(3) .capabilityMedia {
+    aspect-ratio: 4 / 3;
+  }
+
+  .brandWall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
 }

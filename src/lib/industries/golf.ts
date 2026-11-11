@@ -9,7 +9,7 @@ export const GOLF: Industry = {
   path: "/services/golf-marketing/",
   directory: {
     line: "Rounds, memberships and tournaments for courses and clubs.",
-    image: { src: `${UP}/2026/03/golf-course-branding.jpg`, alt: "A golfer walking a sunlit fairway with his bag" },
+    image: { src: `${UP}/2026/04/canadian-golf-course-marketing.jpg`, alt: "A golfer blasting a shot from a sand bunker on a sunny course" },
   },
   offersIntro: {
     label: "What we offer",
@@ -104,7 +104,7 @@ export const GOLF: Industry = {
       title: "Branding & Creative Development",
       summary: "A club identity and creative that carry from the crest on the flag to every ad, scorecard and post.",
       seo: {
-        title: "Golf Course Branding & Creative Development | Kosick Communications",
+        title: "Golf Course Branding & Creative | Kosick Communications",
         description:
           "Branding and creative development for golf courses and clubs: identity, crests, signage, photography and campaign creative, from Kosick Communications.",
       },
@@ -112,7 +112,15 @@ export const GOLF: Industry = {
         label: "Golf branding & creative development",
         title: "A club identity worth wearing.",
         lead: "Golfers wear the logo, keep the scorecard and post the photos. We build golf brands that look right on a flag, a hat and a billboard, and creative that captures the feeling of a great round.",
-        image: { src: `${UP}/2026/07/Chillwack-Golf-Club.jpg`, alt: "A 1958 club crest over a groundskeeper watering the course at sunrise", position: "85% center" },
+        image: {
+          src: `${UP}/2026/06/golf-course-branding-marketing.jpg`,
+          alt: "A golfer finishing her swing on a fairway lined with evergreens",
+          position: "50% 35%",
+        },
+      },
+      card: {
+        src: `${UP}/2026/06/golf-course-branding-marketing.jpg`,
+        alt: "A golfer finishing her swing on a fairway lined with evergreens",
       },
       intro: {
         title: "Every club has a story. The brand tells it.",
@@ -196,7 +204,10 @@ export const GOLF: Industry = {
         lead: "Golfers watch golf. We produce course and destination video, then place it where golfers are already watching: sports broadcasts, streaming and online video.",
         image: { src: "/images/golf-sportsnet-poster.jpg", alt: "A Golf Paradise spot for the Mt. Baker Golf Trail with aerial and on-course shots" },
       },
-      card: { src: `${UP}/2026/04/canadian-golf-course-marketing.jpg`, alt: "A golfer blasting a ball out of a greenside bunker" },
+      card: {
+        src: "/images/industries/golf/sudden-valley-aerial-fairway.jpg",
+        alt: "A drone view of a tree-lined fairway and bunker in morning light",
+      },
       intro: {
         title: "The best way to sell a course is to show it.",
         paragraphs: [
@@ -264,7 +275,7 @@ export const GOLF: Industry = {
       title: "Social Media & Lead Generation",
       summary: "Social content and targeted campaigns designed to turn followers into rounds, members and event bookings.",
       seo: {
-        title: "Golf Social Media Marketing & Lead Generation | Kosick Communications",
+        title: "Golf Social Media & Lead Generation | Kosick Communications",
         description:
           "Social media marketing and lead generation for golf courses: content, paid social and search campaigns built to drive tee times, memberships and events.",
       },

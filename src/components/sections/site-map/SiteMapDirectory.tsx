@@ -18,6 +18,7 @@ const COLUMNS: Column[] = [
           "/services/television-advertising/",
           "/services/radio-advertising/",
           "/services/outdoor-advertising/",
+          "/services/outdoor-advertising/billboard-dimensions/",
           "/services/digital-connected-tv/",
         ],
       },

@@ -24,7 +24,7 @@ export const TRAVEL: Industry = {
     seo: {
       title: "Travel & Tourism Marketing | Kosick Communications",
       description:
-        "Travel marketing agency for cruise lines, resorts, destinations and tour operators: TV, digital advertising and lead generation that reach the right audiences and create booking opportunities.",
+        "Travel marketing agency for cruise lines, resorts, destinations and tour operators: TV, digital advertising and lead generation that create booking opportunities.",
     },
     hero: {
       label: "Travel & tourism marketing",
@@ -71,7 +71,7 @@ export const TRAVEL: Industry = {
       title: "Lead Generation",
       summary: "Search, social and landing pages that turn interested audiences into qualified enquiries for your sales and reservations team.",
       seo: {
-        title: "Travel Lead Generation for Resorts, Cruises & Tours | Kosick Communications",
+        title: "Travel & Tourism Lead Generation | Kosick Communications",
         description:
           "Lead generation for travel brands: search, social, landing pages and email nurture that capture qualified travellers and turn them into bookings.",
       },

@@ -1,66 +1,26 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import { SectionDescription, SectionTitle } from "@/components/typography";
-import { getPartnerName } from "@/components/sections/PartnerLogoGrid";
-import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
-import { TelevisionLineup, type TelevisionLineupItem } from "./TelevisionLineup";
 import {
-  TelevisionStoryboard,
-  type TelevisionFrame,
-  type TelevisionProductionStep,
-} from "./TelevisionStoryboard";
+  TV_BENEFITS,
+  TV_CAPABILITIES,
+  TV_HERO,
+  TV_NETWORKS,
+  TV_START,
+  TV_WORK,
+} from "@/content/television-page";
+import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
+import { TelevisionJourney } from "./TelevisionJourney";
+import { TelevisionModes } from "./TelevisionModes";
+import { TelevisionReach } from "./TelevisionReach";
 import styles from "./TelevisionAdvertisingPage.module.css";
 
 type TelevisionAdvertisingPageProps = {
   content: ServicePageContent;
-  /** Creative & Production page, the published source for production-step copy. */
-  creative?: ServicePageContent | null;
 };
-
-const PRODUCTION_STEPS = ["Concept development", "Scriptwriting", "Full production", "Post-production"];
-
-const COMMERCIAL_FRAMES: TelevisionFrame[] = [
-  { src: "/images/television/spot-interface.png", alt: "Television commercial" },
-  { src: "/images/television/spot-scene.png", alt: "Television commercial" },
-  { src: "/images/television/spot-title.png", alt: "Television commercial", super: "We run together" },
-  { src: "/images/television/spot-end.png", alt: "Television commercial", super: "It’s Hard To Stop A Trane." },
-];
-
-const PRODUCTION_FOOTAGE: TelevisionFrame[] = [
-  { src: "/images/television/trane-poster.png", alt: "Trane unit under stage lighting, from the Trane television commercial" },
-  { src: "/images/television/spot-interface.png", alt: "Hand on a touchscreen control, from the Trane television commercial" },
-  { src: "/images/television/spot-scene.png", alt: "Overhead live-action shot from the Trane television commercial" },
-];
-
-/** How one commercial travels, told as a sequence so it does not repeat the services above. */
-const CAMPAIGN_ARC = [
-  { label: "Produce", title: "One commercial", body: "Concept, script, shoot and edit, handled by our in-house team." },
-  { label: "Broadcast", title: "On air", body: "Cut to length and scheduled where the audience is already watching." },
-  { label: "Streaming", title: "On every screen", body: "The same spot follows viewers onto smart TVs and streaming apps." },
-  { label: "Amplify", title: "Beyond TV", body: "Digital and out-of-home carry the message, so every channel backs up the spot." },
-];
-
-function sentenceCase(value: string) {
-  const acronyms = new Set(["TV", "CTV", "OTT", "SEO", "ROI", "PPC", "CTA", "AI", "GRP", "GRPs"]);
-  return value.trim().replace(/[A-Za-z][A-Za-z'’]*/g, (word, offset, full) => {
-    const possessive = word.match(/^canada(['’]s)?$/i);
-    if (possessive) return `Canada${possessive[1] ?? ""}`;
-    const upper = word.toUpperCase();
-    if (acronyms.has(upper)) return upper;
-    const before = full.slice(0, offset);
-    const isStart = !before.trim() || /[.!?]\s*$/.test(before);
-    if (isStart) return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-    return word.toLowerCase();
-  });
-}
-
-function sentenceCta(cta: { label: string; href: string } | null | undefined) {
-  if (!cta) return null;
-  return { ...cta, label: sentenceCase(cta.label) };
-}
 
 function ArrowIcon() {
   return (
@@ -77,162 +37,111 @@ function ArrowIcon() {
   );
 }
 
-export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdvertisingPageProps) {
-  const cards = content.offerGroups.flatMap((group) => group.cards);
-  const linearCard = cards.find((card) => /linear/i.test(card.title));
-  const connectedCard = cards.find((card) => /connected|streaming/i.test(card.title));
-  const buyingCard = cards.find((card) => /buying|negotiation/i.test(card.title));
-  const performanceCard = cards.find((card) => /performance|tracking|analytic/i.test(card.title));
+export function TelevisionAdvertisingPage({ content }: TelevisionAdvertisingPageProps) {
+  const video =
+    content.hero.slides.find((slide) => slide.kind === "video" && /trane-web/i.test(slide.src)) ||
+    content.hero.slides.find((slide) => slide.kind === "video");
 
-  const reach = content.features.find((feature) => /audience|linear/i.test(`${feature.title} ${feature.eyebrow || ""}`));
-  const mix = content.features.find((feature) => /media mix/i.test(feature.title));
-  const targeting = content.features.find((feature) => /creative|audience/i.test(feature.title) && feature !== reach);
+  const heroSlides =
+    content.hero.slides.length > 0
+      ? content.hero.slides
+      : [{ src: "/images/television/service-broadcast.jpg", alt: "Television advertising" }];
 
-  const networks = content.faqs?.items.find((item) => /networks and platforms/i.test(item.question));
-  const production = content.faqs?.items.find((item) => /creative|commercial/i.test(item.question));
-  const creativeProcess = creative?.processSection?.steps ?? [];
-  const creativeBullets = creative?.features.flatMap((feature) => feature.bullets ?? []) ?? [];
-  const creativeCards = creative?.offerGroups.flatMap((group) => group.cards) ?? [];
-  const processBody = (pattern: RegExp) => creativeProcess.find((step) => pattern.test(step.title))?.body;
-  const creativeBullet = (pattern: RegExp) => creativeBullets.find((bullet) => pattern.test(bullet));
-  const placement = reach?.bullets?.find((bullet) => /placement|broadcast network/i.test(bullet));
-  const networkList = networks?.answer.match(/including (.+?), as well as U\.S\. networks like (.+?)\./i);
-  const splitNetworks = (value?: string) =>
-    value
-      ?.split(/,\s*(?:and\s+)?|\s+and\s+/)
-      .map((name) => name.trim())
-      .filter(Boolean) ?? [];
-
-  const STEP_COPY: Record<string, Omit<TelevisionProductionStep, "id" | "label" | "title">> = {
-    "Concept development": {
-      body: processBody(/discovery|strategy/i),
-      detail: creativeBullet(/pre-production planning/i),
-      visual: "storyboard",
-    },
-    Scriptwriting: {
-      body: processBody(/concept|pre-production/i),
-      visual: "script",
-    },
-    "Full production": {
-      body: processBody(/production\s*&\s*creation|^production/i),
-      detail: creativeBullet(/cinematography/i),
-      visual: "footage",
-    },
-    "Post-production": {
-      body: creativeBullet(/post-production editing/i),
-      detail: creativeCards.find((card) => /audio/i.test(card.title))?.body,
-      visual: "edit",
-    },
+  const hero = {
+    ...content.hero,
+    slides: heroSlides,
+    eyebrow: undefined,
+    displayTitle: TV_HERO.displayTitle,
+    titleSecondary: TV_HERO.titleSecondary,
+    subtitle: TV_HERO.subtitle,
+    cta: TV_HERO.cta,
+    secondaryCta: TV_HERO.secondaryCta,
   };
-
-  const storySteps: TelevisionProductionStep[] = PRODUCTION_STEPS.filter((step) =>
-    production?.answer.toLowerCase().includes(step.toLowerCase()),
-  ).map((step) => ({ id: step.toLowerCase().replace(/[^a-z]+/g, "-"), label: step, title: step, ...STEP_COPY[step] }));
-  if (placement) {
-    storySteps.push({
-      id: "placement",
-      label: "Broadcast placement",
-      title: placement,
-      body: linearCard?.body,
-      detail: networks?.answer.match(/\.\s+([A-Z][^.]*\.)\s*$/)?.[1],
-      visual: "networks",
-    });
-  }
-  const networkGroups = networkList
-    ? [
-        { label: "Canada", names: splitNetworks(networkList[1]) },
-        { label: "United States", names: splitNetworks(networkList[2]) },
-      ]
-    : [];
-  const productionTitle =
-    reach?.bullets?.find((bullet) => /commercial production/i.test(bullet)) || production?.question;
-
-  const video = content.hero.slides.find((slide) => slide.kind === "video" && /trane-web/i.test(slide.src))
-    || content.hero.slides.find((slide) => slide.kind === "video");
-
-  // Second sentences come from the page's own FAQ answers where one exists
-  const faqSentence = (question: RegExp, sentence: RegExp) =>
-    content.faqs?.items
-      .find((item) => question.test(item.question))
-      ?.answer.replace(/<[^>]+>/g, "")
-      .match(sentence)?.[0]
-      ?.trim();
-  const networkSentence = faqSentence(/networks and platforms/i, /We have direct relationships[\s\S]*?\.(?=\s+[A-Z]|\s*$)/);
-  const measureSentence = faqSentence(/measure/i, /We use a combination of[^.]*\./i);
-  const flightSentence = faqSentence(/minimum commitment/i, /We recommend[^.]*\./i);
-
-  const lineup: TelevisionLineupItem[] = [];
-  if (linearCard) {
-    lineup.push({
-      id: "linear",
-      label: linearCard.title,
-      tagline: "Local spots to national network buys",
-      summary: linearCard.body || "",
-      detail: networkSentence,
-      cta: null,
-      visual: "broadcast",
-    });
-  }
-  if (connectedCard || mix) {
-    lineup.push({
-      id: "connected",
-      label: connectedCard?.title || "Connected TV",
-      tagline: "Smart TVs, streaming apps and OTT",
-      summary: connectedCard?.body || mix?.body || "",
-      detail: "Your commercial runs in streaming ad breaks, reaching the viewers who no longer watch scheduled TV.",
-      cta: sentenceCta(mix?.cta),
-      visual: "streaming",
-    });
-  }
-  if (buyingCard || targeting) {
-    lineup.push({
-      id: "buying",
-      label: buyingCard?.title || "Media buying",
-      tagline: "Networks, markets and audiences in one buy",
-      summary: buyingCard?.body || targeting?.body || "",
-      detail: ["Placements are planned together and bought as one schedule.", flightSentence].filter(Boolean).join(" "),
-      cta: sentenceCta(targeting?.cta),
-      visual: "plan",
-    });
-  }
-  if (performanceCard) {
-    lineup.push({
-      id: "performance",
-      label: performanceCard.title,
-      tagline: "Reporting tied to your business objectives",
-      summary: performanceCard.body || "",
-      detail: measureSentence,
-      cta: null,
-      visual: "report",
-    });
-  }
 
   return (
     <main className={styles.page}>
-      <ServiceHero title={content.title} hero={content.hero} />
+      <ServiceHero title={content.title} hero={hero} cinematic />
 
-      {content.intro && lineup.length > 0 ? (
-        <TelevisionLineup
-          eyebrow={content.intro.eyebrow}
-          title={content.intro.title}
-          lead={content.intro.body}
-          items={lineup}
-        />
-      ) : null}
+      <section className={styles.capabilities} aria-labelledby="tv-capabilities">
+        <div className={`container ${styles.capabilitiesInner}`}>
+          <header className={styles.sectionIntro}>
+            <h2 id="tv-capabilities" className={styles.sectionTitle}>
+              {TV_CAPABILITIES.title}
+            </h2>
+            <p className={styles.sectionLead}>{TV_CAPABILITIES.lead}</p>
+          </header>
 
-      {reach && video ? (
-        <section className={`section ${styles.reel}`} aria-labelledby="tv-reach">
-          <div className="container">
-            <header className={styles.reelIntro}>
-              <p className={styles.reelKicker}>Our work on screen</p>
-              <h2 id="tv-reach" className={styles.reelTitle}>
-                Big-screen reach, planned as one campaign.
-              </h2>
-              <p className={styles.reelBody}>
-                One example from Kosick’s television and production work. The same approach carries any brand, in
-                any industry, from a single commercial to every screen its audience watches.
-              </p>
-            </header>
+          {/* Three image-led cards; the middle one sits lower for an editorial rhythm */}
+          <ul className={styles.capabilityList}>
+            {TV_CAPABILITIES.items.map((item, index) => (
+              <Reveal key={item.id} as="li" delay={index * 90} className={styles.capability}>
+                <figure className={styles.capabilityMedia}>
+                  <Image
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    fill
+                    sizes="(max-width: 639px) 100vw, (max-width: 1099px) 50vw, 32vw"
+                    style={{ objectFit: "cover", objectPosition: item.image.position }}
+                  />
+                </figure>
+                <h3 className={styles.capabilityTitle}>{item.title}</h3>
+                <p className={styles.capabilityBody}>{item.body}</p>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <TelevisionModes />
+
+      <TelevisionReach />
+
+      <section className={styles.benefits} aria-labelledby="tv-benefits">
+        <div className={`container ${styles.benefitsInner}`}>
+          <h2 id="tv-benefits" className={styles.sectionTitle}>
+            {TV_BENEFITS.title}
+          </h2>
+          <div className={styles.benefitGrid}>
+            {TV_BENEFITS.items.map((item, index) => (
+              <article
+                key={item.id}
+                className={styles.benefit}
+                data-layout={index % 2 === 0 ? "image-left" : "image-right"}
+              >
+                <div className={styles.benefitMedia}>
+                  <Image
+                    src={item.image.src}
+                    alt={item.image.alt}
+                    fill
+                    sizes="(max-width: 899px) 100vw, 48vw"
+                    className={styles.benefitImage}
+                  />
+                </div>
+                <div className={styles.benefitCopy}>
+                  <p className={styles.benefitIndex} aria-hidden="true">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <h3 className={styles.benefitTitle}>{item.title}</h3>
+                  <p className={styles.benefitBody}>{item.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <TelevisionJourney />
+
+      <section className={styles.work} aria-labelledby="tv-work">
+        <div className="container">
+          <header className={styles.sectionIntro}>
+            <h2 id="tv-work" className={styles.workTitle}>
+              {TV_WORK.title}
+            </h2>
+            <p className={styles.workLead}>{TV_WORK.lead}</p>
+          </header>
+
+          {video ? (
             <Reveal variant="fade">
               <figure className={styles.screen}>
                 <video
@@ -240,88 +149,104 @@ export function TelevisionAdvertisingPage({ content, creative }: TelevisionAdver
                   controls
                   playsInline
                   preload="metadata"
-                  poster="/images/television/trane-poster.png"
+                  poster={TV_WORK.featured.poster}
                   src={video.src}
-                  aria-label="Trane television commercial, an example of Kosick’s work"
+                  aria-label={`${TV_WORK.featured.client} television commercial, an example of Kosick’s work`}
                 />
                 <figcaption className={styles.screenCaption}>
-                  <span className={styles.screenClient}>Trane · “It’s Hard To Stop A Trane.”</span>
-                  <span>Television commercial · Example of our work</span>
+                  <span className={styles.screenClient}>
+                    {TV_WORK.featured.client} · “{TV_WORK.featured.line}”
+                  </span>
+                  <span>{TV_WORK.featured.caption}</span>
                 </figcaption>
               </figure>
             </Reveal>
-            <div className={styles.arc}>
-              <h3 className={styles.arcHeading}>How one spot becomes a campaign</h3>
-              <ol className={styles.arcSteps}>
-                {CAMPAIGN_ARC.map((step, index) => (
-                  <li key={step.label} className={styles.arcStep}>
-                    <Reveal delay={index * 90}>
-                      <p className={styles.arcLabel}>
-                        <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                        {step.label}
-                      </p>
-                      <p className={styles.arcTitle}>{step.title}</p>
-                      <p className={styles.arcBody}>{step.body}</p>
-                    </Reveal>
-                  </li>
-                ))}
-              </ol>
-            </div>
-            <Link className={styles.light} href={reach.cta?.href || "/contact/"}>
-              Plan a television campaign
-              <ArrowIcon />
-            </Link>
-          </div>
-        </section>
-      ) : null}
+          ) : null}
 
+          <ul className={styles.frames}>
+            {TV_WORK.featured.frames.map((frame) => (
+              <li key={frame.src} className={styles.frame}>
+                <Image
+                  src={frame.src}
+                  alt={frame.alt}
+                  width={640}
+                  height={360}
+                  sizes="(max-width: 639px) 50vw, 25vw"
+                  className={styles.frameImage}
+                />
+                {frame.super ? <span className={styles.frameSuper}>{frame.super}</span> : null}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
 
       {content.partnerLogos && content.partnerLogos.logos.length > 0 ? (
-        <section className={`section ${styles.networks}`} aria-labelledby="tv-networks">
+        <section className={styles.networks} aria-labelledby="tv-networks">
           <div className="container">
-            {content.partnerLogos.title ? (
-              <SectionTitle id="tv-networks">{content.partnerLogos.title}</SectionTitle>
-            ) : null}
-            {content.partnerLogos.description || networks?.answer ? (
-              <SectionDescription className={styles.networksLead}>
-                {content.partnerLogos.description || networks?.answer}
-              </SectionDescription>
-            ) : null}
+            <header className={styles.sectionIntro}>
+              <h2 id="tv-networks" className={styles.sectionTitle}>
+                {content.partnerLogos.title || "Networks and platforms"}
+              </h2>
+              {content.partnerLogos.description ? (
+                <p className={styles.sectionLead}>{content.partnerLogos.description}</p>
+              ) : (
+                <p className={styles.sectionLead}>
+                  Direct relationships across major Canadian and U.S. networks, plus Connected TV and
+                  streaming environments — planned as part of the same campaign.
+                </p>
+              )}
+            </header>
+            {/* The same logo files with their white backgrounds removed, each balanced to one visual size */}
             <ul className={styles.brandWall}>
-              {content.partnerLogos.logos.map((logo, index) => {
-                const name = getPartnerName(logo, index);
-                return (
-                  <li key={`${logo.src}-${index}`} className={styles.brandTile}>
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={logo.src} alt={name} />
-                  </li>
-                );
-              })}
+              {TV_NETWORKS.map((logo, index) => (
+                <Reveal key={logo.name} as="li" variant="fade" delay={(index % 5) * 50} className={styles.brandTile}>
+                  <Image src={logo.src} alt={logo.name} width={480} height={240} sizes="(max-width: 639px) 45vw, (max-width: 1099px) 22vw, 220px" />
+                </Reveal>
+              ))}
             </ul>
           </div>
         </section>
       ) : null}
 
-      {productionTitle && storySteps.length > 1 ? (
-        <TelevisionStoryboard
-          title={sentenceCase(productionTitle)}
-          body={production?.answer.replace(/^Absolutely\.\s*/i, "")}
-          steps={storySteps}
-          frames={COMMERCIAL_FRAMES}
-          footage={PRODUCTION_FOOTAGE}
-          networks={networkGroups}
-        />
-      ) : null}
+      <section className={styles.start} aria-labelledby="tv-start">
+        <div className={`container ${styles.startInner}`}>
+          <div className={styles.startCopy}>
+            <h2 id="tv-start" className={styles.sectionTitle}>
+              {TV_START.title}
+            </h2>
+            <p className={styles.sectionLead}>{TV_START.lead}</p>
+            <Link className={styles.solid} href={TV_START.cta.href}>
+              {TV_START.cta.label}
+              <ArrowIcon />
+            </Link>
+          </div>
+          <ol className={styles.startSteps}>
+            {TV_START.steps.map((step, index) => (
+              <li key={step.title} className={styles.startStep}>
+                <p className={styles.startIndex} aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h3 className={styles.startTitle}>{step.title}</h3>
+                <p className={styles.startBody}>{step.body}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
       {content.faqs && content.faqs.items.length > 0 ? (
-        <FaqAccordion
-          eyebrow={content.faqs.eyebrow}
-          title={content.faqs.title}
-          items={content.faqs.items}
-        />
+        <FaqAccordion eyebrow="" title={content.faqs.title} items={content.faqs.items} />
       ) : null}
 
-      {content.cta ? <PageCta cta={content.cta} /> : null}
+      {content.cta ? (
+        <PageCta
+          cta={{
+            ...content.cta,
+            primary: { label: TV_START.cta.label, href: TV_START.cta.href },
+          }}
+        />
+      ) : null}
     </main>
   );
 }

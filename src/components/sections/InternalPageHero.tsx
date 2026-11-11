@@ -1,3 +1,4 @@
+import { heroVideoPoster } from "@/lib/media/video-posters";
 import {
   HeroBanner,
   type HeroBannerSlide,
@@ -56,21 +57,28 @@ export function InternalPageHero({
         ? [{ src: backgroundImage, alt: heading }]
         : [];
 
+  const first = media[0];
+  const poster = first?.kind === "video" ? heroVideoPoster(first.src) : undefined;
+
   return (
-    <HeroBanner
-      variant="service"
-      plain={plain || media.length === 0}
-      compact={compact}
-      cinematic={cinematic}
-      slides={media}
-      title={titlePrimary}
-      titleSecondary={titleSecondary}
-      eyebrow={eyebrow}
-      subtitle={description}
-      cta={primaryCTA}
-      secondaryCta={secondaryCTA}
-      backgroundPosition={backgroundPosition}
-      backgroundPositionMobile={backgroundPositionMobile}
-    />
+    <>
+      {/* The opening video's poster is the hero's first paint: React hoists this into <head> */}
+      {poster ? <link rel="preload" as="image" href={poster} fetchPriority="high" /> : null}
+      <HeroBanner
+        variant="service"
+        plain={plain || media.length === 0}
+        compact={compact}
+        cinematic={cinematic}
+        slides={media}
+        title={titlePrimary}
+        titleSecondary={titleSecondary}
+        eyebrow={eyebrow}
+        subtitle={description}
+        cta={primaryCTA}
+        secondaryCta={secondaryCTA}
+        backgroundPosition={backgroundPosition}
+        backgroundPositionMobile={backgroundPositionMobile}
+      />
+    </>
   );
 }

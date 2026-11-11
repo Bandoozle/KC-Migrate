@@ -4,6 +4,7 @@ import { HomeBento } from "./HomeBento";
 import { HomeBrandTabs } from "./HomeBrandTabs";
 import { HomeContact } from "./HomeContact";
 import { HomeHero } from "./HomeHero";
+import { HomeInstagram } from "./HomeInstagram";
 import { HomeIntro } from "./HomeIntro";
 import { HomePartners } from "./HomePartners";
 import { HomeQuote } from "./HomeQuote";
@@ -42,6 +43,9 @@ export function HomePageView({ content }: HomePageViewProps) {
       </Reveal>
       <Reveal variant="fade">
         <HomeQuote content={content.quote} />
+      </Reveal>
+      <Reveal variant="fadeUp">
+        <HomeInstagram />
       </Reveal>
       <Reveal variant="fadeUp">
         <HomeContact content={content.contact} />

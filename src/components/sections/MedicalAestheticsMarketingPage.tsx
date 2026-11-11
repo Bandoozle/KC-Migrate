@@ -10,6 +10,7 @@ import { AestheticsJourney } from "@/components/industry/journeys/AestheticsJour
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { getIndustry, servicePath, type Industry, type IndustryLanding } from "@/lib/industries";
+import { ORGANIZATION_REF } from "@/lib/seo/organization";
 import { canonicalUrl } from "@/lib/site";
 import "@/styles/industry-themes.css";
 import styles from "./MedicalAestheticsMarketingPage.module.css";
@@ -75,7 +76,7 @@ function ArrowIcon() {
 
 function landingJsonLd(industry: Industry & { landing: IndustryLanding }) {
   const url = canonicalUrl(industry.path);
-  const organization = { "@type": "Organization", name: "Kosick Communications", url: canonicalUrl("/") };
+  const organization = ORGANIZATION_REF;
   return {
     "@context": "https://schema.org",
     "@graph": [

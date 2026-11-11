@@ -7,10 +7,10 @@ Moving www.kosick.com from WordPress to the Next.js site on Vercel. Recorded 3 N
 | Item | Value |
 | --- | --- |
 | Production URL | https://kc-migrate.vercel.app |
-| Production deployment | `dpl_9nbMpbU44LGNNtp55pUScdxqRPxg`, commit `91b093d` on `main` (later commits that only change this runbook don't change the site) |
-| Vercel project | `kc-migrate` in team `bandoozles-projects` (Hobby plan, see §2) |
-| Production branch | `main`. The release branch `release/vercel-preview-2026-10-22` is identical. |
-| Custom domains on the project | None. `kosick.com` is registered in the Vercel team but not attached. |
+| Production deployment | Commit `a352ffa` on `main`, deployed 10 Nov 2026 (checked 10 Nov). The SEO and homepage work is uncommitted and goes out with the next push to `main` |
+| Vercel project | `kc-migrate` (`prj_NsZJVUibPcA5Kgq6rfpay8Nz74rA`) in team **Kosick Communications Ltd** (`kosick-communications-ltd`, Pro plan), linked to GitHub `Bandoozle/KC-Migrate` |
+| Production branch | `main`: every push to `main` deploys to Production. Deployment Protection is "all except custom domains", so `*.vercel.app` URLs need a Vercel login |
+| Custom domains on the project | None (only `kc-migrate.vercel.app`). `kosick.com` is registered in the personal team `bandoozles-projects`, not in the Kosick team, so Vercel may ask for a `_vercel` TXT ownership record when the domains are added (§4) |
 | AI chat | Next.js `/api/chat*` relays to the AI Chat Assistant plugin on `https://staging.kosick.com` |
 | Forms | Supabase storage plus Resend email (`FORMS_EMAIL` live, WordPress relay off), retried by Supabase pg_cron |
 | Analytics | GTM `GTM-K4QK6SP` and GA4 `G-XPYR1CEF3E`. These load only on `kosick.com` and `www.kosick.com`, so they start at cutover. |
@@ -114,6 +114,7 @@ Allow about 30 minutes. Do it outside business hours if possible.
    1. Add `www.kosick.com` and connect it to **Production**.
    2. Add `kosick.com` and set it to **Redirect to `www.kosick.com`** with **308 Permanent**.
    3. Both show "Invalid Configuration" until step 2. That's expected.
+   4. If Vercel shows "Verification Needed" (the domain is registered in another team), add the exact `_vercel` TXT record it displays in Cloudflare (DNS only), or first move the domain: `vercel domains move kosick.com kosick-communications-ltd --scope bandoozles-projects`.
 2. **Cloudflare → kosick.com → DNS → Records** (change only these two names):
 
    | Action | Type | Name | Content | Proxy status | TTL |
@@ -133,7 +134,7 @@ curl -sI http://kosick.com/          | grep -iE "^(HTTP|location)"   # 301/308 -
 curl -sI https://kosick.com/         | grep -iE "^(HTTP|location)"   # 308 -> https://www.kosick.com/
 curl -sI https://www.kosick.com/     | grep -iE "^(HTTP|server)"     # 200, server: Vercel
 curl -s  https://www.kosick.com/robots.txt                           # Allow: / and Sitemap: https://www.kosick.com/sitemap_index.xml
-curl -s  https://www.kosick.com/sitemap.xml | grep -c "<loc>"        # 102
+curl -s  https://www.kosick.com/sitemap.xml | grep -c "<loc>"        # 105
 curl -sI https://www.kosick.com/blog/ | grep -iE "^(HTTP|location)"  # 308 -> /feature-articles/
 curl -sI https://staging.kosick.com/ | grep -i x-robots              # noindex, nofollow
 ```

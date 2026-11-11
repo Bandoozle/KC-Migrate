@@ -14,6 +14,7 @@ function pageMetadata(path: string, seo: { title: string; description: string },
     openGraph: {
       type: "website",
       siteName: "Kosick Communications",
+      locale: "en_US",
       title: seo.title,
       description: seo.description,
       url,

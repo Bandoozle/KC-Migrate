@@ -178,6 +178,9 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
       <ServiceHero title={content.title} hero={{ ...hero, subtitle: HERO_LEAD }} />
       <HvacJourney />
 
+      {/* What we offer: one linked card per HVAC service page */}
+      <IndustryOffers industry={getIndustry("hvac")} headingId="hv-services" />
+
       {/* Intro: headline, CTA and figures beside one large photo carrying a figure chip */}
       <section className={styles.intro} aria-labelledby="hv-intro">
         <div className="container">
@@ -233,9 +236,6 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
           </div>
         </div>
       </section>
-
-      {/* What we offer: one linked card per HVAC service page */}
-      <IndustryOffers industry={getIndustry("hvac")} headingId="hv-services" />
 
 
       {/* Process: four bordered steps that draw in turn, as on the dental journey */}

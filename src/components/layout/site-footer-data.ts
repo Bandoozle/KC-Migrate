@@ -20,6 +20,12 @@ export const SITE_FOOTER_BRAND = {
   name: "Kosick",
   blurb:
     "Full-service marketing agency transforming brands through strategic creativity.",
+  partner: {
+    src: "/images/partners/google-partner.png",
+    alt: "Google Partner",
+    width: 160,
+    height: 80,
+  },
 } as const;
 
 /** Matches Kadence element 11279 social block. */

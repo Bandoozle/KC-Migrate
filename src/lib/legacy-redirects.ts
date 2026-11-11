@@ -74,11 +74,6 @@ export const LEGACY_REDIRECTS = [
     destination: "/services/hvac-marketing/",
     statusCode: 301,
   },
-  {
-    source: "/services/outdoor-advertising/billboard-dimensions",
-    destination: "/services/outdoor-advertising/",
-    statusCode: 301,
-  },
   // HVAC services reorganized (Nov 2026): the old subpages' content now lives on these
   {
     source: "/services/hvac-marketing/digital-marketing",
@@ -97,6 +92,11 @@ export const LEGACY_REDIRECTS = [
   },
   {
     source: "/post-sitemap.xml",
+    destination: "/sitemap.xml",
+  },
+  // Rank Math's local SEO sitemap (it listed only /locations.kml, which still answers 200)
+  {
+    source: "/local-sitemap.xml",
     destination: "/sitemap.xml",
   },
 ] as const;

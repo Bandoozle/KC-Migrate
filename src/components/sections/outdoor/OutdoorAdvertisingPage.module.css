@@ -319,6 +319,19 @@
   border-left: 0;
 }
 
+.bleedActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.bleedActions .solid,
+.bleedActions .textLink {
+  margin-top: 0;
+}
+
 /* Superboard: charcoal */
 
 .superboard {
@@ -445,6 +458,31 @@
   color: #ffffff;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.page a.scaleCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  margin-top: 1.35rem;
+  padding: 0.75rem 1.35rem;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--kosick-radius-pill);
+  background: #ffffff;
+  color: #111111;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease;
+}
+
+.page a.scaleCta:hover {
+  border-color: #ffffff;
+  background: #f4f4f4;
 }
 
 /* Campaign spread: white */

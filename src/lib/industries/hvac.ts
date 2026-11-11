@@ -113,9 +113,9 @@ export const HVAC: Industry = {
       title: "Digital Advertising",
       summary: "Google Ads, Local Service Ads and paid social, targeted to homeowners in your service area and built to generate HVAC leads.",
       seo: {
-        title: "HVAC Digital Advertising: Google Ads & Lead Generation | Kosick Communications",
+        title: "HVAC Google Ads & Digital Advertising | Kosick Communications",
         description:
-          "Google Ads, Local Service Ads, paid social and audience targeting for HVAC dealers. Kosick builds digital advertising that turns homeowner searches into calls and service enquiries.",
+          "Google Ads, Local Service Ads and paid social for HVAC dealers. Kosick builds digital advertising that turns homeowner searches into calls and service enquiries.",
       },
       hero: {
         label: "HVAC digital advertising & lead generation",
@@ -199,7 +199,7 @@ export const HVAC: Industry = {
       seo: {
         title: "HVAC Television & Streaming Advertising | Kosick Communications",
         description:
-          "Television, connected TV and streaming commercials for HVAC dealers. Kosick produces your spots and plans and buys the media, so homeowners know your company before they need a new system.",
+          "TV, connected TV and streaming commercials for HVAC dealers. Kosick produces the spots and buys the media, so homeowners know you before they need a new system.",
       },
       hero: {
         label: "HVAC television & streaming advertising",
@@ -283,7 +283,7 @@ export const HVAC: Industry = {
       seo: {
         title: "HVAC Billboard & Outdoor Advertising | Kosick Communications",
         description:
-          "Billboard and outdoor advertising for HVAC dealers. Kosick plans placements across your service area, designs brand-consistent creative and helps fund the media with manufacturer co-op programs.",
+          "Billboard and outdoor advertising for HVAC dealers: placements across your service area, brand-consistent creative and media funded by manufacturer co-op programs.",
       },
       hero: {
         label: "HVAC outdoor advertising & billboards",
@@ -364,7 +364,7 @@ export const HVAC: Industry = {
       title: "HVAC Growth Solutions",
       summary: "Manufacturer co-op programs, dealer growth strategy, business development and incentive travel for long-term growth.",
       seo: {
-        title: "HVAC Growth Solutions: Co-op, Strategy & Incentive Travel | Kosick Communications",
+        title: "HVAC Business Growth & Co-op Programs | Kosick Communications",
         description:
           "Co-op funding, incentive travel programs and business growth strategy for HVAC dealers and manufacturers, from Kosick Communications.",
       },

@@ -1,10 +1,57 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { usePageLoaded } from "@/components/media/use-page-loaded";
 import { Reveal } from "@/components/motion/Reveal";
 import { eyebrowLabel } from "@/lib/eyebrow";
+import { heroVideoPoster } from "@/lib/media/video-posters";
 import styles from "./HeroBanner.module.css";
+
+type HeroSlideVideoProps = {
+  className: string;
+  src: string;
+  active: boolean;
+  pageLoaded: boolean;
+};
+
+/**
+ * Background slide video. Its first-frame poster paints straight away (the
+ * opening slide's poster is preloaded by InternalPageHero); the video downloads
+ * once the page has loaded and plays only while its slide is showing.
+ */
+function HeroSlideVideo({ className, src, active, pageLoaded }: HeroSlideVideoProps) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const poster = heroVideoPoster(src);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    if (active && pageLoaded) {
+      video.muted = true;
+      video.preload = "auto";
+      video.play().catch(() => {
+        /* Autoplay refused: the poster stays in place */
+      });
+    } else {
+      video.pause();
+    }
+  }, [active, pageLoaded]);
+
+  return (
+    <video
+      ref={ref}
+      className={className}
+      src={src}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      preload="none"
+      tabIndex={-1}
+    />
+  );
+}
 
 export type HeroBannerSlide = {
   src: string;
@@ -72,6 +119,7 @@ export function HeroBanner({
     kind: slide.kind ?? "image",
   }));
   const [active, setActive] = useState(0);
+  const pageLoaded = usePageLoaded();
 
   useEffect(() => {
     if (items.length < 2) return;
@@ -113,14 +161,11 @@ export function HeroBanner({
               aria-hidden={index !== active}
             >
               {slide.kind === "video" ? (
-                <video
+                <HeroSlideVideo
                   className={styles.image}
                   src={slide.src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload={index === active ? "auto" : "metadata"}
+                  active={index === active}
+                  pageLoaded={pageLoaded}
                 />
               ) : (
                 // eslint-disable-next-line @next/next/no-img-element
@@ -149,8 +194,12 @@ export function HeroBanner({
           <Reveal variant="fadeUp" delay={eyebrowText ? 80 : 0}>
             <h1 className={styles.title}>
               <span>{title}</span>
+              {/* Grid ignores this space; it keeps the heading text "Strategic HVAC Marketing" */}
               {titleSecondary ? (
-                <span className={styles.titleSecondary}>{titleSecondary}</span>
+                <>
+                  {" "}
+                  <span className={styles.titleSecondary}>{titleSecondary}</span>
+                </>
               ) : null}
             </h1>
           </Reveal>
