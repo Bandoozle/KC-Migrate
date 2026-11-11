@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { OPENING_HOURS_SPECIFICATION } from "@/lib/business-hours";
 import { getLocalArticle } from "@/lib/content/local-articles";
 import snapshot from "@/lib/seo/rank-math-snapshot.json";
-import { canonicalPath, canonicalUrl } from "@/lib/site";
+import { canonicalPath, canonicalUrl, PRODUCTION_SITE_ORIGIN } from "@/lib/site";
 
 export type RankMathSeo = {
   title: string;
@@ -187,5 +187,7 @@ function toIsoDate(value: string | undefined): string | undefined {
 
 /** Indexable canonical URLs from the captured Rank Math sitemap. */
 export async function listIndexableUrls(): Promise<string[]> {
-  return [...seoSnapshot.urls].sort();
+  // Entries added by hand may be bare paths ("/services/…/"); every one becomes its canonical absolute URL
+  const urls = seoSnapshot.urls.map((entry) => canonicalUrl(new URL(entry, PRODUCTION_SITE_ORIGIN).pathname));
+  return [...new Set(urls)].sort();
 }

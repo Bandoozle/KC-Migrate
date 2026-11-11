@@ -1,0 +1,202 @@
+.section {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  padding: var(--tv-section-pad) 0;
+  background: var(--tv-warm);
+  color: #141414;
+}
+
+.intro {
+  margin-bottom: var(--tv-intro-gap);
+}
+
+.title {
+  max-width: var(--tv-title-max);
+  margin: 0;
+  font-size: var(--tv-title-size);
+  font-weight: 600;
+  line-height: var(--tv-title-leading);
+  letter-spacing: var(--tv-title-tracking);
+  text-wrap: pretty;
+}
+
+.lead {
+  max-width: var(--tv-lead-max);
+  margin: var(--tv-title-lead-gap) 0 0;
+  color: rgba(20, 20, 20, 0.72);
+  font-size: var(--tv-lead-size);
+  line-height: var(--tv-lead-leading);
+}
+
+/* The photograph, with the plan card set over its edge */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+}
+
+.photo {
+  position: relative;
+  grid-column: 1 / 9;
+  grid-row: 1;
+  min-height: clamp(520px, 44vw, 640px);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #d9d3c6;
+}
+
+.plan {
+  position: relative;
+  z-index: 1;
+  grid-column: 7 / -1;
+  grid-row: 1;
+  padding: clamp(1.5rem, 2.8vw, 2.25rem);
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 40px 70px -40px rgba(20, 20, 20, 0.45);
+}
+
+.planIntro {
+  margin: 0 0 1.25rem;
+  color: #141414;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+/* Market scope */
+.scopes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 999px;
+  background: var(--tv-warm);
+}
+
+.scope {
+  min-height: 44px;
+  padding: 0 0.75rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: rgba(20, 20, 20, 0.72);
+  font: inherit;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.scope:hover {
+  color: #141414;
+}
+
+.scope[aria-pressed="true"] {
+  background: #141414;
+  color: #ffffff;
+}
+
+.scope:focus-visible {
+  outline: 2px solid var(--tv-accent);
+  outline-offset: 2px;
+}
+
+/* The plan */
+.rows {
+  display: grid;
+  margin: 1.5rem 0 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.4fr);
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid rgba(20, 20, 20, 0.1);
+}
+
+.row:last-child {
+  padding-bottom: 0;
+}
+
+.rowTitle {
+  color: var(--tv-accent);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.rowBody {
+  margin: 0;
+  color: #141414;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.row[data-changes="false"] .rowBody {
+  color: rgba(20, 20, 20, 0.72);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .row[data-changes="true"] .rowBody {
+    animation: settle 0.5s var(--ease) both;
+  }
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scope {
+    transition: none;
+  }
+}
+
+/* Tablets and phones: the photograph above, the plan rising over its lower edge */
+@media (max-width: 899px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .photo {
+    grid-column: 1;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  .plan {
+    grid-column: 1;
+    grid-row: 2;
+    margin: -3.5rem 1rem 0;
+  }
+}
+
+@media (max-width: 639px) {
+  .photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .plan {
+    margin: -2.5rem 0.5rem 0;
+    padding: 1.25rem;
+  }
+
+  .scope {
+    padding: 0 0.4rem;
+    font-size: 0.875rem;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
