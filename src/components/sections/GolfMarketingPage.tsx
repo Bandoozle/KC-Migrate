@@ -16,7 +16,7 @@ const UPLOADS = "/wp-content/uploads";
 
 const IMAGES = {
   teeShot: { src: `${UPLOADS}/2026/06/golf-course-branding-marketing.jpg`, alt: "A golfer lining up an approach shot on a tree-lined fairway" },
-  fairway: { src: `${UPLOADS}/2026/03/golf-course-branding.jpg`, alt: "A golfer walking down a sunlit fairway with his bag" },
+  fairway: { src: `${UPLOADS}/2026/04/canadian-golf-course-marketing.jpg`, alt: "A golfer blasting a shot from a sand bunker on a sunny course" },
   clubhouse: { src: `${UPLOADS}/2026/06/golf-course-marketing-food-beverage.jpg`, alt: "Tacos, salads and a spritz on the Chilliwack Golf Club patio" },
   course: { src: `${UPLOADS}/2026/02/arizona-golf-course-marketing.jpg`, alt: "Aerial view of a desert golf course below a mountain range" },
   green: { src: `${UPLOADS}/2026/06/golf-social-media-marketing.jpg`, alt: "A putting green framed by rhododendrons and tall firs" },
@@ -341,7 +341,7 @@ export function GolfMarketingPage({ content }: GolfMarketingPageProps) {
                 </p>
               </div>
               <Reveal variant="fade" className={styles.broadcastMedia}>
-                <VimeoFeature id={broadcastId} title="the Mount Baker Golf Trail spot" poster="/images/golf-sportsnet-poster.jpg" inline={false} />
+                <VimeoFeature id={broadcastId} title="the Mount Baker Golf Trail spot" poster="/images/golf-sportsnet-poster.jpg" />
               </Reveal>
             </div>
           </div>

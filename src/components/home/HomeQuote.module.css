@@ -1,64 +1,182 @@
+/*
+ * Ferdinand Porsche quote: sharp dusk photography, consistent dark wash,
+ * quote-forward rail — compact portrait flush to the content-rail right edge.
+ */
 .section {
+  --quote-warm: #d4bd8e;
+  --quote-paper: rgba(255, 248, 238, 0.94);
+  --portrait-w: clamp(17.5rem, 20vw, 20rem); /* ~280–320px */
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
   width: 100%;
   margin: 0;
-  padding: 5rem clamp(1.25rem, 3vw, 2.5rem);
-  background: #111111;
+  padding: clamp(2.25rem, 4.5vw, 3.5rem) 0;
   color: #ffffff;
-  text-align: center;
 }
 
-.inner {
-  display: flex;
-  flex-direction: column;
+.backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.backdropImage {
+  object-fit: cover;
+  object-position: 58% 42%;
+}
+
+/* Single, even dark overlay for contrast — keeps the photo readable, not muddy */
+.wash {
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 11, 10, 0.52);
+}
+
+.rail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--portrait-w);
+  gap: clamp(2rem, 3.5vw, 3rem);
   align-items: center;
-  gap: 1.5rem;
   width: var(--kosick-content-rail);
   max-width: var(--kosick-content-rail);
   margin: 0 auto;
+  padding-inline: 0;
 }
 
-.icon {
-  color: #ffffff;
+.copy {
+  position: relative;
+  min-width: 0;
+  /* Fill the left grid track; portrait width + gap set the measure */
+  max-width: none;
+  padding-bottom: 0.15rem;
+}
+
+.mark {
+  margin: 0 0 -0.35rem;
+  color: var(--quote-warm);
+  font-size: clamp(3.5rem, 7vw, 5.5rem);
+  font-weight: 500;
+  line-height: 0.7;
+  letter-spacing: -0.04em;
   opacity: 0.9;
 }
 
 .quote {
   margin: 0;
-  max-width: 48rem;
 }
 
 .quote p {
   margin: 0;
-  font-size: clamp(1.5rem, 3.5vw, 2.75rem);
+  color: var(--quote-paper);
+  font-size: clamp(1.5rem, 3.1vw, 2.5rem);
   font-weight: 600;
   line-height: 1.2;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
+  text-wrap: pretty;
+}
+
+.by {
+  display: grid;
+  gap: 0.2rem;
+  margin: 1.35rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid rgba(212, 189, 142, 0.28);
+  max-width: 24rem;
+}
+
+.name {
   color: #ffffff;
-}
-
-.photo {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-.attribution {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
   font-size: 1.0625rem;
-  line-height: 1.45;
-  color: #ffffff;
-}
-
-.attribution strong {
   font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
 }
 
-.attribution span {
+.role {
+  color: rgba(255, 248, 238, 0.78);
+  font-size: 0.9375rem;
   font-weight: 400;
-  opacity: 0.85;
+  line-height: 1.4;
+}
+
+.portrait {
+  position: relative;
+  margin: 0;
+  width: var(--portrait-w);
+  justify-self: end;
+}
+
+.portraitFrame {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  border-radius: 1px;
+  aspect-ratio: 4 / 5;
+  background: #1c1a18;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.portraitImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 18%;
+}
+
+@media (max-width: 899px) {
+  .section {
+    --portrait-w: clamp(14rem, 28vw, 16.5rem);
+  }
+
+  .rail {
+    gap: 1.75rem;
+  }
+
+  .copy {
+    max-width: none;
+  }
+
+  .quote p {
+    font-size: clamp(1.375rem, 3.6vw, 1.875rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .section {
+    --portrait-w: 11.5rem;
+    padding: 2.25rem 0 2.5rem;
+  }
+
+  .rail {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .mark {
+    font-size: 3rem;
+    margin-bottom: -0.2rem;
+  }
+
+  .quote p {
+    font-size: clamp(1.3125rem, 6vw, 1.625rem);
+    line-height: 1.28;
+  }
+
+  .by {
+    margin-top: 1.1rem;
+    padding-top: 0.85rem;
+    max-width: none;
+  }
+
+  .portrait {
+    justify-self: start;
+  }
+
+  .portraitFrame {
+    aspect-ratio: 3 / 4;
+  }
 }

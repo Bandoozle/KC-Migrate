@@ -34,6 +34,7 @@ export const PUBLIC_PAGE_PATHS = [
   "/services/golf-marketing/",
   "/services/hvac-marketing/",
   "/services/outdoor-advertising/",
+  "/services/outdoor-advertising/billboard-dimensions/",
   "/services/radio-advertising/",
   "/services/search-engine-optimization/",
   "/services/social-media-marketing/",

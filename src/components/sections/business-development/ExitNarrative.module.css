@@ -1,0 +1,183 @@
+.exit {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --accent: var(--bd-exit);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: clamp(640px, 92vh, 860px);
+  display: flex;
+  color: #ffffff;
+  background: var(--bd-exit-ink);
+}
+
+/* The photograph moves a little closer to the horizon with each step */
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  transform: scale(calc(1.02 + var(--stage) * 0.025));
+  transform-origin: 48% 60%;
+  transition: transform 1.6s var(--ease);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14, 10, 6, 0.72) 0%, rgba(14, 10, 6, 0.25) 38%, rgba(14, 10, 6, 0.35) 62%, rgba(14, 10, 6, 0.9) 100%),
+    linear-gradient(90deg, rgba(14, 10, 6, 0.55), transparent 60%);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: clamp(4.5rem, 9vw, 7rem) 0 clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.head {
+  max-width: 46rem;
+}
+
+/* The path along the bottom */
+.path {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.ends {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.track {
+  position: relative;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.trackFill {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stepButton {
+  display: grid;
+  align-content: start;
+  gap: 0.45rem;
+  width: 100%;
+  padding: 0.5rem 0;
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, 0.62);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.35s ease;
+}
+
+.stepButton:hover,
+.step[data-state="active"] .stepButton {
+  color: #ffffff;
+}
+
+.stepButton:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.stepName {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.step[data-state="active"] .stepName {
+  color: var(--accent);
+}
+
+.stepDetail {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 1rem;
+  line-height: 1.45;
+  opacity: 0.55;
+  transition: opacity 0.4s ease;
+}
+
+.step[data-state="active"] .stepDetail {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image,
+  .trackFill,
+  .stepButton,
+  .stepDetail {
+    transition: none;
+  }
+}
+
+/* Tablets and phones: the photograph as a band above, the path as a list beneath */
+@media (max-width: 899px) {
+  .exit {
+    min-height: 0;
+    display: block;
+  }
+
+  .inner {
+    gap: 2.25rem;
+    padding-top: clamp(4rem, 30vw, 14rem);
+  }
+
+  .shade {
+    background:
+      linear-gradient(180deg, rgba(14, 10, 6, 0.15) 0%, rgba(14, 10, 6, 0.6) 40%, var(--bd-exit-ink) 72%);
+  }
+
+  .media {
+    bottom: auto;
+    height: min(90vw, 620px);
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .step {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .stepButton {
+    padding: 0.9rem 0;
+  }
+
+  .track,
+  .ends {
+    display: none;
+  }
+}

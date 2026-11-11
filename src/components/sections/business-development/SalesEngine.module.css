@@ -1,243 +1,273 @@
+/*
+ * Corporate sales as an editorial feature: stage names as a chapter index,
+ * a photograph that shifts with the selection, and the stage written large.
+ * No diagram, no checklist, no enclosing card.
+ */
 .engine {
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  --deep: var(--bd-sales-deep);
+  margin-top: clamp(2.25rem, 4.5vw, 3.5rem);
 }
 
-/* ---------- Five stages on a connected line ---------- */
-.railWrap {
-  position: relative;
+/* Chapter index */
+.index {
+  margin: 0 0 clamp(1.75rem, 3.5vw, 2.75rem);
+  border-bottom: 1px solid rgba(43, 83, 137, 0.18);
 }
 
-.rail {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+.stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-/* From the centre of the first node to the centre of the last */
-.track {
-  position: absolute;
-  top: calc(1.25rem - 1px);
-  right: 10%;
-  left: 10%;
-  height: 2px;
-  background: var(--rule);
-}
-
-.trackFill {
-  display: block;
-  height: 100%;
-  background: var(--ink);
-  transform-origin: left;
-  transition: transform 800ms var(--ease);
-}
-
-.railItem {
+.stage {
   position: relative;
-  min-width: 0;
-}
-
-.node {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+  padding: 0.85rem 1.15rem 0.95rem 0;
+  margin-right: clamp(1rem, 2.4vw, 2rem);
   border: 0;
   background: none;
-  color: var(--kosick-color-muted);
+  color: rgba(17, 17, 17, 0.42);
   font: inherit;
-  cursor: pointer;
-  transition: color 240ms ease;
-}
-
-.dot {
-  display: grid;
-  place-items: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: 1px solid var(--rule-strong);
-  border-radius: 50%;
-  background: var(--stone);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
-  transition:
-    background-color 320ms ease,
-    border-color 320ms ease,
-    color 320ms ease,
-    transform 320ms var(--ease);
-}
-
-.nodeName {
-  font-size: 0.9375rem;
-  font-weight: 600;
+  font-size: clamp(1.0625rem, 1.55vw, 1.3125rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
   line-height: 1.2;
+  cursor: pointer;
+  transition: color 0.35s ease;
 }
 
-.node[data-state="done"] .dot {
-  border-color: var(--ink);
-  color: var(--ink);
+.stage::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 1.15rem;
+  bottom: -1px;
+  height: 2px;
+  background: var(--deep);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
 }
 
-.node[data-state="active"] {
-  color: var(--ink);
+.stage:hover {
+  color: var(--bd-ink);
 }
 
-.node[data-state="active"] .dot {
-  border-color: var(--ink);
-  background: var(--ink);
-  color: #ffffff;
-  transform: scale(1.08);
+.stage[aria-current="step"] {
+  color: var(--bd-ink);
+  font-weight: 600;
 }
 
-.node:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 3px;
+.stage[aria-current="step"]::after {
+  transform: scaleX(1);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .node:hover {
-    color: var(--ink);
-  }
-
-  .node:hover .dot {
-    border-color: var(--ink);
-  }
+.stage:focus-visible {
+  outline: 2px solid var(--bd-ink);
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
-/* ---------- Explanation beside a small framework view ---------- */
-.board {
+/* Photograph + stage copy */
+.spread {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 1.25rem;
-  margin-top: 1.25rem;
-  padding: clamp(1.25rem, 2.5vw, 2rem);
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(1.75rem, 4vw, 3.75rem);
+  align-items: stretch;
+}
+
+.media {
+  position: relative;
+  min-height: clamp(420px, 38vw, 560px);
+  overflow: hidden;
   border-radius: 4px;
-  background: #ffffff;
+  background: #cfd7e2;
+}
+
+.photo {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity 0.7s ease,
+    transform 1.6s var(--ease);
+}
+
+.photo[data-active="true"] {
+  opacity: 1;
+  transform: none;
 }
 
 .panels {
+  position: relative;
   display: grid;
-  min-width: 0;
+  align-content: center;
+  min-height: 100%;
 }
 
 .panel {
   grid-area: 1 / 1;
-  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 0;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(6px);
+  transform: translateY(12px);
   transition:
-    opacity 110ms ease,
-    visibility 0s linear 110ms;
+    opacity 0.4s ease,
+    transform 0.65s var(--ease),
+    visibility 0s linear 0.4s;
 }
 
 .panel[data-active="true"] {
   opacity: 1;
   visibility: visible;
   transform: none;
-  transition:
-    opacity 300ms ease 110ms,
-    transform 420ms var(--ease) 110ms,
-    visibility 0s;
+  transition-delay: 0.06s, 0.06s, 0s;
 }
 
-.panelTitle {
+.mark {
   margin: 0;
-  color: var(--ink);
-  font-size: var(--kosick-subsection-title-size);
+  color: var(--deep);
+  font-size: 0.8125rem;
   font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.panelDetail {
-  margin: 0.35rem 0 0.85rem;
-  color: var(--ink);
-  font-size: var(--kosick-body-size);
-  line-height: 1.5;
+.title {
+  margin: 0.85rem 0 0;
+  color: var(--bd-ink);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.detail {
+  margin: 1.15rem 0 0;
+  max-width: 28rem;
+  color: var(--bd-ink);
+  font-size: clamp(1.1875rem, 1.8vw, 1.375rem);
+  line-height: 1.4;
+  letter-spacing: -0.015em;
 }
 
 .work {
   display: grid;
-  gap: 0.35rem;
+  gap: 0.85rem;
+  margin: 1.75rem 0 0;
+  padding: 1.35rem 0 0;
+  border-top: 1px solid rgba(43, 83, 137, 0.16);
+  max-width: 28rem;
+}
+
+.work p {
   margin: 0;
-  padding: 0.85rem 0 0;
-  border-top: 1px solid var(--rule);
   color: var(--kosick-color-muted);
-  font-size: 0.9375rem;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+.outcome {
+  margin: 1.75rem 0 0;
+  max-width: 28rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid rgba(43, 83, 137, 0.16);
+  color: var(--bd-ink);
+  font-size: 1.0625rem;
+  font-weight: 500;
   line-height: 1.4;
-  list-style: none;
-}
-
-.funnel {
-  display: grid;
-  align-content: center;
-  gap: 0.3rem;
-  min-width: 0;
-}
-
-.bar {
-  display: flex;
-  align-items: center;
-  min-height: 1.9rem;
-  padding-inline: 0.65rem;
-  overflow: hidden;
-  border-radius: 2px;
-  background: #e9e9e6;
-  color: #55534d;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition:
-    background-color 360ms ease,
-    color 360ms ease;
-}
-
-.bar[data-state="done"] {
-  background: #c9c9c5;
-  color: #111111;
-}
-
-.bar[data-state="active"] {
-  background: var(--ink);
-  color: #ffffff;
-}
-
-/* Phones: numbered nodes in one row; the selected stage names itself in the panel */
-@media (max-width: 559px) {
-  .nodeName {
-    display: none;
-  }
-
-  .node {
-    min-height: 44px;
-  }
-}
-
-@media (min-width: 760px) {
-  .board {
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-    column-gap: clamp(2rem, 4vw, 3.5rem);
-  }
+  letter-spacing: -0.01em;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .trackFill,
-  .dot,
-  .panel,
-  .bar,
-  .node {
-    transition: none !important;
+  .stage::after,
+  .photo,
+  .panel {
+    transition: none;
   }
 
-  .panel {
+  .photo {
     transform: none;
+  }
+}
+
+@media (max-width: 899px) {
+  .spread {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .media {
+    min-height: 0;
+    aspect-ratio: 16 / 11;
+  }
+
+  .panels {
+    min-height: 0;
+  }
+
+  .title {
+    font-size: clamp(2.25rem, 9vw, 3rem);
+  }
+}
+
+@media (max-width: 639px) {
+  .index {
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .index::-webkit-scrollbar {
+    display: none;
+  }
+
+  .stages {
+    flex-wrap: nowrap;
+    width: max-content;
+    min-width: 100%;
+  }
+
+  .stage {
+    margin-right: 1.25rem;
+    padding-right: 0;
+    font-size: 1.0625rem;
+    white-space: nowrap;
+  }
+
+  .stage::after {
+    right: 0;
+  }
+
+  .media {
+    aspect-ratio: 4 / 3;
+    border-radius: 2px;
+  }
+
+  .title {
+    font-size: clamp(2.125rem, 11vw, 2.75rem);
+  }
+
+  .detail {
+    font-size: 1.125rem;
+  }
+
+  .work {
+    margin-top: 1.35rem;
+    padding-top: 1.15rem;
+  }
+
+  .outcome {
+    margin-top: 1.35rem;
+    padding-top: 1rem;
   }
 }

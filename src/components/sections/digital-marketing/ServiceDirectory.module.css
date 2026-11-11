@@ -1,0 +1,306 @@
+/*
+ * Digital Marketing service directory — four equal category cards
+ * under a shared masthead. Same content and destinations; clearer containers.
+ */
+
+.section {
+  --dir-navy: #0d1017;
+  --dir-ink: #12141a;
+  --dir-lead: rgba(255, 255, 255, 0.72);
+  --dir-muted: #5c636c;
+  --dir-line: rgba(18, 20, 26, 0.1);
+  --dir-line-soft: rgba(18, 20, 26, 0.08);
+  --dir-signal: #5b63f5;
+  --dir-signal-soft: #a9b0ff;
+  --dir-card: #ffffff;
+  --dir-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --space-2: 0.75rem;
+  --space-3: 1rem;
+  --space-4: 1.25rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --card-pad: 1.35rem;
+  --head-to-list: 1.25rem;
+  --link-pad-y: 0.75rem;
+  --link-min-h: 3.35rem;
+  --card-gap: 1.15rem;
+
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  /* Match Digital Marketing .dark sections */
+  background:
+    radial-gradient(60% 50% at 85% 0%, rgba(91, 99, 245, 0.16), transparent 70%),
+    var(--dir-navy);
+  color: #ffffff;
+  padding: var(--space-7) 0;
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.masthead {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.intro {
+  max-width: 34rem;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-2);
+  color: var(--dir-signal-soft);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+}
+
+.intro :global(.section-title),
+.intro :global(.kosick-section-title) {
+  color: #ffffff;
+}
+
+.lead {
+  margin-top: var(--space-3);
+  color: var(--dir-lead);
+  max-width: 32rem;
+}
+
+.media {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 2px;
+  background: #1a1c22;
+}
+
+.mediaImage {
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  filter: contrast(1.08) saturate(1.05);
+  transition: opacity 0.45s var(--dir-ease);
+}
+
+.mediaImageActive {
+  opacity: 1;
+}
+
+.mediaWash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 70%,
+    rgba(12, 11, 10, 0.2)
+  );
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--card-gap);
+  align-items: stretch;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: var(--head-to-list);
+  min-width: 0;
+  height: 100%;
+  padding: var(--card-pad);
+  border: 1px solid var(--dir-line);
+  border-radius: 4px;
+  background: var(--dir-card);
+  color: var(--dir-ink);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.25s var(--dir-ease);
+}
+
+.card:hover,
+.card:focus-within,
+.cardActive {
+  border-color: rgba(91, 99, 245, 0.45);
+  box-shadow: 0 14px 32px -16px rgba(0, 0, 0, 0.55);
+}
+
+.cardHead {
+  min-height: 2.75rem;
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--dir-line-soft);
+}
+
+.categoryLink {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 100%;
+  color: var(--dir-ink);
+  text-decoration: none;
+}
+
+.categoryTitle {
+  margin: 0;
+  color: var(--dir-ink);
+  font-size: clamp(1.0625rem, 1.3vw, 1.2rem);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  transition: color 0.2s ease;
+}
+
+.card :global(.card-title),
+.card :global(.kosick-card-title) {
+  color: var(--dir-ink);
+}
+
+.card:hover .categoryTitle,
+.card:focus-within .categoryTitle,
+.cardActive .categoryTitle {
+  color: var(--dir-signal);
+}
+
+.categoryArrow {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+  color: var(--dir-signal);
+  opacity: 0;
+  transform: translateX(-0.2rem);
+  transition:
+    opacity 0.2s var(--dir-ease),
+    transform 0.2s var(--dir-ease);
+}
+
+.card:hover .categoryArrow,
+.card:focus-within .categoryArrow,
+.cardActive .categoryArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list li + li {
+  border-top: 1px solid var(--dir-line-soft);
+}
+
+.card a.serviceLink,
+.serviceLink,
+.serviceStatic {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: var(--space-2);
+  min-height: var(--link-min-h);
+  padding: var(--link-pad-y) 0;
+  color: #2a2e36;
+  font-size: 0.975rem;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.serviceStatic {
+  color: var(--dir-muted);
+}
+
+.card a.serviceLink:hover,
+.card a.serviceLink:focus-visible,
+.serviceLink:hover,
+.serviceLink:focus-visible {
+  color: var(--dir-signal);
+}
+
+.serviceArrow {
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-top: 0.12rem;
+  color: var(--dir-signal);
+  opacity: 0;
+  transform: translateX(-0.2rem);
+  transition:
+    opacity 0.2s var(--dir-ease),
+    transform 0.2s var(--dir-ease);
+}
+
+.serviceLink:hover .serviceArrow,
+.serviceLink:focus-visible .serviceArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+@media (hover: none) {
+  .categoryArrow,
+  .serviceArrow {
+    opacity: 0.45;
+    transform: none;
+  }
+}
+
+@media (max-width: 1099px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 899px) {
+  .section {
+    --space-7: 2.25rem;
+  }
+
+  .masthead {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .media {
+    order: -1;
+  }
+
+  .inner {
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 639px) {
+  .section {
+    --space-7: 2rem;
+    --card-pad: 1.2rem;
+    --link-min-h: 3.25rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .cardHead {
+    min-height: 0;
+  }
+
+  .serviceLink,
+  .serviceStatic {
+    font-size: 1.0625rem;
+  }
+}

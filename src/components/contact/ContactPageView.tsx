@@ -9,22 +9,22 @@ import type { HomeTestimonial } from "@/lib/wordpress/home";
 import styles from "./ContactPageView.module.css";
 
 /*
- * Manufacturers named in the published answer to "What national brands have you
- * worked with?" on /services/hvac-marketing/, limited to those with a logo file.
- * Do not add a brand here without a published source for the relationship.
+ * Recognizable brands from campaigns and co-op across industries — past and
+ * present. Mix industries; keep the strip short so marks stay readable.
  */
 const PARTNER_LOGOS = [
-  { name: "Trane", file: "Trane" },
-  { name: "Lennox", file: "Lennox" },
-  { name: "Daikin", file: "Daikin" },
-  { name: "Mitsubishi Electric", file: "Mitsubishi" },
-  { name: "American Standard", file: "American-Standard" },
-  { name: "York", file: "York" },
-  { name: "GE", file: "GE" },
-  { name: "Napoleon", file: "Napoleon" },
-  { name: "Ruud", file: "RUUD" },
-  { name: "Comfortmaker", file: "Comfortmaker" },
-  { name: "RunTru", file: "RunTru" },
+  { name: "Disney", src: "/images/brands/disney.png" },
+  { name: "Hyatt", src: "/images/brands/hyatt.png" },
+  { name: "Audi", src: "/images/brands/audi.png" },
+  { name: "Porsche", src: "/images/brands/porsche.png", mark: "crest" as const },
+  { name: "Princess Cruises", src: "/images/brands/princess-cruises.png" },
+  { name: "Volkswagen", src: "/images/brands/volkswagen.png", mark: "crest" as const },
+  { name: "Expedia", src: "/images/brands/expedia.png" },
+  { name: "RE/MAX", src: "/images/brands/remax.png" },
+  { name: "COBS Bread", src: "/images/brands/cobs-bread.png", mark: "crest" as const },
+  { name: "SkinCeuticals", src: "/images/brands/skinceuticals.png" },
+  { name: "Trane", src: "/wp-content/uploads/2026/07/Trane.png" },
+  { name: "GE", src: "/wp-content/uploads/2026/07/GE.png" },
 ];
 
 type ContactPageViewProps = {
@@ -87,18 +87,22 @@ export function ContactPageView({ content, testimonial }: ContactPageViewProps) 
       <section className={styles.partners} aria-labelledby="contact-partners-title">
         <div className="container">
           <h2 id="contact-partners-title" className={styles.partnersTitle}>
-            National HVAC brands we’ve partnered with over the past 20+ years
+            Experience across brands and industries
           </h2>
+          <p className={styles.partnersNote}>
+            A selection of brands we&rsquo;ve worked with on campaigns and co-op — past and present.
+          </p>
           <ul className={styles.logos}>
             {PARTNER_LOGOS.map((logo) => (
-              <li key={logo.file} className={styles.logo}>
-                <Image
-                  src={`/wp-content/uploads/2026/07/${logo.file}.png`}
-                  alt={logo.name}
-                  width={488}
-                  height={325}
-                  sizes="(max-width: 640px) 25vw, 140px"
-                />
+              <li key={logo.name} className={styles.logo} data-mark={logo.mark}>
+                <span className={styles.logoFrame}>
+                  <Image
+                    src={logo.src}
+                    alt={logo.name}
+                    fill
+                    sizes="(max-width: 640px) 28vw, 120px"
+                  />
+                </span>
               </li>
             ))}
           </ul>

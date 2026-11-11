@@ -9,19 +9,49 @@ import styles from "./HomePartners.module.css";
 import { useSlidingPill } from "@/components/sections/useSlidingPill";
 
 const U = "/wp-content/uploads";
+const B = "/images/brands";
+
+type PartnerLogo = {
+  name: string;
+  src: string;
+  /** Crests fill the cell more than wordmarks; keep visual weight balanced. */
+  mark?: "crest";
+};
+
+type PartnerSubgroup = {
+  id: string;
+  title: string;
+  note: string;
+  logos: PartnerLogo[];
+};
+
+type PartnerGroup =
+  | {
+      id: string;
+      label: string;
+      note: string;
+      kind: "media" | "partner";
+      logos: PartnerLogo[];
+    }
+  | {
+      id: string;
+      label: string;
+      note: string;
+      kind: "brand";
+      subgroups: PartnerSubgroup[];
+    };
 
 /*
- * Only partners the site already names. Networks: "We have direct relationships
- * with major networks including CTV, Global, CBC, Sportsnet, TSN... NBC, CBS,
- * FOX, CNN, and ESPN" (Television FAQ), limited to those with a logo file.
- * Manufacturers: "What national brands have you worked with?" (HVAC FAQ).
+ * Networks: Television FAQ direct-buy list, limited to logos on file.
+ * Brands: campaigns and manufacturer co-op across industries — past and present.
+ * Platforms: published partner-program badges.
  */
-const GROUPS = [
+const GROUPS: PartnerGroup[] = [
   {
     id: "networks",
     label: "Broadcast networks",
     note: "Direct relationships for television and streaming buys.",
-    kind: "media" as const,
+    kind: "media",
     logos: [
       { name: "CTV", src: `${U}/2023/06/Screenshot-2023-06-13-at-8.55.55-AM.png` },
       { name: "Global", src: `${U}/2023/06/Screenshot-2023-06-13-at-8.33.58-AM.png` },
@@ -37,25 +67,52 @@ const GROUPS = [
   {
     id: "brands",
     label: "National brands",
-    note: "Co-op campaigns with leading HVAC manufacturers.",
-    kind: "brand" as const,
-    logos: [
-      { name: "Trane", src: `${U}/2026/07/Trane.png` },
-      { name: "Lennox", src: `${U}/2026/07/Lennox.png` },
-      { name: "Daikin", src: `${U}/2026/07/Daikin.png` },
-      { name: "Mitsubishi Electric", src: `${U}/2026/07/Mitsubishi.png` },
-      { name: "Comfortmaker", src: `${U}/2026/07/Comfortmaker.png` },
-      { name: "York", src: `${U}/2026/07/York.png` },
-      { name: "GE", src: `${U}/2026/07/GE.png` },
-      { name: "Napoleon", src: `${U}/2026/07/Napoleon.png` },
-      { name: "Ruud", src: `${U}/2026/07/RUUD.png` },
+    note: "A selection of brands we’ve run campaigns with — including past work and manufacturer co-op.",
+    kind: "brand",
+    subgroups: [
+      {
+        id: "worked-with",
+        title: "Brands we’ve worked with",
+        note: "Automotive, hospitality, travel, retail, beauty, and real estate.",
+        logos: [
+          { name: "Disney", src: `${B}/disney.png` },
+          { name: "Hyatt", src: `${B}/hyatt.png` },
+          { name: "Princess Cruises", src: `${B}/princess-cruises.png` },
+          { name: "Expedia", src: `${B}/expedia.png` },
+          { name: "Audi", src: `${B}/audi.png` },
+          { name: "Porsche", src: `${B}/porsche.png`, mark: "crest" },
+          { name: "Volkswagen", src: `${B}/volkswagen.png`, mark: "crest" },
+          { name: "COBS Bread", src: `${B}/cobs-bread.png`, mark: "crest" },
+          { name: "SkinCeuticals", src: `${B}/skinceuticals.png` },
+          { name: "RE/MAX", src: `${B}/remax.png` },
+          { name: "Engel & Völkers", src: `${B}/engel-volkers.png` },
+        ],
+      },
+      {
+        id: "hvac",
+        title: "HVAC and manufacturer brands",
+        note: "National HVAC manufacturers and co-op relationships.",
+        logos: [
+          { name: "Trane", src: `${U}/2026/07/Trane.png` },
+          { name: "Lennox", src: `${U}/2026/07/Lennox.png` },
+          { name: "Daikin", src: `${U}/2026/07/Daikin.png` },
+          { name: "Mitsubishi Electric", src: `${U}/2026/07/Mitsubishi.png` },
+          { name: "American Standard", src: `${U}/2026/07/American-Standard.png` },
+          { name: "York", src: `${U}/2026/07/York.png` },
+          { name: "GE", src: `${U}/2026/07/GE.png` },
+          { name: "RunTru", src: `${U}/2026/07/RunTru.png` },
+          { name: "Napoleon", src: `${U}/2026/07/Napoleon.png` },
+          { name: "Ruud", src: `${U}/2026/07/RUUD.png` },
+          { name: "Comfortmaker", src: `${U}/2026/07/Comfortmaker.png` },
+        ],
+      },
     ],
   },
   {
     id: "platforms",
     label: "Platform partners",
     note: "Partner programs for search, social and video advertising.",
-    kind: "partner" as const,
+    kind: "partner",
     logos: [
       { name: "Google Partner badge", src: "/images/partners/google-partner.png" },
       { name: "Meta Business Partner badge", src: "/images/partners/meta-business-partner.png" },
@@ -63,6 +120,33 @@ const GROUPS = [
     ],
   },
 ];
+
+function LogoWall({
+  logos,
+  kind,
+  sizes,
+}: {
+  logos: PartnerLogo[];
+  kind: "media" | "brand" | "partner";
+  sizes: string;
+}) {
+  return (
+    <ul className={styles.wall} data-kind={kind}>
+      {logos.map((logo, logoIndex) => (
+                  <li
+          key={logo.name}
+          className={styles.cell}
+          data-mark={logo.mark}
+          style={{ animationDelay: `${logoIndex * 35}ms` }}
+        >
+          <span className={styles.logo}>
+            <Image src={logo.src} alt={logo.name} fill sizes={sizes} />
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 /** Partner logos behind the same pill switcher as "Build a brand people remember". */
 export function HomePartners() {
@@ -87,7 +171,10 @@ export function HomePartners() {
     <section className={`${shared.rail} ${styles.section}`} aria-labelledby={`${baseId}-title`}>
       <div className={`${shared.introCentered} ${styles.intro}`}>
         <SectionTitle id={`${baseId}-title`}>Trusted partners</SectionTitle>
-        <SectionDescription>The networks we buy from directly, the brands we&rsquo;ve run campaigns with, and the ad platforms we partner with.</SectionDescription>
+        <SectionDescription>
+          The networks we buy from directly, brands we&rsquo;ve worked with across industries, and the ad platforms we
+          partner with.
+        </SectionDescription>
       </div>
 
       <div
@@ -134,20 +221,31 @@ export function HomePartners() {
               inert={!selected}
             >
               <p className={styles.note}>{group.note}</p>
-              <ul className={styles.wall} data-kind={group.kind}>
-                {group.logos.map((logo, logoIndex) => (
-                  <li key={logo.name} className={styles.cell} style={{ animationDelay: `${logoIndex * 35}ms` }}>
-                    <span className={styles.logo}>
-                      <Image
-                        src={logo.src}
-                        alt={logo.name}
-                        fill
-                        sizes={group.kind === "partner" ? "(max-width: 639px) 33vw, 260px" : "(max-width: 767px) 30vw, 160px"}
+              {group.kind === "brand" ? (
+                <div className={styles.brandGroups}>
+                  {group.subgroups.map((subgroup) => (
+                    <div key={subgroup.id} className={styles.brandGroup}>
+                      <h3 className={styles.subgroupTitle}>{subgroup.title}</h3>
+                      <p className={styles.subgroupNote}>{subgroup.note}</p>
+                      <LogoWall
+                        logos={subgroup.logos}
+                        kind="brand"
+                        sizes="(max-width: 767px) 30vw, 140px"
                       />
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <LogoWall
+                  logos={group.logos}
+                  kind={group.kind}
+                  sizes={
+                    group.kind === "partner"
+                      ? "(max-width: 639px) 33vw, 260px"
+                      : "(max-width: 767px) 30vw, 160px"
+                  }
+                />
+              )}
             </div>
           );
         })}
