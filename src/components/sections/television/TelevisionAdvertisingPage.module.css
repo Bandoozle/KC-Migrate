@@ -450,14 +450,66 @@
 }
 
 @media (max-width: 639px) {
-  .capabilityList {
-    grid-template-columns: 1fr;
-    gap: 2.25rem;
+  /* The call to action sits centred under the copy on phones */
+  .page .start a.solid {
+    display: flex;
+    margin-inline: auto;
+  }
+
+  /*
+   * Phones: cards sit in one swipeable row instead of a tall stack. The row
+   * bleeds to the screen edges (padding restores the gutter), and the next
+   * card peeks in so it is obvious there is more to swipe to.
+   */
+  .capabilityList,
+  .benefitGrid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    grid-auto-columns: 84%;
+    gap: 0.875rem;
+    /* The page gutter on phones is 1.25rem (see --kosick-container) */
+    margin-inline: -1.25rem;
+    padding-inline: 1.25rem;
+    scroll-padding-inline: 1.25rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .capabilityList::-webkit-scrollbar,
+  .benefitGrid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .capability,
+  .benefit {
+    scroll-snap-align: start;
+    min-width: 0;
+  }
+
+  .capability:nth-child(3) {
+    grid-column: auto;
   }
 
   .capability .capabilityMedia,
   .capability:nth-child(3) .capabilityMedia {
     aspect-ratio: 4 / 3;
+  }
+
+  .benefit,
+  .benefit[data-layout="image-right"] {
+    align-items: start;
+    align-content: start;
+    gap: 1rem;
+  }
+
+  .benefitMedia {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: 16px;
   }
 
   .brandWall {

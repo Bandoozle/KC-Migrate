@@ -176,22 +176,27 @@
     overscroll-behavior-x: contain;
   }
 
-  .tab {
-    flex-shrink: 0;
-    font-size: var(--kosick-meta-size);
-    line-height: var(--kosick-meta-leading);
-    padding: 0 16px;
-    min-height: 44px;
-  }
-
-  /* One swipeable row on phones; a wrapped pill bar reads as two broken rows */
+  /*
+   * Small screens: one row of single-line pills that scrolls sideways when it
+   * doesn't fit. The bar keeps its own width (never the page), the scrollbar
+   * is hidden, and a fade on the right hints at more until the end is reached
+   * (data-more is set by SplitMediaTabs as the row scrolls).
+   */
   .tabList {
+    display: flex;
     width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 4px;
+    gap: 2px;
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
+    overflow-y: hidden;
     overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
+    scroll-snap-type: x mandatory;
+    /* Matches the padding, so snapping keeps the first pill inset from the edge */
+    scroll-padding-inline: 4px;
     scrollbar-width: none;
     border-radius: 26px;
   }
@@ -200,7 +205,18 @@
     display: none;
   }
 
+  .tabList[data-more="true"] {
+    -webkit-mask-image: linear-gradient(to right, #000 85%, transparent);
+    mask-image: linear-gradient(to right, #000 85%, transparent);
+  }
+
   .tab {
+    flex: 0 0 auto;
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: var(--kosick-meta-size);
+    line-height: var(--kosick-meta-leading);
+    white-space: nowrap;
     scroll-snap-align: start;
   }
 

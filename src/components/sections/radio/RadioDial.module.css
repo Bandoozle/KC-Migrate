@@ -538,16 +538,28 @@
   }
 }
 
-/* Phones: genres become one swipeable row of tabs above the receiver */
+/*
+ * Phones: the genres become pill tabs above the receiver, inside the same
+ * page padding as the content around them (no bleed, so nothing can push the
+ * page sideways). Two tabs split the width evenly and may wrap to two lines;
+ * three or more fall back to a single scrolling row.
+ */
 @media (max-width: 699px) {
   .formats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .formats:has(> .format:nth-child(3)) {
     display: flex;
-    gap: 0.5rem;
-    margin-inline: calc(-1 * (100vw - 100%) / 2);
-    padding-inline: calc((100vw - 100%) / 2);
+    flex-wrap: nowrap;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 0;
     scrollbar-width: none;
   }
 
@@ -556,15 +568,23 @@
   }
 
   .format {
-    flex: 0 0 auto;
-    width: auto;
+    min-width: 0;
+    width: 100%;
+    grid-template-columns: auto minmax(0, auto);
     grid-template-areas: "signal label";
+    justify-content: center;
     align-items: center;
+    column-gap: 0.5rem;
     min-height: 44px;
-    padding: 0.5rem 1rem;
+    padding: 10px 12px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 999px;
     scroll-snap-align: start;
+  }
+
+  .formats:has(> .format:nth-child(3)) .format {
+    flex: 0 0 auto;
+    width: auto;
   }
 
   .format[aria-selected="true"] {
@@ -577,10 +597,23 @@
 
   .formatLabel {
     font-size: 1rem;
+    line-height: 1.2;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .formats:has(> .format:nth-child(3)) .formatLabel {
     white-space: nowrap;
   }
 
   .formatMeta {
+    display: none;
+  }
+}
+
+/* Stacked layouts (phones and tablets): only the chosen genre takes up space, so a short genre leaves no empty gap below */
+@media (max-width: 999px) {
+  .panel[data-active="false"] {
     display: none;
   }
 }

@@ -229,9 +229,10 @@
 /* Phones: one format at a time, chosen with the switch */
 @media (max-width: 639px) {
   .switch {
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     gap: 0.25rem;
-    margin-bottom: 1.25rem;
+    margin: 0 auto 1.25rem;
     padding: 0.25rem;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.08);

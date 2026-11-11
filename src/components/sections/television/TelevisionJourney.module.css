@@ -156,6 +156,7 @@
     gap: 0.35rem;
     overflow-x: auto;
     border-left: 0;
+    justify-content: safe center;
     border-bottom: 1px solid rgba(20, 20, 20, 0.12);
     padding-bottom: 0.35rem;
     scroll-snap-type: x mandatory;
