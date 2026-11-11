@@ -31,9 +31,10 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(12rem, 0.85fr) minmax(0, 1.4fr);
-  gap: clamp(1.5rem, 3vw, 2.75rem);
-  align-items: start;
+  /* The rail is only as wide as its labels; the stage gets the rest */
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
 }
 
 .rail {
@@ -94,16 +95,16 @@
 
 .detail {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-  gap: 1.25rem;
-  align-items: stretch;
-  min-height: 22rem;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  align-items: center;
 }
 
 .frame {
   position: relative;
-  min-height: 18rem;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
+  border-radius: 16px;
   background: #1a1a1a;
 }
 
@@ -177,6 +178,6 @@
   }
 
   .frame {
-    min-height: min(58vw, 16rem);
+    aspect-ratio: 16 / 9;
   }
 }

@@ -62,12 +62,9 @@
   width: clamp(8rem, 13vw, 11rem);
 }
 
+/* The same gutter on both columns, so both photos are the same size and the headlines line up */
 .head {
-  padding: 0 0 1.75rem !important;
-}
-
-.head + .head {
-  padding-left: clamp(1rem, 2.5vw, 2rem) !important;
+  padding: 0 0 1.75rem clamp(1rem, 2.5vw, 2rem) !important;
 }
 
 .media {
@@ -146,14 +143,10 @@
 }
 
 .cell {
-  padding: 1.15rem 0 1.15rem 0 !important;
+  padding: 1.15rem 0 1.15rem clamp(1rem, 2.5vw, 2rem) !important;
   color: rgba(255, 255, 255, 0.78);
   font-size: 1.0625rem;
   line-height: 1.5;
-}
-
-.cell + .cell {
-  padding-left: clamp(1rem, 2.5vw, 2rem) !important;
 }
 
 .row:last-child .aspect,
