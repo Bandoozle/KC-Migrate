@@ -569,25 +569,6 @@
   padding: 0.5rem 1.25rem 2rem;
 }
 
-.drawerIntro {
-  display: grid;
-  gap: 0;
-}
-
-.drawerIntro a {
-  display: flex;
-  align-items: center;
-  min-height: 44px;
-  color: #ffffff;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.drawerIntro a:hover,
-.drawerIntro a:focus-visible {
-  opacity: 0.75;
-}
-
 .mobileList {
   margin: 0;
   padding: 0;

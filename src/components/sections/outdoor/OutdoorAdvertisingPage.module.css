@@ -668,24 +668,6 @@
   line-height: 1.5;
 }
 
-.partner {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin: 2rem 0 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
-  color: var(--kosick-color-muted);
-  font-size: var(--kosick-body-size);
-  line-height: 1.5;
-}
-
-.partner img {
-  flex-shrink: 0;
-  width: 6rem;
-  height: auto;
-}
-
 /* Tablet */
 
 @media (max-width: 960px) {
@@ -749,7 +731,7 @@
   .collageSecond {
     position: relative;
     width: 70%;
-    margin-left: auto;
+    margin-inline: auto;
   }
 
   .collageSecond .photo {
@@ -798,11 +780,6 @@
 
   .boardLabel {
     display: none;
-  }
-
-  .partner {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 

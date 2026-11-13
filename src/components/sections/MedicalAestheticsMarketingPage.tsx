@@ -43,14 +43,14 @@ const SYSTEM = [
 
 const SKINFOLIO = [
   {
-    src: "/images/industries/medical-aesthetics/lip-treatment.jpg",
-    alt: "A close-up of a lip treatment with a fine syringe",
+    src: "/images/industries/medical-aesthetics/treatment-consultation.png",
+    alt: "A clinician marking a smiling client’s face with a mirror during a treatment consultation",
     label: "Treatments",
     className: styles.mosaicBrand,
   },
   {
-    src: `${UP}/2026/02/aesthetic-clinic-marketing.jpg`,
-    alt: "SkinCeuticals serums lined up with a dropper above them",
+    src: "/images/industries/medical-aesthetics/zo-skin-health-retail.jpeg",
+    alt: "ZO Skin Health products displayed on lit clinic shelves for retail",
     label: "Retail",
     className: styles.mosaicRetail,
   },
@@ -202,8 +202,8 @@ export function MedicalAestheticsMarketingPage() {
             <Reveal variant="fade" className={styles.trustMedia}>
               <div className={styles.trustPhoto}>
                 <Image
-                  src={`${UP}/2023/09/medical-aesthetics.png`}
-                  alt="SkinCeuticals serums photographed for the Skinfolio online store"
+                  src="/images/industries/medical-aesthetics/skinceuticals-mineral-radiance.jpeg"
+                  alt="SkinCeuticals Mineral Radiance UV Defense bottles arranged for the Skinfolio retail store"
                   fill
                   sizes="(min-width: 960px) 50vw, 100vw"
                   className={styles.cover}

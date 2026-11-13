@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
-import type { ServiceMedia, ServicePageContent } from "@/lib/wordpress/service-page-types";
+import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import { OutdoorPricing, type OutdoorPrice } from "./OutdoorPricing";
 import { OutdoorJourney } from "./OutdoorJourney";
 import { OutdoorPrinciples } from "./OutdoorPrinciples";
@@ -12,8 +13,6 @@ import styles from "./OutdoorAdvertisingPage.module.css";
 
 type OutdoorAdvertisingPageProps = {
   content: ServicePageContent;
-  /** Media-owner logo from the Kosick partner wall. */
-  mediaOwner?: ServiceMedia | null;
 };
 
 const UPLOADS = "/wp-content/uploads";
@@ -43,8 +42,8 @@ const CAMPAIGN = {
     alt: "An urban roadside billboard on a brick wall as traffic passes",
   },
   transit: {
-    src: "/images/outdoor/realtor-transit-shelter.jpg",
-    alt: "A real estate team’s poster in a transit shelter on a city street",
+    src: "/images/outdoor/community-focused-transit.jpeg",
+    alt: "An Engel & Völkers Community Focused transit shelter poster by the White Rock waterfront",
   },
   street: {
     src: "/images/industries/medical-aesthetics/skinfolio-transit-shelter.jpg",
@@ -90,7 +89,7 @@ const PRICES: Array<Omit<OutdoorPrice, "size"> & { scale?: string }> = [
     description: "Oversized premium boards for landmark visibility on major roads.",
     scale: "Superboard",
     plate: "Superboard",
-    image: { src: "/images/outdoor/blue-trane-superboard.jpg", alt: "A Blue Heating & Cooling Trane high-efficiency furnace superboard", position: "50% 50%" },
+    image: { src: "/images/outdoor/cobs-superboard.jpeg", alt: "A COBS Bread superboard against a clear sky", position: "50% 50%" },
   },
 ];
 
@@ -158,7 +157,7 @@ const placed = scale.map((size, index) => ({
 }));
 const scaleWidth = placed.length ? placed[placed.length - 1].x + placed[placed.length - 1].width : 0;
 
-export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisingPageProps) {
+export function OutdoorAdvertisingPage({ content }: OutdoorAdvertisingPageProps) {
   const contactHref = content.cta?.primary.href || "/contact/";
 
   const superboard = content.features.find((item) => /superboard/i.test(item.title));
@@ -369,7 +368,18 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
         </div>
       </section>
 
-      <OutdoorPrinciples mediaOwner={mediaOwner} />
+      <OutdoorPrinciples />
+
+      <RelatedServices
+        title="Outdoor works best as part of a broader media plan."
+        current="/services/outdoor-advertising/"
+        include={[
+          "/services/television-advertising/",
+          "/services/digital-connected-tv/",
+          "/services/radio-advertising/",
+          "/services/corporate-branding/",
+        ]}
+      />
 
       {content.faqs && content.faqs.items.length > 0 ? (
         <FaqAccordion eyebrow={content.faqs.eyebrow} title={content.faqs.title} items={content.faqs.items} />

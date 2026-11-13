@@ -12,6 +12,8 @@ type CampaignShowcaseProps = {
   body: string;
   video: CampaignVideo | null;
   photos: CampaignPhoto[];
+  /** Media left / copy right (Golf). Default is copy left / media right. */
+  mediaFirst?: boolean;
 };
 
 /**
@@ -65,9 +67,13 @@ function PortraitVimeo({
       ) : (
         <button type="button" className={styles.poster} onClick={play} aria-label={`Play ${title}`}>
           {poster ? (
-            // External Vimeo CDN poster — plain img avoids next/image remote config
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src={poster} alt={alt} className={styles.posterImage} width={640} height={1138} decoding="async" />
+            poster.startsWith("http") ? (
+              // External Vimeo CDN poster — plain img avoids next/image remote config
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={poster} alt={alt} className={styles.posterImage} width={640} height={1138} decoding="async" />
+            ) : (
+              <Image src={poster} alt={alt} fill sizes="(min-width: 900px) 28vw, 70vw" className={styles.posterImage} />
+            )
           ) : (
             <span className={styles.posterFallback} aria-hidden="true" />
           )}
@@ -101,71 +107,99 @@ function FileVideo({ src, poster, alt }: { src: string; poster: string; alt: str
 }
 
 /**
- * Bento portfolio card: copy left, portrait video + two stills right.
+ * Bento portfolio card: copy + portrait video with two stills.
+ * Default: copy left / media right. Pass mediaFirst for the reverse (Golf).
  */
-export function CampaignShowcase({ client, title, body, video, photos }: CampaignShowcaseProps) {
+export function CampaignShowcase({
+  client,
+  title,
+  body,
+  video,
+  photos,
+  mediaFirst = false,
+}: CampaignShowcaseProps) {
   if (!video && photos.length === 0) return null;
 
   const [stillTop, stillBottom] = photos;
   const watchHref = video?.kind === "vimeo" ? `https://vimeo.com/${video.id}` : null;
+  const headingId = `campaign-showcase-${client.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
+
+  const copy = (
+    <div className={styles.copy}>
+      <p className={styles.client}>{client}</p>
+      <h2 id={headingId} className={`section-title ${styles.title}`}>
+        {title}
+      </h2>
+      <p className={`section-description ${styles.body}`}>{body}</p>
+      {watchHref ? (
+        <a className={styles.watch} href={watchHref} target="_blank" rel="noopener noreferrer">
+          <span className={styles.watchIcon} aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="12" height="12" focusable="false">
+              <path fill="currentColor" d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.2-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5Z" />
+            </svg>
+          </span>
+          Watch on Vimeo
+        </a>
+      ) : null}
+    </div>
+  );
+
+  const stage = (
+    <div className={styles.stage}>
+      {video ? (
+        <div className={styles.media}>
+          {video.kind === "vimeo" ? (
+            <PortraitVimeo id={video.id} title={video.title} poster={video.poster} alt={video.alt} />
+          ) : (
+            <FileVideo src={video.src} poster={video.poster} alt={video.alt} />
+          )}
+        </div>
+      ) : null}
+
+      {stillTop ? (
+        <div className={styles.stillTop}>
+          <Image
+            src={stillTop.src}
+            alt={stillTop.alt}
+            fill
+            sizes="(min-width: 900px) 22vw, 45vw"
+            className={styles.cover}
+          />
+        </div>
+      ) : null}
+
+      {stillBottom ? (
+        <div className={styles.stillBottom}>
+          <Image
+            src={stillBottom.src}
+            alt={stillBottom.alt}
+            fill
+            sizes="(min-width: 900px) 22vw, 45vw"
+            className={styles.cover}
+          />
+        </div>
+      ) : null}
+    </div>
+  );
 
   return (
-    <section className={styles.section} aria-labelledby="campaign-showcase">
+    <section className={styles.section} aria-labelledby={headingId}>
       <div className="container">
-        <Reveal variant="fadeUp" className={styles.card}>
-          <div className={styles.copy}>
-            <p className={styles.client}>{client}</p>
-            <h2 id="campaign-showcase" className={`section-title ${styles.title}`}>
-              {title}
-            </h2>
-            <p className={`section-description ${styles.body}`}>{body}</p>
-            {watchHref ? (
-              <a className={styles.watch} href={watchHref} target="_blank" rel="noopener noreferrer">
-                <span className={styles.watchIcon} aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="12" height="12" focusable="false">
-                    <path fill="currentColor" d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.2-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5Z" />
-                  </svg>
-                </span>
-                Watch on Vimeo
-              </a>
-            ) : null}
-          </div>
-
-          <div className={styles.stage}>
-            {video ? (
-              <div className={styles.media}>
-                {video.kind === "vimeo" ? (
-                  <PortraitVimeo id={video.id} title={video.title} poster={video.poster} alt={video.alt} />
-                ) : (
-                  <FileVideo src={video.src} poster={video.poster} alt={video.alt} />
-                )}
-              </div>
-            ) : null}
-
-            {stillTop ? (
-              <div className={styles.stillTop}>
-                <Image
-                  src={stillTop.src}
-                  alt={stillTop.alt}
-                  fill
-                  sizes="(min-width: 900px) 22vw, 45vw"
-                  className={styles.cover}
-                />
-              </div>
-            ) : null}
-
-            {stillBottom ? (
-              <div className={styles.stillBottom}>
-                <Image
-                  src={stillBottom.src}
-                  alt={stillBottom.alt}
-                  fill
-                  sizes="(min-width: 900px) 22vw, 45vw"
-                  className={styles.cover}
-                />
-              </div>
-            ) : null}
-          </div>
+        <Reveal
+          variant="fadeUp"
+          className={[styles.card, mediaFirst ? styles.cardMediaFirst : ""].filter(Boolean).join(" ")}
+        >
+          {mediaFirst ? (
+            <>
+              {stage}
+              {copy}
+            </>
+          ) : (
+            <>
+              {copy}
+              {stage}
+            </>
+          )}
         </Reveal>
       </div>
     </section>

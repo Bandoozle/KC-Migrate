@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
@@ -14,8 +15,14 @@ const UPLOADS = "/wp-content/uploads";
 
 const IMAGES = {
   inbox: { src: `${UPLOADS}/2026/07/Email-Marketing-Canada-e1784665624120.jpg`, alt: "A Central HVAC email open in Mailchimp on a laptop" },
-  campaign: { src: `${UPLOADS}/2026/07/ChatGPT-Image-Jul-21-2026-at-11_55_22-AM.jpg`, alt: "A ZO Skin Health email layout laid out among the products it sells" },
-  journey: { src: `${UPLOADS}/2026/07/Email-Marketing.jpg`, alt: "An Amsterdam Garden Centre summer email in Mailchimp on a laptop" },
+  campaign: {
+    src: "/images/email-marketing/zajac-nights-email.jpeg",
+    alt: "A Zajac Nights gala email campaign shown on a tablet",
+  },
+  journey: {
+    src: "/images/email-marketing/amsterdam-garden-email.jpeg",
+    alt: "An Amsterdam Garden Centre summer email open on a laptop in a greenhouse",
+  },
 };
 
 /* Inbox tags for the four offer cards, in WordPress order */
@@ -270,6 +277,17 @@ export function EmailMarketingPage({ content }: EmailMarketingPageProps) {
           </div>
         </section>
       ) : null}
+
+      <RelatedServices
+        title="Email converts better when acquisition and content stay in sync."
+        current="/services/email-marketing/"
+        include={[
+          "/services/social-media-marketing/",
+          "/services/digital-marketing/",
+          "/services/search-engine-optimization/",
+          "/services/website-development/",
+        ]}
+      />
 
       {faqs && faqs.items.length > 0 ? (
         <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} />

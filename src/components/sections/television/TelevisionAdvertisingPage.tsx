@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
@@ -238,6 +239,17 @@ export function TelevisionAdvertisingPage({ content }: TelevisionAdvertisingPage
       {content.faqs && content.faqs.items.length > 0 ? (
         <FaqAccordion eyebrow="" title={content.faqs.title} items={content.faqs.items} />
       ) : null}
+
+      <RelatedServices
+        title="Television works harder with the rest of the media mix."
+        current="/services/television-advertising/"
+        include={[
+          "/services/digital-connected-tv/",
+          "/services/radio-advertising/",
+          "/services/outdoor-advertising/",
+          "/services/creative/",
+        ]}
+      />
 
       {content.cta ? (
         <PageCta

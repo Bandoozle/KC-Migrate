@@ -42,7 +42,7 @@ export function TravelJourney() {
         <div className={s.scene}>
           {/* 1. Reach: the brand's spot in a streaming ad break */}
           <div className={kit.layer} {...show(stage, 0)}>
-            <Photo src="/images/television/prime-video.jpg" position="50% 40%" />
+            <Photo src="/images/industries/travel/streaming-ad.jpeg" position="50% 45%" />
             <span className={s.ad}>
               <span className={s.adHead}>
                 <span className={s.adTag}>Ad</span>

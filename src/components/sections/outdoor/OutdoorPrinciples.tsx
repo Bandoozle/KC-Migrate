@@ -1,5 +1,4 @@
 import Image from "next/image";
-import type { ServiceMedia } from "@/lib/wordpress/service-page-types";
 import { LocationVisual, TimingVisual } from "./OutdoorFactorVisuals";
 import styles from "./OutdoorPrinciples.module.css";
 
@@ -33,12 +32,8 @@ const ROUTE = {
   ] as const,
 };
 
-type OutdoorPrinciplesProps = {
-  mediaOwner?: ServiceMedia | null;
-};
-
 /** City presence, then the Location / Timing / Creative triptych. */
-export function OutdoorPrinciples({ mediaOwner }: OutdoorPrinciplesProps) {
+export function OutdoorPrinciples() {
   return (
     <div className={styles.root}>
       <section className={styles.city} aria-labelledby="oo-city">
@@ -94,7 +89,7 @@ export function OutdoorPrinciples({ mediaOwner }: OutdoorPrinciplesProps) {
                   src={CREATIVE.src}
                   alt=""
                   fill
-                  sizes="(min-width: 960px) 30vw, 100vw"
+                  sizes="(min-width: 960px) 30vw, (min-width: 721px) 45vw, 84vw"
                   className={styles.cover}
                   style={{ objectPosition: "48% 30%" }}
                 />
@@ -104,13 +99,6 @@ export function OutdoorPrinciples({ mediaOwner }: OutdoorPrinciplesProps) {
               <span className={styles.partLine}>{THREE_THINGS[2].line}</span>
             </li>
           </ol>
-          {mediaOwner?.src ? (
-            <p className={styles.partner}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={mediaOwner.src} alt="Pattison Outdoor Advertising" />
-              <span>Rates negotiated directly with media owners, including Pattison Outdoor Advertising.</span>
-            </p>
-          ) : null}
         </div>
       </section>
     </div>

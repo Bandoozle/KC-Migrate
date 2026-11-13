@@ -464,6 +464,12 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
         title="Connected TV works hardest alongside your other channels."
         current="/services/digital-connected-tv/"
         align="center"
+        include={[
+          "/services/television-advertising/",
+          "/services/digital-marketing/",
+          "/services/outdoor-advertising/",
+          "/services/creative/",
+        ]}
       />
 
       {content.faqs && content.faqs.items.length > 0 ? (

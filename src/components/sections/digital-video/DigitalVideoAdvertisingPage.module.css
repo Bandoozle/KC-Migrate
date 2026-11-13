@@ -1220,7 +1220,37 @@
 }
 
 @media (max-width: 899px) {
-  .compareCards,
+  /* One tall image stack → horizontal swipe so the versus band fits one screen */
+  .compareCards {
+    display: flex;
+    gap: 0.85rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .compareCards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .compareCard {
+    flex: 0 0 min(82%, 22rem);
+    scroll-snap-align: start;
+  }
+
+  .compareMedia {
+    aspect-ratio: 16 / 9;
+  }
+
+  .compareCopy {
+    padding: 0.9rem 1rem 1rem;
+  }
+
   .compareDetail {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1237,7 +1267,20 @@
 }
 
 @media (max-width: 639px) {
-  .compareTabs {
-    grid-template-columns: minmax(0, 1fr);
+  .compareCard {
+    flex-basis: 84%;
+  }
+
+  .compareMedia {
+    aspect-ratio: 2 / 1;
+  }
+
+  .compareTab {
+    padding: 0.6rem 0.55rem;
+    font-size: 0.8125rem;
+  }
+
+  .compareDetail {
+    padding: 0.95rem 1rem;
   }
 }

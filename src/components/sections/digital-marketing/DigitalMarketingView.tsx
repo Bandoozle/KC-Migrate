@@ -146,7 +146,16 @@ export function DigitalMarketingView({ content }: DigitalMarketingViewProps) {
         </section>
       ) : null}
 
-      <RelatedServices title="Go deeper on a single channel." current="/services/digital-marketing/" />
+      <RelatedServices
+        title="Go deeper on a single channel."
+        current="/services/digital-marketing/"
+        include={[
+          "/services/google-ads-management/",
+          "/services/social-media-marketing/",
+          "/services/search-engine-optimization/",
+          "/services/digital-connected-tv/",
+        ]}
+      />
 
       <FaqAccordion eyebrow={content.faqs.eyebrow} title={content.faqs.title} items={content.faqs.items} />
       <ServiceDirectory services={content.relatedServices} />

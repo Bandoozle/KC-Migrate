@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
@@ -305,6 +306,17 @@ export function CorporateBrandingPage({ content }: CorporateBrandingPageProps) {
           </div>
         </section>
       ) : null}
+
+      <RelatedServices
+        title="A brand system shows up across every channel you run."
+        current="/services/corporate-branding/"
+        include={[
+          "/services/creative/",
+          "/services/website-development/",
+          "/services/outdoor-advertising/",
+          "/services/business-development/",
+        ]}
+      />
 
       {faqs && faqs.items.length > 0 ? (
         <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} />

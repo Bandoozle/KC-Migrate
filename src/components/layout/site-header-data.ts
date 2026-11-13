@@ -67,7 +67,7 @@ export const SITE_HEADER_MOBILE_CTA = {
 
 /** Mobile drawer intro links (logo still goes home; this helps when the drawer covers it). */
 export const SITE_HEADER_MOBILE_LINKS = [
-  { label: "Home | Communications", href: "/" },
+  { label: "Home", href: "/" },
 ] as const;
 
 export const SITE_HEADER_SOCIAL = [

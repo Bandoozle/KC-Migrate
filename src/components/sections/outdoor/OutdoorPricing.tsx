@@ -54,7 +54,7 @@ export function OutdoorPricing({ prices, contactHref, className }: OutdoorPricin
                   src={item.image.src}
                   alt={item.image.alt}
                   fill
-                  sizes="(min-width: 1100px) 420px, (min-width: 640px) 45vw, 160px"
+                  sizes="(min-width: 1100px) 420px, (min-width: 640px) 45vw, 78vw"
                   className={styles.image}
                   style={item.image.position ? { objectPosition: item.image.position } : undefined}
                 />

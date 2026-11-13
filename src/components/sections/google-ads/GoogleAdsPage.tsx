@@ -326,7 +326,16 @@ export function GoogleAdsPage() {
         </div>
       </section>
 
-      <RelatedServices title="Google Ads works best alongside the rest of your marketing." current="/services/google-ads-management/" />
+      <RelatedServices
+        title="Google Ads works best alongside the rest of your marketing."
+        current="/services/google-ads-management/"
+        include={[
+          "/services/search-engine-optimization/",
+          "/services/digital-marketing/",
+          "/services/social-media-marketing/",
+          "/services/chatgpt-ads-management/",
+        ]}
+      />
 
       <FaqAccordion eyebrow="" title="Frequently asked questions" items={GOOGLE_ADS_FAQS} />
 

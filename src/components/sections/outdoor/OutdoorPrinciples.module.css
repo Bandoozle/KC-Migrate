@@ -4,6 +4,7 @@
   --rule: rgba(17, 17, 17, 0.14);
   --accent: #d93b30;
   --block: var(--kosick-block-compact);
+  --gutter: clamp(0.75rem, 1.5vw, 1.25rem);
   color: #141414;
 }
 
@@ -184,24 +185,6 @@
   line-height: 1.5;
 }
 
-.partner {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  margin: 2rem 0 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--rule);
-  color: var(--kosick-color-muted);
-  font-size: var(--kosick-body-size);
-  line-height: 1.5;
-}
-
-.partner img {
-  flex-shrink: 0;
-  width: 6rem;
-  height: auto;
-}
-
 @media (max-width: 960px) {
   .route {
     display: none;
@@ -221,12 +204,33 @@
     min-height: 24rem;
   }
 
+  /* Location / Timing / Creative: swipe one principle at a time */
   .triptych {
-    grid-template-columns: minmax(0, 1fr);
+    display: flex;
+    gap: 0.85rem;
+    margin-inline: calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .partner {
-    flex-direction: column;
-    align-items: flex-start;
+  .triptych::-webkit-scrollbar {
+    display: none;
+  }
+
+  .part {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+
+  .visualGrid,
+  .visualTime,
+  .visualCreative {
+    aspect-ratio: 16 / 10;
+    margin-bottom: 0.7rem;
   }
 }

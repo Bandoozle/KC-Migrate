@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useId, useState, type KeyboardEvent } from "react";
+import { useEffect, useId, useState, type KeyboardEvent } from "react";
 import { SectionDescription, SectionTitle } from "@/components/typography";
 import shared from "./home-shared.module.css";
 import tabsStyles from "@/components/sections/SplitMediaTabs.module.css";
@@ -58,11 +58,12 @@ const GROUPS: PartnerGroup[] = [
     note: "A selection of brands we’ve run campaigns with, including past work and manufacturer co-op.",
     kind: "brand",
     // Flat wall — no subgroup titles. Consumer brands, then HVAC manufacturers.
-    rows: [5, 4, 4, 5, 4, 2],
+    rows: [5, 5, 4, 5, 4, 2],
     logos: [
       { name: "Disney", src: `${B}/disney.png`, mark: "script" },
       { name: "Hyatt", src: `${B}/hyatt.png` },
       { name: "Princess Cruises", src: `${B}/princess-cruises.png` },
+      { name: "Oceania Cruises", src: `${B}/oceania-cruises.png` },
       { name: "Expedia", src: `${B}/expedia.png` },
       { name: "Audi", src: `${B}/audi.png` },
       { name: "Porsche", src: `${B}/porsche.png`, mark: "crest" },
@@ -161,9 +162,32 @@ export function HomePartners() {
   const [active, setActive] = useState(0);
   const { listRef, pillStyle, pillState } = useSlidingPill<HTMLDivElement>(active);
 
+  // Fade the right edge while more tabs remain off-screen
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const update = () => {
+      const more = list.scrollWidth - list.clientWidth - list.scrollLeft > 2;
+      list.dataset.more = String(more);
+    };
+    update();
+    list.addEventListener("scroll", update, { passive: true });
+    const observer = new ResizeObserver(update);
+    observer.observe(list);
+    return () => {
+      list.removeEventListener("scroll", update);
+      observer.disconnect();
+    };
+  }, [listRef]);
+
   const select = (index: number) => {
     setActive(index);
-    document.getElementById(`${baseId}-tab-${GROUPS[index].id}`)?.focus({ preventScroll: true });
+    const tab = document.getElementById(`${baseId}-tab-${GROUPS[index].id}`);
+    tab?.focus({ preventScroll: true });
+    const list = listRef.current;
+    if (tab && list && list.scrollWidth > list.clientWidth) {
+      tab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
   };
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {

@@ -354,8 +354,10 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
     if (!drawerOpen) return;
     const previous = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    document.documentElement.setAttribute("data-nav-drawer-open", "true");
     return () => {
       document.body.style.overflow = previous;
+      document.documentElement.removeAttribute("data-nav-drawer-open");
     };
   }, [drawerOpen]);
 
@@ -474,16 +476,15 @@ export function SiteHeader({ transparent = false }: SiteHeaderProps) {
           </div>
 
           <div className={styles.drawerContent}>
-            <div className={styles.drawerIntro}>
-              {SITE_HEADER_MOBILE_LINKS.map((link) => (
-                <Link key={link.href} href={link.href} onClick={() => setDrawerOpen(false)}>
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
             <nav aria-label="Primary Mobile">
               <ul className={styles.mobileList}>
+                {SITE_HEADER_MOBILE_LINKS.map((link) => (
+                  <li key={link.href} className={styles.mobileItem}>
+                    <Link href={link.href} className={styles.mobileLink} onClick={() => setDrawerOpen(false)}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
                 {SITE_HEADER_NAV.map((item) => (
                   <MobileNavSection
                     key={item.label}

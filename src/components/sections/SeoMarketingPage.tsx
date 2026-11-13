@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { PageTitle, SectionTitle } from "@/components/typography";
@@ -578,6 +579,17 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
           </div>
         </div>
       </section>
+
+      <RelatedServices
+        title="SEO compounds faster with the channels around it."
+        current="/services/search-engine-optimization/"
+        include={[
+          "/services/google-ads-management/",
+          "/services/website-development/",
+          "/services/digital-marketing/",
+          "/services/social-media-marketing/",
+        ]}
+      />
 
       {faqs && faqs.items.length > 0 ? <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} /> : null}
 

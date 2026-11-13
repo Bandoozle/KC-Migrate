@@ -150,7 +150,16 @@ export function ChatGptAdsPage() {
         </div>
       </section>
 
-      <RelatedServices title="Plan it with the channels you already run." current="/services/chatgpt-ads-management/" />
+      <RelatedServices
+        title="Plan it with the channels you already run."
+        current="/services/chatgpt-ads-management/"
+        include={[
+          "/services/google-ads-management/",
+          "/services/digital-connected-tv/",
+          "/services/digital-marketing/",
+          "/services/search-engine-optimization/",
+        ]}
+      />
 
       <FaqAccordion eyebrow="" title="Frequently asked questions" items={CHATGPT_ADS_FAQS} />
 
