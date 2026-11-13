@@ -313,22 +313,26 @@ main a.tile {
   grid-row: 1;
 }
 
-/* 03 Digital Marketing: a browser view beside three capability blocks */
+/* 03 Digital Marketing: website preview beside a compact channel list */
 
 .digital {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: clamp(1.5rem, 3vw, 2.5rem);
-  align-items: start;
+  align-items: stretch;
 }
 
 main a.browserLink {
   display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 1rem;
+  min-height: 100%;
 }
 
 .browser {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
   overflow: hidden;
   border: 1px solid rgba(17, 17, 17, 0.1);
   border-radius: var(--kosick-radius-md);
@@ -338,6 +342,7 @@ main a.browserLink {
 
 .browserBar {
   display: flex;
+  flex: none;
   gap: 0.4rem;
   padding: 0.7rem 0.9rem;
   border-bottom: 1px solid rgba(17, 17, 17, 0.08);
@@ -353,7 +358,8 @@ main a.browserLink {
 .browserView {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 10;
+  flex: 1 1 auto;
+  min-height: clamp(16rem, 28vw, 22rem);
   overflow: hidden;
 }
 
@@ -369,25 +375,59 @@ main a.browserLink {
   grid-column: 1;
 }
 
+.digitalSide {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-content: stretch;
+  min-height: 100%;
+}
+
 .capabilities {
   display: grid;
-  gap: clamp(0.75rem, 1.5vw, 1rem);
+  align-content: start;
   margin: 0;
   padding: 0;
   list-style: none;
+  overflow: hidden;
+  border: 1px solid rgba(17, 17, 17, 0.1);
+  border-radius: var(--kosick-radius-md);
+  background: #ffffff;
+  box-shadow: 0 18px 40px -34px rgba(17, 17, 17, 0.35);
+}
+
+.capabilities > li + li {
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
 }
 
 main a.capability {
   display: grid;
-  gap: 0.45rem;
-  padding: clamp(1.25rem, 2.2vw, 1.6rem);
-  border-radius: var(--kosick-radius-md);
-  background: #ffffff;
-  transition: box-shadow 200ms ease;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem 1rem;
+  align-items: center;
+  padding: clamp(0.95rem, 1.6vw, 1.15rem) clamp(1rem, 1.8vw, 1.25rem);
+  background: transparent;
+  transition: background-color 180ms ease;
 }
 
 main a.capability:hover {
-  box-shadow: 0 18px 40px -30px rgba(17, 17, 17, 0.45);
+  background: rgba(17, 17, 17, 0.03);
+}
+
+main a.capability .arrow {
+  color: rgba(17, 17, 17, 0.35);
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+main a.capability:hover .arrow {
+  color: #111111;
+  transform: translateX(3px);
+}
+
+.capabilityCopy {
+  display: grid;
+  gap: 0.25rem;
+  min-width: 0;
 }
 
 .capabilityName {
@@ -399,8 +439,8 @@ main a.capability:hover {
 
 .capabilityLine {
   color: var(--kosick-color-muted);
-  font-size: var(--kosick-body-size);
-  line-height: 1.5;
+  font-size: 0.9375rem;
+  line-height: 1.45;
 }
 
 .explore {
@@ -413,15 +453,11 @@ main a.capability:hover {
 
 main a.textLink {
   display: inline-flex;
+  align-items: center;
   gap: 0.4rem;
-  margin-top: clamp(1.5rem, 3vw, 2rem);
+  justify-self: start;
   font-size: var(--kosick-body-size);
   font-weight: 600;
-}
-
-.capabilities main a.textLink,
-.capabilities a.textLink {
-  margin-top: 0.5rem;
 }
 
 /* 05 Events: full-bleed photograph */
@@ -522,6 +558,16 @@ main a.row {
   .media,
   .digital {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  main a.browserLink {
+    grid-template-rows: auto auto;
+  }
+
+  .browserView {
+    flex: none;
+    aspect-ratio: 16 / 10;
+    min-height: 0;
   }
 
   .mediaStage {

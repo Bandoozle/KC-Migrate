@@ -67,10 +67,22 @@ const ABOUT = {
 };
 
 const LOCAL = [
-  { title: "Your trading area", body: "Target the postal codes, cities or regions you serve, so spend stays where customers can buy from you." },
-  { title: "Market-by-market weight", body: "Run more frequency in the markets that matter most, and test new ones with a smaller share of budget." },
-  { title: "Local brand visibility", body: "Appear on the same big screen as national brands, in your own neighbourhoods, at a fraction of broadcast reach costs." },
-];
+  {
+    title: "Your trading area",
+    body: "Target the postal codes, cities or regions you serve, so spend stays where customers can buy from you.",
+    icon: "M12 21s7-4.5 7-10a7 7 0 1 0-14 0c0 5.5 7 10 7 10zM12 10.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z",
+  },
+  {
+    title: "Market-by-market weight",
+    body: "Run more frequency in the markets that matter most, and test new ones with a smaller share of budget.",
+    icon: "M4 20h16M7 16v-5M12 16V8M17 16V4",
+  },
+  {
+    title: "Local brand visibility",
+    body: "Appear on the same big screen as national brands, in your own neighbourhoods, at a fraction of broadcast reach costs.",
+    icon: "M4 7h16v10H4zM8 21h8M12 17v4",
+  },
+] as const;
 
 const FORMATS = {
   ctv: { kicker: "Streaming TV", title: "Connected TV", line: "Big-screen reach, targeted digitally." },
@@ -221,7 +233,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
         </div>
       </section>
 
-      {/* Traditional TV and streaming TV, read across one row at a time */}
+      {/* Traditional TV and Connected TV: compact photos + comparison table */}
       <section className={styles.versus} aria-labelledby="dv-versus">
         <div className="container">
           <div className={styles.head}>
@@ -358,10 +370,15 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
               </figure>
             </Reveal>
           </div>
-          {/* Local market visibility */}
+          {/* Local market visibility — same blue card language as the reporting labels */}
           <ul className={styles.local}>
             {LOCAL.map((item) => (
               <li key={item.title}>
+                <span className={styles.localIcon} aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" focusable="false">
+                    <path fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+                  </svg>
+                </span>
                 <h3 className={styles.localTitle}>{item.title}</h3>
                 <p className={styles.localBody}>{item.body}</p>
               </li>

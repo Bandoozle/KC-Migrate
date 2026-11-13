@@ -104,11 +104,6 @@
   align-items: start;
 }
 
-/* The middle card sits lower: an editorial stagger rather than a row of equal boxes */
-.capability:nth-child(2) {
-  margin-top: clamp(2rem, 5vw, 4rem);
-}
-
 .capabilityMedia {
   position: relative;
   margin: 0 0 1.35rem;
@@ -412,10 +407,6 @@
   /* Two cards across, the third spanning beneath at a landscape crop */
   .capabilityList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .capability:nth-child(2) {
-    margin-top: 0;
   }
 
   .capability:nth-child(3) {

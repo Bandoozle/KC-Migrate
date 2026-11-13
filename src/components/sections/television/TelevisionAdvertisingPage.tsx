@@ -72,7 +72,6 @@ export function TelevisionAdvertisingPage({ content }: TelevisionAdvertisingPage
             <p className={styles.sectionLead}>{TV_CAPABILITIES.lead}</p>
           </header>
 
-          {/* Three image-led cards; the middle one sits lower for an editorial rhythm */}
           <ul className={styles.capabilityList}>
             {TV_CAPABILITIES.items.map((item, index) => (
               <Reveal key={item.id} as="li" delay={index * 90} className={styles.capability}>

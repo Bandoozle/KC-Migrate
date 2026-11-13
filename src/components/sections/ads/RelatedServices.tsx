@@ -147,14 +147,6 @@ type RelatedServicesProps = {
   align?: "start" | "center";
 };
 
-function ArrowIcon() {
-  return (
-    <svg className={styles.arrow} viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-      <path fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M13 6l6 6-6 6" />
-    </svg>
-  );
-}
-
 function ServiceVisual({ kind }: { kind: VisualKind }) {
   if (kind === "chatgpt") {
     return (
@@ -175,19 +167,42 @@ function ServiceVisual({ kind }: { kind: VisualKind }) {
     );
   }
 
-  if (kind === "ctv" || kind === "tv") {
+  if (kind === "tv") {
+    return (
+      <div className={styles.visual} data-kind="tv" aria-hidden="true">
+        <div className={styles.broadcastMini}>
+          <span className={styles.broadcastAntenna} />
+          <span className={styles.broadcastBezel}>
+            <span className={styles.broadcastScreen}>
+              <span className={styles.broadcastLive}>Live</span>
+              <strong>Evening news</strong>
+              <em>Vancouver · 6:00</em>
+            </span>
+          </span>
+          <span className={styles.broadcastStand} />
+        </div>
+      </div>
+    );
+  }
+
+  if (kind === "ctv") {
     return (
       <div className={styles.visual} data-kind="ctv" aria-hidden="true">
-        <div className={styles.tvFrame}>
-          <span className={styles.tvBezel}>
-            <span className={styles.tvScreen}>
-              <span className={styles.tvAd}>
+        <div className={styles.streamMini}>
+          <span className={styles.streamBezel}>
+            <span className={styles.streamScreen}>
+              <span className={styles.streamApps}>
+                <i />
+                <i />
+                <i />
+                <i />
+              </span>
+              <span className={styles.streamAd}>
                 <small>Stream ad</small>
                 <strong>Warm home. Clear offer.</strong>
               </span>
             </span>
           </span>
-          <span className={styles.tvStand} />
         </div>
       </div>
     );
@@ -246,6 +261,7 @@ function ServiceVisual({ kind }: { kind: VisualKind }) {
     return (
       <div className={styles.visual} data-kind="radio" aria-hidden="true">
         <div className={styles.radioMini}>
+          <span className={styles.radioMic} aria-hidden="true" />
           <span className={styles.radioDial}>
             <b>98.7</b>
             <em>FM</em>
@@ -272,7 +288,10 @@ function ServiceVisual({ kind }: { kind: VisualKind }) {
             <small>Billboard</small>
             <strong>Open house this weekend</strong>
           </span>
-          <span className={styles.boardPost} />
+          <span className={styles.boardLegs} aria-hidden="true">
+            <i />
+            <i />
+          </span>
         </div>
       </div>
     );
@@ -284,13 +303,17 @@ function ServiceVisual({ kind }: { kind: VisualKind }) {
         <div className={styles.socialMini}>
           <span className={styles.socialCard}>
             <i />
-            <b>Feed post</b>
-            <em />
+            <span>
+              <b>Feed post</b>
+              <em />
+            </span>
           </span>
           <span className={styles.socialCard} data-dim>
             <i />
-            <b>Story</b>
-            <em />
+            <span>
+              <b>Story</b>
+              <em />
+            </span>
           </span>
         </div>
       </div>
@@ -448,10 +471,7 @@ export function RelatedServices({ title, current, include, tone = "light", align
             <li key={link.href}>
               <Link className={styles.card} href={link.href} data-tone={index % 4}>
                 <span className={styles.copy}>
-                  <span className={styles.nameRow}>
-                    <span className={styles.name}>{link.name}</span>
-                    <ArrowIcon />
-                  </span>
+                  <span className={styles.name}>{link.name}</span>
                   <span className={styles.line}>{link.line}</span>
                 </span>
                 <ServiceVisual kind={link.visual} />

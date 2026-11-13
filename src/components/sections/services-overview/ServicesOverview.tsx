@@ -236,8 +236,8 @@ export function ServicesOverview() {
                 </span>
                 <span className={styles.browserView}>
                   <Image
-                    src={`${UPLOADS}/2026/07/Honest-Cleaning-Website.jpg`}
-                    alt="Honest Cleaning & Services home page"
+                    src="/images/website-projects/amsterdam-garden-centre-home.jpg"
+                    alt="Amsterdam Garden Centre e-commerce home page"
                     fill
                     sizes="(min-width: 960px) 58vw, 100vw"
                     className={styles.coverTop}
@@ -252,24 +252,24 @@ export function ServicesOverview() {
                 </span>
               </span>
             </Link>
-            <ul className={styles.capabilities}>
-              {DIGITAL.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href} className={styles.capability}>
-                    <span className={styles.capabilityName}>{item.name}</span>
-                    <span className={styles.capabilityLine}>{item.line}</span>
-                    <span className={styles.explore}>
-                      Explore <Arrow />
-                    </span>
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link href="/services/digital-marketing/" className={styles.textLink}>
-                  All digital marketing <Arrow />
-                </Link>
-              </li>
-            </ul>
+            <div className={styles.digitalSide}>
+              <ul className={styles.capabilities}>
+                {DIGITAL.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className={styles.capability}>
+                      <span className={styles.capabilityCopy}>
+                        <span className={styles.capabilityName}>{item.name}</span>
+                        <span className={styles.capabilityLine}>{item.line}</span>
+                      </span>
+                      <Arrow />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              <Link href="/services/digital-marketing/" className={styles.textLink}>
+                All digital marketing <Arrow />
+              </Link>
+            </div>
           </div>
         </div>
       </section>

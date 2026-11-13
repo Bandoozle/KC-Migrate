@@ -954,9 +954,7 @@
 /* Traditional TV and streaming TV */
 .versus {
   padding: clamp(4rem, 8vw, 6.5rem) 0;
-  background:
-    radial-gradient(40rem 22rem at 80% 10%, rgba(123, 216, 143, 0.12), transparent 65%),
-    var(--ink);
+  background: var(--ink);
   color: #ffffff;
 }
 
@@ -973,71 +971,72 @@
 
 .compareStudio {
   display: grid;
-  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  gap: clamp(1.75rem, 3.5vw, 2.5rem);
   margin-top: clamp(2rem, 4vw, 3rem);
 }
 
 .compareCards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: clamp(0.85rem, 2vw, 1.25rem);
 }
 
 .compareCard {
-  overflow: hidden;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-}
-
-.compareCard[data-accent="true"] {
-  box-shadow:
-    inset 0 0 0 1px rgba(123, 216, 143, 0.28),
-    0 24px 48px -36px rgba(123, 216, 143, 0.35);
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  min-width: 0;
 }
 
 .compareMedia {
   position: relative;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 21 / 10;
+  overflow: hidden;
+  border-radius: 14px;
   background: #1a1b1f;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.compareCard[data-accent="true"] .compareMedia {
+  box-shadow: inset 0 0 0 1px rgba(123, 216, 143, 0.22);
 }
 
 .compareBadge {
   position: absolute;
-  left: 0.85rem;
-  top: 0.85rem;
+  left: 0.7rem;
+  top: 0.7rem;
   z-index: 1;
-  padding: 0.3rem 0.65rem;
+  padding: 0.25rem 0.55rem;
   border-radius: 999px;
   background: rgba(15, 15, 16, 0.78);
   color: #ffffff;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 700;
 }
 
 .compareChrome {
   position: absolute;
-  left: 0.85rem;
-  right: 0.85rem;
-  bottom: 0.85rem;
+  left: 0.7rem;
+  right: 0.7rem;
+  bottom: 0.7rem;
   z-index: 1;
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 0.55rem;
+  gap: 0.45rem;
   align-items: center;
 }
 
 .compareAd {
-  padding: 0.2rem 0.45rem;
+  padding: 0.15rem 0.4rem;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.92);
   color: #0f0f10;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   font-weight: 700;
 }
 
 .compareScrub {
-  height: 0.28rem;
+  height: 0.24rem;
   overflow: hidden;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.28);
@@ -1053,23 +1052,23 @@
 
 .compareTime {
   color: rgba(255, 255, 255, 0.85);
-  font-size: 0.68rem;
+  font-size: 0.62rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
 }
 
 .compareCopy {
   display: grid;
-  gap: 0.35rem;
-  padding: 1.1rem 1.15rem 1.2rem;
+  gap: 0.2rem;
 }
 
 .compareName,
 .compareNameAccent {
   margin: 0;
-  font-size: var(--kosick-card-title-size);
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 650;
   letter-spacing: -0.015em;
+  line-height: 1.3;
 }
 
 .compareNameAccent {
@@ -1078,135 +1077,132 @@
 
 .compareLine {
   margin: 0;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 0.875rem;
   line-height: 1.45;
 }
 
-.compareTabs {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.25rem;
-  padding: 0.25rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
+/* Premium comparison table */
+.compareTableWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.compareTab {
-  padding: 0.7rem 0.75rem;
-  border: 0;
-  border-radius: 10px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.62);
-  font: inherit;
-  font-size: 0.875rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
+.compareTable {
+  width: 100%;
+  min-width: 36rem;
+  border-collapse: collapse;
+  table-layout: fixed;
 }
 
-.compareTab[aria-selected="true"] {
-  background: rgba(123, 216, 143, 0.92);
-  color: #0f0f10;
+.compareTable th,
+.compareTable td {
+  padding: 1.05rem 1.15rem;
+  text-align: left;
+  vertical-align: top;
+  font-weight: inherit;
 }
 
-.compareTab:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-
-.compareDetail {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-  gap: 1rem 1.25rem;
-  align-items: start;
-  padding: 1.15rem 1.2rem;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.04);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-  animation: compareIn 0.3s ease both;
-}
-
-@keyframes compareIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-.compareSide {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.75rem;
-  align-items: start;
-}
-
-.compareIcon,
-.compareIconAccent {
-  display: grid;
-  place-items: center;
-  width: 2.35rem;
-  height: 2.35rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.compareIconAccent {
-  background: rgba(123, 216, 143, 0.16);
-  color: var(--accent);
-}
-
-.compareSideLabel,
-.compareSideLabelAccent {
-  margin: 0 0 0.25rem;
+.compareTable thead th {
+  padding: 0.85rem 1.15rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 0.8125rem;
-  font-weight: 700;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.compareSideLabelAccent {
+.compareAspectHead {
+  width: 8.5rem;
+}
+
+.compareCtvHead {
   color: var(--accent);
 }
 
-.compareSideBody {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.95rem;
+.compareTable tbody th {
+  width: 8.5rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.compareTable tbody td {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9375rem;
   line-height: 1.5;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.compareDivider {
-  width: 1px;
-  align-self: stretch;
-  background: rgba(255, 255, 255, 0.12);
+.compareCtvCell {
+  color: rgba(255, 255, 255, 0.88);
 }
 
-/* Local market visibility, under the targeting figure */
+.compareTable tbody tr:first-child th,
+.compareTable tbody tr:first-child td {
+  border-top: 0;
+}
+
+.compareTable thead th:first-child,
+.compareTable tbody th {
+  padding-left: 0;
+}
+
+.compareTable thead th:last-child,
+.compareTable tbody td:last-child {
+  padding-right: 0;
+}
+
+/* Local market visibility — ice-blue cards matching the reporting measure labels */
 .local {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1.25rem, 3vw, 2rem);
+  gap: var(--gutter);
   margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
   padding: clamp(1.75rem, 3vw, 2.25rem) 0 0;
   border-top: 1px solid var(--rule);
   list-style: none;
 }
 
+.local > li {
+  display: grid;
+  gap: 0.45rem;
+  align-content: start;
+  min-height: 100%;
+  padding: 1.35rem 1.4rem 1.45rem;
+  border: 1px solid rgba(10, 126, 166, 0.22);
+  border-radius: 16px;
+  background: #f2fbfe;
+}
+
+.localIcon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  margin-bottom: 0.6rem;
+  border-radius: 12px;
+  background: rgba(63, 216, 255, 0.16);
+  color: var(--signal-ink);
+}
+
 .localTitle {
-  margin: 0 0 0.4rem;
+  margin: 0;
+  color: #111111;
   font-size: var(--kosick-card-title-size);
-  font-weight: 600;
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
 }
 
 .localBody {
   margin: 0;
   color: var(--kosick-color-muted);
-  font-size: 1rem;
-  line-height: 1.55;
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
 }
 
 @media (max-width: 959px) {
@@ -1220,67 +1216,89 @@
 }
 
 @media (max-width: 899px) {
-  /* One tall image stack → horizontal swipe so the versus band fits one screen */
-  .compareCards {
-    display: flex;
-    gap: 0.85rem;
-    margin-inline: calc(-1 * var(--gutter));
-    padding-inline: var(--gutter);
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--gutter);
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .compareCards::-webkit-scrollbar {
-    display: none;
-  }
-
-  .compareCard {
-    flex: 0 0 min(82%, 22rem);
-    scroll-snap-align: start;
-  }
-
   .compareMedia {
     aspect-ratio: 16 / 9;
   }
-
-  .compareCopy {
-    padding: 0.9rem 1rem 1rem;
-  }
-
-  .compareDetail {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .compareDivider {
-    width: 100%;
-    height: 1px;
-  }
-
-  .compareTabs {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    border-radius: 18px;
-  }
 }
 
-@media (max-width: 639px) {
-  .compareCard {
-    flex-basis: 84%;
+@media (max-width: 719px) {
+  .compareCards {
+    gap: 0.85rem;
   }
 
   .compareMedia {
-    aspect-ratio: 2 / 1;
+    aspect-ratio: 3 / 2;
   }
 
-  .compareTab {
-    padding: 0.6rem 0.55rem;
-    font-size: 0.8125rem;
+  .compareChrome {
+    display: none;
   }
 
-  .compareDetail {
-    padding: 0.95rem 1rem;
+  .compareTable {
+    min-width: 0;
+  }
+
+  .compareTable thead {
+    display: none;
+  }
+
+  .compareTable,
+  .compareTable tbody,
+  .compareTable tr,
+  .compareTable th,
+  .compareTable td {
+    display: block;
+    width: 100%;
+  }
+
+  .compareTable tbody tr {
+    padding: 1.15rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .compareTable tbody tr:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .compareTable tbody th,
+  .compareTable tbody td {
+    padding: 0;
+    border: 0;
+  }
+
+  .compareTable tbody th {
+    margin-bottom: 0.65rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .compareTable tbody td {
+    position: relative;
+    padding: 0.55rem 0 0.55rem 0.85rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .compareTable tbody td + td {
+    margin-top: 0.35rem;
+  }
+
+  .compareCtvCell {
+    border-left-color: rgba(123, 216, 143, 0.55);
+  }
+
+  .compareTable tbody td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: 0.2rem;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 0.75rem;
+    font-weight: 650;
+  }
+
+  .compareCtvCell::before {
+    color: var(--accent);
   }
 }
