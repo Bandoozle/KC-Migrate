@@ -1,7 +1,6 @@
 /*
- * SEO: layers of search. Ink navy and a search blue on white and warm paper,
- * a faint graph grid that runs through every section. Ranked numerals, query chips and URL
- * paths recur as the search vocabulary. KC type throughout.
+ * SEO: layers of search. Ink navy and a search blue on white and warm paper.
+ * Ranked numerals, query chips and URL paths recur as the search vocabulary. KC type throughout.
  */
 .page {
   --ink: #0c1726;
@@ -10,8 +9,6 @@
   --search-soft: rgba(47, 98, 242, 0.1);
   --up: #13996f;
   --paper: #f5f3ee;
-  --grid: rgba(12, 23, 38, 0.055);
-  --grid-dark: rgba(255, 255, 255, 0.05);
   --rule: rgba(12, 23, 38, 0.13);
   --rule-dark: rgba(255, 255, 255, 0.14);
   --block: var(--kosick-block);
@@ -207,17 +204,6 @@
   color: #8fb0ff;
 }
 
-/* Graph grid on light layers; a blueprint grid on dark ones */
-.intro,
-.map,
-.system,
-.authority {
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
 .map,
 .local,
 .vancouver {
@@ -230,10 +216,6 @@
   overflow: hidden;
   padding: clamp(3rem, 7vw, 6rem) 0 0;
   background-color: var(--ink);
-  background-image:
-    linear-gradient(var(--grid-dark) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-dark) 1px, transparent 1px);
-  background-size: 48px 48px;
   color: #ffffff;
 }
 
@@ -1008,10 +990,6 @@
 /* ================= 05 Technical: underneath the website ================= */
 .technical {
   background-color: var(--ink-deep);
-  background-image:
-    linear-gradient(rgba(143, 176, 255, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(143, 176, 255, 0.07) 1px, transparent 1px);
-  background-size: 24px 24px;
   color: #ffffff;
 }
 
@@ -1304,10 +1282,6 @@
 /* ================= 07 Measurement: closing the loop ================= */
 .reporting {
   background-color: var(--ink);
-  background-image:
-    linear-gradient(var(--grid-dark) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-dark) 1px, transparent 1px);
-  background-size: 48px 48px;
   color: #ffffff;
 }
 

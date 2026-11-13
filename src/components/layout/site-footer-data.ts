@@ -77,7 +77,8 @@ export const SITE_FOOTER_SERVICES: FooterColumn = {
 export const SITE_FOOTER_COMPANY: FooterColumn = {
   title: "Company",
   links: [
-    { label: "Our Company", href: "/" },
+    // Hidden until the Our Company page exists (currently linked nowhere useful).
+    // { label: "Our Company", href: "/our-company/" },
     { label: "Our Work", href: "/services/" },
     { label: "Contact", href: "/contact/" },
   ],

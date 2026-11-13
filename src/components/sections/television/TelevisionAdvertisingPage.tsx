@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
@@ -71,7 +72,6 @@ export function TelevisionAdvertisingPage({ content }: TelevisionAdvertisingPage
             <p className={styles.sectionLead}>{TV_CAPABILITIES.lead}</p>
           </header>
 
-          {/* Three image-led cards; the middle one sits lower for an editorial rhythm */}
           <ul className={styles.capabilityList}>
             {TV_CAPABILITIES.items.map((item, index) => (
               <Reveal key={item.id} as="li" delay={index * 90} className={styles.capability}>
@@ -238,6 +238,17 @@ export function TelevisionAdvertisingPage({ content }: TelevisionAdvertisingPage
       {content.faqs && content.faqs.items.length > 0 ? (
         <FaqAccordion eyebrow="" title={content.faqs.title} items={content.faqs.items} />
       ) : null}
+
+      <RelatedServices
+        title="Television works harder with the rest of the media mix."
+        current="/services/television-advertising/"
+        include={[
+          "/services/digital-connected-tv/",
+          "/services/radio-advertising/",
+          "/services/outdoor-advertising/",
+          "/services/creative/",
+        ]}
+      />
 
       {content.cta ? (
         <PageCta

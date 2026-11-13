@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionDescription, SectionTitle } from "@/components/typography";
@@ -150,6 +151,17 @@ export function BusinessDevelopmentPage({ content }: BusinessDevelopmentPageProp
       <section id="exit" className={styles.exit} aria-labelledby="bd-exit">
         <ExitNarrative />
       </section>
+
+      <RelatedServices
+        title="Strategy lands when brand, creative and demand are already moving."
+        current="/services/business-development/"
+        include={[
+          "/services/corporate-branding/",
+          "/services/creative/",
+          "/services/digital-marketing/",
+          "/corporate-events/",
+        ]}
+      />
 
       {faqs && faqs.items.length > 0 ? (
         <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} />

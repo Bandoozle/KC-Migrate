@@ -61,16 +61,20 @@
 /* Official badges use dark type — sit each on a light pad so they stay legible */
 .partnerBadges {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.45rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 .partnerBadgeWrap {
   display: inline-flex;
+  flex: 1 1 0;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 0.7rem;
+  min-width: 0;
+  padding: 0.4rem 0.55rem;
   border-radius: 0.5rem;
   background: #ffffff;
 }
@@ -78,7 +82,9 @@
 .partnerBadge {
   display: block;
   width: auto;
+  max-width: 100%;
   height: 2.35rem;
+  object-fit: contain;
 }
 
 .col {
@@ -112,11 +118,18 @@
   gap: 0.85rem;
 }
 
-/* Long lists run in two columns under one heading; labels wrap rather than spill into the next column */
+/* Long lists run in two columns under one heading; equal tracks so long labels wrap instead of colliding */
 .linkListSplit {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, max-content));
-  gap: 0.85rem 2.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem 1.5rem;
+}
+
+.linkListSplit a {
+  display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  hyphens: auto;
 }
 
 .footer a {
@@ -291,9 +304,10 @@
   border: 0;
 }
 
-@media (max-width: 380px) {
+@media (max-width: 420px) {
   .linkListSplit {
     grid-template-columns: minmax(0, 1fr);
+    gap: 0;
   }
 }
 
@@ -373,6 +387,14 @@
     gap: 0;
   }
 
+  .partnerBadgeWrap {
+    padding: 0.3rem 0.35rem;
+  }
+
+  .partnerBadge {
+    height: 1.85rem;
+  }
+
   .brandCol {
     padding-bottom: 1.75rem;
   }
@@ -441,15 +463,20 @@
   }
 
   .colPanel {
-    padding-bottom: 1rem;
+    padding: 0 0 1rem 1rem;
   }
 
-  .linkList,
-  .linkListSplit {
+  .linkList {
     gap: 0;
   }
 
-  .footer .linkList a {
+  .linkListSplit {
+    /* Keep column gutter so long pairs like Website Development / Social Media Marketing don’t collide */
+    gap: 0 1.25rem;
+  }
+
+  .footer .linkList a,
+  .footer .linkListSplit a {
     display: flex;
     align-items: center;
     min-height: 44px;

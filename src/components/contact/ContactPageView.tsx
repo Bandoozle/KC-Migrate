@@ -31,6 +31,7 @@ const PARTNER_LOGOS: PartnerLogo[] = [
   { name: "Audi", src: "/images/brands/audi.png", scale: 1.05 },
   { name: "Porsche", src: "/images/brands/porsche.png", mark: "crest", scale: 0.98 },
   { name: "Princess Cruises", src: "/images/brands/princess-cruises.png", scale: 0.9, shape: "wide" },
+  { name: "Oceania Cruises", src: "/images/brands/oceania-cruises.png", scale: 0.95, shape: "wide" },
   { name: "Volkswagen", src: "/images/brands/volkswagen.png", mark: "crest", scale: 0.96 },
   { name: "Expedia", src: "/images/brands/expedia.png", scale: 0.84, shape: "wide" },
   { name: "RE/MAX", src: "/images/brands/remax.png", scale: 0.7, shape: "wide" },

@@ -166,9 +166,31 @@
     --cols: 2;
   }
 
+  /* Partner badges need readable type — stack them full-width instead of
+     squeezing three into a tiny shared row. */
   .wall[data-kind="partner"] {
     --cols: 1;
-    max-width: 15rem;
+    max-width: 17.5rem;
+  }
+
+  .wall[data-kind="partner"] .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .wall[data-kind="partner"] .cell {
+    flex: none;
+    width: 100%;
+    max-width: none;
+  }
+
+  .wall[data-kind="partner"] .logo {
+    aspect-ratio: 5 / 2;
+    padding: 0.15rem;
+  }
+
+  .wall[data-kind="partner"] .logo img {
+    transform: scale(1) !important;
   }
 
   .logo {

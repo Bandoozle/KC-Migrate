@@ -1,11 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { ESPRESSO_DOLCE } from "@/content/espresso-dolce";
+import { GOLF_SOCIAL } from "@/content/golf-social";
 import { labelCase } from "@/lib/eyebrow";
 import { CampaignShowcase } from "./CampaignShowcase";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
@@ -142,6 +144,9 @@ export function SocialMediaMarketingPage({ content }: SocialMediaMarketingPagePr
       {/* Espresso Dolce: official vertical Vimeo spot (KOS_ESP-DOL_202609_06_V1) */}
       <CampaignShowcase {...ESPRESSO_DOLCE} />
 
+      {/* Golf: vertical social spot (https://vimeo.com/1246470221), media left */}
+      <CampaignShowcase {...GOLF_SOCIAL} mediaFirst />
+
       {/* Features: label, title and image on the left; copy and points on the right */}
       {features.length > 0 ? (
         <section className={styles.features} aria-label="How we work">
@@ -186,6 +191,17 @@ export function SocialMediaMarketingPage({ content }: SocialMediaMarketingPagePr
           </div>
         </section>
       ) : null}
+
+      <RelatedServices
+        title="Social works hardest when the rest of the mix is aligned."
+        current="/services/social-media-marketing/"
+        include={[
+          "/services/digital-marketing/",
+          "/services/email-marketing/",
+          "/services/google-ads-management/",
+          "/services/creative/",
+        ]}
+      />
 
       {faqs && faqs.items.length > 0 ? (
         <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} />

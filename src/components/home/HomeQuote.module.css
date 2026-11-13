@@ -189,7 +189,7 @@
   }
 
   .portrait {
-    justify-self: start;
+    justify-self: center;
   }
 
   .portraitFrame {

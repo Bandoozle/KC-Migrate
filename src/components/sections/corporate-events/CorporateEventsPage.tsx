@@ -1,23 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
+import { IncentiveTravelVideos } from "./IncentiveTravelVideos";
 import styles from "./CorporateEventsPage.module.css";
 
 const UPLOADS = "/wp-content/uploads";
 
 const IMAGES = {
-  sailing: { src: `${UPLOADS}/2023/06/wealth-management.jpg`, alt: "A group sailing in formation on open water at sunset" },
+  strip: {
+    src: "/images/corporate-events/las-vegas-strip.jpeg",
+    alt: "The Las Vegas Strip at night with the Bellagio fountains and Paris Las Vegas lit up",
+  },
   coast: { src: `${UPLOADS}/2024/04/european-conference.webp`, alt: "Bell tower and domed roof above a coastal town on the Bay of Kotor" },
   poolside: { src: `${UPLOADS}/2024/07/conference-mexico.webp`, alt: "Two cocktails on the edge of a resort pool" },
   venue: { src: `${UPLOADS}/2025/05/golf-1.webp`, alt: "A bright event dining room set for guests" },
-  destination: { src: `${UPLOADS}/2022/01/international-brands.webp`, alt: "Waves breaking against granite cliffs on a Cabo beach" },
-  resort: { src: `${UPLOADS}/2026/04/hotel-riu-vallarta-1.jpg`, alt: "Resort pool and towers in Puerto Vallarta" },
   stage: { src: `${UPLOADS}/2025/08/IMG_2596-scaled.jpg`, alt: "A presenter on stage in front of a Trane screen aboard the Sun Princess" },
   hospitality: { src: `${UPLOADS}/2024/05/tournament-1.webp`, alt: "Margaritas served beside a bottle of tequila" },
   room: { src: `${UPLOADS}/2024/10/corporate-events.webp`, alt: "An audience listening to speakers at a corporate event" },
@@ -92,7 +95,7 @@ export function CorporateEventsPage({ content }: CorporateEventsPageProps) {
             <div className={styles.collage}>
               <Reveal variant="fade" className={styles.collageMain}>
                 <div className={styles.frame}>
-                  <Image src={IMAGES.sailing.src} alt={IMAGES.sailing.alt} fill sizes="(min-width: 960px) 50vw, 100vw" className={styles.cover} />
+                  <Image src={IMAGES.strip.src} alt={IMAGES.strip.alt} fill sizes="(min-width: 960px) 50vw, 100vw" className={styles.cover} />
                 </div>
               </Reveal>
               <Reveal delay={120} className={styles.collageTall}>
@@ -159,18 +162,7 @@ export function CorporateEventsPage({ content }: CorporateEventsPageProps) {
               Reward &amp; motivate.
             </SectionTitle>
           </div>
-          <div className={styles.travelStage}>
-            <Reveal variant="fade" className={styles.travelMain}>
-              <div className={styles.frame}>
-                <Image src={IMAGES.destination.src} alt={IMAGES.destination.alt} fill sizes="(min-width: 960px) 80vw, 100vw" className={styles.cover} />
-              </div>
-            </Reveal>
-            <Reveal delay={150} className={styles.travelDetail}>
-              <div className={styles.frame}>
-                <Image src={IMAGES.resort.src} alt={IMAGES.resort.alt} fill sizes="(min-width: 960px) 30vw, 60vw" className={styles.cover} />
-              </div>
-            </Reveal>
-          </div>
+          <IncentiveTravelVideos />
           <div className={styles.travelCopy}>
             <p className={styles.lead}>
               Domestic and international programs that celebrate success, from the first flight to the farewell
@@ -275,6 +267,17 @@ export function CorporateEventsPage({ content }: CorporateEventsPageProps) {
           </ol>
         </div>
       </section>
+
+      <RelatedServices
+        title="Events land harder when brand and creative are already clear."
+        current="/corporate-events/"
+        include={[
+          "/services/corporate-branding/",
+          "/services/creative/",
+          "/services/business-development/",
+          "/services/television-advertising/",
+        ]}
+      />
 
       {faqs && faqs.items.length > 0 ? (
         <FaqAccordion eyebrow="" title={labelCase(faqs.title)} items={faqs.items} />

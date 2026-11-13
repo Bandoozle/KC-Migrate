@@ -24,9 +24,9 @@ export const TV_CAPABILITIES = {
       title: "Creative production",
       body: "Commercial concepts, messaging and production from our in-house team, from concept through post, so the spot matches the brand and the buy.",
       image: {
-        src: "/images/creative/reel-spot.jpg",
-        alt: "A cinematic frame from a television commercial produced by Kosick",
-        position: "72% 40%",
+        src: "/wp-content/uploads/2021/07/video-scaled.jpg",
+        alt: "In-house camera crew filming a television commercial",
+        position: "50% 45%",
       },
     },
     {
@@ -34,9 +34,9 @@ export const TV_CAPABILITIES = {
       title: "Media planning",
       body: "Channel, placement and audience selection across broadcast, cable and streaming, planned as one schedule rather than disconnected buys.",
       image: {
-        src: "/images/television/media-planning-broadcast.jpg",
-        alt: "A live tennis broadcast on a television screen",
-        position: "45% 50%",
+        src: "/wp-content/uploads/2026/07/Media-Buying.jpg",
+        alt: "A family watching a television commercial in their living room",
+        position: "50% 40%",
       },
     },
     {

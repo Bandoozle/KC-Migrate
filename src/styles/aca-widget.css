@@ -31,6 +31,11 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+/* Hide the chat while the mobile nav drawer is open */
+html[ data-nav-drawer-open='true' ] #aca-root {
+	display: none !important;
+}
+
 #aca-root[ data-position='bottom-right' ] {
 	right: 20px;
 	bottom: 20px;

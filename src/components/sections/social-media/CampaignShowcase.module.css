@@ -21,6 +21,14 @@
   box-shadow: 0 18px 40px -28px rgba(20, 16, 12, 0.35);
 }
 
+.cardMediaFirst {
+  grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.88fr);
+}
+
+.cardMediaFirst .copy {
+  justify-self: end;
+}
+
 .copy {
   display: grid;
   gap: 0.85rem;
@@ -33,9 +41,16 @@
   margin: 0;
   color: var(--kosick-color-text-strong);
   font-family: var(--kosick-font);
-  font-size: var(--kosick-meta-size);
+  font-size: var(--kosick-feature-label-size);
   font-weight: 600;
-  line-height: var(--kosick-meta-leading);
+  line-height: var(--kosick-feature-label-leading);
+}
+
+@media (min-width: 768px) {
+  .client {
+    font-size: var(--kosick-feature-label-size-md);
+    line-height: var(--kosick-feature-label-leading-md);
+  }
 }
 
 .title {
@@ -215,7 +230,8 @@
 }
 
 @media (max-width: 899px) {
-  .card {
+  .card,
+  .cardMediaFirst {
     grid-template-columns: minmax(0, 1fr);
     gap: 1.5rem;
     padding: 1.25rem;
@@ -224,6 +240,9 @@
   .copy {
     max-width: none;
     padding-inline: 0.25rem;
+  }
+
+  .card:not(.cardMediaFirst) .copy {
     order: 1;
   }
 
@@ -232,9 +251,16 @@
   }
 
   .stage {
-    order: 2;
     aspect-ratio: 1.2 / 1;
     gap: 0.55rem;
+  }
+
+  .card:not(.cardMediaFirst) .stage {
+    order: 2;
+  }
+
+  .cardMediaFirst .copy {
+    justify-self: stretch;
   }
 
   .stillTop,
