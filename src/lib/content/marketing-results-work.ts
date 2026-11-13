@@ -85,7 +85,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
     displayTitle: "Real Estate Developments",
     solutions: ["brand", "digital"],
     summary:
-      "Targeted advertising, branding, and digital strategy for real estate developments.",
+      "Targeted advertising, branding and digital strategy for real estate developments.",
     services: ["Targeted advertising", "Branding", "Digital strategy"],
     deliverable: "Architectural photography published with this entry.",
     outcome: null,
@@ -95,7 +95,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
   "residential construction": {
     displayTitle: "Residential Construction",
     solutions: ["brand", "web", "digital"],
-    summary: "Branding, web design, SEO, and advertising for residential construction.",
+    summary: "Branding, web design, SEO and advertising for residential construction.",
     services: ["Branding", "Web design", "SEO", "Advertising"],
     deliverable: "Construction photography published with this entry.",
     outcome: null,
@@ -106,7 +106,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
     displayTitle: "HVAC Services",
     solutions: ["digital", "web"],
     summary:
-      "Lead generation, Google Ads, SEO, and custom websites for heating and cooling companies.",
+      "Lead generation, Google Ads, SEO and custom websites for heating and cooling companies.",
     services: ["Lead generation", "Google Ads", "SEO", "Custom websites"],
     deliverable: "HVAC photography published with this entry.",
     outcome: null,
@@ -116,7 +116,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
   "medical aesthetics": {
     displayTitle: "Medical Aesthetics",
     solutions: ["digital", "brand"],
-    summary: "Social media, SEO, Google Ads, and branding for medical aesthetics clinics.",
+    summary: "Social media, SEO, Google Ads and branding for medical aesthetics clinics.",
     services: ["Social media", "SEO", "Google Ads", "Branding"],
     deliverable: "Clinic product photography published with this entry.",
     outcome: null,
@@ -124,9 +124,9 @@ const WORK_COPY: Record<string, WorkCopy> = {
     imagePosition: "center 55%",
   },
   "diamond jewelry": {
-    displayTitle: "Diamond & Jewelry",
+    displayTitle: "Diamond & Jewellery",
     solutions: ["brand", "creative", "digital"],
-    summary: "Brand storytelling, visual creative, and targeted media for luxury jewelry.",
+    summary: "Brand storytelling, visual creative and targeted media for luxury jewellery.",
     services: ["Brand storytelling", "Visual creative", "Targeted media"],
     deliverable: "Product photography published with this entry.",
     outcome: null,
@@ -136,7 +136,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
   "logistics transportation": {
     displayTitle: "Logistics & Transportation",
     solutions: ["brand", "web", "digital"],
-    summary: "Branding, web development, SEO, and advertising for logistics and transportation.",
+    summary: "Branding, web development, SEO and advertising for logistics and transportation.",
     services: ["Branding", "Web development", "SEO", "Advertising"],
     deliverable: "Fleet photography published with this entry.",
     outcome: null,
@@ -148,7 +148,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
     displayTitle: "Retail",
     solutions: ["brand", "creative", "digital", "web"],
     summary:
-      "Branding, social media, influencer campaigns, and e-commerce. The photograph shows packaging.",
+      "Branding, social media, influencer campaigns and e-commerce.",
     services: ["Branding", "Social media", "Influencer campaigns", "E-commerce"],
     deliverable: "Packaging photography published with this entry.",
     outcome: null,
@@ -158,7 +158,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
   "home services": {
     displayTitle: "Home Services",
     solutions: ["digital"],
-    summary: "SEO, Google Ads, social media, and local advertising for home services.",
+    summary: "SEO, Google Ads, social media and local advertising for home services.",
     services: ["SEO", "Google Ads", "Social media", "Local advertising"],
     deliverable: "Installation photography published with this entry.",
     outcome: null,
@@ -169,7 +169,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
     displayTitle: "Luxury Automotive",
     solutions: ["digital", "brand"],
     summary:
-      "Digital advertising, SEO, social media, and branding. The image is a screenshot from this collection.",
+      "Digital advertising, SEO, social media and branding.",
     services: ["Digital advertising", "SEO", "Social media", "Branding"],
     deliverable: "Screenshot published with this entry.",
     outcome: null,
@@ -191,7 +191,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
     displayTitle: "Auction & Liquidation",
     solutions: ["digital", "traditional"],
     summary:
-      "Digital ads, email, and signage for auctions and liquidations. The image is a stock photograph, not a client shoot.",
+      "Digital ads, email and signage for auctions and liquidations. The image is a stock photograph, not a client shoot.",
     services: ["Digital ads", "Email", "Signage"],
     deliverable: "Stock photography published with this entry.",
     outcome: null,
@@ -202,7 +202,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
     displayTitle: "Hearth",
     solutions: ["digital", "brand", "creative"],
     summary:
-      "Targeted ads, SEO, and showroom branding for fireplaces, stoves, and inserts.",
+      "Targeted ads, SEO and showroom branding for fireplaces, stoves and inserts.",
     services: ["Targeted ads", "SEO", "Showroom branding"],
     deliverable: "Hearth photography published with this entry.",
     outcome: null,
@@ -213,7 +213,7 @@ const WORK_COPY: Record<string, WorkCopy> = {
     displayTitle: "Petroleum",
     solutions: ["brand", "digital", "traditional"],
     summary:
-      "Brand visibility, B2B outreach, and digital and traditional media. No client name is documented.",
+      "Brand visibility, B2B outreach and digital and traditional media. No client name is documented.",
     services: ["Brand visibility", "B2B outreach", "Digital media", "Traditional media"],
     deliverable: "Fuel-equipment photography published with this entry.",
     outcome: null,

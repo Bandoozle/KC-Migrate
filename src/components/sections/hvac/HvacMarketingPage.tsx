@@ -29,11 +29,11 @@ const HERO_LEAD =
 const CLOSING = {
   title: "Ready for more HVAC leads?",
   description:
-    "Tell us about your service area, your brands and your busy seasons. We'll show you where your next calls and service enquiries can come from.",
+    "Tell us about your service area, your brands and your busy seasons. We’ll show you where your next calls and service inquiries can come from.",
 };
 
 const PROCESS = [
-  { name: "Audit", line: "Review your market, competitors, website and where today's leads come from." },
+  { name: "Audit", line: "Review your market, competitors, website and where today’s leads come from." },
   { name: "Strategy", line: "Choose the channels, offers and landing pages most likely to bring in the jobs you want." },
   { name: "Launch", line: "Go live with call and form tracking in place from day one." },
   { name: "Scale", line: "Put more budget behind the campaigns that bring in qualified leads." },
@@ -169,7 +169,8 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
   const phone = cta?.phone;
   const video = content.videoSections.find((section) => /vimeo\.com\/video\/\d+/.test(section.src));
   const videoId = video?.src.match(/vimeo\.com\/video\/(\d+)/)?.[1];
-  const stats = statsSection?.items ?? [];
+  // The co-op compliance rate is left out: it depends on dealer purchases, not on Kosick (Bretton, Nov 2026)
+  const stats = (statsSection?.items ?? []).filter((stat) => !/compliance/i.test(stat.label));
   const introStats = stats.filter((stat) => !/lead/i.test(stat.label)).slice(0, 3);
   const leadStat = stats.find((stat) => /lead/i.test(stat.label));
 
@@ -192,7 +193,7 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
               </SectionTitle>
               <p className={styles.lead}>
                 Partnered with Trane, RunTru, GE, York, Daikin, Fujitsu and other national brands, we know what brings
-                in installation, repair and maintenance enquiries for dealers across Canada.
+                in installation, repair and maintenance inquiries for dealers across Canada.
               </p>
               <div className={styles.actions}>
                 <Link className={styles.primary} href={contactHref}>

@@ -47,8 +47,8 @@ export function HvacJourney() {
     <JourneyFrame
       industry="hvac"
       title="When the furnace quits, the call should come to you."
-      lead="Homeowners with no heat don't compare for long. HVAC Google Ads and local SEO put you at the top of the search, and your website turns the visit into a tracked call."
-      summary="Illustration: a homeowner searches for furnace repair near me, taps your sponsored result, calls from your website, and the call arrives on your schedule as a new lead that your team books into an open slot."
+      lead="Homeowners with no heat don’t compare for long. HVAC Google Ads and local SEO put you at the top of the search, and your website turns the visit into a tracked call."
+      summary="Illustration: a homeowner searches for furnace repair near me, taps your sponsored result, calls from your website and the call arrives on your schedule as a new lead that your team books into an open slot."
       side="right"
       story="list"
       steps={[
@@ -169,17 +169,17 @@ export function HvacJourney() {
             </div>
           </div>
 
-          {/* The dealer's side: a day view with an enquiry tray above it */}
+          {/* The dealer's side: a day view with an inquiry tray above it */}
           <div className={s.board}>
             <span className={s.boardHead}>
               <b>Today</b>
               <span>Service schedule</span>
             </span>
 
-            <span className={s.sectionLabel}>New enquiries</span>
+            <span className={s.sectionLabel}>New inquiries</span>
             <span className={s.tray}>
               <span className={s.trayEmpty} data-hidden={stage === 2}>
-                {stage === 3 ? "All enquiries booked" : "Calls and forms land here"}
+                {stage === 3 ? "All inquiries booked" : "Calls and forms land here"}
               </span>
             </span>
 

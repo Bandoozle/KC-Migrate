@@ -27,11 +27,12 @@
   object-position: 58% 42%;
 }
 
-/* Single, even dark overlay for contrast — keeps the photo readable, not muddy */
+/* Darker on the copy side so the quote reads cleanly; the city stays visible on the right */
 .wash {
   position: absolute;
   inset: 0;
-  background: rgba(12, 11, 10, 0.52);
+  background:
+    linear-gradient(90deg, rgba(10, 9, 8, 0.72) 0%, rgba(10, 9, 8, 0.5) 60%, rgba(10, 9, 8, 0.38) 100%);
 }
 
 .rail {
@@ -45,12 +46,18 @@
   padding-inline: 0;
 }
 
+/* The quote sits on its own dark glass card, so the photo never competes with the type */
 .copy {
   position: relative;
   min-width: 0;
-  /* Fill the left grid track; portrait width + gap set the measure */
   max-width: none;
-  padding-bottom: 0.15rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background: rgba(14, 13, 12, 0.62);
+  -webkit-backdrop-filter: blur(14px) saturate(110%);
+  backdrop-filter: blur(14px) saturate(110%);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
 }
 
 .mark {
@@ -112,7 +119,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  border-radius: 1px;
+  border-radius: 16px;
   aspect-ratio: 4 / 5;
   background: #1c1a18;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
@@ -146,8 +153,17 @@
 
 @media (max-width: 639px) {
   .section {
-    --portrait-w: 11.5rem;
+    --portrait-w: 9.5rem;
     padding: 2.25rem 0 2.5rem;
+  }
+
+  .wash {
+    background: rgba(10, 9, 8, 0.6);
+  }
+
+  .copy {
+    padding: 1.35rem 1.25rem 1.5rem;
+    border-radius: 16px;
   }
 
   .rail {

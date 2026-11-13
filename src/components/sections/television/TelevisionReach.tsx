@@ -39,11 +39,11 @@ export function TelevisionReach() {
         <div className={styles.layout}>
           <figure className={styles.photo}>
             <Image
-              src="/images/television/households-evening.jpg"
-              alt="A home at dusk with its living room lit, seen from the garden"
+              src="/images/television/sofa-tv.jpg"
+              alt="A couple on a living room sofa watching television at dusk"
               fill
               sizes="(max-width: 899px) 100vw, 60vw"
-              style={{ objectFit: "cover", objectPosition: "50% 55%" }}
+              style={{ objectFit: "cover", objectPosition: "78% 50%" }}
             />
           </figure>
 

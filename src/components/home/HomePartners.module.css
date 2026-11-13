@@ -1,5 +1,7 @@
 .section {
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --partners-gap: clamp(0.45rem, 1vw, 0.75rem);
+  --partners-cell-pad: clamp(0.35rem, 0.9vw, 0.55rem);
   text-align: center;
 }
 
@@ -12,6 +14,10 @@
   text-wrap: balance;
 }
 
+.tabs {
+  margin: 0 auto clamp(1.5rem, 3vw, 2.25rem);
+}
+
 .stack {
   display: grid;
 }
@@ -20,7 +26,6 @@
   grid-area: 1 / 1;
   min-width: 0;
   visibility: hidden;
-  /* Brands tab is taller (two groups); keep inactive panels out of layout height */
   height: 0;
   overflow: hidden;
 }
@@ -32,57 +37,46 @@
 }
 
 .note {
-  margin: 0.25rem 0 clamp(1rem, 2vw, 1.5rem);
+  max-width: 42rem;
+  margin: 0 auto clamp(1.35rem, 2.5vw, 1.85rem);
   color: var(--kosick-color-muted);
-  font-size: var(--kosick-meta-size);
-  line-height: 1.4;
+  font-size: var(--kosick-body-size);
+  line-height: var(--kosick-body-leading);
+  text-wrap: balance;
 }
 
-.brandGroups {
-  display: grid;
-  gap: clamp(1.75rem, 3.5vw, 2.75rem);
+.panel[data-active="true"] .note {
+  animation: partners-fade 320ms ease both;
 }
 
-.brandGroup {
-  min-width: 0;
-}
-
-.subgroupTitle {
-  margin: 0;
-  color: var(--kosick-color-ink, #111);
-  font-size: var(--kosick-meta-size);
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  line-height: 1.35;
-  text-transform: none;
-}
-
-.subgroupNote {
-  margin: 0.35rem 0 clamp(0.85rem, 1.6vw, 1.15rem);
-  color: var(--kosick-color-muted);
-  font-size: 0.875rem;
-  line-height: 1.4;
-}
-
-/* The chosen wall plays in; the other simply stays hidden */
-.panel[data-active="true"] .note,
-.panel[data-active="true"] .subgroupTitle,
-.panel[data-active="true"] .subgroupNote {
-  animation: partners-fade 300ms ease both;
-}
-
-/* One quiet row of nine on desktop; centred rows on tablets; 3 x 3 on phones */
 .wall {
+  --cols: 5;
+  display: grid;
+  gap: var(--partners-gap);
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.wall[data-kind="partner"] {
+  --cols: 3;
+  max-width: 40rem;
+}
+
+.row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
+  gap: var(--partners-gap);
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .cell {
-  flex: 0 0 calc(100% / 3);
+  flex: 0 1 calc((100% - (var(--cols) - 1) * var(--partners-gap)) / var(--cols));
+  min-width: 0;
+  max-width: calc((100% - (var(--cols) - 1) * var(--partners-gap)) / var(--cols));
 }
 
 .panel[data-active="true"] .cell {
@@ -98,103 +92,94 @@
 @keyframes partners-rise {
   from {
     opacity: 0;
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
 }
 
 .logo {
   position: relative;
-  display: block;
-  aspect-ratio: 16 / 9;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  padding: var(--partners-cell-pad);
   overflow: hidden;
-  /* `scale` composes with each wall's crop-in transform on the image */
-  transition: scale 300ms var(--ease);
+  background: transparent;
 }
 
-/* The network files frame each mark with wide white margins: crop in so every mark reads at one size */
+.logo img {
+  object-fit: contain !important;
+  object-position: center !important;
+  padding: 0 !important;
+  transform: scale(0.72) !important;
+}
+
+.wall[data-kind="media"] .logo {
+  padding: 0.15rem;
+}
+
 .wall[data-kind="media"] .logo img {
-  object-fit: cover;
-  transform: scale(1.12);
-}
-
-.wall[data-kind="brand"] .logo img {
-  object-fit: contain;
-  object-position: center;
-  transform: scale(0.92);
-  padding: 0.35rem;
+  transform: scale(1.2) !important;
 }
 
 .wall[data-kind="brand"] .cell[data-mark="crest"] .logo img {
-  transform: scale(0.78);
-  padding: 0.55rem;
+  transform: scale(0.55) !important;
 }
 
-.wall[data-kind="brand"] .cell {
-  flex-basis: calc(100% / 3);
+.wall[data-kind="brand"] .cell[data-mark="bird"] .logo img {
+  transform: scale(0.68) !important;
 }
 
-@media (min-width: 640px) {
-  .wall[data-kind="brand"] .cell {
-    flex-basis: 20%;
-  }
+.wall[data-kind="brand"] .cell[data-mark="script"] .logo img {
+  transform: scale(0.62) !important;
 }
 
-@media (min-width: 1100px) {
-  .wall[data-kind="brand"] .cell {
-    flex-basis: calc(100% / 6);
-  }
+.wall[data-kind="brand"] .cell[data-mark="padded"] .logo img {
+  /* Trane / GE PNGs ship with large empty canvas — pull the mark up to peers. */
+  transform: scale(1.35) !important;
 }
 
-/* Partner badges are pre-balanced on identical transparent canvases */
 .wall[data-kind="partner"] .logo {
   aspect-ratio: 2 / 1;
+  padding: 0.2rem;
 }
 
 .wall[data-kind="partner"] .logo img {
-  object-fit: contain;
+  transform: scale(0.92) !important;
 }
 
-/* Logos show in full colour; hover only lifts the mark slightly */
-@media (hover: hover) and (pointer: fine) {
-  .cell:hover .logo {
-    scale: 1.08;
+@media (max-width: 899px) {
+  .wall:not([data-kind="partner"]) {
+    --cols: 3;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .wall:not([data-kind="partner"]) .row {
+    display: contents;
   }
 }
 
-@media (min-width: 640px) {
-  .cell {
-    flex-basis: 20%;
+@media (max-width: 639px) {
+  .wall:not([data-kind="partner"]) {
+    --cols: 2;
   }
-}
 
-@media (min-width: 1100px) {
-  .cell {
-    flex-basis: calc(100% / 9);
+  .wall[data-kind="partner"] {
+    --cols: 1;
+    max-width: 15rem;
   }
-}
 
-/* Only three two-line badges: wider cells so their sub-text reads at the networks' scale */
-@media (min-width: 640px) {
-  .wall[data-kind="partner"] .cell {
-    flex-basis: 30%;
-  }
-}
-
-@media (min-width: 1100px) {
-  .wall[data-kind="partner"] .cell {
-    flex-basis: calc(100% / 6);
+  .logo {
+    aspect-ratio: 5 / 3;
+    padding: 0.45rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .panel[data-active="true"] .note,
-  .panel[data-active="true"] .subgroupTitle,
-  .panel[data-active="true"] .subgroupNote,
   .panel[data-active="true"] .cell {
     animation: none;
-  }
-
-  .logo {
-    transition: none !important;
   }
 }

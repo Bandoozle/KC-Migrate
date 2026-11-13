@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { IndustryFaqs } from "@/components/industry/IndustryFaqs";
 import { IndustryGrid } from "@/components/industry/IndustryGrid";
+import { MARKETING_PROGRAMS_FAQS } from "@/lib/industries/faqs";
 import { Reveal } from "@/components/motion/Reveal";
 import { InternalPageHero } from "@/components/sections/InternalPageHero";
 import { PageCta } from "@/components/sections/PageCta";
@@ -20,7 +22,7 @@ const UPLOADS = "/wp-content/uploads";
 const CHANNELS = [
   {
     name: "Website & E-Commerce",
-    line: "Fast, flexible sites and stores built to turn traffic into enquiries and sales.",
+    line: "Fast, flexible sites and stores built to turn traffic into inquiries and sales.",
     href: "/services/website-development/",
   },
   {
@@ -241,11 +243,19 @@ export function MarketingProgramDirectory() {
                   </span>
                 </Reveal>
               ))}
-              <li className={styles.layerSum}>One coordinated program</li>
+              {/* The total of the four disciplines above */}
+              <li className={styles.layerSum}>
+                <span className={styles.layerCopy}>
+                  <span className={styles.layerName}>One coordinated program</span>
+                  <span className={styles.layerLine}>Planned, produced and reported by one team, on one schedule.</span>
+                </span>
+              </li>
             </ul>
           </div>
         </section>
       </div>
+
+      <IndustryFaqs items={MARKETING_PROGRAMS_FAQS} />
 
       <PageCta className={styles.cta} cta={MARKETING_PROGRAMS_CTA} />
     </>

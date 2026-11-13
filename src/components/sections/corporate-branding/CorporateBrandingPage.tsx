@@ -42,9 +42,9 @@ const IMAGES = {
     alt: "Tablet showing a branded resort website",
   },
   fleet: {
-    src: "/images/branding/van-kam-driver-cab.jpg",
-    alt: "A Van-Kam Freightways driver waving from a truck cab with the Van-Kam logo on the door",
-    position: "38% 50%",
+    src: "/images/branding/van-kam-truck.jpeg",
+    alt: "A Van-Kam Freightways truck on a mountain highway with the fleet wrap on the trailer",
+    position: "55% 55%",
   },
 };
 

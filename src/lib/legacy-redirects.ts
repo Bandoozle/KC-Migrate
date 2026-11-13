@@ -19,7 +19,7 @@ export const LEGACY_REDIRECTS = [
   // Rank Math redirect on WordPress
   {
     source: "/services/media-buying",
-    destination: "/blog-media-buying-canada-tv-streaming-radio/",
+    destination: "/media-buying-canada/",
   },
   // Retired client-event microsites (NEE Mexico 2026 conference, Uncorked 2025)
   {
@@ -83,6 +83,63 @@ export const LEGACY_REDIRECTS = [
   {
     source: "/services/hvac-marketing/branding-advertising",
     destination: "/services/hvac-marketing/outdoor-advertising/",
+    statusCode: 301,
+  },
+  // Legacy "blog-" article slugs (Bretton’s audit, Nov 2026): each goes straight to its clean URL
+  {
+    source: "/blog-black-friday-advertising",
+    destination: "/black-friday-advertising/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-dental-marketing",
+    destination: "/dental-marketing-custom-websites/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-digital-tv-advertising-ad-creative",
+    destination: "/ad-creative-digital-tv-advertising/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-golf-marketing-strategies",
+    destination: "/golf-course-branding/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-hvac-website-development",
+    destination: "/hvac-website-development/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-importance-of-social-media-marketing",
+    destination: "/importance-of-social-media-marketing/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-kosick-com-corporate-branding-guide",
+    destination: "/corporate-branding-guide/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-media-buying-canada-tv-streaming-radio",
+    destination: "/media-buying-canada/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-social-media-marketing",
+    destination: "/social-media-golf-resorts-real-estate/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-tiktok-instagram-facebook-ad-safe-zones",
+    destination: "/ad-safe-zones-tiktok-instagram-facebook/",
+    statusCode: 301,
+  },
+  // A distinct dealer-marketing article whose old slug read like a duplicate of /hvac-marketing-strategies/
+  {
+    source: "/hvac-marketing-strategies-guide",
+    destination: "/hvac-dealer-marketing/",
     statusCode: 301,
   },
   // Rank Math sitemap files; the index at /sitemap_index.xml still points to /sitemap.xml

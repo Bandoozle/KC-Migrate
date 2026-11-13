@@ -28,7 +28,7 @@ export type RadioArticles = {
 };
 
 const GUIDE_SLUG = "the-power-of-radio-advertising";
-const MEDIA_BUYING_SLUG = "blog-media-buying-canada-tv-streaming-radio";
+const MEDIA_BUYING_SLUG = "media-buying-canada";
 
 function text(html: string) {
   return decodeRenderedText(html).replace(/\s+/g, " ").trim();

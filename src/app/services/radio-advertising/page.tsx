@@ -4,9 +4,9 @@ import { RadioAdvertisingPage as RadioAdvertisingView } from "@/components/secti
 import { getRadioArticles } from "@/lib/wordpress/radio-articles";
 import { getRadioAdvertisingContent } from "@/lib/wordpress/service-page";
 
-const TITLE = "Radio Advertising in Toronto, Calgary & Vancouver | Kosick Communications";
+const TITLE = "Radio Advertising in Canada | Kosick Communications";
 const DESCRIPTION =
-  "Radio advertising across Canada. Kosick plans and buys AM, FM and streaming audio in Toronto, Calgary, Vancouver and beyond, with creative and measurable results.";
+  "Kosick plans and buys AM, FM and streaming audio campaigns in Toronto, Calgary, Vancouver and across Canada, with in-house creative and clear reporting.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const metadata = await rankMathMetadata("/services/radio-advertising/");

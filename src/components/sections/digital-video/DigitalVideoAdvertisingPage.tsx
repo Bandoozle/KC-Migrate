@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
 import { PageCta } from "@/components/sections/PageCta";
 import { getPartnerName } from "@/components/sections/PartnerLogoGrid";
@@ -7,7 +9,9 @@ import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import { FlightMarquee, type FlightStage } from "./FlightMarquee";
+import { MaviShowcase } from "./MaviShowcase";
 import { PartnerLandscape } from "./PartnerLandscape";
+import { TvCompareStudio } from "./TvCompareStudio";
 import styles from "./DigitalVideoAdvertisingPage.module.css";
 
 type DigitalVideoAdvertisingPageProps = {
@@ -17,17 +21,56 @@ type DigitalVideoAdvertisingPageProps = {
 const UPLOADS = "/wp-content/uploads";
 
 const SHOTS = {
-  livingRoom: { src: `${UPLOADS}/2026/09/Television-Advertising.jpg`, alt: "A family watching hockey on a large living-room TV" },
-  tablet: { src: `${UPLOADS}/2026/01/amazon-prime-ads.jpg`, alt: "The Prime Video home screen with featured shows" },
-  wallTv: { src: `${UPLOADS}/2026/06/digital-streaming-advertising-1.jpg`, alt: "Wall-mounted television showing a Formula 1 race" },
-  couch: { src: `${UPLOADS}/2026/02/connected-tv-advertising.jpg`, alt: "A viewer streaming on a tablet from the couch" },
-  homeComfort: { src: `${UPLOADS}/2026/07/Media-Buying.jpg`, alt: "A family watching a Home Comfort ad on their living-room TV" },
-  sportsBar: { src: `${UPLOADS}/2026/09/TV-Ads.jpg`, alt: "Fans watching a Blue Jays game on screens in a sports bar" },
-  watchParty: { src: `${UPLOADS}/2025/12/television-advertising-media-buying.jpg`, alt: "Friends watching soccer together on a living-room TV" },
-  /* One creative frame, reused on every screen in the campaign section */
-  creative: { src: "/images/television/spot-end.png", alt: "" },
-  creativeAlt: { src: "/images/television/trane-poster.png", alt: "" },
+  /** Broadcast / linear living-room TV */
+  livingRoom: {
+    src: `${UPLOADS}/2026/09/Television-Advertising.jpg`,
+    alt: "A family watching hockey on a large living-room TV",
+  },
+  /** Streaming app on a wall-mounted TV */
+  streamingTv: {
+    src: "/images/television/prime-video.jpg",
+    alt: "Prime Video playing on a wall-mounted living-room television",
+  },
+  /** Connected TV / sofa viewing */
+  connectedTv: {
+    src: "/images/television/connected-tv.jpg",
+    alt: "Two people on a sofa watching a football game on a living-room Connected TV",
+  },
+  /** Mobile online video / pre-roll */
+  mobilePreRoll: {
+    src: "/images/television/daikin-mobile.jpg",
+    alt: "A Daikin Comfort sponsored video playing on a smartphone",
+  },
+  /** Tablet / outstream-style viewing */
+  tablet: {
+    src: `${UPLOADS}/2026/02/connected-tv-advertising.jpg`,
+    alt: "A viewer streaming on a tablet from the couch",
+  },
+  homeComfort: {
+    src: `${UPLOADS}/2026/07/Media-Buying.jpg`,
+    alt: "A family watching a Home Comfort ad on their living-room TV",
+  },
+  watchParty: {
+    src: `${UPLOADS}/2025/12/television-advertising-media-buying.jpg`,
+    alt: "Friends watching soccer together on a living-room TV",
+  },
+  tennis: {
+    src: "/images/television/tennis-tv.jpg",
+    alt: "Tennis playing on a living-room television",
+  },
 };
+
+/* Connected TV rebuild (Bretton's audit, Nov 2026): what it is, how it differs from linear TV, local markets */
+const ABOUT = {
+  image: SHOTS.streamingTv,
+  devices: ["Smart TVs", "Streaming devices such as Roku, Apple TV and Fire TV", "Gaming consoles", "Streaming apps on phones and tablets"],
+};
+
+const LOCAL = [
+  { title: "Your trading area", body: "Target the postal codes, cities or regions you serve, so spend stays where customers can buy from you." },
+  { title: "Market-by-market weight", body: "Run more frequency in the markets that matter most, and test new ones with a smaller share of budget." },
+  { title: "Local brand visibility", body: "Appear on the same big screen as national brands, in your own neighbourhoods, at a fraction of broadcast reach costs." },
+];
 
 const FORMATS = {
   ctv: { kicker: "Streaming TV", title: "Connected TV", line: "Big-screen reach, targeted digitally." },
@@ -41,21 +84,21 @@ const FLIGHT: FlightStage[] = [
     name: "Audience",
     line: "Viewers chosen by geography, interests and behaviour.",
     meta: "Geography · Interests",
-    image: SHOTS.couch,
+    image: SHOTS.homeComfort,
   },
   {
     number: "02",
     name: "Creative",
     line: "Message and format matched to how they watch.",
     meta: "Matched to the screen",
-    image: SHOTS.homeComfort,
+    image: { src: "/images/connected-tv/mavi-living-room-day.jpg", alt: "Mavi campaign on a living-room television" },
   },
   {
     number: "03",
     name: "Placement",
     line: "Connected TV, online video and premium inventory.",
     meta: "CTV · Pre-roll · Outstream",
-    image: SHOTS.sportsBar,
+    image: SHOTS.connectedTv,
   },
   {
     number: "04",
@@ -143,26 +186,84 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
   // Anything that matches no category stays visible rather than disappearing.
   if (other.length > 0) grouped.push({ title: "More", logos: other });
 
+  const hero = {
+    ...content.hero,
+    slides: [SHOTS.connectedTv],
+  };
+
   return (
     <main className={styles.page}>
-      <ServiceHero title={content.title} hero={content.hero} />
+      <ServiceHero title={content.title} hero={hero} backgroundPosition="62% 40%" />
+
+      {/* What Connected TV is: the definition beside a streaming screen */}
+      <section className={styles.about} aria-labelledby="dv-about">
+        <div className={`container ${styles.aboutGrid}`}>
+          <div>
+            <p className={styles.label}>What Connected TV is</p>
+            <SectionTitle as="h2" id="dv-about" className={styles.title}>
+              Television advertising, delivered through streaming.
+            </SectionTitle>
+            <p className={styles.lead}>
+              Connected TV advertising places your commercial inside the streaming apps people watch on their televisions.
+              It keeps what makes TV work, a full-screen spot with sound and motion in the living room, and adds the
+              targeting and reporting of digital media.
+            </p>
+            <h3 className={styles.aboutListTitle}>Where people watch</h3>
+            <ul className={styles.aboutList}>
+              {ABOUT.devices.map((device) => (
+                <li key={device}>{device}</li>
+              ))}
+            </ul>
+          </div>
+          <Reveal variant="fade" className={styles.aboutPhoto}>
+            <Image src={ABOUT.image.src} alt={ABOUT.image.alt} fill sizes="(min-width: 960px) 45vw, 100vw" className={styles.cover} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Traditional TV and streaming TV, read across one row at a time */}
+      <section className={styles.versus} aria-labelledby="dv-versus">
+        <div className="container">
+          <div className={styles.head}>
+            <p className={styles.labelOnDark}>Traditional TV and streaming TV</p>
+            <SectionTitle as="h2" id="dv-versus" className={styles.titleOnDark}>
+              Same big screen. Different way to buy it.
+            </SectionTitle>
+            <p className={styles.leadOnDark}>
+              Many plans use both: broadcast for broad reach and credibility, Connected TV to focus weight on the markets and
+              audiences that matter most. Our <Link href="/services/television-advertising/">television advertising</Link>{" "}
+              team plans them as one schedule.
+            </p>
+          </div>
+          <TvCompareStudio />
+        </div>
+      </section>
 
       {/* Formats: one large Connected TV scene, two smaller placements stacked beside it */}
       <section className={styles.formats} aria-labelledby="dv-formats">
         <div className="container">
           <div className={`${styles.head} ${styles.centered}`}>
             <div>
-              <p className={styles.label}>Placements</p>
+              <p className={styles.label}>Streaming placements</p>
               <SectionTitle as="h2" id="dv-formats" className={styles.title}>
-                Where the spot runs.
+                Placements built for reach.
               </SectionTitle>
             </div>
-            <p className={styles.lead}>Connected TV, online video and premium publisher placements.</p>
+            <p className={styles.lead}>
+              Connected TV first, with online video and premium publisher placements to extend reach to phones, tablets and
+              desktops.
+            </p>
           </div>
           <div className={styles.formatGrid}>
             <Reveal variant="fade" as="article" className={`${styles.formatCard} ${styles.formatFeature}`}>
               <div className={styles.photo}>
-                <Image src={SHOTS.livingRoom.src} alt={SHOTS.livingRoom.alt} fill sizes="(min-width: 960px) 85vw, 100vw" className={styles.cover} />
+                <Image
+                  src="/images/connected-tv/mavi-living-room-evening.jpg"
+                  alt="A Connected TV spot playing in a living room at dusk"
+                  fill
+                  sizes="(min-width: 960px) 85vw, 100vw"
+                  className={styles.cover}
+                />
                 <PlayerChrome progress={64} />
               </div>
               <FormatCopy format={FORMATS.ctv} />
@@ -170,14 +271,26 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
             <div className={styles.formatStack}>
               <Reveal delay={120} as="article" className={styles.formatCard}>
                 <div className={styles.photo}>
-                  <Image src={SHOTS.tablet.src} alt={SHOTS.tablet.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} />
-                  <PlayerChrome progress={28} />
+                  {/* Daikin phone already shows sponsored video chrome — skip the overlay. */}
+                  <Image
+                    src={SHOTS.mobilePreRoll.src}
+                    alt={SHOTS.mobilePreRoll.alt}
+                    fill
+                    sizes="(min-width: 960px) 38vw, 100vw"
+                    className={styles.cover}
+                  />
                 </div>
                 <FormatCopy format={FORMATS.preroll} />
               </Reveal>
               <Reveal delay={240} as="article" className={styles.formatCard}>
                 <div className={styles.photo}>
-                  <Image src={SHOTS.wallTv.src} alt={SHOTS.wallTv.alt} fill sizes="(min-width: 960px) 38vw, 100vw" className={styles.cover} />
+                  <Image
+                    src={SHOTS.tablet.src}
+                    alt={SHOTS.tablet.alt}
+                    fill
+                    sizes="(min-width: 960px) 38vw, 100vw"
+                    className={styles.cover}
+                  />
                   <PlayerChrome progress={46} />
                 </div>
                 <FormatCopy format={FORMATS.outstream} />
@@ -190,7 +303,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
       {/* Planning: the four stages as two drifting rows of cards, top row right, bottom row left */}
       <section className={styles.plan} aria-labelledby="dv-plan">
         <div className="container">
-          <div className={styles.head}>
+          <div className={`${styles.head} ${styles.centered}`}>
             <div>
               <p className={styles.label}>Media planning</p>
               <SectionTitle as="h2" id="dv-plan" className={styles.title}>
@@ -201,7 +314,6 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
               A mix of Connected TV, linear TV and digital video, planned for reach and frequency at efficient rates.
             </p>
           </div>
-          <div className={styles.ruler} aria-hidden="true" />
         </div>
         <FlightMarquee label="Flight planning stages" rows={[FLIGHT.slice(0, 2), FLIGHT.slice(2)]} />
       </section>
@@ -211,13 +323,13 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
         <div className="container">
           <div className={styles.targetGrid}>
             <div className={styles.centered}>
-              <p className={styles.label}>Audience targeting</p>
+              <p className={styles.label}>Geographic and demographic targeting</p>
               <SectionTitle as="h2" id="dv-target" className={styles.title}>
-                Target the right creative to the right audience.
+                The right households, in the right markets.
               </SectionTitle>
               <p className={styles.lead}>
-                Creative aligned with audience behaviour and channel performance, so the message connects where it
-                matters most.
+                Geography, demographics, interests and viewing context shape who sees the spot, so the budget goes to the
+                people most likely to become customers.
               </p>
             </div>
             <Reveal variant="fade">
@@ -230,7 +342,7 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
                   </ul>
                   <div className={styles.placement}>
                     <div className={styles.placementFrame}>
-                      <Image src={SHOTS.couch.src} alt="" fill sizes="(min-width: 960px) 45vw, 80vw" className={styles.cover} />
+                      <Image src={SHOTS.tennis.src} alt="" fill sizes="(min-width: 960px) 45vw, 80vw" className={styles.cover} />
                     </div>
                     <span className={styles.placementLabel}>One video placement</span>
                   </div>
@@ -246,44 +358,19 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
               </figure>
             </Reveal>
           </div>
+          {/* Local market visibility */}
+          <ul className={styles.local}>
+            {LOCAL.map((item) => (
+              <li key={item.title}>
+                <h3 className={styles.localTitle}>{item.title}</h3>
+                <p className={styles.localBody}>{item.body}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
-      {/* Campaign: the same creative on a television, a tablet and a phone, near full width */}
-      <section className={styles.campaign} aria-labelledby="dv-campaign">
-        <div className="container">
-          <div className={styles.campaignHead}>
-            <p className={styles.labelOnDark}>One creative system</p>
-            <SectionTitle as="h2" id="dv-campaign" className={styles.displayOnDark}>
-              One campaign. Every screen.
-            </SectionTitle>
-            <p className={styles.leadOnDark}>
-              Build one strong creative system and adapt it across the places your audience watches.
-            </p>
-          </div>
-          <Reveal variant="fade" className={styles.screens}>
-            <div className={styles.tv} aria-hidden="true">
-              <div className={styles.screen}>
-                <Image src={SHOTS.creative.src} alt="" fill sizes="(min-width: 960px) 70vw, 100vw" className={styles.cover} />
-                <span className={styles.screenTag}>Connected TV</span>
-              </div>
-            </div>
-            <div className={styles.tabletDevice} aria-hidden="true">
-              <div className={styles.screen}>
-                <Image src={SHOTS.creative.src} alt="" fill sizes="(min-width: 960px) 30vw, 85vw" className={styles.cover} />
-                <span className={styles.screenTag}>Pre-roll</span>
-              </div>
-            </div>
-            <div className={styles.phone} aria-hidden="true">
-              <div className={styles.screen}>
-                <Image src={SHOTS.creative.src} alt="" fill sizes="(min-width: 960px) 640px, 80vw" className={styles.cover} />
-                <span className={styles.screenTag}>Vertical</span>
-              </div>
-            </div>
-          </Reveal>
-          <p className={styles.visuallyHidden}>The same campaign creative shown on a television, a tablet and a phone.</p>
-        </div>
-      </section>
+      <MaviShowcase />
 
       {/* Measurement: a live flight report beside the copy, four labels under it */}
       <section className={styles.report} aria-labelledby="dv-report">
@@ -310,7 +397,13 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
                   </div>
                   <div className={styles.dashCreative}>
                     <span className={styles.dashThumb}>
-                      <Image src={SHOTS.creativeAlt.src} alt="" fill sizes="320px" className={styles.cover} />
+                      <Image
+                        src="/images/connected-tv/mavi-living-room-day.jpg"
+                        alt=""
+                        fill
+                        sizes="320px"
+                        className={styles.cover}
+                      />
                     </span>
                     <span className={styles.dashMeta}>
                       <span>CTV · Pre-roll · Outstream</span>
@@ -366,6 +459,12 @@ export function DigitalVideoAdvertisingPage({ content }: DigitalVideoAdvertising
           </div>
         </section>
       ) : null}
+
+      <RelatedServices
+        title="Connected TV works hardest alongside your other channels."
+        current="/services/digital-connected-tv/"
+        align="center"
+      />
 
       {content.faqs && content.faqs.items.length > 0 ? (
         <FaqAccordion eyebrow={content.faqs.eyebrow} title={content.faqs.title} items={content.faqs.items} />

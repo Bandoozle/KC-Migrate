@@ -272,7 +272,7 @@ function parseCta($: CheerioAPI, row: Element, origin: string) {
     title: title || "Ready to elevate your digital marketing?",
     description:
       description ||
-      "Let's discuss how strategic digital marketing can help grow your business.",
+      "Let’s discuss how strategic digital marketing can help grow your business.",
     primary,
     phone: { label: phoneLabel, href: phoneHref },
   };
@@ -317,7 +317,7 @@ function normalizeHtml(html: string, page: WordPressPage) {
   let cta = {
     title: "Ready to elevate your digital marketing?",
     description:
-      "Let's discuss how strategic digital marketing can help grow your business.",
+      "Let’s discuss how strategic digital marketing can help grow your business.",
     primary: { label: "Get in Touch", href: "/contact/" },
     phone: { label: "Call us", href: "tel:+16049255800" },
   };

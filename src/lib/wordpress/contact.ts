@@ -102,7 +102,11 @@ function parseOffices(
 
 /** The USA office isn't listed, but the United States is still served: spell it out in full. */
 function spelledOutServicing(value: string): string {
-  return value.replace(/\bUSA\b/, "United States").replace(/\s{2,}/g, " ").trim();
+  return value
+    .replace(/\bServicing\b/, "Serving")
+    .replace(/\bUSA\b/, "United States")
+    .replace(/\s{2,}/g, " ")
+    .trim();
 }
 
 function normalizeContactHtml(
@@ -145,8 +149,8 @@ function normalizeContactHtml(
     : null;
 
   const servicing = spelledOutServicing(
-    infoHeadings.find((h) => /proudly servicing/i.test(h)) ||
-      "Proudly Servicing: Canada, United States & Mexico",
+    infoHeadings.find((h) => /proudly serv(?:ic)?ing/i.test(h)) ||
+      "Proudly Serving: Canada, United States & Mexico",
   );
 
   const formHeadings = formRow

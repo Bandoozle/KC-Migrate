@@ -58,12 +58,19 @@
   line-height: 1.6;
 }
 
-/* Official badge uses dark grey type — sit it on a light pad so it stays legible */
+/* Official badges use dark type — sit each on a light pad so they stay legible */
+.partnerBadges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55rem;
+}
+
 .partnerBadgeWrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.55rem 0.85rem;
+  padding: 0.45rem 0.7rem;
   border-radius: 0.5rem;
   background: #ffffff;
 }
@@ -71,7 +78,7 @@
 .partnerBadge {
   display: block;
   width: auto;
-  height: 2.75rem;
+  height: 2.35rem;
 }
 
 .col {

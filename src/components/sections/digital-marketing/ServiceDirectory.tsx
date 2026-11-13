@@ -142,7 +142,7 @@ export function ServiceDirectory({ services }: ServiceDirectoryProps) {
                   <Image
                     key={service.visual.src}
                     src={service.visual.src}
-                    alt=""
+                    alt={service.visual.alt || service.title}
                     fill
                     sizes="(max-width: 899px) 100vw, 42vw"
                     className={`${styles.mediaImage} ${

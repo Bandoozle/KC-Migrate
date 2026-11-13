@@ -32,7 +32,7 @@ export const HOME_INSTAGRAM_POSTS: HomeInstagramPost[] = [
   {
     href: "https://www.instagram.com/p/DbEcUN2FC--/",
     src: "/images/instagram/DbEcUN2FC--.webp",
-    alt: "Kosick Instagram: Arc'teryx transit shelter advertisements",
+    alt: "Kosick Instagram: Arc’teryx transit shelter advertisements",
     width: 640,
     height: 800,
   },

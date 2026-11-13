@@ -23,7 +23,10 @@ const MEDIA: MediaService[] = [
     name: "Television Advertising",
     line: "Broadcast and streaming TV for reach and brand recall.",
     href: "/services/television-advertising/",
-    image: { src: `${UPLOADS}/2026/06/tv-streaming-advertising-1.jpg`, alt: "Living-room television open to the Prime Video app" },
+    image: {
+      src: "/images/television/prime-video.jpg",
+      alt: "Prime Video playing on a wall-mounted living-room television",
+    },
   },
   {
     name: "Radio Advertising",
@@ -38,10 +41,13 @@ const MEDIA: MediaService[] = [
     image: { src: `${UPLOADS}/2026/01/outdoor-advertising.jpg`, alt: "Trane “We run together” billboard on a rooftop structure" },
   },
   {
-    name: "Digital Video Advertising",
-    line: "Connected TV, pre-roll and outstream placements.",
+    name: "Connected TV Advertising",
+    line: "Streaming TV ads, targeted by market and audience.",
     href: "/services/digital-connected-tv/",
-    image: { src: `${UPLOADS}/2026/06/digital-streaming-advertising-1.jpg`, alt: "Wall-mounted television showing a Formula 1 race" },
+    image: {
+      src: "/images/television/connected-tv.jpg",
+      alt: "Two people on a sofa watching a football game on a living-room Connected TV",
+    },
   },
   {
     name: "Media Buying",
@@ -73,6 +79,8 @@ const BRAND = {
 };
 
 const DIGITAL = [
+  { name: "Google Ads Management", line: "Search, Display, Shopping, YouTube and Performance Max campaigns.", href: "/services/google-ads-management/" },
+  { name: "ChatGPT Ads Management", line: "Planning and readiness for sponsored placements in AI conversations.", href: "/services/chatgpt-ads-management/" },
   { name: "Search Engine Optimization", line: "Rankings and local visibility that compound over time.", href: "/services/search-engine-optimization/" },
   { name: "Social Media Marketing", line: "Strategy, content and paid social across every platform.", href: "/services/social-media-marketing/" },
   { name: "Email Marketing", line: "Campaigns and automations that keep customers coming back.", href: "/services/email-marketing/" },

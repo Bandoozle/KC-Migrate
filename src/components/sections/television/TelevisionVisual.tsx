@@ -61,8 +61,8 @@ function Streaming({ label }: { label: string }) {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className={`${styles.photo} ${styles.streamPhoto}`}
-        src="/images/television/service-streaming.jpg"
-        alt="A smart TV showing a streaming app’s home screen"
+        src="/images/television/prime-video.jpg"
+        alt="Prime Video playing on a wall-mounted living-room television"
         decoding="async"
       />
       <div className={styles.topRow} aria-hidden="true">

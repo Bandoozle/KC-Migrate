@@ -30,13 +30,13 @@ export function AestheticsJourney() {
     <JourneyFrame
       industry="medical-aesthetics"
       title="Trust comes before the consultation."
-      lead="Clients take their time with aesthetic treatments. We keep your clinic in view, answer their questions, and make the first consultation easy to book."
-      summary="Illustration: a client sees your clinic's post, looks the clinic up nearby, and books a skin consultation for Thursday at 4:30 at your clinic."
+      lead="Clients take their time with aesthetic treatments. We keep your clinic in view, answer their questions and make the first consultation easy to book."
+      summary="Illustration: a client sees your clinic’s post, looks the clinic up nearby, and books a skin consultation for Thursday at 4:30 at your clinic."
       side="right"
       story="tabs"
       steps={[
         { label: "See", body: "Social content and video introduce your clinic and your treatments." },
-        { label: "Trust", body: "Search, reviews and clear treatment pages show who they'll see and what to expect." },
+        { label: "Trust", body: "Search, reviews and clear treatment pages show who they’ll see and what to expect." },
         { label: "Consult", body: "Online booking turns that confidence into a consultation at your clinic." },
       ]}
     >

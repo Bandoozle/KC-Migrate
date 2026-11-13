@@ -15,7 +15,7 @@ function kindOf(title: string): Kind {
 
 /* What each channel offers, in plain terms */
 const COPY: Record<Kind, string> = {
-  meta: "Facebook and Instagram ads targeted by location, interests and life stage, with creative made for the feed and lead forms that capture enquiries.",
+  meta: "Facebook and Instagram ads targeted by location, interests and life stage, with creative made for the feed and lead forms that capture inquiries.",
   google: "Search and YouTube campaigns that reach people already looking for what you sell, with keywords, bids and ads tuned toward calls and conversions.",
   geo: "Ads limited to the neighbourhoods, cities or regions you serve, so budget goes to the people who can actually become customers.",
   streaming: "Pre-roll video on streaming and connected TV that builds awareness before the search, then retargets viewers who visit your site.",
@@ -34,7 +34,13 @@ function Mock({ kind }: { kind: Kind }) {
           </span>
         </span>
         <span className={s.feedImage}>
-          <Image src="/wp-content/uploads/2026/02/resort-marketing.jpg" alt="" fill sizes="240px" className={s.cover} />
+          <Image
+            src="/wp-content/uploads/2026/02/resort-marketing.jpg"
+            alt="A travel destination photograph used in a social feed ad mockup"
+            fill
+            sizes="240px"
+            className={s.cover}
+          />
         </span>
         <span className={s.feedCta}>
           <span>
@@ -107,7 +113,13 @@ function Mock({ kind }: { kind: Kind }) {
   return (
     <span className={`${s.mock} ${s.player}`}>
       <span className={s.playerImage}>
-        <Image src="/images/television/service-streaming.jpg" alt="" fill sizes="240px" className={s.cover} />
+        <Image
+          src="/images/television/prime-video.jpg"
+          alt="Prime Video playing on a wall-mounted living-room television"
+          fill
+          sizes="240px"
+          className={s.cover}
+        />
       </span>
       <span className={s.adBar}>
         <span className={s.adTag}>Ad · 0:06</span>

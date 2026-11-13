@@ -14,63 +14,63 @@ export const INDUSTRY_SERVICE_HEROES = {
     displayTitle: "Strategic",
     titleSecondary: "Dental Marketing",
     subtitle:
-      "Kosick Communications helps dental practices build stronger brands, attract new patients, and stay connected with their communities through integrated digital, traditional, and web marketing strategies.",
+      "Kosick Communications helps dental practices build stronger brands, attract new patients and stay connected with their communities through integrated digital, traditional and web marketing strategies.",
   },
   medicalAesthetics: {
     eyebrow: "Digital • Treatments • Retail • Brand",
     displayTitle: "Strategic",
     titleSecondary: "Medical Aesthetics Marketing",
     subtitle:
-      "Kosick Communications helps medical aesthetics clinics like Skinfolio Medesthetics build stronger brands, fill treatment calendars, and grow product sales through integrated digital, traditional, and web marketing.",
+      "Kosick Communications helps medical aesthetics clinics build stronger brands, fill treatment calendars and grow product sales through integrated digital, traditional and web marketing.",
   },
   golf: {
     eyebrow: "Digital • Traditional • Membership • Events",
     displayTitle: "Strategic",
     titleSecondary: "Golf Marketing",
     subtitle:
-      "From memberships and tournaments to events, dining, and course promotion, Kosick Communications helps golf clubs build visibility, attract the right audience, and create consistent marketing across every channel.",
+      "From memberships and tournaments to events, dining and course promotion, Kosick Communications helps golf clubs build visibility, attract the right audience and create consistent marketing across every channel.",
   },
   programs: {
     eyebrow: "Digital • Traditional • Co-op Programs • Web",
     displayTitle: "Strategic",
     titleSecondary: "Marketing Programs",
     subtitle:
-      "Kosick Communications builds integrated marketing programs that combine digital, traditional, co-op, and web strategies to help businesses strengthen their brand, reach the right audience, and generate consistent growth.",
+      "Kosick Communications builds integrated marketing programs that combine digital, traditional, co-op and web strategies to help businesses strengthen their brand, reach the right audience and generate consistent growth.",
   },
   digital: {
     eyebrow: "Digital • Campaigns • Paid Media • Strategy",
     displayTitle: "Strategic",
     titleSecondary: "Digital Marketing",
     subtitle:
-      "Plan and run digital campaigns with strategy, creative, and ongoing optimization designed to grow visibility, generate demand, and support measurable business results.",
+      "Plan and run digital campaigns with strategy, creative and ongoing optimization designed to grow visibility, generate demand and support measurable business results.",
   },
   social: {
     eyebrow: "Digital • Content • Paid Social • Community",
     displayTitle: "Strategic",
     titleSecondary: "Social Media Marketing",
     subtitle:
-      "Build a stronger social presence with content, paid campaigns, and platform strategy designed to keep your brand visible, relevant, and connected with the right audience.",
+      "Build a stronger social presence with content, paid campaigns and platform strategy designed to keep your brand visible, relevant and connected with the right audience.",
   },
   email: {
     eyebrow: "Digital • Automation • Retention • Leads",
     displayTitle: "Strategic",
     titleSecondary: "Email Marketing",
     subtitle:
-      "Turn customer data into meaningful communication with email campaigns, automation, and lifecycle strategies designed to nurture leads, strengthen relationships, and drive repeat business.",
+      "Turn customer data into meaningful communication with email campaigns, automation and lifecycle strategies designed to nurture leads, strengthen relationships and drive repeat business.",
   },
   seo: {
     eyebrow: "Search • Content • Local SEO • Technical",
     displayTitle: "Strategic",
     titleSecondary: "Search Engine Optimization",
     subtitle:
-      "Improve visibility across search with technical SEO, content strategy, local optimization, and ongoing improvements that help the right customers find your business.",
+      "Improve visibility across search with technical SEO, content strategy, local optimization and ongoing improvements that help the right customers find your business.",
   },
   website: {
     eyebrow: "Web • UX • Development • E-Commerce",
     displayTitle: "Strategic",
     titleSecondary: "Website Development\n& E-Commerce",
     subtitle:
-      "Build fast, flexible websites and e-commerce experiences that support your brand, improve the customer journey, and turn traffic into measurable business results.",
+      "Build fast, flexible websites and e-commerce experiences that support your brand, improve the customer journey and turn traffic into measurable business results.",
   },
   television: {
     eyebrow: "Advertising • Linear TV • Media Buying",
@@ -84,28 +84,28 @@ export const INDUSTRY_SERVICE_HEROES = {
     displayTitle: "Strategic",
     titleSecondary: "Radio Advertising",
     subtitle:
-      "Radio earns something rare: undivided attention during the drive, the workout, and the workday.",
+      "Radio earns something rare: undivided attention during the drive, the workout and the workday.",
   },
   outdoor: {
     eyebrow: "Advertising • Billboards • Street-Level",
     displayTitle: "Strategic",
     titleSecondary: "Outdoor Advertising",
     subtitle:
-      "Street-level placements meet people exactly where they walk, wait, and shop.",
+      "Street-level placements meet people exactly where they walk, wait and shop.",
   },
   connectedTv: {
-    eyebrow: "Advertising • Connected TV • Streaming",
+    eyebrow: "Streaming • Smart TVs • Local markets",
     displayTitle: "Strategic",
-    titleSecondary: "Digital Video Advertising",
+    titleSecondary: "Connected TV Advertising",
     subtitle:
-      "Elevate your brand with targeted reach, dynamic content, and measurable results.",
+      "Television ads on the streaming apps and smart TVs your customers watch, targeted to the markets and audiences you serve.",
   },
   creative: {
     eyebrow: "Brand • Creative • Production",
     displayTitle: "Strategic",
     titleSecondary: "Creative & Production",
     subtitle:
-      "Great creative grabs attention, engages the senses, and inspires action.",
+      "Great creative grabs attention, engages the senses and inspires action.",
   },
   corporateBranding: {
     eyebrow: "Brand • Identity • Corporate",
@@ -133,7 +133,7 @@ export const INDUSTRY_SERVICE_HEROES = {
 export function serviceHeroActions(contactHref = "/contact/", talkHref = "tel:+16049255800") {
   return {
     cta: { label: "Start a Project", href: contactHref },
-    secondaryCta: { label: "Let's Talk", href: talkHref, icon: "phone" as const },
+    secondaryCta: { label: "Let’s Talk", href: talkHref, icon: "phone" as const },
   };
 }
 

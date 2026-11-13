@@ -132,7 +132,7 @@ type StepContent = {
 const STEPS: StepContent[] = [
   {
     title: "Let’s strategize",
-    body: "Tell us about your business and what you want to achieve. We’ll discuss your goals and challenges, explore opportunities, and identify the right direction for your marketing.",
+    body: "Tell us about your business and what you want to achieve. We’ll discuss your goals and challenges, explore opportunities and identify the right direction for your marketing.",
     Visual: InquiryVisual,
   },
   {
@@ -142,7 +142,7 @@ const STEPS: StepContent[] = [
   },
   {
     title: "Track results with our technology",
-    body: "See how your marketing is performing with clear reporting and insights. Depending on your program, our tools, including KC Analytics and MSZR, help connect campaign activity with measurable business outcomes.",
+    body: "See how your marketing is performing with clear reporting and insights. Depending on your program, our tools, including KC Analytics, help connect campaign activity with measurable business outcomes.",
     Visual: LaunchVisual,
   },
 ];

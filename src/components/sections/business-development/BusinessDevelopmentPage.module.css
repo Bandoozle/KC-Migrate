@@ -1,10 +1,14 @@
 /*
- * Business development: photography leads; one restrained accent per service
- * (growth sage, sales steel, legal indigo, exit amber) marks its section.
+ * Strategic Business Development — premium advisory identity.
+ * Photography leads; one restrained accent per phase
+ * (growth sage, sales steel, legal indigo, exit amber).
+ * Alternating light / deep bands keep the page cinematic without copying
+ * industry-page layouts.
  */
 .page {
   --bd-ink: #111111;
   --bd-paper: #f4f2ed;
+  --bd-stone: #e9e5dc;
   --bd-line: rgba(17, 17, 17, 0.12);
 
   --bd-growth: #8cc5a4;
@@ -16,6 +20,8 @@
 
   --section-pad: clamp(4.5rem, 9vw, 7.5rem);
   overflow-x: clip;
+  color: var(--bd-ink);
+  background: var(--bd-paper);
 }
 
 .page section[id] {
@@ -80,13 +86,13 @@
   color: rgba(255, 255, 255, 0.88) !important;
 }
 
-/* What we offer — a shade deeper than the white advisory card so the card edge reads */
+/* What we offer */
 .offer {
   padding: var(--section-pad) 0;
-  background: #e9e5dc;
+  background: var(--bd-stone);
 }
 
-/* Growth: full-bleed city, then the editorial plan on warm paper */
+/* Growth: full-bleed city statement, then briefing on warm paper */
 .growth {
   --deep: var(--bd-growth-deep);
   background: #f7f5f1;
@@ -113,8 +119,8 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(10, 12, 12, 0.78) 0%, rgba(10, 12, 12, 0.45) 45%, rgba(10, 12, 12, 0.05) 75%),
-    linear-gradient(0deg, rgba(10, 12, 12, 0.55), transparent 50%);
+    linear-gradient(90deg, rgba(10, 12, 12, 0.82) 0%, rgba(10, 12, 12, 0.48) 42%, rgba(10, 12, 12, 0.08) 78%),
+    linear-gradient(0deg, rgba(10, 12, 12, 0.58), transparent 52%);
 }
 
 .growthHead {
@@ -160,29 +166,29 @@
 }
 
 .growthBody {
-  padding: clamp(2.25rem, 4.5vw, 3.75rem) 0 clamp(3rem, 6vw, 5rem);
+  padding: clamp(2.25rem, 4.5vw, 3.75rem) 0 clamp(3.25rem, 6.5vw, 5.25rem);
   background: #f7f5f1;
 }
 
-/* Sales: editorial stage feature */
+/* Sales: cool stone band — engine sits as dark editorial block */
 .sales {
   --deep: var(--bd-sales-deep);
   padding: var(--section-pad) 0;
-  background: #eef1f5;
+  background: #e6ebf1;
 }
 
 .sales .head {
   max-width: 42rem;
 }
 
-/* Legal */
+/* Legal: warm paper — dossier is the visual event */
 .legal {
   --deep: var(--bd-legal-deep);
   padding: var(--section-pad) 0;
   background: var(--bd-paper);
 }
 
-/* Exit: the component draws the full-bleed photograph */
+/* Exit: component owns the full-bleed split */
 .exit {
   --deep: var(--bd-exit);
 }
@@ -206,7 +212,7 @@
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(10, 10, 10, 0.78) 0%, rgba(10, 10, 10, 0.45) 55%, rgba(10, 10, 10, 0.2));
+  background: linear-gradient(90deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.48) 55%, rgba(10, 10, 10, 0.22));
 }
 
 .closingInner {
@@ -254,7 +260,6 @@
     border-color 0.2s ease;
 }
 
-/* Scoped: the site-wide `a { color: inherit }` would otherwise win */
 .closing .closingPrimary {
   background: #ffffff;
   color: #111111;
@@ -281,7 +286,7 @@
 
 @media (max-width: 899px) {
   .growthShade {
-    background: linear-gradient(0deg, rgba(10, 12, 12, 0.85) 0%, rgba(10, 12, 12, 0.45) 60%, rgba(10, 12, 12, 0.15));
+    background: linear-gradient(0deg, rgba(10, 12, 12, 0.88) 0%, rgba(10, 12, 12, 0.48) 58%, rgba(10, 12, 12, 0.18));
   }
 }
 

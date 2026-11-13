@@ -7,6 +7,8 @@ export type HomeBentoItem = {
   href: string;
   image: string;
   alt: string;
+  /** CSS object-position when the subject sits high in the frame. */
+  imagePosition?: string;
 };
 
 export type HomeCapabilityIcon =
@@ -125,7 +127,7 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     titlePrimary: "Digital",
     titleSecondary: "Advertising",
     description:
-      "Performance-driven campaigns across Google Ads, Social Media, YouTube, and more — putting your business in front of ready-to-buy customers.",
+      "Performance-driven campaigns across Google Ads, social media, YouTube and more, putting your business in front of ready-to-buy customers.",
     href: "/services/digital-marketing/",
     image:
       "/wp-content/uploads/2026/06/social-media-content-marketing-1.jpg",
@@ -141,7 +143,8 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     alt: "An Expedia Cruises TV ad on a living-room television",
   },
   {
-    titlePrimary: "Web",
+    titlePrimary: "Website",
+    titleSecondary: "Development",
     description:
       "Custom websites and e-commerce stores, designed and developed to perform on every device and easy for search engines to read.",
     href: "/services/website-development/",
@@ -152,26 +155,27 @@ const BENTO_ITEMS: HomeBentoItem[] = [
     titlePrimary: "Out of",
     titleSecondary: "Home",
     description:
-      "Billboards, transit shelters, bus wraps, and digital screens — reaching audiences as they commute, shop, and travel.",
+      "Billboards, transit shelters, bus wraps and digital screens, reaching audiences as they commute, shop and travel.",
     href: "/services/outdoor-advertising/",
-    image:
-      "/wp-content/uploads/2025/08/home-services-lead-generation-1.webp",
-    alt: "A Belyea Bros. Trane heat pump billboard",
+    image: "/images/home/out-of-home-mavi-canada-place.jpg",
+    alt: "A Mavi jeans digital billboard on Canada Place in Vancouver",
+    imagePosition: "50% 12%",
   },
   {
     titlePrimary: "Connected",
     titleSecondary: "TV",
     description:
-      "Premium streaming apps and smart TVs — television impact with digital targeting across Crave, Sportsnet+, TSN+, and Tubi.",
+      "Premium streaming apps and smart TVs: television impact with digital targeting across Crave, Sportsnet+, TSN+ and Tubi.",
     href: "/services/digital-connected-tv/",
-    image: "/wp-content/uploads/2026/02/media-buying.jpg",
-    alt: "A Formula 1 race on a wall-mounted TV in a living room",
+    image: "/images/television/connected-tv.jpg",
+    alt: "Two people on a sofa watching a football game on a living-room Connected TV",
+    imagePosition: "62% 40%",
   },
   {
     titlePrimary: "Corporate",
     titleSecondary: "Branding",
     description:
-      "Strategically defined brands that generate human emotion, meaningful connections, and increased marketshare.",
+      "Strategically defined brands that generate human emotion, meaningful connections and increased market share.",
     href: "/services/corporate-branding/",
     image: "/images/home/corporate-branding-van-kam.jpg",
     alt: "The Van-Kam Freightways logo on the side of a truck cab",
@@ -192,15 +196,15 @@ const WHY_CHOOSE_CAPABILITIES: HomeCapability[] = [
 const HOME_CONTENT: HomePageContent = {
   hero: {
     title: "THE ART OF GROWTH",
-    subtitle: "Connect strategy, creative, and execution to drive measurable growth.",
+    subtitle: "Connect strategy, creative and execution to drive measurable growth.",
     rotations: [
       {
         word: "GROWTH",
-        subtitle: "Connect strategy, creative, and execution to drive measurable growth.",
+        subtitle: "Connect strategy, creative and execution to drive measurable growth.",
       },
       {
         word: "BRANDING",
-        subtitle: "Build a brand people recognize, remember, and trust.",
+        subtitle: "Build a brand people recognize, remember and trust.",
       },
       {
         word: "VISIBILITY",
@@ -225,7 +229,7 @@ const HOME_CONTENT: HomePageContent = {
   whatWeDoIntro: {
     title: "Marketing built to move brands forward.",
     description:
-      "We help brands grow through strategy, creative, media, and digital experiences. With 40+ years of experience, Kosick combines traditional advertising with modern digital marketing to build visibility, reach the right audience, and drive measurable growth.",
+      "We help brands grow through strategy, creative, media and digital experiences. With 40+ years of experience, Kosick combines traditional advertising with modern digital marketing to build visibility, reach the right audience and drive measurable growth.",
   },
   bento: BENTO_ITEMS,
   brandTabsPreceding: {
@@ -237,9 +241,9 @@ const HOME_CONTENT: HomePageContent = {
       id: "defineyourself",
       label: "Define Yourself",
       title: "Define Yourself",
-      subtitle: "Build a brand people recognize, remember, and trust.",
+      subtitle: "Build a brand people recognize, remember and trust.",
       description:
-        "Great brands start with a clear understanding of who they are and what they stand for. We help define your positioning, personality, messaging, and visual identity so every part of your brand feels intentional, memorable, and uniquely yours.",
+        "Great brands start with a clear understanding of who they are and what they stand for. We help define your positioning, personality, messaging and visual identity so every part of your brand feels intentional, memorable and uniquely yours.",
       image: "/images/home/define-yourself-trane-logo.jpg",
       alt: "The Trane logo badge on a rain-beaded outdoor HVAC unit",
     },
@@ -249,7 +253,7 @@ const HOME_CONTENT: HomePageContent = {
       title: "Strategy",
       subtitle: "Turn clear direction into smarter marketing decisions.",
       description:
-        "Strong marketing starts with a plan built around your goals, audience, and opportunities. We connect insight with action to create focused strategies that prioritize the right channels, messages, and initiatives for meaningful business growth.",
+        "Strong marketing starts with a plan built around your goals, audience and opportunities. We connect insight with action to create focused strategies that prioritize the right channels, messages and initiatives for meaningful business growth.",
       image: "/images/home/strategy-masterplan-aerial.jpg",
       alt: "An aerial masterplan rendering of a beachfront resort community",
     },
@@ -259,7 +263,7 @@ const HOME_CONTENT: HomePageContent = {
       title: "Consistency",
       subtitle: "Create one recognizable brand across every touchpoint.",
       description:
-        "Every interaction should feel like it comes from the same brand. From digital campaigns and social media to advertising, websites, and print, we help maintain a consistent voice and visual identity that builds familiarity and confidence over time.",
+        "Every interaction should feel like it comes from the same brand. From digital campaigns and social media to advertising, websites and print, we help maintain a consistent voice and visual identity that builds familiarity and confidence over time.",
       image: "/images/home/consistency-westmount-van-wrap.jpg",
       alt: "The Westmount Electrical van wrap shown from every side",
     },
@@ -269,7 +273,7 @@ const HOME_CONTENT: HomePageContent = {
       title: "Connections",
       subtitle: "Create experiences that turn attention into relationships.",
       description:
-        "Effective marketing is about more than being seen. We create meaningful connections between your brand and the people you want to reach, combining relevant messaging, thoughtful creative, and the right channels to encourage engagement and long-term loyalty.",
+        "Effective marketing is about more than being seen. We create meaningful connections between your brand and the people you want to reach, combining relevant messaging, thoughtful creative and the right channels to encourage engagement and long-term loyalty.",
       image: "/images/home/connections-garden-centre-staff.jpg",
       alt: "A smiling Amsterdam Garden Centre team member among spring plants",
     },
@@ -283,7 +287,7 @@ const HOME_CONTENT: HomePageContent = {
         affiliation: "Heritage Mountain Heating & Cooling",
         rating: 5,
         quote:
-          "The progress we've made since working with them speaks for itself. They don't feel like an outside marketing company—they feel like part of our team. I would highly recommend Kosick Communications to any business looking for honest, hardworking people who will take the time to understand your company and help it grow.",
+          "The progress we’ve made since working with them speaks for itself. They don’t feel like an outside marketing company—they feel like part of our team. I would highly recommend Kosick Communications to any business looking for honest, hardworking people who will take the time to understand your company and help it grow.",
       },
       {
         name: "LC Fitness Management",
@@ -301,25 +305,25 @@ const HOME_CONTENT: HomePageContent = {
         name: "Frances Johnson",
         rating: 5,
         quote:
-          "They take the time to understand our business, explain the reasoning behind their recommendations, and genuinely care about helping us grow. Their communication is excellent, and we always leave our meetings feeling confident about the direction we're headed.",
+          "They take the time to understand our business, explain the reasoning behind their recommendations, and genuinely care about helping us grow. Their communication is excellent, and we always leave our meetings feeling confident about the direction we’re headed.",
       },
       {
         name: "SkinONE Innovations",
         rating: 5,
         quote:
-          "The Kosick Communications team have been incredible to work with! They have strategically re branded our premium clinic, actively manage our social media accounts, develop news/media features, and deliver highly successful digital campaigns.",
+          "The Kosick Communications team have been incredible to work with! They have strategically rebranded our premium clinic, actively manage our social media accounts, develop news/media features, and deliver highly successful digital campaigns.",
       },
       {
         name: "Jack Tree",
         rating: 5,
         quote:
-          "What an incredible team. Some of the nicest people to work with, seamless operators and unbelievable problem solvers. These guys are easy to work with and produce incredible results. We'll absolutely continue working with them!",
+          "What an incredible team. Some of the nicest people to work with, seamless operators and unbelievable problem solvers. These guys are easy to work with and produce incredible results. We’ll absolutely continue working with them!",
       },
     ],
   },
   whyChoose: {
     title: "Why Choose Kosick",
-    lead: "We combine creativity with analytics to deliver campaigns that don't just look good they perform.",
+    lead: "We combine creativity with analytics to deliver campaigns that don’t just look good; they perform.",
     metrics: [
       { end: 150, suffix: "+", label: "Clients Served", duration: 2.5 },
       { end: 500, suffix: "+", label: "Campaigns Launched", duration: 2.5 },
@@ -338,7 +342,7 @@ const HOME_CONTENT: HomePageContent = {
     ],
   },
   quote: {
-    text: "Design must be functional, and functionality must be translated into visual aesthetics",
+    text: "Design must be functional, and functionality must be translated into visual aesthetics.",
     photoSrc:
       "/wp-content/uploads/2026/09/gettyimages-515214352-copy.avif",
     photoAlt: "Ferdinand Porsche",
@@ -346,8 +350,8 @@ const HOME_CONTENT: HomePageContent = {
     role: "Austrian-German automotive engineer",
   },
   contact: {
-    heading: "Let's Work Together",
-    lead: "Ready to amplify your brand? Get in touch and let's discuss how we can help you achieve your goals.",
+    heading: "Let’s Work Together",
+    lead: "Ready to amplify your brand? Get in touch and let’s discuss how we can help you achieve your goals.",
     phone: {
       label: "Call us",
       display: "+1 (604) 925-5800",

@@ -120,7 +120,7 @@ export function BusinessDevelopmentPage({ content }: BusinessDevelopmentPageProp
         </div>
       </section>
 
-      {/* Sales: editorial stage feature — photograph shifts with the selection */}
+      {/* Sales: dark editorial sequence — photograph and milestone shift with stage */}
       <section id="sales" className={styles.sales} aria-labelledby="bd-sales">
         <div className="container">
           <SectionHead
@@ -129,13 +129,11 @@ export function BusinessDevelopmentPage({ content }: BusinessDevelopmentPageProp
             title="Build a scalable sales engine."
             lead="Enterprise-grade sales infrastructure, built alongside your team and run by them long after the engagement ends."
           />
-          <Reveal variant="fadeUp" delay={100}>
-            <SalesEngine />
-          </Reveal>
+          <SalesEngine />
         </div>
       </section>
 
-      {/* Legal: the transaction as a ledger beside a photograph */}
+      {/* Legal: institutional photograph + editorial dossier */}
       <section id="legal" className={styles.legal} aria-labelledby="bd-legal">
         <div className="container">
           <SectionHead
@@ -148,17 +146,9 @@ export function BusinessDevelopmentPage({ content }: BusinessDevelopmentPageProp
         </div>
       </section>
 
-      {/* Exit: one photograph, and the path from years ahead to handover */}
+      {/* Exit: split cream editorial + intentional sunset photograph */}
       <section id="exit" className={styles.exit} aria-labelledby="bd-exit">
-        <ExitNarrative>
-          <SectionHead
-            id="bd-exit"
-            tone="dark"
-            label="Exit strategy & succession"
-            title="Prepare the business before the decision is urgent."
-            lead="A sale, merger or succession goes best when value is built years ahead. Methodical and confidential, from first valuation to handover."
-          />
-        </ExitNarrative>
+        <ExitNarrative />
       </section>
 
       {faqs && faqs.items.length > 0 ? (

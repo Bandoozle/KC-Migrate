@@ -565,7 +565,7 @@ export function EmailDistribution() {
           ref={figureRef}
           className={styles.stage}
           role="img"
-          aria-label="One email campaign is sent, travels along curved paths to phones, laptops and tablets, and each device shows the new message as it arrives."
+          aria-label="One email campaign is sent, travels along curved paths to phones, laptops and tablets and each device shows the new message as it arrives."
           data-resetting={resetting || undefined}
         >
           <Visual />

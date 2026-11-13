@@ -18,7 +18,7 @@ const FIELDS = [
 /* The travel brand's reservations inbox: one new opportunity among others, at different stages */
 const OPPORTUNITIES = [
   { title: "Feb 12–19 · 2 adults · Ocean-view suite", source: "Streaming ad", status: "Quote sent", tone: "quote", highlight: true },
-  { title: "Group enquiry · 8 guests · March", source: "Search", status: "New", tone: "new" },
+  { title: "Group inquiry · 8 guests · March", source: "Search", status: "New", tone: "new" },
   { title: "Spring sailing · 4 adults", source: "Social", status: "Booked", tone: "booked" },
 ] as const;
 
@@ -28,13 +28,13 @@ export function TravelJourney() {
     <JourneyFrame
       industry="travel"
       title="Reach the right audience. Create more booking opportunities."
-      lead="Television and streaming build awareness with people likely to travel. Your website and lead generation turn that interest into enquiries your team can follow up and book."
-      summary="Illustration: a travel brand's streaming ad reaches a relevant audience, an interested customer sends an enquiry from the brand's website, and it arrives in the reservations inbox as a qualified booking opportunity alongside others at different stages."
+      lead="Television and streaming build awareness with people likely to travel. Your website and lead generation turn that interest into inquiries your team can follow up and book."
+      summary="Illustration: a travel brand’s streaming ad reaches a relevant audience, an interested customer sends an inquiry from the brand’s website, and it arrives in the reservations inbox as a qualified booking opportunity alongside others at different stages."
       side="left"
       story="tabs"
       steps={[
         { label: "Reach", body: "Television, streaming and digital put your cruise line, resort or destination in front of relevant audiences." },
-        { label: "Engage", body: "Interested customers visit your website, explore the offer and send an enquiry." },
+        { label: "Engage", body: "Interested customers visit your website, explore the offer and send an inquiry." },
         { label: "Book", body: "Your team receives a qualified booking opportunity to follow up and convert." },
       ]}
     >
@@ -42,7 +42,7 @@ export function TravelJourney() {
         <div className={s.scene}>
           {/* 1. Reach: the brand's spot in a streaming ad break */}
           <div className={kit.layer} {...show(stage, 0)}>
-            <Photo src={`${U}/2026/06/tv-streaming-advertising-1.jpg`} position="50% 44%" />
+            <Photo src="/images/television/prime-video.jpg" position="50% 40%" />
             <span className={s.ad}>
               <span className={s.adHead}>
                 <span className={s.adTag}>Ad</span>
@@ -59,7 +59,7 @@ export function TravelJourney() {
             </span>
           </div>
 
-          {/* 2. Engage: the enquiry form on the brand's own website */}
+          {/* 2. Engage: the inquiry form on the brand's own website */}
           <div className={kit.layer} {...show(stage, 1)}>
             <Photo src={`${U}/2026/06/social-media-marketing-2.jpg`} position="50% 50%" className={s.dim} />
             <span className={s.form}>
@@ -72,7 +72,7 @@ export function TravelJourney() {
               ))}
               <span className={s.sent}>
                 <Icon name="check" />
-                Enquiry sent
+                Inquiry sent
               </span>
             </span>
           </div>

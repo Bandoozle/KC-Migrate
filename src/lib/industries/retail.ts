@@ -17,8 +17,8 @@ export const RETAIL: Industry = {
     lead: "Outdoor, brand and digital, built to work as one campaign. Each service has its own page.",
   },
   cta: {
-    title: "Let's put your brand on the street.",
-    description: "Tell us about your brand, your stores and your next launch. We'll plan the campaign around it.",
+    title: "Let’s put your brand on the street.",
+    description: "Tell us about your brand, your stores and your next launch. We’ll plan the campaign around it.",
   },
   landing: {
     seo: {
@@ -43,7 +43,7 @@ export const RETAIL: Industry = {
     reasons: [
       {
         title: "Brand first",
-        body: "Strong identity and packaging make every ad dollar work harder, so we start there.",
+        body: "Strong identity and packaging make every advertising investment work harder, so we start there.",
         image: { src: `${UP}/2023/06/product-packaging.jpg`, alt: "A black naked product box" },
       },
       {
@@ -63,7 +63,7 @@ export const RETAIL: Industry = {
     ],
     moments: [
       { caption: "A glance at a transit shelter", image: { src: `${UP}/2026/06/billboard-2.jpg`, alt: "A Veilance transit shelter poster on a tree-lined street" } },
-      { caption: "A thumb pausing on a post", image: { src: `${UP}/2026/06/social-media-advertising.jpg`, alt: "A retail brand's Instagram profile on a phone" } },
+      { caption: "A thumb pausing on a post", image: { src: `${UP}/2026/06/social-media-advertising.jpg`, alt: "A retail brand’s Instagram profile on a phone" } },
       { caption: "A package picked up from a shelf", image: { src: `${UP}/2023/06/packaging.jpg`, alt: "A row of naked underwear boxes with model photography" } },
     ],
     gallery: [
@@ -92,7 +92,7 @@ export const RETAIL: Industry = {
       intro: {
         title: "Fame in the places that matter.",
         paragraphs: [
-          "For a retail brand, outdoor does something digital can't: it makes you famous in a city. A well-placed shelter or board near your stores is seen hundreds of times by the same neighbourhood, and it lends a brand the presence of a much bigger company.",
+          "For a retail brand, outdoor does something digital can’t: it makes you famous in a city. A well-placed shelter or board near your stores is seen hundreds of times by the same neighbourhood, and it lends a brand the presence of a much bigger company.",
           "We choose locations by audience and proximity to your stores, design creative built for distance and speed, and coordinate the campaign with your launches and digital media.",
         ],
       },
@@ -165,13 +165,13 @@ export const RETAIL: Industry = {
       hero: {
         label: "Retail branding & creative development",
         title: "Unmistakable on the shelf.",
-        lead: "In retail, the brand is part of the product. We create identities, packaging and campaign creative that make your products instantly recognizable, whether they're on a shelf, in a shelter or in a feed.",
+        lead: "In retail, the brand is part of the product. We create identities, packaging and campaign creative that make your products instantly recognizable, whether they’re on a shelf, in a shelter or in a feed.",
         image: { src: `${UP}/2023/06/packaging.jpg`, alt: "A row of naked underwear boxes with model photography" },
       },
       intro: {
         title: "The brand is what people buy twice.",
         paragraphs: [
-          "Shoppers make many retail decisions in seconds. A distinctive identity and packaging do the selling before anyone reads a word, and they're what a happy customer looks for the next time.",
+          "Shoppers make many retail decisions in seconds. A distinctive identity and packaging do the selling before anyone reads a word, and they’re what a happy customer looks for the next time.",
           "We develop retail brands from strategy to shelf: the name, the identity, the packaging system and the campaign look that carries the brand into stores, outdoor and social media.",
         ],
       },
@@ -243,12 +243,12 @@ export const RETAIL: Industry = {
         label: "Retail digital & social media marketing",
         title: "From scroll to checkout.",
         lead: "Retail is discovered in the feed. We run social content, influencer partnerships and paid digital campaigns that introduce your products to the right people and send them to your stores and online shop.",
-        image: { src: `${UP}/2026/06/social-media-advertising.jpg`, alt: "A brand's Instagram profile on a phone resting on a laptop" },
+        image: { src: `${UP}/2026/06/social-media-advertising.jpg`, alt: "A brand’s Instagram profile on a phone resting on a laptop" },
       },
       intro: {
         title: "Where retail is discovered now.",
         paragraphs: [
-          "Most shoppers first meet a new retail brand on a screen: a creator's post, a targeted ad, a friend's share. The brands that grow are the ones present in those moments with content that feels native, not like an interruption.",
+          "Most shoppers first meet a new retail brand on a screen: a creator’s post, a targeted ad, a friend’s share. The brands that grow are the ones present in those moments with content that feels native, not like an interruption.",
           "We plan and produce social content, manage creator partnerships and run paid campaigns across Meta, TikTok, Google and YouTube, all tracked to store visits and e-commerce sales.",
         ],
       },
@@ -278,10 +278,10 @@ export const RETAIL: Industry = {
       benefits: [
         {
           title: "Found by new customers",
-          body: "Targeting and creators put your products in front of people who don't know you yet.",
+          body: "Targeting and creators put your products in front of people who don’t know you yet.",
         },
         {
-          title: "Every dollar tracked",
+          title: "Spend tracked to sales",
           body: "Campaigns report on sales and store visits, not only clicks.",
         },
         {
@@ -293,7 +293,7 @@ export const RETAIL: Industry = {
         "A collection launch with creators",
         "Black Friday and holiday sales campaigns",
         "Driving traffic to a new store",
-        "Retargeting online shoppers who didn't check out",
+        "Retargeting online shoppers who didn’t check out",
       ],
       approach: [
         { title: "Strategy", body: "Audiences, platforms and goals for each campaign." },

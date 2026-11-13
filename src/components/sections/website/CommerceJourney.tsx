@@ -18,14 +18,14 @@ const CHAPTERS = [
     verb: "Discover",
     where: "Home page",
     path: "/",
-    line: "The season's story up front, with clear ways into the shop and the garden centre.",
+    line: "The season’s story up front, with clear ways into the shop and the garden centre.",
     image: { src: `${SHOTS}-home.jpg`, alt: "Amsterdam Garden Centre home page: Christmas In Bloom, with Get Directions" },
   },
   {
     verb: "Browse",
     where: "Collections",
     path: "/collections/hydrangeas",
-    line: "Collections with filters by type, supplier and price, and a clean grid to scan.",
+    line: "Collections with filters by type, supplier and price and a clean grid to scan.",
     image: { src: `${SHOTS}-collection.jpg`, alt: "The Hydrangeas collection with filters and a grid of products and prices" },
   },
   {

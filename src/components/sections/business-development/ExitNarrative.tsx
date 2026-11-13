@@ -1,67 +1,67 @@
-"use client";
-
-import Image from "next/image";
-import type { CSSProperties, ReactNode } from "react";
-import { handleArrowKeys, useStepper } from "./bd-motion";
+import { Reveal } from "@/components/motion/Reveal";
+import { ExitPhoto } from "./ExitPhoto";
 import styles from "./ExitNarrative.module.css";
 
 const EXIT_PATH = [
-  { name: "Build value", detail: "Valuation and benchmarks set the baseline." },
-  { name: "Reduce owner dependence", detail: "Leadership and systems that run without you." },
-  { name: "Prepare", detail: "Due diligence and the data room ready." },
-  { name: "Position", detail: "Buyers, investors or successors identified." },
-  { name: "Transition", detail: "A clean, well-timed handover." },
-];
+  {
+    name: "Build value",
+    detail: "Valuation and benchmarks set the baseline for what the business is worth, and what it could be.",
+  },
+  {
+    name: "Reduce owner dependence",
+    detail: "Leadership, systems and relationships that continue without you in the room.",
+  },
+  {
+    name: "Prepare",
+    detail: "Due diligence materials and the data room ready before the first serious conversation.",
+  },
+  {
+    name: "Position",
+    detail: "Buyers, investors or successors identified and approached with discretion.",
+  },
+  {
+    name: "Transition",
+    detail: "A clean, well-timed handover that protects value and people.",
+  },
+] as const;
 
 /**
- * Exit, told over one photograph: the path from years ahead to handover runs
- * along the bottom, and the view moves a little closer to the horizon at each
- * step. `children` is the section's heading block.
+ * Exit as a full-bleed editorial split: harbour photograph with a decisive
+ * headline, cream panel with five stages as large typography — no timeline UI.
  */
-export function ExitNarrative({ children }: { children: ReactNode }) {
-  const { ref, index, select } = useStepper<HTMLDivElement>(EXIT_PATH.length, { interval: 2800, threshold: 0.35 });
-
+export function ExitNarrative() {
   return (
-    <div ref={ref} className={styles.exit} style={{ "--stage": index } as CSSProperties}>
-      <div className={styles.media} aria-hidden="true">
-        <div className={styles.image}>
-          <Image
-            src="/images/business-development/exit-harbour-sunset.jpg"
-            alt=""
-            fill
-            sizes="100vw"
-            style={{ objectFit: "cover", objectPosition: "45% 55%" }}
-          />
+    <div className={styles.exit} data-accent="exit">
+      <div className={styles.visual}>
+        <ExitPhoto />
+        <div className={styles.visualCopy}>
+          <p className={styles.labelOnPhoto}>Exit strategy & succession</p>
+          <h2 id="bd-exit" className={styles.titleOnPhoto}>
+            Prepare the business before the decision is urgent.
+          </h2>
         </div>
-        <div className={styles.shade} />
       </div>
 
-      <div className={`container ${styles.inner}`}>
-        <div className={styles.head}>{children}</div>
+      <div className={styles.panel}>
+        <div className={styles.panelInner}>
+          <Reveal variant="fadeUp">
+            <p className={styles.lead}>
+              A sale, merger or succession goes best when value is built years ahead. Methodical and confidential, from
+              first valuation to handover.
+            </p>
+          </Reveal>
 
-        <div className={styles.path}>
-          <div className={styles.ends} aria-hidden="true">
-            <span>Years ahead</span>
-            <span>Handover</span>
-          </div>
-          <span className={styles.track} aria-hidden="true">
-            <span className={styles.trackFill} style={{ transform: `scaleX(${(index + 1) / EXIT_PATH.length})` }} />
-          </span>
-          <ol className={styles.steps}>
-            {EXIT_PATH.map((step, stepIndex) => (
-              <li key={step.name} className={styles.step} data-state={stepIndex < index ? "done" : stepIndex === index ? "active" : "next"}>
-                <button
-                  id={`bd-exit-step-${stepIndex}`}
-                  type="button"
-                  className={styles.stepButton}
-                  aria-pressed={stepIndex === index}
-                  onClick={() => select(stepIndex)}
-                  onKeyDown={(event) => handleArrowKeys(event, stepIndex, EXIT_PATH.length, select, (next) => `bd-exit-step-${next}`)}
-                >
-                  <span className={styles.stepName}>{step.name}</span>
-                  <span className={styles.stepDetail}>{step.detail}</span>
-                </button>
-              </li>
+          <ol className={styles.stages}>
+            {EXIT_PATH.map((stage, index) => (
+              <Reveal key={stage.name} as="li" variant="fadeUp" delay={40 + index * 40} className={styles.stage}>
+                <span className={styles.stageMark} aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div className={styles.stageBody}>
+                  <h3 className={styles.stageName}>{stage.name}</h3>
+                  <p className={styles.stageDetail}>{stage.detail}</p>
+                </div>
+              </Reveal>
             ))}
           </ol>
         </div>

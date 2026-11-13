@@ -21,7 +21,7 @@ export default async function FeatureArticlesPage() {
         eyebrow="Resources"
         titlePrimary="Feature"
         titleSecondary="Articles"
-        description="Insights, strategies, and practical marketing guidance to help your business grow."
+        description="Insights, strategies and practical marketing guidance to help your business grow."
         primaryCTA={actions.cta}
         secondaryCTA={actions.secondaryCta}
       />

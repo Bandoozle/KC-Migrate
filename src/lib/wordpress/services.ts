@@ -108,7 +108,7 @@ export const getServicesContent = cache(async (): Promise<ServicesContent> => {
   return {
     title: cleanText(page.title.rendered) || "Our Services & Expertise",
     hero: {
-      title: heroTitle || "Our Areas of Services Expertise",
+      title: heroTitle || "Our Areas of Expertise",
       backgroundImage: heroBg,
     },
     intro: {

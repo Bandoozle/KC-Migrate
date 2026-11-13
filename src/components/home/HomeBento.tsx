@@ -42,6 +42,7 @@ export function HomeBento({ items }: HomeBentoProps) {
                 alt={item.alt}
                 fill
                 sizes="(min-width: 960px) 50vw, 100vw"
+                style={item.imagePosition ? { objectPosition: item.imagePosition } : undefined}
               />
               <span className={styles.overlay} aria-hidden="true" />
               <div className={styles.content}>

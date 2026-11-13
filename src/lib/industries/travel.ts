@@ -13,30 +13,30 @@ export const TRAVEL: Industry = {
   },
   offersIntro: {
     label: "What we offer",
-    title: "Build demand. Capture the enquiry.",
-    lead: "Travel advertising builds awareness for your brand; travel lead generation turns that interest into enquiries. Each service has its own page.",
+    title: "Build demand. Capture the inquiry.",
+    lead: "Travel advertising builds awareness for your brand; travel lead generation turns that interest into inquiries. Each service has its own page.",
   },
   cta: {
-    title: "Let's plan your next booking campaign.",
-    description: "Tell us about your brand, the customers you want to reach and your booking season. We'll plan a campaign around your goals.",
+    title: "Let’s plan your next booking campaign.",
+    description: "Tell us about your brand, the customers you want to reach and your booking season. We’ll plan a campaign around your goals.",
   },
   landing: {
     seo: {
       title: "Travel & Tourism Marketing | Kosick Communications",
       description:
-        "Travel marketing agency for cruise lines, resorts, destinations and tour operators: TV, digital advertising and lead generation that create booking opportunities.",
+        "Travel marketing for cruise lines, resorts, destinations and tour operators: TV, digital advertising and lead generation that create booking opportunities.",
     },
     hero: {
       label: "Travel & tourism marketing",
       title: "Travel Marketing",
-      lead: "A travel marketing agency for cruise lines, resorts, destinations and tour operators. We combine television, streaming, search and social to reach the people most likely to book and encourage enquiries your team can convert.",
+      lead: "A travel marketing agency for cruise lines, resorts, destinations and tour operators. We combine television, streaming, search and social to reach the people most likely to book and encourage inquiries your team can convert.",
       image: { src: "/images/industries/travel/cabo-coastline-aerial.jpg", alt: "An aerial view of a resort coastline with a golden beach and turquoise sea" },
     },
     intro: {
       title: "Put your travel brand in front of the right people.",
       paragraphs: [
         "Travel is a considered purchase. Your future guests research for weeks or months, compare options and often decide as a household, so the brands they remember are the ones that stayed visible through that whole window.",
-        "From cruise lines to resorts and tourism operators, we build coordinated advertising campaigns that put your brand in front of relevant audiences, generate enquiries and create more opportunities for bookings. Television and streaming build awareness at scale; search, social and landing pages capture the people who are ready to plan.",
+        "From cruise lines to resorts and tourism operators, we build coordinated advertising campaigns that put your brand in front of relevant audiences, generate inquiries and create more opportunities for bookings. Television and streaming build awareness at scale; search, social and landing pages capture the people who are ready to plan.",
       ],
     },
     reasonsLabel: "Travel advertising & lead generation",
@@ -51,8 +51,8 @@ export const TRAVEL: Industry = {
         body: "Spend follows the Canadian cities with the flights, sailings and drive times that suit your product.",
       },
       {
-        title: "Awareness to enquiry",
-        body: "TV and streaming build the brand; search, social and landing pages turn that interest into booking enquiries.",
+        title: "Awareness to inquiry",
+        body: "TV and streaming build the brand; search, social and landing pages turn that interest into booking inquiries.",
       },
       {
         title: "Timed to booking windows",
@@ -69,7 +69,7 @@ export const TRAVEL: Industry = {
     {
       slug: "lead-generation",
       title: "Lead Generation",
-      summary: "Search, social and landing pages that turn interested audiences into qualified enquiries for your sales and reservations team.",
+      summary: "Search, social and landing pages that turn interested audiences into qualified inquiries for your sales and reservations team.",
       seo: {
         title: "Travel & Tourism Lead Generation | Kosick Communications",
         description:
@@ -77,7 +77,7 @@ export const TRAVEL: Industry = {
       },
       hero: {
         label: "Travel lead generation",
-        title: "Capture the traveller who's ready to plan.",
+        title: "Capture the traveller who’s ready to plan.",
         lead: "When a trip moves from daydream to planning, travellers search, compare and ask for information. We put your offer in front of them and capture the lead, then nurture it through to a booking.",
         image: { src: "/images/industries/travel/expedia-cruises-laptop.jpg", alt: "An Expedia Cruises ad on a laptop as a traveller plans from the couch" },
       },
@@ -86,7 +86,7 @@ export const TRAVEL: Industry = {
         title: "Turn interest into an itinerary.",
         paragraphs: [
           "Travel shoppers rarely book on the first visit. They request brochures, sign up for offers, compare departures and talk it over at home. Every one of those steps is a chance to capture a lead and stay in the conversation.",
-          "We build campaigns that reach qualified travellers on search and social, landing pages that make enquiring easy, and email follow-up that keeps your destination on the shortlist until they book.",
+          "We build campaigns that reach qualified travellers on search and social, landing pages that make inquiring easy, and email follow-up that keeps your destination on the shortlist until they book.",
         ],
       },
       offers: [
@@ -96,18 +96,18 @@ export const TRAVEL: Industry = {
         },
         {
           title: "Landing pages & offers",
-          body: "Destination and package landing pages with enquiry, brochure and offer sign-up forms that capture the details your sales team needs.",
+          body: "Destination and package landing pages with inquiry, brochure and offer sign-up forms that capture the details your sales team needs.",
         },
         {
           title: "Email nurture & follow-up",
-          body: "Automated sequences that share itineraries, stories and offers, and alert your team when a lead is ready to talk.",
+          body: "Automated sequences that share itineraries, stories and offers and alert your team when a lead is ready to talk.",
         },
       ],
       deliverables: [
         "Audience and origin market plan",
         "Search and social campaigns",
         "Landing pages for destinations and packages",
-        "Enquiry and brochure request forms",
+        "Inquiry and brochure request forms",
         "Email nurture sequences",
         "CRM and booking system integration",
         "Lead and booking reporting",
@@ -115,7 +115,7 @@ export const TRAVEL: Industry = {
       benefits: [
         {
           title: "Leads with intent",
-          body: "Targeting by origin market and travel interest brings enquiries from people who can book.",
+          body: "Targeting by origin market and travel interest brings inquiries from people who can book.",
         },
         {
           title: "No lead left cold",
@@ -123,20 +123,20 @@ export const TRAVEL: Industry = {
         },
         {
           title: "Know what books",
-          body: "Tracking connects campaigns to enquiries and bookings.",
+          body: "Tracking connects campaigns to inquiries and bookings.",
         },
       ],
       applications: [
         "Early-booking campaigns for a cruise season",
         "Resort package offers for Canadian winter getaways",
-        "Group and incentive travel enquiries",
+        "Group and incentive travel inquiries",
         "Brochure requests for escorted tours",
       ],
       approach: [
         { title: "Define", body: "Travellers, origin markets and booking windows." },
         { title: "Build", body: "Campaigns, landing pages and nurture sequences." },
         { title: "Launch", body: "Search and social live ahead of the booking season." },
-        { title: "Optimize", body: "Budgets shifted to the audiences that enquire and book." },
+        { title: "Optimize", body: "Budgets shifted to the audiences that inquire and book." },
       ],
       gallery: [
         { src: `${UP}/2026/06/social-media-marketing.jpg`, alt: "The Expedia Cruises Facebook page on desktop and mobile" },
@@ -167,7 +167,7 @@ export const TRAVEL: Industry = {
       intro: {
         title: "Television builds the dream and the trust.",
         paragraphs: [
-          "A beach, a ship, a mountain view: travel is visual and emotional, and television shows it at its most persuasive. It also lends a destination or operator credibility that a banner ad can't.",
+          "A beach, a ship, a mountain view: travel is visual and emotional, and television shows it at its most persuasive. It also lends a destination or operator credibility that a banner ad can’t.",
           "We pair linear television and sponsorship, which build trust and scale, with connected TV, which adds precise targeting by household and region. The plan is built around your origin markets and the months when your travellers decide.",
         ],
       },
@@ -225,7 +225,7 @@ export const TRAVEL: Industry = {
         { src: `${UP}/2017/07/resort-marketing-scaled.jpg`, alt: "An aerial rendering of a beachfront resort beside a golf course" },
       ],
       related: [
-        { label: "Media Buying: TV, Streaming & Radio", href: "/blog-media-buying-canada-tv-streaming-radio/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
+        { label: "Media Buying: TV, Streaming & Radio", href: "/media-buying-canada/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
         { label: "Television Advertising", href: "/services/television-advertising/", kind: "service", body: "Broadcast TV campaigns, planned and bought by our media team." },
         { label: "Digital & Connected TV", href: "/services/digital-connected-tv/", kind: "service", body: "Streaming and connected TV with targeted reach and measurable delivery." },
       ],

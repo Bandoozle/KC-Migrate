@@ -1,0 +1,186 @@
+## undersized-request (75)
+- /wp-content/uploads/2024/04/european-conference.webp | src 1024 | worst desktop 0.57 box 302x378 got 316 req 384 | desktop,retina,phone | /corporate-events/
+- /images/industries/medical-aesthetics/consultation-mirror.jpg | src 2000 | worst desktop 0.59 box 1278x547 got 662 req 750 | desktop,retina | /marketing-programs/ /services/ /services/medical-aesthetics-marketing/video-tv-billboard-advertising/
+- /wp-content/uploads/2026/03/golf-course-branding.jpg | src 1920 | worst desktop 0.57 box 305x381 got 359 req 384 | desktop,retina | /marketing-programs/ /services/
+- /wp-content/uploads/2026/06/arcteryx-billboard-advertising.jpg | src 1409 | worst desktop 0.74 box 416x686 got 489 req 640 | desktop,retina | /marketing-programs/ /services/ /services/retail-marketing/
+- /wp-content/uploads/2023/06/services.jpg | src 1623 | worst desktop 0.63 box 305x381 got 359 req 384 | desktop,retina | /marketing-programs/ /services/
+- /images/articles/travel-marketing-canada-cruise.jpg | src 1536 | worst desktop 0.67 box 305x381 got 359 req 384 | desktop,retina | /marketing-programs/ /services/
+- /wp-content/uploads/2026/07/Screenshot-2026-07-22-at-11.22.57-PM.jpg | src 1782 | worst desktop 0.71 box 102x216 got 140 req 256 | desktop,retina | /marketing-programs/
+- /wp-content/uploads/2022/01/medical-aesthetics.webp | src 810 | worst desktop 0.91 box 892x260 got 669 req 1080 | desktop,retina,phone | /marketing-results/ /services/medical-aesthetics-marketing/
+- /images/branding/van-kam-driver-cab.jpg | src 2400 | worst desktop 0.78 box 705x705 got 806 req 828 | desktop | /services/corporate-branding/
+- /wp-content/uploads/2023/06/Trane_WRT_HeatUnit_Shot3_0232_251022133344-e1686845864632.jpg | src 1804 | worst desktop 0.73 box 296x370 got 359 req 384 | desktop,retina | /services/corporate-branding/
+- /wp-content/uploads/2023/06/business-cards-printing.jpg | src 1920 | worst desktop 0.73 box 296x370 got 359 req 384 | desktop,retina | /services/corporate-branding/
+- /wp-content/uploads/2026/07/Dental-Vancouver.jpg | src 1672 | worst desktop 0.64 box 448x560 got 576 req 640 | desktop,retina | /services/dental-marketing/ /services/dental-marketing/social-media-content/
+- /images/website-projects/sparkle-dental-spa-desktop.jpg | src 1600 | worst desktop 0.71 box 272x340 got 316 req 384 | desktop,retina | /services/dental-marketing/
+- /wp-content/uploads/2026/06/outdoor-advertising.jpg | src 1402 | worst desktop 0.59 box 1278x547 got 662 req 750 | desktop,retina,phone | /services/dental-marketing/ /services/dental-marketing/video-tv-billboard-advertising/ /marketing-programs/
+- /wp-content/uploads/2026/02/arizona-golf-course-marketing.jpg | src 1920 | worst desktop 0.90 box 320x399 got 489 req 640 | desktop | /services/golf-marketing/
+- /wp-content/uploads/2026/07/Chillwack-Golf-Club.jpg | src 1694 | worst phone 0.87 box 390x755 got 390 req 1200 | desktop,retina,phone | /services/golf-marketing/ /services/golf-marketing/branding/ /services/website-development/
+- /wp-content/uploads/2026/03/golf-marketing.jpg | src 1920 | worst phone 0.89 box 390x755 got 390 req 1200 | desktop,retina,phone | /services/golf-marketing/ /services/golf-marketing/social-media-lead-generation/
+- /wp-content/uploads/2026/03/hvac-marketing.jpg | src 1920 | worst desktop 0.67 box 594x750 got 720 req 750 | desktop | /services/hvac-marketing/
+- /wp-content/uploads/2026/03/hvac-web-development.png | src 1437 | worst desktop 0.72 box 628x781 got 720 req 750 | desktop,retina | /services/hvac-marketing/ /services/hvac-marketing/website-design/
+- /wp-content/uploads/2026/06/billboard-2.jpg | src 1536 | worst desktop 0.67 box 306x383 got 316 req 384 | desktop,retina,phone | /services/outdoor-advertising/ /services/retail-marketing/ /services/retail-marketing/billboard-outdoor-advertising/
+- /wp-content/uploads/2023/07/billboards-scaled.png | src 2560 | worst desktop 0.93 box 299x224 got 300 req 384 | desktop,phone | /services/outdoor-advertising/
+- /wp-content/uploads/2021/07/audio-recording.jpg | src 1237 | worst desktop 0.75 box 516x882 got 547 req 640 | desktop,retina | /services/radio-advertising/
+- /wp-content/uploads/2023/09/hvac-website-development.png | src 994 | worst desktop 0.74 box 448x560 got 576 req 640 | desktop,retina | /services/hvac-marketing/website-design/ /services/website-development/
+- /wp-content/uploads/2026/01/media-buying.jpg | src 1734 | worst desktop 0.65 box 566x641 got 662 req 750 | desktop | /services/hvac-marketing/video-tv-advertising/
+- /images/hvac-marketing/video-poster.jpg | src 1920 | worst desktop 0.76 box 495x557 got 648 req 750 | desktop,retina | /services/hvac-marketing/video-tv-advertising/ /services/hvac-marketing/
+- /wp-content/uploads/2023/07/hvac.jpg | src 1462 | worst desktop 0.69 box 566x669 got 662 req 750 | desktop,retina | /services/hvac-marketing/outdoor-advertising/
+- /wp-content/uploads/2026/03/hvac-marketing-strategies.jpg | src 1920 | worst desktop 0.74 box 566x669 got 662 req 750 | desktop | /services/hvac-marketing/business-growth/
+- /wp-content/uploads/2026/04/hotel-riu-vallarta-1.jpg | src 900 | worst desktop 0.75 box 495x557 got 648 req 750 | desktop,retina,phone | /services/hvac-marketing/business-growth/
+- /wp-content/uploads/2026/07/Dental-Web-Development.jpg | src 1122 | worst desktop 0.59 box 1278x547 got 662 req 750 | desktop,retina | /services/dental-marketing/website-design/
+- /images/industries/dental/hygienist-xray.jpg | src 1333 | worst desktop 0.59 box 1278x547 got 662 req 750 | desktop,retina | /services/dental-marketing/google-ads-seo/
+- /images/industries/dental/patient-headphones.jpg | src 1600 | worst desktop 0.59 box 1278x547 got 662 req 750 | desktop,retina | /services/dental-marketing/social-media-content/
+- /wp-content/uploads/2026/07/Vancouver-Dental-Marketing.jpg | src 1672 | worst desktop 0.64 box 448x560 got 576 req 640 | desktop,retina | /services/dental-marketing/video-tv-billboard-advertising/
+- /images/industries/medical-aesthetics/lip-treatment.jpg | src 2000 | worst desktop 0.59 box 1278x547 got 662 req 750 | desktop,retina | /services/medical-aesthetics-marketing/ /services/medical-aesthetics-marketing/social-media-content/
+- /wp-content/uploads/2026/02/medical-skincare-marketing.jpg | src 1200 | worst desktop 0.87 box 737x317 got 576 req 640 | desktop | /services/medical-aesthetics-marketing/
+- /images/industries/medical-aesthetics/treatment-lounge.jpg | src 2000 | worst desktop 0.59 box 1278x547 got 662 req 750 | desktop | /services/medical-aesthetics-marketing/website-design/
+- /images/industries/medical-aesthetics/clinic-interior.jpg | src 1500 | worst desktop 0.59 box 1278x547 got 662 req 750 | desktop,retina | /services/medical-aesthetics-marketing/google-ads-seo/
+- /images/industries/medical-aesthetics/hydrate-iv-consultation.jpg | src 1024 | worst desktop 0.76 box 448x560 got 576 req 640 | desktop,retina | /services/medical-aesthetics-marketing/google-ads-seo/
+- /wp-content/uploads/2026/02/ctv-morning-live.jpg | src 1920 | worst desktop 0.86 box 448x560 got 576 req 640 | desktop | /services/medical-aesthetics-marketing/video-tv-billboard-advertising/
+- /images/industries/golf/sudden-valley-aerial-lake.jpg | src 1800 | worst desktop 0.59 box 1280x488 got 648 req 750 | desktop,retina | /services/golf-marketing/website-design/
+- /wp-content/uploads/2025/05/golf-1.webp | src 1024 | worst desktop 0.76 box 448x560 got 576 req 640 | desktop,retina | /services/golf-marketing/website-design/ /corporate-events/
+- /images/industries/golf/sudden-valley-tee-shot.jpg | src 2000 | worst desktop 0.59 box 1280x488 got 648 req 750 | desktop | /services/golf-marketing/branding/
+- /images/industries/golf/sudden-valley-aerial-fairway.jpg | src 1800 | worst desktop 0.59 box 1280x488 got 648 req 750 | desktop,retina | /services/golf-marketing/tv-video-advertising/
+- /wp-content/uploads/2026/02/golf-marketing.jpg | src 1920 | worst desktop 0.76 box 448x560 got 576 req 640 | desktop,retina | /services/golf-marketing/tv-video-advertising/
+- /wp-content/uploads/2026/06/golf-social-media-marketing.jpg | src 1280 | worst desktop 0.59 box 1280x488 got 648 req 750 | desktop,retina | /services/golf-marketing/social-media-lead-generation/
+- /wp-content/uploads/2026/06/social-media-advertising.jpg | src 1447 | worst desktop 0.70 box 416x686 got 489 req 640 | desktop,retina,phone | /services/retail-marketing/ /services/specialty-retail-marketing/social-media/
+- /wp-content/uploads/2023/06/packaging.jpg | src 870 | worst desktop 0.63 box 416x638 got 489 req 640 | desktop,retina,phone | /services/retail-marketing/ /services/retail-marketing/branding/ /marketing-results/
+- /wp-content/uploads/2025/07/branding-agency.webp | src 2560 | worst desktop 0.76 box 448x560 got 576 req 640 | desktop,retina | /services/retail-marketing/branding/
+- /wp-content/uploads/2025/07/mobile-marketing.webp | src 2560 | worst desktop 0.70 box 448x560 got 576 req 640 | desktop,retina | /services/retail-marketing/digital-social-media/
+- /wp-content/uploads/2026/08/Social-Media.jpg | src 1672 | worst desktop 0.87 box 604x483 got 648 req 750 | desktop | /services/specialty-retail-marketing/ /services/specialty-retail-marketing/social-media/
+- /wp-content/uploads/2025/10/website-development.jpg | src 1920 | worst desktop 0.69 box 574x597 got 662 req 750 | desktop | /services/specialty-retail-marketing/ecommerce-websites/
+- /wp-content/uploads/2025/08/mobile-responsive-website-design.jpeg | src 1920 | worst desktop 0.86 box 448x560 got 576 req 640 | desktop | /services/specialty-retail-marketing/ecommerce-websites/
+- /wp-content/uploads/2024/03/radio-1.webp | src 1920 | worst desktop 0.79 box 574x630 got 662 req 750 | desktop | /services/specialty-retail-marketing/radio-advertising/
+- /wp-content/uploads/2023/06/MBYMockupcards2.jpeg | src 1280 | worst desktop 0.77 box 448x560 got 576 req 640 | desktop,retina | /services/specialty-retail-marketing/content-creative/
+- /wp-content/uploads/2026/02/home-services-marketing.jpg | src 1920 | worst desktop 0.68 box 584x624 got 662 req 750 | desktop | /services/construction-marketing/ /services/construction-marketing/social-media/
+- /wp-content/uploads/2024/03/padwood-construction.webp | src 1920 | worst desktop 0.83 box 584x677 got 662 req 750 | desktop | /services/construction-marketing/website-design/
+- /wp-content/uploads/2023/06/real-estate.jpeg | src 1920 | worst desktop 0.62 box 448x560 got 576 req 640 | desktop,retina,phone | /services/construction-marketing/website-design/ /services/construction-marketing/content-development/ /services/business-development/
+- /wp-content/uploads/2023/06/KOSICK-MODEL-LOWER-LEVEL-MARCH-17-2023-ROUGH-2-1-e1686846929767.jpg | src 1747 | worst desktop 0.71 box 584x652 got 662 req 750 | desktop | /services/construction-marketing/content-development/
+- /wp-content/uploads/2026/06/social-media-marketing.jpg | src 1536 | worst desktop 0.86 box 264x300 got 316 req 384 | desktop,retina,phone | /services/travel-marketing/ /services/creative/
+- /wp-content/uploads/2026/09/Television-Advertising.jpg | src 1536 | worst desktop 0.86 box 264x300 got 316 req 384 | desktop,retina,phone | /services/travel-marketing/ /services/digital-connected-tv/ /services/travel-marketing/tv-advertising/
+- /wp-content/uploads/2026/06/digital-streaming-advertising-1.jpg | src 1023 | worst retina 1.39 box 735x527 got 445 req 1920 | retina | /services/
+- /wp-content/uploads/2025/08/IMG_2596-scaled.jpg | src 1920 | worst retina 1.33 box 1440x672 got 720 req 3840 | retina | /services/
+- /images/television/spot-end.png | src 1280 | worst phone 1.17 box 244x183 got 117 req 384 | retina,phone | /services/digital-connected-tv/
+- /wp-content/uploads/2026/07/Email-Marketing.jpg | src 1448 | worst retina 1.13 box 1280x549 got 486 req 3840 | retina | /services/email-marketing/
+- /wp-content/uploads/2023/06/vancouver-agency.jpg | src 1920 | worst retina 1.33 box 1440x608 got 720 req 3840 | retina,phone | /services/outdoor-advertising/
+- /wp-content/uploads/2024/03/podcast-750x521.webp | src 750 | worst retina 1.05 box 713x475 got 292 req 1920 | retina | /services/radio-advertising/
+- /wp-content/uploads/2024/03/Screenshot-2024-03-07-at-10.07.14-AM-5.png | src 1302 | worst retina 1.30 box 998x275 got 640 req 2048 | retina | /services/website-development/
+- /wp-content/uploads/2026/07/Dental-Lead-Generation.jpg | src 1024 | worst retina 1.37 box 747x373 got 345 req 1920 | retina | /services/dental-marketing/google-ads-seo/
+- /wp-content/uploads/2026/03/website-development-e-commerce.jpg | src 1920 | worst phone 0.86 box 390x779 got 390 req 1200 | retina,phone | /services/golf-marketing/website-design/
+- /images/golf-sportsnet-poster.jpg | src 1920 | worst phone 0.92 box 390x729 got 390 req 1200 | retina,phone | /services/golf-marketing/tv-video-advertising/
+- /wp-content/uploads/2023/06/hearth-advertising.jpg | src 739 | worst retina 1.14 box 520x390 got 355 req 1080 | retina,phone | /services/specialty-retail-marketing/
+- /wp-content/uploads/2022/01/Motor-Court.webp | src 810 | worst retina 1.44 box 393x348 got 324 req 1080 | retina | /services/travel-marketing/
+- /wp-content/uploads/2024/10/corporate-events.webp | src 2560 | worst phone 1.46 box 390x448 got 390 req 1200 | phone | /corporate-events/ /services/business-development/
+- /wp-content/uploads/2026/06/corporate-branding.jpg | src 1122 | worst phone 1.83 box 350x263 got 195 req 640 | phone | /services/creative/
+- /wp-content/uploads/2024/03/billboard-advertising.webp | src 1920 | worst phone 1.85 box 116x116 got 120 req 384 | phone | /services/outdoor-advertising/
+- /images/industries/travel/expedia-cruises-laptop.jpg | src 2400 | worst phone 0.96 box 390x835 got 390 req 1200 | phone | /services/travel-marketing/lead-generation/
+
+## source-too-small (39)
+- /wp-content/uploads/2026/06/tv-streaming-advertising-1.jpg | src 1122 | worst retina 0.78 box 1440x612 got 1122 req  | desktop,retina | /services/digital-connected-tv/
+- /wp-content/uploads/2026/06/social-media-content-marketing-1-640x960.jpg | src 640 | worst retina 1.00 box 639x440 got 640 req  | retina,phone | /
+- /wp-content/uploads/2026/06/tv-advertising-750x600.jpg | src 750 | worst retina 1.17 box 639x214 got 750 req  | retina | /
+- /wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp | src 750 | worst retina 1.17 box 639x214 got 750 req  | retina | /
+- /wp-content/uploads/2026/02/media-buying-750x499.jpg | src 750 | worst retina 1.17 box 639x214 got 750 req  | retina | /
+- /wp-content/uploads/2026/02/resort-marketing.jpg | src 1920 | worst retina 1.33 box 1440x612 got 1920 req  | retina | /corporate-events/
+- /wp-content/uploads/2025/12/television-advertising-media-buying-750x328.jpg | src 750 | worst retina 1.20 box 411x274 got 750 req  | retina,phone | /feature-articles/
+- /wp-content/uploads/2026/06/billboard-2.jpg | src 1536 | worst retina 1.07 box 1440x612 got 1536 req  | retina,phone | /marketing-results/ /services/outdoor-advertising/
+- /wp-content/uploads/2026/06/dental-clinic-branding.jpg | src 1920 | worst retina 1.33 box 1440x612 got 1920 req  | retina,phone | /marketing-results/ /services/dental-marketing/ /services/email-marketing/
+- /wp-content/uploads/2026/02/medical-skincare-marketing.jpg | src 1200 | worst retina 0.83 box 1440x612 got 1200 req  | retina | /marketing-results/ /services/email-marketing/
+- /wp-content/uploads/2023/06/real-estate.jpeg | src 1920 | worst retina 1.33 box 1440x612 got 1920 req  | retina,phone | /services/
+- /wp-content/uploads/2023/06/real-estate-design-1.jpg | src 1920 | worst retina 1.33 box 1440x738 got 1920 req  | retina | /services/business-development/
+- /wp-content/uploads/2026/06/social-media-engagement.jpg | src 1448 | worst retina 1.01 box 1440x612 got 1448 req  | retina,phone | /services/corporate-branding/
+- /wp-content/uploads/2026/07/Dental-Vancouver.jpg | src 1672 | worst retina 1.16 box 1440x612 got 1672 req  | retina,phone | /services/dental-marketing/
+- /wp-content/uploads/2026/07/Vancouver-Dental-Marketing.jpg | src 1672 | worst retina 1.16 box 1440x612 got 1672 req  | retina,phone | /services/dental-marketing/
+- /wp-content/uploads/2026/02/media-buying.jpg | src 1920 | worst retina 1.33 box 1440x612 got 1920 req  | retina | /services/digital-connected-tv/ /services/television-advertising/
+- /wp-content/uploads/2026/01/media-buying.jpg | src 1734 | worst retina 1.20 box 1440x612 got 1734 req  | retina,phone | /services/digital-connected-tv/
+- /wp-content/uploads/2026/06/social-media-advertising.jpg | src 1447 | worst retina 1.00 box 1440x612 got 1447 req  | retina,phone | /services/digital-marketing/
+- /wp-content/uploads/2026/07/Email-Marketing.jpg | src 1448 | worst retina 1.01 box 1440x612 got 1448 req  | retina,phone | /services/email-marketing/
+- /wp-content/uploads/2026/06/transit-out-of-home-advertising-1.jpg | src 1448 | worst retina 1.01 box 1440x612 got 1448 req  | retina,phone | /services/outdoor-advertising/
+- /wp-content/uploads/2024/03/radio-1.webp | src 1920 | worst retina 1.33 box 1440x612 got 1920 req  | retina | /services/radio-advertising/
+- /wp-content/uploads/2024/03/podcast.webp | src 1920 | worst retina 1.33 box 1440x612 got 1920 req  | retina | /services/radio-advertising/
+- /wp-content/uploads/2023/06/iStock-965201322.jpg | src 1920 | worst retina 1.33 box 1440x612 got 1920 req  | retina | /services/radio-advertising/
+- /wp-content/uploads/2023/06/Screen-Shot-2021-12-09-at-1.05.09-PM.jpg | src 1920 | worst retina 1.33 box 1440x612 got 1920 req  | retina | /services/television-advertising/
+- /images/industries/medical-aesthetics/consultation-mirror.jpg | src 2000 | worst retina 1.39 box 1440x612 got 2000 req  | retina | /services/medical-aesthetics-marketing/
+- /wp-content/uploads/2026/06/arcteryx-billboard-advertising.jpg | src 1409 | worst retina 0.98 box 1440x612 got 1409 req  | retina | /services/retail-marketing/
+- /images/industries/specialty-retail/garden-centre-hanging-baskets.jpg | src 2000 | worst retina 1.39 box 1440x612 got 2000 req  | retina | /services/specialty-retail-marketing/
+- /wp-content/uploads/2023/06/services.jpg | src 1623 | worst retina 1.13 box 1440x612 got 1623 req  | retina,phone | /services/construction-marketing/
+- /wp-content/uploads/2026/08/Social-Media-750x422.jpg | src 750 | worst phone 1.82 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2026/07/Media-Buying-750x422.jpg | src 750 | worst phone 1.82 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2026/03/golf-course-branding-750x422.jpg | src 750 | worst phone 1.82 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2026/02/home-services-marketing-750x422.jpg | src 750 | worst phone 1.82 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2026/02/arizona-golf-course-marketing-750x422.jpg | src 750 | worst phone 1.82 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2026/01/media-buying-750x418.jpg | src 750 | worst phone 1.80 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2026/01/social-media-advertising-750x419.jpg | src 750 | worst phone 1.81 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2025/10/website-development-750x415.jpg | src 750 | worst phone 1.79 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2023/06/vancouver-agency-750x454.jpg | src 750 | worst phone 1.96 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2024/03/billboard-advertising-750x422.webp | src 750 | worst phone 1.82 box 348x232 got 750 req  | phone | /feature-articles/
+- /wp-content/uploads/2025/07/mobile-marketing-750x462.webp | src 750 | worst phone 1.99 box 348x232 got 750 req  | phone | /feature-articles/
+
+## heavy-crop (67)
+- /wp-content/uploads/2026/06/tv-advertising-750x600.jpg | src  | worst retina 0.42 box 639x214 got  req  | desktop,retina | /
+- /wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp | src  | worst retina 0.34 box 639x214 got  req  | desktop,retina | /
+- /images/home/brand-identity-amsterdam-cap.jpg | src  | worst retina 0.44 box 625x417 got  req  | desktop,retina | /
+- /wp-content/uploads/2026/07/Dental-Web-Development.jpg | src  | worst retina 0.35 box 519x224 got  req  | desktop,retina | /marketing-programs/
+- /wp-content/uploads/2026/07/Screenshot-2026-07-22-at-11.22.57-PM.jpg | src  | worst retina 0.28 box 102x216 got  req  | desktop,retina | /marketing-programs/
+- /wp-content/uploads/2026/02/medical-skincare-marketing.jpg | src  | worst retina 0.42 box 1440x612 got  req  | desktop,retina | /marketing-results/ /services/email-marketing/
+- /wp-content/uploads/2025/08/IMG_2596-scaled.jpg | src  | worst retina 0.35 box 1440x672 got  req  | desktop,retina | /services/
+- /wp-content/uploads/2026/06/corporate-branding.jpg | src  | worst retina 0.40 box 114x57 got  req  | desktop,retina | /services/corporate-branding/
+- /wp-content/uploads/2021/07/video-scaled.jpg | src  | worst retina 0.44 box 705x470 got  req  | desktop,retina | /services/creative/
+- /images/industries/dental/hygienist-xray.jpg | src  | worst retina 0.42 box 208x130 got  req  | desktop,retina | /services/dental-marketing/
+- /images/industries/dental/patient-headphones.jpg | src  | worst retina 0.42 box 208x130 got  req  | desktop,retina | /services/dental-marketing/
+- /wp-content/uploads/2026/06/tv-streaming-advertising-1.jpg | src  | worst retina 0.34 box 1440x612 got  req  | desktop,retina | /services/digital-connected-tv/
+- /wp-content/uploads/2026/06/digital-streaming-advertising-1.jpg | src  | worst retina 0.42 box 514x321 got  req  | desktop,retina | /services/digital-connected-tv/
+- /wp-content/uploads/2025/12/television-advertising-media-buying.jpg | src  | worst retina 0.43 box 213x216 got  req  | desktop,retina | /services/digital-connected-tv/
+- /images/television/spot-end.png | src  | worst retina 0.27 box 144x304 got  req  | desktop,retina | /services/digital-connected-tv/
+- /wp-content/uploads/2026/07/Chillwack-Golf-Club.jpg | src  | worst retina 0.44 box 319x398 got  req  | desktop,retina | /services/golf-marketing/
+- /wp-content/uploads/2026/06/golf-social-media-marketing.jpg | src  | worst retina 0.37 box 507x285 got  req  | desktop,retina | /services/golf-marketing/
+- /wp-content/uploads/2026/06/hvac-lead-generation-1.jpg | src  | worst desktop 0.37 box 303x170 got  req  | desktop,retina | /services/hvac-marketing/
+- /images/hvac-marketing/feature-lead-generation.jpg | src  | worst retina 0.39 box 411x240 got  req  | desktop,retina | /services/hvac-marketing/
+- /wp-content/uploads/2026/06/social-media-content-marketing-1.jpg | src  | worst retina 0.33 box 651x326 got  req  | desktop,retina | /services/search-engine-optimization/
+- /wp-content/uploads/2026/06/hvac-billboard-advertising.jpg | src  | worst retina 0.25 box 414x131 got  req  | desktop,retina | /services/hvac-marketing/website-design/ /services/hvac-marketing/digital-advertising/ /services/hvac-marketing/video-tv-advertising/
+- /wp-content/uploads/2026/07/Dental-Web-Development.jpg | src  | worst retina 0.34 box 1278x547 got  req  | desktop,retina | /services/dental-marketing/website-design/
+- /images/industries/dental/hygienist-xray.jpg | src  | worst retina 0.28 box 1278x547 got  req  | desktop,retina | /services/dental-marketing/google-ads-seo/
+- /wp-content/uploads/2026/07/Dental-Lead-Generation.jpg | src  | worst retina 0.33 box 747x373 got  req  | desktop,retina | /services/dental-marketing/google-ads-seo/
+- /images/industries/dental/patient-headphones.jpg | src  | worst retina 0.29 box 1278x547 got  req  | desktop,retina | /services/dental-marketing/social-media-content/
+- /images/industries/dental/reception-check-in.jpg | src  | worst retina 0.33 box 747x373 got  req  | desktop,retina | /services/dental-marketing/social-media-content/
+- /wp-content/uploads/2026/02/medical-skincare-marketing.jpg | src  | worst retina 0.43 box 737x317 got  req  | desktop,retina | /services/medical-aesthetics-marketing/
+- /images/industries/medical-aesthetics/clinic-interior.jpg | src  | worst retina 0.43 box 1278x547 got  req  | desktop,retina | /services/medical-aesthetics-marketing/google-ads-seo/
+- /images/industries/golf/sudden-valley-aerial-lake.jpg | src  | worst retina 0.21 box 1280x488 got  req  | desktop,retina | /services/golf-marketing/website-design/
+- /images/industries/golf/sudden-valley-tee-shot.jpg | src  | worst retina 0.25 box 1280x488 got  req  | desktop,retina | /services/golf-marketing/branding/
+- /images/industries/golf/sudden-valley-aerial-fairway.jpg | src  | worst retina 0.21 box 1280x488 got  req  | desktop,retina | /services/golf-marketing/tv-video-advertising/
+- /wp-content/uploads/2026/06/golf-social-media-marketing.jpg | src  | worst retina 0.25 box 1280x488 got  req  | desktop,retina | /services/golf-marketing/social-media-lead-generation/
+- /wp-content/uploads/2023/06/packaging.jpg | src  | worst retina 0.41 box 416x638 got  req  | desktop,retina | /services/retail-marketing/
+- /images/industries/specialty-retail/garden-centre-hanging-baskets.jpg | src  | worst retina 0.28 box 1440x612 got  req  | desktop,retina | /services/specialty-retail-marketing/
+- /images/industries/specialty-retail/garden-centre-greenhouse.jpg | src  | worst retina 0.30 box 707x320 got  req  | desktop,retina | /services/specialty-retail-marketing/
+- /wp-content/uploads/2023/06/real-estate.jpeg | src  | worst retina 0.43 box 448x560 got  req  | desktop,retina | /services/construction-marketing/website-design/ /services/construction-marketing/content-development/
+- /images/home/brand-identity-amsterdam-cap.jpg | src  | worst phone 0.42 box 350x219 got  req  | phone | /
+- /wp-content/uploads/2024/10/corporate-events.webp | src  | worst phone 0.39 box 390x544 got  req  | phone | /corporate-events/
+- /images/industries/specialty-retail/garden-centre-greenhouse-tables.jpg | src  | worst phone 0.38 box 350x197 got  req  | phone | /marketing-programs/ /services/
+- /wp-content/uploads/2026/07/Screenshot-2026-07-22-at-11.22.57-PM.jpg | src  | worst phone 0.29 box 66x140 got  req  | phone | /marketing-programs/
+- /wp-content/uploads/2026/06/dental-clinic-branding.jpg | src  | worst phone 0.38 box 390x544 got  req  | phone | /marketing-results/ /services/dental-marketing/ /services/email-marketing/
+- /wp-content/uploads/2023/06/real-estate.jpeg | src  | worst phone 0.39 box 390x544 got  req  | phone | /services/
+- /wp-content/uploads/2026/07/Dental-Vancouver.jpg | src  | worst phone 0.40 box 390x544 got  req  | phone | /services/dental-marketing/
+- /wp-content/uploads/2026/07/Vancouver-Dental-Marketing.jpg | src  | worst phone 0.40 box 390x544 got  req  | phone | /services/dental-marketing/
+- /images/industries/dental/hygienist-xray.jpg | src  | worst phone 0.42 box 240x150 got  req  | phone | /services/dental-marketing/
+- /images/industries/dental/patient-headphones.jpg | src  | worst phone 0.42 box 240x150 got  req  | phone | /services/dental-marketing/
+- /wp-content/uploads/2026/07/Dental-Lead-Generation.jpg | src  | worst phone 0.42 box 350x219 got  req  | phone | /services/dental-marketing/ /services/dental-marketing/google-ads-seo/
+- /wp-content/uploads/2026/01/media-buying.jpg | src  | worst phone 0.40 box 390x544 got  req  | phone | /services/digital-connected-tv/
+- /images/television/spot-end.png | src  | worst phone 0.27 box 75x158 got  req  | phone | /services/digital-connected-tv/
+- /wp-content/uploads/2026/06/golf-social-media-marketing.jpg | src  | worst phone 0.38 box 350x197 got  req  | phone | /services/golf-marketing/ /services/golf-marketing/social-media-lead-generation/
+- /wp-content/uploads/2026/06/hvac-lead-generation-1.jpg | src  | worst phone 0.42 box 348x218 got  req  | phone | /services/hvac-marketing/
+- /wp-content/uploads/2026/06/social-media-content-marketing-1.jpg | src  | worst phone 0.33 box 350x175 got  req  | phone | /services/search-engine-optimization/
+- /wp-content/uploads/2026/06/social-media-content-marketing-1.jpg | src  | worst phone 0.42 box 350x219 got  req  | phone | /services/social-media-marketing/
+- /wp-content/uploads/2026/06/hvac-billboard-advertising.jpg | src  | worst phone 0.30 box 348x131 got  req  | phone | /services/hvac-marketing/website-design/ /services/hvac-marketing/digital-advertising/ /services/hvac-marketing/video-tv-advertising/
+- /images/industries/dental/hygienist-xray.jpg | src  | worst phone 0.42 box 414x258 got  req  | phone | /services/dental-marketing/google-ads-seo/
+- /images/industries/dental/patient-headphones.jpg | src  | worst phone 0.42 box 414x258 got  req  | phone | /services/dental-marketing/social-media-content/
+- /images/industries/dental/reception-check-in.jpg | src  | worst phone 0.42 box 350x219 got  req  | phone | /services/dental-marketing/social-media-content/
+- /wp-content/uploads/2026/03/website-development-e-commerce.jpg | src  | worst phone 0.28 box 390x779 got  req  | phone | /services/golf-marketing/website-design/
+- /images/industries/golf/sudden-valley-aerial-lake.jpg | src  | worst phone 0.32 box 350x197 got  req  | phone | /services/golf-marketing/website-design/
+- /wp-content/uploads/2026/07/Chillwack-Golf-Club.jpg | src  | worst phone 0.28 box 390x755 got  req  | phone | /services/golf-marketing/branding/
+- /images/industries/golf/sudden-valley-tee-shot.jpg | src  | worst phone 0.38 box 350x197 got  req  | phone | /services/golf-marketing/branding/
+- /images/golf-sportsnet-poster.jpg | src  | worst phone 0.30 box 390x729 got  req  | phone | /services/golf-marketing/tv-video-advertising/
+- /images/industries/golf/sudden-valley-aerial-fairway.jpg | src  | worst phone 0.32 box 350x197 got  req  | phone | /services/golf-marketing/tv-video-advertising/
+- /wp-content/uploads/2026/03/golf-marketing.jpg | src  | worst phone 0.29 box 390x755 got  req  | phone | /services/golf-marketing/social-media-lead-generation/
+- /images/industries/travel/cabo-coastline-aerial.jpg | src  | worst phone 0.38 box 390x544 got  req  | phone | /services/travel-marketing/
+- /images/industries/travel/expedia-cruises-laptop.jpg | src  | worst phone 0.31 box 390x835 got  req  | phone | /services/travel-marketing/lead-generation/
+- /wp-content/uploads/2026/09/Television-Advertising.jpg | src  | worst phone 0.30 box 390x861 got  req  | phone | /services/travel-marketing/tv-advertising/

@@ -269,54 +269,57 @@
   background: var(--stone);
 }
 
-/* Billboard: near full width, pulled up across the section edge */
+/* Billboard: copy card and full photo side by side */
 
 .billboard {
   padding: 0 0 var(--block);
 }
 
 .bleed {
-  position: relative;
-  width: calc(100% - 2 * clamp(0.75rem, 2vw, 1.5rem));
-  height: clamp(26rem, 52vw, 44rem);
-  margin: calc(-1 * clamp(5rem, 10vw, 8rem)) auto 0;
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: end;
+  margin-top: calc(-1 * clamp(5rem, 10vw, 8rem));
+}
+
+.bleedMedia {
+  min-width: 0;
   overflow: hidden;
   border-radius: var(--kosick-radius-sm);
   background: #e4e4e1;
+  line-height: 0;
+}
+
+.bleedPhoto {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .bleedPanel {
-  position: absolute;
-  left: clamp(1rem, 3vw, 2.5rem);
-  bottom: clamp(1rem, 3vw, 2.5rem);
-  width: min(26rem, calc(100% - 2rem));
   padding: clamp(1.25rem, 2.4vw, 1.75rem);
   border-radius: var(--kosick-radius-sm);
   background: #ffffff;
-  box-shadow: 0 30px 60px -30px rgba(17, 17, 17, 0.55);
+  box-shadow: 0 18px 40px -28px rgba(17, 17, 17, 0.45);
+  border: 1px solid var(--rule);
 }
 
-/* Plain labels separated by thin rules */
+/* Labels stacked with room to breathe in the narrow card */
 .labels {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 1rem 0 0;
-  padding: 0.8rem 0 0;
+  display: grid;
+  gap: 0.65rem;
+  margin: 1.15rem 0 0;
+  padding: 1rem 0 0;
   list-style: none;
   border-top: 1px solid var(--rule);
 }
 
 .labels li {
-  padding: 0 0.75rem;
-  border-left: 1px solid var(--rule);
   color: #111111;
   font-size: var(--kosick-meta-size);
   font-weight: 600;
-}
-
-.labels li:first-child {
-  padding-left: 0;
-  border-left: 0;
+  line-height: 1.35;
 }
 
 .bleedActions {
@@ -690,6 +693,12 @@
     display: none;
   }
 
+  .bleed {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
+    margin-top: 0;
+  }
+
   .openingGrid,
   .superCopy {
     grid-template-columns: minmax(0, 1fr);
@@ -757,23 +766,9 @@
   }
 
   .bleed {
-    width: 100%;
-    height: auto;
+    grid-template-columns: minmax(0, 1fr);
+    align-items: stretch;
     margin-top: 0;
-    border-radius: 0;
-    background: transparent;
-    overflow: visible;
-  }
-
-  .bleed > img {
-    position: relative !important;
-    height: 18rem !important;
-  }
-
-  .bleedPanel {
-    position: static;
-    width: auto;
-    margin: -2rem 1rem 0;
   }
 
   .spread {

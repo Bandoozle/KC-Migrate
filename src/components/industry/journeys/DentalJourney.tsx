@@ -6,8 +6,9 @@ import kit from "./kit.module.css";
 import p from "./places.module.css";
 import s from "./DentalJourney.module.css";
 
-const U = "/wp-content/uploads";
-const RECEPTION = `${U}/2026/07/Dental-Vancouver.jpg`;
+// The page hero already shows the Sparkle reception (Dental-Vancouver.jpg), so the illustration uses other practice photos
+const RECEPTION = "/images/industries/dental/reception-check-in.jpg";
+const VISIT = "/images/industries/dental/front-desk.jpg";
 
 const DAYS = [
   { day: "Mon", note: "Today" },
@@ -110,7 +111,7 @@ export function DentalJourney() {
           </div>
 
           <div className={kit.layer} {...show(stage, 2)}>
-            <Photo src={RECEPTION} position="50% 60%" />
+            <Photo src={VISIT} position="50% 45%" />
             <span className={p.trip}>
               <svg viewBox="0 0 132 70" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
                 <rect width="132" height="70" fill="#eef0ea" />

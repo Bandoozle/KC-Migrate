@@ -37,6 +37,8 @@ const COLUMNS: Column[] = [
         title: "Digital Marketing",
         hrefs: [
           "/services/digital-marketing/",
+          "/services/google-ads-management/",
+          "/services/chatgpt-ads-management/",
           "/services/social-media-marketing/",
           "/services/email-marketing/",
           "/services/search-engine-optimization/",

@@ -1,0 +1,291 @@
+.section {
+  --ink: #0f1115;
+  --paper: #f4f6f8;
+  padding: clamp(3.5rem, 7vw, 6rem) 0;
+  background:
+    radial-gradient(42rem 24rem at 80% 0%, rgba(66, 133, 244, 0.1), transparent 65%),
+    #0f1115;
+  color: #ffffff;
+}
+
+.intro {
+  max-width: 40rem;
+  margin: 0 auto clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}
+
+.label {
+  margin: 0 0 0.65rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+}
+
+.title {
+  margin: 0;
+  color: #ffffff !important;
+}
+
+.lead {
+  max-width: 36rem;
+  margin: 0.85rem auto 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.campaigns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 68rem;
+  margin: 0 auto clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.campaign {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.campaignCopy {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0 0.15rem;
+}
+
+.campaignBrand {
+  margin: 0;
+  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+}
+
+.campaignLine {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.player,
+.still {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  background: #000000;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.still .cover {
+  object-position: 58% 45%;
+}
+
+.embed {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.poster {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: #000000;
+  cursor: pointer;
+  color: inherit;
+}
+
+.posterImage {
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(15, 17, 21, 0.15), rgba(15, 17, 21, 0.55)),
+    radial-gradient(circle at 50% 55%, transparent 20%, rgba(15, 17, 21, 0.35) 100%);
+  transition: opacity 0.25s ease;
+}
+
+.poster:hover .shade,
+.poster:focus-visible .shade {
+  opacity: 0.85;
+}
+
+.play {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  color: #0f1115;
+  box-shadow: 0 16px 36px -18px rgba(0, 0, 0, 0.65);
+  transition: transform 0.25s ease;
+}
+
+.poster:hover .play,
+.poster:focus-visible .play {
+  transform: scale(1.05);
+}
+
+.poster:focus-visible {
+  outline: 2px solid #4285f4;
+  outline-offset: 4px;
+}
+
+.playMeta {
+  position: absolute;
+  z-index: 1;
+  left: 1.25rem;
+  bottom: 1.15rem;
+  display: grid;
+  gap: 0.15rem;
+  text-align: left;
+}
+
+.playMeta strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.playMeta small {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+  gap: 1rem;
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.feature,
+.tile,
+.tileWide {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #1a1d24;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.feature {
+  min-height: 28rem;
+}
+
+.side {
+  display: grid;
+  grid-template-rows: minmax(0, 1.05fr) minmax(0, 0.85fr);
+  gap: 1rem;
+  min-height: 28rem;
+}
+
+.tile,
+.tileWide {
+  min-height: 0;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.feature .cover {
+  object-position: center 35%;
+}
+
+.tile .cover {
+  object-position: center 45%;
+}
+
+.tileWide .cover {
+  object-position: 50% 28%;
+}
+
+.caption {
+  position: absolute;
+  left: 0.9rem;
+  bottom: 0.85rem;
+  z-index: 1;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(15, 17, 21, 0.72);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.72rem;
+  font-weight: 600;
+  backdrop-filter: blur(8px);
+}
+
+.feature::after,
+.tile::after,
+.tileWide::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, transparent, rgba(15, 17, 21, 0.45));
+  pointer-events: none;
+}
+
+@media (max-width: 899px) {
+  .campaigns {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .feature {
+    min-height: 18rem;
+    aspect-ratio: 4 / 3;
+  }
+
+  .side {
+    grid-template-rows: none;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .tile,
+  .tileWide {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (max-width: 639px) {
+  .play {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .side {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .tile,
+  .tileWide {
+    aspect-ratio: 16 / 10;
+  }
+
+  .feature {
+    aspect-ratio: 16 / 11;
+    min-height: 0;
+  }
+}

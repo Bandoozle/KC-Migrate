@@ -15,7 +15,13 @@ export const revalidate = 3600;
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const captured = await listIndexableUrls();
-  const native = [...INDUSTRY_PAGE_PATHS, ...(PRIVACY_POLICY_PUBLISHED ? [PRIVACY_POLICY_PATH] : [])];
+  // Service pages built on the new site (no Rank Math record yet)
+  const native = [
+    ...INDUSTRY_PAGE_PATHS,
+    "/services/google-ads-management/",
+    "/services/chatgpt-ads-management/",
+    ...(PRIVACY_POLICY_PUBLISHED ? [PRIVACY_POLICY_PATH] : []),
+  ];
   const urls = [...new Set([...captured, ...native.map((path) => canonicalUrl(path))])];
   return urls
     .filter((url) => isPublicPath(url) && !isRedirectedPath(url))

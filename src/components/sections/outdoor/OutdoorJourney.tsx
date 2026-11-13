@@ -142,7 +142,7 @@ export function OutdoorJourney() {
     <JourneyFrame
       industry="outdoor"
       title="Seen on the drive. Remembered at the store."
-      lead="A billboard near your store reaches people who pass it every day, so your name is familiar when they're ready to buy."
+      lead="A billboard near your store reaches people who pass it every day, so your name is familiar when they’re ready to buy."
       summary="Illustration: traffic passes your billboard on the highway inside a local viewing area; one driver sees it, takes the exit, follows the route to your store nearby and visits."
       side="right"
       story="list"
@@ -157,9 +157,9 @@ export function OutdoorJourney() {
         <div className={s.scene}>
           <svg className={p.map} viewBox="0 0 440 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
             <MapBase kind="highway" />
-            {/* Where the board can be seen from the road: illustrative */}
-            <circle cx="140" cy="160" r="68" className={s.zone} data-lit={stage >= 1} />
-            <text x="140" y="86" textAnchor="middle" className={s.zoneLabel}>
+            {/* Where the board can be seen from the road: illustrative — large to dramatize local reach */}
+            <circle cx="150" cy="155" r="138" className={s.zone} data-lit={stage >= 1} />
+            <text x="150" y="28" textAnchor="middle" className={s.zoneLabel}>
               Billboard viewing area
             </text>
             <Route d={EXIT_ROUTE} on={stage >= 2} />

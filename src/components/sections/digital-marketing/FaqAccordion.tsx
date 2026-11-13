@@ -11,6 +11,11 @@ type FaqAccordionProps = {
   items: FaqItem[];
 };
 
+/** One FAQ heading across the site: "Frequently Asked Questions" and "Golf marketing questions" both read this way. */
+function faqHeading(title: string): string {
+  return /^(frequently asked questions|[\w\s&]+ questions)$/i.test(title.trim()) ? "Frequently asked questions" : title;
+}
+
 export function FaqAccordion({ eyebrow, title, items }: FaqAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -19,7 +24,7 @@ export function FaqAccordion({ eyebrow, title, items }: FaqAccordionProps) {
       <div className={`container ${styles.inner}`}>
         <div className={styles.intro}>
           <Eyebrow>{eyebrow}</Eyebrow>
-          <SectionTitle as="h2">{title}</SectionTitle>
+          <SectionTitle as="h2">{faqHeading(title)}</SectionTitle>
         </div>
 
         <div className={styles.list}>

@@ -30,6 +30,8 @@ export const PUBLIC_PAGE_PATHS = [
   "/services/medical-aesthetics-marketing/",
   "/services/digital-connected-tv/",
   "/services/digital-marketing/",
+  "/services/google-ads-management/",
+  "/services/chatgpt-ads-management/",
   "/services/email-marketing/",
   "/services/golf-marketing/",
   "/services/hvac-marketing/",

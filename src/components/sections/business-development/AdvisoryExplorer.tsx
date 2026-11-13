@@ -5,7 +5,6 @@ import { useState } from "react";
 import { handleArrowKeys } from "./bd-motion";
 import styles from "./AdvisoryExplorer.module.css";
 
-const UPLOADS = "/wp-content/uploads";
 
 const AREAS = [
   {
@@ -18,8 +17,8 @@ const AREAS = [
       "Business plans & investor-ready pitch decks",
     ],
     image: {
-      src: `${UPLOADS}/2023/06/vancouver-agency.jpg`,
-      alt: "Vancouver waterfront and skyline across the harbour",
+      src: "/images/business-development/advisory-glass-tower.jpg",
+      alt: "A modern glass office tower against a clear blue sky in downtown Vancouver",
       position: "50% 45%",
     },
   },
@@ -33,9 +32,9 @@ const AREAS = [
       "Sales team training, coaching & performance systems",
     ],
     image: {
-      src: `${UPLOADS}/2024/10/corporate-events.webp`,
-      alt: "A business audience listening to speakers at the front of a room",
-      position: "68% 50%",
+      src: "/images/business-development/sales-container-ship-lions-gate.jpg",
+      alt: "A container ship passing Lions Gate Bridge at golden hour",
+      position: "48% 42%",
     },
   },
   {
@@ -48,24 +47,24 @@ const AREAS = [
       "Regulatory compliance audits & risk mitigation",
     ],
     image: {
-      src: `${UPLOADS}/2024/01/pexels-sora-shimazaki-5668473-2.png`,
-      alt: "Black binders beside a gavel on a dark desk",
-      position: "55% 50%",
+      src: "/images/business-development/legal-heritage-facade.jpg",
+      alt: "The carved sandstone facade of a heritage office building in Vancouver, with a Canadian flag above",
+      position: "45% 28%",
     },
   },
   {
     id: "exit",
     title: "Exit Strategy",
-    summary: "Prepare the business for a sale, merger or succession, well before it's urgent.",
+    summary: "Prepare the business for a sale, merger or succession, well before it’s urgent.",
     points: [
       "Business valuation & market benchmarking",
       "M&A target identification & buyer outreach",
       "Succession planning & leadership transition",
     ],
     image: {
-      src: `${UPLOADS}/2023/06/real-estate.jpeg`,
-      alt: "A bright living room opening onto a view of the ocean",
-      position: "62% 45%",
+      src: "/images/business-development/exit-yacht-club.jpg",
+      alt: "A historic yacht club boathouse and moored sailboats on Coal Harbour",
+      position: "48% 52%",
     },
   },
 ] as const;

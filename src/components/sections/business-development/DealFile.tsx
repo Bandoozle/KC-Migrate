@@ -5,10 +5,9 @@ import { useState } from "react";
 import { handleArrowKeys } from "./bd-motion";
 import styles from "./DealFile.module.css";
 
-/* In the order a transaction comes together */
-const ITEMS = [
+const MATTERS = [
   {
-    title: "Corporate Structure",
+    title: "Corporate structure",
     detail: "Entities, ownership and governance set up for the deal.",
     work: "Corporate restructuring & governance advisory",
   },
@@ -18,7 +17,7 @@ const ITEMS = [
     work: "Contract drafting, review & negotiation strategy",
   },
   {
-    title: "Due Diligence",
+    title: "Due diligence",
     detail: "Records organized before anyone asks.",
     work: "Due diligence preparation & data room management",
   },
@@ -32,82 +31,67 @@ const ITEMS = [
     detail: "Partnership and joint venture terms structured, and intellectual property protected.",
     work: "Joint venture, partnership & IP agreement structuring",
   },
-];
+] as const;
 
 /**
- * The five parts of a transaction as a ledger beside a photograph. Choosing a
- * part opens its advisory work, and the transaction file on the photograph
- * ticks it off.
+ * Legal & compliance as an editorial dossier: heritage photograph as the
+ * institutional plane, matters as calm expanding entries — not a numbered
+ * accordion or checklist overlay.
  */
 export function DealFile() {
   const [active, setActive] = useState(0);
-  const [seen, setSeen] = useState<ReadonlySet<number>>(new Set([0]));
-
-  function choose(index: number) {
-    setActive(index);
-    setSeen((current) => new Set(current).add(index));
-  }
+  const current = MATTERS[active];
 
   return (
-    <div className={styles.layout}>
-      <ol className={styles.ledger}>
-        {ITEMS.map((item, index) => {
-          const open = index === active;
-          return (
-            <li key={item.title} className={styles.row} data-active={open}>
-              <h3 className={styles.rowHeading}>
-                <button
-                  id={`bd-deal-${index}`}
-                  type="button"
-                  className={styles.trigger}
-                  aria-expanded={open}
-                  aria-controls={`bd-deal-more-${index}`}
-                  onClick={() => choose(index)}
-                  onKeyDown={(event) => handleArrowKeys(event, index, ITEMS.length, choose, (next) => `bd-deal-${next}`)}
-                >
-                  <span className={styles.number} data-n={String(index + 1).padStart(2, "0")} aria-hidden="true" />
-                  <span className={styles.title}>{item.title}</span>
-                </button>
-              </h3>
-              <p className={styles.detail}>{item.detail}</p>
-              <div id={`bd-deal-more-${index}`} className={styles.more}>
-                <div className={styles.moreInner}>
-                  <p className={styles.work}>
-                    <span className={styles.workLabel}>Advisory</span>
-                    {item.work}
-                  </p>
-                </div>
-              </div>
-            </li>
-          );
-        })}
-      </ol>
-
-      <figure className={styles.photo}>
+    <div className={styles.dossier} data-accent="legal">
+      <figure className={styles.visual}>
         <Image
           src="/images/business-development/legal-heritage-building-flag.jpg"
           alt="An ivy-covered heritage office building in Vancouver with a Canadian flag on the roof"
           fill
-          sizes="(min-width: 960px) 44vw, 100vw"
-          style={{ objectFit: "cover", objectPosition: "40% 30%" }}
+          sizes="(min-width: 960px) 48vw, 100vw"
+          style={{ objectFit: "cover", objectPosition: "42% 28%" }}
+          priority
         />
-        <div className={styles.file} aria-hidden="true">
-          <p className={styles.fileTitle}>
-            Transaction file
-            <span>
-              {seen.size} of {ITEMS.length}
-            </span>
-          </p>
-          <ul className={styles.fileRows}>
-            {ITEMS.map((item, index) => (
-              <li key={item.title} data-seen={seen.has(index)} data-current={index === active}>
-                <span className={styles.check} />
-                {item.title}
-              </li>
-            ))}
-          </ul>
+        <figcaption className={styles.place}>Heritage Vancouver</figcaption>
+        <div className={styles.matterCard} aria-live="polite">
+          <p className={styles.matterLabel}>Matter</p>
+          {/* The card names the service; the open entry beside it gives the summary, so nothing is said twice */}
+          <p className={styles.matterTitle}>{current.work}</p>
         </div>
       </figure>
+
+      <div className={styles.entries}>
+        <ol className={styles.list}>
+          {MATTERS.map((matter, index) => {
+            const open = index === active;
+            return (
+              <li key={matter.title} className={styles.entry} data-active={open}>
+                <h3 className={styles.entryHeading}>
+                  <button
+                    id={`bd-deal-${index}`}
+                    type="button"
+                    className={styles.trigger}
+                    aria-expanded={open}
+                    aria-controls={`bd-deal-more-${index}`}
+                    onClick={() => setActive(index)}
+                    onKeyDown={(event) =>
+                      handleArrowKeys(event, index, MATTERS.length, setActive, (next) => `bd-deal-${next}`)
+                    }
+                  >
+                    {matter.title}
+                  </button>
+                </h3>
+                <div id={`bd-deal-more-${index}`} className={styles.more}>
+                  <div className={styles.moreInner}>
+                    <p className={styles.detail}>{matter.detail}</p>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
+      </div>
     </div>
   );
 }

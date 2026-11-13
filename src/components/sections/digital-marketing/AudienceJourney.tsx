@@ -14,7 +14,7 @@ type AudienceJourneyProps = {
 /**
  * Target → Reach → Engage → Lead. The campaign's audience is set on the right,
  * the ad appears in a real-looking feed on the phone, the person fills in the
- * lead form, and the enquiry lands in the business's lead list.
+ * lead form, and the inquiry lands in the business's lead list.
  */
 export function AudienceJourney({ title, lead }: AudienceJourneyProps) {
   return (
@@ -22,14 +22,14 @@ export function AudienceJourney({ title, lead }: AudienceJourneyProps) {
       industry="digital"
       title={title}
       lead={lead}
-      summary="Illustration: a business sets a campaign audience by location, age and interests, its sponsored ad appears in a social feed, a person opens the lead form and sends their details, and the enquiry arrives in the business's lead list."
+      summary="Illustration: a business sets a campaign audience by location, age and interests, its sponsored ad appears in a social feed, a person opens the lead form and sends their details, and the inquiry arrives in the business’s lead list."
       side="right"
       story="list"
       steps={[
         { label: "Target", body: "Choose who should see your ads: location, age, interests and the searches that signal intent." },
         { label: "Reach", body: "Your ad appears where those people already spend time, in the feed or in search." },
         { label: "Engage", body: "A clear offer and a short form make it easy to ask for a quote or a call." },
-        { label: "Lead", body: "The enquiry arrives with its campaign attached, ready for your team to follow up." },
+        { label: "Lead", body: "The inquiry arrives with its campaign attached, ready for your team to follow up." },
       ]}
     >
       {(stage) => (

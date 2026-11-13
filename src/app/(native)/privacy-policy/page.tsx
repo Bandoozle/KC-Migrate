@@ -62,7 +62,7 @@ export default function PrivacyPolicyPage() {
           <h3>Contact form</h3>
           <p>
             When you send us a message, we collect your name, email address, phone number, company (optional) and
-            message, along with the page you sent it from. We use this to reply to your enquiry. Our team receives your
+            message, along with the page you sent it from. We use this to reply to your inquiry. Our team receives your
             message by email, and we may send you an email confirming we received it.
           </p>
 
@@ -90,9 +90,9 @@ export default function PrivacyPolicyPage() {
           <h3>Analytics and advertising measurement</h3>
           <p>
             We use Google Analytics to understand how visitors use our website, and Google Ads conversion tracking to
-            measure whether our advertising leads to enquiries. These tools use cookies and similar technologies. When
+            measure whether our advertising leads to inquiries. These tools use cookies and similar technologies. When
             you submit a form, Google Ads enhanced conversions may share a hashed (coded) version of the contact details
-            you entered with Google, which Google uses to match the enquiry to an ad interaction. Learn more about{" "}
+            you entered with Google, which Google uses to match the inquiry to an ad interaction. Learn more about{" "}
             <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">
               how Google uses information from sites that use its services
             </a>

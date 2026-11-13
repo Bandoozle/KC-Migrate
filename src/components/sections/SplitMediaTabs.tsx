@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useId, useState, type KeyboardEvent } from "react";
+import { useEffect, useId, useState, type KeyboardEvent } from "react";
 import { BodyText, CardTitle, SubsectionTitle } from "@/components/typography";
 import styles from "./SplitMediaTabs.module.css";
 import { useSlidingPill } from "./useSlidingPill";
@@ -37,6 +37,24 @@ export function SplitMediaTabs({
   const [active, setActive] = useState(0);
   const { listRef, pillStyle, pillState } = useSlidingPill<HTMLDivElement>(active);
 
+  // When the row scrolls (small screens), fade its right edge until the last tab is in view
+  useEffect(() => {
+    const list = listRef.current;
+    if (!list) return;
+    const update = () => {
+      const more = list.scrollWidth - list.clientWidth - list.scrollLeft > 2;
+      list.dataset.more = String(more);
+    };
+    update();
+    list.addEventListener("scroll", update, { passive: true });
+    const observer = new ResizeObserver(update);
+    observer.observe(list);
+    return () => {
+      list.removeEventListener("scroll", update);
+      observer.disconnect();
+    };
+  }, [listRef]);
+
   if (tabs.length === 0) return null;
 
   // Move focus with the selection (roving tabindex) and keep the tab visible in a scrolled row
@@ -44,7 +62,11 @@ export function SplitMediaTabs({
     setActive(index);
     const tab = typeof document !== "undefined" ? document.getElementById(`${baseId}-tab-${tabs[index]?.id}`) : null;
     tab?.focus({ preventScroll: true });
-    tab?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    const list = listRef.current;
+    if (tab && list && list.scrollWidth > list.clientWidth) {
+      // A scrolling row (small screens): bring the chosen tab to the middle
+      tab.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+    }
   };
 
   const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {

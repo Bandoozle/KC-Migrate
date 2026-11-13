@@ -111,7 +111,9 @@ export function CreativeProductionPage({ content }: CreativeProductionPageProps)
   const cards = content.offerGroups[0]?.cards ?? [];
   const related = content.relatedServices;
   const cardBody = (title: string) => cards.find((card) => card.title === title)?.body ?? "";
-  const relatedItems = (title: string) => related.find((service) => service.title === title)?.items ?? [];
+  // Sentence case, like list items on the other service pages
+  const relatedItems = (title: string) =>
+    (related.find((service) => service.title === title)?.items ?? []).map((item) => labelCase(item));
 
   const capabilities: Capability[] = [
     {
@@ -120,7 +122,11 @@ export function CreativeProductionPage({ content }: CreativeProductionPageProps)
       title: "Video & cinematography",
       body: sentence(cardBody("Video & Cinematography")),
       points: relatedItems("Video & Production"),
-      image: { src: `${UPLOADS}/2021/07/video-scaled.jpg`, alt: "Camera operator filming with a handheld rig", position: "50% 40%" },
+      image: {
+        src: "/images/creative/dolce-bts.jpeg",
+        alt: "Behind the scenes filming espresso for the Espresso Dolce campaign",
+        position: "42% 28%",
+      },
       anchor: { href: "#video", label: "See the film" },
     },
     {
@@ -184,8 +190,8 @@ export function CreativeProductionPage({ content }: CreativeProductionPageProps)
                 {labelCase(videoFeature?.title || "Compelling visuals that leave a lasting impression")}
               </SectionTitle>
               <p className={styles.bodyOnDark}>
-                Great creative grabs attention, engages the senses and inspires action. Every piece is built to
-                reinforce your brand and move people to buy.
+                Bold ideas, paired with sharp strategy and produced in-house. Every piece is built to reinforce your
+                brand and move people to buy.
               </p>
               <div className={styles.videoActions}>
                 <Link className={styles.primaryOnDark} href={cta?.primary?.href || "/contact/"}>

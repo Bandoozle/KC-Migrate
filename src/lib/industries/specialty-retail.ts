@@ -17,8 +17,8 @@ export const SPECIALTY_RETAIL: Industry = {
     lead: "For garden centres, hearth and home stores, outfitters and other specialty shops that compete on knowledge and service. Open a service to see the detail.",
   },
   cta: {
-    title: "Let's bring more people through the door.",
-    description: "Tell us about your store, your seasons and your best customers. We'll plan the marketing around them.",
+    title: "Let’s bring more people through the door.",
+    description: "Tell us about your store, your seasons and your best customers. We’ll plan the marketing around them.",
   },
   landing: {
     seo: {
@@ -33,9 +33,9 @@ export const SPECIALTY_RETAIL: Industry = {
       image: { src: "/images/industries/specialty-retail/garden-centre-hanging-baskets.jpg", position: "50% 30%", alt: "Hanging baskets of petunias in a garden centre greenhouse" },
     },
     intro: {
-      title: "Big-box prices can't buy your expertise.",
+      title: "Big-box prices can’t buy your expertise.",
       paragraphs: [
-        "Specialty retailers don't win on price. They win because their staff know the product, their selection is curated and the store is worth the visit. Marketing has to make that difference obvious before a shopper compares you with a national chain.",
+        "Specialty retailers don’t win on price. They win because their staff know the product, their selection is curated and the store is worth the visit. Marketing has to make that difference obvious before a shopper compares you with a national chain.",
         "We plan around the rhythm of your year, from spring planting to the first cold snap to the holiday rush, and use the channels that suit a local, loyal customer base: your website and online store, social media, radio and in-store creative.",
       ],
     },
@@ -51,7 +51,7 @@ export const SPECIALTY_RETAIL: Industry = {
       },
       {
         title: "Knowledge is the product",
-        body: "Content shows your team's expertise, the reason people choose a specialty store over a big box.",
+        body: "Content shows your team’s expertise, the reason people choose a specialty store over a big box.",
       },
       {
         title: "Online and in store together",
@@ -77,15 +77,15 @@ export const SPECIALTY_RETAIL: Industry = {
       hero: {
         label: "Specialty retail e-commerce & websites",
         title: "Your store, open all night.",
-        lead: "Shoppers browse before they visit, and many want to buy without visiting at all. We build websites and online stores that show your range, take orders and send people to the shop when that's the better choice.",
+        lead: "Shoppers browse before they visit, and many want to buy without visiting at all. We build websites and online stores that show your range, take orders and send people to the shop when that’s the better choice.",
         image: { src: `${UP}/2025/10/website-development.jpg`, alt: "An online tool store website on a laptop in a bright room" },
       },
       card: { src: `${UP}/2026/07/Garden-Centre-Nursery-Marketing.jpg`, alt: "A garden centre website on a laptop beside a vase of olive branches" },
       intro: {
         title: "Online is the new front window.",
         paragraphs: [
-          "Before a shopper makes the drive, they check what you carry, whether it's in stock and what it costs. If your website can't answer, they'll find someone else's that can.",
-          "We build specialty retail websites around your catalogue and the way you sell: full online stores where it makes sense, click-and-collect and local delivery where it doesn't, and clear store information for people who want to come in and talk to an expert.",
+          "Before a shopper makes the drive, they check what you carry, whether it’s in stock and what it costs. If your website can’t answer, they’ll find someone else’s that can.",
+          "We build specialty retail websites around your catalogue and the way you sell: full online stores where it makes sense, click-and-collect and local delivery where it doesn’t, and clear store information for people who want to come in and talk to an expert.",
         ],
       },
       offers: [
@@ -134,12 +134,12 @@ export const SPECIALTY_RETAIL: Industry = {
       approach: [
         { title: "Discover", body: "Your products, margins, systems and how customers buy." },
         { title: "Plan", body: "Platform, catalogue structure and fulfilment options." },
-        { title: "Design & build", body: "A store that's easy to shop and easy for staff to run." },
+        { title: "Design & build", body: "A store that’s easy to shop and easy for staff to run." },
         { title: "Launch & grow", body: "Tracking from day one, then improvements based on sales." },
       ],
       gallery: [
         { src: "/images/industries/specialty-retail/garden-centre-planter.jpg", alt: "A garden centre staff member holding a planter of pansies and ranunculus", position: "50% 50%" },
-        { src: `${UP}/2025/08/mobile-responsive-website-design.jpeg`, alt: "A retailer's website open on a tablet in a stand" },
+        { src: `${UP}/2025/08/mobile-responsive-website-design.jpeg`, alt: "A retailer’s website open on a tablet in a stand" },
       ],
       related: [],
     },
@@ -161,7 +161,7 @@ export const SPECIALTY_RETAIL: Industry = {
       intro: {
         title: "Your regulars are already scrolling.",
         paragraphs: [
-          "Local shoppers follow the stores they love. A steady feed of new stock, advice and events keeps you top of mind, and it's often the first place a new customer checks you out.",
+          "Local shoppers follow the stores they love. A steady feed of new stock, advice and events keeps you top of mind, and it’s often the first place a new customer checks you out.",
           "The challenge is time. Your team is busy selling, so we take the planning, production and posting off your plate, while keeping the voice and knowledge that make the store yours.",
         ],
       },
@@ -172,7 +172,7 @@ export const SPECIALTY_RETAIL: Industry = {
         },
         {
           title: "Posting & community management",
-          body: "Scheduling across Instagram, Facebook and TikTok, plus replies to comments and messages in your store's voice.",
+          body: "Scheduling across Instagram, Facebook and TikTok, plus replies to comments and messages in your store’s voice.",
         },
         {
           title: "Paid social campaigns",
@@ -215,7 +215,7 @@ export const SPECIALTY_RETAIL: Industry = {
       ],
       gallery: [
         { src: `${UP}/2026/08/Social-Media.jpg`, alt: "Garden centre Instagram posts of flowers and a succulent planter" },
-        { src: `${UP}/2026/06/social-media-advertising.jpg`, alt: "A retailer's Instagram profile on a phone resting on a laptop" },
+        { src: `${UP}/2026/06/social-media-advertising.jpg`, alt: "A retailer’s Instagram profile on a phone resting on a laptop" },
       ],
       related: [],
     },
@@ -235,10 +235,10 @@ export const SPECIALTY_RETAIL: Industry = {
         image: { src: `${UP}/2024/03/radio-1.webp`, alt: "A smiling man adjusting the radio while driving" },
       },
       intro: {
-        title: "Still the local shopper's channel.",
+        title: "Still the local shopper’s channel.",
         paragraphs: [
           "For a store with a defined trading area, radio is one of the most efficient ways to reach a lot of local people, many of them in the car and close to a purchase.",
-          "We choose stations and dayparts that match your customers, negotiate the buy, and produce spots with a clear offer and a reason to visit this week. Streaming audio adds precise targeting on top.",
+          "We choose stations and dayparts that match your customers, negotiate the buy and produce spots with a clear offer and a reason to visit this week. Streaming audio adds precise targeting on top.",
         ],
       },
       offers: [
@@ -295,7 +295,7 @@ export const SPECIALTY_RETAIL: Industry = {
         { src: `${UP}/2021/07/audio-recording.jpg`, alt: "A studio microphone in a recording booth" },
       ],
       related: [
-        { label: "Media Buying: TV, Streaming & Radio", href: "/blog-media-buying-canada-tv-streaming-radio/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
+        { label: "Media Buying: TV, Streaming & Radio", href: "/media-buying-canada/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
         { label: "Radio Advertising", href: "/services/radio-advertising/", kind: "service", body: "FM and streaming audio campaigns that build frequency." },
       ],
     },

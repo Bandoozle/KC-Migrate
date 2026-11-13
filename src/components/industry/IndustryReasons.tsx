@@ -119,7 +119,8 @@ function ConstructionReasons({ industry, photos }: ReasonsProps) {
             ) : null}
           </div>
           <div className={styles.notes}>
-            <p className={styles.notesHeading}>General notes</p>
+            {/* Styled like the notes block on a drawing sheet; the text says what the list is */}
+            <p className={styles.notesHeading}>What we plan around</p>
             <ol className={styles.noteList}>
               {industry.landing.reasons.map((reason) => (
                 <li key={reason.title}>

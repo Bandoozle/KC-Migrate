@@ -76,7 +76,7 @@ export function SiteFooterNewsletter() {
       {guard.challenge}
       {status === "success" ? (
         <p className={styles.newsletterStatus} role="status">
-          Thanks — you&apos;re on the list.
+          Thanks, you&rsquo;re on the list.
         </p>
       ) : null}
       {status === "error" ? (
