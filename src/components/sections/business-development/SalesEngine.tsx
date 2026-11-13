@@ -13,9 +13,9 @@ const STAGES = [
     work: ["Enterprise account strategy", "Channel partner programs & distribution strategy"],
     milestone: "Offer and target accounts set",
     image: {
-      src: `${UPLOADS}/2023/06/vancouver-agency.jpg`,
-      alt: "Vancouver waterfront and skyline across False Creek at sunset",
-      position: "50% 42%",
+      src: "/images/business-development/sales-siwash-rock.jpg",
+      alt: "Siwash Rock standing alone in calm water off Stanley Park",
+      position: "48% 42%",
     },
   },
   {
@@ -46,8 +46,8 @@ const STAGES = [
     work: ["Sales team training, coaching & performance systems", "Pipeline reporting your team can act on"],
     milestone: "Over the line",
     image: {
-      src: "/images/business-development/legal-heritage-building-flag.jpg",
-      alt: "Ivy-covered heritage building with a Canadian flag against a clear sky",
+      src: "/images/business-development/sales-english-bay.jpg",
+      alt: "English Bay at low tide, with the West End towers across the water",
       position: "50% 35%",
     },
   },
@@ -57,81 +57,82 @@ const STAGES = [
     work: ["Key account management", "A sales engine your people run long after the engagement ends"],
     milestone: "Handed to delivery, then grown",
     image: {
-      src: `${UPLOADS}/2023/06/real-estate.jpeg`,
-      alt: "A bright living room opening onto a calm waterfront view",
-      position: "55% 48%",
+      src: "/images/business-development/sales-transition-sunset.jpg",
+      alt: "The sun setting over English Bay, with freighters at anchor on the horizon",
+      position: "50% 42%",
     },
   },
 ] as const;
 
 /**
- * Five stages of a sale, told as an editorial feature: a stage index, a
- * photograph that shifts with the selection, and the stage written large.
- * Plays once when it comes into view; choosing a stage takes over.
+ * Corporate sales as a dark editorial sequence: stages develop the photograph
+ * and the operating detail — not a tab strip on a stock presentation shot.
  */
 export function SalesEngine() {
-  const { ref, index, select } = useStepper<HTMLDivElement>(STAGES.length, { interval: 3200, threshold: 0.4 });
+  const { ref, index, select } = useStepper<HTMLDivElement>(STAGES.length, {
+    interval: 3400,
+    threshold: 0.35,
+  });
+  const active = STAGES[index];
 
   return (
     <div ref={ref} className={styles.engine} data-accent="sales">
-      <nav className={styles.index} aria-label="Sales stages">
-        <ol className={styles.stages}>
+      <div className={styles.frame}>
+        <figure className={styles.media}>
           {STAGES.map((stage, stageIndex) => (
-            <li key={stage.name}>
-              <button
-                id={`bd-sales-stage-${stageIndex}`}
-                type="button"
-                className={styles.stage}
-                aria-current={stageIndex === index ? "step" : undefined}
-                aria-controls="bd-sales-panels"
-                onClick={() => select(stageIndex)}
-                onKeyDown={(event) =>
-                  handleArrowKeys(event, stageIndex, STAGES.length, select, (next) => `bd-sales-stage-${next}`)
-                }
-              >
-                {stage.name}
-              </button>
-            </li>
-          ))}
-        </ol>
-      </nav>
-
-      <div className={styles.spread}>
-        <div className={styles.media} aria-hidden="true">
-          {STAGES.map((stage, stageIndex) => (
-            <div key={stage.name} className={styles.photo} data-active={stageIndex === index}>
+            <div
+              key={stage.name}
+              className={styles.photo}
+              data-active={stageIndex === index}
+              aria-hidden={stageIndex !== index}
+            >
               <Image
                 src={stage.image.src}
-                alt=""
+                alt={stage.image.alt}
                 fill
-                sizes="(min-width: 900px) 48vw, 100vw"
+                sizes="(min-width: 900px) 58vw, 100vw"
                 style={{ objectFit: "cover", objectPosition: stage.image.position }}
                 priority={stageIndex === 0}
               />
             </div>
           ))}
+          <div className={styles.milestone} aria-live="polite">
+            <p className={styles.milestoneLabel}>Milestone</p>
+            <p className={styles.milestoneText}>{active.milestone}</p>
+          </div>
+        </figure>
+
+        <div className={styles.copy} id="bd-sales-panels" aria-live="polite">
+          <p className={styles.phase}>Corporate sales · Stage {String(index + 1).padStart(2, "0")}</p>
+          <h3 className={styles.title}>{active.name}</h3>
+          <p className={styles.detail}>{active.detail}</p>
+          <ul className={styles.work}>
+            {active.work.map((line) => (
+              <li key={line}>{line}</li>
+            ))}
+          </ul>
         </div>
 
-        <div id="bd-sales-panels" className={styles.panels} aria-live="polite">
-          {STAGES.map((stage, stageIndex) => {
-            const open = stageIndex === index;
-            return (
-              <article key={stage.name} className={styles.panel} data-active={open} aria-hidden={!open}>
-                <p className={styles.mark}>
-                  {String(stageIndex + 1).padStart(2, "0")} / {String(STAGES.length).padStart(2, "0")}
-                </p>
-                <h3 className={styles.title}>{stage.name}</h3>
-                <p className={styles.detail}>{stage.detail}</p>
-                <div className={styles.work}>
-                  {stage.work.map((line) => (
-                    <p key={line}>{line}</p>
-                  ))}
-                </div>
-                <p className={styles.outcome}>{stage.milestone}</p>
-              </article>
-            );
-          })}
-        </div>
+        <nav className={styles.spine} aria-label="Sales stages">
+          <ol className={styles.stages}>
+            {STAGES.map((stage, stageIndex) => (
+              <li key={stage.name}>
+                <button
+                  id={`bd-sales-stage-${stageIndex}`}
+                  type="button"
+                  className={styles.stage}
+                  aria-current={stageIndex === index ? "step" : undefined}
+                  onClick={() => select(stageIndex)}
+                  onKeyDown={(event) =>
+                    handleArrowKeys(event, stageIndex, STAGES.length, select, (next) => `bd-sales-stage-${next}`)
+                  }
+                >
+                  <span className={styles.stageName}>{stage.name}</span>
+                </button>
+              </li>
+            ))}
+          </ol>
+        </nav>
       </div>
     </div>
   );

@@ -4,6 +4,8 @@ import { ServiceHero } from "@/components/sections/ServiceHero";
 import { servicePath, type Industry, type IndustryLanding } from "@/lib/industries";
 import { ORGANIZATION_REF } from "@/lib/seo/organization";
 import { canonicalUrl } from "@/lib/site";
+import { INDUSTRY_FAQS } from "@/lib/industries/faqs";
+import { IndustryFaqs } from "./IndustryFaqs";
 import { IndustryIntro } from "./IndustryIntro";
 import { IndustryOffers } from "./IndustryOffers";
 import { IndustryReasons } from "./IndustryReasons";
@@ -97,6 +99,8 @@ export function IndustryLandingPage({ industry, journey }: IndustryLandingPagePr
 
       {/* How we plan: composed differently for each industry */}
       <IndustryReasons industry={industry} photos={reasonPhotos} />
+
+      <IndustryFaqs items={INDUSTRY_FAQS[industry.id]} />
 
       <PageCta
         cta={{

@@ -135,12 +135,12 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  min-height: 50px;
-  margin-top: 2rem;
-  padding: 0.8rem 1.45rem;
+  min-height: var(--kosick-hero-button-height);
+  margin-top: var(--kosick-hero-lead-actions-gap);
+  padding: var(--kosick-hero-button-padding);
   border: 1px solid transparent;
   border-radius: var(--kosick-radius-pill);
-  font-size: 1rem;
+  font-size: var(--kosick-hero-button-size);
   font-weight: 600;
   line-height: 1.2;
   text-decoration: none;
@@ -251,9 +251,17 @@
   font-weight: 600;
 }
 
+/* Two lines: "Strategic", then the muted service name */
 .page .heroTitle {
+  display: grid;
+  row-gap: 0.08em;
+  max-width: var(--kosick-hero-title-max);
   margin: 0;
   color: #ffffff !important;
+  font-size: var(--kosick-hero-title-size);
+  font-weight: var(--kosick-hero-title-weight);
+  line-height: var(--kosick-hero-title-leading);
+  letter-spacing: var(--kosick-hero-title-tracking);
 }
 
 .heroTitleMuted {
@@ -261,7 +269,8 @@
 }
 
 .heroLead {
-  margin: 1.25rem 0 0;
+  max-width: var(--kosick-hero-lead-max);
+  margin: var(--kosick-hero-title-lead-gap) 0 0;
   color: rgba(255, 255, 255, 0.78);
   font-size: var(--kosick-section-desc-size);
   line-height: var(--kosick-section-desc-leading);

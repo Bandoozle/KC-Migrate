@@ -67,6 +67,16 @@ const CRAWL = [
 
 /* Illustrative topic cluster: one pillar page and the articles that support it */
 const CLUSTER = ["Buying guide", "How-to", "Comparison", "Costs explained", "FAQ"];
+
+/*
+ * Section 06 goes a level deeper than the summary cards in section 02, so the
+ * same three disciplines are not described twice in the same words.
+ */
+const AUTHORITY_DETAIL: Array<[RegExp, string]> = [
+  [/content strategy/i, "A pillar page for each service, supported by guides, comparisons and cost explainers that answer what buyers ask before they call."],
+  [/link building/i, "Earned mentions from local media, industry associations and partners, so other sites point to yours for the right reasons."],
+  [/competitor/i, "We map which pages and topics win for the businesses ranking above you, then plan content that covers the ground they miss."],
+];
 /* Positions of the five articles in the cluster, as percentages (matching spoke1 to spoke5 in the CSS) */
 const SPOKES: Array<[number, number]> = [
   [50, 18],
@@ -127,7 +137,6 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
   const contentCards = [/content strategy/i, /link building/i, /competitor/i]
     .map((pattern) => findCard(cards, pattern))
     .filter((card): card is ServiceInfoCard => Boolean(card));
-  const localCard = findCard(cards, /local/i);
   const contactHref = cta?.primary.href || "/contact/";
   const actions = serviceHeroActions(contactHref);
   const primary = hero.cta === undefined ? actions.cta : hero.cta;
@@ -155,8 +164,9 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
           <div className={styles.heroCopy}>
             {hero.eyebrow ? <p className={styles.heroEyebrow}>{hero.eyebrow}</p> : null}
             <PageTitle className={styles.heroTitle}>
-              {hero.displayTitle ? <span className={styles.heroTitleMuted}>{hero.displayTitle} </span> : null}
-              {hero.titleSecondary || content.title}
+              {/* Same two-tone pattern as the other service heroes: "Strategic" over the muted service name */}
+              {hero.displayTitle ? <span>{hero.displayTitle} </span> : null}
+              <span className={styles.heroTitleMuted}>{hero.titleSecondary || content.title}</span>
             </PageTitle>
             {hero.subtitle ? <p className={styles.heroLead}>{hero.subtitle}</p> : null}
             <div className={styles.heroActions}>
@@ -206,7 +216,7 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
             </ol>
             {heroPhoto ? (
               <div className={styles.heroPhoto}>
-                <Image src={heroPhoto.src} alt="" fill priority sizes="(min-width: 960px) 30vw, 60vw" className={styles.cover} />
+                <Image src={heroPhoto.src} alt={heroPhoto.alt || ""} fill priority sizes="(min-width: 960px) 30vw, 60vw" className={styles.cover} />
               </div>
             ) : null}
           </div>
@@ -348,9 +358,9 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
                 Stand out in local search.
               </SectionTitle>
               <p className={styles.lead}>
-                {localCard?.body || "Optimized Google Business profiles, citations and location-based strategies."}{" "}
-                So you show up in Vancouver, Calgary, Toronto and communities across Canada when nearby buyers are
-                ready to act.
+                A complete Google Business Profile, consistent listings across local directories and pages written for
+                each area you serve, so you show up in Vancouver, Calgary, Toronto and communities across Canada when
+                nearby buyers are ready to act.
               </p>
               <ul className={styles.ticks}>
                 <li>Google Business Profile</li>
@@ -488,7 +498,9 @@ export function SeoMarketingPage({ content }: SeoMarketingPageProps) {
                   <li key={card.id}>
                     <span className={styles.position}>#{index + 1}</span>
                     <span className={styles.discName}>{card.title}</span>
-                    {card.body ? <span className={styles.discBody}>{card.body}</span> : null}
+                    <span className={styles.discBody}>
+                      {AUTHORITY_DETAIL.find(([pattern]) => pattern.test(card.title))?.[1] ?? card.body}
+                    </span>
                   </li>
                 ))}
               </ol>

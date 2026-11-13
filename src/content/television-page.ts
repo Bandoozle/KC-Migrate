@@ -5,23 +5,24 @@
  */
 
 export const TV_HERO = {
-  displayTitle: "Put your brand",
-  titleSecondary: "where your customers are watching.",
+  // Match the Strategic [service] H1 pattern used on every other service page (Bretton, Nov 2026)
+  displayTitle: "Strategic",
+  titleSecondary: "Television Advertising",
   subtitle:
     "From traditional television to premium streaming platforms, we help businesses reach the right audiences with creative campaigns built to make an impact.",
   cta: { label: "Plan Your TV Campaign", href: "/contact/" },
-  secondaryCta: { label: "Let's Talk", href: "tel:+16049255800", icon: "phone" as const },
+  secondaryCta: { label: "Let’s Talk", href: "tel:+16049255800", icon: "phone" as const },
 };
 
 export const TV_CAPABILITIES = {
   title: "Big-screen impact. Smarter audience targeting.",
   lead:
-    "Television advertising still earns attention in the living room. We make it practical for businesses that need creative, media planning, and clear campaign direction in one place.",
+    "Television advertising still earns attention in the living room. We make it practical for businesses that need creative, media planning and clear campaign direction in one place.",
   items: [
     {
       id: "creative",
       title: "Creative production",
-      body: "Commercial concepts, messaging, and production from our in-house team — concept through post — so the spot matches the brand and the buy.",
+      body: "Commercial concepts, messaging and production from our in-house team, from concept through post, so the spot matches the brand and the buy.",
       image: {
         src: "/images/creative/reel-spot.jpg",
         alt: "A cinematic frame from a television commercial produced by Kosick",
@@ -31,7 +32,7 @@ export const TV_CAPABILITIES = {
     {
       id: "planning",
       title: "Media planning",
-      body: "Channel, placement, and audience selection across broadcast, cable, and streaming, planned as one schedule rather than disconnected buys.",
+      body: "Channel, placement and audience selection across broadcast, cable and streaming, planned as one schedule rather than disconnected buys.",
       image: {
         src: "/images/television/media-planning-broadcast.jpg",
         alt: "A live tennis broadcast on a television screen",
@@ -84,9 +85,9 @@ export const TV_MODES = {
       label: "Connected TV",
       headline: "Streaming environments with sharper focus.",
       image: {
-        src: "/images/television/ctv-living-room-tsn.jpg",
-        alt: "A streaming sports channel on a smart TV in a living room",
-        position: "55% 35%",
+        src: "/images/television/tennis-tv.jpg",
+        alt: "A tennis match on TSN streaming on a phone screen",
+        position: "50% 50%",
       },
       rows: {
         placement: "Advertising inside supported streaming and smart-TV environments",
@@ -101,17 +102,17 @@ export const TV_MODES = {
 export const TV_REACH = {
   title: "Reach the right households, in the right markets.",
   lead:
-    "Strong television plans start with where your customers live and watch. We focus budget on the markets, audiences, and placements that support your business goals — then measure what the buy can tell us.",
+    "Strong television plans start with where your customers live and watch. We focus budget on the markets, audiences and placements that support your business goals, then measure what the buy can tell us.",
   pillars: [
     {
       id: "markets",
       title: "Target markets",
-      body: "Local flights, multi-market plans, or national weight — sized to the geography you serve.",
+      body: "Local flights, multi-market plans or national weight, sized to the geography you serve.",
     },
     {
       id: "audience",
       title: "Audience selection",
-      body: "Programming, dayparts, and streaming environments chosen for the people most likely to need you.",
+      body: "Programming, dayparts and streaming environments chosen for the people most likely to need you.",
     },
     {
       id: "placement",
@@ -180,19 +181,19 @@ export const TV_BENEFITS = {
     {
       id: "recognition",
       title: "Build brand recognition",
-      body: "Sight, sound, and motion on a living-room screen create memory that short scrolls rarely match.",
+      body: "Sight, sound and motion on a living-room screen create memory that short scrolls rarely match.",
       image: {
-        src: "/images/television/service-broadcast.jpg",
-        alt: "Television advertising on a broadcast screen",
+        src: "/images/television/tennis-tv.jpg",
+        alt: "A tennis match on TSN streaming on a phone screen",
       },
     },
     {
       id: "reach",
       title: "Reach beyond search and social",
-      body: "Meet people who are not actively searching yet — and stay present when they are ready to choose.",
+      body: "Meet people who are not actively searching yet, and stay present when they are ready to choose.",
       image: {
-        src: "/images/television/ctv-living-room-tsn.jpg",
-        alt: "Living-room television with sports programming",
+        src: "/images/television/benefit-living-room-sportsnet.jpg",
+        alt: "A Sportsnet hockey screen on a living-room TV above a wooden console",
       },
     },
     {
@@ -200,14 +201,14 @@ export const TV_BENEFITS = {
       title: "Establish credibility and familiarity",
       body: "Appearing in premium programming and trusted networks signals a brand that belongs in the conversation.",
       image: {
-        src: "/images/television/service-streaming.jpg",
-        alt: "Streaming television advertising environment",
+        src: "/images/television/prime-video.jpg",
+        alt: "Prime Video playing on a wall-mounted living-room television",
       },
     },
     {
       id: "support",
       title: "Support the wider campaign",
-      body: "Television lifts digital, outdoor, and retail efforts by making every other touchpoint feel familiar.",
+      body: "Television lifts digital, outdoor and retail efforts by making every other touchpoint feel familiar.",
       image: {
         src: "/images/home/television-expedia-cruises-tv.jpg",
         alt: "Expedia Cruises television creative on screen",
@@ -218,31 +219,31 @@ export const TV_BENEFITS = {
 
 export const TV_JOURNEY = {
   title: "From concept to screen.",
-  lead: "A clear path from the first conversation to a commercial that airs — and a plan that can improve as reporting arrives.",
+  lead: "A clear path from the first conversation to a commercial that airs, and a plan that can improve as reporting arrives.",
   stages: [
     {
       id: "discover",
       label: "Discover",
-      title: "Understand the business, goals, and audience",
-      body: "We start with what you sell, who you serve, and what success looks like before a single placement is proposed.",
+      title: "Understand the business, goals and audience",
+      body: "We start with what you sell, who you serve and what success looks like before a single placement is proposed.",
     },
     {
       id: "plan",
       label: "Plan",
       title: "Develop the media and creative strategy",
-      body: "Broadcast, Connected TV, and supporting channels are planned together so creative and media work as one idea.",
+      body: "Broadcast, Connected TV and supporting channels are planned together so creative and media work as one idea.",
     },
     {
       id: "create",
       label: "Create",
       title: "Produce or prepare the commercial",
-      body: "In-house concept, script, production, and finish — or adaptation of existing assets for air and streaming.",
+      body: "In-house concept, script, production and finish or adaptation of existing assets for air and streaming.",
     },
     {
       id: "launch",
       label: "Launch",
       title: "Coordinate campaign placements",
-      body: "Schedules, trafficking, and network coordination so the spot lands where the audience is already watching.",
+      body: "Schedules, trafficking and network coordination so the spot lands where the audience is already watching.",
     },
     {
       id: "refine",
@@ -256,7 +257,7 @@ export const TV_JOURNEY = {
 export const TV_WORK = {
   title: "Work built for the screen.",
   lead:
-    "One commercial from concept to air. The same discipline — creative, placement, and cross-channel follow-through — applies whether the brand is industrial, consumer, or service.",
+    "One commercial from concept to air. The same discipline (creative, placement and cross-channel follow-through) applies whether the brand is industrial, consumer or service.",
   featured: {
     client: "Trane",
     line: "It’s Hard To Stop A Trane.",
@@ -274,10 +275,10 @@ export const TV_WORK = {
 export const TV_START = {
   title: "Your next campaign starts here.",
   lead:
-    "A short consultation covers goals, markets, and creative needs. From there we shape a strategy, prepare the commercial, and set the first flight in motion.",
+    "A short consultation covers goals, markets and creative needs. From there we shape a strategy, prepare the commercial and set the first flight in motion.",
   steps: [
     { title: "Consultation", body: "Share the business challenge and the audiences you need to reach." },
-    { title: "Strategy", body: "We outline media options, creative direction, and a realistic flight plan." },
+    { title: "Strategy", body: "We outline media options, creative direction and a realistic flight plan." },
     { title: "Preparation", body: "Production and placements move together so launch day is ready, not rushed." },
   ],
   cta: { label: "Plan Your TV Campaign", href: "/contact/" },

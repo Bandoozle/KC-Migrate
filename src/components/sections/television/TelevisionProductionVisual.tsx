@@ -140,7 +140,7 @@ function Edit({ frames }: { frames: TelevisionFrame[] }) {
       aria-label="Illustrative edit timeline with picture, super and audio tracks for the :15 Trane spot."
     >
       <div className={styles.screenHead}>
-        <p className={styles.screenTitle}>Edit · color · sound</p>
+        <p className={styles.screenTitle}>Edit · colour · sound</p>
         <span className={styles.badge}>Illustrative</span>
       </div>
       <div className={styles.editBody}>

@@ -2,12 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { SectionTitle } from "@/components/typography";
 import { InternalPageHero } from "@/components/sections/InternalPageHero";
+import { OutdoorPrinciples } from "@/components/sections/outdoor/OutdoorPrinciples";
 import { serviceHeroActions } from "@/lib/content/industry-heroes";
+import type { ServiceMedia } from "@/lib/wordpress/service-page-types";
 import type { ResourceGuideContent, ResourceGuideSection } from "@/lib/wordpress/resource-guide-types";
 import styles from "./ResourceGuidePageView.module.css";
 
 type ResourceGuidePageViewProps = {
   content: ResourceGuideContent;
+  /** When set, shows the city + Location/Timing/Creative block (billboard sizes). */
+  mediaOwner?: ServiceMedia | null;
+  showOutdoorPrinciples?: boolean;
 };
 
 type FormatKind = "super" | "horizontal" | "digital" | "transit";
@@ -88,7 +93,11 @@ function FormatCard({ section }: { section: ResourceGuideSection }) {
   );
 }
 
-export function ResourceGuidePageView({ content }: ResourceGuidePageViewProps) {
+export function ResourceGuidePageView({
+  content,
+  mediaOwner = null,
+  showOutdoorPrinciples = false,
+}: ResourceGuidePageViewProps) {
   const actions = serviceHeroActions();
   const cleaned = content.hero.title.replace(/Billlboard/g, "Billboard").trim();
   const [beforeColon, ...afterColon] = cleaned.split(":");
@@ -148,6 +157,8 @@ export function ResourceGuidePageView({ content }: ResourceGuidePageViewProps) {
           ) : null}
         </div>
       </section>
+
+      {showOutdoorPrinciples ? <OutdoorPrinciples mediaOwner={mediaOwner} /> : null}
     </main>
   );
 }

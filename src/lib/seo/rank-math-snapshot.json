@@ -5,16 +5,16 @@
     "/services/outdoor-advertising/billboard-dimensions/",
     "https://www.kosick.com/",
     "https://www.kosick.com/amazon-ads-vancouver/",
-    "https://www.kosick.com/blog-black-friday-advertising/",
-    "https://www.kosick.com/blog-dental-marketing/",
-    "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/",
-    "https://www.kosick.com/blog-golf-marketing-strategies/",
-    "https://www.kosick.com/blog-hvac-website-development/",
-    "https://www.kosick.com/blog-importance-of-social-media-marketing/",
-    "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/",
-    "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/",
-    "https://www.kosick.com/blog-social-media-marketing/",
-    "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/",
+    "https://www.kosick.com/black-friday-advertising/",
+    "https://www.kosick.com/dental-marketing-custom-websites/",
+    "https://www.kosick.com/ad-creative-digital-tv-advertising/",
+    "https://www.kosick.com/golf-course-branding/",
+    "https://www.kosick.com/hvac-website-development/",
+    "https://www.kosick.com/importance-of-social-media-marketing/",
+    "https://www.kosick.com/corporate-branding-guide/",
+    "https://www.kosick.com/media-buying-canada/",
+    "https://www.kosick.com/social-media-golf-resorts-real-estate/",
+    "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/",
     "https://www.kosick.com/connected-tv-advertising-canada/",
     "https://www.kosick.com/contact/",
     "https://www.kosick.com/corporate-events/",
@@ -28,7 +28,7 @@
     "https://www.kosick.com/how-to-fill-tee-times-golf-marketing/",
     "https://www.kosick.com/hvac-digital-marketing/",
     "https://www.kosick.com/hvac-marketing-fortisbc-co-op-advertising/",
-    "https://www.kosick.com/hvac-marketing-strategies-guide/",
+    "https://www.kosick.com/hvac-dealer-marketing/",
     "https://www.kosick.com/hvac-marketing-strategies/",
     "https://www.kosick.com/increase-golf-course-revenue/",
     "https://www.kosick.com/is-television-advertising-worth-it/",
@@ -266,12 +266,12 @@
     },
     "/amazon-ads-vancouver/": {
       "title": "Amazon Ads Vancouver | Prime Video CTV | Kosick Communications",
-      "description": "Reach customers on Amazon Prime Video with connected TV, display, and eCommerce ads. Kosick Communications is a proud Amazon Ads Partner. Learn more.",
+      "description": "Reach customers on Amazon Prime Video with connected TV, display and eCommerce ads. Kosick Communications is a proud Amazon Ads Partner. Learn more.",
       "canonical": "https://www.kosick.com/amazon-ads-vancouver/",
       "index": true,
       "follow": true,
       "ogTitle": "Amazon Ads Vancouver | Prime Video CTV | Kosick Communications",
-      "ogDescription": "Reach customers on Amazon Prime Video with connected TV, display, and eCommerce ads. Kosick Communications is a proud Amazon Ads Partner. Learn more.",
+      "ogDescription": "Reach customers on Amazon Prime Video with connected TV, display and eCommerce ads. Kosick Communications is a proud Amazon Ads Partner. Learn more.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/01/amazon-prime-ads.jpg",
       "jsonLd": [
         {
@@ -378,7 +378,7 @@
             },
             {
               "headline": "Amazon Ads Vancouver | Prime Video CTV | Kosick Communications",
-              "description": "Reach customers on Amazon Prime Video with connected TV, display, and eCommerce ads. Kosick Communications is a proud Amazon Ads Partner. Learn more.",
+              "description": "Reach customers on Amazon Prime Video with connected TV, display and eCommerce ads. Kosick Communications is a proud Amazon Ads Partner. Learn more.",
               "datePublished": "2026-01-20T20:03:54-08:00",
               "dateModified": "2026-07-04T18:27:25-07:00",
               "keywords": "Amazon Ads",
@@ -407,14 +407,14 @@
         }
       ]
     },
-    "/blog-black-friday-advertising/": {
+    "/black-friday-advertising/": {
       "title": "Black Friday Advertising Strategies To Boost ROI | Kosick Communications",
-      "description": "Boost Black Friday advertising results with social, digital, and traditional campaigns designed to increase sales and grow your brand. Read the guide...",
-      "canonical": "https://www.kosick.com/blog-black-friday-advertising/",
+      "description": "Boost Black Friday advertising results with social, digital and traditional campaigns designed to increase sales and grow your brand. Read the guide...",
+      "canonical": "https://www.kosick.com/black-friday-advertising/",
       "index": true,
       "follow": true,
       "ogTitle": "Black Friday Advertising Strategies To Boost ROI | Kosick Communications",
-      "ogDescription": "Boost Black Friday advertising results with social, digital, and traditional campaigns designed to increase sales and grow your brand. Read the guide...",
+      "ogDescription": "Boost Black Friday advertising results with social, digital and traditional campaigns designed to increase sales and grow your brand. Read the guide...",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/11/black-friday-advertising.jpg",
       "jsonLd": [
         {
@@ -491,8 +491,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-black-friday-advertising/#webpage",
-              "url": "https://www.kosick.com/blog-black-friday-advertising/",
+              "@id": "https://www.kosick.com/black-friday-advertising/#webpage",
+              "url": "https://www.kosick.com/black-friday-advertising/",
               "name": "Black Friday Advertising Strategies To Boost ROI | Kosick Communications",
               "datePublished": "2025-11-26T12:23:12-08:00",
               "dateModified": "2026-06-30T00:16:07-07:00",
@@ -506,7 +506,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-black-friday-advertising/#author",
+              "@id": "https://www.kosick.com/black-friday-advertising/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -521,7 +521,7 @@
             },
             {
               "headline": "Black Friday Advertising Strategies To Boost ROI | Kosick Communications",
-              "description": "Boost Black Friday advertising results with social, digital, and traditional campaigns designed to increase sales and grow your brand. Read the guide...",
+              "description": "Boost Black Friday advertising results with social, digital and traditional campaigns designed to increase sales and grow your brand. Read the guide...",
               "datePublished": "2025-11-26T12:23:12-08:00",
               "dateModified": "2026-06-30T00:16:07-07:00",
               "keywords": "black friday",
@@ -529,31 +529,31 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2025/11/black-friday-advertising.jpg"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-black-friday-advertising/#author",
+                "@id": "https://www.kosick.com/black-friday-advertising/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "Black Friday Advertising Strategies To Boost ROI | Kosick Communications",
-              "@id": "https://www.kosick.com/blog-black-friday-advertising/#schema-22342",
+              "@id": "https://www.kosick.com/black-friday-advertising/#schema-22342",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-black-friday-advertising/#webpage"
+                "@id": "https://www.kosick.com/black-friday-advertising/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-black-friday-advertising/#webpage"
+                "@id": "https://www.kosick.com/black-friday-advertising/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-dental-marketing/": {
+    "/dental-marketing-custom-websites/": {
       "title": "Dental Marketing Vancouver | Kosick Communications",
       "description": "Dental marketing for Vancouver practices, from custom website development to social and search, built to attract patients and grow lead generation...",
-      "canonical": "https://www.kosick.com/blog-dental-marketing/",
+      "canonical": "https://www.kosick.com/dental-marketing-custom-websites/",
       "index": true,
       "follow": true,
       "ogTitle": "Dental Marketing Vancouver | Kosick Communications",
@@ -634,8 +634,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-dental-marketing/#webpage",
-              "url": "https://www.kosick.com/blog-dental-marketing/",
+              "@id": "https://www.kosick.com/dental-marketing-custom-websites/#webpage",
+              "url": "https://www.kosick.com/dental-marketing-custom-websites/",
               "name": "Dental Marketing Vancouver | Kosick Communications",
               "datePublished": "2026-06-07T14:31:11-07:00",
               "dateModified": "2026-07-04T18:11:56-07:00",
@@ -649,7 +649,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-dental-marketing/#author",
+              "@id": "https://www.kosick.com/dental-marketing-custom-websites/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -672,35 +672,35 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2026/06/dental-marketing.jpg"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-dental-marketing/#author",
+                "@id": "https://www.kosick.com/dental-marketing-custom-websites/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "Dental Marketing Vancouver | Kosick Communications",
-              "@id": "https://www.kosick.com/blog-dental-marketing/#schema-25767",
+              "@id": "https://www.kosick.com/dental-marketing-custom-websites/#schema-25767",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-dental-marketing/#webpage"
+                "@id": "https://www.kosick.com/dental-marketing-custom-websites/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-dental-marketing/#webpage"
+                "@id": "https://www.kosick.com/dental-marketing-custom-websites/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-digital-tv-advertising-ad-creative/": {
+    "/ad-creative-digital-tv-advertising/": {
       "title": "Ad Creative That Drives Digital Advertising Results",
-      "description": "See how strong ad creative drives results across Google Ads, Facebook, pre-roll, and TV. Learn how better creative improves campaign performance today.",
-      "canonical": "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/",
+      "description": "See how strong ad creative drives results across Google Ads, Facebook, pre-roll and TV. Learn how better creative improves campaign performance today.",
+      "canonical": "https://www.kosick.com/ad-creative-digital-tv-advertising/",
       "index": true,
       "follow": true,
       "ogTitle": "Ad Creative That Drives Digital Advertising Results",
-      "ogDescription": "See how strong ad creative drives results across Google Ads, Facebook, pre-roll, and TV. Learn how better creative improves campaign performance today.",
+      "ogDescription": "See how strong ad creative drives results across Google Ads, Facebook, pre-roll and TV. Learn how better creative improves campaign performance today.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/12/trane-hvac-advertising.jpeg",
       "jsonLd": [
         {
@@ -777,8 +777,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/#webpage",
-              "url": "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/",
+              "@id": "https://www.kosick.com/ad-creative-digital-tv-advertising/#webpage",
+              "url": "https://www.kosick.com/ad-creative-digital-tv-advertising/",
               "name": "Ad Creative That Drives Digital Advertising Results",
               "datePublished": "2025-12-01T22:18:15-08:00",
               "dateModified": "2026-06-30T08:32:19-07:00",
@@ -792,7 +792,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/#author",
+              "@id": "https://www.kosick.com/ad-creative-digital-tv-advertising/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -807,7 +807,7 @@
             },
             {
               "headline": "Ad Creative That Drives Digital Advertising Results",
-              "description": "See how strong ad creative drives results across Google Ads, Facebook, pre-roll, and TV. Learn how better creative improves campaign performance today.",
+              "description": "See how strong ad creative drives results across Google Ads, Facebook, pre-roll and TV. Learn how better creative improves campaign performance today.",
               "datePublished": "2025-12-01T22:18:15-08:00",
               "dateModified": "2026-06-30T08:32:19-07:00",
               "keywords": "ad creative",
@@ -815,35 +815,35 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2025/12/trane-hvac-advertising.jpeg"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/#author",
+                "@id": "https://www.kosick.com/ad-creative-digital-tv-advertising/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "Ad Creative That Drives Digital Advertising Results",
-              "@id": "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/#schema-22385",
+              "@id": "https://www.kosick.com/ad-creative-digital-tv-advertising/#schema-22385",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/#webpage"
+                "@id": "https://www.kosick.com/ad-creative-digital-tv-advertising/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-digital-tv-advertising-ad-creative/#webpage"
+                "@id": "https://www.kosick.com/ad-creative-digital-tv-advertising/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-golf-marketing-strategies/": {
+    "/golf-course-branding/": {
       "title": "Golf Course Branding For Premium Clubs | Kosick Communications",
-      "description": "Golf course branding for premium clubs, blending brand strategy, website development, and content to drive revenue and memberships.",
-      "canonical": "https://www.kosick.com/blog-golf-marketing-strategies/",
+      "description": "Golf course branding for premium clubs, blending brand strategy, website development and content to drive revenue and memberships.",
+      "canonical": "https://www.kosick.com/golf-course-branding/",
       "index": true,
       "follow": true,
       "ogTitle": "Golf Course Branding For Premium Clubs | Kosick Communications",
-      "ogDescription": "Golf course branding for premium clubs, blending brand strategy, website development, and content to drive revenue and memberships.",
+      "ogDescription": "Golf course branding for premium clubs, blending brand strategy, website development and content to drive revenue and memberships.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/03/golf-course-branding.jpg",
       "jsonLd": [
         {
@@ -920,8 +920,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-golf-marketing-strategies/#webpage",
-              "url": "https://www.kosick.com/blog-golf-marketing-strategies/",
+              "@id": "https://www.kosick.com/golf-course-branding/#webpage",
+              "url": "https://www.kosick.com/golf-course-branding/",
               "name": "Golf Course Branding For Premium Clubs | Kosick Communications",
               "datePublished": "2026-03-06T23:26:48-08:00",
               "dateModified": "2026-07-06T17:28:39-07:00",
@@ -935,7 +935,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-golf-marketing-strategies/#author",
+              "@id": "https://www.kosick.com/golf-course-branding/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -950,7 +950,7 @@
             },
             {
               "headline": "Golf Course Branding For Premium Clubs | Kosick Communications",
-              "description": "Golf course branding for premium clubs, blending brand strategy, website development, and content to drive revenue and memberships.",
+              "description": "Golf course branding for premium clubs, blending brand strategy, website development and content to drive revenue and memberships.",
               "datePublished": "2026-03-06T23:26:48-08:00",
               "dateModified": "2026-07-06T17:28:39-07:00",
               "keywords": "Golf Course Branding",
@@ -958,31 +958,31 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2026/03/golf-course-branding.jpg"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-golf-marketing-strategies/#author",
+                "@id": "https://www.kosick.com/golf-course-branding/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "Golf Course Branding For Premium Clubs | Kosick Communications",
-              "@id": "https://www.kosick.com/blog-golf-marketing-strategies/#schema-24704",
+              "@id": "https://www.kosick.com/golf-course-branding/#schema-24704",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-golf-marketing-strategies/#webpage"
+                "@id": "https://www.kosick.com/golf-course-branding/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-golf-marketing-strategies/#webpage"
+                "@id": "https://www.kosick.com/golf-course-branding/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-hvac-website-development/": {
+    "/hvac-website-development/": {
       "title": "HVAC Website Development That Drives Leads",
       "description": "Learn why HVAC website development matters and how Kosick builds branded, mobile-friendly, SEO-focused sites to educate homeowners and generate leads.",
-      "canonical": "https://www.kosick.com/blog-hvac-website-development/",
+      "canonical": "https://www.kosick.com/hvac-website-development/",
       "index": true,
       "follow": true,
       "ogTitle": "HVAC Website Development That Drives Leads",
@@ -1063,8 +1063,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-hvac-website-development/#webpage",
-              "url": "https://www.kosick.com/blog-hvac-website-development/",
+              "@id": "https://www.kosick.com/hvac-website-development/#webpage",
+              "url": "https://www.kosick.com/hvac-website-development/",
               "name": "HVAC Website Development That Drives Leads",
               "datePublished": "2026-03-02T21:51:45-08:00",
               "dateModified": "2026-07-04T18:40:13-07:00",
@@ -1078,7 +1078,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-hvac-website-development/#author",
+              "@id": "https://www.kosick.com/hvac-website-development/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -1101,35 +1101,35 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2026/03/hvac-web-development.png"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-hvac-website-development/#author",
+                "@id": "https://www.kosick.com/hvac-website-development/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "HVAC Website Development That Drives Leads",
-              "@id": "https://www.kosick.com/blog-hvac-website-development/#schema-24001",
+              "@id": "https://www.kosick.com/hvac-website-development/#schema-24001",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-hvac-website-development/#webpage"
+                "@id": "https://www.kosick.com/hvac-website-development/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-hvac-website-development/#webpage"
+                "@id": "https://www.kosick.com/hvac-website-development/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-importance-of-social-media-marketing/": {
+    "/importance-of-social-media-marketing/": {
       "title": "Importance Of Social Media Marketing | Kosick Communications",
-      "description": "Grow your business with expert social media marketing. Kosick Communications helps Vancouver brands thrive on Instagram, Facebook, and TikTok today.",
-      "canonical": "https://www.kosick.com/blog-importance-of-social-media-marketing/",
+      "description": "Grow your business with expert social media marketing. Kosick Communications helps Vancouver brands thrive on Instagram, Facebook and TikTok today.",
+      "canonical": "https://www.kosick.com/importance-of-social-media-marketing/",
       "index": true,
       "follow": true,
       "ogTitle": "Importance Of Social Media Marketing | Kosick Communications",
-      "ogDescription": "Grow your business with expert social media marketing. Kosick Communications helps Vancouver brands thrive on Instagram, Facebook, and TikTok today.",
+      "ogDescription": "Grow your business with expert social media marketing. Kosick Communications helps Vancouver brands thrive on Instagram, Facebook and TikTok today.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/07/marketing-750x549.webp",
       "jsonLd": [
         {
@@ -1206,8 +1206,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-importance-of-social-media-marketing/#webpage",
-              "url": "https://www.kosick.com/blog-importance-of-social-media-marketing/",
+              "@id": "https://www.kosick.com/importance-of-social-media-marketing/#webpage",
+              "url": "https://www.kosick.com/importance-of-social-media-marketing/",
               "name": "Importance Of Social Media Marketing | Kosick Communications",
               "datePublished": "2025-07-21T08:45:19-07:00",
               "dateModified": "2026-07-06T17:54:42-07:00",
@@ -1221,7 +1221,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-importance-of-social-media-marketing/#author",
+              "@id": "https://www.kosick.com/importance-of-social-media-marketing/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -1241,38 +1241,38 @@
               "datePublished": "2025-07-21T08:45:19-07:00",
               "dateModified": "2026-07-06T17:54:42-07:00",
               "author": {
-                "@id": "https://www.kosick.com/blog-importance-of-social-media-marketing/#author",
+                "@id": "https://www.kosick.com/importance-of-social-media-marketing/#author",
                 "name": "Kosick Communications"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Grow your business with expert social media marketing. Kosick Communications helps Vancouver brands thrive on Instagram, Facebook, and TikTok today.",
+              "description": "Grow your business with expert social media marketing. Kosick Communications helps Vancouver brands thrive on Instagram, Facebook and TikTok today.",
               "name": "Importance Of Social Media Marketing | Kosick Communications",
-              "@id": "https://www.kosick.com/blog-importance-of-social-media-marketing/#richSnippet",
+              "@id": "https://www.kosick.com/importance-of-social-media-marketing/#richSnippet",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-importance-of-social-media-marketing/#webpage"
+                "@id": "https://www.kosick.com/importance-of-social-media-marketing/#webpage"
               },
               "image": {
                 "@id": "https://www.kosick.com/wp-content/uploads/2025/07/marketing.webp"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-importance-of-social-media-marketing/#webpage"
+                "@id": "https://www.kosick.com/importance-of-social-media-marketing/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-kosick-com-corporate-branding-guide/": {
+    "/corporate-branding-guide/": {
       "title": "2026 Corporate Branding Guide | Kosick Communications",
-      "description": "Master corporate branding with Kosick Communications. Discover how we build resilient brand identities for HVAC, real estate, logistics, and more.",
-      "canonical": "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/",
+      "description": "Master corporate branding with Kosick Communications. Discover how we build resilient brand identities for HVAC, real estate, logistics and more.",
+      "canonical": "https://www.kosick.com/corporate-branding-guide/",
       "index": true,
       "follow": true,
       "ogTitle": "2026 Corporate Branding Guide | Kosick Communications",
-      "ogDescription": "Master corporate branding with Kosick Communications. Discover how we build resilient brand identities for HVAC, real estate, logistics, and more.",
+      "ogDescription": "Master corporate branding with Kosick Communications. Discover how we build resilient brand identities for HVAC, real estate, logistics and more.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/business-cards-printing.jpg",
       "jsonLd": [
         {
@@ -1349,8 +1349,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/#webpage",
-              "url": "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/",
+              "@id": "https://www.kosick.com/corporate-branding-guide/#webpage",
+              "url": "https://www.kosick.com/corporate-branding-guide/",
               "name": "2026 Corporate Branding Guide | Kosick Communications",
               "datePublished": "2026-03-06T21:56:34-08:00",
               "dateModified": "2026-06-30T08:37:08-07:00",
@@ -1364,7 +1364,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/#author",
+              "@id": "https://www.kosick.com/corporate-branding-guide/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -1379,7 +1379,7 @@
             },
             {
               "headline": "2026 Corporate Branding Guide | Kosick Communications",
-              "description": "Master corporate branding with Kosick Communications. Discover how we build resilient brand identities for HVAC, real estate, logistics, and more.",
+              "description": "Master corporate branding with Kosick Communications. Discover how we build resilient brand identities for HVAC, real estate, logistics and more.",
               "datePublished": "2026-03-06T21:56:34-08:00",
               "dateModified": "2026-06-30T08:37:08-07:00",
               "keywords": "corporate branding",
@@ -1387,31 +1387,31 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2023/06/business-cards-printing.jpg"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/#author",
+                "@id": "https://www.kosick.com/corporate-branding-guide/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "2026 Corporate Branding Guide | Kosick Communications",
-              "@id": "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/#schema-24593",
+              "@id": "https://www.kosick.com/corporate-branding-guide/#schema-24593",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/#webpage"
+                "@id": "https://www.kosick.com/corporate-branding-guide/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-kosick-com-corporate-branding-guide/#webpage"
+                "@id": "https://www.kosick.com/corporate-branding-guide/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-media-buying-canada-tv-streaming-radio/": {
+    "/media-buying-canada/": {
       "title": "Media Buying: TV, Streaming, Radio | Kosick Communications",
       "description": "Kosick Communications - Strategic Media Buying: CBC, CTV, Sportsnet, Amazon Prime Video, radio, Spotify Stingray in key markets...",
-      "canonical": "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/",
+      "canonical": "https://www.kosick.com/media-buying-canada/",
       "index": true,
       "follow": true,
       "ogTitle": "Media Buying: TV, Streaming, Radio | Kosick Communications",
@@ -1492,8 +1492,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/#webpage",
-              "url": "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/",
+              "@id": "https://www.kosick.com/media-buying-canada/#webpage",
+              "url": "https://www.kosick.com/media-buying-canada/",
               "name": "Media Buying: TV, Streaming, Radio | Kosick Communications",
               "datePublished": "2026-02-25T20:51:30-08:00",
               "dateModified": "2026-07-14T22:05:27-07:00",
@@ -1507,7 +1507,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/#author",
+              "@id": "https://www.kosick.com/media-buying-canada/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -1530,35 +1530,35 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2026/02/media-buying.jpg"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/#author",
+                "@id": "https://www.kosick.com/media-buying-canada/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "Media Buying: TV, Streaming, Radio | Kosick Communications",
-              "@id": "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/#schema-23904",
+              "@id": "https://www.kosick.com/media-buying-canada/#schema-23904",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/#webpage"
+                "@id": "https://www.kosick.com/media-buying-canada/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-media-buying-canada-tv-streaming-radio/#webpage"
+                "@id": "https://www.kosick.com/media-buying-canada/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-social-media-marketing/": {
+    "/social-media-golf-resorts-real-estate/": {
       "title": "Social Media For Golf Courses, Resorts & Real Estate | Kosick Communications",
-      "description": "See how social media for golf courses, resorts, and real estate fills tee times and sells listings. Learn more.",
-      "canonical": "https://www.kosick.com/blog-social-media-marketing/",
+      "description": "See how social media for golf courses, resorts and real estate fills tee times and sells listings. Learn more.",
+      "canonical": "https://www.kosick.com/social-media-golf-resorts-real-estate/",
       "index": true,
       "follow": true,
       "ogTitle": "Social Media For Golf Courses, Resorts & Real Estate | Kosick Communications",
-      "ogDescription": "See how social media for golf courses, resorts, and real estate fills tee times and sells listings. Learn more.",
+      "ogDescription": "See how social media for golf courses, resorts and real estate fills tee times and sells listings. Learn more.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/02/social-media-content-creation.jpg",
       "jsonLd": [
         {
@@ -1635,8 +1635,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-social-media-marketing/#webpage",
-              "url": "https://www.kosick.com/blog-social-media-marketing/",
+              "@id": "https://www.kosick.com/social-media-golf-resorts-real-estate/#webpage",
+              "url": "https://www.kosick.com/social-media-golf-resorts-real-estate/",
               "name": "Social Media For Golf Courses, Resorts &amp; Real Estate | Kosick Communications",
               "datePublished": "2026-02-25T19:00:21-08:00",
               "dateModified": "2026-07-06T17:52:37-07:00",
@@ -1650,7 +1650,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-social-media-marketing/#author",
+              "@id": "https://www.kosick.com/social-media-golf-resorts-real-estate/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -1665,7 +1665,7 @@
             },
             {
               "headline": "Social Media For Golf Courses, Resorts &amp; Real Estate | Kosick Communications",
-              "description": "See how social media for golf courses, resorts, and real estate fills tee times and sells listings. Learn more.",
+              "description": "See how social media for golf courses, resorts and real estate fills tee times and sells listings. Learn more.",
               "datePublished": "2026-02-25T19:00:21-08:00",
               "dateModified": "2026-07-06T17:52:37-07:00",
               "keywords": "ocial media for golf courses",
@@ -1673,35 +1673,35 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2026/02/social-media-content-creation.jpg"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-social-media-marketing/#author",
+                "@id": "https://www.kosick.com/social-media-golf-resorts-real-estate/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "Social Media For Golf Courses, Resorts &amp; Real Estate | Kosick Communications",
-              "@id": "https://www.kosick.com/blog-social-media-marketing/#schema-23853",
+              "@id": "https://www.kosick.com/social-media-golf-resorts-real-estate/#schema-23853",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-social-media-marketing/#webpage"
+                "@id": "https://www.kosick.com/social-media-golf-resorts-real-estate/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-social-media-marketing/#webpage"
+                "@id": "https://www.kosick.com/social-media-golf-resorts-real-estate/#webpage"
               }
             }
           ]
         }
       ]
     },
-    "/blog-tiktok-instagram-facebook-ad-safe-zones/": {
+    "/ad-safe-zones-tiktok-instagram-facebook/": {
       "title": "TikTok, Instagram & Facebook Ad Safe Zones",
-      "description": "A help guide to TikTok, Instagram, and Facebook ad safe zones for Reels and Stories, built for social media success in Vancouver...",
-      "canonical": "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/",
+      "description": "A help guide to TikTok, Instagram and Facebook ad safe zones for Reels and Stories, built for social media success in Vancouver...",
+      "canonical": "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/",
       "index": true,
       "follow": true,
       "ogTitle": "TikTok, Instagram & Facebook Ad Safe Zones",
-      "ogDescription": "A help guide to TikTok, Instagram, and Facebook ad safe zones for Reels and Stories, built for social media success in Vancouver...",
+      "ogDescription": "A help guide to TikTok, Instagram and Facebook ad safe zones for Reels and Stories, built for social media success in Vancouver...",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/12/advertising-ad-sizes.jpg",
       "jsonLd": [
         {
@@ -1778,8 +1778,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/#webpage",
-              "url": "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/",
+              "@id": "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/#webpage",
+              "url": "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/",
               "name": "TikTok, Instagram &amp; Facebook Ad Safe Zones",
               "datePublished": "2025-12-03T15:19:22-08:00",
               "dateModified": "2026-07-06T18:12:17-07:00",
@@ -1793,7 +1793,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/#author",
+              "@id": "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -1808,7 +1808,7 @@
             },
             {
               "headline": "TikTok, Instagram &amp; Facebook Ad Safe Zones",
-              "description": "A help guide to TikTok, Instagram, and Facebook ad safe zones for Reels and Stories, built for social media success in Vancouver...",
+              "description": "A help guide to TikTok, Instagram and Facebook ad safe zones for Reels and Stories, built for social media success in Vancouver...",
               "datePublished": "2025-12-03T15:19:22-08:00",
               "dateModified": "2026-07-06T18:12:17-07:00",
               "keywords": "ad",
@@ -1816,21 +1816,21 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2025/12/advertising-ad-sizes.jpg"
               },
               "author": {
-                "@id": "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/#author",
+                "@id": "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "TikTok, Instagram &amp; Facebook Ad Safe Zones",
-              "@id": "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/#schema-22426",
+              "@id": "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/#schema-22426",
               "isPartOf": {
-                "@id": "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/#webpage"
+                "@id": "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/blog-tiktok-instagram-facebook-ad-safe-zones/#webpage"
+                "@id": "https://www.kosick.com/ad-safe-zones-tiktok-instagram-facebook/#webpage"
               }
             }
           ]
@@ -1981,12 +1981,12 @@
       ]
     },
     "/contact/": {
-      "title": "Contact Us - Kosick Communications",
+      "title": "Contact Us | Kosick Communications",
       "description": "A full service retail, Branding, digital agency focused on measurable results. Proudly servicing clients in Canada, USA & Mexico. Contact Us",
       "canonical": "https://www.kosick.com/contact/",
       "index": true,
       "follow": true,
-      "ogTitle": "Contact Us - Kosick Communications",
+      "ogTitle": "Contact Us | Kosick Communications",
       "ogDescription": "A full service retail, Branding, digital agency focused on measurable results. Proudly servicing clients in Canada, USA & Mexico. Contact Us",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/global.png",
       "jsonLd": [
@@ -2082,12 +2082,12 @@
     },
     "/corporate-events/": {
       "title": "Corporate Events & Group Travel | Kosick Communications",
-      "description": "Kosick plans corporate events, conferences, and group incentive travel to destinations worldwide for companies across Canada. Let's plan your next event.",
+      "description": "Kosick plans corporate events, conferences and group incentive travel to destinations worldwide for companies across Canada. Let's plan your next event.",
       "canonical": "https://www.kosick.com/corporate-events/",
       "index": true,
       "follow": true,
       "ogTitle": "Corporate Events & Group Travel | Kosick Communications",
-      "ogDescription": "Kosick plans corporate events, conferences, and group incentive travel to destinations worldwide for companies across Canada. Let's plan your next event.",
+      "ogDescription": "Kosick plans corporate events, conferences and group incentive travel to destinations worldwide for companies across Canada. Let's plan your next event.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/08/corporate-travel-incentive-programs-1.png",
       "jsonLd": [
         {
@@ -2193,7 +2193,7 @@
             },
             {
               "headline": "Corporate Events &amp; Group Travel | Kosick Communications",
-              "description": "Kosick plans corporate events, conferences, and group incentive travel to destinations worldwide for companies across Canada. Let&#039;s plan your next event.",
+              "description": "Kosick plans corporate events, conferences and group incentive travel to destinations worldwide for companies across Canada. Let&#039;s plan your next event.",
               "datePublished": "2024-10-04T08:37:10-07:00",
               "dateModified": "2026-07-04T21:23:42-07:00",
               "keywords": "Corporate Events",
@@ -2222,7 +2222,7 @@
               "@type": "VideoObject",
               "embedUrl": "https://player.vimeo.com/video/1053936580?dnt=1&amp;app_id=122963",
               "name": "Comfortmaker Conference '25",
-              "description": "Kosick plans corporate events, conferences, and group incentive travel to destinations worldwide for companies across Canada. Let&#039;s plan your next event.",
+              "description": "Kosick plans corporate events, conferences and group incentive travel to destinations worldwide for companies across Canada. Let&#039;s plan your next event.",
               "uploadDate": "2025-02-05 17:35:29",
               "duration": "PT133S",
               "thumbnailUrl": "https://www.kosick.com/wp-content/uploads/2023/06/KC-Mov-Thumb-1600.jpg",
@@ -2240,7 +2240,7 @@
             {
               "@type": "VideoObject",
               "name": "Nuevo Vallarta Conference '26",
-              "description": "Kosick plans corporate events, conferences, and group incentive travel to destinations worldwide for companies across Canada. Let&#039;s plan your next event.",
+              "description": "Kosick plans corporate events, conferences and group incentive travel to destinations worldwide for companies across Canada. Let&#039;s plan your next event.",
               "uploadDate": "2026-05-07 19:26:01",
               "embedUrl": "https://player.vimeo.com/video/1190301042?dnt=1&amp;app_id=122963",
               "duration": "PT90S",
@@ -2489,12 +2489,12 @@
     },
     "/golf-marketing-digital-marketing-vancouver/": {
       "title": "Golf Membership Marketing For Private Clubs | Kosick Communications",
-      "description": "Golf membership marketing for 2026: how digital, social, AI, and modern websites help private clubs grow membership and revenue.",
+      "description": "Golf membership marketing for 2026: how digital, social, AI and modern websites help private clubs grow membership and revenue.",
       "canonical": "https://www.kosick.com/golf-marketing-digital-marketing-vancouver/",
       "index": true,
       "follow": true,
       "ogTitle": "Golf Membership Marketing For Private Clubs | Kosick Communications",
-      "ogDescription": "Golf membership marketing for 2026: how digital, social, AI, and modern websites help private clubs grow membership and revenue.",
+      "ogDescription": "Golf membership marketing for 2026: how digital, social, AI and modern websites help private clubs grow membership and revenue.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/02/arizona-golf-course-marketing.jpg",
       "jsonLd": [
         {
@@ -2601,7 +2601,7 @@
             },
             {
               "headline": "Golf Membership Marketing For Private Clubs | Kosick Communications",
-              "description": "Golf membership marketing for 2026: how digital, social, AI, and modern websites help private clubs grow membership and revenue.",
+              "description": "Golf membership marketing for 2026: how digital, social, AI and modern websites help private clubs grow membership and revenue.",
               "datePublished": "2026-02-18T20:54:26-08:00",
               "dateModified": "2026-07-06T17:31:38-07:00",
               "keywords": "membership",
@@ -2775,12 +2775,12 @@
     },
     "/how-to-buy-tv-advertising-in-canada/": {
       "title": "How To Buy TV Advertising In Canada | Kosick Communications",
-      "description": "Learn how to buy TV advertising in Canada, including CTV, Sportsnet, and TSN, and how to pair television with digital and streaming media. Read more.",
+      "description": "Learn how to buy TV advertising in Canada, including CTV, Sportsnet and TSN, and how to pair television with digital and streaming media. Read more.",
       "canonical": "https://www.kosick.com/how-to-buy-tv-advertising-in-canada/",
       "index": true,
       "follow": true,
       "ogTitle": "How To Buy TV Advertising In Canada | Kosick Communications",
-      "ogDescription": "Learn how to buy TV advertising in Canada, including CTV, Sportsnet, and TSN, and how to pair television with digital and streaming media. Read more.",
+      "ogDescription": "Learn how to buy TV advertising in Canada, including CTV, Sportsnet and TSN, and how to pair television with digital and streaming media. Read more.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/12/television-advertising-media-buying.jpg",
       "jsonLd": [
         {
@@ -2887,7 +2887,7 @@
             },
             {
               "headline": "How To Buy TV Advertising In Canada | Kosick Communications",
-              "description": "Learn how to buy TV advertising in Canada, including CTV, Sportsnet, and TSN, and how to pair television with digital and streaming media. Read more.",
+              "description": "Learn how to buy TV advertising in Canada, including CTV, Sportsnet and TSN, and how to pair television with digital and streaming media. Read more.",
               "datePublished": "2025-12-15T11:24:42-08:00",
               "dateModified": "2026-06-30T08:35:40-07:00",
               "keywords": "TV Advertising",
@@ -2995,7 +2995,7 @@
               "url": "https://www.kosick.com/wp-content/uploads/2023/06/vancouver-agency.jpg",
               "width": "1920",
               "height": "1163",
-              "caption": "Vancouver marketing specialists providing customized strategies to boost brand visibility, drive engagement, and increase business growth.",
+              "caption": "Vancouver marketing specialists providing customized strategies to boost brand visibility, drive engagement and increase business growth.",
               "inLanguage": "en-US"
             },
             {
@@ -3204,12 +3204,12 @@
     },
     "/hvac-digital-marketing/": {
       "title": "HVAC Digital Marketing For Home Services | Kosick Communications",
-      "description": "Learn how HVAC digital marketing drives steady leads in 2026 using Google Ads, Meta, connected TV, content, and proven lead funnels. Read the guide.",
+      "description": "Learn how HVAC digital marketing drives steady leads in 2026 using Google Ads, Meta, connected TV, content and proven lead funnels. Read the guide.",
       "canonical": "https://www.kosick.com/hvac-digital-marketing/",
       "index": true,
       "follow": true,
       "ogTitle": "HVAC Digital Marketing For Home Services | Kosick Communications",
-      "ogDescription": "Learn how HVAC digital marketing drives steady leads in 2026 using Google Ads, Meta, connected TV, content, and proven lead funnels. Read the guide.",
+      "ogDescription": "Learn how HVAC digital marketing drives steady leads in 2026 using Google Ads, Meta, connected TV, content and proven lead funnels. Read the guide.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/02/hvac-digital-marketing.webp",
       "jsonLd": [
         {
@@ -3316,7 +3316,7 @@
             },
             {
               "headline": "HVAC Digital Marketing For Home Services | Kosick Communications",
-              "description": "Learn how HVAC digital marketing drives steady leads in 2026 using Google Ads, Meta, connected TV, content, and proven lead funnels. Read the guide.",
+              "description": "Learn how HVAC digital marketing drives steady leads in 2026 using Google Ads, Meta, connected TV, content and proven lead funnels. Read the guide.",
               "datePublished": "2026-02-05T22:23:04-08:00",
               "dateModified": "2026-07-04T18:27:04-07:00",
               "keywords": "HVAC Digital Marketing",
@@ -3508,14 +3508,14 @@
         }
       ]
     },
-    "/hvac-marketing-strategies-guide/": {
+    "/hvac-dealer-marketing/": {
       "title": "HVAC Dealer Marketing: Lead Gen For Dealers & Manufacturers",
-      "description": "HVAC dealer marketing to drive cost-efficient lead generation for dealers, manufacturers, and distributors, backed by 20+ years of homeowner data.",
-      "canonical": "https://www.kosick.com/hvac-marketing-strategies-guide/",
+      "description": "HVAC dealer marketing to drive cost-efficient lead generation for dealers, manufacturers and distributors, backed by 20+ years of homeowner data.",
+      "canonical": "https://www.kosick.com/hvac-dealer-marketing/",
       "index": true,
       "follow": true,
       "ogTitle": "HVAC Dealer Marketing: Lead Gen For Dealers & Manufacturers",
-      "ogDescription": "HVAC dealer marketing to drive cost-efficient lead generation for dealers, manufacturers, and distributors, backed by 20+ years of homeowner data.",
+      "ogDescription": "HVAC dealer marketing to drive cost-efficient lead generation for dealers, manufacturers and distributors, backed by 20+ years of homeowner data.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/03/hvac-marketing.jpg",
       "jsonLd": [
         {
@@ -3592,8 +3592,8 @@
             },
             {
               "@type": "WebPage",
-              "@id": "https://www.kosick.com/hvac-marketing-strategies-guide/#webpage",
-              "url": "https://www.kosick.com/hvac-marketing-strategies-guide/",
+              "@id": "https://www.kosick.com/hvac-dealer-marketing/#webpage",
+              "url": "https://www.kosick.com/hvac-dealer-marketing/",
               "name": "HVAC Dealer Marketing: Lead Gen For Dealers &amp; Manufacturers",
               "datePublished": "2026-03-06T22:21:50-08:00",
               "dateModified": "2026-07-08T23:37:23-07:00",
@@ -3607,7 +3607,7 @@
             },
             {
               "@type": "Person",
-              "@id": "https://www.kosick.com/hvac-marketing-strategies-guide/#author",
+              "@id": "https://www.kosick.com/hvac-dealer-marketing/#author",
               "name": "Kosick Communications",
               "image": {
                 "@type": "ImageObject",
@@ -3622,7 +3622,7 @@
             },
             {
               "headline": "HVAC Dealer Marketing: Lead Gen For Dealers &amp; Manufacturers",
-              "description": "HVAC dealer marketing to drive cost-efficient lead generation for dealers, manufacturers, and distributors, backed by 20+ years of homeowner data.",
+              "description": "HVAC dealer marketing to drive cost-efficient lead generation for dealers, manufacturers and distributors, backed by 20+ years of homeowner data.",
               "datePublished": "2026-03-06T22:21:50-08:00",
               "dateModified": "2026-07-08T23:37:23-07:00",
               "keywords": "dealer marketing",
@@ -3630,21 +3630,21 @@
                 "@id": "https://www.kosick.com/wp-content/uploads/2026/03/hvac-marketing.jpg"
               },
               "author": {
-                "@id": "https://www.kosick.com/hvac-marketing-strategies-guide/#author",
+                "@id": "https://www.kosick.com/hvac-dealer-marketing/#author",
                 "name": "Kosick Communications"
               },
               "@type": "BlogPosting",
               "name": "HVAC Dealer Marketing: Lead Gen For Dealers &amp; Manufacturers",
-              "@id": "https://www.kosick.com/hvac-marketing-strategies-guide/#schema-24638",
+              "@id": "https://www.kosick.com/hvac-dealer-marketing/#schema-24638",
               "isPartOf": {
-                "@id": "https://www.kosick.com/hvac-marketing-strategies-guide/#webpage"
+                "@id": "https://www.kosick.com/hvac-dealer-marketing/#webpage"
               },
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
               "inLanguage": "en-US",
               "mainEntityOfPage": {
-                "@id": "https://www.kosick.com/hvac-marketing-strategies-guide/#webpage"
+                "@id": "https://www.kosick.com/hvac-dealer-marketing/#webpage"
               }
             }
           ]
@@ -3939,12 +3939,12 @@
     },
     "/is-television-advertising-worth-it/": {
       "title": "Is Television Advertising Still Worth It In 2026?",
-      "description": "Television advertising is one of the most efficient ways to build a brand. See how broadcast and streaming TV work, what they cost, and how to buy right.",
+      "description": "Television advertising is one of the most efficient ways to build a brand. See how broadcast and streaming TV work, what they cost and how to buy right.",
       "canonical": "https://www.kosick.com/is-television-advertising-worth-it/",
       "index": true,
       "follow": true,
       "ogTitle": "Is Television Advertising Still Worth It In 2026?",
-      "ogDescription": "Television advertising is one of the most efficient ways to build a brand. See how broadcast and streaming TV work, what they cost, and how to buy right.",
+      "ogDescription": "Television advertising is one of the most efficient ways to build a brand. See how broadcast and streaming TV work, what they cost and how to buy right.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/09/Television-Advertising.jpg",
       "jsonLd": [
         {
@@ -4051,7 +4051,7 @@
             },
             {
               "headline": "Is Television Advertising Still Worth It In 2026?",
-              "description": "Television advertising is one of the most efficient ways to build a brand. See how broadcast and streaming TV work, what they cost, and how to buy right.",
+              "description": "Television advertising is one of the most efficient ways to build a brand. See how broadcast and streaming TV work, what they cost and how to buy right.",
               "datePublished": "2026-09-02T20:37:04-07:00",
               "dateModified": "2026-09-02T20:37:54-07:00",
               "keywords": "television advertising",
@@ -4081,13 +4081,13 @@
       ]
     },
     "/marketing-programs/": {
-      "title": "Knowledgeable Marketing Programs - Kosick Communications",
-      "description": "Drive sales with Kosick's national media programs: Google Ads, billboards, transit shelters, television, and digital pre-roll campaigns at preferred rates.",
+      "title": "Marketing Programs | Kosick Communications",
+      "description": "Drive sales with Kosick's national media programs: Google Ads, billboards, transit shelters, television and digital pre-roll campaigns at preferred rates.",
       "canonical": "https://www.kosick.com/marketing-programs/",
       "index": true,
       "follow": true,
-      "ogTitle": "Knowledgeable Marketing Programs - Kosick Communications",
-      "ogDescription": "Drive sales with Kosick's national media programs: Google Ads, billboards, transit shelters, television, and digital pre-roll campaigns at preferred rates.",
+      "ogTitle": "Marketing Programs | Kosick Communications",
+      "ogDescription": "Drive sales with Kosick's national media programs: Google Ads, billboards, transit shelters, television and digital pre-roll campaigns at preferred rates.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/digital.jpg",
       "jsonLd": [
         {
@@ -4204,7 +4204,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Drive sales with Kosick&#039;s national media programs: Google Ads, billboards, transit shelters, television, and digital pre-roll campaigns at preferred rates.",
+              "description": "Drive sales with Kosick&#039;s national media programs: Google Ads, billboards, transit shelters, television and digital pre-roll campaigns at preferred rates.",
               "name": "Knowledgeable Marketing Programs - Kosick Communications",
               "@id": "https://www.kosick.com/marketing-programs/#richSnippet",
               "isPartOf": {
@@ -4223,12 +4223,12 @@
       ]
     },
     "/marketing-results/": {
-      "title": "Powerful Proven Marketing Results - Kosick Communications",
+      "title": "Marketing Results | Kosick Communications",
       "description": "Our innovative Marketing Results have grown businesses into multinational brands established household names in competitive industries",
       "canonical": "https://www.kosick.com/marketing-results/",
       "index": true,
       "follow": true,
-      "ogTitle": "Powerful Proven Marketing Results - Kosick Communications",
+      "ogTitle": "Marketing Results | Kosick Communications",
       "ogDescription": "Our innovative Marketing Results have grown businesses into multinational brands established household names in competitive industries",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2017/07/Lions-Gate-Bridge-and-Downtown-Vancouver-at-sunrise-521834953_5000x3336-e1505405897284-750x452.jpeg",
       "jsonLd": [
@@ -4301,7 +4301,7 @@
               "url": "https://www.kosick.com/wp-content/uploads/2017/07/Lions-Gate-Bridge-and-Downtown-Vancouver-at-sunrise-521834953_5000x3336-e1505405897284.jpeg",
               "width": "5000",
               "height": "3012",
-              "caption": "Strategic marketing and media solutions in Vancouver—digital, TV, and outdoor advertising specialists.",
+              "caption": "Strategic marketing and media solutions in Vancouver: digital, TV and outdoor advertising specialists.",
               "inLanguage": "en-US"
             },
             {
@@ -4367,12 +4367,12 @@
     },
     "/media-buyer-canada-us/": {
       "title": "Media Buyer In Canada & The US | Kosick Communications",
-      "description": "Need a media buyer across TV, CTV, streaming, radio, Spotify, and outdoor? Kosick builds strategic media mixes in Canada and the US. Learn more today.",
+      "description": "Need a media buyer across TV, CTV, streaming, radio, Spotify and outdoor? Kosick builds strategic media mixes in Canada and the US. Learn more today.",
       "canonical": "https://www.kosick.com/media-buyer-canada-us/",
       "index": true,
       "follow": true,
       "ogTitle": "Media Buyer In Canada & The US | Kosick Communications",
-      "ogDescription": "Need a media buyer across TV, CTV, streaming, radio, Spotify, and outdoor? Kosick builds strategic media mixes in Canada and the US. Learn more today.",
+      "ogDescription": "Need a media buyer across TV, CTV, streaming, radio, Spotify and outdoor? Kosick builds strategic media mixes in Canada and the US. Learn more today.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/01/media-buying.jpg",
       "jsonLd": [
         {
@@ -4479,7 +4479,7 @@
             },
             {
               "headline": "Media Buyer In Canada &amp; The US | Kosick Communications",
-              "description": "Need a media buyer across TV, CTV, streaming, radio, Spotify, and outdoor? Kosick builds strategic media mixes in Canada and the US. Learn more today.",
+              "description": "Need a media buyer across TV, CTV, streaming, radio, Spotify and outdoor? Kosick builds strategic media mixes in Canada and the US. Learn more today.",
               "datePublished": "2026-01-27T12:48:48-08:00",
               "dateModified": "2026-07-14T22:07:05-07:00",
               "keywords": "Media Buyer",
@@ -4510,12 +4510,12 @@
     },
     "/media-buying-process/": {
       "title": "The Media Buying Process: A Step-by-Step Guide | Kosick Communications",
-      "description": "The media buying process, explained step by step: strategy, research, negotiation, buying, trafficking, and optimization. A practical guide from a 40-year Canadian agency.",
+      "description": "The media buying process, explained step by step: strategy, research, negotiation, buying, trafficking and optimization. A practical guide from a 40-year Canadian agency.",
       "canonical": "https://www.kosick.com/media-buying-process/",
       "index": true,
       "follow": true,
       "ogTitle": "The Media Buying Process: A Step-by-Step Guide | Kosick Communications",
-      "ogDescription": "The media buying process, explained step by step: strategy, research, negotiation, buying, trafficking, and optimization. A practical guide from a 40-year Canadian agency.",
+      "ogDescription": "The media buying process, explained step by step: strategy, research, negotiation, buying, trafficking and optimization. A practical guide from a 40-year Canadian agency.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/07/Media-Buying.jpg",
       "jsonLd": [
         {
@@ -4622,7 +4622,7 @@
             },
             {
               "headline": "The Media Buying Process: A Step-by-Step Guide | Kosick Communications",
-              "description": "The media buying process, explained step by step: strategy, research, negotiation, buying, trafficking, and optimization. A practical guide from a 40-year Canadian agency.",
+              "description": "The media buying process, explained step by step: strategy, research, negotiation, buying, trafficking and optimization. A practical guide from a 40-year Canadian agency.",
               "datePublished": "2026-07-14T21:44:15-07:00",
               "dateModified": "2026-07-14T21:44:34-07:00",
               "keywords": "media buying process",
@@ -4653,12 +4653,12 @@
     },
     "/media-buying-strategies-for-vancouver/": {
       "title": "Top Media Buying Strategies | Kosick Communications",
-      "description": "A Vancouver marketing agency specializing in media buying across CTV, Sportsnet, TSN, Global News, and CBC to maximize reach, trust, and ROI.",
+      "description": "A Vancouver marketing agency specializing in media buying across CTV, Sportsnet, TSN, Global News and CBC to maximize reach, trust and ROI.",
       "canonical": "https://www.kosick.com/media-buying-strategies-for-vancouver/",
       "index": true,
       "follow": true,
       "ogTitle": "Top Media Buying Strategies | Kosick Communications",
-      "ogDescription": "A Vancouver marketing agency specializing in media buying across CTV, Sportsnet, TSN, Global News, and CBC to maximize reach, trust, and ROI.",
+      "ogDescription": "A Vancouver marketing agency specializing in media buying across CTV, Sportsnet, TSN, Global News and CBC to maximize reach, trust and ROI.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/08/media-buying.jpg",
       "jsonLd": [
         {
@@ -4776,7 +4776,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "A Vancouver marketing agency specializing in media buying across CTV, Sportsnet, TSN, Global News, and CBC to maximize reach, trust, and ROI.",
+              "description": "A Vancouver marketing agency specializing in media buying across CTV, Sportsnet, TSN, Global News and CBC to maximize reach, trust and ROI.",
               "name": "Top Media Buying Strategies | Kosick Communications",
               "@id": "https://www.kosick.com/media-buying-strategies-for-vancouver/#richSnippet",
               "isPartOf": {
@@ -4796,12 +4796,12 @@
     },
     "/medical-marketing-vancouver/": {
       "title": "Medical Marketing For Medical Aesthetics And Dental Clinics",
-      "description": "Kosick delivers medical marketing for aesthetics and dental clinics in Vancouver, with premium branding, media buying, and social media...",
+      "description": "Kosick delivers medical marketing for aesthetics and dental clinics in Vancouver, with premium branding, media buying and social media...",
       "canonical": "https://www.kosick.com/medical-marketing-vancouver/",
       "index": true,
       "follow": true,
       "ogTitle": "Medical Marketing For Medical Aesthetics And Dental Clinics",
-      "ogDescription": "Kosick delivers medical marketing for aesthetics and dental clinics in Vancouver, with premium branding, media buying, and social media...",
+      "ogDescription": "Kosick delivers medical marketing for aesthetics and dental clinics in Vancouver, with premium branding, media buying and social media...",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/02/medical-skincare-marketing.jpg",
       "jsonLd": [
         {
@@ -4908,7 +4908,7 @@
             },
             {
               "headline": "Medical Marketing For Medical Aesthetics And Dental Clinics",
-              "description": "Kosick delivers medical marketing for aesthetics and dental clinics in Vancouver, with premium branding, media buying, and social media...",
+              "description": "Kosick delivers medical marketing for aesthetics and dental clinics in Vancouver, with premium branding, media buying and social media...",
               "datePublished": "2026-02-12T19:21:21-08:00",
               "dateModified": "2026-07-04T18:27:02-07:00",
               "keywords": "medical marketing",
@@ -4938,12 +4938,12 @@
       ]
     },
     "/online-payments/": {
-      "title": "Pay Your Invoice Online - Kosick Communications",
+      "title": "Pay Your Invoice Online | Kosick Communications",
       "description": "Streamline your transactions with our secure online payment options. We accept all major forms of Credit Card including Visa & American Express",
       "canonical": "https://www.kosick.com/online-payments/",
       "index": true,
       "follow": true,
-      "ogTitle": "Pay Your Invoice Online - Kosick Communications",
+      "ogTitle": "Pay Your Invoice Online | Kosick Communications",
       "ogDescription": "Streamline your transactions with our secure online payment options. We accept all major forms of Credit Card including Visa & American Express",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
       "jsonLd": [
@@ -5368,12 +5368,12 @@
     },
     "/outdoor-advertising-maximize-local-impact/": {
       "title": "Outdoor Advertising To Maximize Local Impact | Kosick Communications",
-      "description": "Explore Vancouver outdoor advertising options, from billboards and transit ads to bus benches, to boost visibility, web traffic, and local awareness.",
+      "description": "Explore Vancouver outdoor advertising options, from billboards and transit ads to bus benches, to boost visibility, web traffic and local awareness.",
       "canonical": "https://www.kosick.com/outdoor-advertising-maximize-local-impact/",
       "index": true,
       "follow": true,
       "ogTitle": "Outdoor Advertising To Maximize Local Impact | Kosick Communications",
-      "ogDescription": "Explore Vancouver outdoor advertising options, from billboards and transit ads to bus benches, to boost visibility, web traffic, and local awareness.",
+      "ogDescription": "Explore Vancouver outdoor advertising options, from billboards and transit ads to bus benches, to boost visibility, web traffic and local awareness.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2024/03/billboard-advertising.webp",
       "jsonLd": [
         {
@@ -5445,7 +5445,7 @@
               "url": "https://www.kosick.com/wp-content/uploads/2024/03/billboard-advertising.webp",
               "width": "1920",
               "height": "1080",
-              "caption": "Outdoor advertising and billboards in Vancouver offering high-traffic exposure through digital screens, transit ads, and large-format displays citywide.",
+              "caption": "Outdoor advertising and billboards in Vancouver offering high-traffic exposure through digital screens, transit ads and large-format displays citywide.",
               "inLanguage": "en-US"
             },
             {
@@ -5491,7 +5491,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Explore Vancouver outdoor advertising options, from billboards and transit ads to bus benches, to boost visibility, web traffic, and local awareness.",
+              "description": "Explore Vancouver outdoor advertising options, from billboards and transit ads to bus benches, to boost visibility, web traffic and local awareness.",
               "name": "Outdoor Advertising To Maximize Local Impact | Kosick Communications",
               "@id": "https://www.kosick.com/outdoor-advertising-maximize-local-impact/#richSnippet",
               "isPartOf": {
@@ -5511,12 +5511,12 @@
     },
     "/outdoor-advertising-vancouver/": {
       "title": "Outdoor Advertising In Vancouver | Billboards",
-      "description": "Outdoor advertising that works. See how billboards and transit ads build awareness, lift website traffic, and drive more leads in Vancouver. Read more.",
+      "description": "Outdoor advertising that works. See how billboards and transit ads build awareness, lift website traffic and drive more leads in Vancouver. Read more.",
       "canonical": "https://www.kosick.com/outdoor-advertising-vancouver/",
       "index": true,
       "follow": true,
       "ogTitle": "Outdoor Advertising In Vancouver | Billboards",
-      "ogDescription": "Outdoor advertising that works. See how billboards and transit ads build awareness, lift website traffic, and drive more leads in Vancouver. Read more.",
+      "ogDescription": "Outdoor advertising that works. See how billboards and transit ads build awareness, lift website traffic and drive more leads in Vancouver. Read more.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/01/outdoor-billboard-advertising.jpg",
       "jsonLd": [
         {
@@ -5623,7 +5623,7 @@
             },
             {
               "headline": "Outdoor Advertising In Vancouver | Billboards",
-              "description": "Outdoor advertising that works. See how billboards and transit ads build awareness, lift website traffic, and drive more leads in Vancouver. Read more.",
+              "description": "Outdoor advertising that works. See how billboards and transit ads build awareness, lift website traffic and drive more leads in Vancouver. Read more.",
               "datePublished": "2026-01-26T10:55:30-08:00",
               "dateModified": "2026-07-04T18:27:13-07:00",
               "keywords": "outdoor advertising",
@@ -5654,12 +5654,12 @@
     },
     "/services/": {
       "title": "Marketing Services & Strategy | Kosick Communications",
-      "description": "Full-service marketing: media buying, digital, SEO, branding, web, and creative built to connect brands with customers. Connect with our team...",
+      "description": "Full-service marketing: media buying, digital, SEO, branding, web and creative built to connect brands with customers. Connect with our team...",
       "canonical": "https://www.kosick.com/services/",
       "index": true,
       "follow": true,
       "ogTitle": "Marketing Services & Strategy | Kosick Communications",
-      "ogDescription": "Full-service marketing: media buying, digital, SEO, branding, web, and creative built to connect brands with customers. Connect with our team...",
+      "ogDescription": "Full-service marketing: media buying, digital, SEO, branding, web and creative built to connect brands with customers. Connect with our team...",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/ppc-ads.jpg",
       "jsonLd": [
         {
@@ -5776,7 +5776,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Full-service marketing: media buying, digital, SEO, branding, web, and creative built to connect brands with customers. Connect with our team...",
+              "description": "Full-service marketing: media buying, digital, SEO, branding, web and creative built to connect brands with customers. Connect with our team...",
               "name": "Marketing Services &amp; Strategy | Kosick Communications",
               "@id": "https://www.kosick.com/services/#richSnippet",
               "isPartOf": {
@@ -5958,12 +5958,12 @@
       ]
     },
     "/services/corporate-branding/": {
-      "title": "Powerful Corporate Branding - Kosick Communications",
+      "title": "Corporate Branding | Kosick Communications",
       "description": "We specialize in producing bespoke Powerful Corporate Branding creative and growth strategies built for conversion and brand growth.",
       "canonical": "https://www.kosick.com/services/corporate-branding/",
       "index": true,
       "follow": true,
-      "ogTitle": "Powerful Corporate Branding - Kosick Communications",
+      "ogTitle": "Corporate Branding | Kosick Communications",
       "ogDescription": "We specialize in producing bespoke Powerful Corporate Branding creative and growth strategies built for conversion and brand growth.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/08/home-services-lead-generation-1-750x750.webp",
       "jsonLd": [
@@ -6127,7 +6127,7 @@
               "name": "Can we modernize our corporate branding without rebranding? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes! Our team updates and revitalizes brands to keep your branding relevant, appealing, and aligned with current market trends and customer preferences. Through discovery, we will refresh various elements of the brand, such as its visual identity, messaging, and positioning, while maintaining its core essence and values.</p>"
+                "text": "<p>Yes! Our team updates and revitalizes brands to keep your branding relevant, appealing and aligned with current market trends and customer preferences. Through discovery, we will refresh various elements of the brand, such as its visual identity, messaging and positioning, while maintaining its core essence and values.</p>"
               }
             },
             {
@@ -6151,7 +6151,7 @@
               "name": "What’s the difference between a logo and a brand?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>A logo is one visual element. A brand is the full impression you create, your visuals, messaging, tone, customer experience, and consistency across social, web, and advertising. Strong branding helps people recognize you quickly and trust you faster.</p>"
+                "text": "<p>A logo is one visual element. A brand is the full impression you create, your visuals, messaging, tone, customer experience and consistency across social, web and advertising. Strong branding helps people recognize you quickly and trust you faster.</p>"
               }
             },
             {
@@ -6159,7 +6159,7 @@
               "name": "How do you figure out our brand positioning and what makes us different?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We start with a short discovery process: what you sell, who you serve, what you’re best at, what competitors are doing, and what buyers actually care about. From there, we craft a clear positioning angle and messaging pillars you can use across social, web, and ads.</p>"
+                "text": "<p>We start with a short discovery process: what you sell, who you serve, what you’re best at, what competitors are doing and what buyers actually care about. From there, we craft a clear positioning angle and messaging pillars you can use across social, web and ads.</p>"
               }
             }
           ]
@@ -6167,13 +6167,13 @@
       ]
     },
     "/services/creative/": {
-      "title": "Corporate Creative & Production - Kosick Communications",
-      "description": "We specialize in Corporate Creative & Production, Corporate Cinematography, Video Production, Audio Production and Photography...",
+      "title": "Creative & Production | Kosick Communications",
+      "description": "Video, motion graphics, graphic design and audio from Kosick’s in-house creative team, built to reinforce your brand and move people to act.",
       "canonical": "https://www.kosick.com/services/creative/",
       "index": true,
       "follow": false,
-      "ogTitle": "Corporate Creative & Production - Kosick Communications",
-      "ogDescription": "We specialize in Corporate Creative & Production, Corporate Cinematography, Video Production, Audio Production and Photography...",
+      "ogTitle": "Creative & Production | Kosick Communications",
+      "ogDescription": "Video, motion graphics, graphic design and audio from Kosick’s in-house creative team, built to reinforce your brand and move people to act.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/arcteryx-billboard-advertising.jpg",
       "jsonLd": [
         {
@@ -6476,7 +6476,7 @@
               "name": "What types of video production do you offer?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We offer full-service video production including corporate videos, commercials, brand documentaries, product videos, testimonial films, and social media content. Our team handles everything from pre-production planning through cinematography to post-production editing and delivery.</p>"
+                "text": "<p>We offer full-service video production including corporate videos, commercials, brand documentaries, product videos, testimonial films and social media content. Our team handles everything from pre-production planning through cinematography to post-production editing and delivery.</p>"
               }
             },
             {
@@ -6484,7 +6484,7 @@
               "name": "Can you create 3D renderings and animations? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes, our team specializes in photorealistic 3D renderings, architectural visualizations, product renderings, and motion graphics. We use industry-leading software to create stunning visuals that bring concepts to life before they're built.</p>"
+                "text": "<p>Yes, our team specializes in photorealistic 3D renderings, architectural visualizations, product renderings and motion graphics. We use industry-leading software to create stunning visuals that bring concepts to life before they're built.</p>"
               }
             },
             {
@@ -6500,7 +6500,7 @@
               "name": "Do you develop social media content? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes. We develop social media content, including monthly content calendars, post and story graphics, short form video and Reels, captions, and community focused content designed to drive engagement, build a loyal following, and support your broader marketing goals.</p>"
+                "text": "<p>Yes. We develop social media content, including monthly content calendars, post and story graphics, short form video and Reels, captions and community focused content designed to drive engagement, build a loyal following and support your broader marketing goals.</p>"
               }
             },
             {
@@ -6508,7 +6508,7 @@
               "name": "What industries do you serve? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We serve clients across real estate, HVAC, hospitality, technology, healthcare, finance, retail, and more. Our versatile team adapts creative approaches to match each industry's unique requirements and audience expectations.</p>"
+                "text": "<p>We serve clients across real estate, HVAC, hospitality, technology, healthcare, finance, retail and more. Our versatile team adapts creative approaches to match each industry's unique requirements and audience expectations.</p>"
               }
             }
           ]
@@ -6658,13 +6658,13 @@
       ]
     },
     "/services/digital-connected-tv/": {
-      "title": "Powerful Connected TV Advertising & Streaming - Kosick",
-      "description": "Digital Video Advertising (Connected TV) & Streaming Elevate your brand with targeted reach, dynamic content, and measurable results. .604.925.5800",
+      "title": "Connected TV Advertising | Kosick Communications",
+      "description": "Digital Video Advertising (Connected TV) & Streaming Elevate your brand with targeted reach, dynamic content and measurable results. .604.925.5800",
       "canonical": "https://www.kosick.com/services/digital-connected-tv/",
       "index": true,
       "follow": true,
-      "ogTitle": "Powerful Connected TV Advertising & Streaming - Kosick",
-      "ogDescription": "Digital Video Advertising (Connected TV) & Streaming Elevate your brand with targeted reach, dynamic content, and measurable results. .604.925.5800",
+      "ogTitle": "Connected TV Advertising | Kosick Communications",
+      "ogDescription": "Digital Video Advertising (Connected TV) & Streaming Elevate your brand with targeted reach, dynamic content and measurable results. .604.925.5800",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/digital-streaming-advertising-1.jpg",
       "jsonLd": [
         {
@@ -6781,7 +6781,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Digital Video Advertising (Connected TV) &amp; Streaming Elevate your brand with targeted reach, dynamic content, and measurable results. .604.925.5800",
+              "description": "Digital Video Advertising (Connected TV) &amp; Streaming Elevate your brand with targeted reach, dynamic content and measurable results. .604.925.5800",
               "name": "Powerful Connected TV Advertising &amp; Streaming - Kosick",
               "@id": "https://www.kosick.com/services/digital-connected-tv/#richSnippet",
               "isPartOf": {
@@ -6806,7 +6806,7 @@
               "name": "What is Connected TV (CTV) advertising? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Connected TV advertising delivers video ads through internet-connected television devices—Smart TVs, Roku, Apple TV, Amazon Fire Stick, and gaming consoles. Ads appear within streaming content on platforms like Sportsnet+, CTV, Crave, Amazon Prime Video, and more, combining the premium big-screen experience of traditional TV with digital-level targeting and measurement.</p>"
+                "text": "<p>Connected TV advertising delivers video ads through internet-connected television devices: smart TVs, Roku, Apple TV, Amazon Fire Stick and gaming consoles. Ads appear within streaming content on platforms like Sportsnet+, CTV, Crave, Amazon Prime Video and more, combining the premium big-screen experience of traditional TV with digital-level targeting and measurement.</p>"
               }
             },
             {
@@ -6814,7 +6814,7 @@
               "name": "Which streaming platforms can you advertise on? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We place ads across all major Canadian and North American streaming platforms including Sportsnet+, TSN Direct, CTV, Crave, Amazon Prime Video, HGTV, Discovery+, YouTube TV, Hulu, Paramount+, and many more. Our network partnerships give you access to premium inventory across sports, entertainment, news, and lifestyle content.</p>"
+                "text": "<p>We place ads across all major Canadian and North American streaming platforms including Sportsnet+, TSN Direct, CTV, Crave, Amazon Prime Video, HGTV, Discovery+, YouTube TV, Hulu, Paramount+ and many more. Our network partnerships give you access to premium inventory across sports, entertainment, news and lifestyle content.</p>"
               }
             },
             {
@@ -6822,7 +6822,7 @@
               "name": "How is CTV different from traditional TV advertising?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>CTV offers precise audience targeting based on demographics, interests, geography, and behavior—something traditional linear TV can't match. You also get real-time performance data, completion rate tracking, and cross-device attribution. CTV reaches the growing cord-cutter audience that traditional TV misses entirely.</p>"
+                "text": "<p>CTV offers precise audience targeting based on demographics, interests, geography and behaviour, something traditional linear TV can't match. You also get real-time performance data, completion rate tracking and cross-device attribution. CTV reaches the growing cord-cutter audience that traditional TV misses entirely.</p>"
               }
             },
             {
@@ -6838,7 +6838,7 @@
               "name": "How do you measure CTV campaign performance? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We track video completion rates, reach and frequency, brand lift, website visit attribution, and cross-device conversions. Our reporting dashboards provide real-time insights so you can see exactly how your campaigns perform and optimize in-flight to improve ROI.</p>"
+                "text": "<p>We track video completion rates, reach and frequency, brand lift, website visit attribution and cross-device conversions. Our reporting dashboards provide real-time insights so you can see exactly how your campaigns perform and optimize in-flight to improve ROI.</p>"
               }
             },
             {
@@ -6855,12 +6855,12 @@
     },
     "/services/digital-marketing/": {
       "title": "Digital Marketing Vancouver | Kosick Communications",
-      "description": "Digital marketing built around ROI: Google Ads, paid social, pre-roll, and content creation backed by measurable, data-driven results across North America.",
+      "description": "Digital marketing built around ROI: Google Ads, paid social, pre-roll and content creation backed by measurable, data-driven results across North America.",
       "canonical": "https://www.kosick.com/services/digital-marketing/",
       "index": true,
       "follow": true,
       "ogTitle": "Digital Marketing Vancouver | Kosick Communications",
-      "ogDescription": "Digital marketing built around ROI: Google Ads, paid social, pre-roll, and content creation backed by measurable, data-driven results across North America.",
+      "ogDescription": "Digital marketing built around ROI: Google Ads, paid social, pre-roll and content creation backed by measurable, data-driven results across North America.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/social-media-advertising.jpg",
       "jsonLd": [
         {
@@ -6966,7 +6966,7 @@
             },
             {
               "headline": "Digital Marketing Vancouver | Kosick Communications",
-              "description": "Digital marketing built around ROI: Google Ads, paid social, pre-roll, and content creation backed by measurable, data-driven results across North America.",
+              "description": "Digital marketing built around ROI: Google Ads, paid social, pre-roll and content creation backed by measurable, data-driven results across North America.",
               "datePublished": "2021-04-18T11:11:24-07:00",
               "dateModified": "2026-07-22T22:56:40-07:00",
               "keywords": "Digital Marketing",
@@ -7002,7 +7002,7 @@
               "name": "How quickly will I see results from digital marketing?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Early performance data typically comes in within the first 2-4 weeks. However, optimal campaign performance typically develops over 60-90 days as we gather data, optimize targeting, and refine your campaigns to improve ROI.</p>"
+                "text": "<p>Early performance data typically comes in within the first 2-4 weeks. However, optimal campaign performance typically develops over 60-90 days as we gather data, optimize targeting and refine your campaigns to improve ROI.</p>"
               }
             },
             {
@@ -7010,7 +7010,7 @@
               "name": "What is your minimum monthly ad spend requirement? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We do not have a fixed minimum monthly ad spend requirement. For each Digital marketing campaign, we provide a recommended starting budget based on your industry, goals, service area, and the platforms being used, so we can generate meaningful data, optimize efficiently, and measure results clearly.</p>"
+                "text": "<p>We do not have a fixed minimum monthly ad spend requirement. For each Digital marketing campaign, we provide a recommended starting budget based on your industry, goals, service area and the platforms being used, so we can generate meaningful data, optimize efficiently and measure results clearly.</p>"
               }
             },
             {
@@ -7026,7 +7026,7 @@
               "name": "How do you measure and report on campaign performance? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>You’ll receive detailed monthly Digital marketing reports covering key metrics like impressions, clicks, conversions, cost per acquisition, and ROI. We also provide real time dashboard access, clear insights on what is working, and monthly strategy calls to review results and optimize the campaign.</p>"
+                "text": "<p>You’ll receive detailed monthly Digital marketing reports covering key metrics like impressions, clicks, conversions, cost per acquisition and ROI. We also provide real time dashboard access, clear insights on what is working, and monthly strategy calls to review results and optimize the campaign.</p>"
               }
             },
             {
@@ -7034,7 +7034,7 @@
               "name": "What makes Kosick different from other agencies? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>With over 20 years of Digital marketing experience in Vancouver, we combine local market expertise with enterprise level strategy and execution. You get a dedicated account manager who understands your business, communicates clearly, and stays focused on driving measurable growth, not vanity metrics.</p>"
+                "text": "<p>With over 20 years of Digital marketing experience in Vancouver, we combine local market expertise with enterprise level strategy and execution. You get a dedicated account manager who understands your business, communicates clearly and stays focused on driving measurable growth, not vanity metrics.</p>"
               }
             },
             {
@@ -7042,7 +7042,7 @@
               "name": "Can you help with landing pages and ad creative? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Absolutely. Our in house creative team supports your Digital marketing efforts with high converting landing pages, ad copy, display banners, and video content built to match your brand and drive action. Great campaigns require great creative, and we focus on visuals and messaging built to turn clicks into qualified leads.</p>"
+                "text": "<p>Absolutely. Our in house creative team supports your Digital marketing efforts with high converting landing pages, ad copy, display banners and video content built to match your brand and drive action. Great campaigns require great creative, and we focus on visuals and messaging built to turn clicks into qualified leads.</p>"
               }
             }
           ]
@@ -7050,13 +7050,13 @@
       ]
     },
     "/services/email-marketing/": {
-      "title": "Email Marketing - Mailchimp | Kosick Communications",
-      "description": "Email marketing to turn your list into revenue. Kosick builds, sends, and optimizes campaigns for Canadian brands. Book a free strategy call.",
+      "title": "Email Marketing & Mailchimp | Kosick Communications",
+      "description": "Email marketing to turn your list into revenue. Kosick builds, sends and optimizes campaigns for Canadian brands. Book a free strategy call.",
       "canonical": "https://www.kosick.com/services/email-marketing/",
       "index": true,
       "follow": true,
-      "ogTitle": "Email Marketing - Mailchimp | Kosick Communications",
-      "ogDescription": "Email marketing to turn your list into revenue. Kosick builds, sends, and optimizes campaigns for Canadian brands. Book a free strategy call.",
+      "ogTitle": "Email Marketing & Mailchimp | Kosick Communications",
+      "ogDescription": "Email marketing to turn your list into revenue. Kosick builds, sends and optimizes campaigns for Canadian brands. Book a free strategy call.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/07/Garden-Centre-Nursery-Marketing.jpg",
       "jsonLd": [
         {
@@ -7162,7 +7162,7 @@
             },
             {
               "headline": "Email Marketing - Mailchimp | Kosick Communications",
-              "description": "Email marketing to turn your list into revenue. Kosick builds, sends, and optimizes campaigns for Canadian brands. Book a free strategy call.",
+              "description": "Email marketing to turn your list into revenue. Kosick builds, sends and optimizes campaigns for Canadian brands. Book a free strategy call.",
               "datePublished": "2026-07-21T13:33:26-07:00",
               "dateModified": "2026-07-22T22:43:16-07:00",
               "keywords": "Email Marketing",
@@ -7193,12 +7193,12 @@
     },
     "/services/golf-marketing/": {
       "title": "Strategic Golf Marketing | Kosick Communications",
-      "description": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta, and social for clubs across Canada...",
+      "description": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta and social for clubs across Canada...",
       "canonical": "https://www.kosick.com/services/golf-marketing/",
       "index": true,
       "follow": true,
       "ogTitle": "Strategic Golf Marketing | Kosick Communications",
-      "ogDescription": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta, and social for clubs across Canada...",
+      "ogDescription": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta and social for clubs across Canada...",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/golf-course-branding-marketing.jpg",
       "jsonLd": [
         {
@@ -7304,7 +7304,7 @@
             },
             {
               "headline": "Strategic Golf Marketing | Kosick Communications",
-              "description": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta, and social for clubs across Canada...",
+              "description": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta and social for clubs across Canada...",
               "datePublished": "2026-06-07T13:24:09-07:00",
               "dateModified": "2026-07-14T22:17:13-07:00",
               "keywords": "Golf Marketing",
@@ -7332,7 +7332,7 @@
             {
               "@type": "VideoObject",
               "name": "Strategic Golf Marketing | Kosick Communications",
-              "description": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta, and social for clubs across Canada...",
+              "description": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta and social for clubs across Canada...",
               "uploadDate": "2026-06-07T13:24:09-07:00",
               "contentUrl": "//www.kosick.com/wp-content/uploads/2026/06/Golf-Web.mp4",
               "isFamilyFriendly": "True",
@@ -7348,7 +7348,7 @@
             {
               "@type": "VideoObject",
               "name": "Mount Baker Golf Trail",
-              "description": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta, and social for clubs across Canada...",
+              "description": "Golf marketing built to fill tee sheets and grow memberships. 20+ years of course and resort data, Google Ads, Meta and social for clubs across Canada...",
               "uploadDate": "2026-06-03 16:13:43",
               "embedUrl": "https://player.vimeo.com/video/1198192594?dnt=1&amp;app_id=122963",
               "duration": "PT15S",
@@ -7372,15 +7372,15 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Do you work with Public Courses, Private Clubs, or both? ",
+              "name": "Do you work with public courses, private clubs or both? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Both. We tailor our approach based on your business model. Public courses benefit from high-volume tee time marketing and local SEO, while private clubs need refined member acquisition and retention strategies. We also work with golf academies, resorts, and equipment retailers.<br></p>"
+                "text": "<p>Both. We tailor our approach based on your business model. Public courses benefit from high-volume tee time marketing and local SEO, while private clubs need refined member acquisition and retention strategies. We also work with golf academies, resorts and equipment retailers.<br></p>"
               }
             },
             {
               "@type": "Question",
-              "name": "Do you drive Membership Growth?",
+              "name": "Do you drive membership growth?",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "<p>We build multi-channel campaigns targeting high-intent prospects, from digital ads aimed at local golfers and retargeting website visitors, to direct mail and event-based recruitment. We also help optimize your membership offering and onboarding experience to improve conversion and retention.</p>"
@@ -7396,7 +7396,7 @@
             },
             {
               "@type": "Question",
-              "name": "What traditional marketing do you recommend for Golf Courses? ",
+              "name": "What traditional marketing do you recommend for golf courses? ",
               "acceptedAnswer": {
                 "@type": "Answer",
                 "text": "<p>It depends on your market and goals. Radio/Streaming  work well for public courses targeting casual golfers. Outdoor billboards near highways drive awareness for resorts and destination courses. Television and streaming ads are effective for premium clubs and major tournament promotion.</p>"
@@ -7404,10 +7404,10 @@
             },
             {
               "@type": "Question",
-              "name": "Can you build or redesign our Golf Course Website?",
+              "name": "Can you build or redesign our golf course website?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes. We design and develop high-converting Golf Club websites built for lead generation, featuring online booking, service area pages, tournament scoring, and mobile-first responsive design. We also build e-commerce solutions on Shopify for increasing pro-shop retail and gift card sales. </p>"
+                "text": "<p>Yes. We design and develop high-converting Golf Club websites built for lead generation, featuring online booking, service area pages, tournament scoring and mobile-first responsive design. We also build e-commerce solutions on Shopify for increasing pro-shop retail and gift card sales. </p>"
               }
             }
           ]
@@ -7416,12 +7416,12 @@
     },
     "/services/hvac-marketing/": {
       "title": "HVAC Marketing & Lead Generation | Kosick Communications",
-      "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads, and CTV for dealers across North America.",
+      "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads and CTV for dealers across North America.",
       "canonical": "https://www.kosick.com/services/hvac-marketing/",
       "index": true,
       "follow": true,
       "ogTitle": "HVAC Marketing & Lead Generation | Kosick Communications",
-      "ogDescription": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads, and CTV for dealers across North America.",
+      "ogDescription": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads and CTV for dealers across North America.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/hvac-lead-generation-1.jpg",
       "jsonLd": [
         {
@@ -7527,7 +7527,7 @@
             },
             {
               "headline": "HVAC Marketing &amp; Lead Generation | Kosick Communications",
-              "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads, and CTV for dealers across North America.",
+              "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads and CTV for dealers across North America.",
               "datePublished": "2026-03-04T23:26:46-08:00",
               "dateModified": "2026-07-08T16:09:24-07:00",
               "keywords": "HVAC Marketing",
@@ -7555,7 +7555,7 @@
             {
               "@type": "VideoObject",
               "name": "This is Belyea",
-              "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads, and CTV for dealers across North America.",
+              "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads and CTV for dealers across North America.",
               "uploadDate": "2025-02-11 14:57:38",
               "embedUrl": "https://player.vimeo.com/video/1055705517?dnt=1&amp;app_id=122963",
               "duration": "PT171S",
@@ -7574,7 +7574,7 @@
             {
               "@type": "VideoObject",
               "name": "HVAC Marketing &amp; Lead Generation | Kosick Communications",
-              "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads, and CTV for dealers across North America.",
+              "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads and CTV for dealers across North America.",
               "uploadDate": "2026-03-04T23:26:46-08:00",
               "contentUrl": "//www.kosick.com/wp-content/uploads/2026/03/Timeline-1.mp4",
               "isFamilyFriendly": "True",
@@ -7590,7 +7590,7 @@
             {
               "@type": "VideoObject",
               "name": "HVAC Marketing &amp; Lead Generation | Kosick Communications",
-              "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads, and CTV for dealers across North America.",
+              "description": "HVAC marketing built to drive calls and booked jobs. 20+ years of homeowner data, co-op management, SEO, Google Ads and CTV for dealers across North America.",
               "uploadDate": "2026-03-04T23:26:46-08:00",
               "contentUrl": "//www.kosick.com/wp-content/uploads/2026/03/Timeline-2.mp4",
               "isFamilyFriendly": "True",
@@ -7614,7 +7614,7 @@
               "name": "What national brands have you worked with? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Over the past 20+ years, we've partnered with leading national HVAC manufacturers including&nbsp;Trane, RunTru, GE, York, Napoleon, Lennox, Carrier, Bryant, Rheem, Ruud, Goodman, Amana, American Standard, Daikin, Mitsubishi Electric, Fujitsu, LG, Bosch, and Comfortmaker, along with other associated brands. We understand the unique marketing requirements, co-op programs, and brand guidelines of each manufacturer, allowing us to create compliant, high-performing campaigns that make the most of your co-op dollars.</p>"
+                "text": "<p>Over the past 20+ years, we've partnered with leading national HVAC manufacturers including&nbsp;Trane, RunTru, GE, York, Napoleon, Lennox, Carrier, Bryant, Rheem, Ruud, Goodman, Amana, American Standard, Daikin, Mitsubishi Electric, Fujitsu, LG, Bosch and Comfortmaker, along with other associated brands. We understand the unique marketing requirements, co-op programs and brand guidelines of each manufacturer, allowing us to create compliant, high-performing campaigns that make the most of your co-op dollars.</p>"
               }
             },
             {
@@ -7630,7 +7630,7 @@
               "name": "What makes your HVAC marketing different from a general agency? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>With 20+ years dedicated to HVAC marketing, we help dealers build consistent lead generation across&nbsp;all major brands—not just one manufacturer. We understand seasonal demand cycles, emergency service intent, local competition, and homeowner buying behavior at a level general agencies simply can’t match. Backed by&nbsp;20+ years of homeowner and commercial customer data, we build and refine strategies designed to convert searches, calls, and quote requests into real booked work. We also maintain established relationships with&nbsp;utility providers, energy-efficiency programs, and key industry partners, helping dealers navigate rebates, co-op requirements, and compliance so campaigns launch faster and budgets go further.</p>"
+                "text": "<p>With 20+ years dedicated to HVAC marketing, we help dealers build consistent lead generation across&nbsp;all major brands, not just one manufacturer. We understand seasonal demand cycles, emergency service intent, local competition and homeowner buying behaviour at a level general agencies simply can’t match. Backed by&nbsp;20+ years of homeowner and commercial customer data, we build and refine strategies designed to convert searches, calls and quote requests into real booked work. We also maintain established relationships with&nbsp;utility providers, energy-efficiency programs and key industry partners, helping dealers navigate rebates, co-op requirements and compliance so campaigns launch faster and budgets go further.</p>"
               }
             },
             {
@@ -7638,15 +7638,15 @@
               "name": "Do you handle both digital and traditional marketing? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Absolutely. We offer a fully integrated approach, digital advertising (Google Ads, Connected TV, Social Media), SEO, website development, plus traditional channels like Television, Radio, Outdoor Billboards, and Direct Mail. This omni-channel strategy is built for broad reach across the touchpoints where homeowners make HVAC decisions.</p>"
+                "text": "<p>Absolutely. We offer a fully integrated approach, digital advertising (Google Ads, Connected TV, Social Media), SEO, website development, plus traditional channels like Television, Radio, Outdoor Billboards and Direct Mail. This omni-channel strategy is built for broad reach across the touchpoints where homeowners make HVAC decisions.</p>"
               }
             },
             {
               "@type": "Question",
-              "name": "Can you build or redesign our HVAC Website? ",
+              "name": "Can you build or redesign our HVAC website? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes. We design and develop high-converting HVAC websites built for lead generation, featuring online booking, service area pages, financing calculators, and mobile-first responsive design. We also build e-commerce solutions on Shopify for parts and accessories sales.</p>"
+                "text": "<p>Yes. We design and develop high-converting HVAC websites built for lead generation, featuring online booking, service area pages, financing calculators and mobile-first responsive design. We also build e-commerce solutions on Shopify for parts and accessories sales.</p>"
               }
             }
           ]
@@ -7654,13 +7654,13 @@
       ]
     },
     "/services/outdoor-advertising/": {
-      "title": "Billboard & Outdoor Advertising Across Canada",
-      "description": "We plan and buy high-impact billboard, transit, and digital out-of-home campaigns in Vancouver, Calgary, Toronto and across Canada. Get seen where it counts with outdoor advertising...",
+      "title": "Billboard & Outdoor Advertising | Kosick Communications",
+      "description": "Billboard, transit and digital out-of-home campaigns planned and bought in Vancouver, Calgary, Toronto and across Canada, with creative that gets seen.",
       "canonical": "https://www.kosick.com/services/outdoor-advertising/",
       "index": true,
       "follow": true,
-      "ogTitle": "Billboard & Outdoor Advertising Across Canada",
-      "ogDescription": "We plan and buy high-impact billboard, transit, and digital out-of-home campaigns in Vancouver, Calgary, Toronto and across Canada. Get seen where it counts with outdoor advertising...",
+      "ogTitle": "Billboard & Outdoor Advertising | Kosick Communications",
+      "ogDescription": "Billboard, transit and digital out-of-home campaigns planned and bought in Vancouver, Calgary, Toronto and across Canada, with creative that gets seen.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
       "jsonLd": [
         {
@@ -7767,7 +7767,7 @@
             },
             {
               "headline": "Billboard &amp; Outdoor Advertising Across Canada",
-              "description": "We plan and buy high-impact billboard, transit, and digital out-of-home campaigns in Vancouver, Calgary, Toronto and across Canada. Get seen where it counts with outdoor advertising...",
+              "description": "We plan and buy high-impact billboard, transit and digital out-of-home campaigns in Vancouver, Calgary, Toronto and across Canada. Get seen where it counts with outdoor advertising...",
               "datePublished": "2023-07-10T08:16:20-07:00",
               "dateModified": "2026-07-04T21:18:24-07:00",
               "keywords": "outdoor advertising",
@@ -7796,7 +7796,7 @@
               "@type": "VideoObject",
               "contentUrl": "//www.kosick.com/wp-content/uploads/2024/03/My-Movie-9.mp4",
               "name": "Billboard &amp; Outdoor Advertising Across Canada",
-              "description": "We plan and buy high-impact billboard, transit, and digital out-of-home campaigns in Vancouver, Calgary, Toronto and across Canada. Get seen where it counts with outdoor advertising...",
+              "description": "We plan and buy high-impact billboard, transit and digital out-of-home campaigns in Vancouver, Calgary, Toronto and across Canada. Get seen where it counts with outdoor advertising...",
               "uploadDate": "2023-07-10T08:16:20-07:00",
               "thumbnailUrl": "https://www.kosick.com/wp-content/uploads/2023/06/KC-Mov-Thumb-1600.jpg",
               "hasPart": [],
@@ -7817,7 +7817,7 @@
               "@type": "VideoObject",
               "contentUrl": "//www.kosick.com/wp-content/uploads/2024/03/Outdoor.mp4",
               "name": "Billboard &amp; Outdoor Advertising Across Canada",
-              "description": "We plan and buy high-impact billboard, transit, and digital out-of-home campaigns in Vancouver, Calgary, Toronto and across Canada. Get seen where it counts with outdoor advertising...",
+              "description": "We plan and buy high-impact billboard, transit and digital out-of-home campaigns in Vancouver, Calgary, Toronto and across Canada. Get seen where it counts with outdoor advertising...",
               "uploadDate": "2023-07-10T08:16:20-07:00",
               "thumbnailUrl": "https://www.kosick.com/wp-content/uploads/2023/06/KC-Mov-Thumb-1600.jpg",
               "hasPart": [],
@@ -7853,7 +7853,7 @@
               "name": "How do you choose billboard locations? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We analyze traffic volume data, demographic profiles, commuter patterns, and proximity to your points of sale. Our team maps competitor placements and identifies high-impact locations that align with your target audience and campaign objectives.</p>"
+                "text": "<p>We analyze traffic volume data, demographic profiles, commuter patterns and proximity to your points of sale. Our team maps competitor placements and identifies high-impact locations that align with your target audience and campaign objectives.</p>"
               }
             },
             {
@@ -7869,7 +7869,7 @@
               "name": "Can I track the performance of my billboard campaign? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes. We measure impression counts, traffic lift studies, website traffic correlation, QR code scans, and custom URL visits. Post-campaign reports include brand awareness metrics and recommendations for future placements.</p>"
+                "text": "<p>Yes. We measure impression counts, traffic lift studies, website traffic correlation, QR code scans and custom URL visits. Post-campaign reports include brand awareness metrics and recommendations for future placements.</p>"
               }
             },
             {
@@ -7877,7 +7877,7 @@
               "name": "What creative formats and sizes are available? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We support all standard out-of-home formats including street-level displays, classic horizontal posters, vertical posters, superboards, transit wraps, digital screens, and specialty formats like wallscapes and murals. Our creative team can design for any specification.</p>"
+                "text": "<p>We support all standard out-of-home formats including street-level displays, classic horizontal posters, vertical posters, superboards, transit wraps, digital screens and specialty formats like wallscapes and murals. Our creative team can design for any specification.</p>"
               }
             },
             {
@@ -7885,7 +7885,7 @@
               "name": "Do you handle creative production for billboards?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Absolutely. Our in-house creative team designs high-impact billboard artwork optimized for quick readability, bold messaging, and brand consistency. We handle everything from concept to print-ready files and digital asset delivery.</p>"
+                "text": "<p>Absolutely. Our in-house creative team designs high-impact billboard artwork optimized for quick readability, bold messaging and brand consistency. We handle everything from concept to print-ready files and digital asset delivery.</p>"
               }
             }
           ]
@@ -7893,13 +7893,13 @@
       ]
     },
     "/services/radio-advertising/": {
-      "title": "Vancouver Radio Advertising - Kosick Communications",
-      "description": "Strategic radio advertising campaigns across FM and streaming platforms in Vancouver, delivering brand awareness, and measurable results...",
+      "title": "Vancouver Radio Advertising | Kosick Communications",
+      "description": "Strategic radio advertising campaigns across FM and streaming platforms in Vancouver, delivering brand awareness and measurable results...",
       "canonical": "https://www.kosick.com/services/radio-advertising/",
       "index": true,
       "follow": true,
-      "ogTitle": "Vancouver Radio Advertising - Kosick Communications",
-      "ogDescription": "Strategic radio advertising campaigns across FM and streaming platforms in Vancouver, delivering brand awareness, and measurable results...",
+      "ogTitle": "Vancouver Radio Advertising | Kosick Communications",
+      "ogDescription": "Strategic radio advertising campaigns across FM and streaming platforms in Vancouver, delivering brand awareness and measurable results...",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/radio-streaming-advertising.jpg",
       "jsonLd": [
         {
@@ -8016,7 +8016,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Strategic radio advertising campaigns across FM and streaming platforms in Vancouver, delivering brand awareness, and measurable results...",
+              "description": "Strategic radio advertising campaigns across FM and streaming platforms in Vancouver, delivering brand awareness and measurable results...",
               "name": "Vancouver Radio Advertising - Kosick Communications",
               "@id": "https://www.kosick.com/services/radio-advertising/#richSnippet",
               "isPartOf": {
@@ -8041,7 +8041,7 @@
               "name": "How much does radio advertising cost? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Radio advertising costs depend on the market, station ratings, time slot, and campaign length. Local spots can start from a few hundred dollars per week, while drive-time slots on top-rated stations command premium rates. We negotiate the best rates through our station relationships and optimize your budget for maximum reach and frequency.</p>"
+                "text": "<p>Radio advertising costs depend on the market, station ratings, time slot and campaign length. Local spots can start from a few hundred dollars per week, while drive-time slots on top-rated stations command premium rates. We negotiate the best rates through our station relationships and optimize your budget for maximum reach and frequency.</p>"
               }
             },
             {
@@ -8049,7 +8049,7 @@
               "name": "How do you choose the right radio stations? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We analyze audience demographics, listening habits, station ratings (PPM/diary data), and geographic reach to match your target market. We also evaluate daypart performance, morning drive, afternoon drive, midday, and evening—to place your ads when your audience is most engaged.</p>"
+                "text": "<p>We analyze audience demographics, listening habits, station ratings (PPM/diary data), and geographic reach to match your target market. We also evaluate daypart performance (morning drive, afternoon drive, midday and evening) to place your ads when your audience is most engaged.</p>"
               }
             },
             {
@@ -8057,7 +8057,7 @@
               "name": "Can radio advertising work alongside digital campaigns? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Absolutely. Radio is one of the most effective channels for amplifying digital campaigns. Studies show that radio drives a significant lift in branded search and website traffic. We design integrated strategies that combine radio, streaming audio, and digital for maximum cross-channel impact.</p>"
+                "text": "<p>Absolutely. Radio is one of the most effective channels for amplifying digital campaigns. Studies show that radio drives a significant lift in branded search and website traffic. We design integrated strategies that combine radio, streaming audio and digital for maximum cross-channel impact.</p>"
               }
             },
             {
@@ -8065,15 +8065,15 @@
               "name": "Do you handle radio ad production and copywriting?  ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes. Our creative team handles everything from scriptwriting and voice talent casting to full audio production. We craft compelling radio spots that capture attention, communicate your value proposition, and drive listener action, all aligned with your brand voice.</p>"
+                "text": "<p>Yes. Our creative team handles everything from scriptwriting and voice talent casting to full audio production. We craft compelling radio spots that capture attention, communicate your value proposition and drive listener action, all aligned with your brand voice.</p>"
               }
             },
             {
               "@type": "Question",
-              "name": "How do you measure radio adverting effectiveness? ",
+              "name": "How do you measure radio advertising effectiveness? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We use a combination of reach and frequency metrics, website traffic lift analysis, branded search volume correlation, call tracking, and promo code attribution. For streaming audio, we have access to detailed impression-level data and conversion tracking.</p>"
+                "text": "<p>We use a combination of reach and frequency metrics, website traffic lift analysis, branded search volume correlation, call tracking and promo code attribution. For streaming audio, we have access to detailed impression-level data and conversion tracking.</p>"
               }
             },
             {
@@ -8081,7 +8081,7 @@
               "name": "What is the ideal campaign length for radio? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We recommend a minimum 4-week flight to build sufficient frequency and brand recall. Radio is a frequency medium—listeners need to hear your message multiple times before taking action. We tailor flight schedules to your goals, whether it's a seasonal push or year-round brand presence.</p>"
+                "text": "<p>We recommend a minimum 4-week flight to build sufficient frequency and brand recall. Radio is a frequency medium: listeners need to hear your message multiple times before taking action. We tailor flight schedules to your goals, whether it's a seasonal push or year-round brand presence.</p>"
               }
             }
           ]
@@ -8089,12 +8089,12 @@
       ]
     },
     "/services/search-engine-optimization/": {
-      "title": "SEO Services In Vancouver, Calgary & Toronto | Kosick Communications",
+      "title": "Vancouver SEO Services | Kosick Communications",
       "description": "Kosick delivers SEO to grow organic traffic and qualified leads for businesses across Canada and the US. Get found where your customers are searching online.",
       "canonical": "https://www.kosick.com/services/search-engine-optimization/",
       "index": true,
       "follow": true,
-      "ogTitle": "SEO Services In Vancouver, Calgary & Toronto | Kosick Communications",
+      "ogTitle": "Vancouver SEO Services | Kosick Communications",
       "ogDescription": "Kosick delivers SEO to grow organic traffic and qualified leads for businesses across Canada and the US. Get found where your customers are searching online.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/DigitalLead_graphic-e1686855242864.png",
       "jsonLd": [
@@ -8488,7 +8488,7 @@
               "name": "How do you measure social media success? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We track engagement rates, follower growth, reach, impressions, click through rates, and conversions. More importantly, we tie these metrics back to your business goals, whether that is brand awareness, lead generation, or sales, and use ongoing social media analytics and reporting to refine what we post, when we post, and what we promote.</p>"
+                "text": "<p>We track engagement rates, follower growth, reach, impressions, click through rates and conversions. More importantly, we tie these metrics back to your business goals, whether that is brand awareness, lead generation or sales, and use ongoing social media analytics and reporting to refine what we post, when we post and what we promote.</p>"
               }
             },
             {
@@ -8496,7 +8496,7 @@
               "name": "Do you require long-term contracts?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>No. We work month to month because we believe in earning your business through results, not contracts. This gives you flexibility as your goals, seasonality, or budget evolve, while still allowing us to build momentum through consistent optimization. You can pause or cancel anytime with 30 days notice, and we will always provide clear reporting so you understand what is working and what we are improving.</p>"
+                "text": "<p>No. We work month to month because we believe in earning your business through results, not contracts. This gives you flexibility as your goals, seasonality or budget evolve, while still allowing us to build momentum through consistent optimization. You can pause or cancel anytime with 30 days notice, and we will always provide clear reporting so you understand what is working and what we are improving.</p>"
               }
             },
             {
@@ -8504,7 +8504,7 @@
               "name": "Do you create the content or do we need to provide it?  ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We offer full content creation services including graphics, video, and copywriting. We can work with your existing assets, create everything from scratch, or collaborate on a hybrid approach that works for your team.</p>"
+                "text": "<p>We offer full content creation services including graphics, video and copywriting. We can work with your existing assets, create everything from scratch or collaborate on a hybrid approach that works for your team.</p>"
               }
             },
             {
@@ -8668,7 +8668,7 @@
               "name": "How much does TV advertising cost? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>TV advertising costs vary widely based on market, network, daypart, and campaign duration. Local spots can start from a few hundred dollars, while national campaigns require larger budgets. We work with your budget to maximize reach and frequency, negotiating the best possible rates through our network relationships.</p>"
+                "text": "<p>TV advertising costs vary widely based on market, network, daypart and campaign duration. Local spots can start from a few hundred dollars, while national campaigns require larger budgets. We work with your budget to maximize reach and frequency, negotiating the best possible rates through our network relationships.</p>"
               }
             },
             {
@@ -8676,7 +8676,7 @@
               "name": "What&#039;s the difference between linear TV and connected TV?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Linear TV is traditional&nbsp;television advertising&nbsp;delivered through broadcast television and viewed on a set schedule through cable or antenna. Connected TV (CTV) refers to streaming content on internet connected devices like Smart TVs, Roku, and Apple TV. CTV offers advanced audience targeting and measurable performance, while linear TV provides broad mass market reach and strong brand credibility.</p>"
+                "text": "<p>Linear TV is traditional&nbsp;television advertising&nbsp;delivered through broadcast television and viewed on a set schedule through cable or antenna. Connected TV (CTV) refers to streaming content on internet connected devices like Smart TVs, Roku and Apple TV. CTV offers advanced audience targeting and measurable performance, while linear TV provides broad mass market reach and strong brand credibility.</p>"
               }
             },
             {
@@ -8684,7 +8684,7 @@
               "name": "How do you measure TV advertising effectiveness? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We use a combination of traditional metrics like GRPs and reach/frequency, alongside modern attribution tools including website lift studies, search volume correlation, and CTV-specific conversion tracking. Every campaign includes detailed performance reporting tied to your business objectives.</p>"
+                "text": "<p>We use a combination of traditional metrics like GRPs and reach/frequency, alongside modern attribution tools including website lift studies, search volume correlation and CTV-specific conversion tracking. Every campaign includes detailed performance reporting tied to your business objectives.</p>"
               }
             },
             {
@@ -8692,7 +8692,7 @@
               "name": "Which networks and platforms do you work with?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We have direct relationships with major networks including CTV, Global, CBC, Sportsnet, TSN, and Bell Media, as well as U.S. networks like NBC, CBS, FOX, CNN, and ESPN. For streaming, we work across all major CTV and OTT platforms.</p>"
+                "text": "<p>We have direct relationships with major networks including CTV, Global, CBC, Sportsnet, TSN and Bell Media, as well as U.S. networks like NBC, CBS, FOX, CNN and ESPN. For streaming, we work across all major CTV and OTT platforms.</p>"
               }
             },
             {
@@ -8716,12 +8716,12 @@
       ]
     },
     "/services/website-development/": {
-      "title": "Website Development E-Commerce - Kosick Communications",
+      "title": "Website Development & E-Commerce | Kosick Communications",
       "description": "We build fast, conversion-focused WordPress and e-commerce websites for businesses across Canada and the US, with custom design and ongoing support.",
       "canonical": "https://www.kosick.com/services/website-development/",
       "index": true,
       "follow": true,
-      "ogTitle": "Website Development E-Commerce - Kosick Communications",
+      "ogTitle": "Website Development & E-Commerce | Kosick Communications",
       "ogDescription": "We build fast, conversion-focused WordPress and e-commerce websites for businesses across Canada and the US, with custom design and ongoing support.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2023/09/hvac-website-development.png",
       "jsonLd": [
@@ -8896,7 +8896,7 @@
               "name": "Why Wordpress over other platforms? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>WordPress powers over 40% of the web for good reason. It is flexible, scalable, and gives you full ownership of your content and data, so you are never locked into a proprietary platform. We build on WordPress when clients need a robust, content-managed website with room to grow, and we tailor every build to your goals rather than forcing you into a template.</p>"
+                "text": "<p>WordPress powers over 40% of the web for good reason. It is flexible, scalable and gives you full ownership of your content and data, so you are never locked into a proprietary platform. We build on WordPress when clients need a robust, content-managed website with room to grow, and we tailor every build to your goals rather than forcing you into a template.</p>"
               }
             },
             {
@@ -8904,7 +8904,7 @@
               "name": "Can you redesign my existing Wordpress Website? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Absolutely. We handle full redesigns while preserving your SEO equity, content, and existing functionality. We audit your current site, identify what is holding it back, and build a modern replacement engineered to load faster, convert better, and outperform the original across every device.</p>"
+                "text": "<p>Absolutely. We handle full redesigns while preserving your SEO equity, content and existing functionality. We audit your current site, identify what is holding it back, and build a modern replacement engineered to load faster, convert better and outperform the original across every device.</p>"
               }
             },
             {
@@ -8920,7 +8920,7 @@
               "name": "How long does a website project take? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>A standard custom website takes 4 to 8 weeks. Larger projects with custom functionality, integrations, or extensive content can take 8 to 14 weeks. We provide a clear timeline with defined milestones during the planning phase, so you always know what is happening and when.</p>"
+                "text": "<p>A standard custom website takes 4 to 8 weeks. Larger projects with custom functionality, integrations or extensive content can take 8 to 14 weeks. We provide a clear timeline with defined milestones during the planning phase, so you always know what is happening and when.</p>"
               }
             },
             {
@@ -8928,7 +8928,7 @@
               "name": "Do you offer ongoing maintenance? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes. Websites require regular updates, security patches, and performance monitoring to keep running at their best. We offer monthly maintenance plans that include plugin updates, backups, security scanning, uptime monitoring, and priority support, so small issues get handled before they ever reach your customers.</p>"
+                "text": "<p>Yes. Websites require regular updates, security patches and performance monitoring to keep running at their best. We offer monthly maintenance plans that include plugin updates, backups, security scanning, uptime monitoring and priority support, so small issues get handled before they ever reach your customers.</p>"
               }
             },
             {
@@ -8936,7 +8936,7 @@
               "name": "Do you offer website hosting? ",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Yes. We offer secure, reliable, and fast hosting built for performance, with daily backups, monitoring, and ongoing support for businesses across Canada. Your site stays online, protected, and loading quickly so your visitors get a fast, reliable experience.</p>"
+                "text": "<p>Yes. We offer secure, reliable and fast hosting built for performance, with daily backups, monitoring and ongoing support for businesses across Canada. Your site stays online, protected and loading quickly so your visitors get a fast, reliable experience.</p>"
               }
             }
           ]
@@ -8944,12 +8944,12 @@
       ]
     },
     "/site-map/": {
-      "title": "Full Site Menu - Kosick Communications",
+      "title": "Site Map | Kosick Communications",
       "description": "Pages Feature Articles",
       "canonical": "https://www.kosick.com/site-map/",
       "index": true,
       "follow": true,
-      "ogTitle": "Full Site Menu - Kosick Communications",
+      "ogTitle": "Site Map | Kosick Communications",
       "ogDescription": "Pages Feature Articles",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
       "jsonLd": [
@@ -9231,12 +9231,12 @@
     },
     "/social-media-advertising-vancouver/": {
       "title": "Social Media Advertising In Vancouver 2026",
-      "description": "A 2026 guide to social media advertising in Vancouver. Learn carousels vs static vs reels, algorithm best practices, and how Kosick drives results.",
+      "description": "A 2026 guide to social media advertising in Vancouver. Learn carousels vs static vs reels, algorithm best practices and how Kosick drives results.",
       "canonical": "https://www.kosick.com/social-media-advertising-vancouver/",
       "index": true,
       "follow": true,
       "ogTitle": "Social Media Advertising In Vancouver 2026",
-      "ogDescription": "A 2026 guide to social media advertising in Vancouver. Learn carousels vs static vs reels, algorithm best practices, and how Kosick drives results.",
+      "ogDescription": "A 2026 guide to social media advertising in Vancouver. Learn carousels vs static vs reels, algorithm best practices and how Kosick drives results.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/01/social-media-advertising.jpg",
       "jsonLd": [
         {
@@ -9343,7 +9343,7 @@
             },
             {
               "headline": "Social Media Advertising In Vancouver 2026",
-              "description": "A 2026 guide to social media advertising in Vancouver. Learn carousels vs static vs reels, algorithm best practices, and how Kosick drives results.",
+              "description": "A 2026 guide to social media advertising in Vancouver. Learn carousels vs static vs reels, algorithm best practices and how Kosick drives results.",
               "datePublished": "2026-01-20T20:53:18-08:00",
               "dateModified": "2026-07-06T17:58:04-07:00",
               "keywords": "social media advertising Vancouver",
@@ -9374,12 +9374,12 @@
     },
     "/social-media-marketing-build-an-audience/": {
       "title": "How To Build A Social Media Audience | Kosick Communications",
-      "description": "Learn how to build a social media audience with content, media buying, and multi-platform strategy from Kosick Communications.",
+      "description": "Learn how to build a social media audience with content, media buying and multi-platform strategy from Kosick Communications.",
       "canonical": "https://www.kosick.com/social-media-marketing-build-an-audience/",
       "index": true,
       "follow": true,
       "ogTitle": "How To Build A Social Media Audience | Kosick Communications",
-      "ogDescription": "Learn how to build a social media audience with content, media buying, and multi-platform strategy from Kosick Communications.",
+      "ogDescription": "Learn how to build a social media audience with content, media buying and multi-platform strategy from Kosick Communications.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/08/hvac-lead-generation.webp",
       "jsonLd": [
         {
@@ -9497,7 +9497,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Learn how to build a social media audience with content, media buying, and multi-platform strategy from Kosick Communications.",
+              "description": "Learn how to build a social media audience with content, media buying and multi-platform strategy from Kosick Communications.",
               "name": "How To Build A Social Media Audience | Kosick Communications",
               "@id": "https://www.kosick.com/social-media-marketing-build-an-audience/#richSnippet",
               "isPartOf": {
@@ -9737,7 +9737,7 @@
               "url": "https://www.kosick.com/wp-content/uploads/2024/03/radio-1.webp",
               "width": "1920",
               "height": "1281",
-              "caption": "Digital audio advertising and streaming solutions targeting listeners on music, podcast, and radio platforms for high-impact brand engagement.",
+              "caption": "Digital audio advertising and streaming solutions targeting listeners on music, podcast and radio platforms for high-impact brand engagement.",
               "inLanguage": "en-US"
             },
             {
@@ -9803,12 +9803,12 @@
     },
     "/understanding-digital-pre-roll-advertising/": {
       "title": "Understanding Pre-Roll Advertising | Kosick Communications",
-      "description": "Learn how pre-roll advertising on Sportsnet, Crave, and top streaming platforms helps Vancouver brands reach audiences with targeted video campaigns.",
+      "description": "Learn how pre-roll advertising on Sportsnet, Crave and top streaming platforms helps Vancouver brands reach audiences with targeted video campaigns.",
       "canonical": "https://www.kosick.com/understanding-digital-pre-roll-advertising/",
       "index": true,
       "follow": true,
       "ogTitle": "Understanding Pre-Roll Advertising | Kosick Communications",
-      "ogDescription": "Learn how pre-roll advertising on Sportsnet, Crave, and top streaming platforms helps Vancouver brands reach audiences with targeted video campaigns.",
+      "ogDescription": "Learn how pre-roll advertising on Sportsnet, Crave and top streaming platforms helps Vancouver brands reach audiences with targeted video campaigns.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2023/06/pre-roll-streaming.png",
       "jsonLd": [
         {
@@ -9926,7 +9926,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Learn how pre-roll advertising on Sportsnet, Crave, and top streaming platforms helps Vancouver brands reach audiences with targeted video campaigns.",
+              "description": "Learn how pre-roll advertising on Sportsnet, Crave and top streaming platforms helps Vancouver brands reach audiences with targeted video campaigns.",
               "name": "Understanding Pre-Roll Advertising | Kosick Communications",
               "@id": "https://www.kosick.com/understanding-digital-pre-roll-advertising/#richSnippet",
               "isPartOf": {
@@ -9946,12 +9946,12 @@
     },
     "/vancouver-event-marketing/": {
       "title": "Vancouver Event Marketing Experts | Kosick Communications",
-      "description": "Elevate your event with a leading Vancouver event marketing agency. We manage conferences, incentive programs, and global brand experiences. Learn more.",
+      "description": "Elevate your event with a leading Vancouver event marketing agency. We manage conferences, incentive programs and global brand experiences. Learn more.",
       "canonical": "https://www.kosick.com/vancouver-event-marketing/",
       "index": true,
       "follow": true,
       "ogTitle": "Vancouver Event Marketing Experts | Kosick Communications",
-      "ogDescription": "Elevate your event with a leading Vancouver event marketing agency. We manage conferences, incentive programs, and global brand experiences. Learn more.",
+      "ogDescription": "Elevate your event with a leading Vancouver event marketing agency. We manage conferences, incentive programs and global brand experiences. Learn more.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/11/IMG_25961-750x670.jpg",
       "jsonLd": [
         {
@@ -10058,7 +10058,7 @@
             },
             {
               "headline": "Vancouver Event Marketing Experts | Kosick Communications",
-              "description": "Elevate your event with a leading Vancouver event marketing agency. We manage conferences, incentive programs, and global brand experiences. Learn more.",
+              "description": "Elevate your event with a leading Vancouver event marketing agency. We manage conferences, incentive programs and global brand experiences. Learn more.",
               "datePublished": "2025-11-19T10:09:41-08:00",
               "dateModified": "2026-06-30T08:50:48-07:00",
               "keywords": "event marketing",
@@ -10086,7 +10086,7 @@
             {
               "@type": "VideoObject",
               "name": "Comfortmaker Conference '25",
-              "description": "Elevate your event with a leading Vancouver event marketing agency. We manage conferences, incentive programs, and global brand experiences. Learn more.",
+              "description": "Elevate your event with a leading Vancouver event marketing agency. We manage conferences, incentive programs and global brand experiences. Learn more.",
               "uploadDate": "2025-02-05 17:35:29",
               "thumbnailUrl": "https://www.kosick.com/wp-content/uploads/2025/11/IMG_25961-scaled.jpg",
               "embedUrl": "https://player.vimeo.com/video/1053936580?dnt=1&amp;app_id=122963",
@@ -10108,12 +10108,12 @@
       ]
     },
     "/vancouver-marketing-blending-strategies/": {
-      "title": "Vancouver Marketing Strategies - Kosick Communications",
+      "title": "Blending Social and Traditional Marketing | Kosick Communications",
       "description": "See why blending social media and traditional media is key to Vancouver marketing success, driving brand reach and sales across every channel.",
       "canonical": "https://www.kosick.com/vancouver-marketing-blending-strategies/",
       "index": true,
       "follow": true,
-      "ogTitle": "Vancouver Marketing Strategies - Kosick Communications",
+      "ogTitle": "Blending Social and Traditional Marketing | Kosick Communications",
       "ogDescription": "See why blending social media and traditional media is key to Vancouver marketing success, driving brand reach and sales across every channel.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/07/mobile-marketing-750x462.webp",
       "jsonLd": [
@@ -10252,12 +10252,12 @@
     },
     "/vancouver-sponsorships-that-performs/": {
       "title": "Sponsorship That Performs: CTV Morning Live",
-      "description": "See how sponsorship on CTV Your Morning Live helped Expedia Cruises educate BC on Princess travel, building trust, reach, and measurable results.",
+      "description": "See how sponsorship on CTV Your Morning Live helped Expedia Cruises educate BC on Princess travel, building trust, reach and measurable results.",
       "canonical": "https://www.kosick.com/vancouver-sponsorships-that-performs/",
       "index": true,
       "follow": true,
       "ogTitle": "Sponsorship That Performs: CTV Morning Live",
-      "ogDescription": "See how sponsorship on CTV Your Morning Live helped Expedia Cruises educate BC on Princess travel, building trust, reach, and measurable results.",
+      "ogDescription": "See how sponsorship on CTV Your Morning Live helped Expedia Cruises educate BC on Princess travel, building trust, reach and measurable results.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/02/ctv-morning-live.jpg",
       "jsonLd": [
         {
@@ -10364,7 +10364,7 @@
             },
             {
               "headline": "Sponsorship That Performs: CTV Morning Live",
-              "description": "See how sponsorship on CTV Your Morning Live helped Expedia Cruises educate BC on Princess travel, building trust, reach, and measurable results.",
+              "description": "See how sponsorship on CTV Your Morning Live helped Expedia Cruises educate BC on Princess travel, building trust, reach and measurable results.",
               "datePublished": "2026-01-13T11:26:07-08:00",
               "dateModified": "2026-06-30T08:43:33-07:00",
               "keywords": "sponsorship",
@@ -10392,7 +10392,7 @@
             {
               "@type": "VideoObject",
               "name": "Sponsorship That Performs: CTV Morning Live",
-              "description": "Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.",
+              "description": "Enjoy the videos and music you love, upload original content and share it all with friends, family and the world on YouTube.",
               "uploadDate": "2026-01-13T11:26:07-08:00",
               "thumbnailUrl": "https://www.kosick.com/wp-content/uploads/2026/02/ctv-morning-live.jpg",
               "embedUrl": "https://www.youtube.com/embed/Yy7VahBsTqQ",
@@ -10412,12 +10412,12 @@
     },
     "/vancouver-web-development-e-commerce/": {
       "title": "Website Development & E-commerce | Kosick Communications",
-      "description": "Launch a scalable e-commerce platform with custom UX, architecture, and product integration to manage and grow your online store. Learn more today.",
+      "description": "Launch a scalable e-commerce platform with custom UX, architecture and product integration to manage and grow your online store. Learn more today.",
       "canonical": "https://www.kosick.com/vancouver-web-development-e-commerce/",
       "index": true,
       "follow": true,
       "ogTitle": "Website Development & E-commerce | Kosick Communications",
-      "ogDescription": "Launch a scalable e-commerce platform with custom UX, architecture, and product integration to manage and grow your online store. Learn more today.",
+      "ogDescription": "Launch a scalable e-commerce platform with custom UX, architecture and product integration to manage and grow your online store. Learn more today.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/10/website-development.jpg",
       "jsonLd": [
         {
@@ -10535,7 +10535,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Launch a scalable e-commerce platform with custom UX, architecture, and product integration to manage and grow your online store. Learn more today.",
+              "description": "Launch a scalable e-commerce platform with custom UX, architecture and product integration to manage and grow your online store. Learn more today.",
               "name": "Website Development &amp; E-commerce | Kosick Communications",
               "@id": "https://www.kosick.com/vancouver-web-development-e-commerce/#richSnippet",
               "isPartOf": {
@@ -10555,12 +10555,12 @@
     },
     "/what-a-marketing-agency-can-do-for-your-business/": {
       "title": "The Role Of A Marketing Agency In Driving Growth | Kosick Communications",
-      "description": "Discover the value a marketing agency can bring to your business to unify your digital strategy, branding, content, and media under one expert team.",
+      "description": "Discover the value a marketing agency can bring to your business to unify your digital strategy, branding, content and media under one expert team.",
       "canonical": "https://www.kosick.com/what-a-marketing-agency-can-do-for-your-business/",
       "index": true,
       "follow": true,
       "ogTitle": "The Role Of A Marketing Agency In Driving Growth | Kosick Communications",
-      "ogDescription": "Discover the value a marketing agency can bring to your business to unify your digital strategy, branding, content, and media under one expert team.",
+      "ogDescription": "Discover the value a marketing agency can bring to your business to unify your digital strategy, branding, content and media under one expert team.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/07/kosick-communications-750x526.webp",
       "jsonLd": [
         {
@@ -10678,7 +10678,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "Discover the value a marketing agency can bring to your business to unify your digital strategy, branding, content, and media under one expert team.",
+              "description": "Discover the value a marketing agency can bring to your business to unify your digital strategy, branding, content and media under one expert team.",
               "name": "The Role Of A Marketing Agency In Driving Growth | Kosick Communications",
               "@id": "https://www.kosick.com/what-a-marketing-agency-can-do-for-your-business/#richSnippet",
               "isPartOf": {
@@ -10984,12 +10984,12 @@
     },
     "/why-media-buying-matters/": {
       "title": "Why Media Buying Matters | Kosick Communications",
-      "description": "See how our Vancouver ad agency drives results through strategic media buying across TV, radio, outdoor, and digital in Canada and the US. Learn more.",
+      "description": "See how our Vancouver ad agency drives results through strategic media buying across TV, radio, outdoor and digital in Canada and the US. Learn more.",
       "canonical": "https://www.kosick.com/why-media-buying-matters/",
       "index": true,
       "follow": true,
       "ogTitle": "Why Media Buying Matters | Kosick Communications",
-      "ogDescription": "See how our Vancouver ad agency drives results through strategic media buying across TV, radio, outdoor, and digital in Canada and the US. Learn more.",
+      "ogDescription": "See how our Vancouver ad agency drives results through strategic media buying across TV, radio, outdoor and digital in Canada and the US. Learn more.",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2025/07/media-buying-750x542.webp",
       "jsonLd": [
         {
@@ -11107,7 +11107,7 @@
               "publisher": {
                 "@id": "https://www.kosick.com/#organization"
               },
-              "description": "See how our Vancouver ad agency drives results through strategic media buying across TV, radio, outdoor, and digital in Canada and the US. Learn more.",
+              "description": "See how our Vancouver ad agency drives results through strategic media buying across TV, radio, outdoor and digital in Canada and the US. Learn more.",
               "name": "Why Media Buying Matters | Kosick Communications",
               "@id": "https://www.kosick.com/why-media-buying-matters/#richSnippet",
               "isPartOf": {
@@ -11269,12 +11269,12 @@
       ]
     },
     "/thanks/": {
-      "title": "Thank You For Your Submission / Merci Pour Votre Soumission - Kosick Communications",
+      "title": "Thank You For Your Submission / Merci Pour Votre Soumission | Kosick Communications",
       "description": "",
       "canonical": "https://www.kosick.com/thanks/",
       "index": false,
       "follow": true,
-      "ogTitle": "Thank You For Your Submission / Merci Pour Votre Soumission - Kosick Communications",
+      "ogTitle": "Thank You For Your Submission / Merci Pour Votre Soumission | Kosick Communications",
       "ogDescription": "",
       "ogImage": "https://www.kosick.com/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
       "jsonLd": [

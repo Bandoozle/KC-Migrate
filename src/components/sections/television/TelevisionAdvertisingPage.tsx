@@ -193,7 +193,7 @@ export function TelevisionAdvertisingPage({ content }: TelevisionAdvertisingPage
               ) : (
                 <p className={styles.sectionLead}>
                   Direct relationships across major Canadian and U.S. networks, plus Connected TV and
-                  streaming environments — planned as part of the same campaign.
+                  streaming environments, planned as part of the same campaign.
                 </p>
               )}
             </header>

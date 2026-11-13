@@ -43,9 +43,9 @@ const SEO_OVERRIDES: Record<string, Partial<Pick<RankMathSeo, "description" | "o
   // Same wording as WordPress, without the stray ".604.925.5800" and the run-on heading
   "/services/digital-connected-tv/": {
     description:
-      "Digital video advertising on connected TV and streaming. Elevate your brand with targeted reach, dynamic content and measurable results.",
+      "Connected TV advertising on the streaming apps and smart TVs Canadians watch, targeted by market and audience, with creative and reporting from Kosick.",
     ogDescription:
-      "Digital video advertising on connected TV and streaming. Elevate your brand with targeted reach, dynamic content and measurable results.",
+      "Connected TV advertising on the streaming apps and smart TVs Canadians watch, targeted by market and audience, with creative and reporting from Kosick.",
   },
 };
 

@@ -104,8 +104,9 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
           <div className={styles.heroCopy}>
             {hero.eyebrow ? <p className={styles.heroEyebrow}>{hero.eyebrow}</p> : null}
             <PageTitle className={styles.heroTitle}>
-              {hero.displayTitle ? <span className={styles.heroMuted}>{hero.displayTitle} </span> : null}
-              {lines(hero.titleSecondary || content.title)}
+              {/* Same two-tone pattern as the other service heroes: "Strategic" over the muted service name */}
+              {hero.displayTitle ? <span>{hero.displayTitle} </span> : null}
+              <span className={styles.heroMuted}>{lines(hero.titleSecondary || content.title)}</span>
             </PageTitle>
             {hero.subtitle ? <p className={styles.heroLead}>{hero.subtitle}</p> : null}
             <div className={styles.heroActions}>
@@ -190,7 +191,7 @@ export function WebsiteDevelopmentPage({ content }: WebsiteDevelopmentPageProps)
             </SectionTitle>
             <p className={styles.lead}>
               We build Shopify and WooCommerce stores designed to make shopping easier, from product discovery to
-              checkout. As a Shopify Partner, we help businesses create, manage and grow their online stores: custom
+              checkout. As experienced Shopify developers, we help businesses create, manage and grow their online stores: custom
               store development, Shopify setup and customization, clear collections, mobile shopping, secure payments
               and ongoing improvements after launch.
             </p>

@@ -17,7 +17,7 @@ export const DENTAL: Industry = {
     lead: "For dental offices and dental spas. Open a service to see what we build and how it helps bring in new patients.",
   },
   cta: {
-    title: "Let's grow your patient list.",
+    title: "Let’s grow your patient list.",
     description: "Tell us about your practice, the treatments you want to grow and the patients you want to reach.",
   },
   services: [
@@ -39,7 +39,7 @@ export const DENTAL: Industry = {
       intro: {
         title: "Trust is built before the appointment.",
         paragraphs: [
-          "Choosing a dentist is personal. New patients look for signs they'll be in good hands: real photos of the team and space, clear explanations of treatments, and an easy way to book or ask a question.",
+          "Choosing a dentist is personal. New patients look for signs they’ll be in good hands: real photos of the team and space, clear explanations of treatments and an easy way to book or ask a question.",
           "We design practice websites around that decision. Each treatment gets a page that answers the questions patients actually ask, the booking path is never more than a tap away, and the site is fast, accessible and easy for your team to keep current.",
         ],
       },
@@ -54,7 +54,7 @@ export const DENTAL: Industry = {
         },
         {
           title: "Online booking & patient forms",
-          body: "Booking, new-patient and enquiry forms connected to your practice systems, with click-to-call and directions on every mobile page.",
+          body: "Booking, new-patient and inquiry forms connected to your practice systems, with click-to-call and directions on every mobile page.",
         },
       ],
       deliverables: [
@@ -97,7 +97,7 @@ export const DENTAL: Industry = {
         { src: "/images/industries/dental/front-desk.jpg", alt: "A smiling receptionist at a dental clinic front desk", position: "50% 40%" },
       ],
       related: [
-        { label: "Dental Marketing in Vancouver", href: "/blog-dental-marketing/", kind: "guide", body: "Websites, social and search for practices that want more new patients." },
+        { label: "Dental Marketing in Vancouver", href: "/dental-marketing-custom-websites/", kind: "guide", body: "Websites, social and search for practices that want more new patients." },
         { label: "Website Development & E-commerce", href: "/services/website-development/", kind: "service", body: "Custom WordPress and e-commerce builds, with design and ongoing support." },
       ],
     },
@@ -126,11 +126,11 @@ export const DENTAL: Industry = {
       offers: [
         {
           title: "Google Ads",
-          body: "Search campaigns by treatment and location, with ad copy written to your regulatory college's advertising standards and call and booking tracking.",
+          body: "Search campaigns by treatment and location, with ad copy written to your regulatory college’s advertising standards and call and booking tracking.",
         },
         {
           title: "Local SEO",
-          body: "Technical fixes, treatment and location pages, and local citations that help your practice rank in the map pack and organic results.",
+          body: "Technical fixes, treatment and location pages and local citations that help your practice rank in the map pack and organic results.",
         },
         {
           title: "Google Business Profile & reviews",
@@ -194,7 +194,7 @@ export const DENTAL: Industry = {
       hero: {
         label: "Social media, content & AI marketing",
         title: "Familiar faces before the first appointment.",
-        lead: "Patients choose people they feel they know. We help practices share their team, their space and their expertise on social media, publish content that educates, and use AI tools to answer questions around the clock.",
+        lead: "Patients choose people they feel they know. We help practices share their team, their space and their expertise on social media, publish content that educates and use AI tools to answer questions around the clock.",
         image: { src: "/images/industries/dental/patient-headphones.jpg", alt: "A patient settling into the chair with noise-cancelling headphones", position: "50% 40%", orientation: "portrait" },
       },
       intro: {
@@ -211,7 +211,7 @@ export const DENTAL: Industry = {
         },
         {
           title: "Patient education content",
-          body: "Articles, treatment explainers and short videos that answer common questions in plain language, written to your profession's advertising standards.",
+          body: "Articles, treatment explainers and short videos that answer common questions in plain language, written to your profession’s advertising standards.",
         },
         {
           title: "AI marketing tools",
@@ -251,7 +251,7 @@ export const DENTAL: Industry = {
         { title: "Get to know you", body: "Your team, your patients and what makes the practice different." },
         { title: "Plan", body: "Themes, formats and a calendar that fits your schedule." },
         { title: "Create", body: "On-site shoots, posts, articles and AI tools, reviewed by you." },
-        { title: "Grow", body: "Engagement and enquiries measured, and the plan refined." },
+        { title: "Grow", body: "Engagement and inquiries measured, and the plan refined." },
       ],
       gallery: [
         { src: "/images/industries/dental/reception-check-in.jpg", alt: "A hygienist reviewing paperwork with the receptionist at a dark modern front desk", position: "50% 45%", orientation: "portrait" },
@@ -271,7 +271,7 @@ export const DENTAL: Industry = {
       hero: {
         label: "Video, TV & billboard advertising",
         title: "Make your practice a local landmark.",
-        lead: "Search captures patients who are already looking. Video, television and outdoor advertising make your practice the name the whole community knows, so you're the first choice when they are ready.",
+        lead: "Search captures patients who are already looking. Video, television and outdoor advertising make your practice the name the whole community knows, so you’re the first choice when they are ready.",
         image: { src: `${UP}/2026/06/outdoor-advertising.jpg`, alt: "A Sparkle Dental Spa poster with a bright smile in a transit shelter" },
       },
       intro: {
@@ -292,7 +292,7 @@ export const DENTAL: Industry = {
         },
         {
           title: "Billboard & transit advertising",
-          body: "Transit shelters, billboards and digital boards near your office, with creative that's simple, warm and readable in a glance.",
+          body: "Transit shelters, billboards and digital boards near your office, with creative that’s simple, warm and readable in a glance.",
         },
       ],
       deliverables: [
@@ -310,7 +310,7 @@ export const DENTAL: Industry = {
           body: "Repeated local exposure makes your practice the familiar choice.",
         },
         {
-          title: "Warmth that photos can't show",
+          title: "Warmth that photos can’t show",
           body: "Video lets patients meet your team and see your space before they arrive.",
         },
         {

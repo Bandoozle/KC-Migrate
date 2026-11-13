@@ -174,12 +174,12 @@
 .service .title {
   display: grid;
   row-gap: 0.08em;
-  max-width: 11em;
+  max-width: var(--kosick-hero-title-max);
   font-family: var(--kosick-font, "Gellix", system-ui, sans-serif);
-  font-size: clamp(2.75rem, 5.4vw, 4.35rem);
-  font-weight: 600;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-size: var(--kosick-hero-title-size);
+  font-weight: var(--kosick-hero-title-weight);
+  line-height: var(--kosick-hero-title-leading);
+  letter-spacing: var(--kosick-hero-title-tracking);
   overflow-wrap: break-word;
 }
 
@@ -191,8 +191,8 @@
 }
 
 .service .subtitle {
-  max-width: 42rem;
-  margin: 1.35rem 0 0;
+  max-width: var(--kosick-hero-lead-max);
+  margin: var(--kosick-hero-title-lead-gap) 0 0;
   color: rgba(255, 255, 255, 0.88);
   font-size: var(--kosick-section-desc-size);
   font-weight: var(--kosick-section-desc-weight);
@@ -205,7 +205,7 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 1.6rem;
+  margin-top: var(--kosick-hero-lead-actions-gap);
 }
 
 .service .actions .primary,
@@ -214,10 +214,10 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  min-height: 46px;
-  padding: 0.7rem 1.25rem;
+  min-height: var(--kosick-hero-button-height);
+  padding: var(--kosick-hero-button-padding);
   border-radius: 9999px;
-  font-size: 0.95rem;
+  font-size: var(--kosick-hero-button-size);
   font-weight: 600;
   line-height: 1.2;
   text-decoration: none;
@@ -286,15 +286,7 @@
     object-position: var(--hero-object-position-mobile, var(--hero-object-position, center));
   }
 
-  .service .title {
-    font-size: clamp(2rem, 8.6vw, 2.75rem);
-    line-height: 1.07;
-    max-width: none;
-    overflow-wrap: break-word;
-  }
-
   .service .subtitle {
-    margin-top: 1rem;
     font-size: var(--kosick-section-desc-size);
   }
 
@@ -302,23 +294,18 @@
     margin-bottom: 0.85rem;
   }
 
-  .service .actions {
-    margin-top: 1.35rem;
-  }
 }
 
-/* Phones: the two buttons share one row, splitting the width evenly */
+/* Phones: the two buttons share one row and the width; a long label wraps to its own row instead of clipping */
 @media (max-width: 480px) {
   .service .actions {
-    flex-wrap: nowrap;
     gap: 0.6rem;
   }
 
   .service .actions .primary,
   .service .actions .secondary {
-    flex: 1 1 0;
-    min-width: 0;
-    padding-inline: 0.75rem;
+    flex: 1 1 auto;
+    padding-inline: 1rem;
     white-space: nowrap;
   }
 }
@@ -339,44 +326,22 @@
   padding: clamp(3rem, 7vw, 4.5rem) 0 clamp(2.5rem, 5vw, 3.5rem);
 }
 
-.service.plain.compact .title {
-  font-size: var(--kosick-page-title-size);
-  line-height: var(--kosick-page-title-leading);
-  letter-spacing: var(--kosick-page-title-tracking);
-}
-
-/* Cinematic: the photograph has the room, and the copy sits low on a shade that rises from the bottom */
-.cinematic {
-  min-height: clamp(36rem, 82vh, 48rem);
-}
-
+/* Cinematic: same height as every service hero; the copy sits low on a shade that rises from the bottom */
 .cinematic .overlay {
   align-items: flex-end;
-  min-height: clamp(36rem, 82vh, 48rem);
   padding-block: clamp(3rem, 8vh, 5rem) clamp(2.5rem, 6vh, 4rem);
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.78) 100%),
     linear-gradient(90deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.22) 60%, rgba(0, 0, 0, 0.08) 100%);
 }
 
-.cinematic .title {
-  max-width: 12em;
-  font-size: clamp(2.5rem, 6.4vw, 5.75rem);
-  line-height: 1;
-  letter-spacing: -0.035em;
-}
-
 .cinematic .subtitle {
-  max-width: 36rem;
-  margin-top: 1.25rem;
   color: #ffffff;
 }
 
+/* Type and button sizes come from the shared hero tokens; only the motion differs */
 .cinematic .actions .primary,
 .cinematic .actions .secondary {
-  min-height: 52px;
-  padding-inline: 1.6rem;
-  font-size: 1rem;
   transition:
     background-color 200ms ease,
     border-color 200ms ease,
@@ -396,18 +361,6 @@
 @keyframes hero-drift {
   from {
     transform: scale(1.05);
-  }
-}
-
-@media (max-width: 720px) {
-  .cinematic,
-  .cinematic .overlay {
-    min-height: min(36rem, 88svh);
-  }
-
-  .cinematic .title {
-    font-size: clamp(2.375rem, 11vw, 3.25rem);
-    line-height: 1.03;
   }
 }
 

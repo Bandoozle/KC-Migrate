@@ -94,7 +94,7 @@ export const SITE_HEADER_NAV: NavItem[] = [
     items: [
       { label: "Television Advertising", href: "/services/television-advertising/" },
       { label: "Radio Advertising", href: "/services/radio-advertising/" },
-      { label: "Digital Video Advertising", href: "/services/digital-connected-tv/" },
+      { label: "Connected TV Advertising", href: "/services/digital-connected-tv/" },
       { label: "Billboards, Transit, Outdoor", href: "/services/outdoor-advertising/" },
     ],
   },
@@ -123,7 +123,9 @@ export const SITE_HEADER_NAV: NavItem[] = [
     },
     items: [
       { label: "Digital Marketing", href: "/services/digital-marketing/" },
+      { label: "Google Ads Management", href: "/services/google-ads-management/" },
       { label: "Social Media Marketing", href: "/services/social-media-marketing/" },
+      { label: "ChatGPT Ads Management", href: "/services/chatgpt-ads-management/" },
       { label: "Email Marketing", href: "/services/email-marketing/" },
       { label: "Search Engine Optimization", href: "/services/search-engine-optimization/" },
     ],
@@ -140,7 +142,7 @@ export const SITE_HEADER_NAV: NavItem[] = [
   },
   {
     type: "menu",
-    label: "Web",
+    label: "Website Development",
     items: [
       { label: "Website Development & E-Commerce", href: "/services/website-development/" },
     ],

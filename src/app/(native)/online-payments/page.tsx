@@ -23,6 +23,8 @@ export default async function OnlinePaymentsPage() {
         eyebrow="Payments"
         titlePrimary={words.slice(0, mid).join(" ") || "Pay Your Invoice"}
         titleSecondary={words.slice(mid).join(" ") || undefined}
+        // Instruction only: accepted payment methods are listed by the checkout itself, not claimed here
+        description="Pay a Kosick Communications invoice through the secure checkout below, using the amount shown on your invoice. Questions about an invoice? Call 604-925-5800 or send us a note through the contact page."
         primaryCTA={actions.cta}
         secondaryCTA={actions.secondaryCta}
       />

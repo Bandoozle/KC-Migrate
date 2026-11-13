@@ -42,6 +42,22 @@
   --kosick-page-title-leading: 1.12;
   --kosick-page-title-tracking: -0.02em;
 
+  /*
+   * Page heroes: one scale for every page, taken from the HVAC Marketing hero.
+   * Components set their own layout and imagery but read these for type and rhythm.
+   */
+  --kosick-hero-title-size: clamp(2.75rem, 5.4vw, 4.35rem);
+  --kosick-hero-title-weight: 600;
+  --kosick-hero-title-leading: 1.05;
+  --kosick-hero-title-tracking: -0.03em;
+  --kosick-hero-title-max: 11em;
+  --kosick-hero-lead-max: 42rem;
+  --kosick-hero-title-lead-gap: 1.35rem;
+  --kosick-hero-lead-actions-gap: 1.6rem;
+  --kosick-hero-button-height: 46px;
+  --kosick-hero-button-padding: 0.7rem 1.25rem;
+  --kosick-hero-button-size: 0.95rem;
+
   --kosick-section-title-size: clamp(2rem, 4vw, 2.75rem);
   --kosick-section-title-weight: 600;
   --kosick-section-title-leading: 1.15;
@@ -104,6 +120,17 @@
   /* Vertical rhythm for redesigned page sections */
   --kosick-block: clamp(4.5rem, 9vw, 8rem);
   --kosick-block-compact: clamp(3.5rem, 7vw, 6rem);
+}
+
+/* Hero scale below 720px: same steps as the HVAC Marketing hero on tablets and phones */
+@media (max-width: 720px) {
+  :root {
+    --kosick-hero-title-size: clamp(2rem, 8.6vw, 2.75rem);
+    --kosick-hero-title-leading: 1.07;
+    --kosick-hero-title-max: none;
+    --kosick-hero-title-lead-gap: 1rem;
+    --kosick-hero-lead-actions-gap: 1.35rem;
+  }
 }
 
 /*

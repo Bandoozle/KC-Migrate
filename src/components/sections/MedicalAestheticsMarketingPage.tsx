@@ -7,6 +7,8 @@ import { Reveal } from "@/components/motion/Reveal";
 import { PageCta } from "@/components/sections/PageCta";
 import { ProcessTrack } from "@/components/sections/ProcessSteps";
 import { AestheticsJourney } from "@/components/industry/journeys/AestheticsJourney";
+import { IndustryFaqs } from "@/components/industry/IndustryFaqs";
+import { INDUSTRY_FAQS } from "@/lib/industries/faqs";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import { getIndustry, servicePath, type Industry, type IndustryLanding } from "@/lib/industries";
@@ -59,8 +61,8 @@ const SKINFOLIO = [
     className: styles.mosaicProduct,
   },
   {
-    src: `${UP}/2026/02/medical-skincare-marketing.jpg`,
-    alt: "A skincare bottle resting on rippled blue water",
+    src: "/images/industries/medical-aesthetics/skinfolio-transit-shelter.jpg",
+    alt: "A Shop Skinfolio transit shelter ad featuring a serum bottle on a city street",
     label: "Campaign",
     className: styles.mosaicCampaign,
   },
@@ -200,8 +202,8 @@ export function MedicalAestheticsMarketingPage() {
             <Reveal variant="fade" className={styles.trustMedia}>
               <div className={styles.trustPhoto}>
                 <Image
-                  src={`${UP}/2026/02/aesthetic-clinic-marketing.jpg`}
-                  alt="SkinCeuticals serums lined up with a dropper above them"
+                  src={`${UP}/2023/09/medical-aesthetics.png`}
+                  alt="SkinCeuticals serums photographed for the Skinfolio online store"
                   fill
                   sizes="(min-width: 960px) 50vw, 100vw"
                   className={styles.cover}
@@ -266,6 +268,8 @@ export function MedicalAestheticsMarketingPage() {
           </Link>
         </div>
       </section>
+
+      <IndustryFaqs items={INDUSTRY_FAQS["medical-aesthetics"]} />
 
       <PageCta
         cta={{

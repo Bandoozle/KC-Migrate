@@ -1,7 +1,7 @@
 /*
  * Search → Find → Call → Booked. Designed in the shared scene's units
  * (about 400–480 wide, 4:3) and scaled by JourneyFrame. The schedule uses
- * fixed rows so the lead card can travel from the enquiry tray into a slot.
+ * fixed rows so the lead card can travel from the inquiry tray into a slot.
  */
 .scene {
   --ease: cubic-bezier(0.22, 1, 0.36, 1);

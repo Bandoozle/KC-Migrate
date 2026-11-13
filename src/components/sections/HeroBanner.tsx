@@ -57,6 +57,8 @@ export type HeroBannerSlide = {
   src: string;
   alt: string;
   kind?: "image" | "video";
+  /** Cover crop for this slide only; falls back to the hero `backgroundPosition`. */
+  objectPosition?: string;
 };
 
 type HeroCta = { label: string; href: string };
@@ -173,6 +175,7 @@ export function HeroBanner({
                   src={slide.src}
                   alt={slide.alt || heading}
                   className={styles.image}
+                  style={slide.objectPosition ? { objectPosition: slide.objectPosition } : undefined}
                   // The first slide is the page's largest paint, so fetch it ahead of other images
                   fetchPriority={index === 0 ? "high" : "auto"}
                 />

@@ -481,6 +481,10 @@
 }
 
 /* What the layers add up to */
+.layerSum .layerLine {
+  color: rgba(255, 255, 255, 0.74);
+}
+
 .layerSum {
   display: flex;
   align-items: center;

@@ -86,18 +86,22 @@ export function SiteFooter() {
             </Link>
             <div className={styles.brandCopy}>
               <p className={styles.brandBlurb}>{SITE_FOOTER_BRAND.blurb}</p>
-              <span className={styles.partnerBadgeWrap}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={SITE_FOOTER_BRAND.partner.src}
-                  alt={SITE_FOOTER_BRAND.partner.alt}
-                  width={SITE_FOOTER_BRAND.partner.width}
-                  height={SITE_FOOTER_BRAND.partner.height}
-                  className={styles.partnerBadge}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </span>
+              <div className={styles.partnerBadges}>
+                {SITE_FOOTER_BRAND.partners.map((partner) => (
+                  <span key={partner.alt} className={styles.partnerBadgeWrap}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={partner.src}
+                      alt={partner.alt}
+                      width={partner.width}
+                      height={partner.height}
+                      className={styles.partnerBadge}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 

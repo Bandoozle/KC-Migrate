@@ -18,10 +18,10 @@ export const MEDICAL_AESTHETICS: Industry = {
   offersIntro: {
     label: "What we offer",
     title: "Four services for aesthetics clinics.",
-    lead: "Built for medical aesthetics practices like Skinfolio Medesthetics: treatment visibility, clinic trust and product sales working as one.",
+    lead: "Built for medical aesthetics practices: treatment visibility, clinic trust and product sales working as one.",
   },
   cta: {
-    title: "Let's grow your clinic.",
+    title: "Let’s grow your clinic.",
     description: "Tell us about your treatments, your retail and the clients you want to attract.",
   },
   landing: {
@@ -33,14 +33,14 @@ export const MEDICAL_AESTHETICS: Industry = {
     hero: {
       label: "Medical aesthetics marketing",
       title: "Medical Aesthetics Marketing",
-      lead: "Marketing for medical aesthetics clinics: calm branding, treatment and product pages built to convert, and campaigns designed to fill the chair and the cart. Work includes Skinfolio Medesthetics.",
+      lead: "Marketing for medical aesthetics clinics: calm branding, treatment and product pages built to convert, and campaigns designed to fill the chair and the cart.",
       image: { src: "/images/industries/medical-aesthetics/consultation-mirror.jpg", alt: "A clinician holding a mirror for a smiling client during an aesthetic consultation", position: "50% 35%" },
     },
     intro: {
       title: "Clinics win on trust and clarity.",
       paragraphs: [
         "Medical aesthetics clients research treatments carefully. They want to see the clinic, understand the science and feel confident before they book or buy. The marketing has to feel as considered as the care.",
-        "We plan websites, search, social and brand work around that decision. Treatment pages explain procedures in plain language, retail pages sell the products you recommend, and every channel points back to a booking or a purchase — the same approach we use for clinics like Skinfolio Medesthetics.",
+        "We plan websites, search, social and brand work around that decision. Treatment pages explain procedures in plain language, retail pages sell the products you recommend, and every channel points back to a booking or a purchase.",
       ],
     },
     reasonsTitle: "Planned around treatments and retail.",
@@ -52,13 +52,13 @@ export const MEDICAL_AESTHETICS: Industry = {
       },
       {
         title: "Clinic and cart together",
-        body: "Bookings and product sales share one brand system, so Skinfolio-style clinics grow both sides of the business.",
+        body: "Bookings and product sales share one brand system, so clinics grow both sides of the business.",
         image: { src: "/images/industries/medical-aesthetics/hydrate-iv-consultation.jpg", alt: "A stethoscope and a Hydrate IV notepad on a clinic desk" },
       },
       {
         title: "Calm, credible creative",
         body: "Photography and copy that feel clinical without feeling cold, so clients trust the experience before they arrive.",
-        image: { src: "/images/industries/medical-aesthetics/facial-assessment.jpg", alt: "A practitioner measuring a smiling client's facial proportions with calipers", position: "50% 40%" },
+        image: { src: "/images/industries/medical-aesthetics/facial-assessment.jpg", alt: "A practitioner measuring a smiling client’s facial proportions with calipers", position: "50% 40%" },
       },
       {
         title: "Local and high-intent",
@@ -86,7 +86,7 @@ export const MEDICAL_AESTHETICS: Industry = {
       hero: {
         label: "Medical aesthetics website design",
         title: "A clinic site that books and sells.",
-        lead: "We build medical aesthetics websites that feel calm and credible, explain treatments clearly, and connect booking with retail, as on Skinfolio Medesthetics.",
+        lead: "We build medical aesthetics websites that feel calm and credible, explain treatments clearly and connect booking with retail, as on Skinfolio Medesthetics.",
         image: { src: "/images/industries/medical-aesthetics/treatment-lounge.jpg", alt: "A calm treatment lounge with white armchairs and soft blue cushions" },
       },
       intro: {
@@ -107,7 +107,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         },
         {
           title: "Booking & e-commerce",
-          body: "Online booking, enquiry forms and product checkout connected to your clinic systems.",
+          body: "Online booking, inquiry forms and product checkout connected to your clinic systems.",
         },
       ],
       deliverables: [
@@ -166,14 +166,14 @@ export const MEDICAL_AESTHETICS: Industry = {
       hero: {
         label: "Google Ads & SEO for aesthetics clinics",
         title: "Be the clinic clients find first.",
-        lead: "When someone searches for a treatment or a medical aesthetics clinic nearby, the names at the top get the enquiry. We put yours there with ads, local SEO and a strong Google Business Profile.",
+        lead: "When someone searches for a treatment or a medical aesthetics clinic nearby, the names at the top get the inquiry. We put yours there with ads, local SEO and a strong Google Business Profile.",
         image: { src: "/images/industries/medical-aesthetics/clinic-interior.jpg", alt: "A bright aesthetics clinic with treatment stations below tall city windows" },
       },
       intro: {
         title: "Search is where treatment research starts.",
         paragraphs: [
-          "Clients researching Botox, lasers or skin rejuvenation begin on their phone. Clinics that appear in ads, the map pack and organic results win most of those enquiries.",
-          "We manage search as one system: Google Ads for immediate visibility on signature treatments, SEO for lasting rankings, and a Google Business Profile that turns searches into calls and bookings.",
+          "Clients researching Botox, lasers or skin rejuvenation begin on their phone. Clinics that appear in ads, the map pack and organic results win most of those inquiries.",
+          "We manage search as one system: Google Ads for immediate visibility on signature treatments, SEO for lasting rankings and a Google Business Profile that turns searches into calls and bookings.",
         ],
       },
       offers: [
@@ -215,7 +215,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         },
       ],
       applications: [
-        "Promoting a clinic's signature treatments",
+        "Promoting a clinic’s signature treatments",
         "Filling the calendar for a new associate",
         "Ranking a second location in a nearby city",
         "Driving retail product searches alongside treatment ads",
@@ -224,7 +224,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         { title: "Audit", body: "Your search presence, competitors and current campaigns." },
         { title: "Plan", body: "Treatments, locations and budgets ranked by value." },
         { title: "Launch", body: "Ads, landing pages and SEO work rolled out together." },
-        { title: "Optimize", body: "Enquiries reviewed monthly; budgets shifted to what works." },
+        { title: "Optimize", body: "Inquiries reviewed monthly; budgets shifted to what works." },
       ],
       gallery: [
         { src: `${UP}/2026/02/medical-skincare-marketing.jpg`, alt: "A skincare bottle resting on rippled blue water" },
@@ -304,7 +304,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         { title: "Get to know you", body: "Your team, treatments and what makes the clinic different." },
         { title: "Plan", body: "Themes, formats and a calendar that fits your schedule." },
         { title: "Create", body: "On-site shoots, posts, articles and AI tools, reviewed by you." },
-        { title: "Grow", body: "Engagement and enquiries measured, and the plan refined." },
+        { title: "Grow", body: "Engagement and inquiries measured, and the plan refined." },
       ],
       gallery: [
         { src: "/images/industries/medical-aesthetics/consultation-mirror.jpg", alt: "A clinician holding a mirror for a smiling client during an aesthetic consultation", position: "50% 35%" },
@@ -363,7 +363,7 @@ export const MEDICAL_AESTHETICS: Industry = {
           body: "Repeated local exposure makes your clinic the familiar choice.",
         },
         {
-          title: "Warmth that stills can't show",
+          title: "Warmth that stills can’t show",
           body: "Video lets clients meet your team and see your space before they arrive.",
         },
         {
@@ -384,7 +384,7 @@ export const MEDICAL_AESTHETICS: Industry = {
         { title: "Measure", body: "Reach, branded searches and new client trends tracked." },
       ],
       gallery: [
-        { src: "/images/industries/medical-aesthetics/facial-assessment.jpg", alt: "A practitioner measuring a smiling client's facial proportions with calipers", position: "50% 40%" },
+        { src: "/images/industries/medical-aesthetics/facial-assessment.jpg", alt: "A practitioner measuring a smiling client’s facial proportions with calipers", position: "50% 40%" },
         { src: `${UP}/2026/02/ctv-morning-live.jpg`, alt: "Two people talking on the set of a Vancouver morning television show" },
       ],
       related: [],

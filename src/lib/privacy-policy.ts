@@ -13,7 +13,7 @@ export const PRIVACY_POLICY_OPEN_ITEMS = [
   "Effective date of the policy.",
   "Who handles privacy requests: a named privacy officer or role, and whether info@kosick.com is the right address.",
   "A mailing address for privacy requests (none is published on the site today).",
-  "How long the AI chat assistant keeps conversations and chat leads in WordPress (set in the plugin's retention setting).",
+  "How long the AI chat assistant keeps conversations and chat leads in WordPress (set in the plugin’s retention setting).",
   "How newsletter emails are sent and how people unsubscribe (the sending service is not part of this website).",
   "Whether to state where the database and service providers store data (Canada, United States or both).",
   "Whether Kosick wants cookie consent or Google Consent Mode, which the site does not have today (the WordPress site has neither).",

@@ -7,7 +7,7 @@ import { ServiceHero } from "@/components/sections/ServiceHero";
 import type { ServiceMedia, ServicePageContent } from "@/lib/wordpress/service-page-types";
 import { OutdoorPricing, type OutdoorPrice } from "./OutdoorPricing";
 import { OutdoorJourney } from "./OutdoorJourney";
-import { LocationVisual, TimingVisual } from "./OutdoorFactorVisuals";
+import { OutdoorPrinciples } from "./OutdoorPrinciples";
 import styles from "./OutdoorAdvertisingPage.module.css";
 
 type OutdoorAdvertisingPageProps = {
@@ -25,8 +25,10 @@ const OPENING = {
 };
 
 const BILLBOARD = {
-  src: "/images/outdoor/trane-we-run-together-billboard.jpg",
-  alt: "A Trane We Run Together billboard against downtown towers",
+  src: "/images/outdoor/billboard-showcase.png",
+  alt: "A Blue Heating & Cooling Trane high-efficiency furnace billboard against a clear sky",
+  width: 1428,
+  height: 1064,
 };
 
 const SUPERBOARD = {
@@ -41,28 +43,14 @@ const CAMPAIGN = {
     alt: "An urban roadside billboard on a brick wall as traffic passes",
   },
   transit: {
-    src: `${UPLOADS}/2026/06/arcteryx-billboard-advertising.jpg`,
-    alt: "Arc’teryx Veilance poster in a transit shelter on W Georgia St, Vancouver",
+    src: "/images/outdoor/realtor-transit-shelter.jpg",
+    alt: "A real estate team’s poster in a transit shelter on a city street",
   },
   street: {
     src: "/images/industries/medical-aesthetics/skinfolio-transit-shelter.jpg",
     alt: "Skinfolio street-level digital display on a downtown sidewalk",
   },
 };
-
-const CITY = {
-  src: `${UPLOADS}/2023/06/vancouver-agency.jpg`,
-  alt: "Vancouver skyline and waterfront at sunset",
-};
-
-/* Where outdoor meets people, as the page's own copy describes it */
-const CITY_MARKERS = [
-  { label: "Commute", x: 22, y: 62 },
-  { label: "Shop", x: 48, y: 48 },
-  { label: "Travel", x: 76, y: 58 },
-];
-
-const READABLE = { src: `${UPLOADS}/2023/07/hvac.jpg`, alt: "Ayotte “Upgrade your furnace” billboard" };
 
 /*
  * Starting prices supplied by Kosick, cheapest first. No billing period is
@@ -71,7 +59,7 @@ const READABLE = { src: `${UPLOADS}/2023/07/hvac.jpg`, alt: "Ayotte “Upgrade y
 const PRICES: Array<Omit<OutdoorPrice, "size"> & { scale?: string }> = [
   {
     id: "street-level",
-    name: "Street-Level (TSA)",
+    name: "Transit Shelter Advertising",
     price: "$550",
     description: "Transit shelter posters at eye level, where people wait, walk and shop.",
     scale: "Street level",
@@ -85,7 +73,7 @@ const PRICES: Array<Omit<OutdoorPrice, "size"> & { scale?: string }> = [
     description: "Roadside posters that repeat your message along busy commuter routes.",
     scale: "Billboard",
     plate: "Roadside poster",
-    image: { src: `${UPLOADS}/2024/03/billboard-advertising.webp`, alt: "Belyea Bros. Trane high-efficiency heat pump billboard poster", position: "45% 50%" },
+    image: { src: "/images/outdoor/diva-billboard.jpg", alt: "A Diva Lingerie & Swimwear billboard against a blue sky", position: "50% 50%" },
   },
   {
     id: "transit",
@@ -102,14 +90,8 @@ const PRICES: Array<Omit<OutdoorPrice, "size"> & { scale?: string }> = [
     description: "Oversized premium boards for landmark visibility on major roads.",
     scale: "Superboard",
     plate: "Superboard",
-    image: { src: SUPERBOARD.src, alt: SUPERBOARD.alt, position: "40% 50%" },
+    image: { src: "/images/outdoor/blue-trane-superboard.jpg", alt: "A Blue Heating & Cooling Trane high-efficiency furnace superboard", position: "50% 50%" },
   },
-];
-
-const THREE_THINGS = [
-  { name: "Location", line: "Be where people already move." },
-  { name: "Timing", line: "Build frequency when demand matters." },
-  { name: "Creative", line: "Make the message readable in seconds." },
 ];
 
 const BILLBOARD_LABELS = ["High traffic", "Repeated exposure", "Local reach"];
@@ -148,7 +130,6 @@ function ArrowIcon() {
 const ROUTES = {
   a: { d: "M 0 40 H 320 V 160 H 620 V 300 H 1000", markers: [[320, 40], [620, 160]] },
   b: { d: "M 1000 30 H 700 V 200 H 380 V 330 H 0", markers: [[700, 30], [380, 200]] },
-  c: { d: "M 0 300 H 260 V 120 H 640 V 260 H 1000", markers: [[260, 300], [640, 120]] },
 } as const;
 
 /**
@@ -186,9 +167,14 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
     size: SIZES.find((size) => size.label === sizeLabel)?.display.replace(/ \(about .*\)$/, ""),
   }));
 
+  // The hero rotates the WordPress slides; skip any the page body already shows further down
+  const bodyImages = new Set<string>([OPENING.main.src, OPENING.second.src, ...prices.map((price) => price.image.src)]);
+  const heroSlides = content.hero.slides.filter((slide) => !bodyImages.has(slide.src));
+  const heroWithoutRepeats = { ...content.hero, slides: heroSlides.length > 0 ? heroSlides : content.hero.slides };
+
   return (
     <main className={styles.page}>
-      <ServiceHero title={content.title} hero={content.hero} />
+      <ServiceHero title={content.title} hero={heroWithoutRepeats} />
 
       {/* Billboard exposure on the drive, then the trip to the store: first, directly under the hero */}
       <OutdoorJourney />
@@ -233,11 +219,10 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
       {/* Formats and starting prices; extra bottom room for the billboard to cross into */}
       <OutdoorPricing prices={prices} contactHref={contactHref} className={styles.formats} />
 
-      {/* Billboard: near full width, crossing up into the section above, copy panel set on the image */}
+      {/* Billboard: copy card beside the full-frame photo */}
       <section className={styles.billboard} aria-labelledby="oo-billboard">
-        <Reveal variant="fade" className={styles.bleed}>
-          <Image src={BILLBOARD.src} alt={BILLBOARD.alt} fill sizes="100vw" className={styles.cover} style={{ objectPosition: "50% 35%" }} />
-          <div className={styles.bleedPanel}>
+        <div className={`container ${styles.bleed}`}>
+          <Reveal variant="fadeUp" className={styles.bleedPanel}>
             <p className={styles.kicker}>Billboards</p>
             <h2 id="oo-billboard" className={styles.title}>
               Built to be seen at scale.
@@ -261,8 +246,19 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
                 <ArrowIcon />
               </Link>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+          <Reveal variant="fade" className={styles.bleedMedia}>
+            <Image
+              src={BILLBOARD.src}
+              alt={BILLBOARD.alt}
+              width={BILLBOARD.width}
+              height={BILLBOARD.height}
+              sizes="(min-width: 960px) 55vw, 92vw"
+              className={styles.bleedPhoto}
+              priority={false}
+            />
+          </Reveal>
+        </div>
       </section>
 
       {/* Superboard: image, name, one explanation, then scale */}
@@ -346,7 +342,7 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
               One campaign. Across the city.
             </h2>
             <p className={styles.lead}>
-              Billboards, transit and street-level placements adapted for every environment — retail, clinics, destinations
+              Billboards, transit and street-level placements adapted for every environment: retail, clinics, destinations
               and local brands alike.
             </p>
           </div>
@@ -373,68 +369,7 @@ export function OutdoorAdvertisingPage({ content, mediaOwner }: OutdoorAdvertisi
         </div>
       </section>
 
-      {/* City presence: the skyline, full width, with placement markers */}
-      <section className={styles.city} aria-labelledby="oo-city">
-        <Image src={CITY.src} alt={CITY.alt} fill sizes="100vw" className={styles.cover} />
-        <div className={styles.cityShade} aria-hidden="true" />
-        <ul className={styles.markers} aria-hidden="true">
-          {CITY_MARKERS.map((marker) => (
-            <li key={marker.label} style={{ left: `${marker.x}%`, top: `${marker.y}%` }}>
-              <span className={styles.markerDot} />
-              <span className={styles.markerLabel}>{marker.label}</span>
-            </li>
-          ))}
-        </ul>
-        <div className={`container ${styles.cityCopy}`}>
-          <h2 id="oo-city" className={styles.titleOnDark}>
-            Be seen where the city moves.
-          </h2>
-          <p className={styles.leadOnDark}>On the way to work, at the shops and through the terminals.</p>
-        </div>
-      </section>
-
-      {/* Three things: a compact triptych, each column grounded by a small visual */}
-      <section className={styles.three} aria-labelledby="oo-three">
-        <Route variant="c" />
-        <div className="container">
-          <h2 id="oo-three" className={styles.title}>
-            Outdoor works when three things align.
-          </h2>
-          <ol className={styles.triptych}>
-            <li className={styles.part}>
-              <span className={styles.visualGrid} aria-hidden="true">
-                <LocationVisual />
-              </span>
-              <span className={styles.partNumber}>01</span>
-              <span className={styles.partName}>{THREE_THINGS[0].name}</span>
-              <span className={styles.partLine}>{THREE_THINGS[0].line}</span>
-            </li>
-            <li className={styles.part}>
-              <span className={styles.visualTime} aria-hidden="true">
-                <TimingVisual />
-              </span>
-              <span className={styles.partNumber}>02</span>
-              <span className={styles.partName}>{THREE_THINGS[1].name}</span>
-              <span className={styles.partLine}>{THREE_THINGS[1].line}</span>
-            </li>
-            <li className={styles.part}>
-              <span className={styles.visualCreative} aria-hidden="true">
-                <Image src={READABLE.src} alt="" fill sizes="(min-width: 960px) 30vw, 100vw" className={styles.cover} style={{ objectPosition: "48% 30%" }} />
-              </span>
-              <span className={styles.partNumber}>03</span>
-              <span className={styles.partName}>{THREE_THINGS[2].name}</span>
-              <span className={styles.partLine}>{THREE_THINGS[2].line}</span>
-            </li>
-          </ol>
-          {mediaOwner?.src ? (
-            <p className={styles.partner}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={mediaOwner.src} alt="Pattison Outdoor Advertising" />
-              <span>Rates negotiated directly with media owners, including Pattison Outdoor Advertising.</span>
-            </p>
-          ) : null}
-        </div>
-      </section>
+      <OutdoorPrinciples mediaOwner={mediaOwner} />
 
       {content.faqs && content.faqs.items.length > 0 ? (
         <FaqAccordion eyebrow={content.faqs.eyebrow} title={content.faqs.title} items={content.faqs.items} />

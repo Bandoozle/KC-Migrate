@@ -808,18 +808,9 @@
   transform: translateY(-50%);
 }
 
-/* Planning: a timeline ruler sits over the drifting stages */
+/* Planning */
 .plan {
   background: #eef3f6;
-}
-
-.ruler {
-  height: 22px;
-  margin-top: clamp(1.75rem, 3vw, 2.5rem);
-  background:
-    repeating-linear-gradient(90deg, rgba(10, 12, 17, 0.45) 0 1px, transparent 1px 80px) bottom / 100% 14px no-repeat,
-    repeating-linear-gradient(90deg, rgba(10, 12, 17, 0.2) 0 1px, transparent 1px 16px) bottom / 100% 7px no-repeat;
-  border-bottom: 1px solid rgba(10, 12, 17, 0.25);
 }
 
 /* Targeting: signals flow along the connectors into the placement and out to each screen */
@@ -899,4 +890,354 @@
   border-radius: 12px;
   background: rgba(63, 216, 255, 0.16);
   color: var(--signal-ink);
+}
+
+/* ================= Connected TV rebuild (Nov 2026) ================= */
+
+/* What Connected TV is */
+.about {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  background: #ffffff;
+}
+
+.aboutGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: center;
+}
+
+.aboutGrid .lead {
+  max-width: 40rem;
+}
+
+.aboutListTitle {
+  margin: 1.75rem 0 0.75rem;
+  font-size: var(--kosick-card-title-size);
+  font-weight: 600;
+}
+
+.aboutList {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.aboutList li {
+  position: relative;
+  padding-left: 1.4rem;
+  color: #141414;
+  line-height: 1.5;
+}
+
+.aboutList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  background: var(--ink);
+}
+
+.aboutPhoto {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-md);
+  background: #e4e4e1;
+}
+
+/* Traditional TV and streaming TV */
+.versus {
+  padding: clamp(4rem, 8vw, 6.5rem) 0;
+  background:
+    radial-gradient(40rem 22rem at 80% 10%, rgba(123, 216, 143, 0.12), transparent 65%),
+    var(--ink);
+  color: #ffffff;
+}
+
+.versus .leadOnDark {
+  max-width: 46rem;
+}
+
+/* Scoped: the site-wide rule sets link colour to inherit */
+.versus .leadOnDark a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.compareStudio {
+  display: grid;
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.compareCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.compareCard {
+  overflow: hidden;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.compareCard[data-accent="true"] {
+  box-shadow:
+    inset 0 0 0 1px rgba(123, 216, 143, 0.28),
+    0 24px 48px -36px rgba(123, 216, 143, 0.35);
+}
+
+.compareMedia {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #1a1b1f;
+}
+
+.compareBadge {
+  position: absolute;
+  left: 0.85rem;
+  top: 0.85rem;
+  z-index: 1;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(15, 15, 16, 0.78);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.compareChrome {
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.85rem;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.compareAd {
+  padding: 0.2rem 0.45rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0f0f10;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.compareScrub {
+  height: 0.28rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.compareScrub i {
+  display: block;
+  width: 48%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.compareTime {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.compareCopy {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1.1rem 1.15rem 1.2rem;
+}
+
+.compareName,
+.compareNameAccent {
+  margin: 0;
+  font-size: var(--kosick-card-title-size);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.compareNameAccent {
+  color: var(--accent);
+}
+
+.compareLine {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.compareTabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.compareTab {
+  padding: 0.7rem 0.75rem;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.62);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.compareTab[aria-selected="true"] {
+  background: rgba(123, 216, 143, 0.92);
+  color: #0f0f10;
+}
+
+.compareTab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.compareDetail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 1rem 1.25rem;
+  align-items: start;
+  padding: 1.15rem 1.2rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  animation: compareIn 0.3s ease both;
+}
+
+@keyframes compareIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.compareSide {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.compareIcon,
+.compareIconAccent {
+  display: grid;
+  place-items: center;
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.compareIconAccent {
+  background: rgba(123, 216, 143, 0.16);
+  color: var(--accent);
+}
+
+.compareSideLabel,
+.compareSideLabelAccent {
+  margin: 0 0 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.compareSideLabelAccent {
+  color: var(--accent);
+}
+
+.compareSideBody {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.compareDivider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* Local market visibility, under the targeting figure */
+.local {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2rem);
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 0;
+  padding: clamp(1.75rem, 3vw, 2.25rem) 0 0;
+  border-top: 1px solid var(--rule);
+  list-style: none;
+}
+
+.localTitle {
+  margin: 0 0 0.4rem;
+  font-size: var(--kosick-card-title-size);
+  font-weight: 600;
+}
+
+.localBody {
+  margin: 0;
+  color: var(--kosick-color-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 959px) {
+  .aboutGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .local {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 899px) {
+  .compareCards,
+  .compareDetail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .compareDivider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .compareTabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-radius: 18px;
+  }
+}
+
+@media (max-width: 639px) {
+  .compareTabs {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }

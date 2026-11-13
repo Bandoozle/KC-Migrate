@@ -14,7 +14,7 @@ export function RetailJourney() {
     <JourneyFrame
       industry="retail"
       title="Attention on the street. Sales at the checkout."
-      lead="Outdoor stops people, the brand holds them, and digital makes it easy to buy. We run them as one campaign, so the path from the ad to the order stays connected."
+      lead="Outdoor stops people, the brand holds them and digital makes it easy to buy. We run them as one campaign, so the path from the ad to the order stays connected."
       summary="Illustration: a shopper sees your ad on the street, finds the coat online, chooses a size and orders it for pickup at your store."
       side="right"
       story="tabs"

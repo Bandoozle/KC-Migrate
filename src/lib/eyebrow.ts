@@ -6,7 +6,7 @@
  * add context (categories, prices, platforms) are kept in sentence case.
  */
 
-const ACRONYMS = new Set(["TV", "CTV", "OTT", "SEO", "UX", "UI", "USA", "HVAC", "ROI", "PPC", "AI", "GRP", "GRPS", "TSA", "B2B", "GA4", "QR", "URL"]);
+const ACRONYMS = new Set(["TV", "CTV", "OTT", "SEO", "UX", "UI", "USA", "HVAC", "ROI", "PPC", "AI", "GRP", "GRPS", "TSA", "B2B", "GA4", "QR", "URL", "HTML", "CRM", "RFP", "IP", "PPM", "SMS"]);
 
 const PROPER_NOUNS = new Map(
   [
@@ -24,6 +24,16 @@ const PROPER_NOUNS = new Map(
     "Shopify",
     "WooCommerce",
     "FortisBC",
+    "Facebook",
+    "Meta",
+    "Instagram",
+    "TikTok",
+    "YouTube",
+    "LinkedIn",
+    "Pinterest",
+    "HubSpot",
+    "Klaviyo",
+    "WordPress",
   ].map((word) => [word.toLowerCase(), word]),
 );
 
@@ -61,6 +71,8 @@ export function labelCase(value: string): string {
   const cased = value
     .trim()
     .replace(/[A-Za-z][A-Za-z0-9'’]*/g, (word, offset: number, full: string) => {
+      // Units fused to a number stay as written: 8K, 3D, 4K
+      if (offset > 0 && /\d/.test(full[offset - 1])) return word;
       const upper = word.toUpperCase();
       if (ACRONYMS.has(upper)) return upper === "GRPS" ? "GRPs" : upper;
       const proper = PROPER_NOUNS.get(word.toLowerCase());

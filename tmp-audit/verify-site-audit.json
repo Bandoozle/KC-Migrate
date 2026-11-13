@@ -1,0 +1,264 @@
+{
+  "report": [
+    {
+      "name": "P1 Espresso video null",
+      "present": true,
+      "detail": "video:null photos:[]"
+    },
+    {
+      "name": "P1 Google Ads route",
+      "present": true
+    },
+    {
+      "name": "P1 ChatGPT Ads route",
+      "present": true
+    },
+    {
+      "name": "P1 CTV nav label",
+      "present": true,
+      "detail": [
+        "src/components/sections/digital-video/DigitalVideoAdvertisingPage.tsx:288: A mix of Connected TV, linear TV and digital video, planned for reach and frequency at efficient rates.",
+        "src/components/sections/services-overview/ServicesOverview.tsx:170: lead=\"Television, radio, outdoor and digital video, planned and bought as one media mix.\"",
+        "src/content/articles/how-to-buy-tv-advertising-in-canada.json:1: {\"id\":11042,\"date\":\"2025-12-15T11:24:42\",\"date_gmt\":\"2025-12-15T19:24:42\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11042\"},\"modified\":\"2026-06-30T08:35",
+        "src/content/articles/media-buyer-canada-us.json:1: {\"id\":11088,\"date\":\"2026-01-27T12:48:48\",\"date_gmt\":\"2026-01-27T20:48:48\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11088\"},\"modified\":\"2026-07-14T22:07",
+        "src/content/articles/media-buying-canada.json:1: {\"id\":11303,\"date\":\"2026-02-25T20:51:30\",\"date_gmt\":\"2026-02-26T04:51:30\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11303\"},\"modified\":\"2026-07-14T22:05",
+        "src/content/articles/understanding-digital-pre-roll-advertising.json:1: {\"id\":10976,\"date\":\"2025-10-15T10:25:24\",\"date_gmt\":\"2025-10-15T17:25:24\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=10976\"},\"modified\":\"2026-07-04T21:18",
+        "src/content/pages/digital-connected-tv.json:1: {\"id\":8799,\"date\":\"2024-03-05T20:22:41\",\"date_gmt\":\"2024-03-06T04:22:41\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=8799\"},\"modified\":\"2026-07-04T2",
+        "src/content/pages/radio-advertising.json:1: {\"id\":9061,\"date\":\"2024-03-15T19:06:56\",\"date_gmt\":\"2024-03-16T03:06:56\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=9061\"},\"modified\":\"2026-07-04T2"
+      ]
+    },
+    {
+      "name": "P3 contact H1 spacing comment",
+      "hits": [
+        "src/components/contact/ContactPageView.tsx:46: {/* The space keeps the heading text \"Let’s make something happen.\" for search and screen readers */}"
+      ]
+    },
+    {
+      "name": "P3 growth.today broken content",
+      "hits": [
+        "src/content/articles/importance-of-social-media-marketing.json:1: {\"id\":10781,\"date\":\"2025-07-21T08:45:19\",\"date_gmt\":\"2025-07-21T15:45:19\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=10781\"},\"modified\":\"2026-07-06T17:54"
+      ]
+    },
+    {
+      "name": "P3 packaging image note",
+      "hits": []
+    },
+    {
+      "name": "P3 screenshot collection note",
+      "hits": []
+    },
+    {
+      "name": "P4 adverting typo",
+      "hits": []
+    },
+    {
+      "name": "P4 Our process includes.",
+      "hits": []
+    },
+    {
+      "name": "P4 broadcast channel comma splice",
+      "hits": []
+    },
+    {
+      "name": "P4 look good they perform",
+      "hits": []
+    },
+    {
+      "name": "P4 marketshare",
+      "hits": [
+        "src/content/articles/golf-marketing-digital-marketing-vancouver.json:1: {\"id\":11266,\"date\":\"2026-02-18T20:54:26\",\"date_gmt\":\"2026-02-19T04:54:26\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11266\"},\"modified\":\"2026-07-06T17:31"
+      ]
+    },
+    {
+      "name": "P4 re branded",
+      "hits": [
+        "src/content/articles/connected-tv-advertising-canada.json:1: {\"id\":11212,\"date\":\"2026-02-05T22:07:18\",\"date_gmt\":\"2026-02-06T06:07:18\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11212\"},\"modified\":\"2026-07-04T21:10",
+        "src/content/articles/digital-marketing-vs-traditional-advertising.json:1: {\"id\":11045,\"date\":\"2025-12-15T11:51:00\",\"date_gmt\":\"2025-12-15T19:51:00\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11045\"},\"modified\":\"2026-07-04T21:18",
+        "src/lib/wordpress/home.ts:311: \"The Kosick Communications team have been incredible to work with! They have strategically rebranded our premium clinic, actively manage our social media accoun"
+      ]
+    },
+    {
+      "name": "P4 Areas of Services Expertise",
+      "hits": []
+    },
+    {
+      "name": "P5 Marketing Strategist creative",
+      "hits": []
+    },
+    {
+      "name": "P5 Results driven",
+      "hits": []
+    },
+    {
+      "name": "P5 Design to tangible",
+      "hits": []
+    },
+    {
+      "name": "P5 General notes",
+      "hits": [
+        "src/components/industry/IndustryReasons.tsx:100: /* Construction: a drawing sheet. Main view with a dimension line, an inset detail, general notes and a title block. */"
+      ]
+    },
+    {
+      "name": "P5 One coordinated program",
+      "hits": [
+        "src/components/sections/MarketingProgramDirectory.tsx:249: <span className={styles.layerName}>One coordinated program</span>"
+      ]
+    },
+    {
+      "name": "P5 Web Store CTA",
+      "hits": []
+    },
+    {
+      "name": "P5 undivided attention",
+      "hits": [
+        "src/lib/content/industry-heroes.ts:87: \"Radio earns something rare: undivided attention during the drive, the workout and the workday.\","
+      ]
+    },
+    {
+      "name": "P6 Great creative grabs attention",
+      "hits": [
+        "src/content/pages/creative.json:1: {\"id\":4753,\"date\":\"2022-02-16T14:35:42\",\"date_gmt\":\"2022-02-16T22:35:42\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=4753\"},\"modified\":\"2026-07-04T2",
+        "src/lib/content/industry-heroes.ts:108: \"Great creative grabs attention, engages the senses and inspires action.\","
+      ]
+    },
+    {
+      "name": "P6 pressure-test each opportunity",
+      "hits": [
+        "src/components/sections/business-development/GrowthPlan.tsx:58: note: \"Whether you are entering a new market, launching a product or scaling an established operation, we pressure-test each opportunity before you commit resou",
+        "src/content/pages/business-development.json:1: {\"id\":6899,\"date\":\"2023-06-16T09:33:55\",\"date_gmt\":\"2023-06-16T17:33:55\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=6899\"},\"modified\":\"2026-07-04T2"
+      ]
+    },
+    {
+      "name": "P6 Proudly Servicing",
+      "hits": [
+        "src/lib/seo/rank-math-snapshot.json:1985: \"description\": \"A full service retail, Branding, digital agency focused on measurable results. Proudly servicing clients in Canada, USA & Mexico. Contact Us\",",
+        "src/lib/seo/rank-math-snapshot.json:1990: \"ogDescription\": \"A full service retail, Branding, digital agency focused on measurable results. Proudly servicing clients in Canada, USA & Mexico. Contact Us\","
+      ]
+    },
+    {
+      "name": "P7 enquiry",
+      "hits": []
+    },
+    {
+      "name": "P7 behavioral",
+      "hits": []
+    },
+    {
+      "name": "P8 em dash sample",
+      "hits": [
+        "src/app/globals.css:23: /* Hide Kadence \"scroll to top\" — it stacks under the AI chat launcher. */",
+        "src/components/contact/ContactForm.tsx:70: // Fire only after the API confirms the lead was stored or delivered — never on validation failure.",
+        "src/components/contact/ContactPageView.tsx:12: * Recognizable brands from campaigns and co-op across industries — past and",
+        "src/components/home/HomeInstagram.module.css:2: * Homepage Instagram gallery — refined WordPress Smash Balloon layout:",
+        "src/components/home/HomePartners.tsx:46: * Brands: campaigns and manufacturer co-op across industries — past and present.",
+        "src/components/home/HomeQuote.module.css:3: * quote-forward rail — compact portrait flush to the content-rail right edge.",
+        "src/components/home/HomeQuote.tsx:16: * and restrained depth — not a flat black testimonial slab.",
+        "src/components/home/HomeTestimonials.module.css:22: /* Keep card borders inside the scrollport — overflow clips edge borders otherwise */",
+        "src/components/layout/site-footer-data.ts:44: * Services column — labels from the WordPress footer.",
+        "src/components/layout/site-header-data.ts:84: /** Primary navigation — top-level categories with two-column panels. */",
+        "src/components/layout/SiteFooter.module.css:61: /* Official badge uses dark grey type — sit it on a light pad so it stays legible */",
+        "src/components/sections/business-development/AdvisoryExplorer.module.css:3: * its edge — no soft card chrome.",
+        "src/components/sections/business-development/BusinessDevelopmentPage.module.css:2: * Strategic Business Development — premium advisory identity.",
+        "src/components/sections/business-development/BusinessDevelopmentPage.module.css:173: /* Sales: cool stone band — engine sits as dark editorial block */",
+        "src/components/sections/business-development/BusinessDevelopmentPage.module.css:184: /* Legal: warm paper — dossier is the visual event */"
+      ]
+    },
+    {
+      "name": "P8 ad dollars",
+      "hits": []
+    },
+    {
+      "name": "P8 real-time noun",
+      "hits": []
+    },
+    {
+      "name": "P8 Street-Level \\(TSA\\)",
+      "hits": [
+        "src/content/articles/outdoor-advertising-maximize-local-impact.json:1: {\"id\":10817,\"date\":\"2025-07-25T09:49:31\",\"date_gmt\":\"2025-07-25T16:49:31\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=10817\"},\"modified\":\"2026-07-04T19:13",
+        "src/content/pages/outdoor-advertising.json:1: {\"id\":8192,\"date\":\"2023-07-10T08:16:20\",\"date_gmt\":\"2023-07-10T16:16:20\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=8192\"},\"modified\":\"2026-07-04T2"
+      ]
+    },
+    {
+      "name": "P8 Skinfolio Medesthetics count",
+      "hits": [
+        "src/components/sections/MedicalAestheticsMarketingPage.tsx:220: <p className={styles.labelOnDark}>Skinfolio Medesthetics</p>",
+        "src/components/sections/MedicalAestheticsMarketingPage.tsx:225: Brand, website, e-commerce and campaigns planned so Skinfolio Medesthetics feels as considered online as",
+        "src/components/sections/website/WebsiteShowcase.tsx:75: \"skinfolio medesthetics\": {",
+        "src/content/pages/website-development.json:1: {\"id\":5722,\"date\":\"2022-02-24T19:19:08\",\"date_gmt\":\"2022-02-25T03:19:08\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=5722\"},\"modified\":\"2026-07-22T2",
+        "src/lib/content/marketing-program-directory.ts:54: \"Marketing for medical aesthetics clinics like Skinfolio Medesthetics: websites, search, social and brand campaigns that fill treatment calendars and grow produ",
+        "src/lib/industries/medical-aesthetics.ts:6: * Medical Aesthetics Marketing. Featured client work includes Skinfolio Medesthetics",
+        "src/lib/industries/medical-aesthetics.ts:89: lead: \"We build medical aesthetics websites that feel calm and credible, explain treatments clearly and connect booking with retail, as on Skinfolio Medesthetic"
+      ]
+    },
+    {
+      "name": "P8 outdoor rates $550",
+      "hits": [
+        "src/components/contact/ContactNextSteps.module.css:378: animation: step-bar 550ms var(--ease) both;",
+        "src/components/sections/outdoor/OutdoorAdvertisingPage.tsx:75: price: \"$550\",",
+        "src/content/articles/ad-creative-digital-tv-advertising.json:1: {\"id\":11032,\"date\":\"2025-12-01T22:18:15\",\"date_gmt\":\"2025-12-02T06:18:15\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11032\"},\"modified\":\"2026-06-30T08:32",
+        "src/content/articles/how-to-buy-tv-advertising-in-canada.json:1: {\"id\":11042,\"date\":\"2025-12-15T11:24:42\",\"date_gmt\":\"2025-12-15T19:24:42\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11042\"},\"modified\":\"2026-06-30T08:35",
+        "src/content/articles/hvac-website-development.json:1: {\"id\":11310,\"date\":\"2026-03-02T21:51:45\",\"date_gmt\":\"2026-03-03T05:51:45\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?p=11310\"},\"modified\":\"2026-07-04T18:40",
+        "src/content/pages/contact.json:1: {\"id\":15,\"date\":\"2019-11-25T19:51:39\",\"date_gmt\":\"2019-11-25T19:51:39\",\"guid\":{\"rendered\":\"https://demos.kadencewp.com/blocks-agency/?page_id=15\"},\"modified\":\"2",
+        "src/content/pages/outdoor-advertising.json:1: {\"id\":8192,\"date\":\"2023-07-10T08:16:20\",\"date_gmt\":\"2023-07-10T16:16:20\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=8192\"},\"modified\":\"2026-07-04T2",
+        "src/content/pages/social-media-marketing.json:1: {\"id\":10744,\"date\":\"2025-11-20T21:21:02\",\"date_gmt\":\"2025-11-21T05:21:02\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=10744\"},\"modified\":\"2026-07-21"
+      ]
+    },
+    {
+      "name": "P9 nav Web label",
+      "hits": [
+        "src/components/contact/ContactNextSteps.tsx:49: { label: \"Web\", y: 150, d: \"M274 150 C 236 150, 236 90, 200 90\" },",
+        "src/components/layout/site-header-data.ts:145: label: \"Web\","
+      ]
+    },
+    {
+      "name": "P9 2025 Expert Guide",
+      "hits": []
+    },
+    {
+      "name": "P11 MSZR",
+      "hits": []
+    },
+    {
+      "name": "P11 Co-Op Compliance",
+      "hits": [
+        "src/components/sections/hvac/HvacMarketingPage.tsx:172: // The co-op compliance rate is left out: it depends on dealer purchases, not on Kosick (Bretton, Nov 2026)",
+        "src/content/pages/hvac-marketing.json:1: {\"id\":11571,\"date\":\"2026-03-04T23:26:46\",\"date_gmt\":\"2026-03-05T07:26:46\",\"guid\":{\"rendered\":\"https://staging.kosick.com/?page_id=11571\"},\"modified\":\"2026-09-14"
+      ]
+    },
+    {
+      "name": "P11 Mailchimp partners",
+      "hits": [
+        "src/components/sections/website/PlatformLogos.tsx:6: * Shopify Partner badge can replace the first one when it's available."
+      ]
+    }
+  ],
+  "bd": {
+    "vancouver-agency.jpg": [
+      {
+        "rel": "src/components/sections/business-development/BusinessDevelopmentPage.tsx",
+        "n": 1
+      }
+    ],
+    "corporate-events.webp": [
+      {
+        "rel": "src/components/sections/business-development/SalesEngine.tsx",
+        "n": 1
+      }
+    ],
+    "legal-heritage-building-flag.jpg": [
+      {
+        "rel": "src/components/sections/business-development/DealFile.tsx",
+        "n": 1
+      }
+    ],
+    "exit-harbour-sunset.jpg": [
+      {
+        "rel": "src/components/sections/business-development/ExitPhoto.tsx",
+        "n": 1
+      }
+    ]
+  },
+  "espressoAssets": [],
+  "fileCount": 546
+}

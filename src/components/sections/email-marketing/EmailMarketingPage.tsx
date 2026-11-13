@@ -114,7 +114,7 @@ export function EmailMarketingPage({ content }: EmailMarketingPageProps) {
                   {offers.map((offer, index) => (
                     <Reveal key={offer.id} as="li" delay={index * 90} className={styles.message}>
                       <span className={styles.unread} aria-hidden="true" />
-                      <span className={styles.subject}>{offer.title}</span>
+                      <span className={styles.subject}>{labelCase(offer.title)}</span>
                       <span className={styles.tag}>{TAGS[index] ?? "Email"}</span>
                       {offer.body ? <span className={styles.preview}>{offer.body}</span> : null}
                     </Reveal>
@@ -250,7 +250,7 @@ export function EmailMarketingPage({ content }: EmailMarketingPageProps) {
                     <span className={styles.folder}>
                       <FolderIcon />
                     </span>
-                    <span className={styles.columnName}>{service.title}</span>
+                    <span className={styles.columnName}>{labelCase(service.title)}</span>
                     {service.items && service.items.length > 0 ? (
                       <span className={styles.count} aria-label={`${service.items.length} items`}>
                         {service.items.length}
@@ -260,7 +260,7 @@ export function EmailMarketingPage({ content }: EmailMarketingPageProps) {
                   {service.items && service.items.length > 0 ? (
                     <ul className={styles.items}>
                       {service.items.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item}>{labelCase(item)}</li>
                       ))}
                     </ul>
                   ) : null}

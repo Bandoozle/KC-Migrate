@@ -4,9 +4,9 @@ import { DentalMarketingPage as DentalMarketingView } from "@/components/section
 import { getDentalMarketingContent } from "@/lib/wordpress/marketing-program";
 
 
-const TITLE = "Dental Marketing To Grow Your Practice | Kosick Communications";
+const TITLE = "Dental Marketing Agency | Kosick Communications";
 const DESCRIPTION =
-  "Dental marketing built to attract new patients and grow your practice. Kosick plans websites, search, social and advertising for Canadian dental clinics. Book a free strategy call.";
+  "Dental marketing that brings in new patients: websites, search, social and advertising for Canadian dental practices. Book a free strategy call.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const metadata = await rankMathMetadata("/services/dental-marketing/");

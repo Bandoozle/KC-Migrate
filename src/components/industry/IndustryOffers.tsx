@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionTitle } from "@/components/typography";
-import { servicePath, type Industry, type IndustryId } from "@/lib/industries";
+import { servicePath, type Industry, type IndustryId, type IndustryService } from "@/lib/industries";
+import { PAGE_IMAGES_OUTSIDE_OFFERS } from "@/lib/industries/page-images";
 import "@/styles/industry-themes.css";
 import styles from "./IndustryOffers.module.css";
 
@@ -35,6 +36,19 @@ function ArrowIcon() {
   );
 }
 
+/**
+ * A card photograph the page is not already showing: the card image first, then the
+ * service hero and gallery. Falls back to the card image when every option is taken.
+ */
+function pickCardImage(service: IndustryService, taken: Set<string>) {
+  const options = [service.card, service.hero.image, ...service.gallery].filter(
+    (option): option is NonNullable<typeof option> => Boolean(option),
+  );
+  const choice = options.find((option) => !taken.has(option.src)) ?? options[0]!;
+  taken.add(choice.src);
+  return choice;
+}
+
 type IndustryOffersProps = {
   industry: Industry;
   /** Section heading id, unique on the page. */
@@ -46,6 +60,8 @@ type IndustryOffersProps = {
 export function IndustryOffers({ industry, headingId = "industry-offers", className }: IndustryOffersProps) {
   const layout = LAYOUT[industry.id];
   const { offersIntro, services } = industry;
+  const taken = new Set<string>(PAGE_IMAGES_OUTSIDE_OFFERS[industry.id] ?? []);
+  const cardImages = services.map((service) => pickCardImage(service, taken));
 
   return (
     <section
@@ -68,7 +84,7 @@ export function IndustryOffers({ industry, headingId = "industry-offers", classN
         ) : null}
         <ul className={styles.grid} data-count={services.length}>
           {services.map((service, index) => {
-            const image = service.card ?? service.hero.image;
+            const image = cardImages[index]!;
             return (
               <Reveal key={service.slug} as="li" delay={index * 80} className={styles.item}>
                 <Link href={servicePath(industry, service)} className={styles.card}>

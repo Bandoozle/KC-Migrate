@@ -7,6 +7,7 @@ import { SiteMapIndustries } from "@/components/sections/site-map/SiteMapIndustr
 import { INDUSTRY_LINKS } from "@/lib/industries/nav";
 import styles from "@/components/sections/site-map/SiteMap.module.css";
 import { SectionTitle } from "@/components/typography";
+import { getFeatureArticlesContent } from "@/lib/wordpress/feature-articles";
 import { getSiteMapContent } from "@/lib/wordpress/site-map";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -14,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function SiteMapPage() {
-  const content = await getSiteMapContent();
+  const [content, featureArticles] = await Promise.all([getSiteMapContent(), getFeatureArticlesContent()]);
   // WordPress lists pages and feature articles as separate headed lists
   const articleSection = content.sections.find((section) => /article/i.test(section.title));
   const wordpressPages = content.sections.filter((section) => section !== articleSection).flatMap((section) => section.links);
@@ -23,8 +24,12 @@ export default async function SiteMapPage() {
   const pages = [
     ...wordpressPages.map((link) => ({ ...link, label: industryNames.get(link.href) ?? link.label })),
     ...INDUSTRY_LINKS.filter((link) => !wordpressPages.some((page) => page.href === link.href)).map((link) => ({ ...link })),
+    // Service pages built on the new site
+    { label: "Google Ads Management", href: "/services/google-ads-management/" },
+    { label: "ChatGPT Ads Management", href: "/services/chatgpt-ads-management/" },
   ];
-  const articles = articleSection?.links ?? [];
+  // Every published article, from the same list as Feature Articles (the WordPress site map stopped at 29)
+  const articles = featureArticles.articles.map((article) => ({ label: article.title, href: article.href }));
 
   return (
     <main>

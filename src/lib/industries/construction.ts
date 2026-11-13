@@ -17,8 +17,8 @@ export const CONSTRUCTION: Industry = {
     lead: "A website built to win the shortlist, social media that shows the work, and content that proves you know the trade.",
   },
   cta: {
-    title: "Let's build your pipeline.",
-    description: "Tell us about the projects you want more of. We'll plan the marketing to bring them in.",
+    title: "Let’s build your pipeline.",
+    description: "Tell us about the projects you want more of. We’ll plan the marketing to bring them in.",
   },
   landing: {
     seo: {
@@ -36,7 +36,7 @@ export const CONSTRUCTION: Industry = {
       title: "Your work is the best sales tool you have.",
       paragraphs: [
         "Construction clients are making one of the largest purchases of their lives. Before they call, they look at your past projects, check your reviews and decide whether you seem organized, skilled and trustworthy.",
-        "Our job is to make that judgment easy. We show your finished work and your process, explain your services clearly and make it simple to request a consultation, so the enquiries you get are for the projects you actually want.",
+        "Our job is to make that judgment easy. We show your finished work and your process, explain your services clearly and make it simple to request a consultation, so the inquiries you get are for the projects you actually want.",
       ],
     },
     reasonsTitle: "Planned for long, considered decisions.",
@@ -51,7 +51,7 @@ export const CONSTRUCTION: Industry = {
       },
       {
         title: "The right projects",
-        body: "We target the work you want more of, whether that's custom homes, renovations or commercial builds.",
+        body: "We target the work you want more of, whether that’s custom homes, renovations or commercial builds.",
       },
       {
         title: "Built for busy crews",
@@ -83,7 +83,7 @@ export const CONSTRUCTION: Industry = {
       intro: {
         title: "Built to make the shortlist.",
         paragraphs: [
-          "A prospective client may visit your website several times over weeks or months, often comparing you with two or three other builders. Each visit has to reinforce the same impression: quality work, a clear process and a team that's easy to work with.",
+          "A prospective client may visit your website several times over weeks or months, often comparing you with two or three other builders. Each visit has to reinforce the same impression: quality work, a clear process and a team that’s easy to work with.",
           "We build construction websites around project portfolios with real photography, service pages for each type of work and a consultation form that asks the right questions, so you can qualify leads before the first site visit.",
         ],
       },
@@ -94,11 +94,11 @@ export const CONSTRUCTION: Industry = {
         },
         {
           title: "Service & process pages",
-          body: "Clear pages for custom homes, renovations, additions or commercial work, and an explanation of how a project runs from first meeting to handover.",
+          body: "Clear pages for custom homes, renovations, additions or commercial work and an explanation of how a project runs from first meeting to handover.",
         },
         {
           title: "Consultation requests",
-          body: "Enquiry forms that capture project type, budget range, location and timing, delivered to your inbox or CRM with tracking.",
+          body: "Inquiry forms that capture project type, budget range, location and timing, delivered to your inbox or CRM with tracking.",
         },
       ],
       deliverables: [
@@ -113,7 +113,7 @@ export const CONSTRUCTION: Industry = {
       benefits: [
         {
           title: "Better-qualified leads",
-          body: "Detailed forms and clear information filter out projects that don't fit.",
+          body: "Detailed forms and clear information filter out projects that don’t fit.",
         },
         {
           title: "A portfolio that keeps growing",
@@ -160,7 +160,7 @@ export const CONSTRUCTION: Industry = {
       intro: {
         title: "Show the work while it happens.",
         paragraphs: [
-          "Future clients want to see how you work, not only the finished photo. Progress updates, site walkthroughs and before-and-after reveals show your craftsmanship and your organization in a way a portfolio can't.",
+          "Future clients want to see how you work, not only the finished photo. Progress updates, site walkthroughs and before-and-after reveals show your craftsmanship and your organization in a way a portfolio can’t.",
           "We plan the content with you, gather photos and video from site without slowing the crew, and run targeted campaigns that reach homeowners and developers in the areas you build.",
         ],
       },
@@ -171,7 +171,7 @@ export const CONSTRUCTION: Industry = {
         },
         {
           title: "Channel management",
-          body: "Posting and community management on Instagram, Facebook, LinkedIn and YouTube, in your company's voice.",
+          body: "Posting and community management on Instagram, Facebook, LinkedIn and YouTube, in your company’s voice.",
         },
         {
           title: "Paid social campaigns",
@@ -211,7 +211,7 @@ export const CONSTRUCTION: Industry = {
         { title: "Plan", body: "Projects to feature and the story of each one." },
         { title: "Capture", body: "Photos and video from site, on your schedule." },
         { title: "Publish & promote", body: "Organic posts and paid campaigns working together." },
-        { title: "Report", body: "Reach, engagement and enquiries reviewed monthly." },
+        { title: "Report", body: "Reach, engagement and inquiries reviewed monthly." },
       ],
       gallery: [
         { src: `${UP}/2023/06/real-estate-design-1.jpg`, alt: "A modern home with a glass balcony above a pool" },
@@ -230,8 +230,8 @@ export const CONSTRUCTION: Industry = {
       },
       hero: {
         label: "Construction content development",
-        title: "Answer the questions before they're asked.",
-        lead: "How long will it take? What will it cost? How do you handle permits? We create case studies, guides, photography and video that answer the questions construction clients ask, and show why you're the builder to trust.",
+        title: "Answer the questions before they’re asked.",
+        lead: "How long will it take? What will it cost? How do you handle permits? We create case studies, guides, photography and video that answer the questions construction clients ask, and show why you’re the builder to trust.",
         image: { src: `${UP}/2023/06/KOSICK-MODEL-LOWER-LEVEL-MARCH-17-2023-ROUGH-2-1-e1686846929767.jpg`, alt: "An architectural rendering of a concrete home on a rocky hillside" },
       },
       intro: {
@@ -279,13 +279,13 @@ export const CONSTRUCTION: Industry = {
         },
       ],
       applications: [
-        "Case studies for a builder's best projects",
+        "Case studies for a builder’s best projects",
         "A renovation planning guide for the website",
         "Pre-sale renderings for a new development",
         "Walkthrough videos of completed homes",
       ],
       approach: [
-        { title: "Interview", body: "Your team's knowledge and your clients' common questions." },
+        { title: "Interview", body: "Your team’s knowledge and your clients' common questions." },
         { title: "Plan", body: "Topics, formats and where each piece will be used." },
         { title: "Produce", body: "Writing, photography, video and renderings." },
         { title: "Distribute", body: "Published on the site, shared on social and used in sales." },

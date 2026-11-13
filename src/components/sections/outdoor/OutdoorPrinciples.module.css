@@ -1,0 +1,232 @@
+.root {
+  --ink: #101010;
+  --linen: #f8f6f1;
+  --rule: rgba(17, 17, 17, 0.14);
+  --accent: #d93b30;
+  --block: var(--kosick-block-compact);
+  color: #141414;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.title,
+.titleOnDark {
+  margin: 0;
+  font-family: var(--kosick-font);
+  font-size: var(--kosick-section-title-size);
+  font-weight: var(--kosick-section-title-weight);
+  letter-spacing: var(--kosick-section-title-tracking);
+  line-height: var(--kosick-section-title-leading);
+}
+
+.titleOnDark {
+  color: #ffffff;
+}
+
+.leadOnDark {
+  margin: 1rem 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: var(--kosick-section-desc-size);
+  line-height: var(--kosick-section-desc-leading);
+}
+
+.city {
+  position: relative;
+  min-height: clamp(26rem, 48vw, 38rem);
+  overflow: hidden;
+  background: var(--ink);
+  color: #ffffff;
+}
+
+.cityShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(10, 10, 10, 0.82) 0%, rgba(10, 10, 10, 0.25) 55%, rgba(10, 10, 10, 0.1) 100%);
+}
+
+.markers {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.markers li {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transform: translate(-6px, -50%);
+}
+
+.markerDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(217, 59, 48, 0.3), 0 0 0 1px #ffffff;
+}
+
+.markerLabel {
+  padding: 0.25rem 0.55rem;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #111111;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cityCopy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(2rem, 5vw, 3.5rem);
+  margin: 0 auto;
+}
+
+.three {
+  position: relative;
+  overflow: hidden;
+  padding: var(--block) 0;
+  background: var(--linen);
+}
+
+.three > :global(.container) {
+  position: relative;
+}
+
+.route {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.route path {
+  fill: none;
+  stroke: rgba(17, 17, 17, 0.1);
+  stroke-width: 1;
+  stroke-dasharray: 6 6;
+  vector-effect: non-scaling-stroke;
+}
+
+.route circle {
+  fill: #ffffff;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+}
+
+.triptych {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  margin: clamp(1.75rem, 3vw, 2.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.part {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+}
+
+.visualGrid,
+.visualTime,
+.visualCreative {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 0.9rem;
+  overflow: hidden;
+  border-radius: var(--kosick-radius-sm);
+}
+
+.visualGrid {
+  background: #eef0ea;
+  box-shadow: inset 0 0 0 1px var(--rule);
+}
+
+.visualTime {
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px var(--rule);
+}
+
+.visualCreative {
+  background: #e4e4e1;
+}
+
+.partNumber {
+  color: var(--accent);
+  font-size: var(--kosick-meta-size);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.partName {
+  color: #111111;
+  font-size: var(--kosick-card-title-size);
+  font-weight: var(--kosick-card-title-weight);
+  letter-spacing: var(--kosick-card-title-tracking);
+  line-height: var(--kosick-card-title-leading);
+}
+
+.partLine {
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.partner {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 2rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--kosick-color-muted);
+  font-size: var(--kosick-body-size);
+  line-height: 1.5;
+}
+
+.partner img {
+  flex-shrink: 0;
+  width: 6rem;
+  height: auto;
+}
+
+@media (max-width: 960px) {
+  .route {
+    display: none;
+  }
+
+  .triptych {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .markers {
+    display: none;
+  }
+
+  .city {
+    min-height: 24rem;
+  }
+
+  .triptych {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .partner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

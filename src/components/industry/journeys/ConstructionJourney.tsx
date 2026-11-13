@@ -14,7 +14,7 @@ export function ConstructionJourney() {
     <JourneyFrame
       industry="construction"
       title="The work wins the job, if the right people see it."
-      lead="Homeowners shortlist builders before they ever call. We put your projects where they're looking and make your company an easy choice."
+      lead="Homeowners shortlist builders before they ever call. We put your projects where they’re looking and make your company an easy choice."
       summary="A homeowner sees your work, puts you on their shortlist of builders, and requests a site visit."
       side="right"
       story="list"

@@ -14,12 +14,12 @@ export const HVAC: Industry = {
   },
   offersIntro: {
     label: "What we offer",
-    title: "Five ways to bring in more HVAC enquiries.",
-    lead: "From HVAC website development and Google Ads to television, billboards and co-op programs. Each service has its own page with the detail: what we build, how it runs and where it fits in a dealer's year.",
+    title: "Five ways to bring in more HVAC inquiries.",
+    lead: "From HVAC website development and Google Ads to television, billboards and co-op programs. Each service has its own page with the detail: what we build, how it runs and where it fits in a dealer’s year.",
   },
   cta: {
-    title: "Let's fill your schedule.",
-    description: "Tell us about your service area, your brands and your busy seasons. We'll show you where the next jobs come from.",
+    title: "Let’s fill your schedule.",
+    description: "Tell us about your service area, your brands and your busy seasons. We’ll show you where the next jobs come from.",
   },
   services: [
     {
@@ -34,21 +34,21 @@ export const HVAC: Industry = {
       hero: {
         label: "HVAC website design & development",
         title: "A website that books the service call.",
-        lead: "We design and build HVAC websites around the moment a homeowner needs help: clear services, a phone number that's always in reach, and booking that takes less than a minute.",
+        lead: "We design and build HVAC websites around the moment a homeowner needs help: clear services, a phone number that’s always in reach, and booking that takes less than a minute.",
         image: { src: `${UP}/2026/03/hvac-web-development.png`, alt: "The Neels Heating & Cooling website open on a laptop" },
       },
       card: { src: `${UP}/2026/03/hvac-web-development.png`, alt: "The Neels Heating & Cooling website open on a laptop", position: "50% 70%" },
       intro: {
         title: "Built for the homeowner with no heat.",
         paragraphs: [
-          "Most HVAC website visits happen on a phone, often when something has stopped working. The site has to answer three questions fast: do you service my area, can you fix this, and how do I reach you now.",
+          "Most HVAC website visits happen on a phone, often when something has stopped working. The site has to answer three questions fast: do you service my area, can you fix this and how do I reach you now.",
           "We plan every page around those answers. Service pages are written for the jobs you want more of, from furnace replacement to heat pump installs, and every page leads to a call, a booking or a quote request you can track.",
         ],
       },
       offers: [
         {
           title: "HVAC website development",
-          body: "Custom WordPress sites built for heating and cooling dealers, with pages for each service, brand and service area, and a structure search engines can read.",
+          body: "Custom WordPress sites built for heating and cooling dealers, with pages for each service, brand and service area and a structure search engines can read.",
         },
         {
           title: "Conversion-focused design",
@@ -87,7 +87,7 @@ export const HVAC: Industry = {
         },
       ],
       applications: [
-        { title: "Rebuild for mobile", body: "Replacing an outdated dealer site that doesn't work on phones", icon: "phone" },
+        { title: "Rebuild for mobile", body: "Replacing an outdated dealer site that doesn’t work on phones", icon: "phone" },
         { title: "Rebate & tune-up pages", body: "Launching landing pages for heat pump rebates or seasonal tune-ups", icon: "rebate" },
         { title: "Book maintenance online", body: "Adding online booking for maintenance plans", icon: "calendar" },
         { title: "Pages for new areas", body: "Building location pages as you expand into new service areas", icon: "pin" },
@@ -100,10 +100,10 @@ export const HVAC: Industry = {
       ],
       gallery: [
         { src: "/images/hvac-marketing/feature-strategies.jpg", alt: "The Cool Comfort Solutions website on a laptop" },
-        { src: `${UP}/2023/09/hvac-website-development.png`, alt: "The DirectBuy Furnace website hero with flame and snowflake icons" },
+        { src: "/images/website-projects/class-a-heating-hero.jpg", alt: "The Class A Heating home page: HVAC Chilliwack heating & cooling specialists" },
       ],
       related: [
-        { label: "HVAC Website Development Guide", href: "/blog-hvac-website-development/", kind: "guide", body: "What an HVAC site needs to educate homeowners and generate leads." },
+        { label: "HVAC Website Development Guide", href: "/hvac-website-development/", kind: "guide", body: "What an HVAC site needs to educate homeowners and generate leads." },
         { label: "Search Engine Optimization", href: "/services/search-engine-optimization/", kind: "service", body: "Organic rankings that bring qualified leads to the pages you build." },
         { label: "Website Development & E-commerce", href: "/services/website-development/", kind: "service", body: "Custom WordPress and e-commerce builds, with design and ongoing support." },
       ],
@@ -115,7 +115,7 @@ export const HVAC: Industry = {
       seo: {
         title: "HVAC Google Ads & Digital Advertising | Kosick Communications",
         description:
-          "Google Ads, Local Service Ads and paid social for HVAC dealers. Kosick builds digital advertising that turns homeowner searches into calls and service enquiries.",
+          "Google Ads, Local Service Ads and paid social for HVAC dealers. Kosick builds digital advertising that turns homeowner searches into calls and service inquiries.",
       },
       hero: {
         label: "HVAC digital advertising & lead generation",
@@ -125,10 +125,10 @@ export const HVAC: Industry = {
       },
       card: { src: `${UP}/2026/06/hvac-lead-generation-1.jpg`, alt: "An HVAC energy efficiency ad on a phone beside a printed flyer" },
       intro: {
-        title: "Turn high-intent searches into service enquiries.",
+        title: "Turn high-intent searches into service inquiries.",
         paragraphs: [
           "Most HVAC jobs start with a search: furnace repair near me, heat pump installers, AC not cooling. Paid search and Local Service Ads put your company in front of homeowners at that moment, in the areas you serve and the hours you can answer.",
-          "Paid social does the longer work. Facebook, Instagram and YouTube keep your offers and rebates in front of homeowners before they need you, and retarget the ones who visited your site. Content and automated follow-up support both, so an enquiry made at 10 p.m. still reaches your team.",
+          "Paid social does the longer work. Facebook, Instagram and YouTube keep your offers and rebates in front of homeowners before they need you, and retarget the ones who visited your site. Content and automated follow-up support both, so an inquiry made at 10 p.m. still reaches your team.",
         ],
       },
       offers: [
@@ -179,7 +179,7 @@ export const HVAC: Industry = {
         { title: "Research", body: "The jobs you want, your service area and what homeowners search for." },
         { title: "Build", body: "Campaigns, landing pages and call and form tracking." },
         { title: "Launch", body: "Search and social live, timed to the heating and cooling seasons." },
-        { title: "Optimize", body: "Budget moved to the keywords and audiences that produce enquiries." },
+        { title: "Optimize", body: "Budget moved to the keywords and audiences that produce inquiries." },
       ],
       gallery: [
         { src: `${UP}/2026/06/hvac-lead-generation-1.jpg`, alt: "An HVAC energy efficiency ad on a phone beside a printed flyer" },
@@ -209,7 +209,7 @@ export const HVAC: Industry = {
       },
       card: { src: `${UP}/2026/01/media-buying.jpg`, alt: "A Trane commercial on a wall-mounted TV in a living room" },
       intro: {
-        title: "Reach the homeowners who aren't searching yet.",
+        title: "Reach the homeowners who aren’t searching yet.",
         paragraphs: [
           "A search ad catches the homeowner who is already looking. Television and streaming reach the much larger group who will need a new system in the next year or two, and they show the people behind the company.",
           "We handle the whole campaign: the idea, the shoot, the edit and the media plan across broadcast TV, connected TV and streaming, with versions sized for every placement and connected TV targeted to the postal codes you serve.",
@@ -273,7 +273,7 @@ export const HVAC: Industry = {
       related: [
         { label: "Television Advertising", href: "/services/television-advertising/", kind: "service", body: "Broadcast TV campaigns, planned and bought by our media team." },
         { label: "Digital & Connected TV", href: "/services/digital-connected-tv/", kind: "service", body: "Streaming and connected TV with targeted reach and measurable delivery." },
-        { label: "Media Buying: TV, Streaming & Radio", href: "/blog-media-buying-canada-tv-streaming-radio/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
+        { label: "Media Buying: TV, Streaming & Radio", href: "/media-buying-canada/", kind: "guide", body: "How broadcast, streaming and radio inventory is bought in key Canadian markets." },
       ],
     },
     {
@@ -377,7 +377,7 @@ export const HVAC: Industry = {
       intro: {
         title: "Growth needs more than another campaign.",
         paragraphs: [
-          "Dealers grow when marketing budgets stretch further, when the best people are rewarded and when there's a clear plan for where the business is going. Manufacturers grow when their dealer network does.",
+          "Dealers grow when marketing budgets stretch further, when the best people are rewarded and when there’s a clear plan for where the business is going. Manufacturers grow when their dealer network does.",
           "This is the part of our HVAC work that sits above individual campaigns. We bring co-op funding, incentive travel and business strategy together so each one supports the others.",
         ],
       },
@@ -420,7 +420,7 @@ export const HVAC: Industry = {
       ],
       applications: [
         "Planning a year of co-op funded advertising for a multi-brand dealer",
-        "A manufacturer's dealer incentive trip for top-selling partners",
+        "A manufacturer’s dealer incentive trip for top-selling partners",
         "Expanding into a new city or adding a new product line",
         "Aligning marketing spend with revenue goals before the busy season",
       ],
@@ -436,7 +436,7 @@ export const HVAC: Industry = {
         { src: `${UP}/2026/02/fortisbc-coop-hvac-marketing.jpg`, alt: "A ductless heat pump head mounted on a white wall" },
       ],
       related: [
-        { label: "HVAC Dealer Marketing Guide", href: "/hvac-marketing-strategies-guide/", kind: "guide", body: "Cost-efficient lead generation for dealers, manufacturers and distributors." },
+        { label: "HVAC Dealer Marketing Guide", href: "/hvac-dealer-marketing/", kind: "guide", body: "Cost-efficient lead generation for dealers, manufacturers and distributors." },
         { label: "Corporate Events & Incentive Travel", href: "/corporate-events/", kind: "service", body: "Events, conferences and group incentive trips, planned end to end." },
         { label: "Business Development", href: "/services/business-development/", kind: "service", body: "Growth strategy, sales training and acquisition support." },
       ],

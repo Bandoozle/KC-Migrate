@@ -57,10 +57,29 @@ const MIX_LINKS: { match: RegExp; href: string | null }[] = [
   { match: /digital/i, href: "/services/digital-marketing/" },
 ];
 
-const STUDIO_IMAGE = {
-  src: "/wp-content/uploads/2021/07/audio-recording.jpg",
-  alt: "Studio condenser microphone in a shock mount, ready for a voice session",
-};
+/* Local photography from reference-images/Radio */
+const SHOTS = {
+  drive: {
+    src: "/images/radio/car-dashboard.jpg",
+    alt: "Driver using CarPlay on a mountain highway during the commute",
+    objectPosition: "48% 58%",
+  },
+  listen: {
+    src: "/images/radio/headphones-listening.jpg",
+    alt: "Listener relaxing with headphones in warm afternoon light",
+    /* Face and Bose cups sit high in the frame; a mid crop only shows the neck. */
+    objectPosition: "42% 22%",
+  },
+  listenPortrait: {
+    src: "/images/radio/headphones-portrait.jpg",
+    alt: "Listener wearing headphones at home with eyes closed",
+  },
+  studio: {
+    src: "/wp-content/uploads/2021/07/audio-recording.jpg",
+    alt: "Studio condenser microphone in a shock mount, ready for a voice session",
+    objectPosition: "50% 45%",
+  },
+} as const;
 
 function slug(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
@@ -237,7 +256,8 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
   }));
 
   const dayparts = stationsFaq?.answer
-    .match(/daypart performance,?\s*(.+?)\s*[—–-]+\s*to place/i)?.[1]
+    // "daypart performance (morning drive, … and evening) to place"; the older dash form still parses
+    .match(/daypart performance,?\s*\(?(.+?)\)?\s*(?:[—–-]+\s*)?to place/i)?.[1]
     ?.split(/,\s*(?:and\s+)?|\s+and\s+/)
     .map((part) => part.trim())
     .filter(Boolean);
@@ -250,10 +270,14 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
   const mixEyebrow = eyebrowLabel(mix?.eyebrow, mix?.title);
   const targetingEyebrow = eyebrowLabel(targeting?.eyebrow && canadaWide(targeting.eyebrow), targeting?.title);
   const productionDetail = productionFaq?.answer.replace(/^Yes\.\s*/i, "");
+  const hero = {
+    ...content.hero,
+    slides: [SHOTS.drive, SHOTS.listen, SHOTS.studio],
+  };
 
   return (
     <main className={styles.page}>
-      <ServiceHero title={content.title} hero={content.hero} />
+      <ServiceHero title={content.title} hero={hero} backgroundPosition="48% 58%" />
 
       {local ? (
         <section className={`section ${styles.onAir}`} aria-labelledby="radio-local">
@@ -410,16 +434,14 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
               ) : null}
             </div>
             <div className={styles.targetingMedia}>
-              {mix?.image ? (
-                <div className={styles.targetingPhoto}>
-                  <Image
-                    src={mix.image.src}
-                    alt={mix.image.alt || "Listener wearing headphones at home"}
-                    fill
-                    sizes="(max-width: 999px) 100vw, 52vw"
-                  />
-                </div>
-              ) : null}
+              <div className={styles.targetingPhoto}>
+                <Image
+                  src={SHOTS.listenPortrait.src}
+                  alt={SHOTS.listenPortrait.alt}
+                  fill
+                  sizes="(max-width: 999px) 100vw, 52vw"
+                />
+              </div>
               {orderedDayparts && orderedDayparts.length > 1 ? (
                 <div className={styles.dayparts}>
                   <p className={styles.daypartsLabel}>Dayparts we plan around</p>
@@ -449,13 +471,14 @@ export function RadioAdvertisingPage({ content, articles }: RadioAdvertisingPage
         <section className={`section ${styles.studio}`} aria-labelledby="radio-studio">
           <div className={`container ${styles.studioGrid}`}>
             <figure className={styles.studioPhoto}>
-              <Image src={STUDIO_IMAGE.src} alt={STUDIO_IMAGE.alt} fill sizes="(max-width: 899px) 100vw, 92vw" />
+              <Image src={SHOTS.studio.src} alt={SHOTS.studio.alt} fill sizes="(max-width: 899px) 100vw, 42vw" />
             </figure>
             <div className={styles.studioCopy}>
               <h2 id="radio-studio" className={styles.sectionTitle}>
                 {labelCase(process.title)}
               </h2>
-              {process.lead ? <p className={styles.lead}>{process.lead.replace(/:\s*$/, ".")}</p> : null}
+              {/* The numbered steps follow, so the lead keeps its colon */}
+              {process.lead ? <p className={styles.lead}>{process.lead}</p> : null}
               <ol className={styles.runSheet}>
                 {process.items.map((item, index) => (
                   <li key={item.label}>

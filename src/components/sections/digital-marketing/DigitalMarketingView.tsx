@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { RelatedServices } from "@/components/sections/ads/RelatedServices";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
 import type { DigitalMarketingContent, FeatureBlock } from "@/lib/wordpress/digital-marketing";
@@ -12,7 +13,7 @@ import { ServiceDirectory } from "./ServiceDirectory";
 import styles from "./DigitalMarketingView.module.css";
 
 const HERO_LEAD =
-  "Google Ads, Meta Ads and geo-targeted campaigns built to reach the right audience, turn interest into leads and enquiries, and show you exactly where your budget is working.";
+  "Google Ads, Meta Ads and geo-targeted campaigns built to reach the right audience, turn interest into leads and inquiries, and show you exactly where your budget is working.";
 
 function sentence(value: string) {
   const trimmed = value.trim();
@@ -76,7 +77,7 @@ export function DigitalMarketingView({ content }: DigitalMarketingViewProps) {
       {connect ? (
         <AudienceJourney
           title={sentence(connect.title)}
-          lead="Digital advertising lets you choose who sees your message, then turns their interest into a call or an enquiry. We build campaigns around the customers most likely to buy, from one neighbourhood to the whole country."
+          lead="Digital advertising lets you choose who sees your message, then turns their interest into a call or an inquiry. We build campaigns around the customers most likely to buy, from one neighbourhood to the whole country."
         />
       ) : null}
 
@@ -90,7 +91,7 @@ export function DigitalMarketingView({ content }: DigitalMarketingViewProps) {
             </SectionTitle>
             <p className={styles.leadOnDark}>
               Four ways to put your business in front of people likely to buy, each built around a clear next step: a
-              call, an enquiry or a sale.
+              call, an inquiry or a sale.
             </p>
           </header>
           <ChannelShowcase cards={content.offers.cards} />
@@ -135,7 +136,7 @@ export function DigitalMarketingView({ content }: DigitalMarketingViewProps) {
               </SectionTitle>
               <p className={styles.leadOnDark}>
                 We track every click, call, form and sale back to the campaign that produced it, so you can see which
-                ads bring in leads and where to put the next dollar. Reporting is clear and jargon-free, with monthly
+                ads bring in leads and where your next investment belongs. Reporting is clear and jargon-free, with monthly
                 reviews of what&rsquo;s working.
               </p>
               <Checks items={track.bullets} dark />
@@ -144,6 +145,8 @@ export function DigitalMarketingView({ content }: DigitalMarketingViewProps) {
           </div>
         </section>
       ) : null}
+
+      <RelatedServices title="Go deeper on a single channel." current="/services/digital-marketing/" />
 
       <FaqAccordion eyebrow={content.faqs.eyebrow} title={content.faqs.title} items={content.faqs.items} />
       <ServiceDirectory services={content.relatedServices} />

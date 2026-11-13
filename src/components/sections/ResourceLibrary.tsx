@@ -197,7 +197,7 @@ export function ResourceLibrary({ articles }: ResourceLibraryProps) {
       <ArticleListing
         articles={filtered}
         heading="All resources"
-        description="Browse the full library of Kosick articles, guides, and marketing insights."
+        description="Browse the full library of Kosick articles, guides and marketing insights."
       />
     </>
   );

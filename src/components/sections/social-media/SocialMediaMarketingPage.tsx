@@ -5,7 +5,9 @@ import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordi
 import { PageCta } from "@/components/sections/PageCta";
 import { ServiceHero } from "@/components/sections/ServiceHero";
 import { SectionTitle } from "@/components/typography";
+import { ESPRESSO_DOLCE } from "@/content/espresso-dolce";
 import { labelCase } from "@/lib/eyebrow";
+import { CampaignShowcase } from "./CampaignShowcase";
 import type { ServicePageContent } from "@/lib/wordpress/service-page-types";
 import styles from "./SocialMediaMarketingPage.module.css";
 
@@ -44,12 +46,28 @@ type SocialMediaMarketingPageProps = {
 
 export function SocialMediaMarketingPage({ content }: SocialMediaMarketingPageProps) {
   const { hero, faqs, cta, gallerySection: gallery } = content;
+  // Hero only accepts file videos; Espresso Dolce is a Vimeo embed in CampaignShowcase
+  const heroWithCampaigns =
+    ESPRESSO_DOLCE.video?.kind === "file"
+      ? {
+          ...hero,
+          slides: [
+            ...hero.slides,
+            {
+              kind: "video" as const,
+              src: ESPRESSO_DOLCE.video.src,
+              poster: ESPRESSO_DOLCE.video.poster,
+              alt: ESPRESSO_DOLCE.video.alt,
+            },
+          ],
+        }
+      : hero;
   const pillars = content.offerGroups[0]?.cards ?? [];
   const features = content.features.slice(0, 3);
 
   return (
     <main className={styles.page}>
-      <ServiceHero title={content.title} hero={hero} />
+      <ServiceHero title={content.title} hero={heroWithCampaigns} />
 
       {/* Banner: one wide photograph with the four pillars locked to its lower edge */}
       <section className={styles.banner} aria-labelledby="sm-pillars">
@@ -67,7 +85,7 @@ export function SocialMediaMarketingPage({ content }: SocialMediaMarketingPagePr
               {pillars.map((pillar, index) => (
                 <Reveal key={pillar.id} as="li" delay={index * 90} className={styles.pillar}>
                   <span className={styles.pillarNumber}>{String(index + 1).padStart(2, "0")}</span>
-                  <h3 className={styles.pillarTitle}>{pillar.title}</h3>
+                  <h3 className={styles.pillarTitle}>{labelCase(pillar.title)}</h3>
                   {pillar.body ? <p className={styles.pillarBody}>{pillar.body}</p> : null}
                 </Reveal>
               ))}
@@ -93,7 +111,7 @@ export function SocialMediaMarketingPage({ content }: SocialMediaMarketingPagePr
                   <p className={styles.listLabel}>Formats</p>
                   <ul className={styles.list}>
                     {(gallery.labels ?? []).map((label) => (
-                      <li key={label}>{label}</li>
+                      <li key={label}>{labelCase(label)}</li>
                     ))}
                   </ul>
                 </div>
@@ -120,6 +138,9 @@ export function SocialMediaMarketingPage({ content }: SocialMediaMarketingPagePr
           </div>
         </section>
       ) : null}
+
+      {/* Espresso Dolce: official vertical Vimeo spot (KOS_ESP-DOL_202609_06_V1) */}
+      <CampaignShowcase {...ESPRESSO_DOLCE} />
 
       {/* Features: label, title and image on the left; copy and points on the right */}
       {features.length > 0 ? (

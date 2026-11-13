@@ -496,6 +496,7 @@
 
 .targetingPhoto img {
   object-fit: cover;
+  object-position: 50% 22%;
 }
 
 .dayparts {

@@ -17,8 +17,8 @@ export const GOLF: Industry = {
     lead: "Websites, brand, broadcast and social for clubs, courses and resorts. Each one has its own page.",
   },
   cta: {
-    title: "Let's fill the tee sheet.",
-    description: "Tell us about your course, your members and your season. We'll plan the marketing around it.",
+    title: "Let’s fill the tee sheet.",
+    description: "Tell us about your course, your members and your season. We’ll plan the marketing around it.",
   },
   services: [
     {
@@ -40,7 +40,7 @@ export const GOLF: Industry = {
       intro: {
         title: "Built for golfers, members and planners.",
         paragraphs: [
-          "Your website serves very different visitors. Daily-fee golfers want a tee time, members want the calendar, and event planners want to know if you can host their tournament or wedding.",
+          "Your website serves very different visitors. Daily-fee golfers want a tee time, members want the calendar and event planners want to know if you can host their tournament or wedding.",
           "We design for each of them: a clear path to booking, a course tour that does the layout justice, and pages for memberships, events, lessons and the restaurant that answer questions before the phone rings.",
         ],
       },
@@ -55,7 +55,7 @@ export const GOLF: Industry = {
         },
         {
           title: "Membership, event & dining pages",
-          body: "Pages and enquiry forms for memberships, tournaments, weddings, corporate days and the clubhouse restaurant.",
+          body: "Pages and inquiry forms for memberships, tournaments, weddings, corporate days and the clubhouse restaurant.",
         },
       ],
       deliverables: [
@@ -63,7 +63,7 @@ export const GOLF: Industry = {
         "Custom design for desktop, tablet and phone",
         "Course tour and hole-by-hole pages",
         "Tee time and booking system integration",
-        "Event and membership enquiry forms",
+        "Event and membership inquiry forms",
         "Photography and aerial video direction",
         "SEO, analytics and conversion tracking",
       ],
@@ -73,7 +73,7 @@ export const GOLF: Industry = {
           body: "Golfers book with you instead of through third-party sites.",
         },
         {
-          title: "Better event enquiries",
+          title: "Better event inquiries",
           body: "Planners arrive with the details they need, ready to talk dates.",
         },
         {
@@ -162,12 +162,12 @@ export const GOLF: Industry = {
           body: "A strong mark sells in the pro shop and travels on every hat and bag.",
         },
         {
-          title: "Creative that's ready to use",
+          title: "Creative that’s ready to use",
           body: "A library of on-brand photos and artwork speeds up every campaign.",
         },
       ],
       applications: [
-        "Refreshing a heritage club's crest for its anniversary",
+        "Refreshing a heritage club’s crest for its anniversary",
         "Branding a new course or resort before launch",
         "Seasonal photography for the website and social media",
         "Membership drive materials",
@@ -184,7 +184,7 @@ export const GOLF: Industry = {
         { src: `${UP}/2026/06/golf-course-branding-marketing.jpg`, alt: "A golfer finishing her swing on a fairway lined with evergreens" },
       ],
       related: [
-        { label: "Golf Course Branding", href: "/blog-golf-marketing-strategies/", kind: "guide", body: "Brand strategy, website and content for premium clubs." },
+        { label: "Golf Course Branding", href: "/golf-course-branding/", kind: "guide", body: "Brand strategy, website and content for premium clubs." },
         { label: "Corporate Branding", href: "/services/corporate-branding/", kind: "service", body: "Brand strategy and identity systems, built to last." },
         { label: "Creative & Production", href: "/services/creative/", kind: "service", body: "Video, photography, design and audio production." },
       ],
@@ -241,7 +241,7 @@ export const GOLF: Industry = {
       benefits: [
         {
           title: "The right audience",
-          body: "Sports programming reaches golfers in the moment they're thinking about the game.",
+          body: "Sports programming reaches golfers in the moment they’re thinking about the game.",
         },
         {
           title: "Destination appeal",
@@ -259,7 +259,7 @@ export const GOLF: Industry = {
         "Course tour video for the website and YouTube",
       ],
       approach: [
-        { title: "Concept", body: "The story of the course and who it's for." },
+        { title: "Concept", body: "The story of the course and who it’s for." },
         { title: "Shoot", body: "Aerial and on-course production at the right time of day and year." },
         { title: "Place", body: "Sports TV, streaming and online video booked to plan." },
         { title: "Report", body: "Delivery, views and website visits tracked." },
@@ -283,13 +283,13 @@ export const GOLF: Industry = {
         label: "Golf social media & lead generation",
         title: "From the feed to the first tee.",
         lead: "Golf is made for social media: perfect light, full greens, good food on the patio. We turn that into content golfers follow and campaigns that fill tee times, memberships and event dates.",
-        image: { src: `${UP}/2026/03/golf-marketing.jpg`, alt: "A golfer's legs and bag on a sunny fairway" },
+        image: { src: `${UP}/2026/03/golf-marketing.jpg`, alt: "A golfer’s legs and bag on a sunny fairway" },
       },
       intro: {
         title: "Content that gets people out to play.",
         paragraphs: [
           "Social media keeps your course in mind between rounds and introduces it to golfers who have never played it. Paid campaigns then reach the specific people you need: local players for a quiet Tuesday, groups for a tournament, families for a membership.",
-          "We plan both together, capture content on the course, and track results through to bookings and enquiries so you know what each campaign returned.",
+          "We plan both together, capture content on the course, and track results through to bookings and inquiries so you know what each campaign returned.",
         ],
       },
       offers: [
@@ -303,7 +303,7 @@ export const GOLF: Industry = {
         },
         {
           title: "Lead capture & nurturing",
-          body: "Landing pages, enquiry forms and email follow-up designed to turn interest into membership tours, tournament bookings and repeat rounds.",
+          body: "Landing pages, inquiry forms and email follow-up designed to turn interest into membership tours, tournament bookings and repeat rounds.",
         },
       ],
       deliverables: [
@@ -311,7 +311,7 @@ export const GOLF: Industry = {
         "On-course photo and video content",
         "Post design, captions and scheduling",
         "Meta and Google Ads campaigns",
-        "Landing pages and enquiry forms",
+        "Landing pages and inquiry forms",
         "Email follow-up sequences",
         "Monthly reporting on bookings and leads",
       ],
@@ -322,7 +322,7 @@ export const GOLF: Industry = {
         },
         {
           title: "A pipeline for events",
-          body: "Tournament and corporate enquiries arrive through tracked forms.",
+          body: "Tournament and corporate inquiries arrive through tracked forms.",
         },
         {
           title: "A community, not only followers",
@@ -339,7 +339,7 @@ export const GOLF: Industry = {
         { title: "Plan the season", body: "Goals for rounds, members and events, month by month." },
         { title: "Capture", body: "On-course shoots for a library of fresh content." },
         { title: "Launch", body: "Organic posting and paid campaigns working together." },
-        { title: "Track", body: "Bookings and enquiries tied back to each campaign." },
+        { title: "Track", body: "Bookings and inquiries tied back to each campaign." },
       ],
       gallery: [
         { src: `${UP}/2026/06/golf-social-media-marketing.jpg`, alt: "Pink blossoms framing a fairway and mountains", orientation: "portrait" },

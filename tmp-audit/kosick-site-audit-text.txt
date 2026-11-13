@@ -1,0 +1,520 @@
+
+
+========== PAGE 1 ==========
+
+Kosick site audit
+Nov 11, 2026 · @Bretton
+Full audit of kc-migrate.vercel.app, all 29 pages. No broken internal links and every page
+has one H1. The issues below are duplicated images, copy errors, Canadian English slips,
+and consistency gaps, plus the new pages we want built.
+New pages and assets to build
+Three new service pages, modelled on the SearchKings versions:
+Also:
+Add the Espresso Dolce coffee video and photos to /services/social-media-
+marketing/. The page currently runs four videos: transportation, cruise ship, culinary
+and automotive. No coffee or Espresso Dolce content is on it.
+Duplicate images on the same page
+These are visible repeats, not carousel or marquee copies. I checked each one in the
+rendered page and excluded the Connected TV planning marquee, which repeats by
+design.
+Page 	Model to follow 	Note
+Google Ads 	searchkings.com/services/google-ads-
+management
+New page. Currently only
+covered inside
+/services/digital-marketing/
+ChatGPT
+Ads
+searchkings.com/services/chatgpt-ads-
+management
+New page. No equivalent on
+the site today
+Connected
+TV
+searchkings.com/services/sktv 	Confirmed: rebuild
+/services/digital-connected-tv/
+to this model. Rename it from
+Digital Video to Connected TV,
+including the H1 and the nav
+label
+Kosick site audit
+Page 1 of 12
+
+========== PAGE 2 ==========
+
+Page 	Image 	Where it repeats
+/services/business-
+development/
+vancouver-agency.jpg 	Four separate sections:
+Strategic advisory, Scale
+with confidence (twice),
+Build a scalable sales
+engine
+/services/business-
+development/
+corporate-events.webp 	Three sections: Strategic
+advisory, Scale with
+confidence, Build a
+scalable sales engine
+/services/business-
+development/
+legal-heritage-building-
+flag.jpg
+Three sections
+/services/business-
+development/
+exit-harbour-sunset.jpg 	Two sections
+/services/medical-aesthetics-
+marketing/
+lip-treatment.jpg 	Three places
+/services/medical-aesthetics-
+marketing/
+aesthetic-clinic-
+marketing.jpg
+Three places
+/services/medical-aesthetics-
+marketing/
+medical-skincare-
+marketing.jpg, treatment-
+lounge.jpg, clinic-interior.jpg,
+medical-aesthetics.webp
+Twice each
+/services/retail-marketing/ 	arcteryx-billboard-
+advertising.jpg
+Five places: hero, street
+scene, phone screen,
+thumbnail, carousel
+/services/travel-marketing/ 	resort-marketing.jpg 	Twice, close together: the
+three-step flow and the
+section right below it
+/services/travel-marketing/ 	social-media-marketing.jpg 	Twice
+/services/television-
+advertising/
+service-broadcast.jpg, ctv-
+living-room-tsn.jpg
+Twice each
+Kosick site audit
+Page 2 of 12
+
+========== PAGE 3 ==========
+
+Business Development is the worst of these. The same four photographs carry the entire
+page, so it reads as though we ran out of pictures.
+Also worth tidying: /services/travel-marketing/ uses both social-media-marketing.jpg and
+social-media-marketing-2.jpg, and the Vancouver skyline on Business Development
+carries two different alt descriptions for the same file.
+Copy errors, typos and broken sentences
+Start with the first five. Those are visible mistakes on live pages.
+Page 	Image 	Where it repeats
+/services/outdoor-
+advertising/
+arcteryx-billboard-
+advertising.jpg, billboards-
+scaled.png
+Twice each
+/services/dental-marketing/ 	Dental-Vancouver.jpg 	Twice
+/services/golf-marketing/ 	golf-course-branding-
+marketing.jpg
+Twice
+/services/construction-
+marketing/
+home-services-marketing.jpg Twice
+Page 	Problem 	Fix
+/contact/ 	H1 reads "Let's make
+something happen" with no
+space between make and
+something
+Add the space. Looks like a
+line-break span swallowing
+it
+/feature-articles/ 	Excerpt reads "...driving
+growth.today's digital
+landscape, social media
+marketing..."
+Broken excerpt on The
+Importance of Social Media
+Marketing. Missing space
+and missing words
+/marketing-results/ 	Two project cards end with
+"The photograph shows
+packaging." and "The image is
+a screenshot from this
+collection."
+These read like internal
+image notes left in the
+visible copy. Remove them
+Kosick site audit
+Page 3 of 12
+
+========== PAGE 4 ==========
+
+Page 	Problem 	Fix
+/services/radio-advertising/ 	FAQ reads "How do you
+measure radio adverting
+effectiveness?"
+Should be advertising
+/services/radio-advertising/ 	"Our process includes." ends
+with a period before a list
+Should be a colon
+/feature-articles/ 	Seven excerpts open with a
+stray heading fragment from
+the article body
+Listed separately below
+/services/social-media-
+marketing/
+"Social media isn't a
+broadcast channel, it's a
+conversation."
+Comma splice. Use a
+semicolon or recast
+/ (home) 	"campaigns that don't just
+look good they perform"
+Missing punctuation. "don't
+just look good; they
+perform"
+/ (home) 	"Design must be functional,
+and functionality must be
+translated into visual
+aesthetics"
+Missing full stop
+/ (home) 	"increased marketshare" 	Two words: market share
+/ (home) 	SkinONE testimonial mixes
+tense: "have strategically re
+branded... actively manage...
+develop... deliver"
+Also "re branded" should
+be rebranded. If it is a
+verbatim client quote, leave
+the tense and fix only the
+spelling
+/ (home) 	One testimonial has no name
+or company attached
+Add the attribution or pull
+the quote
+/services/ 	H1 "Our Areas of Services
+Expertise"
+Should be "Our Areas of
+Service Expertise" or
+simply "Our Areas of
+Expertise"
+Kosick site audit
+Page 4 of 12
+
+========== PAGE 5 ==========
+
+Page 	Problem 	Fix
+/services/ 	"We are an innovative
+Marketing Strategist creative
+services agency focused on
+creating meaningful
+connections through how
+brands connect and resonate
+with consumers."
+Broken sentence. Needs a
+full rewrite
+/services/corporate-
+branding/
+"Results driven custom
+branding"
+Needs the hyphen: Results-
+driven
+/services/corporate-
+branding/
+"Design to tangible" 	Unclear. Needs rewriting
+/services/construction-
+marketing/
+Stray label "General notes"
+sitting in the page copy
+Remove or style as
+intended
+/marketing-programs/ 	Stray list item "One
+coordinated program" with
+no content
+Remove or complete
+/services/website-
+development/
+Final CTA reads "Ready to
+Launch Your Web Store?" on
+a general web development
+page
+Mismatched. Make it about
+websites, not only e-
+commerce
+/services/search-engine-
+optimization/
+Content Strategy, Link
+Building and Competitor
+Analysis blurbs appear twice,
+word for word, in sections 02
+and 06, renumbered
+Cut the repeat or rewrite
+the second set
+/services/search-engine-
+optimization/
+Local SEO description
+appears twice, word for word
+Same
+/services/radio-advertising/ 	"Radio earns something rare:
+undivided attention during
+the drive, the workout, and
+the workday." appears twice
+Once in the hero, again as
+the opening line of the
+body
+Kosick site audit
+Page 5 of 12
+
+========== PAGE 6 ==========
+
+Feature article excerpts with leaked heading text
+Each of these opens with a fragment that belongs to a heading, not the excerpt:
+How to Buy TV Advertising in Canada opens with "Digital Marketing Ad Safe Zones"
+Help Guide: TikTok, Instagram & Facebook Ad Safe Zones opens with "Digital
+Marketing Ad Safe Zones"
+The Power of Organic Social vs. Paid Ads opens with "A Strategic Breakdown On
+Selecting E-Commerce Platforms"
+Vancouver's Event Marketing Experts opens with "Programs & Global Experiences
+Done Right"
+Understanding Pre-Roll Advertising opens with "What Is Pre-Roll Advertising"
+Why Companies Use Digital Marketing opens with "Tailored Strategies That Drive
+Results Across Every Platform"
+Page 	Problem 	Fix
+/services/creative/ 	"Great creative grabs
+attention, engages the
+senses, and inspires action."
+appears twice
+Hero and body. Second
+version also drops the
+Oxford comma
+/services/business-
+development/
+Several cards repeat their
+own heading as body text,
+e.g. "Market analysis &
+competitive positioning
+frameworks" then
+"Competitive positioning
+frameworks"
+Happens on five cards
+/services/business-
+development/
+"We pressure-test each
+opportunity before you
+commit resources to it."
+appears twice
+Cards 03 and 04
+/contact/ and /marketing-
+results/
+"Proudly Servicing: Canada,
+United States & Mexico"
+Should be Serving
+/online-payments/ 	Page is effectively empty: an
+H1, a payment iframe, nothing
+else
+Needs a line of instruction
+and the accepted payment
+methods
+Kosick site audit
+Page 6 of 12
+
+========== PAGE 7 ==========
+
+What a Marketing Agency Can Do for Your Business repeats its own title as the first
+words of the excerpt
+Two article titles also need a look. "What a Marketing Agency Can Do for Your Business?"
+is a statement with a question mark, so it should read "What Can a Marketing Agency Do
+for Your Business?". "Success of Blending Strategies" is too thin to carry a card.
+Canadian English and house style
+Enquiry should be inquiry, everywhere
+This is the single most repeated copy issue on the site. It appears on at least six pages:
+/services/digital-marketing/ three times, including the hero and a section heading
+/services/travel-marketing/ six times, including the H2 "Build demand. Capture the
+enquiry."
+/services/hvac-marketing/ three times, including the H2 "Five ways to bring in more
+HVAC enquiries."
+/services/construction-marketing/ once
+/marketing-programs/ once
+/services/website-development/ once
+The contact page already uses "New inquiry" correctly, so the site contradicts itself.
+Other spelling and style
+Issue 	Where 	Fix
+"behavioral targeting" 	/services/radio-advertising/ 	behavioural. The
+Connected TV page
+already uses behaviour
+"consumer behavior" 	Outdoor Advertising article
+excerpt
+behaviour
+Straight apostrophes mixed
+with curly
+Site-wide. HVAC, retail,
+construction, specialty retail,
+medical aesthetics and several
+headings use ' while most
+pages use ’
+Normalize to curly across
+the build
+Kosick site audit
+Page 7 of 12
+
+========== PAGE 8 ==========
+
+Consistency across pages
+Issue 	Where 	Fix
+Oxford comma used
+inconsistently
+Marketing Results and SEO
+pages use it; most service
+pages do not. The Creative
+page uses both forms of the
+same sentence
+Pick one and apply it
+Em dashes throughout 	Most pages 	House rule is no em
+dashes. Needs a global
+pass
+"ad dollars" and "the next
+dollar"
+Radio, Digital Marketing, Retail House rule is investment,
+not dollar, in client copy
+"optimized in real-time" 	/services/radio-advertising/ 	real time, no hyphen, when
+used as a noun
+"Street-Level (TSA)" 	/services/outdoor-advertising/ TSA reads as the US
+airport agency. Spell out
+Transit Shelter Advertising
+"Skinfolio Medesthetics"
+named five times on one
+page
+/services/medical-aesthetics-
+marketing/
+Thin it out. "Skinfolio-style
+clinics" in particular
+should go
+Rate card published publicly /services/outdoor-advertising/
+shows Starting from $550,
+$1,000, $1,000 and $1,500
+No change. Confirmed the
+rates stay on the page
+Issue 	Detail
+FAQ heading capitalization 	"Frequently Asked Questions" on Television,
+Radio, Connected TV, Outdoor and Digital
+Marketing. "Frequently asked questions" on
+Branding, Creative, Business Development,
+Corporate Events, Social Media, HVAC, Dental and
+Website Development. Email Marketing uses
+"Email marketing questions" and Golf uses "Golf
+marketing questions"
+Kosick site audit
+Page 8 of 12
+
+========== PAGE 9 ==========
+
+Issue 	Detail
+H1 pattern breaks on one page 	Every service page uses "Strategic [service]"
+except Television Advertising, which uses "Put
+your brand where your customers are watching."
+That page also loses the keyword in its H1
+Homepage service card labelled "Web" Every other card is a full name: Digital Advertising,
+Television & Broadcast, Out of Home, Connected
+TV, Corporate Branding. Make it Website
+Development
+Mid-sentence capitals in FAQ
+questions
+"Do you work with Public Courses, Private Clubs,
+or both?", "Do you drive Membership Growth?",
+"What traditional marketing do you recommend
+for Golf Courses?", "Can you build or redesign our
+Golf Course Website?", "Can you build or redesign
+our HVAC Website?", "Can you redesign my
+existing WordPress Website?"
+Title Case versus sentence case in lists Creative, Email Marketing and Social Media use
+Title Case list items. Most other pages use
+sentence case
+Missing FAQ sections 	Retail, Specialty Retail, Medical Aesthetics, Travel,
+Construction and Marketing Programs have no
+FAQ. HVAC, Dental, Golf and every channel page
+do
+Page title separator 	Most titles use a pipe. These use a hyphen:
+Connected TV, Corporate Branding, Creative,
+Email Marketing, Marketing Programs, Website
+Development, Marketing Results, Contact, Online
+Payments, Site Map
+Title missing the brand 	/services/outdoor-advertising/ is "Billboard &
+Outdoor Advertising Across Canada" with no
+Kosick
+Titles too long for search results 	Radio at 73 characters, SEO at 68. Keep under
+about 60
+Meta descriptions too long 	Outdoor at 184 characters, Dental at 180, Radio at
+162, Travel at 162. Keep under about 160
+Kosick site audit
+Page 9 of 12
+
+========== PAGE 10 ==========
+
+No page has a duplicate title or duplicate meta description, and every page has exactly
+one H1. Those are clean.
+Structure and SEO
+Site map is missing 18 articles
+The Feature Articles page links 47 articles. The site map lists 29 and says "29 articles".
+These are not listed:
+travel-marketing-canada, blog-digital-tv-advertising-ad-creative, blog-black-friday-
+advertising, organic-social-media-vs-paid-advertising, shopify-vs-woocommerce,
+vancouver-event-marketing, understanding-digital-pre-roll-advertising, vancouver-web-
+development-e-commerce, the-power-of-radio-advertising, social-media-marketing-
+build-an-audience, media-buying-strategies-for-vancouver, how-to-choose-a-marketing-
+company-in-vancouver, outdoor-advertising-maximize-local-impact, why-media-buying-
+matters, why-companies-use-digital-marketing-to-grow-their-business, blog-importance-
+of-social-media-marketing, what-a-marketing-agency-can-do-for-your-business,
+vancouver-marketing-blending-strategies
+Article URLs
+Seven articles carry a legacy "blog-" prefix: blog-dental-marketing, blog-golf-
+marketing-strategies, blog-kosick-com-corporate-branding-guide, blog-hvac-website-
+development, blog-media-buying-canada-tv-streaming-radio, blog-social-media-
+marketing, blog-tiktok-instagram-facebook-ad-safe-zones. Clean these up with
+redirects.
+blog-kosick-com-corporate-branding-guide has our own domain inside the slug.
+Two near-identical slugs: hvac-marketing-strategies and hvac-marketing-strategies-
+guide. Check whether these are two articles or a duplicate.
+Alt text
+Worst offenders by share of images with empty alt:
+Page 	Images with no alt
+/services/digital-marketing/ 	8 of 9
+Kosick site audit
+Page 10 of 12
+
+========== PAGE 11 ==========
+
+Stale dates
+It is November 2026 and two article titles still say 2025: "How to Choose a Marketing
+Company in Vancouver – 2025 Expert Guide" and "Why Blending Social Media and
+Traditional Marketing Still Wins in 2025". Update or republish them.
+Clean
+No broken internal links across all 29 pages. Every page returns one H1. The Connected TV
+planning section repeats its cards in the markup, but that is an intentional marquee loop,
+not a bug.
+To confirm before Marco changes anything
+Claims on the HVAC page. "25+ Years of HVAC Expertise", "19+ National Brands
+Partnered" and "100% Co-Op Compliance Rate". Remove the co-op compliance claim,
+since it depends on dealer purchases. Confirm the 19+ figure, which still reads oddly.
+Partner claims. The Email Marketing page says "As certified Mailchimp partners" and
+the Website Development page says "As a Shopify Partner". Confirm both are current.
+Office hours. The contact page gives one set of hours, 8:00 AM to 5:00 PM Pacific, but
+lists a Calgary office on Mountain time.
+Phone numbers. Vancouver +1 (604) 925-5800 and Calgary +1 (403) 809-9450.
+Remove reference to MSZR on this website.
+Where possible lets limit how much we show DirectBuy furnace and switch to
+Belyea and Class A as the feature HVAC dealers.
+Page 	Images with no alt
+/services/golf-marketing/ 	8 of 14
+/services/hvac-marketing/ 	8 of 16
+/services/dental-marketing/ 	8 of 19
+/services/medical-aesthetics-marketing/ 8 of 19
+/services/business-development/ 	8 of 21
+/services/ 	10 of 25
+/services/digital-connected-tv/ 	26 of 57
+Kosick site audit
+Page 11 of 12
+
+========== PAGE 12 ==========
+
+Yes change the digital video to connected tv like the search kings page.
+Kosick site audit
+Page 12 of 12
