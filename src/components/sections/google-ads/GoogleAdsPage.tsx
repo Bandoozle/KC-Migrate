@@ -46,9 +46,9 @@ function PhoneIcon() {
 }
 
 /**
- * Google Ads Management: bright and search-led. One fictional advertiser (a Vancouver
- * heating company) runs through every illustration, from the hero search to the
- * format studio, the targeting map and the click-to-sale filmstrip.
+ * Google Ads Management: bright and search-led. One sample advertiser (AccuTemp, a Kosick
+ * HVAC client in Victoria) runs through the ad mockups, from the hero search to the format
+ * studio and the click-to-sale filmstrip. The targeting map is a generic Metro Vancouver example.
  */
 export function GoogleAdsPage() {
   return (
@@ -164,9 +164,9 @@ export function GoogleAdsPage() {
             <Reveal as="li" className={styles.frame} delay={200}>
               <div className={`${styles.frameVisual} ${styles.frameUi}`} aria-hidden="true">
                 <span className={styles.miniForm}>
-                  <b>Book a free estimate</b>
+                  <b>Book an estimate</b>
                   <span className={styles.field}>Jordan M.</span>
-                  <span className={styles.field}>North Vancouver</span>
+                  <span className={styles.field}>Saanich</span>
                   <span className={styles.sent}>Request sent</span>
                 </span>
               </div>

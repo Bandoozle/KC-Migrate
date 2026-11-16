@@ -53,3 +53,12 @@
 .dark [aria-current="page"] {
   color: #ffffff;
 }
+
+/* Phones: each crumb gets a 44px-tall hit area; the negative margin keeps the trail the same size */
+@media (max-width: 640px) {
+  .trail a {
+    display: inline-block;
+    padding-block: 11px;
+    margin-block: -11px;
+  }
+}

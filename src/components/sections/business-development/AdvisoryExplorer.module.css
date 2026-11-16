@@ -248,3 +248,10 @@
     font-size: clamp(1.85rem, 7vw, 2.45rem);
   }
 }
+
+/* Phones: area tabs reach a 44px touch target */
+@media (max-width: 640px) {
+  .name {
+    min-height: 2.75rem;
+  }
+}

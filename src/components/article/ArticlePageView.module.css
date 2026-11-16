@@ -319,3 +319,12 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Phones: the back link gets a 44px-tall hit area without moving the header */
+@media (max-width: 640px) {
+  .back a {
+    display: inline-block;
+    padding-block: 12px;
+    margin-block: -12px;
+  }
+}

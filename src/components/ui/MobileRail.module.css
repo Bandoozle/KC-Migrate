@@ -1,0 +1,84 @@
+/*
+ * Shared phone carousel. Below 640px the list becomes one horizontal, snap-scrolling row that
+ * bleeds to the screen edges; the next card peeks in (about 1.15 cards in view) so the swipe is
+ * obvious. Above 640px nothing here applies and the component's own grid is untouched.
+ * The doubled class outranks the host component's grid rules without !important.
+ */
+.dots {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .rail.rail {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    gap: var(--rail-gap, 0.75rem);
+    width: auto;
+    max-width: none;
+    margin-inline: calc(-1 * var(--kosick-gutter));
+    padding-inline: var(--kosick-gutter);
+    /* Room for focus rings (3px + 3px offset) and card shadows inside the scroller */
+    padding-block: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--kosick-gutter);
+    scrollbar-width: none;
+  }
+
+  .rail.rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .rail.rail > * {
+    flex: 0 0 var(--rail-item, 84%);
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    scroll-snap-align: start;
+  }
+
+  /* A list item that only wraps a link card: the card fills the row height, so heights match */
+  .rail.rail > li > a:only-child,
+  .rail.rail > li > article:only-child {
+    height: 100%;
+  }
+
+  .dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 0.9rem;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    background: currentColor;
+    opacity: 0.22;
+    transition:
+      width 0.25s ease,
+      opacity 0.25s ease;
+  }
+
+  .dot[data-active="true"] {
+    width: 18px;
+    opacity: 0.75;
+  }
+}
+
+@media (max-width: 640px) and (prefers-reduced-motion: no-preference) {
+  .rail.rail {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot {
+    transition: none;
+  }
+}

@@ -1107,3 +1107,19 @@
 .head .leadOnDark {
   max-width: none;
 }
+
+/*
+ * Phones: the four holes sit two by two. Each is a short flag, name and line, so a pair
+ * reads comfortably side by side; the route curve steps out as it only works across a row.
+ */
+@media (max-width: 640px) {
+  .holes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 1.25rem;
+    row-gap: 1.75rem;
+  }
+
+  .holesRoute {
+    display: none;
+  }
+}

@@ -30,21 +30,24 @@ export const CHATGPT_ADS_HERO = {
   secondary: { label: "Call 604.925.5800", href: "tel:+16049255800" },
 };
 
-/** The fictional conversation in the hero illustration. */
+/**
+ * The hero illustration: a made-up conversation, with AccuTemp (a Kosick HVAC client in Victoria, BC)
+ * as the sample sponsor. Illustrative only: no claim that AccuTemp runs ChatGPT ads.
+ */
 export const CONVERSATION = {
-  question: "What should I look for in a heat pump installer in Calgary?",
+  question: "What should I look for in a heat pump installer in Victoria?",
   answer: [
     "Check that they are licensed and carry insurance.",
     "Ask whether they size the system with a heat-loss calculation.",
     "Compare warranties, and ask about rebates you may qualify for.",
   ],
   sponsor: {
-    name: "Northridge Heating & Cooling",
-    domain: "northridgeheating.ca",
-    line: "Heat pump installs across Calgary. Free in-home sizing and rebate guidance.",
-    action: "Book a free assessment",
+    name: "AccuTemp",
+    domain: "accutemp.ca",
+    line: "Heat pump installs from Victoria to Duncan. Ask about rebates and financing.",
+    action: "Request an estimate",
   },
-  page: { title: "Heat pumps, sized for your home.", result: "Assessment booked" },
+  page: { title: "Heat pumps, sized for your home.", result: "Estimate requested" },
 };
 
 export const HOW_IT_WORKS = {

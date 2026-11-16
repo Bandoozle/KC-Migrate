@@ -115,3 +115,52 @@
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
+
+/*
+ * Phones: a two-column photo index, so all eight industries are in view at once instead of
+ * a single column of wide cards. Each tile keeps the name and arrow; the descriptive line
+ * returns from 560px. The closing tile spans the row as the next step.
+ */
+@media (max-width: 559px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+    margin-top: 1.75rem;
+  }
+
+  .card {
+    aspect-ratio: 4 / 5;
+  }
+
+  .copy {
+    gap: 0.3rem;
+    padding: 0.85rem 0.8rem;
+  }
+
+  .name {
+    font-size: 1.0625rem;
+    line-height: 1.2;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .more {
+    margin-top: 0.15rem;
+    font-size: 0.8125rem;
+  }
+
+  .item:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .item:last-child .card {
+    aspect-ratio: auto;
+    min-height: 8.5rem;
+  }
+
+  .item:last-child .line {
+    display: block;
+  }
+}

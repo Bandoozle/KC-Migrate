@@ -255,6 +255,107 @@
   padding: var(--block) 0;
 }
 
+/*
+ * Brands: rows of five (5 + 5 + 3), the short row centred. Cells overlap their 1px borders
+ * (−1px right/bottom margins), so dividers stay hairline and the centred row lines up with
+ * columns two to four. Phones use rows of three (3 + 3 + 3 + 3 + 1, again on the grid).
+ */
+.brands {
+  padding: 0;
+}
+
+.brands .flowHead {
+  margin-bottom: clamp(1.75rem, 3.5vw, 2.5rem);
+}
+
+.brandGallery {
+  --line: rgba(13, 13, 13, 0.09);
+  --per-row: 5;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0 1px 1px 0;
+  list-style: none;
+}
+
+.brandCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 calc(100% / var(--per-row) + 1px);
+  min-width: 0;
+  aspect-ratio: 2 / 1;
+  margin: 0 -1px -1px 0;
+  background: #f9f8f6;
+  border: 1px solid var(--line);
+}
+
+.brandLogo {
+  display: block;
+  width: calc(70% * var(--logo-scale, 1));
+  height: auto;
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Hover: the logo grows slightly inside its cell and the cell lifts to white; mouse devices only */
+@media (hover: hover) and (pointer: fine) {
+  .brandCell {
+    transition: background-color 0.3s ease;
+  }
+
+  .brandCell:hover {
+    background: #ffffff;
+  }
+
+  .brandCell:hover .brandLogo {
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brandLogo,
+  .brandCell {
+    transition: none;
+  }
+
+  .brandCell:hover .brandLogo {
+    transform: none;
+  }
+}
+
+.brandNote {
+  margin: 0.85rem 0 0;
+  color: var(--kosick-color-muted);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+@media (max-width: 1099px) {
+  .brandCell {
+    aspect-ratio: 16 / 10;
+  }
+
+  .brandLogo {
+    width: calc(78% * var(--logo-scale, 1));
+  }
+}
+
+@media (max-width: 719px) {
+  .brandGallery {
+    --per-row: 3;
+  }
+
+  .brandCell {
+    aspect-ratio: 4 / 3;
+  }
+
+  .brandLogo {
+    width: calc(86% * var(--logo-scale, 1));
+  }
+}
+
 .processTrack {
   --process-stroke: var(--accent);
   --process-number: var(--accent);

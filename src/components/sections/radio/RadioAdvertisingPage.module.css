@@ -227,6 +227,8 @@
 }
 
 .console {
+  /* Phones: the shared swipe rail (its rules only apply below 640px) */
+  composes: rail from "../../ui/MobileRail.module.css";
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   margin: 1.75rem 0 0;

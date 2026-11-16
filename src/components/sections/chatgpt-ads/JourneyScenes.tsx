@@ -82,9 +82,9 @@ export function JourneyScenes() {
                 />
               </span>
               <span className={styles.sceneSponsorCopy}>
-                <strong>Northridge Heating</strong>
-                <em>Free in-home sizing across Calgary. Licensed · Insured</em>
-                <u>Book assessment</u>
+                <strong>AccuTemp</strong>
+                <em>Heat pumps from Victoria to Duncan · Rebates &amp; financing</em>
+                <u>Request an estimate</u>
               </span>
             </span>
           </div>
@@ -104,7 +104,7 @@ export function JourneyScenes() {
               <i />
               <i />
               <i />
-              <em>northridgeheating.ca/heat-pumps</em>
+              <em>accutemp.ca</em>
             </span>
             <span className={styles.sceneBrowserHero}>
               <span className={styles.sceneBrowserHeroGlow} />
@@ -113,7 +113,7 @@ export function JourneyScenes() {
               <strong>Heat pumps, sized for your home</strong>
               <em />
               <em />
-              <u>Book a free assessment</u>
+              <u>Request an estimate</u>
             </span>
           </div>
         </div>
@@ -129,8 +129,8 @@ export function JourneyScenes() {
         <div className={styles.scene} aria-hidden="true">
           <div className={styles.sceneConfirm}>
             <span className={styles.sceneConfirmBadge}>✓</span>
-            <strong>Assessment booked</strong>
-            <em>Thu 2:00–4:00 p.m. · North Vancouver</em>
+            <strong>Estimate booked</strong>
+            <em>Thu 2:00–4:00 p.m. · Saanich</em>
             <span className={styles.sceneConfirmMeta}>
               <b>
                 <small>Customer</small>
@@ -141,7 +141,7 @@ export function JourneyScenes() {
                 Heat pump sizing
               </b>
             </span>
-            <span className={styles.sceneConfirmFoot}>Confirmation sent · #NR-2841</span>
+            <span className={styles.sceneConfirmFoot}>Confirmation sent · #AT-2841</span>
           </div>
         </div>
         <span className={styles.journeyName}>{JOURNEY.steps[3].name}</span>

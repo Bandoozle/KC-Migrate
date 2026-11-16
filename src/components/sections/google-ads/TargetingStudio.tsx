@@ -3,118 +3,164 @@
 import { useId, useState, useTransition } from "react";
 import { TARGETING } from "@/content/google-ads-page";
 import styles from "./TargetingStudio.module.css";
+import { MAP_PX_PER_KM, VANCOUVER_MAP } from "./vancouver-map";
 
 type IntentId = (typeof TARGETING.workspace.intent.groups)[number]["id"];
 
+/* Map positions on the 640 × 420 canvas, projected from real coordinates (see vancouver-map.ts) */
+const RADIUS_KM = 20;
+const CENTRE = { x: 184, y: 182 };
+const PINS = {
+  vancouver: { x: CENTRE.x, y: CENTRE.y },
+  burnaby: { x: 259, y: 191 },
+  "north-van": { x: 204, y: 123 },
+  abbotsford: { x: 602, y: 348 },
+} as const;
+
 function MapCanvas({ activeArea }: { activeArea: string }) {
+  const { sea, boundaryBay, mountains, parks, rivers, highways, arterials, excluded } = VANCOUVER_MAP;
+  const pin = (id: keyof typeof PINS) => `translate(${PINS[id].x} ${PINS[id].y})`;
+
   return (
     <svg className={styles.mapSvg} viewBox="0 0 640 420" role="img" aria-label="Service area map of Metro Vancouver">
       <defs>
         <pattern id="ga-map-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-          <path d="M20 0H0V20" fill="none" stroke="rgba(66,133,244,0.07)" strokeWidth="1" />
+          <path d="M20 0H0V20" fill="none" stroke="rgba(66,133,244,0.06)" strokeWidth="1" />
         </pattern>
-        <pattern id="ga-blocks" width="48" height="36" patternUnits="userSpaceOnUse">
-          <rect x="4" y="6" width="18" height="12" rx="1.5" fill="rgba(14,23,38,0.035)" />
-          <rect x="26" y="16" width="16" height="10" rx="1.5" fill="rgba(14,23,38,0.028)" />
+        <pattern id="ga-blocks" width="24" height="18" patternUnits="userSpaceOnUse">
+          <rect x="2" y="3" width="9" height="6" rx="1" fill="rgba(14,23,38,0.03)" />
+          <rect x="13" y="8" width="8" height="5" rx="1" fill="rgba(14,23,38,0.024)" />
         </pattern>
-        <radialGradient id="ga-radius-fill" cx="48%" cy="52%" r="42%">
-          <stop offset="0%" stopColor="rgba(66,133,244,0.3)" />
-          <stop offset="65%" stopColor="rgba(66,133,244,0.12)" />
-          <stop offset="100%" stopColor="rgba(66,133,244,0)" />
+        <radialGradient id="ga-radius-fill" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="rgba(66,133,244,0.26)" />
+          <stop offset="70%" stopColor="rgba(66,133,244,0.12)" />
+          <stop offset="100%" stopColor="rgba(66,133,244,0.04)" />
         </radialGradient>
         <filter id="ga-soft" x="-40%" y="-40%" width="180%" height="180%">
-          <feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="rgba(14,23,38,0.16)" />
+          <feDropShadow dx="0" dy="4" stdDeviation="5" floodColor="rgba(14,23,38,0.18)" />
         </filter>
       </defs>
 
-      <rect width="640" height="420" fill="#edf2f7" />
+      {/* Land */}
+      <rect width="640" height="420" fill="#eef2f6" />
+      <rect width="640" height="420" fill="url(#ga-blocks)" />
       <rect width="640" height="420" fill="url(#ga-map-grid)" />
-      <rect width="640" height="250" fill="url(#ga-blocks)" />
 
-      {/* Water / shoreline */}
-      <path d="M0 248 C70 236, 140 262, 220 248 C300 234, 360 268, 440 256 C520 244, 580 270, 640 258 L640 420 L0 420 Z" fill="#d4e4f4" />
-      <path d="M0 278 C100 266, 180 300, 270 284 C360 268, 450 310, 560 292 L640 304 L640 420 L0 420 Z" fill="#c5daf0" />
-      <path d="M210 40 C250 70, 290 55, 330 78 C360 96, 390 70, 430 88 L430 0 L210 0 Z" fill="#d4e4f4" opacity="0.85" />
-
-      {/* Parks */}
-      <ellipse cx="150" cy="142" rx="42" ry="26" fill="#d5e8d4" />
-      <ellipse cx="486" cy="118" rx="36" ry="22" fill="#d5e8d4" />
-      <ellipse cx="372" cy="308" rx="54" ry="20" fill="#d5e8d4" opacity="0.9" />
-      <ellipse cx="88" cy="214" rx="28" ry="16" fill="#d5e8d4" opacity="0.75" />
-
-      {/* Arterial roads */}
-      <g fill="none" stroke="#ffffff" strokeWidth="11" strokeLinecap="round">
-        <path d="M12 176 H628" />
-        <path d="M28 108 H612" />
-        <path d="M48 236 H600" />
-        <path d="M168 28 V372" />
-        <path d="M312 18 V398" />
-        <path d="M458 36 V360" />
-        <path d="M78 78 C170 128, 250 72, 348 124 C430 168, 510 112, 612 152" />
-        <path d="M28 318 C150 288, 250 348, 380 318 C490 294, 552 338, 624 316" />
-        <path d="M210 60 H470" />
-        <path d="M120 280 H520" />
+      {/* North Shore, Coquitlam and Golden Ears mountains */}
+      <g fill="#e2ebe1">
+        {mountains.map((d) => (
+          <path key={d.slice(0, 24)} d={d} />
+        ))}
       </g>
-      {/* Secondary streets */}
-      <g fill="none" stroke="#ffffff" strokeWidth="5" strokeLinecap="round" opacity="0.9">
-        <path d="M40 140 H600" />
-        <path d="M60 206 H580" />
-        <path d="M220 40 V340" />
-        <path d="M380 50 V330" />
-        <path d="M520 70 V300" />
-        <path d="M100 250 H300" />
-        <path d="M340 250 H560" />
-      </g>
-      <g fill="none" stroke="rgba(14,23,38,0.07)" strokeWidth="2" strokeLinecap="round">
-        <path d="M12 176 H628" />
-        <path d="M28 108 H612" />
-        <path d="M48 236 H600" />
-        <path d="M168 28 V372" />
-        <path d="M312 18 V398" />
-        <path d="M458 36 V360" />
-        <path d="M78 78 C170 128, 250 72, 348 124 C430 168, 510 112, 612 152" />
-        <path d="M28 318 C150 288, 250 348, 380 318 C490 294, 552 338, 624 316" />
+      <g fill="#d5e8d4">
+        {parks.map((d) => (
+          <path key={d.slice(0, 24)} d={d} />
+        ))}
       </g>
 
-      {/* Neighborhood labels */}
-      <g className={styles.mapLabels} fill="rgba(14,23,38,0.42)">
-        <text x="92" y="84">Kitsilano</text>
-        <text x="248" y="72">Downtown</text>
-        <text x="388" y="94">East Van</text>
-        <text x="504" y="160">Burnaby</text>
-        <text x="198" y="44">North Vancouver</text>
-        <text x="54" y="336">False Creek</text>
-        <text x="534" y="268">Abbotsford</text>
+      {/* Canada–US border at the 49th parallel */}
+      <path d="M0 411.1H640" stroke="rgba(14,23,38,0.2)" strokeWidth="1.2" strokeDasharray="6 5" fill="none" />
+
+      {/* Strait of Georgia, English Bay, Burrard Inlet, Indian Arm, Boundary Bay and the Fraser */}
+      <g fill="#d4e4f4" stroke="#c3d7ec" strokeWidth="1">
+        <path d={sea} />
+        <path d={boundaryBay} />
+      </g>
+      <g fill="none" stroke="#d4e4f4" strokeLinecap="round" strokeLinejoin="round">
+        <path d={rivers.main} strokeWidth="6" />
+        <path d={rivers.north} strokeWidth="3.5" />
+        <path d={rivers.middle} strokeWidth="2" />
+        <path d={rivers.pitt} strokeWidth="3" />
       </g>
 
-      {/* Excluded wash */}
-      <ellipse cx="560" cy="250" rx="58" ry="40" fill="rgba(14,23,38,0.05)" stroke="rgba(14,23,38,0.12)" strokeWidth="1.5" strokeDasharray="4 4" />
+      {/* Hwy 1 and Hwy 99, then arterials (Kingsway, Lougheed, Hwy 91, King George, Fraser Hwy, Broadway) */}
+      <g fill="none" strokeLinecap="round" strokeLinejoin="round">
+        <g stroke="rgba(14,23,38,0.08)" strokeWidth="7">
+          {highways.map((d) => (
+            <path key={d.slice(0, 24)} d={d} />
+          ))}
+        </g>
+        <g stroke="#ffffff" strokeWidth="3" opacity="0.95">
+          {arterials.map((d) => (
+            <path key={d.slice(0, 24)} d={d} />
+          ))}
+        </g>
+        <g stroke="#ffffff" strokeWidth="5">
+          {highways.map((d) => (
+            <path key={d.slice(0, 24)} d={d} />
+          ))}
+        </g>
+      </g>
 
-      {/* Service radius */}
-      <circle cx="308" cy="198" r="152" fill="url(#ga-radius-fill)" stroke="rgba(66,133,244,0.55)" strokeWidth="2" strokeDasharray="5 7" />
-      <circle cx="308" cy="198" r="7" fill="#4285f4" stroke="#ffffff" strokeWidth="3" filter="url(#ga-soft)" />
+      {/* Water names */}
+      <g className={`${styles.mapLabels} ${styles.mapWater}`}>
+        <text x="40" y="244" textAnchor="middle">
+          <tspan x="40">Strait of</tspan>
+          <tspan x="40" dy="13">Georgia</tspan>
+        </text>
+        <text x="112" y="146" textAnchor="middle">English Bay</text>
+        <text x="270" y="149" textAnchor="middle" className={styles.mapLabelSmall}>
+          Burrard Inlet
+        </text>
+        <text x="452" y="236" textAnchor="middle" transform="rotate(9 452 236)">
+          Fraser River
+        </text>
+        <text x="306" y="396" textAnchor="middle">Boundary Bay</text>
+      </g>
 
-      {/* Pins */}
+      {/* Municipalities without a targeting pin */}
+      <g className={`${styles.mapLabels} ${styles.mapMinor}`} fill="rgba(14,23,38,0.4)" textAnchor="middle">
+        <text x="112" y="100">West Vancouver</text>
+        <text x="160" y="270">Richmond</text>
+        <text x="204" y="334">Delta</text>
+        <text x="372" y="302">Surrey</text>
+        <text x="392" y="168">Coquitlam</text>
+        <text x="482" y="322">Langley</text>
+        <text x="510" y="196">Maple Ridge</text>
+      </g>
+
+      {/* Excluded area: Abbotsford, outside the service radius */}
+      <path d={excluded} fill="rgba(14,23,38,0.05)" stroke="rgba(14,23,38,0.16)" strokeWidth="1.5" strokeDasharray="4 4" />
+
+      {/* Service radius around the business in Vancouver */}
+      <circle
+        cx={CENTRE.x}
+        cy={CENTRE.y}
+        r={RADIUS_KM * MAP_PX_PER_KM}
+        fill="url(#ga-radius-fill)"
+        stroke="rgba(66,133,244,0.6)"
+        strokeWidth="2"
+        strokeDasharray="5 7"
+      />
+
+      {/* Targeted and excluded locations */}
+      <g className={styles.mapLabels} fill="rgba(14,23,38,0.72)" textAnchor="middle">
+        <text x={PINS.vancouver.x} y={PINS.vancouver.y + 30}>Vancouver</text>
+        <text x={PINS.burnaby.x} y={PINS.burnaby.y + 30} className={styles.mapLabelBurnaby}>
+          Burnaby
+        </text>
+        <text x={PINS["north-van"].x} y={PINS["north-van"].y - 24} className={styles.mapLabelNorthVan}>
+          North Vancouver
+        </text>
+        <text x={PINS.abbotsford.x - 4} y={PINS.abbotsford.y - 24} className={styles.mapLabelAbbotsford}>
+          Abbotsford
+        </text>
+      </g>
+      {/* Position sits on the outer group; the inner group scales when active, so CSS never overrides the translate */}
       <g className={styles.mapPins}>
-        <g data-active={activeArea === "vancouver" ? "true" : undefined} transform="translate(292 188)">
-          <circle r="17" fill="#ffffff" />
-          <circle r="8" fill="#4285f4" />
-        </g>
-        <g data-active={activeArea === "burnaby" ? "true" : undefined} transform="translate(456 168)">
-          <circle r="17" fill="#ffffff" />
-          <circle r="8" fill="#4285f4" />
-        </g>
-        <g data-active={activeArea === "north-van" ? "true" : undefined} transform="translate(266 78)">
-          <circle r="17" fill="#ffffff" />
-          <circle r="8" fill="#4285f4" />
-        </g>
-        <g
-          className={styles.mapExcludedPin}
-          data-active={activeArea === "abbotsford" ? "true" : undefined}
-          transform="translate(560 250)"
-        >
-          <circle r="15" fill="#ffffff" />
-          <path d="M-5 -5 L5 5 M5 -5 L-5 5" stroke="#8b95a5" strokeWidth="2.5" strokeLinecap="round" />
+        {(["vancouver", "burnaby", "north-van"] as const).map((id) => (
+          <g key={id} transform={pin(id)}>
+            <g data-active={activeArea === id ? "true" : undefined}>
+              <circle r="13" fill="#ffffff" filter="url(#ga-soft)" />
+              <circle r="6.5" fill="#4285f4" />
+            </g>
+          </g>
+        ))}
+        <g transform={pin("abbotsford")}>
+          <g className={styles.mapExcludedPin} data-active={activeArea === "abbotsford" ? "true" : undefined}>
+            <circle r="12" fill="#ffffff" filter="url(#ga-soft)" />
+            <path d="M-4 -4 L4 4 M4 -4 L-4 4" stroke="#8b95a5" strokeWidth="2.2" strokeLinecap="round" />
+          </g>
         </g>
       </g>
     </svg>

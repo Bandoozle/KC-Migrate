@@ -501,6 +501,8 @@
 }
 
 .spread {
+  /* Phones: the shared swipe rail (its rules only apply below 640px) */
+  composes: rail from "../../ui/MobileRail.module.css";
   --row: clamp(15rem, 24vw, 21rem);
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -794,5 +796,12 @@
   .spreadTop:hover img,
   .spreadBottom:hover img {
     transform: none;
+  }
+}
+
+/* Phones: the three placements swipe side by side; fill images need a set height in the rail */
+@media (max-width: 640px) {
+  .spread > * {
+    height: 16rem;
   }
 }

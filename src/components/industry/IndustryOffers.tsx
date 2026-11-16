@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionTitle } from "@/components/typography";
+import { MobileRail } from "@/components/ui/MobileRail";
 import { servicePath, type Industry, type IndustryId, type IndustryService } from "@/lib/industries";
 import { PAGE_IMAGES_OUTSIDE_OFFERS } from "@/lib/industries/page-images";
 import "@/styles/industry-themes.css";
@@ -82,7 +83,7 @@ export function IndustryOffers({ industry, headingId = "industry-offers", classN
             <span>Your practice</span>
           </div>
         ) : null}
-        <ul className={styles.grid} data-count={services.length}>
+        <MobileRail className={styles.grid} wrapperClassName={styles.railDots} enabled={layout !== "clinical"}>
           {services.map((service, index) => {
             const image = cardImages[index]!;
             return (
@@ -117,7 +118,7 @@ export function IndustryOffers({ industry, headingId = "industry-offers", classN
               </Reveal>
             );
           })}
-        </ul>
+        </MobileRail>
       </div>
     </section>
   );

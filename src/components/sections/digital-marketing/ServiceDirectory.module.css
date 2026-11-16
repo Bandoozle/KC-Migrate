@@ -107,6 +107,8 @@
 }
 
 .grid {
+  /* Phones: the shared swipe rail (its rules only apply below 640px) */
+  composes: rail from "../../ui/MobileRail.module.css";
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--card-gap);
@@ -302,5 +304,14 @@
   .serviceLink,
   .serviceStatic {
     font-size: 1.0625rem;
+  }
+}
+
+/* Phones: category headings are 44px touch targets (service rows already are) */
+@media (max-width: 640px) {
+  .categoryLink {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
   }
 }

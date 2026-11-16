@@ -332,3 +332,10 @@
     transition: none;
   }
 }
+
+/* Phones: channel filters reach a 44px touch target */
+@media (max-width: 640px) {
+  .tabs button {
+    min-height: 2.75rem;
+  }
+}

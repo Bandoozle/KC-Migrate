@@ -195,3 +195,10 @@
     padding: 1.35rem 1.15rem 1.75rem;
   }
 }
+
+/* Phones: accordion rows reach a 44px touch target */
+@media (max-width: 640px) {
+  .trigger {
+    min-height: 2.75rem;
+  }
+}

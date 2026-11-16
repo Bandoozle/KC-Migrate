@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionTitle } from "@/components/typography";
+import { MobileRail } from "@/components/ui/MobileRail";
 import type { Industry, IndustryImage, IndustryLanding } from "@/lib/industries";
 import styles from "./IndustryReasons.module.css";
 
@@ -49,7 +50,7 @@ function RetailReasons({ industry }: ReasonsProps) {
     <section className={`${styles.section} ${styles.coverLines}`} aria-labelledby="ind-reasons">
       <div className="container">
         <Head industry={industry} />
-        <ol className={styles.lines}>
+        <MobileRail as="ol" className={styles.lines} wrapperClassName={styles.railDots}>
           {industry.landing.reasons.map((reason, index) => (
             <li key={reason.title} className={styles.line}>
               <span className={styles.lineNumber}>{String(index + 1).padStart(2, "0")}</span>
@@ -64,7 +65,7 @@ function RetailReasons({ industry }: ReasonsProps) {
               ) : null}
             </li>
           ))}
-        </ol>
+        </MobileRail>
       </div>
     </section>
   );
@@ -77,7 +78,7 @@ function SpecialtyReasons({ industry, photos }: ReasonsProps) {
       <div className="container">
         <Head industry={industry} dark />
         <div className={styles.rail} aria-hidden="true" />
-        <ul className={styles.tags}>
+        <MobileRail className={styles.tags} wrapperClassName={styles.railDots}>
           {industry.landing.reasons.map((reason, index) => (
             <Reveal key={reason.title} as="li" delay={index * 90} className={styles.tagItem}>
               <div className={styles.tag}>
@@ -86,7 +87,7 @@ function SpecialtyReasons({ industry, photos }: ReasonsProps) {
               </div>
             </Reveal>
           ))}
-        </ul>
+        </MobileRail>
         <div className={styles.window}>
           {photos.slice(0, 2).map((photo) => (
             <Photo key={photo.src} photo={photo} sizes="(min-width: 960px) 45vw, 50vw" className={styles.windowPane} />
@@ -156,7 +157,7 @@ function ClinicalReasons({ industry }: ReasonsProps) {
     <section className={`${styles.section} ${styles.clinical}`} aria-labelledby="ind-reasons">
       <div className="container">
         <Head industry={industry} />
-        <ol className={styles.menu}>
+        <MobileRail as="ol" className={styles.menu} wrapperClassName={styles.railDots}>
           {industry.landing.reasons.map((reason, index) => (
             <Reveal key={reason.title} as="li" delay={index * 90} className={styles.menuItem}>
               <span className={styles.menuIndex} aria-hidden="true">
@@ -171,7 +172,7 @@ function ClinicalReasons({ industry }: ReasonsProps) {
               ) : null}
             </Reveal>
           ))}
-        </ol>
+        </MobileRail>
       </div>
     </section>
   );

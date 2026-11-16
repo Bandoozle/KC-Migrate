@@ -23,6 +23,29 @@ const IMAGES = {
   efficiency: { src: `${UPLOADS}/2026/07/HVAC-Lead-Generation-Vancouver.jpg`, alt: "A Daikin heat pump beside a backyard patio" },
 };
 
+/*
+ * HVAC manufacturer logos on file (the homepage brand wall's HVAC set, plus KeepRite and Tosot from the
+ * original WordPress HVAC page). All share a 488 × 325 canvas; `scale` evens out optical weight, measured
+ * from each mark's trimmed bounds (wide strips up, square or boxed marks down).
+ * American Standard uses a copy with the original's grey box removed.
+ */
+const HVAC_LOGOS = `${UPLOADS}/2026/07`;
+const HVAC_BRANDS = [
+  { name: "Trane", src: `${HVAC_LOGOS}/Trane.png`, scale: 0.9 },
+  { name: "Daikin", src: `${HVAC_LOGOS}/Daikin.png`, scale: 0.86 },
+  { name: "Mitsubishi Electric", src: `${HVAC_LOGOS}/Mitsubishi.png`, scale: 0.82 },
+  { name: "Lennox", src: `${HVAC_LOGOS}/Lennox.png`, scale: 0.8 },
+  { name: "American Standard", src: "/images/brands/american-standard-hvac.png", scale: 0.92 },
+  { name: "York", src: `${HVAC_LOGOS}/York.png`, scale: 0.86 },
+  { name: "GE", src: `${HVAC_LOGOS}/GE.png`, scale: 0.68 },
+  { name: "RunTru", src: `${HVAC_LOGOS}/RunTru.png`, scale: 0.9 },
+  { name: "Napoleon", src: `${HVAC_LOGOS}/Napoleon.png`, scale: 0.72 },
+  { name: "Ruud", src: `${HVAC_LOGOS}/RUUD.png`, scale: 0.62 },
+  { name: "Comfortmaker", src: `${HVAC_LOGOS}/Comfortmaker.png`, scale: 1.04 },
+  { name: "KeepRite", src: `${HVAC_LOGOS}/KeepRite.png`, scale: 0.74 },
+  { name: "Tosot", src: `${HVAC_LOGOS}/Tosot.png`, scale: 0.88 },
+];
+
 /* Hero and closing copy for this page; the WordPress text spoke about advertising, not leads */
 const HERO_LEAD =
   "An HVAC marketing agency built around lead generation. With 20+ years partnering with Trane, RunTru, GE and leading HVAC brands, we turn homeowner searches into calls, quote requests and booked work, all year.";
@@ -238,6 +261,41 @@ export function HvacMarketingPage({ content }: HvacMarketingPageProps) {
         </div>
       </section>
 
+      {/* Brands: every HVAC manufacturer logo on file, evened out for optical weight */}
+      <section className={styles.brands} aria-labelledby="hv-brands">
+        <div className="container">
+          <div className={styles.flowHead}>
+            <p className={styles.label}>HVAC brands</p>
+            <SectionTitle id="hv-brands" className={styles.title}>
+              Brands behind our HVAC campaigns.
+            </SectionTitle>
+            <p className={styles.lead}>
+              Advertising and manufacturer co-op campaigns for these heating and cooling brands and the dealers who sell
+              them, past and present.
+            </p>
+          </div>
+          <Reveal variant="fade">
+            <ul className={styles.brandGallery}>
+              {HVAC_BRANDS.map((brand) => (
+                <li key={brand.name} className={styles.brandCell} style={{ "--logo-scale": brand.scale } as CSSProperties}>
+                  <Image
+                    src={brand.src}
+                    alt={brand.name}
+                    width={488}
+                    height={325}
+                    sizes="(min-width: 1100px) 200px, (min-width: 720px) 18vw, 30vw"
+                    className={styles.brandLogo}
+                  />
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <p className={styles.brandNote}>
+            Logos are trademarks of their owners, shown to identify brands in our past and current work. No endorsement
+            is implied.
+          </p>
+        </div>
+      </section>
 
       {/* Process: four bordered steps that draw in turn, as on the dental journey */}
       <section className={styles.process} aria-labelledby="hv-process">

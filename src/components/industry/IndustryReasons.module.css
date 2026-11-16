@@ -698,3 +698,8 @@
     padding: 1.75rem 2rem 2rem;
   }
 }
+
+/* Phones: rail position dots take the industry accent */
+.railDots {
+  color: var(--ind-accent);
+}

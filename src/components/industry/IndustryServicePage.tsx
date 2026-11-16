@@ -4,6 +4,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { PageCta } from "@/components/sections/PageCta";
 import { ProcessTrack } from "@/components/sections/ProcessSteps";
 import { PageTitle, SectionTitle } from "@/components/typography";
+import { MobileRail } from "@/components/ui/MobileRail";
 import { serviceHeroActions } from "@/lib/content/industry-heroes";
 import { servicePath, type Industry, type IndustryId, type IndustryService } from "@/lib/industries";
 import { ORGANIZATION_REF } from "@/lib/seo/organization";
@@ -237,14 +238,14 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
           <SectionTitle id="svc-benefits" className={styles.title}>
             What it changes for you.
           </SectionTitle>
-          <ul className={styles.benefitGrid}>
+          <MobileRail className={styles.benefitGrid} wrapperClassName={styles.railDots}>
             {service.benefits.map((benefit, index) => (
               <Reveal key={benefit.title} as="li" delay={index * 90} className={styles.benefit}>
                 <h3 className={styles.benefitTitle}>{benefit.title}</h3>
                 <p>{benefit.body}</p>
               </Reveal>
             ))}
-          </ul>
+          </MobileRail>
           <div className={styles.applications}>
             <h3 className={styles.applicationsTitle}>Real-world applications</h3>
             <ul>
@@ -280,7 +281,7 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
           <SectionTitle id="svc-related" className={styles.title}>
             More from {industry.name}.
           </SectionTitle>
-          <ul className={styles.relatedGrid}>
+          <MobileRail className={styles.relatedGrid} wrapperClassName={styles.railDots}>
             {siblings.map((sibling) => (
               <li key={sibling.slug}>
                 <Link href={servicePath(industry, sibling)} className={styles.relatedCard}>
@@ -318,7 +319,7 @@ export function IndustryServicePage({ industry, service }: IndustryServicePagePr
                 </span>
               </Link>
             </li>
-          </ul>
+          </MobileRail>
           {service.related.length > 0 ? (
             <div className={styles.explore}>
               <h3 className={styles.exploreTitle}>Continue exploring</h3>

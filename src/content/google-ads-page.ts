@@ -1,8 +1,10 @@
 /**
  * Google Ads Management (/services/google-ads-management/), added from Bretton's audit (Nov 2026).
  * Original Kosick copy. No pricing, awards, case results or partner status is claimed.
- * Every ad, store and landing page shown is an illustration with a fictional business
- * (Northridge Heating & Cooling); the photography is Kosick's own HVAC library.
+ * The ad mockups use AccuTemp (Victoria, BC; accutemp.ca), a Kosick client, as the sample advertiser.
+ * Their copy only uses services AccuTemp lists on its own site (heat pumps, furnaces, ductless,
+ * rebates, financing, 24/7 service); no ratings, reviews, prices or results are attributed to it.
+ * Shopping stores and competing results are fictional. Photography is Kosick's own HVAC library.
  * AI Overviews wording stays qualified: ad formats there are still rolling out.
  */
 import type { FaqItem } from "@/lib/wordpress/digital-marketing";
@@ -26,17 +28,21 @@ export const GOOGLE_ADS_HERO = {
   formats: ["Search", "Display", "Shopping", "YouTube", "Performance Max"],
 };
 
-/** The fictional advertiser used in every illustration on the page. */
+/**
+ * The sample advertiser in the ad mockups: AccuTemp, a Kosick HVAC client serving Victoria to Duncan.
+ * Illustrative ad copy, not a live ad; keep claims to services AccuTemp publishes.
+ */
 export const SAMPLE_AD = {
-  query: "furnace installer vancouver",
-  business: "Northridge Heating & Cooling",
-  domain: "northridgeheating.ca",
-  headline: "Furnace Installation in Vancouver | Free In-Home Estimates",
-  description: "Licensed technicians, upfront quotes and same-week installs. Ask about current rebates.",
-  sitelinks: ["Book an estimate", "Rebates", "Financing", "Service areas"],
-  pageTitle: "Warm all winter. Installed this week.",
+  query: "furnace installer victoria",
+  business: "AccuTemp",
+  initial: "A",
+  domain: "accutemp.ca",
+  headline: "Furnace & Heat Pump Installation | Victoria to Duncan",
+  description: "Heat pumps, furnaces and ductless systems for Island homes. Ask about rebates and financing.",
+  sitelinks: ["Book an estimate", "Rebates", "Financing", "24/7 service"],
+  pageTitle: "Comfortable all year, from Victoria to Duncan.",
   pageImage: { src: `${IMG}/ductless-living-room.jpg`, alt: "A bright living room with a ductless heat pump mounted high on the wall" },
-  inquiry: "New estimate request · North Vancouver",
+  inquiry: "New estimate request · Saanich",
 };
 
 export const HERO_PHOTO = {
@@ -106,11 +112,11 @@ export const CAMPAIGN_TYPES = [
   },
 ] as const;
 
-/** Fictional listings for the Shopping illustration; photos are Kosick's HVAC library. */
+/** Fictional retailers for the Shopping illustration; photos are Kosick's HVAC library. */
 export const SHOPPING_PRODUCTS = [
   { title: "Ductless mini-split heat pump, 12,000 BTU", price: "$2,349", store: "Coastline Comfort Supply", image: `${IMG}/product-ductless-head.jpg` },
-  { title: "Cold-climate air-source heat pump", price: "$6,890", store: "Northridge Heating", image: `${IMG}/product-heat-pump.jpg` },
-  { title: "High-efficiency central air conditioner", price: "$3,475", store: "Harbour HVAC Outlet", image: `${IMG}/product-ac-unit.jpg` },
+  { title: "Cold-climate air-source heat pump", price: "$6,890", store: "Pacific Air Supply", image: `${IMG}/product-heat-pump.jpg` },
+  { title: "High-efficiency central air conditioner", price: "$3,475", store: "Fraserview HVAC Outlet", image: `${IMG}/product-ac-unit.jpg` },
   { title: "Central air condenser, 2.5 ton", price: "$2,990", store: "Westside Home Systems", image: `${IMG}/product-condenser.jpg` },
 ] as const;
 
@@ -123,7 +129,7 @@ export const TARGETING = {
     geo: {
       title: "Locations",
       summary: "Serve ads where you can do the work. Include the cities you cover; leave out areas that drain budget.",
-      radiusLabel: "Service radius · 25 km",
+      radiusLabel: "Service radius · 20 km",
       included: [
         { id: "vancouver", name: "Vancouver", detail: "Downtown · Kitsilano · East Van" },
         { id: "burnaby", name: "Burnaby", detail: "Metrotown · Brentwood" },
