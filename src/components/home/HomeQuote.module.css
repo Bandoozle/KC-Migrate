@@ -1,17 +1,16 @@
 /*
  * Ferdinand Porsche quote: sharp dusk photography, consistent dark wash,
- * quote-forward rail — compact portrait flush to the content-rail right edge.
+ * a centred pull-quote on dark glass. No portrait.
  */
 .section {
   --quote-warm: #d4bd8e;
   --quote-paper: rgba(255, 248, 238, 0.94);
-  --portrait-w: clamp(17.5rem, 20vw, 20rem); /* ~280–320px */
   position: relative;
   isolation: isolate;
   overflow: clip;
   width: 100%;
   margin: 0;
-  padding: clamp(2.25rem, 4.5vw, 3.5rem) 0;
+  padding: clamp(3rem, 7vw, 5.5rem) 0;
   color: #ffffff;
 }
 
@@ -27,37 +26,35 @@
   object-position: 58% 42%;
 }
 
-/* Darker on the copy side so the quote reads cleanly; the city stays visible on the right */
+/* Even wash with a soft vignette: the quote is centred, so the dark side no longer sits on the left */
 .wash {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(10, 9, 8, 0.72) 0%, rgba(10, 9, 8, 0.5) 60%, rgba(10, 9, 8, 0.38) 100%);
+    radial-gradient(120% 90% at 50% 50%, rgba(10, 9, 8, 0.5) 0%, rgba(10, 9, 8, 0.62) 100%);
 }
 
 .rail {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) var(--portrait-w);
-  gap: clamp(2rem, 3.5vw, 3rem);
-  align-items: center;
   width: var(--kosick-content-rail);
   max-width: var(--kosick-content-rail);
   margin: 0 auto;
   padding-inline: 0;
 }
 
-/* The quote sits on its own dark glass card, so the photo never competes with the type */
+/* The quote sits on its own dark glass card, centred, so the photo never competes with the type */
 .copy {
   position: relative;
   min-width: 0;
-  max-width: none;
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(1.75rem, 4vw, 3.25rem) clamp(1.5rem, 5vw, 4.5rem);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   background: rgba(14, 13, 12, 0.62);
   -webkit-backdrop-filter: blur(14px) saturate(110%);
   backdrop-filter: blur(14px) saturate(110%);
   box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+  text-align: center;
 }
 
 .mark {
@@ -81,16 +78,16 @@
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: -0.025em;
-  text-wrap: pretty;
+  text-wrap: balance;
 }
 
 .by {
   display: grid;
   gap: 0.2rem;
-  margin: 1.35rem 0 0;
+  max-width: 24rem;
+  margin: 1.5rem auto 0;
   padding: 1rem 0 0;
   border-top: 1px solid rgba(212, 189, 142, 0.28);
-  max-width: 24rem;
 }
 
 .name {
@@ -108,44 +105,7 @@
   line-height: 1.4;
 }
 
-.portrait {
-  position: relative;
-  margin: 0;
-  width: var(--portrait-w);
-  justify-self: end;
-}
-
-.portraitFrame {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  border-radius: 16px;
-  aspect-ratio: 4 / 5;
-  background: #1c1a18;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
-}
-
-.portraitImage {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-}
-
 @media (max-width: 899px) {
-  .section {
-    --portrait-w: clamp(14rem, 28vw, 16.5rem);
-  }
-
-  .rail {
-    gap: 1.75rem;
-  }
-
-  .copy {
-    max-width: none;
-  }
-
   .quote p {
     font-size: clamp(1.375rem, 3.6vw, 1.875rem);
   }
@@ -153,7 +113,6 @@
 
 @media (max-width: 639px) {
   .section {
-    --portrait-w: 9.5rem;
     padding: 2.25rem 0 2.5rem;
   }
 
@@ -164,12 +123,6 @@
   .copy {
     padding: 1.35rem 1.25rem 1.5rem;
     border-radius: 16px;
-  }
-
-  .rail {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    align-items: start;
   }
 
   .mark {
@@ -183,16 +136,8 @@
   }
 
   .by {
+    max-width: none;
     margin-top: 1.1rem;
     padding-top: 0.85rem;
-    max-width: none;
-  }
-
-  .portrait {
-    justify-self: center;
-  }
-
-  .portraitFrame {
-    aspect-ratio: 3 / 4;
   }
 }

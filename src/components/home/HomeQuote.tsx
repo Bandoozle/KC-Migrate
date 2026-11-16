@@ -12,8 +12,8 @@ const BACKDROP = {
 };
 
 /**
- * Editorial quote feature: atmospheric photography, asymmetric copy + portrait,
- * and restrained depth — not a flat black testimonial slab.
+ * Editorial quote feature: atmospheric photography behind a centred pull-quote on dark glass,
+ * with restrained depth — not a flat black testimonial slab. No portrait (removed Nov 2026).
  */
 export function HomeQuote({ content }: HomeQuoteProps) {
   return (
@@ -43,19 +43,6 @@ export function HomeQuote({ content }: HomeQuoteProps) {
             <span className={styles.role}>{content.role}</span>
           </footer>
         </div>
-
-        <figure className={styles.portrait}>
-          <div className={styles.portraitFrame}>
-            <Image
-              src={content.photoSrc}
-              alt={content.photoAlt}
-              width={640}
-              height={640}
-              sizes="(max-width: 639px) 46vw, (max-width: 899px) 26vw, 320px"
-              className={styles.portraitImage}
-            />
-          </div>
-        </figure>
       </div>
     </section>
   );

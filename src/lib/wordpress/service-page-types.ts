@@ -22,6 +22,8 @@ export type ServiceInfoCard = {
 export type ServiceFaqItem = {
   question: string;
   answer: string;
+  /** Phrases in the answer that the source marks as underlined; `answer` itself stays plain text. */
+  underline?: string[];
 };
 
 export type ServiceRelated = {

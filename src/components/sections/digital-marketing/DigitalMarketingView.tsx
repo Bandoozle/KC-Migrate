@@ -130,14 +130,12 @@ export function DigitalMarketingView({ content }: DigitalMarketingViewProps) {
         <section className={`${styles.section} ${styles.dark}`} aria-labelledby="dm-track">
           <div className={`container ${styles.trackGrid}`}>
             <div className={styles.copy}>
-              <p className={styles.labelOnDark}>Campaign performance tracking</p>
               <SectionTitle id="dm-track" className={styles.titleOnDark}>
-                {sentence(track.title)}
+                Campaign performance tracking: Track digital marketing results
               </SectionTitle>
               <p className={styles.leadOnDark}>
                 We track every click, call, form and sale back to the campaign that produced it, so you can see which
-                ads bring in leads and where your next investment belongs. Reporting is clear and jargon-free, with monthly
-                reviews of what&rsquo;s working.
+                ads bring in leads and where your next investment belongs.
               </p>
               <Checks items={track.bullets} dark />
             </div>
