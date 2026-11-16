@@ -15,6 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: { absolute: TITLE },
     description: DESCRIPTION,
     openGraph: { ...metadata.openGraph, title: TITLE, description: DESCRIPTION },
+    twitter: { ...metadata.twitter, title: TITLE, description: DESCRIPTION },
   };
 }
 

@@ -117,8 +117,8 @@
   position: static;
 }
 
-/* Column menus start at the header bottom, same anchor as the Services mega panel. */
-.navItem:has(.dropdownColumns) {
+/* Every dropdown starts at the header's bottom edge, so all panels line up at the same height */
+.navItem:has(.dropdown) {
   align-self: stretch;
 }
 
@@ -193,6 +193,11 @@
   max-width: min(720px, calc(100vw - 2rem));
   padding-top: var(--kosick-nav-mega-pad-top);
   padding-bottom: var(--kosick-nav-mega-pad-bottom);
+}
+
+/* Set by SiteHeader when an open panel would cross the window edge; slides it back inside */
+.dropdown {
+  translate: var(--nav-panel-shift, 0px) 0;
 }
 
 /* Flat two-column panel (Advertising-style): links only, no group titles */
@@ -722,7 +727,15 @@
   color: #111111;
 }
 
-@media (min-width: 1025px) {
+/*
+ * Header breakpoints, set from the measured width of the content (logo, six nav labels at 15px,
+ * phone and button) so it switches before it gets crowded rather than at a device size:
+ *   1400px and up  full desktop header
+ *   1200–1399px    compact desktop: phone hidden (it stays on Contact and in the footer), tighter spacing
+ *   below 1200px   the drawer navigation
+ * Browser zoom lowers the CSS width, so zoomed windows follow the same steps.
+ */
+@media (min-width: 1200px) {
   .actions {
     display: flex;
   }
@@ -733,7 +746,7 @@
   }
 }
 
-@media (min-width: 1025px) and (max-width: 1180px) {
+@media (min-width: 1200px) and (max-width: 1399px) {
   .megaColumns {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -743,7 +756,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .inner {
     grid-template-columns: auto auto;
     min-height: 56px;
@@ -760,7 +773,7 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199px) {
   .brand {
     min-height: 44px;
   }
@@ -778,4 +791,29 @@
 .drawerFoot .mobileCta,
 .drawerFoot .social {
   margin-top: 0;
+}
+
+/* Compact desktop: the same header with the phone hidden and slightly tighter spacing; type, logo and button keep their size */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .inner {
+    gap: 16px;
+    padding-inline: 28px;
+  }
+
+  .navList {
+    gap: clamp(8px, 1.1vw, 16px);
+  }
+
+  .navLink {
+    padding-inline: 8px;
+  }
+
+  .navLink::after {
+    left: 8px;
+    right: 8px;
+  }
+
+  .phone {
+    display: none;
+  }
 }

@@ -14,7 +14,9 @@ export async function generateMetadata(): Promise<Metadata> {
     ...metadata,
     title: { absolute: TITLE },
     description: DESCRIPTION,
-    openGraph: { ...metadata.openGraph, title: TITLE, description: DESCRIPTION },  };
+    openGraph: { ...metadata.openGraph, title: TITLE, description: DESCRIPTION },
+    twitter: { ...metadata.twitter, title: TITLE, description: DESCRIPTION },
+  };
 }
 
 export default async function RadioAdvertisingPage() {

@@ -147,18 +147,13 @@ export const SITE_HEADER_NAV: NavItem[] = [
       { label: "Website Development & E-Commerce", href: "/services/website-development/" },
     ],
   },
-  {
-    type: "menu",
-    label: "Resources",
-    items: [
-      { label: "Feature Articles", href: "/feature-articles/" },
-    ],
-  },
+  /* Results holds the work and the writing about it; Feature Articles moved here from Resources (Nov 2026) */
   {
     type: "menu",
     label: "Results",
     items: [
       { label: "Marketing Results", href: "/marketing-results/" },
+      { label: "Feature Articles", href: "/feature-articles/" },
     ],
   },
 ];
