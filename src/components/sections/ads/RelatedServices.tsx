@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SectionTitle } from "@/components/typography";
+import { MobileRail } from "@/components/ui/MobileRail";
 import styles from "./RelatedServices.module.css";
 
 type VisualKind =
@@ -159,8 +160,8 @@ function ServiceVisual({ kind }: { kind: VisualKind }) {
           </span>
           <span className={styles.chatSponsored}>
             <b>Sponsored</b>
-            <strong>Northridge Heating</strong>
-            <em>Book assessment</em>
+            <strong>AccuTemp</strong>
+            <em>Request estimate</em>
           </span>
         </div>
       </div>
@@ -466,7 +467,7 @@ export function RelatedServices({ title, current, include, tone = "light", align
             {title}
           </SectionTitle>
         </div>
-        <ul className={styles.grid}>
+        <MobileRail className={styles.grid} itemWidth="78%">
           {links.map((link, index) => (
             <li key={link.href}>
               <Link className={styles.card} href={link.href} data-tone={index % 4}>
@@ -478,7 +479,7 @@ export function RelatedServices({ title, current, include, tone = "light", align
               </Link>
             </li>
           ))}
-        </ul>
+        </MobileRail>
       </div>
     </section>
   );

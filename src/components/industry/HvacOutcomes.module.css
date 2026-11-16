@@ -621,3 +621,8 @@
     font-size: var(--kosick-body-size);
   }
 }
+
+/* Phones: rail position dots take the industry accent */
+.railDots {
+  color: var(--ind-accent);
+}

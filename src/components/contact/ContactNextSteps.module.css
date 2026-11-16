@@ -26,6 +26,8 @@
 }
 
 .steps {
+  /* Phones: the shared swipe rail (rules only apply below 640px) */
+  composes: rail from "../ui/MobileRail.module.css";
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -601,5 +603,21 @@
 
   .step:hover .card {
     transform: none;
+  }
+}
+
+/*
+ * Phones: the three steps sit side by side in a swipe rail, each card a full illustrated step
+ * with its number above it, instead of three tall cards joined by a vertical line.
+ */
+@media (max-width: 640px) {
+  .steps {
+    --rail-item: 86%;
+    --rail-gap: 0.85rem;
+  }
+
+  .step:not(:last-child)::before,
+  .step:not(:last-child)::after {
+    display: none;
   }
 }

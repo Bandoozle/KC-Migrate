@@ -509,3 +509,18 @@
     transition: none;
   }
 }
+
+/* Phones: newsletter field and button reach a 44px touch target */
+@media (max-width: 640px) {
+  .newsletterInput,
+  .newsletterButton {
+    min-height: 2.75rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .brandLink {
+    min-height: 2.75rem;
+    align-items: center;
+  }
+}

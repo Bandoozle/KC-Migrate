@@ -365,3 +365,26 @@ main a.articleLink {
     transition: none;
   }
 }
+
+/* Phones: each site map link is a 44px row, so the long lists are easy to tap accurately */
+@media (max-width: 640px) {
+  main a.link {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding-block: 0.25rem;
+  }
+
+  .links {
+    gap: 0;
+  }
+}
+
+/* Phones: industry headings in the directory are 44px touch targets */
+@media (max-width: 640px) {
+  .columnTitle a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+}

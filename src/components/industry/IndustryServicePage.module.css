@@ -1946,3 +1946,42 @@
   padding: 0 0.85rem;
   font-size: 0.8125rem;
 }
+
+/* Phones: rail position dots take the section's accent */
+.railDots {
+  color: var(--ind-accent);
+}
+
+/*
+ * Phones: the hero's "In this service" list repeats the "What we offer" list that follows,
+ * so it is left out and the image sits closer to the call to action.
+ */
+@media (max-width: 640px) {
+  .heroNote {
+    display: none;
+  }
+
+  .heroCourse {
+    min-height: 0;
+    padding-block: clamp(4.5rem, 22vw, 6rem) 2.5rem;
+  }
+}
+
+/* Phones: related cards share one height in the rail, so the link sits on the bottom edge and the
+   decorative photo on the "All services" card steps out rather than stretching every card */
+@media (max-width: 640px) {
+  .relatedMore {
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+
+  .relatedHomeMedia {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .relatedHome.relatedHomePhoto {
+    padding-top: 1.5rem;
+  }
+}

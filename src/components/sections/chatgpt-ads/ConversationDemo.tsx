@@ -83,7 +83,7 @@ export function ConversationDemo() {
         ))}
       </ol>
       <p className={styles.caption}>
-        Illustration with a fictional business. A sponsored placement sits below the answer and does not change it.
+        Illustration using our client AccuTemp as the sponsor; not a live ad. A sponsored placement sits below the answer and does not change it.
       </p>
     </div>
   );

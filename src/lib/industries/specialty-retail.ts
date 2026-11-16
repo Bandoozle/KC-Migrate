@@ -60,7 +60,7 @@ export const SPECIALTY_RETAIL: Industry = {
     ],
     gallery: [
       { src: `${UP}/2026/08/Social-Media.jpg`, alt: "Garden centre Instagram posts of flowers and a succulent planter" },
-      { src: "/images/industries/specialty-retail/garden-centre-greenhouse.jpg", alt: "A garden centre staff member hanging flower baskets in a greenhouse", position: "50% 45%" },
+      { src: "/images/industries/specialty-retail/espresso-machine-display.jpg", alt: "A Rocket Appartamento espresso machine on a coffee retailer's display, with bags of beans behind it", position: "50% 42%" },
       { src: `${UP}/2025/10/website-development.jpg`, alt: "An online tool store website on a laptop" },
     ],
   },

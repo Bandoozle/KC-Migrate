@@ -141,6 +141,42 @@
   letter-spacing: 0.01em;
 }
 
+.mapWater {
+  fill: #6d8fb6;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.mapLabelSmall {
+  font-size: 8.5px;
+}
+
+/* Phones: the canvas renders at about half size, so keep the pinned places and enlarge them */
+@media (max-width: 560px) {
+  .mapLabels {
+    font-size: 17px;
+  }
+
+  .mapWater,
+  .mapMinor {
+    display: none;
+  }
+
+  /* Larger labels need room: Burnaby beside its pin, North Vancouver clear of the badge, Abbotsford inside the edge */
+  .mapLabelBurnaby {
+    transform: translate(52px, -24px);
+  }
+
+  .mapLabelNorthVan {
+    transform: translate(0, 50px);
+  }
+
+  .mapLabelAbbotsford {
+    transform: translate(-16px, 0);
+  }
+}
+
 .mapPins g {
   transition: transform 0.25s ease;
   transform-box: fill-box;
@@ -178,7 +214,7 @@
 
 .mapLegend {
   position: absolute;
-  right: 0.85rem;
+  left: 0.85rem;
   bottom: 0.85rem;
   display: inline-flex;
   gap: 0.55rem;

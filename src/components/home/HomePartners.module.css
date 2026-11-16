@@ -205,3 +205,10 @@
     animation: none;
   }
 }
+
+/* Phones: three logos to a row, so the nine networks fill three rows and the brand wall is a third shorter */
+@media (max-width: 639px) {
+  .wall:not([data-kind="partner"]) {
+    --cols: 3;
+  }
+}

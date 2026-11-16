@@ -411,6 +411,8 @@
 }
 
 .columns {
+  /* Phones: the shared swipe rail (its rules only apply below 640px) */
+  composes: rail from "../../ui/MobileRail.module.css";
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: clamp(2.5rem, 5vw, 4rem);
@@ -752,4 +754,17 @@
   font-weight: 600;
   line-height: 1.3;
   text-align: center;
+}
+
+/* Phones: each service group is one card in the swipe rail, framed alike so the row reads evenly */
+@media (max-width: 640px) {
+  .column,
+  .column:first-child,
+  .column:nth-child(3),
+  .column + .column {
+    margin-top: 0;
+    padding: 1.35rem 1.25rem 0.5rem;
+    border: 1px solid var(--rule-dark);
+    border-radius: var(--kosick-radius-sm);
+  }
 }

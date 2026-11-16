@@ -238,6 +238,8 @@ main a.mediaRow:hover {
 /* 02 Brand & Creative: large branding plate, two smaller plates stacked beside it */
 
 .collage {
+  /* Phones: the shared swipe rail (its rules only apply below 640px) */
+  composes: rail from "../../ui/MobileRail.module.css";
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   grid-template-rows: auto auto;
@@ -689,5 +691,23 @@ main a.row {
   .tile:hover .tileImage img,
   .browserLink:hover .browserView img {
     transform: none;
+  }
+}
+
+/* Phones: the three Brand & Creative tiles swipe side by side, each photo at one shared 4:3 */
+@media (max-width: 640px) {
+  .collage > * {
+    display: flex;
+  }
+
+  .collage .tile {
+    width: 100%;
+  }
+
+  .collage .tileImage,
+  .collage_branding .tileImage {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 }

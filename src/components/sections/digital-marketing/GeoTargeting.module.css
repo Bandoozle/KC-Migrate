@@ -252,3 +252,10 @@
     transition: none;
   }
 }
+
+/* Phones: radius buttons reach a 44px touch target */
+@media (max-width: 640px) {
+  .radii button {
+    min-height: 2.75rem;
+  }
+}

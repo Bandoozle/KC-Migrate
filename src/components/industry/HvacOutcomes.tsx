@@ -1,6 +1,7 @@
 import type { JSX } from "react";
 import { Reveal } from "@/components/motion/Reveal";
 import { SectionTitle } from "@/components/typography";
+import { MobileRail } from "@/components/ui/MobileRail";
 import type { Application, ApplicationIcon, Benefit, BenefitVisual } from "@/lib/industries";
 import styles from "./HvacOutcomes.module.css";
 
@@ -138,7 +139,7 @@ export function HvacOutcomes({ benefits, applications }: HvacOutcomesProps) {
           What it changes for you.
         </SectionTitle>
 
-        <ul className={styles.stage} data-count={benefits.length}>
+        <MobileRail className={styles.stage} wrapperClassName={styles.railDots} data-count={benefits.length}>
           {benefits.map((benefit, index) => {
             const Visual = benefit.visual ? VISUALS[benefit.visual] : null;
             return (
@@ -159,7 +160,7 @@ export function HvacOutcomes({ benefits, applications }: HvacOutcomesProps) {
               </Reveal>
             );
           })}
-        </ul>
+        </MobileRail>
 
         <div className={styles.apps}>
           <p className={styles.appsKicker}>Where this shows up</p>

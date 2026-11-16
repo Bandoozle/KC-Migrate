@@ -693,6 +693,8 @@
 }
 
 .journeySteps {
+  /* Phones: the shared swipe rail (its rules only apply below 640px) */
+  composes: rail from "../../ui/MobileRail.module.css";
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: clamp(1rem, 2.2vw, 1.5rem);

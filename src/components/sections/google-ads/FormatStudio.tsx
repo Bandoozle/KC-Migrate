@@ -38,7 +38,7 @@ function SearchExample() {
       <div className={styles.result} data-sponsored>
         <span className={styles.sponsored}>Sponsored</span>
         <span className={styles.site}>
-          <span className={styles.favicon}>N</span>
+          <span className={styles.favicon}>{SAMPLE_AD.initial}</span>
           <span>
             <b>{SAMPLE_AD.business}</b>
             <small>https://{SAMPLE_AD.domain}</small>
@@ -89,15 +89,15 @@ function DisplayExample() {
               <span>{SAMPLE_AD.business}</span>
             </span>
           </div>
-          <p>Heat pumps now handle most Lower Mainland winters on their own, and many homes qualify for rebates on the switch.</p>
+          <p>Heat pumps now handle most coastal BC winters on their own, and many homes qualify for rebates on the switch.</p>
         </div>
         <aside className={styles.mrec}>
           <div className={styles.mrecImage}>
             <Image src={PHOTO.living} alt="" fill sizes="(min-width: 1000px) 16vw, 40vw" className={styles.cover} />
             <span className={styles.adBadge}>Ad</span>
           </div>
-          <b>Free in-home estimates</b>
-          <span>Same-week heat pump installs in Vancouver.</span>
+          <b>Heat pumps, sized for your home</b>
+          <span>Installs from Victoria to Duncan.</span>
           <span className={styles.mrecButton}>Book now</span>
         </aside>
       </div>
@@ -134,7 +134,7 @@ function VideoExample() {
         <span className={styles.playerShade} />
         <span className={styles.adPill}>Sponsored · 0:08</span>
         <span className={styles.adCard}>
-          <span className={styles.favicon}>N</span>
+          <span className={styles.favicon}>{SAMPLE_AD.initial}</span>
           <span>
             <b>{SAMPLE_AD.business}</b>
             <small>{SAMPLE_AD.domain}</small>
@@ -170,7 +170,7 @@ function PmaxExample() {
         <span className={styles.surfaceName}>Search</span>
         <div className={styles.pmaxSearchBar}>
           <GoogleMark />
-          <span>heat pump installation vancouver</span>
+          <span>heat pump installation victoria</span>
           <span className={styles.pmaxSearchIcons} aria-hidden="true">
             <svg viewBox="0 0 24 24" width="14" height="14">
               <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v5a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.9V21h2v-3.1A7 7 0 0 0 19 11h-2Z" />
@@ -184,22 +184,18 @@ function PmaxExample() {
         <div className={styles.pmaxSearchAd}>
           <div className={styles.pmaxSearchCopy}>
             <span className={styles.pmaxSite}>
-              <span className={styles.favicon}>N</span>
+              <span className={styles.favicon}>{SAMPLE_AD.initial}</span>
               <span>
                 <b>{SAMPLE_AD.business}</b>
                 <small>{SAMPLE_AD.domain}</small>
               </span>
             </span>
-            <span className={styles.pmaxHeadline}>Heat Pump Installation in Vancouver</span>
+            <span className={styles.pmaxHeadline}>Heat Pump Installation in Victoria</span>
             <span className={styles.pmaxDesc}>
-              Efficient, quiet heat pumps from trusted local experts. Free in-home estimates this week.
+              Heat pumps, furnaces and ductless systems. Ask about rebates and financing.
             </span>
             <span className={styles.pmaxProof}>
-              <span className={styles.pmaxStars} aria-hidden="true">
-                ★★★★★
-              </span>
-              <span>4.9 (1.2K)</span>
-              <span className={styles.pmaxLoc}>Vancouver</span>
+              <span className={styles.pmaxLoc}>Victoria to Duncan</span>
             </span>
           </div>
           <span className={styles.pmaxThumb}>
@@ -219,7 +215,7 @@ function PmaxExample() {
           <Image src={PHOTO.living} alt="" fill sizes="(min-width: 1000px) 28vw, 70vw" className={styles.cover} />
           <span className={styles.pmaxPlayerShade} aria-hidden="true" />
           <span className={styles.pmaxBrandChip}>
-            <span className={styles.favicon}>N</span>
+            <span className={styles.favicon}>{SAMPLE_AD.initial}</span>
             {SAMPLE_AD.business}
           </span>
           <span className={styles.pmaxAdTime}>
@@ -275,11 +271,7 @@ function PmaxExample() {
               <b>{SAMPLE_AD.business}</b>
               <small>Sponsored · HVAC contractor</small>
               <span className={styles.pmaxProof}>
-                <span className={styles.pmaxStars} aria-hidden="true">
-                  ★★★★★
-                </span>
-                <span>4.9</span>
-                <span>Open until 6 p.m.</span>
+                <span>24/7 emergency service</span>
               </span>
             </span>
             <span className={styles.pmaxCall}>
@@ -354,7 +346,7 @@ export function FormatStudio() {
           </ul>
         </div>
       </div>
-      <p className={styles.note}>Examples use a fictional business and fictional retailers.</p>
+      <p className={styles.note}>Ad mockups use our client AccuTemp for illustration; the copy is an example, not a live ad. Other businesses and retailers shown are fictional.</p>
     </div>
   );
 }

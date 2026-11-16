@@ -32,7 +32,7 @@ export function HeroScene() {
         <div className={styles.adBody}>
           <span className={styles.sponsored}>Sponsored</span>
           <span className={styles.site}>
-            <span className={styles.favicon}>N</span>
+            <span className={styles.favicon}>{SAMPLE_AD.initial}</span>
             <span>
               <b>{SAMPLE_AD.business}</b>
               <small>{SAMPLE_AD.domain}</small>
@@ -60,7 +60,7 @@ export function HeroScene() {
           <Image src={SAMPLE_AD.pageImage.src} alt="" fill sizes="(min-width: 1000px) 24vw, 60vw" className={styles.cover} />
           <span className={styles.pageTitle}>{SAMPLE_AD.pageTitle}</span>
         </div>
-        <span className={styles.pageButton}>Book a free estimate</span>
+        <span className={styles.pageButton}>Book an estimate</span>
       </div>
 
       {/* 3. The inquiry */}
@@ -78,7 +78,7 @@ export function HeroScene() {
 
       <figcaption className={styles.caption}>
         Illustration: a search for “{SAMPLE_AD.query}” leads to a sponsored result, the business’s page and an estimate
-        request. The business is fictional.
+        request. AccuTemp is a Kosick client; the ad, page and inquiry are examples, not campaign results.
       </figcaption>
     </figure>
   );

@@ -109,6 +109,8 @@
   --kosick-meta-size: 0.9375rem;
   --kosick-meta-weight: 400;
   --kosick-meta-leading: 1.45;
+  /* Side gutter of .container; full-bleed rails on phones step out by exactly this much */
+  --kosick-gutter: clamp(1.25rem, 3vw, 2.5rem);
   --kosick-container: min(1290px, calc(100% - 2 * clamp(1.25rem, 3vw, 2.5rem)));
   --kosick-content-rail: min(1290px, calc(100% - 2 * clamp(1.25rem, 3vw, 2.5rem)));
   --kosick-intro-content-gap: 1.25rem;

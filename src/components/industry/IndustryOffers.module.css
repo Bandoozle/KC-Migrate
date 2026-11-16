@@ -757,3 +757,22 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Phones: rail position dots take the industry accent */
+.railDots {
+  color: var(--ind-accent);
+}
+
+/*
+ * Phones: the clinical treatment plan stays a vertical form (a rail would break the chart),
+ * so its decorative photos step out and each entry is just the tick, name, summary and link.
+ */
+@media (max-width: 640px) {
+  .clinical .media {
+    display: none;
+  }
+
+  .clinical .card {
+    padding-block: 1.1rem;
+  }
+}

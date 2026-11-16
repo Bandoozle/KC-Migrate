@@ -569,6 +569,8 @@
 }
 
 .rhythmCards {
+  /* Phones: the shared swipe rail (its rules only apply below 640px) */
+  composes: rail from "../../ui/MobileRail.module.css";
   display: grid;
   gap: 0.9rem;
   margin: 0;

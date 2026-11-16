@@ -19,6 +19,8 @@
 }
 
 .grid {
+  /* Phones: the shared swipe rail (its rules only apply below 640px) */
+  composes: rail from "../ui/MobileRail.module.css";
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.75rem;
@@ -127,3 +129,11 @@
   }
 }
 
+
+/* Phones: the eight posts become one swipeable strip, about one and a half tiles in view */
+@media (max-width: 639px) {
+  .grid {
+    --rail-item: 62%;
+    --rail-gap: 0.5rem;
+  }
+}
