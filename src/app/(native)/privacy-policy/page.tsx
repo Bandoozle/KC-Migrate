@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { InternalPageHero } from "@/components/sections/InternalPageHero";
 import { PRIVACY_POLICY_OPEN_ITEMS, PRIVACY_POLICY_PATH, PRIVACY_POLICY_PUBLISHED } from "@/lib/privacy-policy";
-import { canonicalUrl, PRODUCTION_SITE_ORIGIN } from "@/lib/site";
+import { socialPreview } from "@/lib/seo/social-image";
+import { canonicalUrl } from "@/lib/site";
 import styles from "./PrivacyPolicy.module.css";
 
 const TITLE = "Privacy Policy | Kosick Communications";
@@ -10,6 +11,7 @@ const DESCRIPTION =
 
 export function generateMetadata(): Metadata {
   const url = canonicalUrl(PRIVACY_POLICY_PATH);
+  const { images, twitter } = socialPreview(PRIVACY_POLICY_PATH, { title: TITLE, description: DESCRIPTION });
   return {
     title: { absolute: TITLE },
     description: DESCRIPTION,
@@ -21,8 +23,9 @@ export function generateMetadata(): Metadata {
       title: TITLE,
       description: DESCRIPTION,
       url,
-      images: [{ url: `${PRODUCTION_SITE_ORIGIN}/wp-content/uploads/2026/06/kosick-communications-branding.jpg` }],
+      images,
     },
+    twitter,
   };
 }
 

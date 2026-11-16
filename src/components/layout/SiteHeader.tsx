@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import {
   SITE_HEADER_CTA,
   SITE_HEADER_LOGO,
@@ -16,6 +16,13 @@ import {
 import styles from "./SiteHeader.module.css";
 
 const DROPDOWN_CLOSE_MS = 200;
+/* An open dropdown keeps at least this much space from both edges of the window */
+const PANEL_EDGE_GAP = 16;
+/*
+ * A tap fires focus/hover (which open the menu) and then a click (which toggles it). A click this soon
+ * after an automatic open keeps the menu open, so one tap opens it on touch screens.
+ */
+const TAP_AFTER_OPEN_MS = 400;
 
 type SiteHeaderProps = {
   /**
@@ -73,7 +80,26 @@ function DesktopNavItem({
   onToggle: () => void;
 }) {
   const closeTimer = useRef<number | null>(null);
+  const autoOpenedAt = useRef(0);
+  const panelRef = useRef<HTMLDivElement>(null);
   const panelId = useId();
+
+  // Panels hang from their menu item; near either edge of a narrow window, slide the open panel back inside it
+  useLayoutEffect(() => {
+    const panel = panelRef.current;
+    if (!open || !panel) return;
+    const fit = () => {
+      panel.style.removeProperty("--nav-panel-shift");
+      const rect = panel.getBoundingClientRect();
+      const limit = document.documentElement.clientWidth - PANEL_EDGE_GAP;
+      let shift = rect.right > limit ? limit - rect.right : 0;
+      if (rect.left + shift < PANEL_EDGE_GAP) shift = PANEL_EDGE_GAP - rect.left;
+      if (shift) panel.style.setProperty("--nav-panel-shift", `${Math.round(shift)}px`);
+    };
+    fit();
+    window.addEventListener("resize", fit);
+    return () => window.removeEventListener("resize", fit);
+  }, [open]);
 
   const clearClose = () => {
     if (closeTimer.current != null) {
@@ -108,7 +134,10 @@ function DesktopNavItem({
       aria-expanded={open}
       aria-haspopup={item.type === "mega" ? "dialog" : "menu"}
       aria-controls={panelId}
-      onClick={onToggle}
+      onClick={() => {
+        if (open && performance.now() - autoOpenedAt.current < TAP_AFTER_OPEN_MS) return;
+        onToggle();
+      }}
     >
       {item.label}
     </button>
@@ -126,11 +155,13 @@ function DesktopNavItem({
         .join(" ")}
       onMouseEnter={() => {
         clearClose();
+        if (!open) autoOpenedAt.current = performance.now();
         onOpen();
       }}
       onMouseLeave={scheduleClose}
       onFocusCapture={() => {
         clearClose();
+        if (!open) autoOpenedAt.current = performance.now();
         onOpen();
       }}
       onBlurCapture={(event) => {
@@ -143,6 +174,7 @@ function DesktopNavItem({
 
       {item.type === "menu" ? (
         <div
+          ref={panelRef}
           id={panelId}
           className={[
             styles.dropdown,
@@ -182,7 +214,7 @@ function DesktopNavItem({
                 </li>
               ))}
             </ul>
-          ) : (
+          ) : item.items.length > 0 || item.groups?.length === 1 ? (
             <ul className={styles.dropdownList}>
               {item.groups && item.groups.length > 1
                 ? null
@@ -210,7 +242,7 @@ function DesktopNavItem({
                     </li>
                   ))}
             </ul>
-          )}
+          ) : null}
           {item.viewAll ? (
             <div className={styles.dropdownFooterBottom}>
               <FooterLink link={item.viewAll} className={styles.dropdownFooter} />

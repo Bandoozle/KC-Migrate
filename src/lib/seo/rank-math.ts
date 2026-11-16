@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { OPENING_HOURS_SPECIFICATION } from "@/lib/business-hours";
 import { getLocalArticle } from "@/lib/content/local-articles";
 import snapshot from "@/lib/seo/rank-math-snapshot.json";
+import { socialPreview } from "@/lib/seo/social-image";
 import { canonicalPath, canonicalUrl, PRODUCTION_SITE_ORIGIN } from "@/lib/site";
 
 export type RankMathSeo = {
@@ -39,6 +40,11 @@ const SEO_OVERRIDES: Record<string, Partial<Pick<RankMathSeo, "description" | "o
       "Every page on the Kosick Communications website in one place: marketing services, industry programs, results, events and feature articles.",
     ogDescription:
       "Every page on the Kosick Communications website in one place: marketing services, industry programs, results, events and feature articles.",
+  },
+  // WordPress had no description, so shared links to the confirmation page showed none
+  "/thanks/": {
+    description: "Thanks for contacting Kosick Communications. A member of the team will be in touch shortly.",
+    ogDescription: "Thanks for contacting Kosick Communications. A member of the team will be in touch shortly.",
   },
   // Same wording as WordPress, without the stray ".604.925.5800" and the run-on heading
   "/services/digital-connected-tv/": {
@@ -142,7 +148,8 @@ export async function rankMathMetadata(path: string): Promise<Metadata> {
   }
 
   const article = getLocalArticle(canonicalPath(path).replace(/^\/|\/$/g, ""));
-  const images = seo.ogImage ? [{ url: seo.ogImage }] : undefined;
+  // Previews come from the social image set, not the captured og:image (some WordPress ones carried another client's branding)
+  const { images, twitter } = socialPreview(path, { title: seo.ogTitle, description: seo.ogDescription || undefined });
 
   return {
     title: { absolute: seo.title },
@@ -170,6 +177,7 @@ export async function rankMathMetadata(path: string): Promise<Metadata> {
           url: seo.canonical,
           images,
         },
+    twitter,
   };
 }
 

@@ -1,0 +1,273 @@
+{
+  "$comment": [
+    "Link-preview (Open Graph / Twitter) image for each page. Edit here, then run `npm run social-images`.",
+    "src: an existing image in /public. alt: og:image:alt. position (optional): crop anchor for the 1.91:1 frame (centre, north, south, east, west).",
+    "Pages not listed: articles use their captured featured image; anything else uses the fallback Kosick card.",
+    "Client imagery belongs only on pages about that client's work; general and unrelated pages never carry another client's branding."
+  ],
+  "fallback": {
+    "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+    "alt": "Kosick Communications: digital, branding, media and web"
+  },
+  "pages": {
+    "/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/contact/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/feature-articles/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/online-payments/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/privacy-policy/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/site-map/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/thanks/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/corporate-events/": {
+      "src": "/wp-content/uploads/2025/08/corporate-travel-incentive-programs-1.png",
+      "alt": "A tropical coastline with a group-travel destinations badge"
+    },
+    "/marketing-programs/": {
+      "src": "/wp-content/uploads/2023/06/digital.jpg",
+      "alt": "Marketing dashboards on a tablet on a desk"
+    },
+    "/marketing-results/": {
+      "src": "/wp-content/uploads/2017/07/Lions-Gate-Bridge-and-Downtown-Vancouver-at-sunrise-521834953_5000x3336-e1505405897284.jpeg",
+      "alt": "Lions Gate Bridge and downtown Vancouver at sunrise"
+    },
+    "/services/": {
+      "src": "/wp-content/uploads/2023/06/ppc-ads.jpg",
+      "alt": "Advertising dashboards on a laptop and tablet"
+    },
+    "/services/business-development/": {
+      "src": "/images/business-development/growth-lions-gate-span.jpg",
+      "alt": "The Lions Gate Bridge span over the mountains of the North Shore"
+    },
+    "/services/chatgpt-ads-management/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/services/corporate-branding/": {
+      "src": "/wp-content/uploads/2023/06/business-cards-printing.jpg",
+      "alt": "Kosick Communications business cards on a gold and grey backdrop"
+    },
+    "/services/creative/": {
+      "src": "/wp-content/uploads/2021/07/video-scaled.jpg",
+      "alt": "A camera operator filming with a cinema camera",
+      "position": "centre"
+    },
+    "/services/digital-connected-tv/": {
+      "src": "/wp-content/uploads/2026/06/digital-streaming-advertising-1.jpg",
+      "alt": "A racing broadcast on a living-room TV"
+    },
+    "/services/digital-marketing/": {
+      "src": "/wp-content/uploads/2026/06/social-media-advertising.jpg",
+      "alt": "A brand’s Instagram profile on a phone resting on a laptop"
+    },
+    "/services/email-marketing/": {
+      "src": "/wp-content/uploads/2026/06/kosick-communications-branding.jpg",
+      "alt": "Kosick Communications: digital, branding, media and web"
+    },
+    "/services/google-ads-management/": {
+      "src": "/wp-content/uploads/2026/06/digital-marketing-services-1.jpg",
+      "alt": "A Google search results page on a phone",
+      "position": "north"
+    },
+    "/services/outdoor-advertising/": {
+      "src": "/wp-content/uploads/2026/06/transit-out-of-home-advertising-1.jpg",
+      "alt": "A SkyTrain passing over a downtown Vancouver street"
+    },
+    "/services/outdoor-advertising/billboard-dimensions/": {
+      "src": "/wp-content/uploads/2026/01/outdoor-billboard-advertising.jpg",
+      "alt": "A blank billboard on a brick wall with a cyclist passing"
+    },
+    "/services/radio-advertising/": {
+      "src": "/wp-content/uploads/2026/06/radio-streaming-advertising.jpg",
+      "alt": "A driver tuning the car radio, with Canadian station logos around him"
+    },
+    "/services/search-engine-optimization/": {
+      "src": "/wp-content/uploads/2023/06/DigitalLead_graphic-e1686855242864.png",
+      "alt": "A Google search with local service queries",
+      "position": "north"
+    },
+    "/services/social-media-marketing/": {
+      "src": "/wp-content/uploads/2026/06/social-media-marketing-2.jpg",
+      "alt": "A resort’s social feed on a tablet"
+    },
+    "/services/television-advertising/": {
+      "src": "/wp-content/uploads/2026/06/tv-media-buying-1.jpg",
+      "alt": "A sports broadcast on a living-room TV"
+    },
+    "/services/website-development/": {
+      "src": "/wp-content/uploads/2026/03/website-development-e-commerce.jpg",
+      "alt": "A storefront website open on a laptop"
+    },
+    "/services/hvac-marketing/": {
+      "src": "/wp-content/uploads/2026/03/hvac-marketing-strategies.jpg",
+      "alt": "A heat pump beside a modern home with tall trees behind"
+    },
+    "/services/hvac-marketing/business-growth/": {
+      "src": "/wp-content/uploads/2026/03/hvac-marketing-strategies.jpg",
+      "alt": "A heat pump beside a modern home with tall trees behind"
+    },
+    "/services/hvac-marketing/digital-advertising/": {
+      "src": "/wp-content/uploads/2026/06/hvac-social-media-marketing-1.jpg",
+      "alt": "HVAC social media ads on a phone beside a printed card"
+    },
+    "/services/hvac-marketing/outdoor-advertising/": {
+      "src": "/wp-content/uploads/2023/07/hvac.jpg",
+      "alt": "An Ayotte Plumbing & Heating billboard for a Comfortmaker furnace"
+    },
+    "/services/hvac-marketing/video-tv-advertising/": {
+      "src": "/wp-content/uploads/2026/01/media-buying.jpg",
+      "alt": "A Trane commercial on a wall-mounted TV in a living room"
+    },
+    "/services/hvac-marketing/website-design/": {
+      "src": "/wp-content/uploads/2026/03/hvac-web-development.png",
+      "alt": "The Neels Heating & Cooling website open on a laptop"
+    },
+    "/services/dental-marketing/": {
+      "src": "/wp-content/uploads/2026/06/dental-marketing.jpg",
+      "alt": "A dental hygienist preparing to treat a patient"
+    },
+    "/services/dental-marketing/google-ads-seo/": {
+      "src": "/images/industries/dental/hygienist-xray.jpg",
+      "alt": "A hygienist pointing to a panoramic dental X-ray on a screen"
+    },
+    "/services/dental-marketing/social-media-content/": {
+      "src": "/images/industries/dental/patient-headphones.jpg",
+      "alt": "A patient settling into the chair with noise-cancelling headphones"
+    },
+    "/services/dental-marketing/video-tv-billboard-advertising/": {
+      "src": "/wp-content/uploads/2026/06/outdoor-advertising.jpg",
+      "alt": "A Sparkle Dental Spa poster with a bright smile in a transit shelter"
+    },
+    "/services/dental-marketing/website-design/": {
+      "src": "/wp-content/uploads/2026/07/Dental-Web-Development.jpg",
+      "alt": "A dental clinic website on a laptop resting on a grey sofa"
+    },
+    "/services/medical-aesthetics-marketing/": {
+      "src": "/images/industries/medical-aesthetics/consultation-mirror.jpg",
+      "alt": "A clinician holding a mirror for a smiling client during an aesthetic consultation"
+    },
+    "/services/medical-aesthetics-marketing/google-ads-seo/": {
+      "src": "/images/industries/medical-aesthetics/clinic-interior.jpg",
+      "alt": "A bright aesthetics clinic with treatment stations below tall city windows"
+    },
+    "/services/medical-aesthetics-marketing/social-media-content/": {
+      "src": "/images/industries/medical-aesthetics/lip-treatment.jpg",
+      "alt": "A close-up of a lip treatment with a fine syringe"
+    },
+    "/services/medical-aesthetics-marketing/video-tv-billboard-advertising/": {
+      "src": "/images/industries/medical-aesthetics/consultation-mirror.jpg",
+      "alt": "A clinician holding a mirror for a smiling client during an aesthetic consultation"
+    },
+    "/services/medical-aesthetics-marketing/website-design/": {
+      "src": "/images/industries/medical-aesthetics/treatment-lounge.jpg",
+      "alt": "A calm treatment lounge with white armchairs and soft blue cushions"
+    },
+    "/services/golf-marketing/": {
+      "src": "/wp-content/uploads/2026/06/golf-course-branding-marketing.jpg",
+      "alt": "A golfer finishing her swing on a fairway lined with evergreens"
+    },
+    "/services/golf-marketing/branding/": {
+      "src": "/wp-content/uploads/2026/06/golf-course-branding-marketing.jpg",
+      "alt": "A golfer finishing her swing on a fairway lined with evergreens"
+    },
+    "/services/golf-marketing/social-media-lead-generation/": {
+      "src": "/wp-content/uploads/2026/03/golf-marketing.jpg",
+      "alt": "A golfer’s legs and bag on a sunny fairway"
+    },
+    "/services/golf-marketing/tv-video-advertising/": {
+      "src": "/images/golf-sportsnet-poster.jpg",
+      "alt": "A Golf Paradise spot for the Mt. Baker Golf Trail with aerial and on-course shots"
+    },
+    "/services/golf-marketing/website-design/": {
+      "src": "/wp-content/uploads/2026/03/website-development-e-commerce.jpg",
+      "alt": "A golf course website with a fairway hero image on a laptop"
+    },
+    "/services/retail-marketing/": {
+      "src": "/wp-content/uploads/2026/06/arcteryx-billboard-advertising.jpg",
+      "alt": "A Veilance poster of a woman in a dark coat in a downtown transit shelter"
+    },
+    "/services/retail-marketing/billboard-outdoor-advertising/": {
+      "src": "/wp-content/uploads/2026/06/billboard-2.jpg",
+      "alt": "A Veilance transit shelter poster on a tree-lined downtown street"
+    },
+    "/services/retail-marketing/branding/": {
+      "src": "/wp-content/uploads/2023/06/packaging.jpg",
+      "alt": "A row of underwear boxes with model photography"
+    },
+    "/services/retail-marketing/digital-social-media/": {
+      "src": "/wp-content/uploads/2026/06/social-media-advertising.jpg",
+      "alt": "A brand’s Instagram profile on a phone resting on a laptop"
+    },
+    "/services/specialty-retail-marketing/": {
+      "src": "/images/industries/specialty-retail/garden-centre-hanging-baskets.jpg",
+      "alt": "Hanging baskets of petunias in a garden centre greenhouse"
+    },
+    "/services/specialty-retail-marketing/content-creative/": {
+      "src": "/images/industries/specialty-retail/garden-centre-greenhouse-tables.jpg",
+      "alt": "Benches of marigolds and spring flowers in a garden centre greenhouse"
+    },
+    "/services/specialty-retail-marketing/ecommerce-websites/": {
+      "src": "/wp-content/uploads/2025/10/website-development.jpg",
+      "alt": "An online store website on a laptop in a bright room"
+    },
+    "/services/specialty-retail-marketing/radio-advertising/": {
+      "src": "/wp-content/uploads/2024/03/radio-1.webp",
+      "alt": "A smiling man adjusting the radio while driving"
+    },
+    "/services/specialty-retail-marketing/social-media/": {
+      "src": "/wp-content/uploads/2026/08/Garden-Centre-Social-Media.jpg",
+      "alt": "A nursery summer sale post and garden centre feed on a phone"
+    },
+    "/services/construction-marketing/": {
+      "src": "/wp-content/uploads/2023/06/services.jpg",
+      "alt": "A rendering of a modern timber and stone home in tall grass"
+    },
+    "/services/construction-marketing/content-development/": {
+      "src": "/wp-content/uploads/2023/06/KOSICK-MODEL-LOWER-LEVEL-MARCH-17-2023-ROUGH-2-1-e1686846929767.jpg",
+      "alt": "An architectural rendering of a concrete home on a rocky hillside"
+    },
+    "/services/construction-marketing/social-media/": {
+      "src": "/wp-content/uploads/2026/02/home-services-marketing.jpg",
+      "alt": "A modern two-storey home with a glass garage door and stone steps"
+    },
+    "/services/construction-marketing/website-design/": {
+      "src": "/wp-content/uploads/2024/03/padwood-construction.webp",
+      "alt": "The Padwood Construction website open on a laptop beside a plant"
+    },
+    "/social-media-marketing-build-an-audience/": {
+      "src": "/wp-content/uploads/2026/01/social-media-advertising.jpg",
+      "alt": "Social media icons linked around the words 2026 Social Media Algorithm"
+    },
+    "/services/travel-marketing/": {
+      "src": "/images/industries/travel/cabo-coastline-aerial.jpg",
+      "alt": "An aerial view of a resort coastline with a golden beach and turquoise sea"
+    },
+    "/services/travel-marketing/lead-generation/": {
+      "src": "/images/industries/travel/expedia-cruises-laptop.jpg",
+      "alt": "An Expedia Cruises ad on a laptop as a traveller plans from the couch"
+    },
+    "/services/travel-marketing/tv-advertising/": {
+      "src": "/wp-content/uploads/2026/09/Television-Advertising.jpg",
+      "alt": "A family watching hockey on a large TV in a living room"
+    }
+  }
+}
