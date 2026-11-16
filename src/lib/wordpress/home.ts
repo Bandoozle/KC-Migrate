@@ -96,8 +96,6 @@ export type HomePageContent = {
   };
   quote: {
     text: string;
-    photoSrc: string;
-    photoAlt: string;
     name: string;
     role: string;
   };
@@ -229,7 +227,7 @@ const HOME_CONTENT: HomePageContent = {
   whatWeDoIntro: {
     title: "Marketing built to move brands forward.",
     description:
-      "We help brands grow through strategy, creative, media and digital experiences. With 40+ years of experience, Kosick combines traditional advertising with modern digital marketing to build visibility, reach the right audience and drive measurable growth.",
+      "We help brands grow through strategy, creative, media and digital experiences. With 40+ years of experience, Kosick Communications combines traditional advertising with modern digital marketing to build visibility, reach the right audience and drive measurable growth.",
   },
   bento: BENTO_ITEMS,
   brandTabsPreceding: {
@@ -343,9 +341,6 @@ const HOME_CONTENT: HomePageContent = {
   },
   quote: {
     text: "Design must be functional, and functionality must be translated into visual aesthetics.",
-    photoSrc:
-      "/wp-content/uploads/2026/09/gettyimages-515214352-copy.avif",
-    photoAlt: "Ferdinand Porsche",
     name: "Ferdinand Porsche",
     role: "Austrian-German automotive engineer",
   },

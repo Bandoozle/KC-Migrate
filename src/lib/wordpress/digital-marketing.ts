@@ -34,6 +34,8 @@ export type FeatureBlock = {
 export type FaqItem = {
   question: string;
   answer: string;
+  /** Phrases in the answer that the source marks as underlined; `answer` itself stays plain text. */
+  underline?: string[];
 };
 
 export type RelatedService = {
@@ -221,10 +223,15 @@ function parseFaqs($: CheerioAPI, row: Element) {
       const question = cleanText(
         $(pane).find(".kt-blocks-accordion-title").first().text(),
       );
-      const answer = cleanText(
-        $(pane).find(".kt-accordion-panel-inner, .kt-accordion-panel").first().text(),
-      );
-      return question && answer ? { question, answer } : null;
+      const body = $(pane).find(".kt-accordion-panel-inner, .kt-accordion-panel").first();
+      const answer = cleanText(body.text());
+      // Underlined phrases (<u>, or a span with text-decoration: underline) are kept so the accordion can show them
+      const underline = body
+        .find("u, [style*='underline']")
+        .toArray()
+        .map((el) => cleanText($(el).text()))
+        .filter((phrase) => phrase && answer.includes(phrase));
+      return question && answer ? (underline.length ? { question, answer, underline } : { question, answer }) : null;
     })
     .filter((item): item is FaqItem => Boolean(item));
 

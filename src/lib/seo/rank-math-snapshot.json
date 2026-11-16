@@ -7015,14 +7015,6 @@
             },
             {
               "@type": "Question",
-              "name": "Do you require long-term contracts?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "<p>No. We work month to month because we believe in earning your business through Digital marketing results, not contracts. You can pause or cancel anytime with 30 days notice, giving you flexibility as your goals and budget evolve.</p>"
-              }
-            },
-            {
-              "@type": "Question",
               "name": "How do you measure and report on campaign performance? ",
               "acceptedAnswer": {
                 "@type": "Answer",
@@ -7031,10 +7023,10 @@
             },
             {
               "@type": "Question",
-              "name": "What makes Kosick different from other agencies? ",
+              "name": "What makes Kosick different from other agencies?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>With over 20 years of Digital marketing experience in Vancouver, we combine local market expertise with enterprise level strategy and execution. You get a dedicated account manager who understands your business, communicates clearly and stays focused on driving measurable growth, not vanity metrics.</p>"
+                "text": "<p>With over 20 years of Digital marketing experience, we combine local market expertise with enterprise level strategy and execution. You get a dedicated account manager who understands your business, communicates clearly and stays focused on driving measurable growth, not vanity metrics.</p>"
               }
             },
             {
@@ -8665,10 +8657,10 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "How much does TV advertising cost? ",
+              "name": "How much does TV advertising cost?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>TV advertising costs vary widely based on market, network, daypart and campaign duration. Local spots can start from a few hundred dollars, while national campaigns require larger budgets. We work with your budget to maximize reach and frequency, negotiating the best possible rates through our network relationships.</p>"
+                "text": "<p>TV advertising costs vary widely based on market, network, daypart and campaign duration. Local spots offer accessible entry points, while national campaigns require larger budgets. We work with your budget to maximize reach and frequency, negotiating the best possible rates through our network relationships.</p>"
               }
             },
             {
@@ -8681,10 +8673,10 @@
             },
             {
               "@type": "Question",
-              "name": "How do you measure TV advertising effectiveness? ",
+              "name": "How do you measure TV advertising effectiveness?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We use a combination of traditional metrics like GRPs and reach/frequency, alongside modern attribution tools including website lift studies, search volume correlation and CTV-specific conversion tracking. Every campaign includes detailed performance reporting tied to your business objectives.</p>"
+                "text": "<p>We use a combination of traditional metrics like GRPs and reach/frequency, alongside modern attribution tools including website lift studies, search volume correlation and CTV-specific conversion tracking.</p>"
               }
             },
             {
