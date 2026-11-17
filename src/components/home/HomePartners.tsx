@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useId, useState, type KeyboardEvent } from "react";
+import { useEffect, useId, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { SectionDescription, SectionTitle } from "@/components/typography";
+import { sizeBrandLogo } from "@/lib/brand-logo-sizing";
 import shared from "./home-shared.module.css";
 import tabsStyles from "@/components/sections/SplitMediaTabs.module.css";
 import styles from "./HomePartners.module.css";
@@ -14,8 +15,8 @@ const B = "/images/brands";
 type PartnerLogo = {
   name: string;
   src: string;
-  /** Crests, bird marks, tall scripts, and padded canvases need optical scale tweaks. */
-  mark?: "crest" | "bird" | "script" | "padded";
+  /** Brand wall only: nudges the visible-area budget (1 = the shape rule as is) for a mark that reads heavier or lighter than its geometry. */
+  weight?: number;
 };
 
 type PartnerGroup = {
@@ -60,27 +61,28 @@ const GROUPS: PartnerGroup[] = [
     // Flat wall — no subgroup titles. Consumer brands, then HVAC manufacturers.
     rows: [5, 5, 4, 5, 4, 2],
     logos: [
-      { name: "Disney", src: `${B}/disney.png`, mark: "script" },
+      { name: "Disney", src: `${B}/disney.png` },
       { name: "Hyatt", src: `${B}/hyatt.png` },
       { name: "Princess Cruises", src: `${B}/princess-cruises.png` },
       { name: "Oceania Cruises", src: `${B}/oceania-cruises.png` },
       { name: "Expedia", src: `${B}/expedia.png` },
       { name: "Audi", src: `${B}/audi.png` },
-      { name: "Porsche", src: `${B}/porsche.png`, mark: "crest" },
-      { name: "Volkswagen", src: `${B}/volkswagen.png`, mark: "crest" },
-      { name: "Mavi", src: `${B}/mavi.png` },
-      { name: "Arc'teryx", src: `${B}/arcteryx-bird.png`, mark: "bird" },
-      { name: "COBS Bread", src: `${B}/cobs-bread.png`, mark: "crest" },
+      { name: "Porsche", src: `${B}/porsche.png` },
+      { name: "Volkswagen", src: `${B}/volkswagen.png` },
+      { name: "Mavi", src: `${B}/mavi.png`, weight: 0.6 }, // a solid black wordmark: much denser than its outline suggests
+      { name: "Arc'teryx", src: `${B}/arcteryx-bird.png` },
+      { name: "COBS Bread", src: `${B}/cobs-bread.png` },
       { name: "SkinCeuticals", src: `${B}/skinceuticals.png` },
       { name: "RE/MAX", src: `${B}/remax.png` },
       { name: "Engel & Völkers", src: `${B}/engel-volkers.png` },
-      { name: "Trane", src: `${U}/2026/07/Trane.png`, mark: "padded" },
+      { name: "Trane", src: `${U}/2026/07/Trane.png` },
       { name: "Lennox", src: `${U}/2026/07/Lennox.png` },
       { name: "Daikin", src: `${U}/2026/07/Daikin.png` },
       { name: "Mitsubishi Electric", src: `${U}/2026/07/Mitsubishi.png` },
-      { name: "American Standard", src: `${U}/2026/07/American-Standard.png` },
+      // The copy with the original's grey box removed, as on the HVAC page
+      { name: "American Standard", src: `${B}/american-standard-hvac.png` },
       { name: "York", src: `${U}/2026/07/York.png` },
-      { name: "GE", src: `${U}/2026/07/GE.png`, mark: "padded" },
+      { name: "GE", src: `${U}/2026/07/GE.png` },
       { name: "RunTru", src: `${U}/2026/07/RunTru.png` },
       { name: "Napoleon", src: `${U}/2026/07/Napoleon.png` },
       { name: "Ruud", src: `${U}/2026/07/RUUD.png` },
@@ -137,16 +139,19 @@ function LogoWall({
         >
           {chunk.map((logo) => {
             const logoIndex = index++;
+            // Brand logos are sized from their visible bounds; the other walls keep their fixed frames
+            const sized = kind === "brand" ? sizeBrandLogo(logo.src, logo.weight) : null;
             return (
-              <li
-                key={logo.name}
-                className={styles.cell}
-                data-mark={logo.mark}
-                style={{ animationDelay: `${logoIndex * 30}ms` }}
-              >
-                <span className={styles.logo}>
-                  <Image src={logo.src} alt={logo.name} fill sizes={sizes} />
-                </span>
+              <li key={logo.name} className={styles.cell} style={{ animationDelay: `${logoIndex * 30}ms` }}>
+                {sized ? (
+                  <span className={styles.logo} data-shape={sized.shape} style={sized.style as CSSProperties}>
+                    <Image src={logo.src} alt={logo.name} width={sized.width} height={sized.height} sizes={sizes} />
+                  </span>
+                ) : (
+                  <span className={styles.logo}>
+                    <Image src={logo.src} alt={logo.name} fill sizes={sizes} />
+                  </span>
+                )}
               </li>
             );
           })}
@@ -258,7 +263,10 @@ export function HomePartners() {
                 sizes={
                   group.kind === "partner"
                     ? "(max-width: 639px) 70vw, 240px"
-                    : "(max-width: 719px) 28vw, 120px"
+                    : group.kind === "brand"
+                      ? // a logo may render wider than its cell when its canvas has transparent padding
+                        "(max-width: 899px) 44vw, 260px"
+                      : "(max-width: 719px) 28vw, 120px"
                 }
               />
             </div>
