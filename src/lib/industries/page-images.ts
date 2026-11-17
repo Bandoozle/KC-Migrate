@@ -22,6 +22,7 @@ export const PAGE_IMAGES_OUTSIDE_OFFERS: Partial<Record<IndustryId, readonly str
   ],
   "retail": [
     "/wp-content/uploads/2023/06/packaging.jpg",
+    "/wp-content/uploads/2023/06/ppc-ads.jpg",
     "/wp-content/uploads/2023/06/product-packaging.jpg",
     "/wp-content/uploads/2025/07/mobile-marketing.webp",
     "/wp-content/uploads/2025/11/black-friday-advertising.jpg",

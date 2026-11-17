@@ -8660,15 +8660,31 @@
               "name": "How much does TV advertising cost?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>TV advertising costs vary widely based on market, network, daypart and campaign duration. Local spots offer accessible entry points, while national campaigns require larger budgets. We work with your budget to maximize reach and frequency, negotiating the best possible rates through our network relationships.</p>"
+                "text": "Television is more accessible than most businesses expect. Rates move with market, network, daypart and flight length, which means there is almost always an efficient way onto the screen. A focused local schedule or a connected TV buy can deliver real reach for a modest investment, and our direct relationships with the networks mean we provide the best rates available. We build the schedule around your objectives, then concentrate the investment where it earns the most reach and frequency."
               }
             },
             {
               "@type": "Question",
-              "name": "What&#039;s the difference between linear TV and connected TV?",
+              "name": "What is the difference between linear TV and connected TV?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>Linear TV is traditional&nbsp;television advertising&nbsp;delivered through broadcast television and viewed on a set schedule through cable or antenna. Connected TV (CTV) refers to streaming content on internet connected devices like Smart TVs, Roku and Apple TV. CTV offers advanced audience targeting and measurable performance, while linear TV provides broad mass market reach and strong brand credibility.</p>"
+                "text": "Linear television is the traditional buy, delivered through cable or antenna on a set schedule. Connected television reaches the same living room through streaming subscriptions and apps such as Sportsnet+, Crave, Roku and Amazon Prime Video, watched on smart TVs and streaming devices. Linear carries broad mass market reach and the credibility of premium programming. Connected television adds targeting by market, household and audience, with reporting on how the campaign performed. Most schedules we build use both, so the brand shows up wherever the viewer is watching."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the minimum commitment for a TV campaign?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "There is no single minimum. The right length depends on what the campaign has to do, whether building awareness ahead of a season, supporting one promotion, or holding presence through the year. We look at your objectives and your market, then recommend a schedule built to earn the frequency recall depends on. Give us a call and we will tell you what makes sense for your business."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can you handle the creative production for TV commercials?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Our in-house team takes a commercial from concept and script through production and post, and we direct the shoot ourselves. Because the same team plans the media, the spot is built for the schedule it will run on, including the lengths and formats each network and streaming platform requires."
               }
             },
             {
@@ -8676,7 +8692,7 @@
               "name": "How do you measure TV advertising effectiveness?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We use a combination of traditional metrics like GRPs and reach/frequency, alongside modern attribution tools including website lift studies, search volume correlation and CTV-specific conversion tracking.</p>"
+                "text": "We report on the traditional measures first, gross rating points, reach and frequency, so you can see how much of the market saw the spot and how often. Alongside those, we track the response: lift in website traffic and form submissions, movement in branded search volume, and conversion reporting on the connected television portion of the schedule. Every client receives a monthly review tying the activity back to the objectives we set at the outset."
               }
             },
             {
@@ -8684,23 +8700,7 @@
               "name": "Which networks and platforms do you work with?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "<p>We have direct relationships with major networks including CTV, Global, CBC, Sportsnet, TSN and Bell Media, as well as U.S. networks like NBC, CBS, FOX, CNN and ESPN. For streaming, we work across all major CTV and OTT platforms.</p>"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Can you handle the creative production for TV Commercials?  ",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "<p>Absolutely. Our in-house creative team handles everything from concept development and scriptwriting to full production and post-production. We create compelling TV commercials that resonate with your target audience and align with your brand strategy.</p>"
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "What&#039;s the minimum commitment for a TV campaign? ",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "<p>We recommend a minimum 4-week flight to build sufficient frequency and brand recall. However, we tailor every campaign to your goals and budget, whether that's a short-burst awareness push or a sustained annual media plan.</p>"
+                "text": "We buy directly with the major Canadian broadcasters, including CTV, Global, CBC, Sportsnet, TSN and Bell Media, and with the U.S. networks carried here, including NBC, CBS, FOX, CNN and ESPN. On the streaming side we work across the connected television platforms, Sportsnet+, Crave, Roku, Amazon Prime Video and the other major apps. Those relationships are how we secure placement in the programming your audience already watches."
               }
             }
           ]
