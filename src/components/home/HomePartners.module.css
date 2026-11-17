@@ -107,7 +107,8 @@
   background: transparent;
 }
 
-.logo img {
+/* Networks and partner badges: a fixed frame, scaled per wall */
+.logo:not([data-shape]) img {
   object-fit: contain !important;
   object-position: center !important;
   padding: 0 !important;
@@ -122,21 +123,28 @@
   transform: scale(1.2) !important;
 }
 
-.wall[data-kind="brand"] .cell[data-mark="crest"] .logo img {
-  transform: scale(0.55) !important;
+/*
+ * Brand wall: every logo is placed by its visible bounds, not its canvas. HomePartners sets
+ *   --logo-w   rendered image width as a fraction of the cell (visible width ÷ canvas ratio)
+ *   --logo-dx/dy   offset of the visible centre from the canvas centre
+ * from src/lib/brand-logo-sizing.ts, so transparent padding in the source files (Trane, GE, Mavi…)
+ * can neither shrink a logo nor push it out of its cell. The cell is a constant 2:1 at every width,
+ * so the same optical sizes hold on phones, tablets and desktop. Pixels are never cropped: the visible
+ * bounds always sit inside the cell, and only transparent canvas can extend past it.
+ */
+.logo[data-shape] {
+  aspect-ratio: 2 / 1;
+  padding: 0;
 }
 
-.wall[data-kind="brand"] .cell[data-mark="bird"] .logo img {
-  transform: scale(0.68) !important;
-}
-
-.wall[data-kind="brand"] .cell[data-mark="script"] .logo img {
-  transform: scale(0.62) !important;
-}
-
-.wall[data-kind="brand"] .cell[data-mark="padded"] .logo img {
-  /* Trane / GE PNGs ship with large empty canvas — pull the mark up to peers. */
-  transform: scale(1.35) !important;
+.logo[data-shape] img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(var(--logo-w) * 100%);
+  max-width: none;
+  height: auto;
+  transform: translate(calc(-50% - var(--logo-dx) * 100%), calc(-50% - var(--logo-dy) * 100%));
 }
 
 .wall[data-kind="partner"] .logo {

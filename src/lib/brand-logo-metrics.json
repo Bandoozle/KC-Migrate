@@ -1,0 +1,272 @@
+{
+  "/images/brands/american-standard-hvac.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.732,
+    "inkH": 0.28,
+    "dx": 0.001,
+    "dy": 0,
+    "aspect": 3.923
+  },
+  "/images/brands/arcteryx-bird.png": {
+    "width": 960,
+    "height": 363,
+    "inkW": 0.572,
+    "inkH": 1,
+    "dx": 0.014,
+    "dy": 0,
+    "aspect": 1.512
+  },
+  "/images/brands/arcteryx-fossil.png": {
+    "width": 960,
+    "height": 585,
+    "inkW": 1,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 1.641
+  },
+  "/images/brands/arcteryx.png": {
+    "width": 820,
+    "height": 240,
+    "inkW": 0.648,
+    "inkH": 0.708,
+    "dx": -0.152,
+    "dy": 0,
+    "aspect": 3.124
+  },
+  "/images/brands/audi.png": {
+    "width": 640,
+    "height": 361,
+    "inkW": 1,
+    "inkH": 0.992,
+    "dx": 0,
+    "dy": -0.004,
+    "aspect": 1.788
+  },
+  "/images/brands/cobs-bread.png": {
+    "width": 463,
+    "height": 348,
+    "inkW": 1,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 1.33
+  },
+  "/images/brands/disney.png": {
+    "width": 700,
+    "height": 294,
+    "inkW": 0.989,
+    "inkH": 0.973,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 2.42
+  },
+  "/images/brands/engel-volkers.png": {
+    "width": 246,
+    "height": 66,
+    "inkW": 0.996,
+    "inkH": 0.985,
+    "dx": 0.002,
+    "dy": -0.008,
+    "aspect": 3.769
+  },
+  "/images/brands/expedia.png": {
+    "width": 800,
+    "height": 161,
+    "inkW": 1,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 4.969
+  },
+  "/images/brands/hyatt.png": {
+    "width": 640,
+    "height": 155,
+    "inkW": 1,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 4.129
+  },
+  "/images/brands/mavi.png": {
+    "width": 640,
+    "height": 200,
+    "inkW": 0.414,
+    "inkH": 0.415,
+    "dx": -0.001,
+    "dy": -0.008,
+    "aspect": 3.193
+  },
+  "/images/brands/oceania-cruises.png": {
+    "width": 1139,
+    "height": 368,
+    "inkW": 1,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 3.095
+  },
+  "/images/brands/porsche.png": {
+    "width": 480,
+    "height": 480,
+    "inkW": 0.779,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 0.779
+  },
+  "/images/brands/princess-cruises.png": {
+    "width": 700,
+    "height": 111,
+    "inkW": 1,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 6.306
+  },
+  "/images/brands/remax.png": {
+    "width": 700,
+    "height": 129,
+    "inkW": 1,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 5.426
+  },
+  "/images/brands/skinceuticals.png": {
+    "width": 894,
+    "height": 81,
+    "inkW": 0.998,
+    "inkH": 1,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 11.012
+  },
+  "/images/brands/volkswagen.png": {
+    "width": 400,
+    "height": 400,
+    "inkW": 0.998,
+    "inkH": 0.998,
+    "dx": 0.001,
+    "dy": -0.001,
+    "aspect": 1
+  },
+  "/wp-content/uploads/2026/07/American-Standard.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.826,
+    "inkH": 0.502,
+    "dx": 0.001,
+    "dy": 0,
+    "aspect": 2.472
+  },
+  "/wp-content/uploads/2026/07/Comfortmaker.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.82,
+    "inkH": 0.194,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 6.349
+  },
+  "/wp-content/uploads/2026/07/Daikin.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.881,
+    "inkH": 0.283,
+    "dx": 0,
+    "dy": -0.002,
+    "aspect": 4.674
+  },
+  "/wp-content/uploads/2026/07/GE.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.49,
+    "inkH": 0.732,
+    "dx": 0.001,
+    "dy": 0.002,
+    "aspect": 1.004
+  },
+  "/wp-content/uploads/2026/07/KeepRite.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.752,
+    "inkH": 0.48,
+    "dx": 0.017,
+    "dy": 0.002,
+    "aspect": 2.353
+  },
+  "/wp-content/uploads/2026/07/Lennox.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.805,
+    "inkH": 0.351,
+    "dx": 0.001,
+    "dy": 0.002,
+    "aspect": 3.447
+  },
+  "/wp-content/uploads/2026/07/Mitsubishi.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.795,
+    "inkH": 0.351,
+    "dx": 0,
+    "dy": 0.002,
+    "aspect": 3.404
+  },
+  "/wp-content/uploads/2026/07/Napoleon.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.797,
+    "inkH": 0.486,
+    "dx": 0.003,
+    "dy": -0.026,
+    "aspect": 2.462
+  },
+  "/wp-content/uploads/2026/07/RUUD.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.695,
+    "inkH": 0.64,
+    "dx": -0.013,
+    "dy": 0.014,
+    "aspect": 1.63
+  },
+  "/wp-content/uploads/2026/07/RunTru.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.799,
+    "inkH": 0.277,
+    "dx": 0,
+    "dy": 0.002,
+    "aspect": 4.333
+  },
+  "/wp-content/uploads/2026/07/Tosot.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.791,
+    "inkH": 0.194,
+    "dx": 0,
+    "dy": 0,
+    "aspect": 6.127
+  },
+  "/wp-content/uploads/2026/07/Trane.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.889,
+    "inkH": 0.351,
+    "dx": 0,
+    "dy": 0.002,
+    "aspect": 3.807
+  },
+  "/wp-content/uploads/2026/07/York.png": {
+    "width": 488,
+    "height": 325,
+    "inkW": 0.785,
+    "inkH": 0.246,
+    "dx": 0.003,
+    "dy": 0.002,
+    "aspect": 4.788
+  }
+}
