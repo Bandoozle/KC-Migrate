@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { Eyebrow, SectionTitle } from "@/components/typography";
 import type { FaqItem } from "@/lib/wordpress/digital-marketing";
 import styles from "./FaqAccordion.module.css";
@@ -14,27 +14,6 @@ type FaqAccordionProps = {
 /** One FAQ heading across the site: "Frequently Asked Questions" and "Golf marketing questions" both read this way. */
 function faqHeading(title: string): string {
   return /^(frequently asked questions|[\w\s&]+ questions)$/i.test(title.trim()) ? "Frequently asked questions" : title;
-}
-
-/** The answer as plain text, with only the phrases the source underlined wrapped in <u>. */
-function answerWithUnderline(answer: string, underline: string[] | undefined) {
-  if (!underline?.length) return answer;
-  const parts: Array<{ text: string; underlined: boolean }> = [{ text: answer, underlined: false }];
-  for (const phrase of underline) {
-    const at = parts.findIndex((part) => !part.underlined && part.text.includes(phrase));
-    if (at < 0) continue;
-    const [before, ...rest] = parts[at].text.split(phrase);
-    parts.splice(
-      at,
-      1,
-      { text: before, underlined: false },
-      { text: phrase, underlined: true },
-      { text: rest.join(phrase), underlined: false },
-    );
-  }
-  return parts.map((part, index) =>
-    part.underlined ? <u key={index}>{part.text}</u> : <Fragment key={index}>{part.text}</Fragment>,
-  );
 }
 
 export function FaqAccordion({ eyebrow, title, items }: FaqAccordionProps) {
@@ -68,7 +47,7 @@ export function FaqAccordion({ eyebrow, title, items }: FaqAccordionProps) {
                   className={`${styles.panelWrap} ${open ? styles.panelWrapOpen : ""}`}
                   aria-hidden={!open}
                 >
-                  <div className={styles.panel}>{answerWithUnderline(item.answer, item.underline)}</div>
+                  <div className={styles.panel}>{item.answer}</div>
                 </div>
               </div>
             );
