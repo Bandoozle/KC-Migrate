@@ -59,6 +59,7 @@ export const RETAIL: Industry = {
       {
         title: "Measured, not guessed",
         body: "Digital campaigns are tracked to sales, and outdoor is planned against the audiences you need.",
+        image: { src: `${UP}/2023/06/ppc-ads.jpg`, alt: "Campaign reporting dashboards with charts and tables on a laptop and tablet", position: "58% 50%" },
       },
     ],
     moments: [
