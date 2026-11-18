@@ -63,6 +63,23 @@ export const SPECIALTY_RETAIL: Industry = {
       { src: "/images/industries/specialty-retail/espresso-machine-display.jpg", alt: "A Rocket Appartamento espresso machine on a coffee retailer's display, with bags of beans behind it", position: "50% 42%" },
       { src: `${UP}/2025/10/website-development.jpg`, alt: "An online tool store website on a laptop" },
     ],
+    /* Espresso Dolce reels, in the order of their file numbers on Vimeo (the last two are machine reels).
+       Posters are each video's own first frame. */
+    featuredReels: {
+      label: "Featured work",
+      title: "Espresso Dolce reels.",
+      lead: "Vertical short-form video for Espresso Dolce: pours, machines and product detail, produced for social feeds.",
+      reels: [
+        { id: "1228112965", title: "Espresso Dolce reel 1", poster: "/images/industries/specialty-retail/reels/espresso-dolce-reel-01.jpg", alt: "A tamper and barista tools on a walnut stand" },
+        { id: "1228112964", title: "Espresso Dolce reel 2", poster: "/images/industries/specialty-retail/reels/espresso-dolce-reel-02.jpg", alt: "Espresso pouring from a portafilter into two glass cups" },
+        { id: "1228112967", title: "Espresso Dolce reel 3", poster: "/images/industries/specialty-retail/reels/espresso-dolce-reel-03.jpg", alt: "An Espresso Dolce paper cup under an automatic coffee machine" },
+        { id: "1228112966", title: "Espresso Dolce reel 4", poster: "/images/industries/specialty-retail/reels/espresso-dolce-reel-04.jpg", alt: "An overhead view of barista tools beside an espresso machine" },
+        { id: "1228113115", title: "Espresso Dolce reel 5", poster: "/images/industries/specialty-retail/reels/espresso-dolce-reel-05.jpg", alt: "A tamper pressing coffee in a portafilter" },
+        { id: "1228113147", title: "Espresso Dolce reel 6", poster: "/images/industries/specialty-retail/reels/espresso-dolce-reel-06.jpg", alt: "Steamed milk pouring into a latte in a glass cup" },
+        { id: "1231473656", title: "Espresso Dolce machine reel 1", poster: "/images/industries/specialty-retail/reels/espresso-dolce-reel-07.jpg", alt: "A Rocket espresso machine on a showroom counter" },
+        { id: "1232148826", title: "Espresso Dolce machine reel 2", poster: "/images/industries/specialty-retail/reels/espresso-dolce-reel-08.jpg", alt: "A black automatic coffee machine beside bags of coffee beans" },
+      ],
+    },
   },
   services: [
     {

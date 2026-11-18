@@ -5,6 +5,7 @@ import { servicePath, type Industry, type IndustryLanding } from "@/lib/industri
 import { ORGANIZATION_REF } from "@/lib/seo/organization";
 import { canonicalUrl } from "@/lib/site";
 import { INDUSTRY_FAQS } from "@/lib/industries/faqs";
+import { FeaturedReels } from "./FeaturedReels";
 import { IndustryFaqs } from "./IndustryFaqs";
 import { IndustryIntro } from "./IndustryIntro";
 import { IndustryOffers } from "./IndustryOffers";
@@ -99,6 +100,17 @@ export function IndustryLandingPage({ industry, journey }: IndustryLandingPagePr
 
       {/* How we plan: composed differently for each industry */}
       <IndustryReasons industry={industry} photos={reasonPhotos} />
+
+      {/* Featured work: vertical Vimeo reels (Specialty Retail) */}
+      {landing.featuredReels ? (
+        <FeaturedReels
+          headingId="ind-reels"
+          label={landing.featuredReels.label}
+          title={landing.featuredReels.title}
+          lead={landing.featuredReels.lead}
+          reels={landing.featuredReels.reels}
+        />
+      ) : null}
 
       <IndustryFaqs items={INDUSTRY_FAQS[industry.id]} />
 

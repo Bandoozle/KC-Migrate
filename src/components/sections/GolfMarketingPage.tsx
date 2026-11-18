@@ -2,6 +2,7 @@ import Image from "next/image";
 import { IndustryOffers } from "@/components/industry/IndustryOffers";
 import { Reveal } from "@/components/motion/Reveal";
 import { FaqAccordion } from "@/components/sections/digital-marketing/FaqAccordion";
+import { ReelPlayer } from "@/components/media/ReelPlayer";
 import { VimeoFeature } from "@/components/sections/hvac/VimeoFeature";
 import { PageCta } from "@/components/sections/PageCta";
 import { GolfJourney } from "@/components/industry/journeys/GolfJourney";
@@ -30,6 +31,14 @@ const SCORECARD = [
   { play: "Promote events", line: "Fill tournaments, corporate outings and seasonal experiences." },
   { play: "Improve performance", line: "Track results and optimize for revenue growth." },
 ];
+
+/* https://vimeo.com/1246470221, titled "Ledgeview Golf" on Vimeo. The poster is the video's own first frame. */
+const LEDGEVIEW_REEL = {
+  id: "1246470221",
+  title: "Ledgeview Golf reel",
+  poster: "/images/industries/golf/ledgeview-golf-reel.jpg",
+  alt: "A golfer in a Ledgeview Golf Club cap looking to camera on the course, with a second golfer behind him",
+};
 
 const TARGETS = ["Local golfers", "Members", "Corporate groups", "Visiting players"];
 
@@ -347,6 +356,26 @@ export function GolfMarketingPage({ content }: GolfMarketingPageProps) {
           </div>
         </section>
       ) : null}
+
+      {/* Reel: the Sportsnet band's structure with the columns reversed (video left, copy right), on light green */}
+      <section className={styles.reel} aria-labelledby="gm-reel">
+        <div className="container">
+          <div className={styles.reelGrid}>
+            <Reveal variant="fade" className={styles.reelMedia}>
+              <ReelPlayer reel={LEDGEVIEW_REEL} variant="feature" sizes="(min-width: 700px) 20.5rem, 17rem" />
+            </Reveal>
+            <div className={styles.reelCopy}>
+              <p className={styles.reelTag}>Vertical video</p>
+              <SectionTitle id="gm-reel" className={styles.titleOnLight}>
+                Ledgeview Golf, shot for the scroll.
+              </SectionTitle>
+              <p className={styles.lead}>
+                Our Ledgeview Golf reel, a full-frame vertical cut made for golfers scrolling on their phones.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* The round: four holes on one routed path */}
       <section className={styles.round} aria-labelledby="gm-round">
