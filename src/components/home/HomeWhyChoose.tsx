@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { usePrefersReducedMotion } from "@/components/motion/use-prefers-reduced-motion";
 import { SectionDescription, SectionTitle } from "@/components/typography";
-import type { HomeCapabilityIcon, HomePageContent } from "@/lib/wordpress/home";
+import type { HomeCapabilityIcon, HomePageContent, HomeWhyTileIcon } from "@/lib/wordpress/home";
 import shared from "./home-shared.module.css";
 import styles from "./HomeWhyChoose.module.css";
 
@@ -88,6 +88,64 @@ function CapabilityIcon({ kind }: { kind: HomeCapabilityIcon }) {
   }
 }
 
+function TileIcon({ kind }: { kind: HomeWhyTileIcon }) {
+  const common = {
+    viewBox: "0 0 24 24",
+    width: 24,
+    height: 24,
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: 1.5,
+    strokeLinecap: "round" as const,
+    strokeLinejoin: "round" as const,
+    "aria-hidden": true as const,
+  };
+
+  switch (kind) {
+    case "data":
+      return (
+        <svg {...common}>
+          <path d="M3 17l6-6 4 4 8-8" />
+          <path d="M15 7h6v6" />
+        </svg>
+      );
+    case "creative":
+      return (
+        <svg {...common}>
+          <path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9L11 3z" />
+          <path d="M19 16v4M17 18h4" />
+        </svg>
+      );
+    case "reporting":
+      return (
+        <svg {...common}>
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" />
+          <path d="M14 3v5h5M9 13h6M9 17h4" />
+        </svg>
+      );
+    case "support":
+      return (
+        <svg {...common}>
+          <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" />
+        </svg>
+      );
+    case "scale":
+      return (
+        <svg {...common}>
+          <path d="M12 3l9 5-9 5-9-5 9-5z" />
+          <path d="M3 13l9 5 9-5" />
+        </svg>
+      );
+    case "expertise":
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="9" r="5" />
+          <path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5" />
+        </svg>
+      );
+  }
+}
+
 function MetricValue({
   end,
   suffix,
@@ -165,8 +223,10 @@ export function HomeWhyChoose({ content }: HomeWhyChooseProps) {
     <section className={`${shared.rail} ${styles.section}`} aria-labelledby="home-why-title">
       <div className={styles.layout}>
         <div className={styles.left}>
-          <SectionTitle id="home-why-title">{content.title}</SectionTitle>
-          <SectionDescription className={styles.lead}>{content.lead}</SectionDescription>
+          <div className={styles.intro}>
+            <SectionTitle id="home-why-title">{content.title}</SectionTitle>
+            <SectionDescription className={styles.lead}>{content.lead}</SectionDescription>
+          </div>
 
           <div className={styles.metrics} ref={metricsRef}>
             {content.metrics.map((metric) => (
@@ -190,8 +250,13 @@ export function HomeWhyChoose({ content }: HomeWhyChooseProps) {
         <div className={styles.tiles}>
           {content.tiles.map((tile) => (
             <div key={`${tile.line1}-${tile.line2}`} className={styles.tile}>
-              <span>{tile.line1}</span>
-              <span>{tile.line2}</span>
+              <span className={styles.tileIcon}>
+                <TileIcon kind={tile.icon} />
+              </span>
+              <span className={styles.tileText}>
+                <span>{tile.line1}</span>
+                <span>{tile.line2}</span>
+              </span>
             </div>
           ))}
         </div>
