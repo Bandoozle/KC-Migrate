@@ -92,6 +92,13 @@ export type IndustryLanding = {
   /** Optional: the moments the intro names, each shown with a photograph (Retail). */
   moments?: Array<{ caption: string; image: IndustryImage }>;
   gallery: IndustryImage[];
+  /** Optional: a strip of vertical (9:16) Vimeo reels shown before the FAQs (Specialty Retail). */
+  featuredReels?: {
+    label: string;
+    title: string;
+    lead: string;
+    reels: Array<{ id: string; title: string; poster: string; alt: string }>;
+  };
 };
 
 export type Industry = {
