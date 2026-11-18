@@ -50,9 +50,12 @@ export type HomeMetric = {
   duration: number;
 };
 
+export type HomeWhyTileIcon = "data" | "creative" | "reporting" | "support" | "scale" | "expertise";
+
 export type HomeWhyTile = {
   line1: string;
   line2: string;
+  icon: HomeWhyTileIcon;
 };
 
 export type HomeHeroRotation = {
@@ -322,21 +325,16 @@ const HOME_CONTENT: HomePageContent = {
   whyChoose: {
     title: "Why Choose Kosick",
     lead: "We combine creativity with analytics to deliver campaigns that don’t just look good; they perform.",
-    metrics: [
-      { end: 150, suffix: "+", label: "Clients Served", duration: 2.5 },
-      { end: 500, suffix: "+", label: "Campaigns Launched", duration: 2.5 },
-      { end: 98, suffix: "%", label: "Client Retention", duration: 2.5 },
-      { end: 10, suffix: "+", label: "Years Experience", duration: 2.5 },
-    ],
+    metrics: [{ end: 40, suffix: "+", label: "Years of Experience", duration: 2.5 }],
     capabilitiesLead: "One partner. Every digital touchpoint:",
     capabilities: WHY_CHOOSE_CAPABILITIES,
     tiles: [
-      { line1: "Data-driven", line2: "Strategy" },
-      { line1: "Creative", line2: "Excellence" },
-      { line1: "Transparent", line2: "Reporting" },
-      { line1: "Dedicated", line2: "Support" },
-      { line1: "Scalable", line2: "Solutions" },
-      { line1: "Industry", line2: "Expertise" },
+      { line1: "Data-driven", line2: "Strategy", icon: "data" },
+      { line1: "Creative", line2: "Excellence", icon: "creative" },
+      { line1: "Transparent", line2: "Reporting", icon: "reporting" },
+      { line1: "Dedicated", line2: "Support", icon: "support" },
+      { line1: "Scalable", line2: "Solutions", icon: "scale" },
+      { line1: "Industry", line2: "Expertise", icon: "expertise" },
     ],
   },
   quote: {

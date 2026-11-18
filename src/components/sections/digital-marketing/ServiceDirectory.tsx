@@ -42,8 +42,8 @@ const CATEGORY_VISUAL: Record<string, CategoryVisual> = {
     alt: "Social media advertising on a phone beside a laptop",
   },
   "website management": {
-    src: "/wp-content/uploads/2026/07/Honest-Cleaning-Website.jpg",
-    alt: "Custom business website design on a laptop",
+    src: "/images/website-projects/sparkle-dental-spa-desktop.jpg",
+    alt: "Sparkle Dental Spa website homepage, designed and built by Kosick",
   },
 };
 
