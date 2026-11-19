@@ -275,8 +275,8 @@ const HOME_CONTENT: HomePageContent = {
       subtitle: "Create experiences that turn attention into relationships.",
       description:
         "Effective marketing is about more than being seen. We create meaningful connections between your brand and the people you want to reach, combining relevant messaging, thoughtful creative and the right channels to encourage engagement and long-term loyalty.",
-      image: "/images/home/connections-garden-centre-staff.jpg",
-      alt: "A smiling Amsterdam Garden Centre team member among spring plants",
+      image: "/images/home/connections-golf.jpg",
+      alt: "A golfer in a white visor and coral top lining up an iron shot on a tree-lined fairway",
     },
   ],
   testimonials: {
