@@ -142,6 +142,132 @@ export const LEGACY_REDIRECTS = [
     destination: "/hvac-dealer-marketing/",
     statusCode: 301,
   },
+  // Nov 22, 2026 redirect audit: WordPress URLs Google still knows that answered 404 after the migration.
+  // Real 301s (statusCode), like the Nov 2026 entries above; sources are written without the trailing slash
+  // and match both forms. Each lands on the closest equivalent page in a single hop.
+  // HVAC
+  {
+    source: "/hvac-lead-generation",
+    destination: "/services/hvac-marketing/",
+    statusCode: 301,
+  },
+  {
+    source: "/hvac-lead-generation-2",
+    destination: "/services/hvac-marketing/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-hvac-marketing-guide",
+    destination: "/services/hvac-marketing/",
+    statusCode: 301,
+  },
+  // Social media
+  {
+    source: "/blog-what-is-social-marketing",
+    destination: "/what-is-social-marketing/",
+    statusCode: 301,
+  },
+  {
+    source: "/social-media-marketing",
+    destination: "/services/social-media-marketing/",
+    statusCode: 301,
+  },
+  // Local Vancouver destination, kept on purpose
+  {
+    source: "/social-media-content-creation-vancouver",
+    destination: "/social-media-advertising-vancouver/",
+    statusCode: 301,
+  },
+  {
+    source: "/social-organic-and-paid-marketing-agency",
+    destination: "/organic-social-media-vs-paid-advertising/",
+    statusCode: 301,
+  },
+  // Branding
+  {
+    source: "/strategic-vancouver-branding-company",
+    destination: "/services/corporate-branding/",
+    statusCode: 301,
+  },
+  {
+    source: "/the-art-of-branding",
+    destination: "/corporate-branding-guide/",
+    statusCode: 301,
+  },
+  // Television and media buying
+  {
+    source: "/services/digital-video-advertising",
+    destination: "/services/digital-connected-tv/",
+    statusCode: 301,
+  },
+  {
+    source: "/the-power-of-tv-advertising",
+    destination: "/is-television-advertising-worth-it/",
+    statusCode: 301,
+  },
+  {
+    source: "/strategic-media-advertising",
+    destination: "/media-buying-canada/",
+    statusCode: 301,
+  },
+  // The source is a typo of the live slug and is kept exactly as Google knows it ("vancouve")
+  {
+    source: "/how-to-choose-a-marketing-company-in-vancouve",
+    destination: "/how-to-choose-a-marketing-company-in-vancouver/",
+    statusCode: 301,
+  },
+  {
+    source: "/advertising-in-2026",
+    destination: "/feature-articles/",
+    statusCode: 301,
+  },
+  // Website development
+  {
+    source: "/website-development",
+    destination: "/services/website-development/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-importance-of-website-development",
+    destination: "/services/website-development/",
+    statusCode: 301,
+  },
+  {
+    source: "/websites-that-work-for-your-business",
+    destination: "/services/website-development/",
+    statusCode: 301,
+  },
+  // Search, events, golf, creative and the remaining service guides
+  {
+    source: "/ai-search-optimization-guide",
+    destination: "/services/search-engine-optimization/",
+    statusCode: 301,
+  },
+  {
+    source: "/corporate-events-travel-incentives-conferences",
+    destination: "/corporate-events/",
+    statusCode: 301,
+  },
+  {
+    source: "/blog-golf-course-marketing",
+    destination: "/services/golf-marketing/",
+    statusCode: 301,
+  },
+  {
+    source: "/services/creative-production",
+    destination: "/services/creative/",
+    statusCode: 301,
+  },
+  {
+    source: "/integrated-marketing-drives-better-results",
+    destination: "/marketing-programs/",
+    statusCode: 301,
+  },
+  {
+    source: "/the-power-of-geo-targeted-campaigns",
+    destination: "/services/digital-marketing/",
+    statusCode: 301,
+  },
   // Rank Math sitemap files; the index at /sitemap_index.xml still points to /sitemap.xml
   {
     source: "/page-sitemap.xml",
