@@ -72,6 +72,7 @@ export function ContactForm({
         email: String(data.get(form.fields.email.name) || ""),
         phone: String(data.get(form.fields.phone.name) || ""),
         formId: "kb-adv-form-11283-cpt-id",
+        transactionId: String(data.get("_kosick_submission") || ""),
       });
       router.push(result.redirect || "/thanks/");
     } catch {
@@ -146,6 +147,7 @@ export function ContactForm({
       className={[styles.form, studio ? styles.studio : "", className].filter(Boolean).join(" ")}
       onSubmit={onSubmit}
       noValidate
+      data-kc-lead="1"
     >
       <input type="hidden" name="formKey" value={formKey} />
       <div className={styles.honeypot} aria-hidden="true">

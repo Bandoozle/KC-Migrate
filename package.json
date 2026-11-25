@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "social-images": "node scripts/build-social-images.mjs",
-    "test:redirects": "node --test scripts/launch-qa/redirects.test.mjs"
+    "test:redirects": "node --test scripts/launch-qa/redirects.test.mjs",
+    "test:tracking": "node --test scripts/launch-qa/tracking.test.mjs"
   },
   "dependencies": {
     "cheerio": "^1.2.0",

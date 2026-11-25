@@ -178,7 +178,7 @@ function normalizeContactHtml(
   const vancouverPhone: ContactDetailLink = {
     label: "Phone",
     display: phoneDisplay,
-    href: phoneLink?.attr("href") || "tel:16049255800",
+    href: phoneLink?.attr("href") || "tel:+16049255800",
   };
 
   return {
@@ -218,7 +218,7 @@ function normalizeContactHtml(
       phone: {
         label: "Call us",
         display: (formPhone ? cleanText(formPhone.text()) : "") || phoneDisplay,
-        href: formPhone?.attr("href") || "tel:16049255800",
+        href: formPhone?.attr("href") || "tel:+16049255800",
       },
       email: {
         label: "Email us",

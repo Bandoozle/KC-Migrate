@@ -5,7 +5,7 @@ import {
   GENERATE_LEAD_EVENT,
   getGa4Id,
   isAnalyticsEnabled,
-} from "@/lib/analytics/config";
+} from "./config";
 
 type DataLayerEvent = Record<string, unknown>;
 
@@ -56,6 +56,8 @@ export type FormLeadDetails = {
   email?: string;
   phone?: string;
   formId?: string;
+  /** The form's submission id: one per real lead, so a Tag Manager conversion can use it as its Transaction ID. */
+  transactionId?: string;
 };
 
 function normalizeLeadEmail(value: string | undefined): string | undefined {
@@ -93,6 +95,7 @@ export function trackFormSuccess(
       lead_email: normalizeLeadEmail(details.email),
       lead_phone: normalizeLeadPhone(details.phone),
       form_name: formName,
+      ...(details.transactionId ? { transaction_id: details.transactionId } : {}),
     });
     return;
   }

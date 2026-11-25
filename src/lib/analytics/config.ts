@@ -3,7 +3,7 @@
  * Do not invent new container or measurement IDs.
  */
 
-import { isProductionHost } from "@/lib/site";
+import { isProductionHost } from "../site";
 
 export const KOSICK_GTM_ID = "GTM-K4QK6SP";
 export const KOSICK_GA4_ID = "G-XPYR1CEF3E";

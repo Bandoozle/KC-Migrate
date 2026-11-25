@@ -64,9 +64,13 @@ async function first(url) {
   return data[0];
 }
 
+/** Kosick's number as WordPress writes it (with or without the +1) becomes the one E.164 link the site standardises on. */
+const KOSICK_TEL_LINK = /tel:\+?1?6049255800/g;
+
 function write(dir, slug, data) {
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, `${slug}.json`), `${JSON.stringify(data)}\n`);
+  const json = JSON.stringify(data).replace(KOSICK_TEL_LINK, "tel:+16049255800");
+  fs.writeFileSync(path.join(dir, `${slug}.json`), `${json}\n`);
 }
 
 async function listPostSlugs() {

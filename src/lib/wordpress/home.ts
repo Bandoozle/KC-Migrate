@@ -348,7 +348,7 @@ const HOME_CONTENT: HomePageContent = {
     phone: {
       label: "Call us",
       display: "+1 (604) 925-5800",
-      href: "tel:16049255800",
+      href: "tel:+16049255800",
     },
     email: {
       label: "Email us",
