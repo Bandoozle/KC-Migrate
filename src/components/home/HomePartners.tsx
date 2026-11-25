@@ -56,7 +56,7 @@ const GROUPS: PartnerGroup[] = [
   {
     id: "brands",
     label: "National brands",
-    note: "A selection of brands we’ve run campaigns with, including past work and manufacturer co-op.",
+    note: "A selection of brands we’ve worked with.",
     kind: "brand",
     // Flat wall — no subgroup titles. Consumer brands, then HVAC manufacturers.
     rows: [5, 5, 4, 5, 4, 2],

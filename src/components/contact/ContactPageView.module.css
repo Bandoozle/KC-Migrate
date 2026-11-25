@@ -175,114 +175,6 @@
   line-height: 1.45;
 }
 
-/* ---------- Partner brands: section-level credibility, optically balanced ---------- */
-.partners {
-  padding-block: var(--kosick-block-compact);
-  background: #ffffff;
-}
-
-.partnersTitle {
-  margin: 0;
-  color: #111111 !important;
-  text-align: center;
-  text-wrap: balance;
-}
-
-.partnersNote {
-  max-width: 38rem;
-  margin: var(--kosick-feature-lead-gap) auto 0;
-  color: var(--kosick-color-muted) !important;
-  text-align: center;
-  text-wrap: balance;
-}
-
-.logos {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem 1.25rem;
-  align-items: center;
-  justify-items: stretch;
-  margin: clamp(2rem, 4vw, 2.75rem) 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.logo {
-  --logo-scale: 1;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.logoFrame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 3.75rem;
-}
-
-.logoImg {
-  width: auto !important;
-  height: auto !important;
-  max-width: min(100%, 9.5rem);
-  max-height: calc(2.35rem * var(--logo-scale));
-  object-fit: contain;
-  object-position: center;
-  transition:
-    filter 260ms var(--ease),
-    opacity 260ms var(--ease);
-}
-
-.logo[data-mark="crest"] .logoImg {
-  max-width: min(70%, 4.75rem);
-  max-height: calc(2.85rem * var(--logo-scale));
-}
-
-.logo[data-shape="wide"] .logoImg {
-  max-width: min(100%, 8.25rem);
-  max-height: calc(2rem * var(--logo-scale));
-}
-
-/* Ultrawide marks need to bleed slightly past the cell to stay legible */
-.logo[data-shape="ultrawide"] {
-  position: relative;
-  z-index: 1;
-}
-
-.logo[data-shape="ultrawide"] .logoFrame {
-  overflow: visible;
-}
-
-.logo[data-shape="ultrawide"] .logoImg {
-  flex-shrink: 0;
-  width: auto;
-  max-width: 12.5rem;
-  max-height: calc(1.55rem * var(--logo-scale));
-}
-
-/* Canvases with large transparent padding — taller max-height so the mark matches peers */
-.logo[data-shape="padded"] .logoFrame {
-  overflow: visible;
-}
-
-.logo[data-shape="padded"] .logoImg {
-  max-width: min(100%, 10.5rem);
-  max-height: calc(2.35rem * var(--logo-scale));
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .logoImg {
-    filter: grayscale(1);
-    opacity: 0.78;
-  }
-
-  .logo:hover .logoImg {
-    filter: none;
-    opacity: 1;
-  }
-}
-
 /* ---------- One featured review ---------- */
 .voice {
   padding-block: var(--kosick-block-compact);
@@ -340,81 +232,6 @@
   display: block;
 }
 
-@media (min-width: 640px) {
-  .logos {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.75rem 2rem;
-  }
-
-  .logoFrame {
-    height: 4.25rem;
-  }
-
-  .logoImg {
-    max-width: min(100%, 10.5rem);
-    max-height: calc(2.55rem * var(--logo-scale));
-  }
-
-  .logo[data-mark="crest"] .logoImg {
-    max-width: min(62%, 5.25rem);
-    max-height: calc(3.1rem * var(--logo-scale));
-  }
-
-  .logo[data-shape="wide"] .logoImg {
-    max-width: min(100%, 9.25rem);
-    max-height: calc(2.15rem * var(--logo-scale));
-  }
-
-  .logo[data-shape="ultrawide"] .logoImg {
-    flex-shrink: 0;
-    max-width: 14rem;
-    max-height: calc(1.65rem * var(--logo-scale));
-  }
-
-  .logo[data-shape="padded"] .logoImg {
-    max-width: min(100%, 11.5rem);
-    max-height: calc(2.55rem * var(--logo-scale));
-  }
-}
-
-@media (min-width: 900px) {
-  .logos {
-    /* Two rows of six */
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 2.25rem 1.5rem;
-  }
-
-  .logoFrame {
-    height: 4.5rem;
-  }
-
-  .logoImg {
-    max-width: min(100%, 10.75rem);
-    max-height: calc(2.55rem * var(--logo-scale));
-  }
-
-  .logo[data-mark="crest"] .logoImg {
-    max-width: min(72%, 5.5rem);
-    max-height: calc(3.1rem * var(--logo-scale));
-  }
-
-  .logo[data-shape="wide"] .logoImg {
-    max-width: min(100%, 9.5rem);
-    max-height: calc(2.15rem * var(--logo-scale));
-  }
-
-  .logo[data-shape="ultrawide"] .logoImg {
-    flex-shrink: 0;
-    max-width: 15rem;
-    max-height: calc(1.7rem * var(--logo-scale));
-  }
-
-  .logo[data-shape="padded"] .logoImg {
-    max-width: min(100%, 11.5rem);
-    max-height: calc(2.55rem * var(--logo-scale));
-  }
-}
-
 @media (min-width: 960px) {
   /* The form takes the larger column and both rows; the routes settle at its base */
   .heroGrid {
@@ -449,30 +266,6 @@
   }
 }
 
-@media (min-width: 1100px) {
-  .logoFrame {
-    height: 4.75rem;
-  }
-
-  .logoImg {
-    max-height: calc(2.65rem * var(--logo-scale));
-  }
-
-  .logo[data-mark="crest"] .logoImg {
-    max-height: calc(3.25rem * var(--logo-scale));
-  }
-
-  .logo[data-shape="padded"] .logoImg {
-    max-height: calc(2.65rem * var(--logo-scale));
-  }
-
-  .logo[data-shape="ultrawide"] .logoImg {
-    flex-shrink: 0;
-    max-width: 16rem;
-    max-height: calc(1.75rem * var(--logo-scale));
-  }
-}
-
 @media (pointer: coarse) {
   .main .route {
     align-items: center;
@@ -481,36 +274,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .main .route,
-  .logo img {
+  .main .route {
     transition: none !important;
   }
 
   .main .route:hover,
   .main .route:focus-visible {
     padding-left: 0;
-  }
-}
-
-/* Phones: three logos to a row, so fifteen marks sit in five rows instead of eight */
-@media (max-width: 639px) {
-  .logos {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.1rem 0.75rem;
-  }
-
-  .logoFrame {
-    height: 3.25rem;
-  }
-
-  .logoImg,
-  .logo[data-shape="ultrawide"] .logoImg {
-    max-width: min(100%, 6.75rem);
-    max-height: calc(2rem * var(--logo-scale));
-  }
-
-  .logo[data-mark="crest"] .logoImg {
-    max-width: min(70%, 3.75rem);
-    max-height: calc(2.4rem * var(--logo-scale));
   }
 }

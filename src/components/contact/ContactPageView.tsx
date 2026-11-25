@@ -1,47 +1,11 @@
-import Image from "next/image";
-import type { CSSProperties } from "react";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { ContactNextSteps } from "@/components/contact/ContactNextSteps";
 import { OfficeStatus } from "@/components/contact/OfficeStatus";
 import { PageCta } from "@/components/sections/PageCta";
-import { SectionDescription, SectionTitle } from "@/components/typography";
 import { labelCase } from "@/lib/eyebrow";
 import type { ContactPageContent } from "@/lib/wordpress/contact";
 import type { HomeTestimonial } from "@/lib/wordpress/home";
 import styles from "./ContactPageView.module.css";
-
-/*
- * Recognizable brands from campaigns and co-op across industries — past and
- * present. `scale` is optical weight against a shared frame:
- * - wide/ultrawide wordmarks sit under 1 so they don't dominate by width
- * - crests get a modest lift so thin marks don't disappear
- * - padded canvases (Trane/GE) need a larger scale so the mark itself matches peers
- */
-type PartnerLogo = {
-  name: string;
-  src: string;
-  scale: number;
-  mark?: "crest";
-  shape?: "wide" | "ultrawide" | "padded";
-};
-
-const PARTNER_LOGOS: PartnerLogo[] = [
-  { name: "Disney", src: "/images/brands/disney.png", scale: 1 },
-  { name: "Hyatt", src: "/images/brands/hyatt.png", scale: 0.82, shape: "wide" },
-  { name: "Audi", src: "/images/brands/audi.png", scale: 1.05 },
-  { name: "Porsche", src: "/images/brands/porsche.png", mark: "crest", scale: 0.98 },
-  { name: "Princess Cruises", src: "/images/brands/princess-cruises.png", scale: 0.9, shape: "wide" },
-  { name: "Oceania Cruises", src: "/images/brands/oceania-cruises.png", scale: 0.95, shape: "wide" },
-  { name: "Volkswagen", src: "/images/brands/volkswagen.png", mark: "crest", scale: 0.96 },
-  { name: "Expedia", src: "/images/brands/expedia.png", scale: 0.84, shape: "wide" },
-  { name: "RE/MAX", src: "/images/brands/remax.png", scale: 0.7, shape: "wide" },
-  { name: "COBS Bread", src: "/images/brands/cobs-bread.png", mark: "crest", scale: 1 },
-  { name: "Mavi", src: "/images/brands/mavi.png", scale: 0.95, shape: "wide" },
-  { name: "Arc'teryx", src: "/images/brands/arcteryx-bird.png", mark: "crest", scale: 0.9 },
-  { name: "Trane", src: "/wp-content/uploads/2026/07/Trane.png", scale: 2.45, shape: "padded" },
-  { name: "SkinCeuticals", src: "/images/brands/skinceuticals.png", scale: 1.45, shape: "ultrawide" },
-  { name: "GE", src: "/wp-content/uploads/2026/07/GE.png", scale: 1.45, shape: "padded" },
-];
 
 type ContactPageViewProps = {
   content: ContactPageContent;
@@ -98,39 +62,6 @@ export function ContactPageView({ content, testimonial }: ContactPageViewProps) 
             <OfficeStatus />
             <p className={styles.servicing}>{info.servicing}</p>
           </div>
-        </div>
-      </section>
-
-      <section className={styles.partners} aria-labelledby="contact-partners-title">
-        <div className="container">
-          <SectionTitle id="contact-partners-title" className={styles.partnersTitle}>
-            Experience across brands and industries
-          </SectionTitle>
-          <SectionDescription className={styles.partnersNote}>
-            A selection of brands we&rsquo;ve worked with on campaigns and co-op, past and present.
-          </SectionDescription>
-          <ul className={styles.logos}>
-            {PARTNER_LOGOS.map((logo) => (
-              <li
-                key={logo.name}
-                className={styles.logo}
-                data-mark={logo.mark}
-                data-shape={logo.shape}
-                style={{ "--logo-scale": String(logo.scale) } as CSSProperties}
-              >
-                <span className={styles.logoFrame}>
-                  <Image
-                    className={styles.logoImg}
-                    src={logo.src}
-                    alt={logo.name}
-                    width={640}
-                    height={240}
-                    sizes="(max-width: 640px) 48vw, (max-width: 900px) 34vw, 16rem"
-                  />
-                </span>
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
